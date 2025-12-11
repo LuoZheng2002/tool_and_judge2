@@ -91,4 +91,3 @@ pub fn sort_and_write_json_lines(file_path: &str, results: &mut Vec<serde_json::
 pub fn get_model_directory_safe_name(model_name: &str) -> String {
     model_name.replace("/", "-").replace(":", "-")
 }
-

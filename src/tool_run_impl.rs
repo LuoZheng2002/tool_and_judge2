@@ -5,7 +5,7 @@ use pyo3::{
 use tokio::runtime::Runtime;
 
 use crate::{
-    config::{Language, ToolConfig, TranslateMode, TranslateOption}, models::backend::{WhichBackend, get_or_create_backend}, util::{get_model_directory_safe_name, load_json_lines, load_json_lines_with_id}
+    config::{Language, ToolConfig, TranslateMode, TranslateOption}, models::{backend::{WhichBackend, get_or_create_backend}, model_interface::get_model_interface}, util::{get_model_directory_safe_name, load_json_lines, load_json_lines_with_id}
 };
 
 const CATEGORY_CACHE_PATH: &str = "tool_category_cache.json";
@@ -204,23 +204,24 @@ pub async fn tool_run_async(configs: Vec<ToolConfig>, num_gpus: usize) {
                     cases_to_translate.len()
                 );
 
+                
+
                 // Get backend and interface for translation
-                let main_backend_guard = get_or_create_backend(
+                let main_backend = get_or_create_backend(
                     config.model,
                     WhichBackend::Main,
                     num_gpus,
                 )
                 .await;
-                let main_interface = 
+                let main_interface = get_model_interface(config.model);
             
-                let translation_interface =
-                    crate::util::get_or_create_model_interface(&config.model, num_gpus).await;
 
-                async fn translate_single_question(
-                    case: &serde_json::Value,
-                    translation_backend: &crate::util::ModelBackend,
-                    translation_interface: &crate::util::ModelInterface,
-                ) -> serde_json::Value {
+                // async fn translate_single_question(
+                //     case: &serde_json::Value,
+                //     translation_backend: &crate::util::ModelBackend,
+                //     translation_interface: &crate::util::ModelInterface,
+                // ) -> serde_json::Value {
+                let mut translate_single_question = async |case: &serde_json::Value| {
                     let question = case
                         .get("question")
                         .and_then(|q| q.as_array())
