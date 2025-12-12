@@ -3,6 +3,7 @@ use pyo3::{
     types::{PyAnyMethods, PyList, PyListMethods},
 };
 use tokio::runtime::Runtime;
+use futures::stream::{self, StreamExt};
 
 use crate::{
     config::{Language, ToolConfig, TranslateMode, TranslateOption},

@@ -53,6 +53,7 @@ dependencies = [
  "async-trait",
  "dotenvy",
  "fslock",
+ "futures",
  "lazy_static",
  "pyo3",
  "pyo3-async-runtimes",
