@@ -37,11 +37,14 @@ pub fn tool_run_impl<'py>(configs: &Bound<'py, PyList>, num_gpus: usize) {
 
     // load environment variables from .env file
     dotenvy::dotenv().ok();
+    println!("Loaded environment variables from .env file.");
     let rt = Runtime::new().unwrap();
+    println!("Starting async tool run...");
     rt.block_on(tool_run_async(extracted_configs, num_gpus));
 }
 
 pub async fn tool_run_async(configs: Vec<ToolConfig>, num_gpus: usize) {
+    println!("Starting tool run with {} configs.", configs.len());
     for config in configs {
         println!("Processing config: {:?}", config);
         let language_tag = match &config.translate_mode {
@@ -165,6 +168,11 @@ pub async fn tool_run_async(configs: Vec<ToolConfig>, num_gpus: usize) {
         let ground_truths =
             load_json_lines(ground_truth_path).expect("Failed to load ground truths");
 
+        println!(
+            "Loaded {} test cases from {}",
+            test_cases.len(),
+            unpretranslated_dataset_path
+        );
         /* ════════════════════════════════════════════════════════════════════════════════ */
         /* PASS 1: Translated Questions (Pre-Translation)                                   */
         /* ════════════════════════════════════════════════════════════════════════════════ */

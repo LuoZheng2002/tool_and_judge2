@@ -1,5 +1,6 @@
 import argparse
 import subprocess
+import time
 
 from load_configs_from_file import load_configs_from_file
 
@@ -36,6 +37,7 @@ print("Building Rust extension with maturin develop...")
 result = subprocess.run(["maturin", "develop"], check=True)
 
 # Now import and use the module
+time.sleep(2)  # Give some time for the build to complete
 import codebase_rs
 
 codebase_rs.tool_run(configs, args.num_gpus)
