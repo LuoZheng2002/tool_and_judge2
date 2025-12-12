@@ -1,3 +1,4 @@
+use serde::Serialize;
 use strum_macros::{Display, EnumString};
 
 #[derive(Clone, EnumString, Display)]
@@ -22,22 +23,43 @@ pub enum ToolErrorCategory {
     OtherErrors,
 }
 
-#[derive(Clone, EnumString, Display)]
+#[derive(Clone, Display, Serialize)]
 pub enum EvaluationError {
-    #[strum(serialize = "no_function_calls_found")]
-    NoFunctionCallsFound,
-    #[strum(serialize = "json_decode_error")]
-    JsonDecodeError,
-    #[strum(serialize = "parsing_error")]
-    ParsingError,
-    #[strum(serialize = "invalid_entry_count")]
-    InvalidEntryCount,
-    #[strum(serialize = "wrong_func_name")]
-    WrongFuncName,
-    #[strum(serialize = "missing_required_param")]
-    MissingRequiredParam,
-    #[strum(serialize = "unexpected_param")]
-    UnexpectedParam,
-    #[strum(serialize = "invalid_param_value")]
-    InvalidParamValue,
+    NoFunctionCallsFound{
+        raw_output: String,
+    },
+    JsonDecodeError{
+        error_message: String,
+        raw_output: String,
+    },
+    ParsingError{
+        error_message: String,
+        raw_output: String,
+    },
+    InvalidEntryCount{
+        expected_count: usize,
+        actual_count: usize,
+        decoded_output: String,
+    },
+    WrongFuncName{
+        expected_name: String,
+        actual_name: String,
+        decoded_output: String,
+    },
+    MissingRequiredParam{
+        missing_param: String,
+        required_params: Vec<String>,
+        decoded_output: String,
+    },
+    UnexpectedParam{
+        unexpected_param: String,
+        expected_params: Vec<String>,
+        decoded_output: String,
+    },
+    InvalidParamValue{
+        param: String,
+        actual_value: serde_json::Value,
+        expected_values: Vec<serde_json::Value>,
+        decoded_output: String,
+    }
 }

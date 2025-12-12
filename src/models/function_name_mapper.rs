@@ -12,6 +12,12 @@ pub struct FunctionNameMapper{
 
 
 impl FunctionNameMapper {
+    pub fn new() -> Self {
+        FunctionNameMapper {
+            original_to_sanitized: HashMap::new(),
+            sanitized_to_original: HashMap::new(),
+        }
+    }
     pub fn map_function_names(&mut self, functions: &Vec<BfclFunctionDef>) -> Vec<BfclFunctionDef> {
         let mut mapped_functions = functions.clone();
         for func in &mut mapped_functions {

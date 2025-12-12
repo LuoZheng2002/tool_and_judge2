@@ -483,19 +483,17 @@ async def process_all_configs():
         # Output: tool/result/inference_raw/{model}/{filename}.json
         # ═══════════════════════════════════════════════════════════════════════
         try:
-            inference_json_inputs, existing_inference_ids = load_json_lines_with_id(inference_raw_output_path)
+            inference_raw_outputs, existing_inference_ids = load_json_lines_with_id(inference_raw_output_path)
             # Filter out entries with error results
-            inference_json_inputs = [
-                entry for entry in inference_json_inputs
+            inference_raw_outputs = [
+                entry for entry in inference_raw_outputs
                 if not (isinstance(entry.get("result"), str) and "Error: An error occurred" in entry.get("result", ""))
             ]
-            existing_inference_ids = {entry["id"] for entry in inference_json_inputs}
+            existing_inference_ids = {entry["id"] for entry in inference_raw_outputs}
         except FileNotFoundError:
             print(f"File {inference_raw_output_path} not found. It will be created.")
-            inference_json_inputs = []
+            inference_raw_outputs = []
             existing_inference_ids = set()
-
-        printed_warning = False
 
         # load the input dataset
         preprocessed_test_cases = load_json_lines(inference_raw_input_path)
