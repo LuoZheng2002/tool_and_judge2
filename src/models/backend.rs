@@ -1,4 +1,4 @@
-use std::{any::Any, collections::HashMap};
+use std::{any::Any, collections::HashMap, sync::Arc};
 
 use lazy_static::lazy_static;
 use pyo3::{Bound, pyclass};
@@ -38,9 +38,9 @@ pub trait ModelBackend: Any + Send + Sync {
 }
 
 lazy_static! {
-    pub static ref GLOBAL_MAIN_BACKEND: tokio::sync::RwLock<Option<Box<dyn ModelBackend>>> =
+    pub static ref GLOBAL_MAIN_BACKEND: tokio::sync::RwLock<Option<Arc<dyn ModelBackend>>> =
         tokio::sync::RwLock::new(None);
-    pub static ref GLOBAL_ASSIST_BACKEND: tokio::sync::RwLock<Option<Box<dyn ModelBackend>>> =
+    pub static ref GLOBAL_ASSIST_BACKEND: tokio::sync::RwLock<Option<Arc<dyn ModelBackend>>> =
         tokio::sync::RwLock::new(None);
 }
 pub enum WhichBackend {
@@ -65,7 +65,7 @@ pub async fn get_or_create_backend(
     model: Model,
     which: WhichBackend,
     num_gpus: usize,
-) -> tokio::sync::RwLockReadGuard<'static, Option<Box<dyn ModelBackend>>> {
+) -> tokio::sync::RwLockReadGuard<'static, Option<Arc<dyn ModelBackend>>> {
     let backend_reference = match which {
         WhichBackend::Main => &*GLOBAL_MAIN_BACKEND,
         WhichBackend::Assist => &*GLOBAL_ASSIST_BACKEND,
@@ -90,8 +90,8 @@ pub async fn get_or_create_backend(
         // Even if they are, the worst that can happen is that we create the backend multiple times.
         let mut write_backend_guard = backend_reference.write().await;
         // create the new backend and assign it to the global variable
-        let new_backend: Box<dyn ModelBackend> = match &model {
-            Model::Api(api_model) => Box::new(ApiBackend::new(*api_model)),
+        let new_backend: Arc<dyn ModelBackend> = match &model {
+            Model::Api(api_model) => Arc::new(ApiBackend::new(*api_model)),
             Model::Local(_local_model) => {
                 // Implement local model backend creation here
                 unimplemented!()

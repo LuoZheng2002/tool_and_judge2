@@ -1,3 +1,5 @@
+use std::sync::Arc;
+
 use crate::{
     config::{ApiModel, Model},
     models::{
@@ -20,15 +22,15 @@ pub trait ModelInterface: Send + Sync {
 
     async fn translate_tool_question_async(
         &self,
-        backend: &dyn ModelBackend,
-        user_question: &str,
+        backend: Arc<dyn ModelBackend>,
+        user_question: String,
     ) -> String;
 }
 
-pub fn get_model_interface(model: Model) -> Box<dyn ModelInterface> {
+pub fn get_model_interface(model: Model) -> Arc<dyn ModelInterface> {
     match model {
         Model::Api(api_model) => match api_model {
-            ApiModel::Gpt5 | ApiModel::Gpt5Mini | ApiModel::Gpt5Nano => Box::new(Gpt5Interface),
+            ApiModel::Gpt5 | ApiModel::Gpt5Mini | ApiModel::Gpt5Nano => Arc::new(Gpt5Interface),
             _ => {
                 unimplemented!("API model interfaces other than GPT-5 are not implemented yet.")
             }

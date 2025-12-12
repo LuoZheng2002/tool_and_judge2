@@ -1,9 +1,9 @@
+use futures::stream::{self, StreamExt};
 use pyo3::{
-    Bound, Py, Python,
+    Py, Python,
     types::{PyAnyMethods, PyList, PyListMethods},
 };
-use tokio::runtime::Runtime;
-use futures::stream::{self, StreamExt};
+use std::sync::Arc;
 
 use crate::{
     config::{Language, ToolConfig, TranslateMode, TranslateOption},
@@ -236,28 +236,38 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                     .expect("Backend should be created by the call above");
                 let main_interface = get_model_interface(config.model);
 
-                // async fn translate_single_question(
-                //     case: &serde_json::Value,
-                //     translation_backend: &crate::util::ModelBackend,
-                //     translation_interface: &crate::util::ModelInterface,
-                // ) -> serde_json::Value {
-                let translate_single_question = async |case: &BfclDatasetEntry| {
-                    let question = &case.question_content;
-                    // Use the dedicated translation method
-                    let translated_question = main_interface
-                        .translate_tool_question_async(main_backend.as_ref(), question)
-                        .await;
-                    let modified_case = case
-                        .modify_question_content(&translated_question)
-                        .expect("Failed to modify question content");
-                    modified_case
-                };
+                // Create tasks for all translations
+                let total_cases = cases_to_translate_parsed.len();
+                let mut tasks = Vec::new();
+
                 for (i, case) in cases_to_translate_parsed.iter().enumerate() {
-                    let modified_case = translate_single_question(case).await;
+                    let question = case.question_content.clone();
+                    let case_clone = case.clone();
+                    let main_interface = main_interface.clone();
+                    let main_backend = main_backend.clone();
+                    let task = async move {
+                        // Use the dedicated translation method
+                        let translated_question = main_interface
+                            .translate_tool_question_async(main_backend, question)
+                            .await;
+                        let modified_case = case_clone
+                            .modify_question_content(&translated_question)
+                            .expect("Failed to modify question content");
+                        (i, modified_case)
+                    };
+                    tasks.push(task);
+                }
+
+                // Create a stream from the tasks and process up to 10 concurrently
+                let mut translation_stream = stream::iter(tasks).buffer_unordered(1000);
+
+                let mut completed_count = 0;
+                while let Some((i, modified_case)) = translation_stream.next().await {
+                    completed_count += 1;
                     println!(
                         "[{}/{}] Translated question for case {}",
-                        i + 1,
-                        cases_to_translate_parsed.len(),
+                        completed_count,
+                        total_cases,
                         modified_case
                             .get("id")
                             .and_then(|id| id.as_str())
@@ -265,8 +275,13 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                     );
                     pre_translate_results.push(modified_case);
                     // Write to file immediately
-                    write_json_lines_to_file(&pre_translate_output_path, &pre_translate_results)
+                    if completed_count % 10 == 0 {
+                        write_json_lines_to_file(
+                            &pre_translate_output_path,
+                            &pre_translate_results,
+                        )
                         .expect("Failed to write pre-translation results to file");
+                    }
                 }
                 println!(
                     "All {} questions translated.",

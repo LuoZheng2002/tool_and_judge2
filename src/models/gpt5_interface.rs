@@ -1,4 +1,4 @@
-use std::{any::Any, collections::HashMap};
+use std::{any::Any, collections::HashMap, sync::Arc};
 
 use crate::{
     models::{
@@ -145,11 +145,11 @@ impl ModelInterface for Gpt5Interface {
 
     async fn translate_tool_question_async(
         &self,
-        backend: &dyn ModelBackend,
-        user_question: &str,
+        backend: Arc<dyn ModelBackend>,
+        user_question: String,
     ) -> String {
         // downcast backend to api backend
-        let api_backend = (backend as &dyn Any).downcast_ref::<ApiBackend>().expect("Failed to downcast to ApiBackend");
+        let api_backend = (backend.as_ref() as &dyn Any).downcast_ref::<ApiBackend>().expect("Failed to downcast to ApiBackend");
         let client = &api_backend.client;
 
         let fut = Python::attach(|py|{
