@@ -3,7 +3,7 @@ use pyo3::prelude::*;
 pub mod category_cache;
 pub mod config;
 pub mod models;
-pub mod tool_bfcl_decl;
+pub mod tool_bfcl_formats;
 pub mod tool_error_analysis;
 pub mod tool_file_models;
 pub mod tool_run;

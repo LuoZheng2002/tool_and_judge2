@@ -16,21 +16,21 @@ impl InferenceRawEntry {
 }
 
 
-#[derive(Serialize, Deserialize, Clone)]
-pub enum ToolCallParsingResult{
-    Success(Vec<serde_json::Value>),
-    Failure(EvaluationError),
-}
+// #[derive(Serialize, Deserialize, Clone)]
+// pub enum ToolCallParsingResult{
+//     Success(Vec<serde_json::Value>),
+//     Failure(EvaluationError),
+// }
 
 #[derive(Clone, Serialize, Deserialize)]
 pub struct InferenceJsonEntry{
     pub id: String,
     pub valid: bool,
-    pub result: ToolCallParsingResult,
+    pub result: Result<Vec<serde_json::Value>, EvaluationError>,
 }
 
 impl InferenceJsonEntry {
-    pub fn new(id: String, valid: bool, result: ToolCallParsingResult) -> Self {
+    pub fn new(id: String, valid: bool, result: Result<Vec<serde_json::Value>, EvaluationError>) -> Self {
         Self { id, valid, result }
     }
 }

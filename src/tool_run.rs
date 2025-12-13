@@ -11,11 +11,8 @@ use crate::{
         backend::{WhichBackend, get_or_create_backend},
         function_name_mapper::{self, FunctionNameMapper},
         model_interface::get_model_interface,
-    }, tool_bfcl_decl::BfclDatasetEntry, tool_file_models::{InferenceJsonEntry, InferenceRawEntry, ToolCallParsingResult}, tool_translate_function_call::translate_function_call, util::{
-        compare_id, deserialize_test_cases, get_model_directory_safe_name, load_json_lines,
-        load_test_cases, parse_inference_json_entries, serialize_inference_json_entries,
-        serialize_inference_raw_entries, serialize_test_cases, try_load_inference_json_and_ids,
-        try_load_inference_raw_and_ids, try_load_test_cases_and_ids, write_json_lines_to_file,
+    }, tool_bfcl_formats::BfclDatasetEntry, tool_file_models::{InferenceJsonEntry, InferenceRawEntry}, tool_translate_function_call::translate_function_call, util::{
+        compare_id, deserialize_test_cases, get_model_directory_safe_name, load_json_lines, load_test_cases, parse_inference_json_entries, parse_inference_raw_entries, serialize_inference_json_entries, serialize_inference_raw_entries, serialize_test_cases, try_load_inference_json_and_ids, try_load_inference_raw_and_ids, try_load_test_cases_and_ids, write_json_lines_to_file
     }
 };
 
@@ -373,28 +370,25 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
         /* ═══════════════════════════════════════════════════════════════════════ */
         let inference_json_inputs = load_json_lines(&inference_json_input_path)
             .expect("Failed to load inference raw outputs for JSON conversion");
+        let inference_raw_entries = parse_inference_raw_entries(inference_json_inputs);
         let main_interface = get_model_interface(config.model);
         let mut inference_json_outputs = Vec::new();
-        for entry in inference_json_inputs.iter() {
-            let id = entry
-                .get("id")
-                .and_then(|v| v.as_str())
-                .expect("Missing or invalid 'id' field")
-                .to_string();
-            let result_str = entry
-                .get("result")
-                .and_then(|v| v.as_str())
-                .expect("Missing or invalid 'result' field")
-                .to_string();
+        for entry in inference_raw_entries.iter() {
+            let id = entry.id.clone();
+            let raw_output = &entry.raw_output;
             let result =
-                main_interface.postprocess_tool_calls(&result_str, function_name_mapper.clone());
+                main_interface.postprocess_tool_calls(raw_output, function_name_mapper.clone());
+            let result = result.map(|func_calls| {
+                func_calls
+                    .into_iter()
+                    .map(|func_call| func_call.serialize_to_json())
+                    .collect::<Vec<serde_json::Value>>()
+            });
             let valid = match &result {
-                ToolCallParsingResult::Success(_) => true,
-                ToolCallParsingResult::Failure(_) => false,
+                Ok(_) => true,
+                Err(_) => false,
             };
             let output_entry = InferenceJsonEntry::new(id, valid, result);
-            // let output_entry = serde_json::to_value(output_entry)
-            //     .expect("Failed to serialize InferenceJsonEntry to JSON value");
             inference_json_outputs.push(output_entry);
         }
         // Final sort and write
@@ -456,7 +450,7 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                 let main_backend = main_backend.clone();
                 let task = async move {
                     let function_calls = match entry.result {
-                        ToolCallParsingResult::Success(function_calls) => function_calls,
+                        Ok(function_calls) => function_calls,
                         _ => {
                             return entry;
                         }
@@ -492,7 +486,7 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                     InferenceJsonEntry{
                         id: entry.id,
                         valid: entry.valid,
-                        result: ToolCallParsingResult::Success(translated_function_calls),
+                        result: Ok(translated_function_calls),
                     }
                 };
                 translate_functions_tasks.push(task);                

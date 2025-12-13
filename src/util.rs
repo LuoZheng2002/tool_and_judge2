@@ -1,4 +1,7 @@
-use crate::{tool_bfcl_decl::BfclDatasetEntry, tool_file_models::{InferenceJsonEntry, InferenceRawEntry}};
+use crate::{
+    tool_bfcl_formats::BfclDatasetEntry,
+    tool_file_models::{InferenceJsonEntry, InferenceRawEntry},
+};
 
 // pub fn load_json_lines_with_id(
 //     file_path: &str,
@@ -55,7 +58,7 @@ pub fn load_test_cases(file_path: &str) -> Result<Vec<BfclDatasetEntry>, String>
 
 // Try to load test cases and their IDs, returning both.
 pub fn try_load_test_cases_and_ids(file_path: &str) -> (Vec<BfclDatasetEntry>, Vec<String>) {
-    let test_cases = match load_test_cases(file_path){
+    let test_cases = match load_test_cases(file_path) {
         Ok(cases) => cases,
         Err(_) => {
             println!("File {} does not exist, it will be created.", file_path);
@@ -69,9 +72,7 @@ pub fn try_load_test_cases_and_ids(file_path: &str) -> (Vec<BfclDatasetEntry>, V
     (test_cases, existing_ids)
 }
 
-pub fn try_load_inference_raw_and_ids(
-    file_path: &str,
-) -> (Vec<InferenceRawEntry>, Vec<String>) {
+pub fn try_load_inference_raw_and_ids(file_path: &str) -> (Vec<InferenceRawEntry>, Vec<String>) {
     let inference_entries = match load_json_lines(file_path) {
         Ok(json_lines) => parse_inference_raw_entries(json_lines),
         Err(_) => {
@@ -86,9 +87,7 @@ pub fn try_load_inference_raw_and_ids(
     (inference_entries, existing_ids)
 }
 
-pub fn try_load_inference_json_and_ids(
-    file_path: &str,
-) -> (Vec<InferenceJsonEntry>, Vec<String>) {
+pub fn try_load_inference_json_and_ids(file_path: &str) -> (Vec<InferenceJsonEntry>, Vec<String>) {
     let inference_entries = match load_json_lines(file_path) {
         Ok(json_lines) => parse_inference_json_entries(json_lines),
         Err(_) => {
@@ -129,9 +128,7 @@ pub fn write_json_lines_to_file(
     Ok(())
 }
 
-pub fn serialize_test_cases(
-    test_cases: &Vec<BfclDatasetEntry>,
-) -> Vec<serde_json::Value> {
+pub fn serialize_test_cases(test_cases: &Vec<BfclDatasetEntry>) -> Vec<serde_json::Value> {
     test_cases
         .iter()
         .map(|case| case.raw_entry.clone())
@@ -143,7 +140,7 @@ pub fn serialize_inference_raw_entries(
 ) -> Vec<serde_json::Value> {
     inference_raw_entries
         .iter()
-        .map(|entry|serde_json::to_value(entry).expect("Unable to serialize InferenceRawEntry"))
+        .map(|entry| serde_json::to_value(entry).expect("Unable to serialize InferenceRawEntry"))
         .collect()
 }
 pub fn serialize_inference_json_entries(
@@ -151,7 +148,7 @@ pub fn serialize_inference_json_entries(
 ) -> Vec<serde_json::Value> {
     inference_json_entries
         .iter()
-        .map(|entry|serde_json::to_value(entry).expect("Unable to serialize InferenceJsonEntry"))
+        .map(|entry| serde_json::to_value(entry).expect("Unable to serialize InferenceJsonEntry"))
         .collect()
 }
 // pub fn write_test_cases_to_file(
@@ -208,7 +205,8 @@ pub fn deserialize_test_cases(cases_to_translate: Vec<serde_json::Value>) -> Vec
     cases_to_translate
         .iter()
         .map(|case| {
-            BfclDatasetEntry::try_from(case.clone()).expect("Dataset entry has wrong format")
+            BfclDatasetEntry::deserialize_from_json(case.clone())
+                .expect("Dataset entry has wrong format")
         })
         .collect()
 }

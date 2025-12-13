@@ -26,7 +26,10 @@ async def generate_tool_call_async(model_name: str, client: any, question: str, 
         input = input_messages,
         tools = tools,
     )
-    return response.output
+    response_dicts = [response_item.model_dump(exclude_none=True) for response_item in response.output]
+    import json
+    response_json_str = json.dumps(response_dicts)
+    return response_json_str
 
 async def translate_tool_question_async(model_name: str, client: any, question: str) -> str:
     messages = [

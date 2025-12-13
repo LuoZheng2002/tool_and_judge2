@@ -1,3 +1,8 @@
+use std::collections::HashMap;
+
+use indexmap::IndexMap;
+use serde_json::json;
+
 #[derive(Clone)]
 pub struct BfclDatasetEntry {
     pub id: String,
@@ -7,7 +12,7 @@ pub struct BfclDatasetEntry {
 }
 
 impl BfclDatasetEntry {
-    pub fn try_from(raw_entry: serde_json::Value) -> Result<Self, String> {
+    pub fn deserialize_from_json(raw_entry: serde_json::Value) -> Result<Self, String> {
         let id = raw_entry
             .get("id")
             .and_then(|v| v.as_str())
@@ -47,7 +52,7 @@ impl BfclDatasetEntry {
                 .and_then(|v| v.get("properties"))
                 .and_then(|v| v.as_object())
                 .ok_or("Missing or invalid 'parameters.properties' field")?;
-            
+
             let required_array = func_val
                 .get("parameters")
                 .and_then(|v| v.get("required"))
@@ -72,10 +77,25 @@ impl BfclDatasetEntry {
                     .and_then(|v| v.as_str())
                     .ok_or("Missing or invalid 'description' field in parameter")?
                     .to_string();
+                let items_ty = match param_val.get("items") {
+                    Some(items_val) => {
+                        let items_obj = items_val
+                            .as_object()
+                            .ok_or("items field should be an object")?;
+                        let items_type = items_obj
+                            .get("type")
+                            .and_then(|v| v.as_str())
+                            .ok_or("Missing or invalid 'type' field in items")?
+                            .to_string();
+                        Some(items_type)
+                    }
+                    None => None,
+                };
 
                 parameters.push(BfclParameter {
                     name: param_name.clone(),
                     ty: param_type,
+                    items_ty,
                     description: param_description,
                 });
             }
@@ -130,5 +150,106 @@ pub struct BfclFunctionDef {
 pub struct BfclParameter {
     pub name: String,
     pub ty: String,
+    pub items_ty: Option<String>,
     pub description: String,
 }
+
+#[derive(Clone)]
+pub struct BfclGroundTruthFunctionCall {
+    pub function_name: String,
+    pub parameters: IndexMap<String, Vec<serde_json::Value>>,
+}
+
+#[derive(Clone)]
+pub struct BfclOutputFunctionCall {
+    pub function_name: String,
+    pub parameters: serde_json::Map<String, serde_json::Value>,
+}
+impl BfclOutputFunctionCall {
+    pub fn new(
+        function_name: String,
+        parameters: serde_json::Map<String, serde_json::Value>,
+    ) -> Self {
+        Self {
+            function_name,
+            parameters,
+        }
+    }
+    pub fn serialize_to_json(self) -> serde_json::Value {
+        let parameters_json = self
+            .parameters
+            .into_iter()
+            .map(|(k, v)| (k, v))
+            .collect::<serde_json::Map<String, serde_json::Value>>();
+        json![{
+            self.function_name: serde_json::Value::Object(parameters_json)
+        }]
+    }
+    pub fn deserialize_from_json(value: &serde_json::Value) -> Result<Self, String> {
+        let obj = value.as_object().ok_or("Expected a JSON object")?;
+        if obj.len() != 1 {
+            return Err("Expected exactly one function call".to_string());
+        }
+        let (function_name, params_value) = obj.iter().next().unwrap();
+        let params_obj = params_value
+            .as_object()
+            .ok_or("Expected parameters to be a JSON object")?;
+
+        let mut parameters = serde_json::Map::new();
+        for (param_name, param_value) in params_obj {
+            parameters.insert(param_name.clone(), param_value.clone());
+        }
+
+        Ok(BfclOutputFunctionCall {
+            function_name: function_name.clone(),
+            parameters,
+        })
+    }
+}
+
+impl BfclGroundTruthFunctionCall {
+    // pub fn new(
+    //     function_name: String,
+    //     parameters: HashMap<String, Vec<serde_json::Value>>,
+    // ) -> Self {
+    //     Self {
+    //         function_name,
+    //         parameters,
+    //     }
+    // }
+    pub fn serialize_to_json(self) -> serde_json::Value {
+        let parameters_json = self
+            .parameters
+            .into_iter()
+            .map(|(k, v)| (k, serde_json::Value::Array(v)))
+            .collect::<serde_json::Map<String, serde_json::Value>>();
+        json![{
+            self.function_name: serde_json::Value::Object(parameters_json)
+        }]
+    }
+    pub fn deserialize_from_json(value: &serde_json::Value) -> Result<Self, String> {
+        let obj = value.as_object().ok_or("Expected a JSON object")?;
+        if obj.len() != 1 {
+            return Err("Expected exactly one function call".to_string());
+        }
+        let (function_name, params_value) = obj.iter().next().unwrap();
+        let params_obj = params_value
+            .as_object()
+            .ok_or("Expected parameters to be a JSON object")?;
+
+        let mut parameters = IndexMap::new();
+        for (param_name, param_value) in params_obj {
+            let param_array = param_value
+                .as_array()
+                .ok_or("Expected parameter value to be a JSON array")?;
+            parameters.insert(param_name.clone(), param_array.clone());
+        }
+
+        Ok(BfclGroundTruthFunctionCall {
+            function_name: function_name.clone(),
+            parameters,
+        })
+    }
+}
+// sample ground truth function call:
+// {"triangle_properties.get": {"side1": [5], "side2": [4], "side3": [3], "get_area": ["", true], "get_perimeter": ["", true], "get_angles": ["", true]}}

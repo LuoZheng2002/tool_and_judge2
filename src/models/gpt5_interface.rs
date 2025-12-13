@@ -1,16 +1,18 @@
-use std::{any::Any, collections::HashMap, sync::Arc};
+use std::{any::Any, collections::HashMap, os::linux::raw, sync::Arc};
 
 use crate::{
     models::{
         api_backend::ApiBackend, backend::ModelBackend, function_name_mapper::FunctionNameMapper,
         model_interface::ModelInterface,
     },
-    tool_bfcl_decl::BfclFunctionDef, tool_error_analysis::EvaluationError, tool_file_models::ToolCallParsingResult,
+    tool_bfcl_formats::{BfclFunctionDef, BfclGroundTruthFunctionCall, BfclOutputFunctionCall, BfclParameter},
+    tool_error_analysis::EvaluationError,
 };
 use atomic_refcell::AtomicRefCell;
+use indexmap::IndexMap;
 use pyo3::{Py, PyAny, Python, types::PyAnyMethods};
 use pyo3::{prelude::*, types::PyList};
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 
 use serde_json::Value;
 use serde_json::json;
@@ -28,21 +30,60 @@ pub struct Gpt5Tool {
 pub struct Gpt5Parameters {
     #[serde(rename = "type")]
     pub ty: String,
-    properties: HashMap<String, Gpt5PropertyValue>,
-    required: Vec<String>,
+    pub properties: HashMap<String, Gpt5PropertyValue>,
+    pub required: Vec<String>,
+}
+
+fn type_is_any(s: &String) -> bool {
+    s == "any"
 }
 
 #[derive(Serialize)]
 pub struct Gpt5PropertyValue {
-    #[serde(rename = "type")]
+    #[serde(rename = "type", skip_serializing_if = "type_is_any")]
     pub ty: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub items: Option<IndexMap<String, String>>,
     pub description: String,
+}
+
+#[derive(Clone)]
+pub struct Gpt5OutputFunctionCall {
+    name: String,
+    arguments: IndexMap<String, serde_json::Value>,
+}
+
+impl Gpt5OutputFunctionCall {
+    pub fn try_deserialize_from_json(
+        json_value: &serde_json::Value,
+        raw_output: &str,
+    ) -> Result<Gpt5OutputFunctionCall, EvaluationError> {
+        let json_obj = json_value.as_object().expect("This is tested before calling this function");
+        let name = json_obj.get("name").and_then(|s|s.as_str())
+            .ok_or_else( || EvaluationError::ParsingError { error_message: "Missing parameter 'name' or 'name' is not of type 'str'".into(), raw_output: raw_output.into() })?.to_string();
+        let arguments_str = json_obj.get("arguments").and_then(|s|s.as_str())
+            .ok_or_else( || EvaluationError::ParsingError { error_message: "Missing parameter 'arguments' or 'arguments' is not of type 'str'".into(), raw_output: raw_output.into() })?;
+        let arguments = serde_json::from_str::<IndexMap<String, serde_json::Value>>(arguments_str)
+        .map_err(|e| EvaluationError::JsonDecodeError { error_message: e.to_string(), raw_output: raw_output.into() })?;
+        Ok(Gpt5OutputFunctionCall {
+            name,
+            arguments,
+        })
+    }
 }
 
 #[derive(Copy, Clone)]
 pub struct Gpt5Interface;
 
 impl Gpt5Interface {
+    fn map_type_hint(ty: &str) -> String {
+        match ty {
+            "dict" => "object".to_string(),
+            "float" => "number".to_string(),
+            "tuple" => "array".to_string(),
+            _ => ty.to_string(),
+        }
+    }
     fn sanitize_and_convert_function_format(
         functions: &Vec<BfclFunctionDef>,
         prompt_passing_in_english: bool,
@@ -54,22 +95,33 @@ impl Gpt5Interface {
             let mut properties = HashMap::new();
             let required = func.required.clone();
             for param in &func.parameters {
+                let items: Option<IndexMap<String, String>> = match &param.items_ty {
+                    Some(items_ty) => Some(
+                        [("type".to_string(), Gpt5Interface::map_type_hint(items_ty))]
+                            .iter()
+                            .cloned()
+                            .collect(),
+                    ),
+                    None => None,
+                };
                 properties.insert(
                     param.name.clone(),
                     Gpt5PropertyValue {
-                        ty: param.ty.clone(),
+                        ty: Gpt5Interface::map_type_hint(&param.ty),
                         description: param.description.clone(),
+                        items,
                     },
                 );
             }
-            let description = if prompt_passing_in_english {
-                format!(
-                    "{} (IMPORTANT: PASS PARAMETER VALUES IN ENGLISH!)",
-                    func.description
-                )
-            } else {
-                func.description.clone()
-            };
+            // let description = if prompt_passing_in_english {
+            //     format!(
+            //         "{} (IMPORTANT: PASS PARAMETER VALUES IN ENGLISH!)",
+            //         func.description
+            //     )
+            // } else {
+            //     func.description.clone()
+            // };
+            let description = func.description.clone();
             gpt5_tools.push(Gpt5Tool {
                 ty: "function".to_string(),
                 name: func.name.clone(),
@@ -129,6 +181,8 @@ impl ModelInterface for Gpt5Interface {
         };
         let gpt5_tools_serialized =
             serde_json::to_string(&gpt5_tools).expect("Failed to serialize GPT-5 tools");
+
+        println!("{}", gpt5_tools_serialized);
 
         let fut = Python::attach(|py| {
             let gpt5_backend_module = py
@@ -201,56 +255,52 @@ impl ModelInterface for Gpt5Interface {
         &self,
         raw_output: &str,
         name_mapper: Arc<AtomicRefCell<FunctionNameMapper>>,
-    ) -> ToolCallParsingResult {
-        let output_json = serde_json::from_str::<Value>(raw_output);
-        
-        // match serde_json::from_str::<Value>(raw_output) {
-        //     Ok(response_data) => {
-        //         let function_calls = if response_data.is_array() {
-        //             response_data.as_array().unwrap().clone()
-        //         } else if response_data.is_object() && response_data.get("function_calls").is_some()
-        //         {
-        //             response_data
-        //                 .get("function_calls")
-        //                 .unwrap()
-        //                 .as_array()
-        //                 .unwrap()
-        //                 .clone()
-        //         } else {
-        //             return ToolCallParsingResult::Failure(
-        //                 EvaluationError::NoFunctionCallsFound { raw_output: raw_output.to_string() },
-        //             );
-        //         };
-
-        //         let mut extracted = Vec::new();
-        //         for func_call in function_calls {
-        //             if func_call.get("type") == Some(&json!("function_call")) {
-        //                 let sanitized_name = func_call.get("name").and_then(|v| v.as_str());
-        //                 let arguments = func_call.get("arguments").cloned().unwrap_or(json!({}));
-
-        //                 if let Some(sanitized_name) = sanitized_name {
-        //                     let original_name = {
-        //                         let name_mapper_borrow = name_mapper.borrow();
-        //                         name_mapper_borrow
-        //                             .sanitized_to_original
-        //                             .get(sanitized_name)
-        //                             .cloned()
-        //                             .unwrap_or(sanitized_name.to_string())
-        //                     };
-        //                     extracted.push(json!({original_name: arguments}));
-        //                 }
-        //             }
-        //         }
-
-        //         if !extracted.is_empty() {
-        //             ToolCallParsingResult::Success(extracted)
-        //         } else {
-        //             ToolCallParsingResult::Failure(EvaluationError::NoFunctionCallsFound { raw_output: () })
-        //         }
-        //     }
-        //     Err(_) => ToolCallParsingResult::Failure(EvaluationError::JsonDecodeError { error_message: (), raw_output: () }),
-        // }
-        todo!()
+    ) -> Result<Vec<BfclOutputFunctionCall>, EvaluationError> {
+        let output_json = serde_json::from_str::<Value>(raw_output).map_err(|e| {
+            EvaluationError::JsonDecodeError {
+                error_message: e.to_string(),
+                raw_output: raw_output.to_string(),
+            }
+        })?;
+        let output_list = output_json
+            .as_array()
+            .ok_or(EvaluationError::ParsingError {
+                error_message: "Expected JSON array but got different format".into(),
+                raw_output: raw_output.to_string(),
+            })?;
+        let mut func_calls = Vec::new();
+        for potential_func_call in output_list {
+            let json_obj = potential_func_call.as_object().ok_or(
+                EvaluationError::ParsingError {
+                    error_message: "Expected JSON object for function call".into(),
+                    raw_output: raw_output.to_string(),
+                },
+            )?;
+            let ty = json_obj.get("type").and_then(|v| v.as_str()).ok_or(
+                EvaluationError::ParsingError {
+                    error_message: "Missing 'type' field in function call".into(),
+                    raw_output: raw_output.to_string(),
+                },
+            )?;
+            if ty != "function_call" {
+                if ty != "reasoning" {
+                    println!("Warning: Gpt5 outputs an item with unexpected type: {}", ty);
+                }
+                continue; // skip non-function_call entries
+            }
+            let func_call = Gpt5OutputFunctionCall::try_deserialize_from_json(potential_func_call, raw_output)?;
+            let original_function_name = {
+                let name_mapper_borrow = name_mapper.borrow();
+                name_mapper_borrow.get_original_name(&func_call.name)
+            };
+            let parameters: serde_json::Map<String, serde_json::Value> = func_call
+                .arguments
+                .into_iter()
+                .collect();
+            let bfcl_output_function_call = BfclOutputFunctionCall::new(original_function_name, parameters);
+            func_calls.push(bfcl_output_function_call);
+        }
+        Ok(func_calls)
     }
     async fn translate_tool_answer_async(
         &self,

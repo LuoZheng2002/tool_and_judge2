@@ -9,7 +9,7 @@ use crate::{
         backend::ModelBackend, function_name_mapper::FunctionNameMapper,
         gpt5_interface::Gpt5Interface,
     },
-    tool_bfcl_decl::BfclFunctionDef, tool_error_analysis::EvaluationError, tool_file_models::ToolCallParsingResult,
+    tool_bfcl_formats::{BfclFunctionDef, BfclOutputFunctionCall}, tool_error_analysis::EvaluationError, 
 };
 
 
@@ -40,7 +40,7 @@ pub trait ModelInterface: Send + Sync {
         &self,
         raw_output: &str,
         name_mapper: Arc<AtomicRefCell<FunctionNameMapper>>,
-    ) -> ToolCallParsingResult;
+    ) -> Result<Vec<BfclOutputFunctionCall>, EvaluationError>;
 }
 
 pub fn get_model_interface(model: Model) -> Arc<dyn ModelInterface> {
