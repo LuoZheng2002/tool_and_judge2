@@ -63,7 +63,7 @@ pub struct CategorizedEntry{
 }
 
 impl CategorizedEntry {
-    pub fn new(id: String, error: EvaluationError) -> Self {
-        Self { id, error }
+    pub fn new(id: String, error: EvaluationError, error_category: ToolErrorCategory) -> Self {
+        Self { id, error, error_category }
     }
 }

@@ -10,7 +10,6 @@ pub fn evaluate_entry(
     test_case_entry: &BfclDatasetEntry,
     ground_truth_entry: &BfclGroundTruthEntry,
 ) -> EvaluationResultEntry {
-    // Implement your evaluation logic here
-    // For demonstration, we'll just return a dummy EvaluationResultEntry
-    EvaluationResultEntry::new(id.to_string(), true, None)
+    
+    todo!()
 }

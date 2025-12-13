@@ -633,7 +633,7 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
         let categorize_pass = async || {
             let mut score_entries = load_json_lines(&categorize_input_path)
                 .expect("Failed to load score results for categorization");
-            let evaluation_summary = &score_entries[0];
+            // let evaluation_summary = &score_entries[0];
             score_entries.remove(0); // remove summary entry
             if score_entries.is_empty() {
                 println!("No error samples found. Skipping categorization.");
@@ -668,10 +668,11 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                 let error = entry.error.clone().expect("Error should exist for wrong cases");
                 let task = async move {
                     categorize_entry(
-                        &entry.id,
+                        &id,
                         &error,
                         main_interface,
-                        main_backend,                        
+                        main_backend,                    
+                        category_cache,    
                     )
                     .await
                 };
@@ -750,54 +751,3 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
         );
     }
 }
-
-// # ═══════════════════════════════════════════════════════════════════════
-//         # PASS 8: Categorize Score
-//         # ═══════════════════════════════════════════════════════════════════════
-//         # Aggregates categorization results and counts errors for each category.
-//         # Lightweight pass that always overwrites existing file.
-//         # Input: tool/result/categorize/{model}/{filename}.json
-//         # Output: tool/result/categorize_score/{model}/{filename}.json
-//         # ═══════════════════════════════════════════════════════════════════════
-//         # Load categorized results
-//         try:
-//             categorized_samples = load_json_lines(categorize_score_input_path)
-//         except FileNotFoundError:
-//             print(f"File {categorize_score_input_path} not found. Skipping categorize scoring.")
-//             categorized_samples = []
-
-//         if len(categorized_samples) == 0:
-//             print(f"No categorized samples found. Skipping categorize scoring.")
-//         else:
-//             # Aggregate statistics by category
-//             category_counts = {}
-//             category_samples = {}
-//             for result in categorized_samples:
-//                 category = result['category']
-//                 if category not in category_counts:
-//                     category_counts[category] = 0
-//                     category_samples[category] = []
-//                 category_counts[category] += 1
-//                 category_samples[category].append(result['id'])
-
-//             # Prepare final output with summary and samples
-//             final_output = {
-//                 "summary": category_counts,
-//                 "samples": category_samples
-//             }
-
-//             # Create parent directory if it doesn't exist
-//             parent_dir = os.path.dirname(categorize_score_output_path)
-//             if parent_dir:
-//                 os.makedirs(parent_dir, exist_ok=True)
-
-//             # Write final aggregated results (single write, overwrites existing)
-//             with open(categorize_score_output_path, 'w', encoding='utf-8') as f:
-//                 json.dump(final_output, f, ensure_ascii=False, indent=2)
-
-//             print(f"Categorize score results written to {categorize_score_output_path}")
-//             print("\nError Category Summary:")
-//             for category, count in sorted(category_counts.items(), key=lambda x: x[1], reverse=True):
-//                 print(f"  {category}: {count}")
-
-//         print(f"Completed processing for config: {config}")
