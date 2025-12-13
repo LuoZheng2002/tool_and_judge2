@@ -47,3 +47,20 @@ async def translate_tool_question_async(model_name: str, client: any, question: 
         input = messages,
     )
     return response.output_text.strip()
+
+async def translate_tool_answer_async(model_name: str, client: any, parameter_value: str) -> str:
+    messages = [
+            {
+                "role": "developer",
+                "content": "You are a professional translator. Translate the given text to English accurately. If the given text is already in English or is language agnostic, return it unchanged."
+            },
+            {
+                "role": "user",
+                "content": f"Translate the following text to English. Only output the translated text, nothing else:\n\n{parameter_value}"
+            }
+        ]
+    response = await client.responses.create(
+        model = model_name,
+        input = messages,
+    )
+    return response.output_text.strip()

@@ -182,7 +182,7 @@ impl ModelInterface for Gpt5Interface {
         let gpt5_tools_serialized =
             serde_json::to_string(&gpt5_tools).expect("Failed to serialize GPT-5 tools");
 
-        println!("{}", gpt5_tools_serialized);
+        // println!("{}", gpt5_tools_serialized);
 
         let fut = Python::attach(|py| {
             let gpt5_backend_module = py

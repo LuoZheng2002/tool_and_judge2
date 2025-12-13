@@ -271,7 +271,7 @@ def save_category_cache(cache_path: str, category_cache: dict) -> None:
 async def process_all_configs():
     """Process all configs within a single event loop to allow backend reuse."""
     # Setup category cache with file locking
-    category_cache_path = "tool_category_cache.json"
+    category_cache_path = "tool_category_cache.jsonl"
     category_cache_lock_path = "tool_category_cache.json.lock"
     cache_lock = FileLock(category_cache_lock_path, timeout=60)
 
@@ -335,8 +335,8 @@ async def process_all_configs():
         model_dir_name = get_model_directory_name(config.model)
 
 
-        unpretranslated_dataset_path = f"tool/dataset/BFCL_v4_multiple{language_tag}{translate_level_tag}{noise_tag}.json"
-        ground_truth_path = f"tool/dataset/possible_answer/BFCL_v4_multiple.json"
+        unpretranslated_dataset_path = f"tool/dataset/BFCL_v4_multiple{language_tag}{translate_level_tag}{noise_tag}.jsonl"
+        ground_truth_path = f"tool/dataset/possible_answer/BFCL_v4_multiple.jsonl"
         # file names to write to or read from if applicable
 
         pre_translate_output_combined_tags = language_tag + translate_level_tag + pre_translate_tag + noise_tag
@@ -347,12 +347,12 @@ async def process_all_configs():
         # assign pre_translate_output_path
         if pre_translate_tag == "_pretrans":
             pre_translate_input_path = unpretranslated_dataset_path
-            pre_translate_output_path = f"tool/result/pre_translate/{model_dir_name}/{pre_translate_output_combined_tags}.json"
+            pre_translate_output_path = f"tool/result/pre_translate/{model_dir_name}/{pre_translate_output_combined_tags}.jsonl"
         else:
             assert pre_translate_tag == "_nopretrans"
         # assign inference_raw_input_path
         if pre_translate_tag == "_pretrans":            
-            inference_raw_input_path = f"tool/result/pre_translate/{model_dir_name}/{pre_translate_output_combined_tags}.json"
+            inference_raw_input_path = f"tool/result/pre_translate/{model_dir_name}/{pre_translate_output_combined_tags}.jsonl"
         elif pre_translate_tag == "_nopretrans":            
             inference_raw_input_path = unpretranslated_dataset_path
         else:
@@ -360,37 +360,37 @@ async def process_all_configs():
         
         
         # assign inference_raw_output_path
-        inference_raw_output_path = f"tool/result/inference_raw/{model_dir_name}/{inference_raw_output_combined_tags}.json"
+        inference_raw_output_path = f"tool/result/inference_raw/{model_dir_name}/{inference_raw_output_combined_tags}.jsonl"
         # assign inference_json_input_path
         inference_json_input_path = inference_raw_output_path
         # assign inference_json_output_path
-        inference_json_output_path = f"tool/result/inference_json/{model_dir_name}/{inference_raw_output_combined_tags}.json"
+        inference_json_output_path = f"tool/result/inference_json/{model_dir_name}/{inference_raw_output_combined_tags}.jsonl"
         # assign post_translate_input_path
         post_translate_input_path = inference_json_output_path
         # assign post_translate_output_path
         if post_translate_tag == "_posttrans":
-            post_translate_output_path = f"tool/result/post_translate/{model_dir_name}/{post_translate_output_combined_tags}.json"
+            post_translate_output_path = f"tool/result/post_translate/{model_dir_name}/{post_translate_output_combined_tags}.jsonl"
         else:
             assert post_translate_tag == "_noposttrans"
         # assign evaluation_input_path
         if post_translate_tag == "_posttrans":
-            evaluation_input_path = f"tool/result/post_translate/{model_dir_name}/{post_translate_output_combined_tags}.json"
+            evaluation_input_path = f"tool/result/post_translate/{model_dir_name}/{post_translate_output_combined_tags}.jsonl"
         else:
             evaluation_input_path = post_translate_input_path
         # assign evaluation_output_path
-        evaluation_output_path = f"tool/result/evaluation/{model_dir_name}/{post_translate_output_combined_tags}.json"
+        evaluation_output_path = f"tool/result/evaluation/{model_dir_name}/{post_translate_output_combined_tags}.jsonl"
         # assign score_input_path
         score_input_path = evaluation_output_path
         # assign score_output_path
-        score_output_path = f"tool/result/score/{model_dir_name}/{post_translate_output_combined_tags}.json"
+        score_output_path = f"tool/result/score/{model_dir_name}/{post_translate_output_combined_tags}.jsonl"
         # assign categorize_input_path
         categorize_input_path = score_output_path
         # assign categorize_output_path
-        categorize_output_path = f"tool/result/categorize/{model_dir_name}/{post_translate_output_combined_tags}.json"
+        categorize_output_path = f"tool/result/categorize/{model_dir_name}/{post_translate_output_combined_tags}.jsonl"
         # assign categorize_score_input_path
         categorize_score_input_path = categorize_output_path
         # assign categorize_score_output_path
-        categorize_score_output_path = f"tool/result/categorize_score/{model_dir_name}/{post_translate_output_combined_tags}.json"
+        categorize_score_output_path = f"tool/result/categorize_score/{model_dir_name}/{post_translate_output_combined_tags}.jsonl"
 
         test_cases = load_json_lines(unpretranslated_dataset_path)
         ground_truths = load_json_lines(ground_truth_path)

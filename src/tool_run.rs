@@ -7,17 +7,26 @@ use pyo3::{
 use std::{collections::HashMap, sync::Arc};
 
 use crate::{
-    config::{Language, ToolConfig, TranslateMode, TranslateOption}, models::{
+    config::{Language, ToolConfig, TranslateMode, TranslateOption},
+    models::{
         backend::{WhichBackend, get_or_create_backend},
         function_name_mapper::{self, FunctionNameMapper},
         model_interface::get_model_interface,
-    }, tool_bfcl_formats::BfclDatasetEntry, tool_file_models::{InferenceJsonEntry, InferenceRawEntry}, tool_translate_function_call::translate_function_call, util::{
-        compare_id, deserialize_test_cases, get_model_directory_safe_name, load_json_lines, load_test_cases, parse_inference_json_entries, parse_inference_raw_entries, serialize_inference_json_entries, serialize_inference_raw_entries, serialize_test_cases, try_load_inference_json_and_ids, try_load_inference_raw_and_ids, try_load_test_cases_and_ids, write_json_lines_to_file
-    }
+    },
+    tool_bfcl_formats::BfclDatasetEntry,
+    tool_file_models::{InferenceJsonEntry, InferenceRawEntry},
+    tool_translate_function_call::translate_function_call,
+    util::{
+        compare_id, deserialize_test_cases, get_model_directory_safe_name, load_json_lines,
+        load_test_cases, parse_inference_json_entries, parse_inference_raw_entries,
+        serialize_inference_json_entries, serialize_inference_raw_entries, serialize_test_cases,
+        try_load_inference_json_and_ids, try_load_inference_raw_and_ids,
+        try_load_test_cases_and_ids, write_json_lines_to_file,
+    },
 };
 
-const CATEGORY_CACHE_PATH: &str = "tool_category_cache.json";
-const CATEGORY_CACHE_LOCK_PATH: &str = "tool_category_cache.json.lock";
+const CATEGORY_CACHE_PATH: &str = "tool_category_cache.jsonl";
+const CATEGORY_CACHE_LOCK_PATH: &str = "tool_category_cache.jsonl.lock";
 
 pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
     let (extracted_configs, config_len): (Vec<ToolConfig>, usize) = Python::attach(|py| {
@@ -84,9 +93,9 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
         };
         let model_dir_name = get_model_directory_safe_name(&config.model.to_string());
         let unpretranslated_dataset_path = format!(
-            "tool/dataset/BFCL_v4_multiple{language_tag}{translate_level_tag}{noise_tag}.json"
+            "tool/dataset/BFCL_v4_multiple{language_tag}{translate_level_tag}{noise_tag}.jsonl"
         );
-        let ground_truth_path = "tool/dataset/possible_answer/BFCL_v4_multiple.json";
+        let ground_truth_path = "tool/dataset/possible_answer/BFCL_v4_multiple.jsonl";
         let pre_translate_output_combined_tags =
             language_tag.to_string() + translate_level_tag + pre_translate_tag + noise_tag;
         let inference_raw_output_combined_tags = language_tag.to_string()
@@ -107,7 +116,7 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
             (
                 unpretranslated_dataset_path.clone(),
                 Some(format!(
-                    "tool/result/pre_translate/{model_dir_name}/{pre_translate_output_combined_tags}.json"
+                    "tool/result/pre_translate/{model_dir_name}/{pre_translate_output_combined_tags}.jsonl"
                 )),
             )
         } else {
@@ -124,17 +133,17 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
         };
 
         let inference_raw_output_path = format!(
-            "tool/result/inference_raw/{model_dir_name}/{inference_raw_output_combined_tags}.json"
+            "tool/result/inference_raw/{model_dir_name}/{inference_raw_output_combined_tags}.jsonl"
         );
 
         let inference_json_input_path = inference_raw_output_path.clone();
         let inference_json_output_path = format!(
-            "tool/result/inference_json/{model_dir_name}/{inference_raw_output_combined_tags}.json"
+            "tool/result/inference_json/{model_dir_name}/{inference_raw_output_combined_tags}.jsonl"
         );
         let post_translate_input_path = inference_json_output_path.clone();
         let post_translate_output_path = if post_translate_tag == "_posttrans" {
             Some(format!(
-                "tool/result/post_translate/{model_dir_name}/{post_translate_output_combined_tags}.json"
+                "tool/result/post_translate/{model_dir_name}/{post_translate_output_combined_tags}.jsonl"
             ))
         } else {
             assert_eq!(post_translate_tag, "_noposttrans");
@@ -148,19 +157,19 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
             post_translate_input_path.clone()
         };
         let evaluation_output_path = format!(
-            "tool/result/evaluation/{model_dir_name}/{post_translate_output_combined_tags}.json"
+            "tool/result/evaluation/{model_dir_name}/{post_translate_output_combined_tags}.jsonl"
         );
         let score_input_path = evaluation_output_path.clone();
         let score_output_path = format!(
-            "tool/result/score/{model_dir_name}/{post_translate_output_combined_tags}.json"
+            "tool/result/score/{model_dir_name}/{post_translate_output_combined_tags}.jsonl"
         );
         let categorize_input_path = score_output_path.clone();
         let categorize_output_path = format!(
-            "tool/result/categorize/{model_dir_name}/{post_translate_output_combined_tags}.json"
+            "tool/result/categorize/{model_dir_name}/{post_translate_output_combined_tags}.jsonl"
         );
         let categorize_score_input_path = categorize_output_path.clone();
         let categorize_score_output_path = format!(
-            "tool/result/categorize_score/{model_dir_name}/{post_translate_output_combined_tags}.json"
+            "tool/result/categorize_score/{model_dir_name}/{post_translate_output_combined_tags}.jsonl"
         );
 
         // let test_cases =
@@ -455,7 +464,8 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                             return entry;
                         }
                     };
-                    let mut translated_function_calls: HashMap<usize, serde_json::Value> = HashMap::new();
+                    let mut translated_function_calls: HashMap<usize, serde_json::Value> =
+                        HashMap::new();
                     let mut translate_single_function_tasks = Vec::new();
                     for (i, func_call) in function_calls.iter().enumerate() {
                         let main_interface = main_interface.clone();
@@ -467,7 +477,7 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                                 func_call.clone(),
                             )
                             .await;
-                        (i, translated_function_call)
+                            (i, translated_function_call)
                         };
                         translate_single_function_tasks.push(task);
                     }
@@ -476,22 +486,25 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                         translated_function_calls.insert(i, translated_function_call);
                     }
                     // reorder
-                    let translated_function_calls: Vec<serde_json::Value> = (0..translated_function_calls.len())
+                    let translated_function_calls: Vec<serde_json::Value> = (0
+                        ..translated_function_calls.len())
                         .map(|i| {
                             translated_function_calls
                                 .get(&i)
                                 .cloned()
                                 .expect("Translated function call should exist")
-                        }).collect();
-                    InferenceJsonEntry{
+                        })
+                        .collect();
+                    InferenceJsonEntry {
                         id: entry.id,
                         valid: entry.valid,
                         result: Ok(translated_function_calls),
                     }
                 };
-                translate_functions_tasks.push(task);                
+                translate_functions_tasks.push(task);
             }
-            let mut translate_stream = stream::iter(translate_functions_tasks).buffer_unordered(200);
+            let mut translate_stream =
+                stream::iter(translate_functions_tasks).buffer_unordered(200);
             let mut completed_count = 0;
             while let Some(translated_entry) = translate_stream.next().await {
                 completed_count += 1;
@@ -514,8 +527,7 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
             println!("All {} answers translated.", samples_to_translate.len());
             // Final sort and write
             if !translated_answers_results.is_empty() {
-                translated_answers_results
-                    .sort_by(|a, b| compare_id(&a.id, &b.id));
+                translated_answers_results.sort_by(|a, b| compare_id(&a.id, &b.id));
                 let serialized_translated_answers =
                     serialize_inference_json_entries(&translated_answers_results);
                 write_json_lines_to_file(
@@ -527,7 +539,7 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
         };
         post_translate_pass().await;
         /* ═══════════════════════════════════════════════════════════════════════ */
-        /* PASS 5: Evaluation                                                      */       
+        /* PASS 5: Evaluation                                                      */
         /* ═══════════════════════════════════════════════════════════════════════ */
         /* Evaluates model outputs against ground truth to determine correctness.  */
         /* Checks function names, parameter names, and parameter values.           */
@@ -537,12 +549,6 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
         println!("PASS 5: Evaluation not yet implemented.");
     }
 }
-
-
-
-
-
-
 
 // # ═══════════════════════════════════════════════════════════════════════
 //         # PASS 5: Evaluation

@@ -33,10 +33,7 @@ pub async fn translate_function_call(
     for (key, value) in params {
         let key = key.clone();
         let value = value.clone();
-        println!(
-            "Submitted param value translation task for value: {}",
-            value
-        );
+        
         let model_interface = model_interface.clone();
         let backend = backend.clone();
         let task = async move {
@@ -78,7 +75,7 @@ pub async fn translate_param_value(
 ) -> serde_json::Value {
     match &value {
         serde_json::Value::Array(array) => {
-            println!("Found an array as param value to translate: {}", value);
+            // println!("Found an array as param value to translate: {}", value);
             let mut translated_array: HashMap<usize, serde_json::Value> = HashMap::new();
             let mut tasks = Vec::new();
             for (i, item) in array.into_iter().enumerate() {
@@ -142,8 +139,7 @@ pub async fn translate_param_value(
             serde_json::Value::Object(new_obj)
         }
         serde_json::Value::String(s) => {
-            let translated_str = model_interface
-                .translate_tool_answer_async(backend.clone(), s.clone())
+            let translated_str = translate_string_async(model_interface, backend, s.clone())
                 .await;
             serde_json::Value::String(translated_str)
         }
@@ -152,6 +148,26 @@ pub async fn translate_param_value(
         }
     }
 }
+
+pub async fn translate_string_async(
+    model_interface: Arc<dyn ModelInterface>,
+    backend: Arc<dyn ModelBackend>,
+    text: String,
+) -> String {
+    // if the text is all ascii, we assume it's english and skip translation
+    if text.is_ascii() {
+        return text;
+    }
+    println!(
+            "Submitted param value translation task for value: {}",
+            text
+        );
+    model_interface
+        .translate_tool_answer_async(backend, text)
+        .await
+}
+
+
 
 // sample function call:
 // {"triangle_properties.get": {"side1": 5, "side2": 4, "side3": 3, "get_area": true, "get_perimeter": true, "get_angles": true}}
