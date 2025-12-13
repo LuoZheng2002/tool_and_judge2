@@ -120,9 +120,45 @@ fn value_matches_list(value: &serde_json::Value, expected_list: &Vec<serde_json:
 }
 
 fn value_matches_any(value: &serde_json::Value, expected: &serde_json::Value) -> bool {
-    if value == expected {
-        return true;
+    match (value, expected) {
+        (serde_json::Value::Number(num1), serde_json::Value::Number(num2)) => {
+            let num1 = num1.as_f64().expect("Should be convertible to f64");
+            let num2 = num2.as_f64().expect("Should be convertible to f64");
+            if (num1 - num2).abs() < 0.0001 {
+                return true;
+            }
+        }
+        (serde_json::Value::Null, serde_json::Value::Null) => return true,
+        (serde_json::Value::Bool(b1), serde_json::Value::Bool(b2)) => return b1 == b2,
+        (serde_json::Value::String(s1), serde_json::Value::String(s2)) => return s1 == s2,
+        (serde_json::Value::Array(arr1), serde_json::Value::Array(arr2)) => {
+            if arr1.len() != arr2.len() {
+                return false;
+            }
+            for (v1, v2) in arr1.iter().zip(arr2.iter()) {
+                if !value_matches_any(v1, v2) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        (serde_json::Value::Object(map1), serde_json::Value::Object(map2)) => {
+            if map1.len() != map2.len() {
+                return false;
+            }
+            for (k, v1) in map1.iter() {
+                let Some(v2) = map2.get(k) else {
+                    return false;
+                };
+                if !value_matches_any(v1, v2) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        _ => {}
     }
+    // value matches elements in expected array
     if let serde_json::Value::Array(expected_arry) = expected {
         for expected_item in expected_arry {
             if value_matches_any(value, expected_item) {

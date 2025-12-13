@@ -5,10 +5,7 @@ use pyo3::{
     types::{PyAnyMethods, PyList, PyListMethods},
 };
 use std::{
-    collections::HashMap,
-    fs::{self, File, OpenOptions},
-    hash::Hash,
-    sync::{Arc, atomic::AtomicUsize},
+    collections::HashMap, fs::{self, File, OpenOptions}, hash::Hash, io::Write, sync::{Arc, atomic::AtomicUsize}
 };
 
 use crate::{
@@ -16,7 +13,7 @@ use crate::{
         backend::{WhichBackend, get_or_create_backend},
         function_name_mapper::{self, FunctionNameMapper},
         model_interface::get_model_interface,
-    }, tool_bfcl_formats::{BfclDatasetEntry, BfclGroundTruthEntry}, tool_categorize::categorize_entry, tool_category_cache::CategoryCache, tool_evaluate::evaluate_entry, tool_file_models::{
+    }, tool_bfcl_formats::{BfclDatasetEntry, BfclFunctionDef, BfclGroundTruthEntry}, tool_categorize::categorize_entry, tool_category_cache::CategoryCache, tool_evaluate::evaluate_entry, tool_file_models::{
         CategorizedEntry, EvaluationResultEntry, EvaluationSummary, InferenceJsonEntry, InferenceRawEntry
     }, tool_translate_function_call::translate_function_call, util::{
         compare_id, deserialize_categorized_entries, deserialize_evaluation_result_entries, deserialize_ground_truth_entries, deserialize_inference_json_entries, deserialize_inference_raw_entries, deserialize_test_cases, get_model_directory_safe_name, load_json_lines, load_test_cases, serialize_categorized_entries, serialize_evaluation_result_entries, serialize_inference_json_entries, serialize_inference_raw_entries, serialize_test_cases, try_load_inference_json_and_ids, try_load_inference_raw_and_ids, try_load_test_cases_and_ids, write_json_lines_to_file
@@ -380,6 +377,20 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
         let inference_raw_entries = deserialize_inference_raw_entries(inference_json_inputs);
         let main_interface = get_model_interface(config.model);
         let mut inference_json_outputs = Vec::new();
+        // populate the name mapper with function names in the preprocessed dataset
+        let preprocessed_test_cases = load_json_lines(&inference_raw_input_path)
+                .expect("Failed to load pre-translation test cases for inference");
+        let preprocessed_test_cases = deserialize_test_cases(preprocessed_test_cases);
+        let mut all_functions: Vec<BfclFunctionDef> = Vec::new();
+        for case in preprocessed_test_cases.iter() {
+            for function in case.functions.iter() {
+                all_functions.push(function.clone());
+            }
+        }
+        {
+            let mut fn_mapper = function_name_mapper.borrow_mut();
+            fn_mapper.populate_from_functions(&all_functions);
+        }
         for entry in inference_raw_entries.iter() {
             let id = entry.id.clone();
             let raw_output = &entry.raw_output;
@@ -747,8 +758,13 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
             serde_json::to_string_pretty(&final_output)
                 .expect("Failed to serialize categorize score output");
         // write the json object to file manually
+        fs::create_dir_all(
+            std::path::Path::new(&categorize_score_output_path)
+                .parent()
+                .expect("Failed to get parent directory for categorize score output path"),
+        ).expect("Failed to create directories for categorize score output path");
         fs::write(categorize_score_output_path, final_output_serialized)
-            .expect("Failed to write categorize score results to file");
+            .expect("Failed to write categorize score results to file");        
         /* ═══════════════════════════════════════════════════════════════════════ */
         /* All passes completed                                                    */
         /* ═══════════════════════════════════════════════════════════════════════ */

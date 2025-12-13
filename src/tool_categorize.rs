@@ -39,7 +39,7 @@ pub async fn categorize_entry(
             expected_values,
             decoded_output: _,
         } => {
-            let mut category_cache = category_cache.borrow_mut();
+            let category_cache_guard = category_cache.borrow();
             let actual_value_str =
                 serde_json::to_string(actual_value).expect("Should serialize actual value");
             let expected_values_str: Vec<String> = expected_values
@@ -47,13 +47,15 @@ pub async fn categorize_entry(
                 .map(|v| serde_json::to_string(v).expect("Should serialize expected value"))
                 .collect();
             let cache_key = (actual_value_str, expected_values_str);
-            if let Some(cached_category) = category_cache.0.get(&cache_key) {
+            if let Some(cached_category) = category_cache_guard.0.get(&cache_key) {
                 cache_hits.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
                 cached_category.clone()
             } else {
+                drop(category_cache_guard); // release the borrow before awaiting
                 let category =
                     categorize_parameter_value_async(param, actual_value, expected_values).await;
-                category_cache.0.insert(cache_key, category.clone());
+                let mut category_cache_guard = category_cache.borrow_mut();
+                category_cache_guard.0.insert(cache_key, category.clone());
                 category
             }
         }

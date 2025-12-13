@@ -58,8 +58,8 @@ pub struct EvaluationSummary{
 #[derive(Serialize, Deserialize, Clone)]
 pub struct CategorizedEntry{
     pub id: String,
-    pub error: EvaluationError,
     pub error_category: ToolErrorCategory, 
+    pub error: EvaluationError,    
 }
 
 impl CategorizedEntry {

@@ -102,7 +102,6 @@ impl Gpt5Interface {
     }
     fn sanitize_and_convert_function_format(
         functions: &Vec<BfclFunctionDef>,
-        prompt_passing_in_english: bool,
         name_mapper: &mut FunctionNameMapper,
     ) -> Vec<Gpt5Tool> {
         let sanitized_functions = name_mapper.map_function_names(functions);
@@ -191,7 +190,6 @@ impl ModelInterface for Gpt5Interface {
             let mut name_mapper_borrow = name_mapper.borrow_mut();
             Gpt5Interface::sanitize_and_convert_function_format(
                 &raw_functions,
-                prompt_passing_in_english,
                 &mut *name_mapper_borrow,
             )
         };
