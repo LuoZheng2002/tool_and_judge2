@@ -5,19 +5,38 @@ use pyo3::{
     types::{PyAnyMethods, PyList, PyListMethods},
 };
 use std::{
-    collections::HashMap, fs::{self, File, OpenOptions}, hash::Hash, io::Write, sync::{Arc, atomic::AtomicUsize}
+    collections::HashMap,
+    fs::{self, File, OpenOptions},
+    hash::Hash,
+    io::Write,
+    sync::{Arc, atomic::AtomicUsize},
 };
 
 use crate::{
-    config::{Language, ToolConfig, TranslateMode, TranslateOption}, models::{
+    config::{Language, ToolConfig, TranslateMode, TranslateOption},
+    models::{
         backend::{WhichBackend, get_or_create_backend},
         function_name_mapper::{self, FunctionNameMapper},
         model_interface::get_model_interface,
-    }, tool_bfcl_formats::{BfclDatasetEntry, BfclFunctionDef, BfclGroundTruthEntry}, tool_categorize::categorize_entry, tool_category_cache::CategoryCache, tool_evaluate::evaluate_entry, tool_file_models::{
-        CategorizedEntry, EvaluationResultEntry, EvaluationSummary, InferenceJsonEntry, InferenceRawEntry
-    }, tool_translate_function_call::translate_function_call, util::{
-        compare_id, deserialize_categorized_entries, deserialize_evaluation_result_entries, deserialize_ground_truth_entries, deserialize_inference_json_entries, deserialize_inference_raw_entries, deserialize_test_cases, get_model_directory_safe_name, load_json_lines, load_test_cases, serialize_categorized_entries, serialize_evaluation_result_entries, serialize_inference_json_entries, serialize_inference_raw_entries, serialize_test_cases, try_load_inference_json_and_ids, try_load_inference_raw_and_ids, try_load_test_cases_and_ids, write_json_lines_to_file
-    }
+    },
+    tool_bfcl_formats::{BfclDatasetEntry, BfclFunctionDef, BfclGroundTruthEntry},
+    tool_categorize::categorize_entry,
+    tool_category_cache::CategoryCache,
+    tool_evaluate::evaluate_entry,
+    tool_file_models::{
+        CategorizedEntry, EvaluationResultEntry, EvaluationSummary, InferenceJsonEntry,
+        InferenceRawEntry,
+    },
+    tool_translate_function_call::translate_function_call,
+    util::{
+        compare_id, deserialize_categorized_entries, deserialize_evaluation_result_entries,
+        deserialize_ground_truth_entries, deserialize_inference_json_entries,
+        deserialize_inference_raw_entries, deserialize_test_cases, get_model_directory_safe_name,
+        load_json_lines, load_test_cases, serialize_categorized_entries,
+        serialize_evaluation_result_entries, serialize_inference_json_entries,
+        serialize_inference_raw_entries, serialize_test_cases, try_load_inference_json_and_ids,
+        try_load_inference_raw_and_ids, try_load_test_cases_and_ids, write_json_lines_to_file,
+    },
 };
 
 const CATEGORY_CACHE_PATH: &str = "tool_category_cache.jsonl";
@@ -164,7 +183,7 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
         );
         let categorize_score_input_path = categorize_output_path.clone();
         let categorize_score_output_path = format!(
-            "tool/result/categorize_score/{model_dir_name}/{post_translate_output_combined_tags}.jsonl"
+            "tool/result/categorize_score/{model_dir_name}/{post_translate_output_combined_tags}.json"
         );
 
         // let test_cases =
@@ -379,7 +398,7 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
         let mut inference_json_outputs = Vec::new();
         // populate the name mapper with function names in the preprocessed dataset
         let preprocessed_test_cases = load_json_lines(&inference_raw_input_path)
-                .expect("Failed to load pre-translation test cases for inference");
+            .expect("Failed to load pre-translation test cases for inference");
         let preprocessed_test_cases = deserialize_test_cases(preprocessed_test_cases);
         let mut all_functions: Vec<BfclFunctionDef> = Vec::new();
         for case in preprocessed_test_cases.iter() {
@@ -504,11 +523,7 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                                 .expect("Translated function call should exist")
                         })
                         .collect();
-                    InferenceJsonEntry::new(
-                        entry.id,
-                        entry.valid,
-                        Ok(translated_function_calls),
-                    )
+                    InferenceJsonEntry::new(entry.id, entry.valid, Ok(translated_function_calls))
                 };
                 translate_functions_tasks.push(task);
             }
@@ -584,7 +599,8 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                 .expect("Inference result should exist");
             let test_case = test_cases.get(id).expect("Test case should exist");
             let ground_truth = ground_truths.get(id).expect("Ground truth should exist");
-            let evaluation_result = evaluate_entry(id.into(), inference_result, test_case, ground_truth);
+            let evaluation_result =
+                evaluate_entry(id.into(), inference_result, test_case, ground_truth);
             evaluation_results.push(evaluation_result);
         }
         // Final sort and write
@@ -651,21 +667,19 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                 return;
             }
             println!("Categorizing {} error samples...", score_entries.len());
-            let score_entries =
-                deserialize_evaluation_result_entries(score_entries);
-            
+            let score_entries = deserialize_evaluation_result_entries(score_entries);
+
             println!("Acquiring lock for category cache file...");
             let lock_file = File::create(CATEGORY_CACHE_LOCK_PATH)
                 .expect("Failed to create lock file for category cache");
             lock_file.lock().expect("Failed to lock the lock file");
             println!("Acquired lock for category cache file.");
-            let category_cache =
-                CategoryCache::load_or_create(CATEGORY_CACHE_PATH);
+            let category_cache = CategoryCache::load_or_create(CATEGORY_CACHE_PATH);
             let category_cache = Arc::new(AtomicRefCell::new(category_cache));
             let cache_hits = Arc::new(AtomicUsize::new(0));
             let main_interface = get_model_interface(config.model);
-            let main_backend = get_or_create_backend(config.model, WhichBackend::Main, num_gpus)
-                .await;
+            let main_backend =
+                get_or_create_backend(config.model, WhichBackend::Main, num_gpus).await;
             let main_backend = main_backend
                 .as_ref()
                 .expect("Backend should be created by the call above");
@@ -676,15 +690,18 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                 let main_backend = main_backend.clone();
                 let category_cache = category_cache.clone();
                 let cache_hits = cache_hits.clone();
-                
+
                 let id = entry.id.clone();
-                let error = entry.error.clone().expect("Error should exist for wrong cases");
+                let error = entry
+                    .error
+                    .clone()
+                    .expect("Error should exist for wrong cases");
                 let task = async move {
                     let category = categorize_entry(
                         &error,
                         main_interface,
-                        main_backend,                    
-                        category_cache,    
+                        main_backend,
+                        category_cache,
                         cache_hits,
                     )
                     .await;
@@ -696,8 +713,7 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                 };
                 categorize_tasks.push(task);
             }
-            let mut categorize_stream =
-                stream::iter(categorize_tasks).buffer_unordered(200);
+            let mut categorize_stream = stream::iter(categorize_tasks).buffer_unordered(200);
             let mut categorized_entries: Vec<CategorizedEntry> = Vec::new();
             let mut completed_count = 0;
             while let Some(categorized_entry) = categorize_stream.next().await {
@@ -715,10 +731,8 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
             categorized_entries.sort_by(|a, b| compare_id(&a.id, &b.id));
             let categorized_entries_serialized =
                 serialize_categorized_entries(&categorized_entries);
-            write_json_lines_to_file(
-                &categorize_output_path,
-                &categorized_entries_serialized,
-            ).expect("Failed to write to categorized file");
+            write_json_lines_to_file(&categorize_output_path, &categorized_entries_serialized)
+                .expect("Failed to write to categorized file");
             // Save category cache
             let category_cache = category_cache.borrow();
             category_cache.save(CATEGORY_CACHE_PATH);
@@ -737,8 +751,7 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
         /* ═══════════════════════════════════════════════════════════════════════ */
         let categorize_score_inputs = load_json_lines(&categorize_score_input_path)
             .expect("Failed to load categorize results for categorize scoring");
-        let categorize_score_entries =
-            deserialize_categorized_entries(categorize_score_inputs);
+        let categorize_score_entries = deserialize_categorized_entries(categorize_score_inputs);
         // no need to skip because even if there is no categorized samples, we still want to write an empty summary
         let mut category_counts: HashMap<String, usize> = HashMap::new();
         let mut category_samples: HashMap<String, Vec<String>> = HashMap::new();
@@ -754,23 +767,20 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
             "summary": category_counts,
             "samples": category_samples
         });
-        let final_output_serialized =
-            serde_json::to_string_pretty(&final_output)
-                .expect("Failed to serialize categorize score output");
+        let final_output_serialized = serde_json::to_string_pretty(&final_output)
+            .expect("Failed to serialize categorize score output");
         // write the json object to file manually
         fs::create_dir_all(
             std::path::Path::new(&categorize_score_output_path)
                 .parent()
                 .expect("Failed to get parent directory for categorize score output path"),
-        ).expect("Failed to create directories for categorize score output path");
+        )
+        .expect("Failed to create directories for categorize score output path");
         fs::write(categorize_score_output_path, final_output_serialized)
-            .expect("Failed to write categorize score results to file");        
+            .expect("Failed to write categorize score results to file");
         /* ═══════════════════════════════════════════════════════════════════════ */
         /* All passes completed                                                    */
         /* ═══════════════════════════════════════════════════════════════════════ */
-        println!(
-            "Completed processing for config: {:?}",
-            config
-        );
+        println!("Completed processing for config: {:?}", config);
     }
 }
