@@ -7,7 +7,9 @@ use std::fs::OpenOptions;
 use std::io::Write;
 use std::io::{BufRead, BufReader};
 
-pub struct CategoryCache(pub HashMap<(String, Vec<String>), String>);
+use crate::tool_error_analysis::ToolErrorCategory;
+
+pub struct CategoryCache(pub HashMap<(String, Vec<String>), ToolErrorCategory>);
 
 #[derive(Serialize, Deserialize, Clone)]
 pub struct CategoryCacheEntry {
@@ -36,8 +38,10 @@ impl CategoryCache {
         }
         let category_cache = category_cache_entries
             .into_iter()
-            .map(|entry| ((entry.query, entry.ground_truths), entry.category))
-            .collect::<HashMap<(String, Vec<String>), String>>();
+            .map(|entry| {
+                let category_deserialized = serde_json::from_str::<ToolErrorCategory>(&entry.category).expect("Should serailize to category.");
+                ((entry.query, entry.ground_truths), category_deserialized)})
+            .collect();
         CategoryCache(category_cache)
     }
     pub fn save(&self, cache_path: &str) {
@@ -50,11 +54,13 @@ impl CategoryCache {
         let category_entries: Vec<CategoryCacheEntry> = self
             .0
             .iter()
-            .map(|((query, ground_truths), category)| CategoryCacheEntry {
+            .map(|((query, ground_truths), category)| {
+                let category_serialized = serde_json::to_string(category).expect("Should serialize category to string.");
+                CategoryCacheEntry {
                 query: query.clone(),
                 ground_truths: ground_truths.clone(),
-                category: category.clone(),
-            })
+                category: category_serialized,
+            }})
             .collect();
         for entry in category_entries {
             let entry = serde_json::to_string(&entry).expect("Failed to serialize cache entry to JSON value");

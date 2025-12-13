@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use strum_macros::{Display, EnumString};
+use strum_macros::{Display};
 
 #[derive(Clone, Serialize, Deserialize, Display)]
 pub enum ToolErrorCategory {

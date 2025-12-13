@@ -8,7 +8,7 @@ use std::{
     collections::HashMap,
     fs::{self, File, OpenOptions},
     hash::Hash,
-    sync::Arc,
+    sync::{Arc, atomic::AtomicUsize},
 };
 
 use crate::{
@@ -493,11 +493,11 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                                 .expect("Translated function call should exist")
                         })
                         .collect();
-                    InferenceJsonEntry {
-                        id: entry.id,
-                        valid: entry.valid,
-                        result: Ok(translated_function_calls),
-                    }
+                    InferenceJsonEntry::new(
+                        entry.id,
+                        entry.valid,
+                        Ok(translated_function_calls),
+                    )
                 };
                 translate_functions_tasks.push(task);
             }
@@ -573,7 +573,7 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                 .expect("Inference result should exist");
             let test_case = test_cases.get(id).expect("Test case should exist");
             let ground_truth = ground_truths.get(id).expect("Ground truth should exist");
-            let evaluation_result = evaluate_entry(id, inference_result, test_case, ground_truth);
+            let evaluation_result = evaluate_entry(id.into(), inference_result, test_case, ground_truth);
             evaluation_results.push(evaluation_result);
         }
         // Final sort and write
@@ -651,6 +651,7 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
             let category_cache =
                 CategoryCache::load_or_create(CATEGORY_CACHE_PATH);
             let category_cache = Arc::new(AtomicRefCell::new(category_cache));
+            let cache_hits = Arc::new(AtomicUsize::new(0));
             let main_interface = get_model_interface(config.model);
             let main_backend = get_or_create_backend(config.model, WhichBackend::Main, num_gpus)
                 .await;
@@ -663,18 +664,24 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                 let main_interface = main_interface.clone();
                 let main_backend = main_backend.clone();
                 let category_cache = category_cache.clone();
+                let cache_hits = cache_hits.clone();
                 
                 let id = entry.id.clone();
                 let error = entry.error.clone().expect("Error should exist for wrong cases");
                 let task = async move {
-                    categorize_entry(
-                        &id,
+                    let category = categorize_entry(
                         &error,
                         main_interface,
                         main_backend,                    
                         category_cache,    
+                        cache_hits,
                     )
-                    .await
+                    .await;
+                    CategorizedEntry {
+                        id,
+                        error_category: category,
+                        error,
+                    }
                 };
                 categorize_tasks.push(task);
             }

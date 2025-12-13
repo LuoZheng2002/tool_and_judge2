@@ -2,6 +2,10 @@
 
 
 
+import re
+from typing import Any, List
+
+
 async def generate_tool_call_async(model_name: str, client: any, question: str, tools: list, prompt_passing_in_english: bool) -> str:
     developer_message = {
         "role": "developer",
@@ -64,3 +68,62 @@ async def translate_tool_answer_async(model_name: str, client: any, parameter_va
         input = messages,
     )
     return response.output_text.strip()
+
+async def categorize_parameter_value_async(
+    model_name: str,
+    client: Any,
+    param_name: str,
+    actual_value: str,
+    expected_values: str,
+) -> str:
+    system_prompt = """You are a parameter value categorization system. Given a parameter with its actual value and expected values, determine which category the mismatch belongs to.
+
+Here are the 6 available categories for parameter value mismatches:
+1. wrong_value: The output value is COMPLETELY incorrect (wrong calculation, wrong fact, unrelated content). If some words or meanings overlap with expected values, choose relevant_but_incorrect instead.
+2. relevant_but_incorrect: The value is in English, relevant to the expected values, but not exactly the same in meaning.
+3. exactly_same_meaning: The value is in English and conveys the exact same meaning as one of the expected values, though not verbatim.
+4. language_mismatch_wrong_value: The value contains non-English text AND is completely incorrect.
+5. language_mismatch_relevant_but_incorrect: The value contains non-English text AND is relevant but not exactly correct.
+6. language_mismatch_exactly_same_meaning: The value contains non-English text AND conveys the same meaning as expected.
+
+CRITICAL: You must put your final decision inside \\boxed{} like this: \\boxed{category_name}
+where category_name is exactly one of: wrong_value, relevant_but_incorrect, exactly_same_meaning, language_mismatch_wrong_value, language_mismatch_relevant_but_incorrect, or language_mismatch_exactly_same_meaning."""
+    user_prompt = f"""Parameter: {param_name}
+Actual value: {actual_value}
+Expected values: {expected_values}
+
+Which category does this parameter value mismatch belong to?
+Put your final answer in \\boxed{{category_name}}."""
+
+    # Make API call
+    messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt}
+    ]
+
+    try:
+        response = await client.chat.completions.create(
+            model=model_name,
+            messages=messages,
+        )
+
+        # Extract and validate response content
+        if not response.choices or len(response.choices) == 0:
+            return "LLM returns no choices"
+
+        content = response.choices[0].message.content
+        if content is None or not content.strip():
+            return "LLM returns empty content"
+        
+        # Extract category from \boxed{category_name}
+        boxed_pattern = r'\\boxed\{([^}]+)\}'
+        match = re.search(boxed_pattern, content)
+
+        if not match:
+            return "LLM returns no boxed category"
+        raw_category = match.group(1).strip().lower()
+
+        return raw_category
+
+    except Exception as e:
+        return "LLM returns exception"
