@@ -45,7 +45,7 @@ const CATEGORY_CACHE_LOCK_PATH: &str = "tool_category_cache.lock";
 // - Tier 2: 5000 RPM -> use 50-80 concurrent
 // - Tier 3+: higher  -> use 100+ concurrent
 // Setting this too high will cause rate limit throttling (429 errors)
-const MAX_CONCURRENT_REQUESTS: usize = 50;
+const MAX_CONCURRENT_REQUESTS: usize = 200;
 
 pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
     let (extracted_configs, config_len): (Vec<ToolConfig>, usize) = Python::attach(|py| {

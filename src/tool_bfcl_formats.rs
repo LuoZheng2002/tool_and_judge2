@@ -1,6 +1,7 @@
 use std::collections::HashMap;
 
 use indexmap::IndexMap;
+use serde::{Deserialize, Serialize};
 use serde_json::json;
 
 #[derive(Clone)]
@@ -143,22 +144,46 @@ pub struct BfclFunctionDef {
     pub name: String,
     pub description: String,
     pub parameters: Vec<BfclParameter>,
-    pub required: Vec<String>,
+    // pub required: Vec<String>,
 }
 
-#[derive(Clone)]
+/// This is the derivation of the structure model for BFCL's single parameter (by observing the dataset).
+///
+/// It may recursively appear in the value of "properties" or "items" field.
+///
+/// Fields annotated with `skip_serializing_if` are all technically optional, although semantically some of them always appear under certain conditions.
+///
+/// BFCL does not have specification on the concrete syntax rules, so we cannot assume anything regarding the field appearance patterns.
+///
+/// This model assumes that the conventional "list of arguments" can be represented with a single parameter of this type on the top level.
+///
+/// In all BFCL dataset entries, it seems that the top level parameter has a significant difference from its nested parameters:
+///
+/// - The top level parameter always has "type": "dict", and always has a "properties" field.
+///
+/// It may be reasonable to model the top level parameter separately, but it might be against BFCL's intended semantic.
+#[derive(Serialize, Deserialize, Clone)]
+#[serde(deny_unknown_fields)]
 pub struct BfclParameter {
-    pub name: String,
+    #[serde(rename = "type")]
     pub ty: String,
-    pub items_ty: Option<String>,
-    pub description: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub properties: Option<IndexMap<String, BfclParameter>>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub items: Option<Box<BfclParameter>>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub required: Option<Vec<String>>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub default: Option<bool>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub optional: Option<bool>,
 }
 
-#[derive(Clone)]
-pub struct BfclGroundTruthFunctionCall {
-    pub function_name: String,
-    pub parameters: IndexMap<String, Vec<serde_json::Value>>,
-}
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct BfclGroundTruthFunctionCallParameters(pub IndexMap<String, Vec<serde_json::Value>>);
 
 #[derive(Clone)]
 pub struct BfclOutputFunctionCall {
@@ -207,7 +232,7 @@ impl BfclOutputFunctionCall {
     }
 }
 
-impl BfclGroundTruthFunctionCall {
+impl BfclGroundTruthFunctionCallParameters {
     pub fn serialize_to_json(self) -> serde_json::Value {
         let parameters_json = self
             .parameters
@@ -236,7 +261,7 @@ impl BfclGroundTruthFunctionCall {
             parameters.insert(param_name.clone(), param_array.clone());
         }
 
-        Ok(BfclGroundTruthFunctionCall {
+        Ok(BfclGroundTruthFunctionCallParameters {
             function_name: function_name.clone(),
             parameters,
         })
@@ -246,7 +271,7 @@ impl BfclGroundTruthFunctionCall {
 #[derive(Clone)]
 pub struct BfclGroundTruthEntry {
     pub id: String,
-    pub ground_truth: Vec<BfclGroundTruthFunctionCall>,
+    pub ground_truth: Vec<BfclGroundTruthFunctionCallParameters>,
 }
 
 impl BfclGroundTruthEntry {
@@ -264,7 +289,8 @@ impl BfclGroundTruthEntry {
 
         let mut ground_truth = Vec::new();
         for gt_val in gt_array {
-            let function_call = BfclGroundTruthFunctionCall::deserialize_from_json(gt_val)?;
+            let function_call =
+                BfclGroundTruthFunctionCallParameters::deserialize_from_json(gt_val)?;
             ground_truth.push(function_call);
         }
 

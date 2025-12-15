@@ -6,7 +6,8 @@ use crate::{
         model_interface::ModelInterface,
     },
     tool_bfcl_formats::{
-        BfclFunctionDef, BfclGroundTruthFunctionCall, BfclOutputFunctionCall, BfclParameter,
+        BfclFunctionDef, BfclGroundTruthFunctionCallParameters, BfclOutputFunctionCall,
+        BfclParameter,
     },
     tool_error_analysis::EvaluationError,
 };
@@ -32,7 +33,7 @@ pub struct Gpt5Tool {
 pub struct Gpt5Parameters {
     #[serde(rename = "type")]
     pub ty: String,
-    pub properties: HashMap<String, Gpt5PropertyValue>,
+    pub properties: IndexMap<String, Gpt5PropertyValue>,
     pub required: Vec<String>,
 }
 
@@ -46,6 +47,10 @@ pub struct Gpt5PropertyValue {
     pub ty: String,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub items: Option<IndexMap<String, String>>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub default: Option<serde_json::Value>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub properties: Option<IndexMap<String, Gpt5PropertyValue>>,
     pub description: String,
 }
 
@@ -107,7 +112,7 @@ impl Gpt5Interface {
         let sanitized_functions = name_mapper.map_function_names(functions);
         let mut gpt5_tools = Vec::new();
         for func in &sanitized_functions {
-            let mut properties = HashMap::new();
+            let mut properties = IndexMap::new();
             let required = func.required.clone();
             for param in &func.parameters {
                 let items: Option<IndexMap<String, String>> = match &param.items_ty {
@@ -193,6 +198,7 @@ impl ModelInterface for Gpt5Interface {
                 &mut *name_mapper_borrow,
             )
         };
+        println!("{}", serde_json::to_string(&gpt5_tools).unwrap());
         let gpt5_tools_serialized =
             serde_json::to_string(&gpt5_tools).expect("Failed to serialize GPT-5 tools");
 
