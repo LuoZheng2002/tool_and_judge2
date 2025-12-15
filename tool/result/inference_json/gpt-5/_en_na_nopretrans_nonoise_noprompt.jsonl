@@ -38,7 +38,7 @@
 {"id":"multiple_37","valid":true,"result":{"Ok":[{"kinematics.final_velocity":{"time":6,"initial_velocity":40,"acceleration":-9.81}}]}}
 {"id":"multiple_38","valid":true,"result":{"Ok":[{"library.search_book":{"genre":"","availability":false,"city":"New York","book_name":"The Alchemist"}}]}}
 {"id":"multiple_39","valid":true,"result":{"Ok":[{"ride_hailing.get_rides":{"max_cost":50,"source":"New York","destination":"Philadelphia"}}]}}
-{"id":"multiple_40","valid":true,"result":{"Ok":[{"electromagnetism.ampere_law":{"enclosed_current":12,"radius":8,"mu0":0.000001256}}]}}
+{"id":"multiple_40","valid":true,"result":{"Ok":[{"electromagnetism.ampere_law":{"enclosed_current":12,"radius":8,"mu0":1.256e-6}}]}}
 {"id":"multiple_41","valid":true,"result":{"Ok":[{"magnetic_field.calculate":{"r":0.01,"I":10}}]}}
 {"id":"multiple_42","valid":true,"result":{"Ok":[{"calculate_final_temperature":{"quantity1":2,"temperature2":400,"temperature1":300,"quantity2":3}}]}}
 {"id":"multiple_43","valid":true,"result":{"Ok":[{"biological.calc_energy":{"substance":"C6H12O6","joules_per_mol":2800,"mols":5}}]}}

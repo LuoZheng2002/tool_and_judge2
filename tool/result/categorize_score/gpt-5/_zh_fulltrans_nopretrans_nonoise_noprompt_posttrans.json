@@ -1,31 +1,11 @@
 {
   "summary": {
-    "WrongValue": 4,
-    "RelevantButIncorrect": 18,
     "MiscError": 11,
-    "ExactlySameMeaning": 31
+    "ExactlySameMeaning": 31,
+    "RelevantButIncorrect": 18,
+    "WrongValue": 4
   },
   "samples": {
-    "RelevantButIncorrect": [
-      "multiple_3",
-      "multiple_4",
-      "multiple_38",
-      "multiple_47",
-      "multiple_55",
-      "multiple_64",
-      "multiple_65",
-      "multiple_93",
-      "multiple_99",
-      "multiple_115",
-      "multiple_123",
-      "multiple_175",
-      "multiple_184",
-      "multiple_186",
-      "multiple_188",
-      "multiple_190",
-      "multiple_191",
-      "multiple_196"
-    ],
     "MiscError": [
       "multiple_7",
       "multiple_8",
@@ -77,6 +57,26 @@
       "multiple_92",
       "multiple_156",
       "multiple_173"
+    ],
+    "RelevantButIncorrect": [
+      "multiple_3",
+      "multiple_4",
+      "multiple_38",
+      "multiple_47",
+      "multiple_55",
+      "multiple_64",
+      "multiple_65",
+      "multiple_93",
+      "multiple_99",
+      "multiple_115",
+      "multiple_123",
+      "multiple_175",
+      "multiple_184",
+      "multiple_186",
+      "multiple_188",
+      "multiple_190",
+      "multiple_191",
+      "multiple_196"
     ]
   }
 }

@@ -1,9 +1,9 @@
 {
   "summary": {
-    "ExactlySameMeaning": 37,
     "MiscError": 10,
-    "WrongValue": 1,
-    "RelevantButIncorrect": 21
+    "ExactlySameMeaning": 37,
+    "RelevantButIncorrect": 21,
+    "WrongValue": 1
   },
   "samples": {
     "RelevantButIncorrect": [
@@ -29,6 +29,9 @@
       "multiple_190",
       "multiple_196"
     ],
+    "WrongValue": [
+      "multiple_173"
+    ],
     "MiscError": [
       "multiple_7",
       "multiple_8",
@@ -40,9 +43,6 @@
       "multiple_92",
       "multiple_119",
       "multiple_141"
-    ],
-    "WrongValue": [
-      "multiple_173"
     ],
     "ExactlySameMeaning": [
       "multiple_13",

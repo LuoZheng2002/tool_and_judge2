@@ -1,15 +1,20 @@
 {
   "summary": {
+    "RelevantButIncorrect": 8,
     "ExactlySameMeaning": 14,
     "WrongValue": 3,
-    "RelevantButIncorrect": 8,
     "MiscError": 9
   },
   "samples": {
-    "WrongValue": [
-      "multiple_92",
-      "multiple_109",
-      "multiple_173"
+    "RelevantButIncorrect": [
+      "multiple_3",
+      "multiple_47",
+      "multiple_54",
+      "multiple_65",
+      "multiple_93",
+      "multiple_123",
+      "multiple_124",
+      "multiple_151"
     ],
     "ExactlySameMeaning": [
       "multiple_29",
@@ -38,15 +43,10 @@
       "multiple_119",
       "multiple_157"
     ],
-    "RelevantButIncorrect": [
-      "multiple_3",
-      "multiple_47",
-      "multiple_54",
-      "multiple_65",
-      "multiple_93",
-      "multiple_123",
-      "multiple_124",
-      "multiple_151"
+    "WrongValue": [
+      "multiple_92",
+      "multiple_109",
+      "multiple_173"
     ]
   }
 }
