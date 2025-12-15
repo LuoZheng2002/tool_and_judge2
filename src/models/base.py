@@ -19,8 +19,8 @@ from dataclasses import dataclass
 import asyncio
 
 
-from models.name_mapping import FunctionNameMapper
-from config import EvaluationError
+from .name_mapping import FunctionNameMapper
+from ..config import EvaluationError
 
 
 # =============================================================================

@@ -23,8 +23,8 @@ from .base import (
     ForwardResult,
 )
 
-from models.name_mapping import FunctionNameMapper
-from config import EvaluationError
+from .name_mapping import FunctionNameMapper
+from ..config import EvaluationError
 
 
 class GPT5Interface(JudgeModelInterface, ToolModelInterface):

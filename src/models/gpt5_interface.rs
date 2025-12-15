@@ -92,7 +92,7 @@ impl Gpt5OutputFunctionCall {
 pub struct Gpt5Interface;
 
 impl Gpt5Interface {
-    fn map_type_hint(ty: &str) -> String {
+    pub fn map_type_hint(ty: &str) -> String {
         match ty {
             "dict" => "object".to_string(),
             "float" => "number".to_string(),
@@ -100,7 +100,7 @@ impl Gpt5Interface {
             _ => ty.to_string(),
         }
     }
-    fn sanitize_and_convert_function_format(
+    pub fn sanitize_and_convert_function_format(
         functions: &Vec<BfclFunctionDef>,
         name_mapper: &mut FunctionNameMapper,
     ) -> Vec<Gpt5Tool> {
