@@ -1,10 +1,10 @@
 {
   "summary": {
-    "LanguageMismatchExactlySameMeaning": 21,
-    "WrongValue": 3,
-    "LanguageMismatchRelevantButIncorrect": 2,
-    "MiscError": 2,
     "RelevantButIncorrect": 15,
+    "LanguageMismatchExactlySameMeaning": 21,
+    "LanguageMismatchRelevantButIncorrect": 2,
+    "WrongValue": 3,
+    "MiscError": 2,
     "ExactlySameMeaning": 25
   },
   "samples": {
@@ -58,10 +58,9 @@
       "multiple_193",
       "multiple_194"
     ],
-    "WrongValue": [
-      "multiple_32",
-      "multiple_47",
-      "multiple_173"
+    "LanguageMismatchRelevantButIncorrect": [
+      "multiple_191",
+      "multiple_196"
     ],
     "RelevantButIncorrect": [
       "multiple_3",
@@ -80,9 +79,10 @@
       "multiple_186",
       "multiple_190"
     ],
-    "LanguageMismatchRelevantButIncorrect": [
-      "multiple_191",
-      "multiple_196"
+    "WrongValue": [
+      "multiple_32",
+      "multiple_47",
+      "multiple_173"
     ],
     "MiscError": [
       "multiple_9",

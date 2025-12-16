@@ -1,9 +1,9 @@
 {
   "summary": {
-    "ExactlySameMeaning": 15,
-    "RelevantButIncorrect": 6,
+    "MiscError": 4,
     "WrongValue": 2,
-    "MiscError": 4
+    "ExactlySameMeaning": 15,
+    "RelevantButIncorrect": 6
   },
   "samples": {
     "ExactlySameMeaning": [

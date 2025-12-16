@@ -50,6 +50,10 @@ pub enum LocalModel {
     Qwen3_32B,
     #[strum(serialize = "Qwen/Qwen3-Next-80B-A3B-Instruct")]
     Qwen3Next80bA3b,
+    #[strum(serialize = "meta-llama/Llama-3.1-8B-Instruct")]
+    Llama3_1_8B,
+    #[strum(serialize = "meta-llama/Llama-3.1-70B-Instruct")]
+    Llama3_1_70B,
 }
 
 impl std::fmt::Debug for LocalModel {

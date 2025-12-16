@@ -1,11 +1,19 @@
 {
   "summary": {
-    "RelevantButIncorrect": 19,
-    "ExactlySameMeaning": 29,
     "MiscError": 6,
-    "WrongValue": 1
+    "WrongValue": 1,
+    "RelevantButIncorrect": 19,
+    "ExactlySameMeaning": 29
   },
   "samples": {
+    "MiscError": [
+      "multiple_9",
+      "multiple_10",
+      "multiple_18",
+      "multiple_25",
+      "multiple_26",
+      "multiple_83"
+    ],
     "ExactlySameMeaning": [
       "multiple_7",
       "multiple_29",
@@ -36,14 +44,6 @@
       "multiple_193",
       "multiple_194",
       "multiple_199"
-    ],
-    "MiscError": [
-      "multiple_9",
-      "multiple_10",
-      "multiple_18",
-      "multiple_25",
-      "multiple_26",
-      "multiple_83"
     ],
     "WrongValue": [
       "multiple_156"

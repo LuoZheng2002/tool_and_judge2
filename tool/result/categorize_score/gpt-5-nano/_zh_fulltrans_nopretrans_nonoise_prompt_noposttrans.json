@@ -1,21 +1,10 @@
 {
   "summary": {
+    "ExactlySameMeaning": 27,
     "MiscError": 9,
-    "RelevantButIncorrect": 13,
-    "ExactlySameMeaning": 27
+    "RelevantButIncorrect": 13
   },
   "samples": {
-    "MiscError": [
-      "multiple_9",
-      "multiple_10",
-      "multiple_13",
-      "multiple_18",
-      "multiple_25",
-      "multiple_26",
-      "multiple_40",
-      "multiple_156",
-      "multiple_168"
-    ],
     "ExactlySameMeaning": [
       "multiple_29",
       "multiple_33",
@@ -44,6 +33,17 @@
       "multiple_193",
       "multiple_194",
       "multiple_199"
+    ],
+    "MiscError": [
+      "multiple_9",
+      "multiple_10",
+      "multiple_13",
+      "multiple_18",
+      "multiple_25",
+      "multiple_26",
+      "multiple_40",
+      "multiple_156",
+      "multiple_168"
     ],
     "RelevantButIncorrect": [
       "multiple_38",

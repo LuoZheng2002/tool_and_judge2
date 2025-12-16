@@ -1,14 +1,11 @@
 {
   "summary": {
-    "WrongValue": 1,
-    "MiscError": 4,
     "ExactlySameMeaning": 14,
-    "RelevantButIncorrect": 14
+    "MiscError": 4,
+    "RelevantButIncorrect": 14,
+    "WrongValue": 1
   },
   "samples": {
-    "WrongValue": [
-      "multiple_139"
-    ],
     "RelevantButIncorrect": [
       "multiple_3",
       "multiple_32",
@@ -24,6 +21,9 @@
       "multiple_124",
       "multiple_182",
       "multiple_186"
+    ],
+    "WrongValue": [
+      "multiple_139"
     ],
     "ExactlySameMeaning": [
       "multiple_25",

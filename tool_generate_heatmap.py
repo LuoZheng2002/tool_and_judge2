@@ -207,14 +207,31 @@ def generate_heatmap(model_name: str, output_dir: str, result_dir: str) -> None:
 
 # Example usage
 if __name__ == "__main__":
-    # Generate heatmaps for different models
-    # Model names should match the directory names in result/score/
-    # Examples: "gpt-5", "gpt-5-mini", "gpt-5-nano"
-    # models = ["gpt-5-nano", "gpt-5-mini", "gpt-5"]
-    models = ['gpt-5-nano']
+    import argparse
 
-    for model in models:
+    parser = argparse.ArgumentParser(
+        description="Generate heatmaps showing accuracy across translate and noise modes for specified models."
+    )
+    parser.add_argument(
+        "models",
+        nargs="+",
+        help="Model names to process (e.g., gpt-5 gpt-5-mini gpt-5-nano)"
+    )
+    parser.add_argument(
+        "--output-dir",
+        default=".",
+        help="Directory to save heatmap images (default: current directory)"
+    )
+    parser.add_argument(
+        "--result-dir",
+        default="tool/result/score",
+        help="Directory containing the score files (default: tool/result/score)"
+    )
+
+    args = parser.parse_args()
+
+    for model in args.models:
         print(f"\n{'='*60}")
         print(f"Generating heatmap for {model}")
         print(f"{'='*60}")
-        generate_heatmap(model, ".", "tool/result/score")
+        generate_heatmap(model, args.output_dir, args.result_dir)

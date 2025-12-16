@@ -1,13 +1,21 @@
 {
   "summary": {
-    "LanguageMismatchExactlySameMeaning": 13,
-    "LanguageMismatchRelevantButIncorrect": 1,
+    "MiscError": 6,
     "WrongValue": 2,
-    "ExactlySameMeaning": 23,
     "RelevantButIncorrect": 17,
-    "MiscError": 6
+    "ExactlySameMeaning": 23,
+    "LanguageMismatchExactlySameMeaning": 13,
+    "LanguageMismatchRelevantButIncorrect": 1
   },
   "samples": {
+    "MiscError": [
+      "multiple_9",
+      "multiple_10",
+      "multiple_18",
+      "multiple_26",
+      "multiple_40",
+      "multiple_168"
+    ],
     "LanguageMismatchExactlySameMeaning": [
       "multiple_38",
       "multiple_53",
@@ -22,18 +30,6 @@
       "multiple_188",
       "multiple_191",
       "multiple_193"
-    ],
-    "WrongValue": [
-      "multiple_139",
-      "multiple_182"
-    ],
-    "MiscError": [
-      "multiple_9",
-      "multiple_10",
-      "multiple_18",
-      "multiple_26",
-      "multiple_40",
-      "multiple_168"
     ],
     "RelevantButIncorrect": [
       "multiple_7",
@@ -53,6 +49,13 @@
       "multiple_184",
       "multiple_186",
       "multiple_190"
+    ],
+    "LanguageMismatchRelevantButIncorrect": [
+      "multiple_76"
+    ],
+    "WrongValue": [
+      "multiple_139",
+      "multiple_182"
     ],
     "ExactlySameMeaning": [
       "multiple_25",
@@ -78,9 +81,6 @@
       "multiple_181",
       "multiple_194",
       "multiple_199"
-    ],
-    "LanguageMismatchRelevantButIncorrect": [
-      "multiple_76"
     ]
   }
 }

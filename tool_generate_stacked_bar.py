@@ -271,43 +271,74 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
 
 # Example usage
 if __name__ == "__main__":
-    # Generate stacked bar charts for different models
-    models = ["gpt-5"]  # Add more models as needed
-    # models = ['Qwen-Qwen3-8B', 'Qwen-Qwen3-30B-A3B', 'Qwen-Qwen3-14B']
+    import argparse
 
-    for model in models:
+    parser = argparse.ArgumentParser(
+        description="Generate stacked bar charts showing error type distributions for specified models."
+    )
+    parser.add_argument(
+        "models",
+        nargs="+",
+        help="Model names to process (e.g., gpt-5 gpt-5-mini gpt-5-nano)"
+    )
+    parser.add_argument(
+        "--output-dir",
+        default=".",
+        help="Directory to save chart images (default: current directory)"
+    )
+    parser.add_argument(
+        "--result-dir",
+        default="tool/result/categorize_score",
+        help="Directory containing the categorize_score files (default: tool/result/categorize_score)"
+    )
+    parser.add_argument(
+        "--translate-mode",
+        choices=translate_modes,
+        help="Only show bars for this translate mode across noise modes"
+    )
+    parser.add_argument(
+        "--noise-mode",
+        choices=noise_modes,
+        help="Only show bars for this noise mode across translate modes"
+    )
+
+    args = parser.parse_args()
+
+    for model in args.models:
         print(f"\n{'='*60}")
         print(f"Generating stacked bar charts for {model}")
         print(f"{'='*60}")
 
-        # Generate chart for NO_NOISE across all translate modes
-        generate_stacked_bar_chart(
-            model,
-            ".",
-            "tool/result/categorize_score",
-            selected_noise_mode="NO_NOISE"
-        )
+        if args.translate_mode or args.noise_mode:
+            # Generate chart with specified filter
+            generate_stacked_bar_chart(
+                model,
+                args.output_dir,
+                args.result_dir,
+                selected_translate_mode=args.translate_mode,
+                selected_noise_mode=args.noise_mode
+            )
+        else:
+            # Generate chart for NO_NOISE across all translate modes
+            generate_stacked_bar_chart(
+                model,
+                args.output_dir,
+                args.result_dir,
+                selected_noise_mode="NO_NOISE"
+            )
 
-        # Generate chart for PARAPHRASE across all translate modes
-        generate_stacked_bar_chart(
-            model,
-            ".",
-            "tool/result/categorize_score",
-            selected_noise_mode="PARAPHRASE"
-        )
+            # Generate chart for PARAPHRASE across all translate modes
+            generate_stacked_bar_chart(
+                model,
+                args.output_dir,
+                args.result_dir,
+                selected_noise_mode="PARAPHRASE"
+            )
 
-        # Generate chart for SYNONYM across all translate modes
-        generate_stacked_bar_chart(
-            model,
-            ".",
-            "tool/result/categorize_score",
-            selected_noise_mode="SYNONYM"
-        )
-
-        # Or generate chart for a specific translate mode across noise modes
-        # generate_stacked_bar_chart(
-        #     model,
-        #     ".",
-        #     "tool/result/categorize_score",
-        #     selected_translate_mode="NT"
-        # )
+            # Generate chart for SYNONYM across all translate modes
+            generate_stacked_bar_chart(
+                model,
+                args.output_dir,
+                args.result_dir,
+                selected_noise_mode="SYNONYM"
+            )

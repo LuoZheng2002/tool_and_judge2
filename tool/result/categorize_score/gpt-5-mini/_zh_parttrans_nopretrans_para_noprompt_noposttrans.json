@@ -1,11 +1,11 @@
 {
   "summary": {
     "WrongValue": 2,
-    "RelevantButIncorrect": 15,
-    "ExactlySameMeaning": 12,
-    "MiscError": 4,
     "LanguageMismatchRelevantButIncorrect": 1,
-    "LanguageMismatchExactlySameMeaning": 4
+    "MiscError": 4,
+    "LanguageMismatchExactlySameMeaning": 4,
+    "RelevantButIncorrect": 15,
+    "ExactlySameMeaning": 12
   },
   "samples": {
     "ExactlySameMeaning": [
@@ -21,6 +21,10 @@
       "multiple_172",
       "multiple_183",
       "multiple_193"
+    ],
+    "WrongValue": [
+      "multiple_109",
+      "multiple_156"
     ],
     "MiscError": [
       "multiple_9",
@@ -44,10 +48,6 @@
       "multiple_177",
       "multiple_182",
       "multiple_190"
-    ],
-    "WrongValue": [
-      "multiple_109",
-      "multiple_156"
     ],
     "LanguageMismatchExactlySameMeaning": [
       "multiple_18",

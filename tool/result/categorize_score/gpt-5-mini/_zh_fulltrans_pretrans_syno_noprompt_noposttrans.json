@@ -1,9 +1,9 @@
 {
   "summary": {
-    "RelevantButIncorrect": 27,
-    "MiscError": 3,
     "ExactlySameMeaning": 27,
-    "WrongValue": 1
+    "RelevantButIncorrect": 27,
+    "WrongValue": 1,
+    "MiscError": 3
   },
   "samples": {
     "WrongValue": [

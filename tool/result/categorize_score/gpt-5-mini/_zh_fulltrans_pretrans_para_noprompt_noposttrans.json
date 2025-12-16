@@ -2,9 +2,9 @@
   "summary": {
     "WrongValue": 2,
     "LanguageMismatchExactlySameMeaning": 1,
+    "MiscError": 3,
     "RelevantButIncorrect": 30,
-    "ExactlySameMeaning": 25,
-    "MiscError": 3
+    "ExactlySameMeaning": 25
   },
   "samples": {
     "RelevantButIncorrect": [
@@ -39,10 +39,6 @@
       "multiple_190",
       "multiple_191"
     ],
-    "WrongValue": [
-      "multiple_47",
-      "multiple_109"
-    ],
     "MiscError": [
       "multiple_9",
       "multiple_10",
@@ -74,6 +70,10 @@
       "multiple_189",
       "multiple_193",
       "multiple_199"
+    ],
+    "WrongValue": [
+      "multiple_47",
+      "multiple_109"
     ],
     "LanguageMismatchExactlySameMeaning": [
       "multiple_16"

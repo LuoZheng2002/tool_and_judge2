@@ -58,10 +58,10 @@ const YIELD_EVERY_N_ITERATIONS: usize = 5;
 
 /// Helper to periodically yield control in loops to allow signal handling.
 /// This enables Ctrl+C to be detected during CPU-bound synchronous work.
-async fn yield_periodically(iteration: usize, total: usize, context: &str) {
+async fn yield_periodically(iteration: usize) {
     if iteration % YIELD_EVERY_N_ITERATIONS == 0 && iteration > 0 {
         tokio::task::yield_now().await;
-        println!("[{}/{}] {}", iteration, total, context);
+        // println!("[{}/{}] {}", iteration, total, context);
     }
 }
 
@@ -456,7 +456,7 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                 inference_json_outputs.push(output_entry);
 
                 // Periodically yield to allow cancellation
-                yield_periodically(idx, total_entries, "Processed inference JSON entries").await;
+                yield_periodically(idx).await;
             }
             // Final sort and write
             inference_json_outputs.sort_by(|a, b| compare_id(&a.id, &b.id));
@@ -644,7 +644,7 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                 evaluation_results.push(evaluation_result);
 
                 // Periodically yield to allow cancellation
-                yield_periodically(i, total_cases, "Evaluated cases").await;
+                yield_periodically(i).await;
             }
             // Final sort and write
             println!("Sorting evaluation results.");
