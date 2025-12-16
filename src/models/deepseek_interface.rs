@@ -1,8 +1,8 @@
-use std::{any::Any, collections::HashMap, sync::Arc};
+use std::{collections::HashMap, sync::Arc};
 
 use crate::{
     models::{
-        api_backend::ApiBackend, backend::ModelBackend, function_name_mapper::FunctionNameMapper,
+        backend::ModelBackend, function_name_mapper::FunctionNameMapper,
         model_interface::ModelInterface,
     },
     one_entry_map::KeyValuePair,
@@ -15,7 +15,7 @@ use crate::{
 use atomic_refcell::AtomicRefCell;
 use indexmap::IndexMap;
 use pyo3::{Python, types::PyAnyMethods};
-use pyo3::{prelude::*, types::PyList};
+use pyo3::{types::PyList};
 use serde::{Deserialize, Serialize};
 
 /// Response structure from Python postprocess_tool_calls function
@@ -173,9 +173,9 @@ impl ModelInterface for DeepSeekInterface {
         name_mapper: Arc<AtomicRefCell<FunctionNameMapper>>,
     ) -> String {
         // downcast backend to api backend
-        let api_backend = (backend.as_ref() as &dyn Any)
-            .downcast_ref::<ApiBackend>()
-            .expect("Failed to downcast to ApiBackend");
+        let ModelBackend::Api(api_backend) = backend.as_ref() else {
+            panic!("deepseek interface should use ApiBackend");
+        };
         let client = &api_backend.client;
         let deepseek_tools = {
             let mut name_mapper_borrow = name_mapper.borrow_mut();

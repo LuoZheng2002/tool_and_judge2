@@ -1,9 +1,6 @@
 use pyo3::{Py, PyAny, Python, types::PyAnyMethods};
 
-use crate::{
-    config::{LocalModel, Model},
-    models::backend::ModelBackend,
-};
+use crate::config::LocalModel;
 
 pub struct VllmBackend {
     pub model: LocalModel,

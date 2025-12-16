@@ -1,5 +1,4 @@
 use std::{
-    any::Any,
     sync::{Arc, atomic::AtomicUsize},
 };
 
@@ -9,19 +8,14 @@ use pyo3::{Python, types::PyAnyMethods};
 use crate::{
     config::{ApiModel, Model},
     models::{
-        api_backend::ApiBackend,
         backend::{BackendType, ModelBackend, WhichBackend, get_or_create_backend},
-        model_interface::ModelInterface,
     },
     tool_category_cache::CategoryCache,
     tool_error_analysis::{EvaluationError, ToolErrorCategory},
-    tool_file_models::CategorizedEntry,
 };
 
 pub async fn categorize_entry(
     evaluation_error: &EvaluationError,
-    model_interface: Arc<dyn ModelInterface>,
-    backend: Arc<ModelBackend>,
     category_cache: Arc<AtomicRefCell<CategoryCache>>,
     cache_hits: Arc<AtomicUsize>,
 ) -> ToolErrorCategory {
@@ -67,13 +61,17 @@ pub async fn categorize_parameter_value_async(
     actual_value: &serde_json::Value,
     expected_values: &Vec<serde_json::Value>,
 ) -> ToolErrorCategory {
+    // The backend type must be ApiOrHuggingFace because an ApiBackend will return ApiOrHuggingFace as its backend type.
     let categorize_backend =
-        get_or_create_backend(Model::Api(ApiModel::Gpt5), BackendType::ApiOrVllm,  WhichBackend::Assist, 1).await;
+        get_or_create_backend(Model::Api(ApiModel::Gpt5), BackendType::ApiOrHuggingFace,  WhichBackend::Assist, 1).await;
     let categorize_backend = categorize_backend.as_ref().expect("Should get backend");
-    let categorize_api_backend = (categorize_backend.as_ref() as &dyn Any)
-        .downcast_ref::<ApiBackend>()
-        .expect("Should be able to downcast");
-    let client = &categorize_api_backend.client;
+    // let categorize_api_backend = (categorize_backend.as_ref() as &dyn Any)
+    //     .downcast_ref::<ApiBackend>()
+    //     .expect("Should be able to downcast");
+    let ModelBackend::Api(api_backend) = categorize_backend.as_ref() else {
+        panic!("Categorize backend should be ApiBackend");
+    };
+    let client = &api_backend.client;
     let param_name = param_name.to_string();
     let actual_value = serde_json::to_string(actual_value).expect("Should serialize actual value");
     let expected_values =
@@ -86,7 +84,7 @@ pub async fn categorize_parameter_value_async(
         let categorize_async_fn = gpt5_backend_module
             .getattr("categorize_parameter_value_async")
             .expect("Failed to get categorize_parameter_value_async function");
-        let model_name = categorize_api_backend.model.to_string();
+        let model_name = api_backend.model.to_string();
         let arguments = (
             model_name,
             client,

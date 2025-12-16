@@ -2,7 +2,7 @@ use indexmap::IndexMap;
 
 use crate::{
     tool_bfcl_formats::{
-        BfclDatasetEntry, BfclGroundTruthEntry, BfclOutputFunctionCall, BfclParameter,
+        BfclDatasetEntry, BfclGroundTruthEntry, BfclParameter,
     },
     tool_error_analysis::EvaluationError,
     tool_file_models::{EvaluationResultEntry, InferenceJsonEntry},

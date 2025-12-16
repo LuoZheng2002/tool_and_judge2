@@ -1,7 +1,6 @@
 use std::sync::Arc;
 
 use atomic_refcell::AtomicRefCell;
-use serde::{Deserialize, Serialize};
 
 use crate::{
     config::{ApiModel, LocalModel, Model},

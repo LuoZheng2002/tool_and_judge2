@@ -1,5 +1,3 @@
-use std::fs::File;
-
 use crate::{
     tool_bfcl_formats::{BfclDatasetEntry, BfclGroundTruthEntry},
     tool_file_models::{CategorizedEntry, EvaluationResultEntry, InferenceJsonEntry, InferenceRawEntry},

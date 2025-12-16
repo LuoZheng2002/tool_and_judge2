@@ -1,7 +1,7 @@
-use std::{any::Any, collections::HashMap, sync::Arc};
+use std::{collections::HashMap, sync::Arc};
 
 use lazy_static::lazy_static;
-use pyo3::{Bound, pyclass};
+use pyo3::{pyclass};
 
 use crate::{config::Model, models::{api_backend::ApiBackend, vllm_backend::VllmBackend}};
 
@@ -111,25 +111,21 @@ pub async fn get_or_create_backend(
             let existing_backend_type = backend.get_backend_type();
             if existing_model_name == model && existing_backend_type == backend_type {
                 needs_to_create = false;
+            } else{
+                println!("Existing backend model {:?} and type {:?} do not match requested model {:?} and type {:?}. Recreating backend...", existing_model_name, existing_backend_type, model, backend_type);
             }
+        } else {
+            println!("Global backend is currently None. Creating new backend for model {:?}...", model);
         }
         if !needs_to_create {
             break;
         }
-        println!("Global backend not available, or model mismatch. Creating new backend for model {:?}...", model);
+        // println!("Global backend not available, or model mismatch. Creating new backend for model {:?}...", model);
         // drop the read guard before acquiring the write lock
         backend_guard.take();
         // We assume that no other task is trying to create the backend at the same time.
         // Even if they are, the worst that can happen is that we create the backend multiple times.
         let mut write_backend_guard = backend_reference.write().await;
-        // create the new backend and assign it to the global variable
-        // let new_backend: Arc<ModelBackend> = match &model {
-        //     Model::Api(api_model) => Arc::new(ModelBackend::Api(ApiBackend::new(*api_model))),
-        //     Model::Local(local_model) => {
-        //         // Create vLLM backend for local models
-        //         Arc::new(ModelBackend::Vllm(VllmBackend::new(*local_model, num_gpus)))
-        //     }
-        // };
         let new_backend = match backend_type {
             BackendType::ApiOrHuggingFace => {
                 match &model {

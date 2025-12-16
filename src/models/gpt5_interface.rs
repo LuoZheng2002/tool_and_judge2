@@ -1,25 +1,22 @@
-use std::{any::Any, collections::HashMap, sync::Arc};
+use std::{sync::Arc};
 
 use crate::{
     models::{
-        api_backend::ApiBackend, backend::ModelBackend, function_name_mapper::FunctionNameMapper,
+        backend::ModelBackend, function_name_mapper::FunctionNameMapper,
         model_interface::ModelInterface,
     },
     one_entry_map::KeyValuePair,
     single_or_list::SingleOrList,
-    tool_bfcl_formats::{
-        BfclFunctionDef, BfclGroundTruthFunctionCall, BfclOutputFunctionCall, BfclParameter,
-    },
+    tool_bfcl_formats::{BfclFunctionDef, BfclOutputFunctionCall, BfclParameter},
     tool_error_analysis::EvaluationError,
 };
 use atomic_refcell::AtomicRefCell;
 use indexmap::IndexMap;
-use pyo3::{Py, PyAny, Python, types::PyAnyMethods};
-use pyo3::{prelude::*, types::PyList};
+use pyo3::types::PyList;
+use pyo3::{Python, types::PyAnyMethods};
 use serde::{Deserialize, Serialize};
 
 use serde_json::Value;
-use serde_json::json;
 
 /// https://platform.openai.com/docs/guides/function-calling?strict-mode=enabled#defining-functions
 #[derive(Serialize)]
@@ -234,9 +231,9 @@ impl ModelInterface for Gpt5Interface {
         name_mapper: Arc<AtomicRefCell<FunctionNameMapper>>,
     ) -> String {
         // downcast backend to api backend
-        let api_backend = (backend.as_ref() as &dyn Any)
-            .downcast_ref::<ApiBackend>()
-            .expect("Failed to downcast to ApiBackend");
+        let ModelBackend::Api(api_backend) = backend.as_ref() else {
+            panic!("gpt5 interface should use ApiBackend");
+        };
         let client = &api_backend.client;
         let gpt5_tools = {
             let mut name_mapper_borrow = name_mapper.borrow_mut();
@@ -360,12 +357,12 @@ impl ModelInterface for Gpt5Interface {
                 continue; // skip non-function_call entries
             }
 
-            let func_call= parse_gpt5_function_call(potential_func_call).map_err(|e| {
-                    EvaluationError::ParsingError {
-                        error_message: format!("Failed to parse Gpt5OutputFunctionCall: {}", e),
-                        raw_output: raw_output.to_string(),
-                    }
-                })?;
+            let func_call = parse_gpt5_function_call(potential_func_call).map_err(|e| {
+                EvaluationError::ParsingError {
+                    error_message: format!("Failed to parse Gpt5OutputFunctionCall: {}", e),
+                    raw_output: raw_output.to_string(),
+                }
+            })?;
             let original_function_name = {
                 let name_mapper_borrow = name_mapper.borrow();
                 name_mapper_borrow.get_original_name(&func_call.name)
@@ -430,8 +427,9 @@ fn parse_gpt5_function_call(
     // replace the "arguments" field with the parsed JSON object
     function_call["arguments"] = arguments_json;
     // deserialize the modified function call into Gpt5OutputFunctionCall
-    let gpt5_output_function_call: Gpt5OutputFunctionCall = serde_json::from_value(function_call)
-        .map_err(|e| format!("Failed to deserialize Gpt5OutputFunctionCall: {}", e))?;
+    let gpt5_output_function_call: Gpt5OutputFunctionCall =
+        serde_json::from_value(function_call)
+            .map_err(|e| format!("Failed to deserialize Gpt5OutputFunctionCall: {}", e))?;
     Ok(gpt5_output_function_call)
 }
 

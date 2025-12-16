@@ -7,17 +7,14 @@ use pyo3::{
 use std::{
     collections::HashMap,
     fs::{self, File},
-    sync::{
-        Arc,
-        atomic::{AtomicUsize, Ordering},
-    },
+    sync::{Arc, atomic::AtomicUsize},
 };
 
 use crate::{
     config::{Language, ToolConfig, TranslateMode, TranslateOption},
     models::{
         backend::{BackendType, WhichBackend, get_or_create_backend},
-        function_name_mapper::{self, FunctionNameMapper},
+        function_name_mapper::FunctionNameMapper,
         model_interface::get_model_interface,
     },
     tool_bfcl_formats::{
@@ -92,7 +89,6 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
 
     let function_name_mapper = Arc::new(AtomicRefCell::new(FunctionNameMapper::new()));
     for config in extracted_configs {
-
         println!("Processing config: {:?}", config);
         let language_tag = match &config.translate_mode {
             TranslateMode::Translated { language, .. } => match language {
@@ -252,8 +248,13 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                 cases_to_translate.len()
             );
             // Get backend and interface for translation
-            let main_backend =
-                get_or_create_backend(config.model, BackendType::ApiOrVllm, WhichBackend::Main, num_gpus).await;
+            let main_backend = get_or_create_backend(
+                config.model,
+                BackendType::ApiOrVllm,
+                WhichBackend::Main,
+                num_gpus,
+            )
+            .await;
             let main_backend = main_backend
                 .as_ref()
                 .expect("Backend should be created by the call above");
@@ -342,8 +343,13 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
             }
             let total_cases = cases_to_process.len();
             println!("Generating functions for {} cases...", total_cases);
-            let main_backend =
-                get_or_create_backend(config.model, BackendType::ApiOrVllm,WhichBackend::Main, num_gpus).await;
+            let main_backend = get_or_create_backend(
+                config.model,
+                BackendType::ApiOrVllm,
+                WhichBackend::Main,
+                num_gpus,
+            )
+            .await;
             let main_backend = main_backend
                 .as_ref()
                 .expect("Backend should be created by the call above");
@@ -442,7 +448,6 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                 let mut fn_mapper = function_name_mapper.borrow_mut();
                 fn_mapper.populate_from_functions(&all_functions);
             }
-            let total_entries = inference_raw_entries.len();
             for (idx, entry) in inference_raw_entries.iter().enumerate() {
                 let id = entry.id.clone();
                 let raw_output = &entry.raw_output;
@@ -505,8 +510,13 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                 "Translating {} answers to English...",
                 samples_to_translate.len()
             );
-            let main_backend =
-                get_or_create_backend(config.model, BackendType::ApiOrVllm, WhichBackend::Main, num_gpus).await;
+            let main_backend = get_or_create_backend(
+                config.model,
+                BackendType::ApiOrVllm,
+                WhichBackend::Main,
+                num_gpus,
+            )
+            .await;
             let main_backend = main_backend
                 .as_ref()
                 .expect("Backend should be created by the call above");
@@ -728,17 +738,8 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
             let category_cache = CategoryCache::load_or_create(CATEGORY_CACHE_PATH);
             let category_cache = Arc::new(AtomicRefCell::new(category_cache));
             let cache_hits = Arc::new(AtomicUsize::new(0));
-            let main_interface = get_model_interface(config.model);
-            let main_backend =
-                get_or_create_backend(config.model, BackendType::ApiOrVllm, WhichBackend::Main, num_gpus).await;
-            let main_backend = main_backend
-                .as_ref()
-                .expect("Backend should be created by the call above");
-
             let mut categorize_tasks = Vec::new();
             for entry in score_entries.iter() {
-                let main_interface = main_interface.clone();
-                let main_backend = main_backend.clone();
                 let category_cache = category_cache.clone();
                 let cache_hits = cache_hits.clone();
 
@@ -748,14 +749,7 @@ pub async fn tool_run_async(configs: Py<PyList>, num_gpus: usize) {
                     .clone()
                     .expect("Error should exist for wrong cases");
                 let task = async move {
-                    let category = categorize_entry(
-                        &error,
-                        main_interface,
-                        main_backend,
-                        category_cache,
-                        cache_hits,
-                    )
-                    .await;
+                    let category = categorize_entry(&error, category_cache, cache_hits).await;
                     CategorizedEntry {
                         id,
                         error_category: category,

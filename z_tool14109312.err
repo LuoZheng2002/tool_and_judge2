@@ -1,235 +1,0 @@
-🔗 Found pyo3 bindings
-🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
-    Blocking waiting for file lock on build directory
-   Compiling pyo3-build-config v0.27.2
-   Compiling pyo3-ffi v0.27.2
-   Compiling pyo3-macros-backend v0.27.2
-   Compiling pyo3 v0.27.2
-   Compiling pyo3-macros v0.27.2
-   Compiling pyo3-async-runtimes v0.27.0
-   Compiling codebase_rs v0.1.0 (/projects/bfdz/zluo8/tool_and_judge2)
-warning: unused imports: `Value` and `value`
- --> src/tool_category_cache.rs:3:18
-  |
-3 | use serde_json::{Value, value};
-  |                  ^^^^^  ^^^^^
-  |
-  = note: `#[warn(unused_imports)]` on by default
-
-warning: unused imports: `Deserialize` and `Serialize`
- --> src/models/model_interface.rs:4:13
-  |
-4 | use serde::{Deserialize, Serialize};
-  |             ^^^^^^^^^^^  ^^^^^^^^^
-
-warning: unused import: `any::Any`
- --> src/models/backend.rs:1:11
-  |
-1 | use std::{any::Any, collections::HashMap, sync::Arc};
-  |           ^^^^^^^^
-
-warning: unused import: `Bound`
- --> src/models/backend.rs:4:12
-  |
-4 | use pyo3::{Bound, pyclass};
-  |            ^^^^^
-
-warning: unused import: `PyDict`
- --> src/models/api_backend.rs:1:53
-  |
-1 | use pyo3::{Py, PyAny, Python, types::{PyAnyMethods, PyDict}};
-  |                                                     ^^^^^^
-
-warning: unused imports: `GenerationResult` and `ModelBackend`
- --> src/models/api_backend.rs:5:23
-  |
-5 |     models::backend::{GenerationResult, ModelBackend},
-  |                       ^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^
-
-warning: unused imports: `Model` and `models::backend::ModelBackend`
- --> src/models/vllm_backend.rs:4:26
-  |
-4 |     config::{LocalModel, Model},
-  |                          ^^^^^
-5 |     models::backend::ModelBackend,
-  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-warning: unused import: `BfclGroundTruthFunctionCall`
-  --> src/models/deepseek_interface.rs:11:26
-   |
-11 |         BfclFunctionDef, BfclGroundTruthFunctionCall, BfclOutputFunctionCall, BfclParameter,
-   |                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-warning: unused imports: `PyAny` and `Py`
-  --> src/models/deepseek_interface.rs:17:12
-   |
-17 | use pyo3::{Py, PyAny, Python, types::PyAnyMethods};
-   |            ^^  ^^^^^
-
-warning: unused import: `serde_json::Value`
-  --> src/models/deepseek_interface.rs:21:5
-   |
-21 | use serde_json::Value;
-   |     ^^^^^^^^^^^^^^^^^
-
-warning: unused import: `serde_json::json`
-  --> src/models/deepseek_interface.rs:22:5
-   |
-22 | use serde_json::json;
-   |     ^^^^^^^^^^^^^^^^
-
-warning: unused import: `collections::HashMap`
- --> src/models/gpt5_interface.rs:1:21
-  |
-1 | use std::{any::Any, collections::HashMap, sync::Arc};
-  |                     ^^^^^^^^^^^^^^^^^^^^
-
-warning: unused import: `BfclGroundTruthFunctionCall`
-  --> src/models/gpt5_interface.rs:11:26
-   |
-11 |         BfclFunctionDef, BfclGroundTruthFunctionCall, BfclOutputFunctionCall, BfclParameter,
-   |                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-warning: unused imports: `PyAny` and `Py`
-  --> src/models/gpt5_interface.rs:17:12
-   |
-17 | use pyo3::{Py, PyAny, Python, types::PyAnyMethods};
-   |            ^^  ^^^^^
-
-warning: unused import: `serde_json::json`
-  --> src/models/gpt5_interface.rs:22:5
-   |
-22 | use serde_json::json;
-   |     ^^^^^^^^^^^^^^^^
-
-warning: unused import: `any::Any`
- --> src/models/llama3_1_interface.rs:1:11
-  |
-1 | use std::{any::Any, sync::Arc};
-  |           ^^^^^^^^
-
-warning: unused import: `vllm_backend::VllmBackend`
- --> src/models/llama3_1_interface.rs:6:42
-  |
-6 |         model_interface::ModelInterface, vllm_backend::VllmBackend,
-  |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^
-
-warning: unused import: `std::collections::HashMap`
- --> src/tool_bfcl_formats.rs:1:5
-  |
-1 | use std::collections::HashMap;
-  |     ^^^^^^^^^^^^^^^^^^^^^^^^^
-
-warning: unused import: `serde_json::json`
- --> src/tool_bfcl_formats.rs:5:5
-  |
-5 | use serde_json::json;
-  |     ^^^^^^^^^^^^^^^^
-
-warning: unused import: `Ordering`
-  --> src/tool_run.rs:12:31
-   |
-12 |         atomic::{AtomicUsize, Ordering},
-   |                               ^^^^^^^^
-
-warning: unused import: `self`
-  --> src/tool_run.rs:20:32
-   |
-20 |         function_name_mapper::{self, FunctionNameMapper},
-   |                                ^^^^
-
-warning: unused import: `BfclOutputFunctionCall`
- --> src/tool_evaluate.rs:5:49
-  |
-5 |         BfclDatasetEntry, BfclGroundTruthEntry, BfclOutputFunctionCall, BfclParameter,
-  |                                                 ^^^^^^^^^^^^^^^^^^^^^^
-
-warning: unused import: `tool_file_models::CategorizedEntry`
-  --> src/tool_categorize.rs:18:5
-   |
-18 |     tool_file_models::CategorizedEntry,
-   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-warning: unused import: `std::fs::File`
- --> src/util.rs:1:5
-  |
-1 | use std::fs::File;
-  |     ^^^^^^^^^^^^^
-
-warning: unused import: `Bound`
-  --> src/lib.rs:19:16
-   |
-19 |     use pyo3::{Bound, Py, pyfunction, types::PyList};
-   |                ^^^^^
-
-warning: unused variable: `total_entries`
-   --> src/tool_run.rs:445:17
-    |
-445 |             let total_entries = inference_raw_entries.len();
-    |                 ^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_total_entries`
-    |
-    = note: `#[warn(unused_variables)]` on by default
-
-warning: unused variable: `model_interface`
-  --> src/tool_categorize.rs:23:5
-   |
-23 |     model_interface: Arc<dyn ModelInterface>,
-   |     ^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_model_interface`
-
-warning: unused variable: `backend`
-  --> src/tool_categorize.rs:24:5
-   |
-24 |     backend: Arc<ModelBackend>,
-   |     ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_backend`
-
-warning: unused import: `prelude`
-  --> src/models/deepseek_interface.rs:18:12
-   |
-18 | use pyo3::{prelude::*, types::PyList};
-   |            ^^^^^^^
-
-warning: unused import: `prelude`
-  --> src/models/gpt5_interface.rs:18:12
-   |
-18 | use pyo3::{prelude::*, types::PyList};
-   |            ^^^^^^^
-
-warning: unused import: `prelude`
-  --> src/models/llama3_1_interface.rs:17:12
-   |
-17 | use pyo3::{prelude::*, types::PyList};
-   |            ^^^^^^^
-
-warning: `codebase_rs` (lib) generated 31 warnings (run `cargo fix --lib -p codebase_rs` to apply 25 suggestions)
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 22.32s
-📖 Found type stub file at codebase_rs.pyi
-📦 Built wheel for CPython 3.13 to /tmp/.tmpvQYv5m/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
-🛠 Installed codebase_rs-0.1.0
-The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
-[0;36m(EngineCore_DP0 pid=3646027)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
-[0;36m(EngineCore_DP0 pid=3646027)[0;0m Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:01<00:03,  1.31s/it]
-[0;36m(EngineCore_DP0 pid=3646027)[0;0m Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:04<00:05,  2.57s/it]
-[0;36m(EngineCore_DP0 pid=3646027)[0;0m Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:08<00:03,  3.04s/it]
-[0;36m(EngineCore_DP0 pid=3646027)[0;0m Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:11<00:00,  3.22s/it]
-[0;36m(EngineCore_DP0 pid=3646027)[0;0m Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:11<00:00,  2.96s/it]
-[0;36m(EngineCore_DP0 pid=3646027)[0;0m 
-[0;36m(EngineCore_DP0 pid=3646027)[0;0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   9%|▊         | 3/35 [00:00<00:01, 22.10it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  17%|█▋        | 6/35 [00:00<00:01, 23.52it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  26%|██▌       | 9/35 [00:00<00:01, 24.09it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  34%|███▍      | 12/35 [00:00<00:00, 24.44it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  43%|████▎     | 15/35 [00:00<00:00, 20.48it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  51%|█████▏    | 18/35 [00:00<00:00, 22.01it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  60%|██████    | 21/35 [00:00<00:00, 23.28it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▊   | 24/35 [00:01<00:00, 24.19it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  77%|███████▋  | 27/35 [00:01<00:00, 24.29it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  86%|████████▌ | 30/35 [00:01<00:00, 25.59it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  94%|█████████▍| 33/35 [00:01<00:00, 26.65it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 35/35 [00:01<00:00, 24.10it/s]
-[0;36m(EngineCore_DP0 pid=3646027)[0;0m Capturing CUDA graphs (decode, FULL):   0%|          | 0/19 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   5%|▌         | 1/19 [00:01<00:21,  1.20s/it]Capturing CUDA graphs (decode, FULL):  21%|██        | 4/19 [00:01<00:03,  3.90it/s]Capturing CUDA graphs (decode, FULL):  37%|███▋      | 7/19 [00:01<00:01,  7.26it/s]Capturing CUDA graphs (decode, FULL):  53%|█████▎    | 10/19 [00:01<00:00, 10.79it/s]Capturing CUDA graphs (decode, FULL):  74%|███████▎  | 14/19 [00:01<00:00, 15.29it/s]Capturing CUDA graphs (decode, FULL):  95%|█████████▍| 18/19 [00:01<00:00, 19.18it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 19/19 [00:01<00:00, 10.52it/s]
-
-thread '<unnamed>' panicked at src/models/llama3_1_interface.rs:207:38:
-Llama 3.1 tool call generation failed: PyErr { type: <class 'KeyError'>, value: KeyError('arguments'), traceback: Some("Traceback (most recent call last):\n  File \"/projects/bfdz/zluo8/tool_and_judge2/src_py/llama3_1_backend.py\", line 104, in generate_tool_call_async\n    \"arguments\": json.dumps(tool_call[\"arguments\"])\n") }
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
-Traceback (most recent call last):
-  File "/projects/bfdz/zluo8/tool_and_judge2/tool.py", line 48, in <module>
-    asyncio.run(codebase_rs.tool_run_async(configs, args.num_gpus))
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 195, in run
-    return runner.run(main)
-           ~~~~~~~~~~^^^^^^
-  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 118, in run
-    return self._loop.run_until_complete(task)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
-    return future.result()
-           ~~~~~~~~~~~~~^^
-pyo3_runtime.PanicException: Llama 3.1 tool call generation failed: PyErr { type: <class 'KeyError'>, value: KeyError('arguments'), traceback: Some("Traceback (most recent call last):\n  File \"/projects/bfdz/zluo8/tool_and_judge2/src_py/llama3_1_backend.py\", line 104, in generate_tool_call_async\n    \"arguments\": json.dumps(tool_call[\"arguments\"])\n") }

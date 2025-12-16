@@ -89,31 +89,32 @@ async def generate_tool_call_async(
 
     # Extract the generated text
     generated_text = final_output.outputs[0].text.strip()
+    return generated_text
 
-    # Parse the tool calls from the generated text
-    # Llama 3.1 outputs tool calls in a specific format that needs to be extracted
-    tool_calls = parse_llama3_1_tool_calls(generated_text)
+    # # Parse the tool calls from the generated text
+    # # Llama 3.1 outputs tool calls in a specific format that needs to be extracted
+    # tool_calls = parse_llama3_1_tool_calls(generated_text)
 
-    # Convert to the expected output format
-    response_dicts = []
-    for tool_call in tool_calls:
-        # Check if the tool call has required fields
-        if "name" not in tool_call:
-            continue  # Skip malformed tool calls without a name
+    # # Convert to the expected output format
+    # response_dicts = []
+    # for tool_call in tool_calls:
+    #     # Check if the tool call has required fields
+    #     if "name" not in tool_call:
+    #         continue  # Skip malformed tool calls without a name
 
-        # Get arguments, default to empty dict if not present
-        arguments = tool_call.get("arguments", {})
+    #     # Get arguments, default to empty dict if not present
+    #     arguments = tool_call.get("arguments", {})
 
-        response_dicts.append({
-            "type": "function",
-            "function": {
-                "name": tool_call["name"],
-                "arguments": json.dumps(arguments)
-            }
-        })
+    #     response_dicts.append({
+    #         "type": "function",
+    #         "function": {
+    #             "name": tool_call["name"],
+    #             "arguments": json.dumps(arguments)
+    #         }
+    #     })
 
-    response_json_str = json.dumps(response_dicts)
-    return response_json_str
+    # response_json_str = json.dumps(response_dicts)
+    # return response_json_str
 
 
 async def translate_tool_question_async(

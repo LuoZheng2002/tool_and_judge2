@@ -61,7 +61,8 @@ def pascal_to_readable(pascal_str: str) -> str:
 
 def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str,
                                 selected_translate_mode: str = None,
-                                selected_noise_mode: str = None) -> None:
+                                selected_noise_mode: str = None,
+                                max_height: float = 0.5) -> None:
     """
     Generate a stacked bar chart for a given model showing error type distributions.
 

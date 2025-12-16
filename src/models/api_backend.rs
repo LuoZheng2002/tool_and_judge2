@@ -1,9 +1,6 @@
-use pyo3::{Py, PyAny, Python, types::{PyAnyMethods, PyDict}};
+use pyo3::{Py, PyAny, Python, types::PyAnyMethods};
 
-use crate::{
-    config::ApiModel,
-    models::backend::{GenerationResult, ModelBackend},
-};
+use crate::config::ApiModel;
 use std::env;
 
 pub struct ApiBackend {
@@ -62,7 +59,7 @@ impl ApiBackend {
 //     //         generation_result
 //     //         .extract::<GenerationResult>(py)
 //     //         .expect("Failed to extract GenerationResult")
-//     //     });        
+//     //     });
 //     //     generation_result
 //     // }
 

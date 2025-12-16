@@ -1,23 +1,20 @@
-use std::{any::Any, sync::Arc};
+use std::sync::Arc;
 
 use crate::{
     models::{
         backend::ModelBackend, function_name_mapper::FunctionNameMapper,
-        model_interface::ModelInterface, vllm_backend::VllmBackend,
+        model_interface::ModelInterface,
     },
     one_entry_map::KeyValuePair,
-    tool_bfcl_formats::{
-        BfclFunctionDef, BfclOutputFunctionCall, BfclParameter,
-    },
+    single_or_list::SingleOrList,
+    tool_bfcl_formats::{BfclFunctionDef, BfclOutputFunctionCall, BfclParameter},
     tool_error_analysis::EvaluationError,
 };
 use atomic_refcell::AtomicRefCell;
 use indexmap::IndexMap;
+use pyo3::types::PyList;
 use pyo3::{Python, types::PyAnyMethods};
-use pyo3::{prelude::*, types::PyList};
 use serde::{Deserialize, Serialize};
-
-use serde_json::Value;
 
 /// Llama 3.1 tool format following the Transformers chat template convention
 /// https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct#tool-use-with-transformers
@@ -61,7 +58,7 @@ pub struct Llama3_1Parameter {
 #[derive(Deserialize, Clone)]
 pub struct Llama3_1OutputFunctionCall {
     name: String,
-    arguments: IndexMap<String, serde_json::Value>,
+    parameters: IndexMap<String, serde_json::Value>,
 }
 
 #[derive(Copy, Clone)]
@@ -239,7 +236,9 @@ impl ModelInterface for Llama3_1Interface {
                 .expect("Failed to call translate_tool_question_async");
             pyo3_async_runtimes::tokio::into_future(fut).expect("Failed to convert to Rust future")
         });
-        let response_str = fut.await.expect("Llama 3.1 tool question translation failed");
+        let response_str = fut
+            .await
+            .expect("Llama 3.1 tool question translation failed");
         let response_str = Python::attach(|py| {
             response_str
                 .extract::<String>(py)
@@ -253,54 +252,31 @@ impl ModelInterface for Llama3_1Interface {
         raw_output: &str,
         name_mapper: Arc<AtomicRefCell<FunctionNameMapper>>,
     ) -> Result<Vec<BfclOutputFunctionCall>, EvaluationError> {
-        let output_json = serde_json::from_str::<Value>(raw_output).map_err(|e| {
+        // convert string to json value
+        let output_json = serde_json::from_str::<serde_json::Value>(raw_output).map_err(|e| {
             EvaluationError::JsonDecodeError {
                 error_message: e.to_string(),
                 raw_output: raw_output.to_string(),
             }
         })?;
-        let output_list = output_json
-            .as_array()
-            .ok_or(EvaluationError::ParsingError {
-                error_message: "Expected JSON array but got different format".into(),
+        // directly parse json to llama3.1 output function call struct
+        let parsed_output: SingleOrList<Llama3_1OutputFunctionCall> =
+            serde_json::from_value(output_json).map_err(|e| EvaluationError::ParsingError {
+                error_message: e.to_string(),
                 raw_output: raw_output.to_string(),
             })?;
-        let mut func_calls = Vec::new();
-        for potential_func_call in output_list {
-            let json_obj =
-                potential_func_call
-                    .as_object()
-                    .ok_or(EvaluationError::ParsingError {
-                        error_message: "Expected JSON object for function call".into(),
-                        raw_output: raw_output.to_string(),
-                    })?;
-            let ty = json_obj.get("type").and_then(|v| v.as_str()).ok_or(
-                EvaluationError::ParsingError {
-                    error_message: "Missing 'type' field in function call".into(),
-                    raw_output: raw_output.to_string(),
-                },
-            )?;
-            if ty != "function" {
-                continue; // skip non-function entries
-            }
-
-            let func_call = parse_llama3_1_function_call(potential_func_call).map_err(|e| {
-                EvaluationError::ParsingError {
-                    error_message: format!("Failed to parse Llama3_1OutputFunctionCall: {}", e),
-                    raw_output: raw_output.to_string(),
-                }
-            })?;
-            let original_function_name = {
-                let name_mapper_borrow = name_mapper.borrow();
-                name_mapper_borrow.get_original_name(&func_call.name)
-            };
-            let bfcl_output_function_call = BfclOutputFunctionCall(KeyValuePair {
-                key: original_function_name,
-                value: func_call.arguments,
-            });
-            func_calls.push(bfcl_output_function_call);
-        }
-        Ok(func_calls)
+        // unify to a list
+        let parsed_output_vec = match parsed_output {
+            SingleOrList::Single(item) => vec![item],
+            SingleOrList::List(items) => items,
+        };
+        // parse from llama3.1 format to bfcl format
+        let name_mapper_borrow = name_mapper.borrow();
+        let bfcl_calls: Vec<BfclOutputFunctionCall> = parsed_output_vec
+            .into_iter()
+            .map(|llama3_1_call| llama3_1_call_to_bfcl_call(llama3_1_call, &*name_mapper_borrow))
+            .collect();
+        Ok(bfcl_calls)
     }
 
     async fn translate_tool_answer_async(
@@ -338,40 +314,49 @@ impl ModelInterface for Llama3_1Interface {
         response_str
     }
 }
-
-fn parse_llama3_1_function_call(
-    function_call: &serde_json::Value,
-) -> Result<Llama3_1OutputFunctionCall, String> {
-    // let mut function_call = function_call.clone();
-
-    // Llama 3.1 format: {"type": "function", "function": {"name": "...", "arguments": {...}}}
-    let function_obj = function_call
-        .get("function")
-        .ok_or("Missing 'function' field in function call")?;
-
-    let name = function_obj
-        .get("name")
-        .and_then(|v| v.as_str())
-        .ok_or("Missing 'name' field in function object")?
-        .to_string();
-
-    let arguments_value = function_obj
-        .get("arguments")
-        .ok_or("Missing 'arguments' field in function object")?;
-
-    // Arguments might be a string or already an object
-    let arguments_json = if arguments_value.is_string() {
-        let arguments_str = arguments_value
-            .as_str()
-            .ok_or("'arguments' field is not a string")?;
-        serde_json::from_str::<serde_json::Value>(arguments_str)
-            .map_err(|e| format!("Failed to parse 'arguments' JSON string: {}", e))?
-    } else {
-        arguments_value.clone()
-    };
-
-    let arguments: IndexMap<String, serde_json::Value> = serde_json::from_value(arguments_json)
-        .map_err(|e| format!("Failed to deserialize arguments: {}", e))?;
-
-    Ok(Llama3_1OutputFunctionCall { name, arguments })
+fn llama3_1_call_to_bfcl_call(
+    llama3_1_call: Llama3_1OutputFunctionCall,
+    name_mapper: &FunctionNameMapper,
+) -> BfclOutputFunctionCall {
+    let mapped_name = name_mapper.get_original_name(&llama3_1_call.name);
+    BfclOutputFunctionCall(KeyValuePair {
+        key: mapped_name,
+        value: llama3_1_call.parameters,
+    })
 }
+// fn parse_llama3_1_function_call(
+//     function_call: &serde_json::Value,
+// ) -> Result<Llama3_1OutputFunctionCall, String> {
+//     // let mut function_call = function_call.clone();
+
+//     // Llama 3.1 format: {"type": "function", "function": {"name": "...", "arguments": {...}}}
+//     let function_obj = function_call
+//         .get("function")
+//         .ok_or("Missing 'function' field in function call")?;
+
+//     let name = function_obj
+//         .get("name")
+//         .and_then(|v| v.as_str())
+//         .ok_or("Missing 'name' field in function object")?
+//         .to_string();
+
+//     let arguments_value = function_obj
+//         .get("arguments")
+//         .ok_or("Missing 'arguments' field in function object")?;
+
+//     // Arguments might be a string or already an object
+//     let arguments_json = if arguments_value.is_string() {
+//         let arguments_str = arguments_value
+//             .as_str()
+//             .ok_or("'arguments' field is not a string")?;
+//         serde_json::from_str::<serde_json::Value>(arguments_str)
+//             .map_err(|e| format!("Failed to parse 'arguments' JSON string: {}", e))?
+//     } else {
+//         arguments_value.clone()
+//     };
+
+//     let arguments: IndexMap<String, serde_json::Value> = serde_json::from_value(arguments_json)
+//         .map_err(|e| format!("Failed to deserialize arguments: {}", e))?;
+
+//     Ok(Llama3_1OutputFunctionCall { name, arguments })
+// }
