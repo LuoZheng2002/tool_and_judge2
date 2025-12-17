@@ -57,19 +57,9 @@ first_lang = sorted_langs[0]
 second_lang = sorted_langs[1]
 
 
-
-
 # Get or create backend with caching
 model_name = config.model.value
 display_model_name = get_model_directory_name(config.model)
-
-# Get or create backend (batch size will be calculated automatically)
-backend = get_or_create_backend(
-    model_name=model_name,
-    device="cuda",
-    backend_type=backend_type,
-    num_gpus=args.num_gpus
-)
 
 # Create model interface for model-specific behavior
 model_interface = create_interface(model_name)
@@ -81,6 +71,11 @@ match config.experiment:
         # load the model backend
         # collect the results in parallel
         # Process pairs for preference_direct
+        # TODO: Think about if defining config with python is more appropriate
+        # Rust is mainly used for file and data structure manipulation
+        # For the tool project, defining config in python would be tedious
+        # The simplest workaround is to add a python function to the rust config type
+        create_vllm_backend()
         for pairs, dataset_suffix in [
             (pairs_lang1_correct_lang2_incorrect, f"{first_lang}_correct_{second_lang}_incorrect"),
             (pairs_lang1_incorrect_lang2_correct, f"{first_lang}_incorrect_{second_lang}_correct"),

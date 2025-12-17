@@ -58,6 +58,8 @@ pub enum LocalModel {
     Llama3_1_8B,
     #[strum(serialize = "meta-llama/Llama-3.1-70B-Instruct")]
     Llama3_1_70B,
+    #[strum(serialize = "meta-llama/Llama-3.3-70B-Instruct")]
+    Llama3_3_70B,
 }
 
 impl std::fmt::Debug for LocalModel {
