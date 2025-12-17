@@ -7,10 +7,10 @@ use crate::{
     },
     one_entry_map::KeyValuePair,
     single_or_list::SingleOrList,
-    tool_bfcl_formats::{
+    tool::bfcl_formats::{
         BfclFunctionDef, BfclOutputFunctionCall, BfclParameter,
     },
-    tool_error_analysis::EvaluationError,
+    tool::error_analysis::EvaluationError,
 };
 use atomic_refcell::AtomicRefCell;
 use indexmap::IndexMap;

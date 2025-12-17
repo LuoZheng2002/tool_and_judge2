@@ -1,14 +1,12 @@
 use crate::{
-    tool_bfcl_formats::{BfclDatasetEntry, BfclGroundTruthEntry},
-    tool_file_models::{CategorizedEntry, EvaluationResultEntry, InferenceJsonEntry, InferenceRawEntry},
+    tool::bfcl_formats::{BfclDatasetEntry, BfclGroundTruthEntry},
+    tool::file_models::{CategorizedEntry, EvaluationResultEntry, InferenceJsonEntry, InferenceRawEntry},
 };
+use serde_json::Value;
+    use std::{fs::File, io::{BufRead, BufReader}};
+pub fn load_json_lines2(file: File) -> Result<Vec<serde_json::Value>, String> {
+    
 
-pub fn load_json_lines(file_path: &str) -> Result<Vec<serde_json::Value>, String> {
-    use serde_json::Value;
-    use std::fs::File;
-    use std::io::{BufRead, BufReader};
-
-    let file = File::open(file_path).map_err(|e| format!("Unable to open file: {}", e))?;
     let reader = BufReader::new(file);
 
     let mut results = Vec::new();
@@ -19,6 +17,23 @@ pub fn load_json_lines(file_path: &str) -> Result<Vec<serde_json::Value>, String
             serde_json::from_str(&line).map_err(|e| format!("Unable to parse JSON: {}", e))?;
         results.push(line_json);
     }
+    Ok(results)
+}
+
+pub fn load_json_lines(file_path: &str) -> Result<Vec<serde_json::Value>, String> {
+
+    let file = File::open(file_path).map_err(|e| format!("Unable to open file: {}", e))?;
+    // let reader = BufReader::new(file);
+
+    // let mut results = Vec::new();
+
+    // for line in reader.lines() {
+    //     let line = line.map_err(|e| format!("Unable to read line: {}", e))?;
+    //     let line_json: Value =
+    //         serde_json::from_str(&line).map_err(|e| format!("Unable to parse JSON: {}", e))?;
+    //     results.push(line_json);
+    // }
+    let results = load_json_lines2(file)?;
     Ok(results)
 }
 

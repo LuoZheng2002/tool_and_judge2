@@ -9,8 +9,8 @@ use crate::{
         deepseek_interface::DeepSeekInterface, gpt5_interface::Gpt5Interface,
         llama3_1_interface::Llama3_1Interface,
     },
-    tool_bfcl_formats::{BfclFunctionDef, BfclOutputFunctionCall},
-    tool_error_analysis::EvaluationError,
+    tool::bfcl_formats::{BfclFunctionDef, BfclOutputFunctionCall},
+    tool::error_analysis::EvaluationError,
 };
 
 #[async_trait::async_trait]

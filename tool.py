@@ -3,7 +3,7 @@ import asyncio
 import subprocess
 import time
 
-from load_configs_from_file import load_configs_from_file
+from utils import load_config_from_file
 from dotenv import load_dotenv
 load_dotenv(".env")
 
@@ -40,9 +40,19 @@ time.sleep(2)  # Give some time for the build to complete
 import codebase_rs
 
 print(f"Loading configs from: {args.config}")
-configs = load_configs_from_file(args.config, "configs")
+configs = load_config_from_file(args.config, "configs")
 
 # Run the async task
 # Note: Ctrl+C handling is done in Rust (tool_run.rs) using the ctrlc crate
 # The Rust handler will gracefully shut down between configs
 asyncio.run(codebase_rs.tool_run_async(configs, args.num_gpus))
+
+
+# Refactor idea:
+# Separate python and rust code completely.
+# One pass runs python and the other runs rust.
+# Still needs to take advantage of rust's model interface.
+
+# Python side: string input, string output
+
+# choose backend implementation based on model name

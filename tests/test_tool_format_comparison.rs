@@ -1,6 +1,6 @@
 use codebase_rs::{
     models::{function_name_mapper::FunctionNameMapper, gpt5_interface::Gpt5Interface},
-    tool_bfcl_formats::BfclDatasetEntry,
+    tool::bfcl_formats::BfclDatasetEntry,
 };
 use std::fs::{File, OpenOptions};
 use std::io::{BufRead, BufReader, Write};

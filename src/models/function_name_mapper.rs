@@ -1,6 +1,6 @@
 use std::collections::{HashMap, HashSet};
 
-use crate::tool_bfcl_formats::BfclFunctionDef;
+use crate::tool::bfcl_formats::BfclFunctionDef;
 
 
 

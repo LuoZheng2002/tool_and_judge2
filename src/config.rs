@@ -20,9 +20,13 @@ pub enum ApiModel {
 impl ApiModel {
     pub fn api_key_name(&self) -> String {
         match self {
-            ApiModel::Gpt5 | ApiModel::Gpt5Mini | ApiModel::Gpt5Nano => "OPENAI_API_KEY".to_string(),
+            ApiModel::Gpt5 | ApiModel::Gpt5Mini | ApiModel::Gpt5Nano => {
+                "OPENAI_API_KEY".to_string()
+            }
             ApiModel::DeepSeek => "DEEPSEEK_API_KEY".to_string(),
-            ApiModel::Llama3_1_8B | ApiModel::Llama3_1_70B => panic!("Llama 3 does not use an API key"),
+            ApiModel::Llama3_1_8B | ApiModel::Llama3_1_70B => {
+                panic!("Llama 3 does not use an API key")
+            }
         }
     }
 }
@@ -37,7 +41,7 @@ impl std::fmt::Debug for ApiModel {
 #[derive(Clone, EnumString, Display, PartialEq, Eq, Copy)]
 pub enum LocalModel {
     #[strum(serialize = "ibm-granite/granite-4.0-h-tiny")]
-    Granite4_0HTiny,    
+    Granite4_0HTiny,
     #[strum(serialize = "ibm-granite/granite-4.0-h-small")]
     Granite4_0HSmall,
     #[strum(serialize = "Qwen/Qwen3-8B")]
@@ -62,7 +66,6 @@ impl std::fmt::Debug for LocalModel {
     }
 }
 
-
 #[pyclass]
 #[derive(Clone, Debug, PartialEq, Eq, Copy)]
 pub enum Model {
@@ -70,7 +73,7 @@ pub enum Model {
     Local(LocalModel),
 }
 
-impl Model{
+impl Model {
     pub fn to_string(&self) -> String {
         match self {
             Model::Api(api_model) => api_model.to_string(),
@@ -130,20 +133,36 @@ pub enum TranslateMode {
 
 #[pyclass]
 #[derive(Clone, Debug)]
-pub struct ToolConfig {
-    pub model: Model,
+pub struct ToolExperiment {
     pub translate_mode: TranslateMode,
     pub add_noise_mode: AddNoiseMode,
 }
 
 #[pymethods]
-impl ToolConfig {
+impl ToolExperiment {
     #[new]
-    fn new(model: Model, translate_mode: TranslateMode, add_noise_mode: AddNoiseMode) -> Self {
-        ToolConfig {
-            model,
+    fn new(translate_mode: TranslateMode, add_noise_mode: AddNoiseMode) -> Self {
+        ToolExperiment {
             translate_mode,
             add_noise_mode,
+        }
+    }
+}
+
+#[pyclass]
+#[derive(Clone, Debug)]
+pub struct ToolConfig {
+    pub model: Model,
+    pub experiment_configs: Vec<ToolExperiment>,
+}
+
+#[pymethods]
+impl ToolConfig {
+    #[new]
+    fn new(model: Model, experiment_configs: Vec<ToolExperiment>) -> Self {
+        ToolConfig {
+            model,
+            experiment_configs,
         }
     }
 }
@@ -154,9 +173,9 @@ impl ToolConfig {
 
 #[pyclass]
 #[derive(Clone)]
-pub enum ResultType{
+pub enum JudgeExperiment {
     PreferenceDirect,
-    PreferenceCot,
+    // PreferenceCot,
     Perplexity,
 }
 
@@ -166,7 +185,5 @@ pub struct JudgeConfig {
     pub model: LocalModel,
     pub lang1: String,
     pub lang2: String,
-    pub result_type: ResultType,
+    pub experiment: JudgeExperiment,
 }
-
-
