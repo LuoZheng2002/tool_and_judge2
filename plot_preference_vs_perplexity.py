@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate scatter plots comparing preference logprob_signed_difference vs perplexity difference.
+Generate scatter plots comparing preference logprob_signed_difference vs log perplexity difference.
 
 For each model and pair of languages, creates 4 plots corresponding to:
 - lang1 correct, lang2 correct
@@ -9,7 +9,7 @@ For each model and pair of languages, creates 4 plots corresponding to:
 - lang1 incorrect, lang2 incorrect
 
 Each point plots:
-- X-axis: perplexity difference (perplexity_lang1 - perplexity_lang2)
+- X-axis: log perplexity difference (log(perplexity_lang1) - log(perplexity_lang2))
 - Y-axis: preference logprob_signed_difference
 """
 
@@ -197,7 +197,7 @@ def create_scatter_plot(
     plt.axvline(x=0, color='r', linestyle='--', alpha=0.3, linewidth=1)
 
     # Labels and title
-    plt.xlabel(f'Perplexity Difference ({lang1} - {lang2})', fontsize=12)
+    plt.xlabel(f'Log Perplexity Difference (log({lang1}) - log({lang2}))', fontsize=12)
     plt.ylabel('Preference Log-Prob Signed Difference', fontsize=12)
 
     correct1_str = "correct" if is_correct1 else "incorrect"
@@ -294,8 +294,12 @@ def main():
             perp1 = perplexity_lang1[idx][is_correct1]
             perp2 = perplexity_lang2[idx][is_correct2]
 
-            # Calculate difference
-            perp_diff = perp1 - perp2
+            # Calculate log perplexity difference
+            # Skip if either perplexity is non-positive (can't take log)
+            if perp1 <= 0 or perp2 <= 0:
+                continue
+
+            perp_diff = np.log(perp1) - np.log(perp2)
 
             perplexity_diffs.append(perp_diff)
             preference_values.append(pref_val)
