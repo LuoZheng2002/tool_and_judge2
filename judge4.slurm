@@ -6,10 +6,10 @@
 # #SBATCH --partition=gpu                  # Partition/queue with GPU
 # #SBATCH --mail-type=BEGIN,END,FAIL
 # #SBATCH --mail-user=luozheng@usc.edu
-# #SBATCH --partition=gpuH200x8
-#SBATCH --gres=gpu:4                     # Request 4 GPUs
-#SBATCH --cpus-per-task=4                # CPU cores
-#SBATCH --mem=32G                        # RAM
+#SBATCH --partition=gpuH200x8
+#SBATCH --gres=gpu:8                     # Request 8 GPUs (was 4)
+#SBATCH --cpus-per-task=8                # CPU cores (increased from 4)
+#SBATCH --mem=64G                        # RAM (increased from 32G)
 #SBATCH --account=bfdz-delta-gpu    # Your Slurm account/project
 
 # Load modules or activate your environment
@@ -26,4 +26,4 @@ export HF_HOME=/work/nvme/bfdz/zluo8/huggingface
 
 # Run the training script
 
-python judge.py --config judge_config_slurm4.py --num-gpus 4
+python judge.py --config judge_config_slurm4.py --num-gpus 8

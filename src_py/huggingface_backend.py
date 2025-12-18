@@ -31,10 +31,22 @@ def create_huggingface_backend(model_name: str, batch_size: int):
     # Load model with automatic device mapping
     print(f"Loading model from HuggingFace...", flush=True)
 
-    # Check available GPU memory
+    # Check available GPU memory and build max_memory dict
     if torch.cuda.is_available():
-        gpu_mem_gb = torch.cuda.get_device_properties(0).total_memory / 1024**3
-        print(f"GPU memory available: {gpu_mem_gb:.2f} GB", flush=True)
+        num_gpus = torch.cuda.device_count()
+        print(f"Found {num_gpus} GPUs", flush=True)
+
+        # Build max_memory dict for all available GPUs
+        # Reserve some memory for activations and leave headroom
+        max_memory = {}
+        for i in range(num_gpus):
+            gpu_mem_gb = torch.cuda.get_device_properties(i).total_memory / 1024**3
+            # Use 90% of available memory per GPU
+            usable_mem_gb = int(gpu_mem_gb * 0.9)
+            max_memory[i] = f"{usable_mem_gb}GB"
+            print(f"GPU {i}: {gpu_mem_gb:.2f} GB available, using {usable_mem_gb} GB", flush=True)
+    else:
+        max_memory = None
 
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
@@ -42,7 +54,7 @@ def create_huggingface_backend(model_name: str, batch_size: int):
         torch_dtype=torch.bfloat16,
         trust_remote_code=True,
         use_auth_token=use_auth_token,
-        max_memory={0: "40GB"},  # Limit to prevent offloading to CPU
+        max_memory=max_memory,
     )
     print(f"Model loaded, setting to eval mode...", flush=True)
 
