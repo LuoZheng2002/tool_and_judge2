@@ -364,7 +364,9 @@ def collect_perplexity_batch(
     import torch
     from src_py.utils import language_abbreviation_to_name
 
-    results = []
+    # Prepare all prompts first
+    formatted_prompts = []
+    answers = []
 
     for entry in entries:
         question = entry['question']
@@ -399,23 +401,41 @@ def collect_perplexity_batch(
             add_generation_prompt=False
         )
 
-        # Tokenize the formatted prompt
-        inputs = tokenizer(formatted_prompt, return_tensors="pt", add_special_tokens=False)
-        input_ids = inputs.input_ids[0]
+        formatted_prompts.append(formatted_prompt)
+        answers.append(answer)
 
-        # Move input to model's device
-        input_ids_tensor = input_ids.unsqueeze(0).to(model.device)
+    # Tokenize all prompts with padding for batching
+    inputs = tokenizer(
+        formatted_prompts,
+        return_tensors="pt",
+        padding=True,
+        add_special_tokens=False
+    )
 
-        # Get logits from model
-        with torch.no_grad():
-            outputs = model(input_ids_tensor)
-            logits = outputs.logits[0].cpu()  # [seq_len, vocab_size], move to CPU
+    # Move batch to model's device
+    input_ids_batch = inputs.input_ids.to(model.device)
+    attention_mask = inputs.attention_mask.to(model.device)
+
+    # Get logits from model for the entire batch
+    with torch.no_grad():
+        outputs = model(input_ids_batch, attention_mask=attention_mask)
+        logits_batch = outputs.logits.cpu()  # [batch_size, seq_len, vocab_size], move to CPU
+
+    # Process each item in the batch
+    results = []
+    for i in range(len(entries)):
+        # Get the actual sequence length (excluding padding)
+        seq_len = attention_mask[i].sum().item()
+
+        # Extract logits and input_ids for this sequence (excluding padding)
+        logits = logits_batch[i, :seq_len, :]  # [seq_len, vocab_size]
+        input_ids = input_ids_batch[i, :seq_len].cpu().tolist()
 
         # Store results with input_ids and logits
         results.append({
             'logits': logits,
-            'input_ids': input_ids.tolist(),
-            'answer': answer  # Keep answer for backward search
+            'input_ids': input_ids,
+            'answer': answers[i]  # Keep answer for backward search
         })
 
     return results

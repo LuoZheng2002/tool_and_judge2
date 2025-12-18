@@ -178,6 +178,19 @@ match config.experiment:
                         f.flush()
                     print(f"Written {completed_count}/{len(combined_entries)} entries to file")
         asyncio.run(collect_all_preference_entries())
+
+        # Cleanup vLLM engine before dispatching results
+        print("Shutting down vLLM engine...", flush=True)
+        try:
+            # AsyncLLMEngine.shutdown() is a coroutine, needs to be awaited
+            async def shutdown_engine():
+                if hasattr(engine, 'shutdown') and callable(engine.shutdown):
+                    await engine.shutdown()
+            asyncio.run(shutdown_engine())
+            print("vLLM engine shut down successfully", flush=True)
+        except Exception as e:
+            print(f"Warning: Error during engine shutdown (this is usually harmless): {e}", flush=True)
+
         # dispatch results
         dispatch_preference_results(model_safe_name, lang1, lang2, combined_output_path)
         # delete this file
@@ -200,9 +213,9 @@ match config.experiment:
         from src_py.huggingface_backend import create_huggingface_backend
         model_size = config.model.size_in_billion_parameters()
         batch_size = int(120 * args.num_gpus / model_size)  # model_size * batch size = 120 * num_gpus
-        print(f"Creating backend for model {model_name} with batch size {batch_size}...")
+        print(f"Creating backend for model {model_name} with batch size {batch_size}...", flush=True)
         model, tokenizer = create_huggingface_backend(model_name, batch_size)
-        print(f"Backend created for model {model_name} with batch size {batch_size}")
+        print(f"Backend created for model {model_name} with batch size {batch_size}", flush=True)
         # combined_entries has type TwoAnswersEntry in src/judge/generate_dataset.rs
         # output entries have type PerplexityResultEntry in src/judge/result_file_model.rs
 
@@ -262,12 +275,12 @@ match config.experiment:
             return perplexity
 
         # Process entries in batches
-        print(f"Processing {len(combined_entries)} entries with batch size {batch_size}")
+        print(f"Processing {len(combined_entries)} entries with batch size {batch_size}", flush=True)
         all_results = []
 
         for i in range(0, len(combined_entries), batch_size):
             batch_entries = combined_entries[i:i+batch_size]
-            print(f"Processing batch {i//batch_size + 1}/{(len(combined_entries) + batch_size - 1)//batch_size}")
+            print(f"Processing batch {i//batch_size + 1}/{(len(combined_entries) + batch_size - 1)//batch_size}", flush=True)
 
             # Get model outputs for the batch
             if config.model == LocalModel.Llama3_3_70B:

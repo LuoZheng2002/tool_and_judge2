@@ -29,6 +29,7 @@ def create_huggingface_backend(model_name: str, batch_size: int):
         tokenizer.pad_token = tokenizer.eos_token
 
     # Load model with automatic device mapping
+    print(f"Loading model from HuggingFace...", flush=True)
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
         device_map="auto",
@@ -36,9 +37,11 @@ def create_huggingface_backend(model_name: str, batch_size: int):
         trust_remote_code=True,
         use_auth_token=use_auth_token,
     )
+    print(f"Model loaded, setting to eval mode...", flush=True)
 
     model.eval()
+    print(f"Model in eval mode", flush=True)
 
-    print(f"HuggingFace backend created successfully for {model_name}")
+    print(f"HuggingFace backend created successfully for {model_name}", flush=True)
 
     return (model, tokenizer)
