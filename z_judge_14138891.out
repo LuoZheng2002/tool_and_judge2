@@ -31,3 +31,21 @@ INFO 12-18 02:15:27 [scheduler.py:228] Chunked prefill is enabled with max_num_b
 [0;36m(EngineCore_DP0 pid=1121622)[0;0m [0;36m(Worker_TP0 pid=1121628)[0;0m INFO 12-18 02:15:37 [cuda.py:411] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION']
 [0;36m(EngineCore_DP0 pid=1121622)[0;0m [0;36m(Worker_TP2 pid=1121632)[0;0m INFO 12-18 02:15:37 [cuda.py:411] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION']
 [0;36m(EngineCore_DP0 pid=1121622)[0;0m [0;36m(Worker_TP1 pid=1121630)[0;0m INFO 12-18 02:15:37 [cuda.py:411] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION']
+[0;36m(EngineCore_DP0 pid=1121622)[0;0m [0;36m(Worker_TP0 pid=1121628)[0;0m INFO 12-18 02:17:08 [default_loader.py:308] Loading weights took 89.99 seconds
+[0;36m(EngineCore_DP0 pid=1121622)[0;0m [0;36m(Worker_TP0 pid=1121628)[0;0m INFO 12-18 02:17:09 [gpu_model_runner.py:3549] Model loading took 32.8894 GiB memory and 91.813286 seconds
+[0;36m(EngineCore_DP0 pid=1121622)[0;0m [0;36m(Worker_TP0 pid=1121628)[0;0m INFO 12-18 02:17:34 [backends.py:655] Using cache directory: /u/zluo8/.cache/vllm/torch_compile_cache/7f3cb35127/rank_0_0/backbone for vLLM's torch.compile
+[0;36m(EngineCore_DP0 pid=1121622)[0;0m [0;36m(Worker_TP0 pid=1121628)[0;0m INFO 12-18 02:17:34 [backends.py:715] Dynamo bytecode transform time: 25.28 s
+[0;36m(EngineCore_DP0 pid=1121622)[0;0m [0;36m(Worker_TP3 pid=1121634)[0;0m INFO 12-18 02:17:42 [backends.py:216] Directly load the compiled graph(s) for dynamic shape from the cache, took 9.421 s
+[0;36m(EngineCore_DP0 pid=1121622)[0;0m [0;36m(Worker_TP2 pid=1121632)[0;0m INFO 12-18 02:17:42 [backends.py:216] Directly load the compiled graph(s) for dynamic shape from the cache, took 9.642 s
+[0;36m(EngineCore_DP0 pid=1121622)[0;0m [0;36m(Worker_TP0 pid=1121628)[0;0m INFO 12-18 02:17:46 [backends.py:216] Directly load the compiled graph(s) for dynamic shape from the cache, took 10.306 s
+[0;36m(EngineCore_DP0 pid=1121622)[0;0m [0;36m(Worker_TP1 pid=1121630)[0;0m INFO 12-18 02:17:46 [backends.py:216] Directly load the compiled graph(s) for dynamic shape from the cache, took 10.741 s
+[0;36m(EngineCore_DP0 pid=1121622)[0;0m [0;36m(Worker_TP0 pid=1121628)[0;0m INFO 12-18 02:17:54 [monitor.py:34] torch.compile takes 35.58 s in total
+[0;36m(EngineCore_DP0 pid=1121622)[0;0m [0;36m(Worker_TP0 pid=1121628)[0;0m INFO 12-18 02:17:57 [gpu_worker.py:359] Available KV cache memory: 1.51 GiB
+[0;36m(EngineCore_DP0 pid=1121622)[0;0m INFO 12-18 02:17:58 [kv_cache_utils.py:1286] GPU KV cache size: 19,824 tokens
+[0;36m(EngineCore_DP0 pid=1121622)[0;0m INFO 12-18 02:17:58 [kv_cache_utils.py:1291] Maximum concurrency for 5,000 tokens per request: 3.96x
+[0;36m(EngineCore_DP0 pid=1121622)[0;0m [0;36m(Worker_TP0 pid=1121628)[0;0m INFO 12-18 02:18:06 [custom_all_reduce.py:216] Registering 8694 cuda graph addresses
+[0;36m(EngineCore_DP0 pid=1121622)[0;0m [0;36m(Worker_TP3 pid=1121634)[0;0m INFO 12-18 02:18:06 [custom_all_reduce.py:216] Registering 8694 cuda graph addresses
+[0;36m(EngineCore_DP0 pid=1121622)[0;0m [0;36m(Worker_TP1 pid=1121630)[0;0m INFO 12-18 02:18:07 [custom_all_reduce.py:216] Registering 8694 cuda graph addresses
+[0;36m(EngineCore_DP0 pid=1121622)[0;0m [0;36m(Worker_TP2 pid=1121632)[0;0m INFO 12-18 02:18:07 [custom_all_reduce.py:216] Registering 8694 cuda graph addresses
+[0;36m(EngineCore_DP0 pid=1121622)[0;0m [0;36m(Worker_TP0 pid=1121628)[0;0m INFO 12-18 02:18:08 [gpu_model_runner.py:4466] Graph capturing finished in 10 secs, took 0.84 GiB
+[0;36m(EngineCore_DP0 pid=1121622)[0;0m INFO 12-18 02:18:08 [core.py:254] init engine (profile, create kv cache, warmup model) took 59.47 seconds
