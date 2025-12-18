@@ -83,7 +83,7 @@ match config.experiment:
             print(f"Dispatched results from existing file: {combined_output_path}")
         
         # call rust function to concatenate two datasets
-        concatenate_preference_datasets(model_safe_name, first_lang, second_lang, combined_input_path)
+        concatenate_preference_datasets(model_safe_name, first_lang, second_lang, combined_input_path, debug_limit=100)
         combined_entries = load_json_lines_from_file(combined_input_path)
         if len(combined_entries) == 0:
             print(f"All entries for experiment {experiment_str} have been processed. Exiting.")
@@ -98,8 +98,8 @@ match config.experiment:
             async with semaphore:
                 if config.model == LocalModel.Llama3_3_70B:
                     from src_py.llama3_1_backend import collect_preference_local_async
-                # elif config.model == LocalModel.Qwen3_14B:
-                #     from src_py.qwen3_backend import collect_preference_local_async
+                elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b]:
+                     from src_py.qwen3_backend import collect_preference_local_async
                 else:
                     raise ValueError(f"Unsupported model for preference collection: {config.model}")
                 try:
@@ -171,7 +171,7 @@ match config.experiment:
             print(f"Dispatched results from existing file: {combined_output_path}")
 
         # call rust function to concatenate two datasets
-        concatenate_perplexity_datasets(model_safe_name, lang, combined_input_path)
+        concatenate_perplexity_datasets(model_safe_name, lang, combined_input_path, debug_limit=100)
         combined_entries = load_json_lines_from_file(combined_input_path)
         if len(combined_entries) == 0:
             print(f"All entries for experiment {experiment_str} have been processed. Exiting.")
@@ -250,6 +250,8 @@ match config.experiment:
             # Get model outputs for the batch
             if config.model == LocalModel.Llama3_3_70B:
                 from src_py.llama3_1_backend import collect_perplexity_batch
+            elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b]:
+                from src_py.qwen3_backend import collect_perplexity_batch
             else:
                 raise ValueError(f"Unsupported model for perplexity collection: {config.model}")
 

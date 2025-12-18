@@ -31,7 +31,12 @@ use crate::{
 // }
 
 #[pyfunction]
-pub fn concatenate_perplexity_datasets(model_safe_name: &str, lang: &str, output_file_path: &str) {
+pub fn concatenate_perplexity_datasets(
+    model_safe_name: &str,
+    lang: &str,
+    output_file_path: &str,
+    debug_limit: Option<usize>,
+) {
     let correct_dataset_path = format!("judge/datasets/one_answer/{}_correct.jsonl", lang);
     let incorrect_dataset_path = format!("judge/datasets/one_answer/{}_incorrect.jsonl", lang);
     let correct_result_path = format!(
@@ -132,7 +137,14 @@ pub fn concatenate_perplexity_datasets(model_safe_name: &str, lang: &str, output
     assert_eq!(dataset_length, incorrect_dataset_entries_parsed.len());
     assert_eq!(dataset_length, perplexity_mask_entries_parsed.len());
     let indices = correct_dataset_entries_parsed.keys();
+    let mut count = 0;
     for index in indices {
+        if let Some(limit) = debug_limit {
+            if count >= limit {
+                break;
+            }
+            count += 1;
+        }
         let mask_entry = &perplexity_mask_entries_parsed[*index];
         // only push valid entries
         if mask_entry.valid {
@@ -173,6 +185,7 @@ pub fn concatenate_preference_datasets(
     lang1: &str,
     lang2: &str,
     output_file_path: &str,
+    debug_limit: Option<usize>,
 ) {
     let lang1_correct_lang2_incorrect_dataset_path = format!(
         "judge/datasets/two_answers/{}_correct_{}_incorrect.jsonl",
@@ -338,7 +351,14 @@ pub fn concatenate_preference_datasets(
     // combined_entries.extend(lang1_incorrect_lang2_correct_dataset_entries);
     // combined_entries.extend(both_correct_dataset_entries);
     // combined_entries.extend(both_incorrect_dataset_entries);
+    let mut count = 0;
     for entry in lang1_correct_lang2_incorrect_dataset_parsed {
+        if let Some(limit) = debug_limit {
+            if count >= limit {
+                break;
+            }
+            count += 1;
+        }
         if !lang1_correct_lang2_incorrect_result_ids.contains(&entry.index) {
             combined_entries.push(
                 serde_json::to_value(&entry)
@@ -346,7 +366,14 @@ pub fn concatenate_preference_datasets(
             );
         }
     }
+    count = 0;
     for entry in lang1_incorrect_lang2_correct_dataset_parsed {
+        if let Some(limit) = debug_limit {
+            if count >= limit {
+                break;
+            }
+            count += 1;
+        }
         if !lang1_incorrect_lang2_correct_result_ids.contains(&entry.index) {
             combined_entries.push(
                 serde_json::to_value(&entry)
@@ -354,7 +381,14 @@ pub fn concatenate_preference_datasets(
             );
         }
     }
+    count = 0;
     for entry in both_correct_dataset_parsed {
+        if let Some(limit) = debug_limit {
+            if count >= limit {
+                break;
+            }
+            count += 1;
+        }
         if !both_correct_result_ids.contains(&entry.index) {
             combined_entries.push(
                 serde_json::to_value(&entry)
@@ -362,7 +396,14 @@ pub fn concatenate_preference_datasets(
             );
         }
     }
+    count = 0;
     for entry in both_incorrect_dataset_parsed {
+        if let Some(limit) = debug_limit {
+            if count >= limit {
+                break;
+            }
+            count += 1;
+        }
         if !both_incorrect_result_ids.contains(&entry.index) {
             combined_entries.push(
                 serde_json::to_value(&entry)
