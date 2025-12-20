@@ -35,5 +35,12 @@ pub mod codebase_rs {
             dispatch_results::dispatch_preference_results,
         },
         models::backend::GenerationResult,
+        tool::{
+            passes::pass_pre_translation::{
+                pass_pre_translation_aggregated_questions_input_file_path,
+                pass_pre_translation_aggregated_questions_output_file_path,
+                pass_pre_translation_prepare_aggregated_questions,
+            },
+        }
     };
 }

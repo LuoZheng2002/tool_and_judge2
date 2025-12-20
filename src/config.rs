@@ -31,9 +31,6 @@ impl ApiModel {
             )),
         }
     }
-}
-
-impl ApiModel {
     pub fn api_key_name(&self) -> String {
         match self {
             ApiModel::Gpt5 | ApiModel::Gpt5Mini | ApiModel::Gpt5Nano => {

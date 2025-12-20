@@ -3,7 +3,9 @@ import asyncio
 import subprocess
 import time
 
-from src_py.utils import load_config_from_file
+from src_py.utils import *
+from src_py.api_backend import create_api_backend
+from src_py.vllm_backend import create_vllm_backend
 from dotenv import load_dotenv
 load_dotenv(".env")
 
@@ -16,7 +18,7 @@ parser.add_argument(
     "--config",
     type=str,
     default=None,
-    help="Path to a Python file containing the 'configs'"
+    help="Path to a Python file containing the 'config'"
 )
 parser.add_argument(
     "--num-gpus",
@@ -26,7 +28,7 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
-# Load configs from specified file
+# Load config from specified file
 if not args.config:
     print("Error: Please specify a config file using --config argument. For example, --config config1.py")
     exit(1)
@@ -40,7 +42,7 @@ with open(lock_file_path, "w") as lock_file:
     fcntl.flock(lock_file.fileno(), fcntl.LOCK_EX)
     try:
         print("Building Rust extension with maturin develop...")
-        result = subprocess.run(["maturin", "develop"], check=True)
+        result = subprocess.run(["maturin", "develop", "--release"], check=True)
         print("Installed Rust extension successfully.")
         time.sleep(2)  # Give some time for the build to complete
     finally:
@@ -50,8 +52,8 @@ with open(lock_file_path, "w") as lock_file:
 
 from codebase_rs import *
 
-print(f"Loading configs from: {args.config}")
-config = load_config_from_file(args.config, "configs")
+print(f"Loading config from: {args.config}")
+config = load_config_from_file(args.config, "config")
 print("Processing configuration: ", config)
 
 # api model needs client and vllm model needs an engine and a tokenizer
@@ -66,6 +68,63 @@ print("Processing configuration: ", config)
 # This involves calling a rust function
 # Then we have the question only dataset file. Its path can be retrieved from Rust code.
 # Then we get the python array object from reading the file
+pass_pre_translation_prepare_aggregated_questions(config)
+aggregated_questions_input_file_path = pass_pre_translation_aggregated_questions_input_file_path(config)
+aggregated_questions_output_file_path = pass_pre_translation_aggregated_questions_output_file_path(config)
+if os.path.exists(aggregated_questions_output_file_path):
+    pass_pre_translation_dispatch_results(config)
+# Each entry has a signature of type PreTranslateAggregatedInputQuestionEntry in src/tool/passes/pass_pre_translation.rs
+question_entries = load_json_lines_from_file(aggregated_questions_input_file_path)
+match config.model:
+    case Model.Api(api_model):
+        print(f"Creating API backend for model {api_model}...")
+        client = create_api_backend(api_model)
+        print(f"API backend created successfully for model {api_model}")
+        is_api = True
+    case Model.Local(local_model):
+        print(f"Creating vLLM backend for model {local_model}...")
+        engine, tokenizer = create_vllm_backend(local_model, num_gpus=args.num_gpus)
+        print(f"vLLM backend created successfully for model {local_model}")
+        is_api = False
+
+semaphore = asyncio.Semaphore(200)
+async def collect_single_question_translation_async(entry: dict) -> dict:
+    async with semaphore:
+        try:
+            if config.model in [Model.Api(ApiModel.Gpt5), Model.Api(ApiModel.Gpt5Mini), Model.Api(ApiModel.Gpt5Nano)]:
+                from src_py.gpt5_backend import translate_tool_question_async
+                translated_question = await translate_tool_question_async(
+                    model_name = config.model.to_string(),
+                    client = client,
+                    question = entry["question"],
+                )
+            elif config.model in [Model.Local(LocalModel.Qwen3_8B), Model.Local(LocalModel.Qwen3_14B)]:
+                # from src_py.qwen3_backend import 
+                raise NotImplementedError("Qwen3 translation not implemented yet.")
+            else:
+                raise NotImplementedError(f"Translation not implemented for model {config.model}.")
+        except Exception as e:
+            print(f"Error translating question index {entry['index']}: {e}")
+            exit(1) # Todo: handle error properly
+        # Each output entry has a signature of type PreTranslateAggregatedOutputQuestionEntry in src/tool/passes/pass_pre_translation.rs
+        return {
+            "id": entry["id"],
+            "original_question": entry["question"],
+            "translated_question": translated_question,
+            "file_name": entry["file_name"],
+        }
+async def collect_all_question_translations_async(entries: list[dict]) -> list[dict]:
+    tasks = [collect_single_question_translation_async(entry) for entry in entries]
+    with open(aggregated_questions_output_file_path, "w") as f:
+        for i, coro in enumerate(asyncio.as_completed(tasks), 1):
+            result = await coro
+            f.write(json.dumps(result, ensure_ascii=False) + "\n")
+            f.flush()
+            print(f"Translated {i}/{len(entries)} questions...")
+asyncio.run(collect_all_question_translations_async(question_entries))
+pass_pre_translation_dispatch_results(config)
+
+# Pre-translation is done
 
 # Then we call a python interface adapter to get translated questions
 # Then we actually do not need to replicate the same dataset file, but simply override the original questions with translated ones

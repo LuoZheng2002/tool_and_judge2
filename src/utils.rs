@@ -27,7 +27,7 @@ pub fn load_json_lines2(file: File) -> Result<Vec<serde_json::Value>, String> {
 }
 
 pub fn load_json_lines(file_path: impl AsRef<Path>) -> Result<Vec<serde_json::Value>, String> {
-    let file = File::open(file_path).map_err(|e| format!("Unable to open file: {}", e))?;
+    let file = File::open(&file_path).map_err(|e| format!("Unable to open file {}: {}", file_path.as_ref().display(), e))?;
     // let reader = BufReader::new(file);
 
     // let mut results = Vec::new();
@@ -95,20 +95,16 @@ pub fn try_load_inference_json_and_ids(file_path: &str) -> (Vec<InferenceJsonEnt
 }
 
 pub fn write_json_lines_to_file(
-    file_path: &str,
+    file_path: impl AsRef<Path>,
     results: &Vec<serde_json::Value>,
 ) -> Result<(), String> {
     use std::fs::{File, create_dir_all};
     use std::io::Write;
-    use std::path::Path;
-
-    let path = Path::new(file_path);
-    if let Some(parent) = path.parent() {
+    if let Some(parent) = file_path.as_ref().parent() {
         create_dir_all(parent).map_err(|e| format!("Unable to create parent directory: {}", e))?;
     }
 
     let mut file = File::create(file_path).map_err(|e| format!("Unable to create file: {}", e))?;
-
     for result in results {
         let line = serde_json::to_string(result)
             .map_err(|e| format!("Unable to serialize JSON: {}", e))?;

@@ -119,3 +119,5 @@ def language_abbreviation_to_name(abbreviation: str) -> str:
         'ko': 'Korean',
     }
     return lang_map.get(abbreviation.lower(), abbreviation)
+
+def api_key_name()

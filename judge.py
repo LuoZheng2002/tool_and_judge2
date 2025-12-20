@@ -157,25 +157,12 @@ match config.experiment:
         
         async def collect_all_preference_entries() -> list[dict]:
             tasks = [collect_single_preference_async(entry) for entry in combined_entries]
-            pending_results = []
-            completed_count = 0
             with open(combined_output_path, 'w', encoding='utf-8') as f:
-                for coro in asyncio.as_completed(tasks):
+                for i, coro in enumerate(asyncio.as_completed(tasks), 1):
                     result = await coro
-                    pending_results.append(result)
-                    completed_count += 1
-                    if len(pending_results) >= 10:
-                        for r in pending_results:
-                            f.write(json.dumps(r, ensure_ascii=False) + '\n')
-                            f.flush()
-                        print(f"Written {completed_count}/{len(combined_entries)} entries to file")
-                        pending_results = []
-                # Write any remaining results
-                if pending_results:
-                    for r in pending_results:
-                        f.write(json.dumps(r, ensure_ascii=False) + '\n')
-                        f.flush()
-                    print(f"Written {completed_count}/{len(combined_entries)} entries to file")
+                    f.write(json.dumps(result, ensure_ascii=False) + '\n')
+                    f.flush()
+                    print(f"Written {i}/{len(combined_entries)} entries to file")
         asyncio.run(collect_all_preference_entries())
 
         # Cleanup vLLM engine before dispatching results

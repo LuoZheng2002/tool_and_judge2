@@ -4,9 +4,9 @@
 
 
 import os
+from codebase_rs import LocalModel
 
-
-def create_vllm_backend(model_name: str, num_gpus: int = 1):
+def create_vllm_backend(local_model: LocalModel, num_gpus: int = 1):
     """
     Create a vLLM backend for local model inference.
 
@@ -20,7 +20,7 @@ def create_vllm_backend(model_name: str, num_gpus: int = 1):
     from vllm import AsyncLLMEngine
     from vllm.engine.arg_utils import AsyncEngineArgs
     from transformers import AutoTokenizer
-
+    model_name = local_model.to_string()
     print(f"Creating vLLM backend for model {model_name} with {num_gpus} GPUs...")
     use_auth_token = os.environ["HF_TOKEN"]
     assert use_auth_token is not None, "HuggingFace token not found in environment variable HF_TOKEN."
@@ -42,4 +42,4 @@ def create_vllm_backend(model_name: str, num_gpus: int = 1):
 
     print(f"vLLM backend created successfully for {model_name}")
 
-    return (engine, tokenizer)
+    return engine, tokenizer

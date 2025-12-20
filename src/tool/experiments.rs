@@ -169,7 +169,7 @@ impl DatasetFileName {
         )
     }
 }
-type PreTranslateFileName = DatasetFileName;
+pub type PreTranslateFileName = DatasetFileName;
 #[derive(Clone, Serialize, Deserialize, Debug, PartialEq, Eq, Hash)]
 pub struct GenerationRawFileName(
     pub DatasetFileName,
@@ -191,8 +191,8 @@ impl GenerationRawFileName {
         )
     }
 }
-type GenerationParsedFileName = GenerationRawFileName;
-type PostTranslateFileName = GenerationRawFileName;
+pub type GenerationParsedFileName = GenerationRawFileName;
+pub type PostTranslateFileName = GenerationRawFileName;
 #[derive(Clone, Serialize, Deserialize, Debug, PartialEq, Eq, Hash)]
 pub struct EvaluationFileName(
     pub DatasetFileName,
@@ -216,5 +216,5 @@ impl EvaluationFileName {
         )
     }
 }
-type CategorizedFileName = EvaluationFileName;
-type StatisticsFileName = EvaluationFileName;
+pub type CategorizedFileName = EvaluationFileName;
+pub type StatisticsFileName = EvaluationFileName;
