@@ -261,6 +261,9 @@ pub fn pass_generate_raw_dispatch_results(config: &ToolConfig) {
             .expect("Failed to write result file");
         println!("Wrote result file to {}", result_file_path.to_str().unwrap());
     }
+    // remove the aggregated output file after dispatching
+    std::fs::remove_file(&output_file_path).expect("Failed to remove aggregated output file");
+    println!("Removed aggregated output file {}", output_file_path);
 }
 
 

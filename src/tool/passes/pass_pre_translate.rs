@@ -99,7 +99,7 @@ pub fn pass_pre_translation_prepare_aggregated_questions(config: &ToolConfig) {
             Ok(entries) => entries
                 .into_iter()
                 .map(|entry_json| {
-                    let entry: BfclDatasetEntry =
+                    let entry: PreTranslateQuestionEntry =
                         serde_json::from_value(entry_json).expect("Unable to parse result entry");
                     entry.id
                 })

@@ -1,12 +1,8 @@
-
-
-
-
-
 import os
 from codebase_rs import LocalModel
 
-def create_vllm_backend(local_model: LocalModel, num_gpus: int = 1):
+def create_vllm_backend(local_model: LocalModel,
+        num_gpus: int = 1):
     """
     Create a vLLM backend for local model inference.
 

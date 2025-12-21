@@ -4,8 +4,7 @@ import subprocess
 import time
 
 from src_py.utils import *
-from src_py.api_backend import create_api_backend
-from src_py.vllm_backend import create_vllm_backend
+
 from dotenv import load_dotenv
 load_dotenv(".env")
 
@@ -28,7 +27,7 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
-# Load config from specified file
+# Check that config file is specified before building
 if not args.config:
     print("Error: Please specify a config file using --config argument. For example, --config config1.py")
     exit(1)
@@ -44,14 +43,18 @@ with open(lock_file_path, "w") as lock_file:
         print("Building Rust extension with maturin develop...")
         result = subprocess.run(["maturin", "develop", "--release"], check=True)
         print("Installed Rust extension successfully.")
-        time.sleep(5)  # Give some time for the build to complete
+        # time.sleep(5)  # Give some time for the build to complete
     finally:
         # Release lock
         fcntl.flock(lock_file.fileno(), fcntl.LOCK_UN)
         print("Released build lock.")
 
 from codebase_rs import *
+from src_py.api_backend import create_api_backend
+from src_py.vllm_backend import create_vllm_backend
 
+# Load config from specified file AFTER building Rust extension
+# This is important because the config file imports codebase_rs
 print(f"Loading config from: {args.config}")
 config = load_config_from_file(args.config, "config")
 print("Processing configuration: ", config)
@@ -197,7 +200,7 @@ pass_generate_raw_dispatch_results(config)
 # The third pass is to convert the raw function calls to BFCL compatible function calls
 # For each raw result file, we call the rust function to convert it to BFCL compatible function calls
 
-
+pass_parse_output(config)
 
 
 # The fourth pass is to post translate the function calls

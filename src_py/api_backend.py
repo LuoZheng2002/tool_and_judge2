@@ -1,11 +1,9 @@
 from typing import Any
-from codebase_rs import ApiModel
 import os
+from codebase_rs import ApiModel
 
 def create_api_backend(
     api_model: ApiModel,
-    # model_name: str,
-    # api_key: str,
 ) -> Any:
     try:
         from openai import AsyncOpenAI
