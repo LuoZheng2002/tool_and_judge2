@@ -36,21 +36,26 @@ pub mod codebase_rs {
         },
         models::backend::GenerationResult,
         tool::{
-            passes::pass_pre_translate::{
-                pass_pre_translation_aggregated_questions_input_file_path,
-                pass_pre_translation_aggregated_questions_output_file_path,
-                pass_pre_translation_prepare_aggregated_questions,
-                pass_pre_translation_dispatch_results,
-            },
             passes::pass_generate_raw::{
                 pass_generate_raw_aggregated_input_file_path,
-                pass_generate_raw_aggregated_output_file_path,
-                pass_generate_raw_dispatch_results,
+                pass_generate_raw_aggregated_output_file_path, pass_generate_raw_dispatch_results,
                 pass_generate_raw_prepare_aggregated_input,
             },
-            passes::pass_parse_output::{
-                pass_parse_output,
+            passes::pass_parse_output::pass_parse_output,
+            passes::pass_post_translate::{
+                pass_post_translate_aggregated_input_file_path,
+                pass_post_translate_aggregated_output_file_path,
+                pass_post_translate_dispatch_results, pass_post_translate_prepare_aggregated_input,
             },
-        }
+            passes::pass_pre_translate::{
+                pass_pre_translate_aggregated_questions_input_file_path,
+                pass_pre_translate_aggregated_questions_output_file_path,
+                pass_pre_translate_dispatch_results,
+                pass_pre_translate_prepare_aggregated_questions,
+            },
+            passes::pass_evaluate::{
+                pass_evaluate
+            }
+        },
     };
 }

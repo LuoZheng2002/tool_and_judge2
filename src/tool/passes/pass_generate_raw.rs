@@ -61,13 +61,26 @@ pub fn pass_generate_raw_aggregated_output_file_path(config: &ToolConfig) -> Str
 pub fn pass_generate_raw_prepare_aggregated_input(config: &ToolConfig) {
     let model = config.model;
     let model_safe_name = get_model_safe_name(model);
-    let mut aggregated_entries: Vec<GenerateRawAggregatedInputEntry> = vec![];
     let model_interface = get_model_interface(model);
     let function_name_mapper = get_function_name_mapper();
-    for experiment in config.experiments.iter() {
+    
+    // deduplicate experiments on this pass
+    let result_file_names: HashSet<GenerateRawFileName> = config
+        .experiments
+        .iter()
+        .map(|experiment| GenerateRawFileName::from_config_experiment(experiment))
+        .collect();
+    let mut aggregated_entries: Vec<GenerateRawAggregatedInputEntry> = vec![];
+    for result_file_name in result_file_names.iter() {
         // first assume no pre translation
-        let dataset_file_name = DatasetFileName::from_config_experiment(experiment);
-        let result_file_name = GenerateRawFileName::from_config_experiment(experiment);
+        // let dataset_file_name = DatasetFileName::from_config_experiment(experiment);
+        // let result_file_name = GenerateRawFileName::from_config_experiment(experiment);
+        let dataset_file_name = DatasetFileName(
+            result_file_name.0,
+            result_file_name.1,
+            result_file_name.2,
+            result_file_name.4,
+        );
         let dataset_file_name_str = format!(
             "{}.jsonl",
             serde_json::to_string(&dataset_file_name).unwrap()

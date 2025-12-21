@@ -82,7 +82,7 @@ impl AddNoiseMode {
         }
     }
 }
-#[derive(Clone, Serialize, Deserialize, Debug, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, Serialize, Deserialize, Debug, PartialEq, Eq, Hash)]
 pub enum PromptTranslateMode {
     #[serde(rename = "prompt")]
     PromptTranslate,
@@ -114,7 +114,7 @@ impl PromptTranslateMode {
     }
 }
 
-#[derive(Clone, Serialize, Deserialize, Debug, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, Serialize, Deserialize, Debug, PartialEq, Eq, Hash)]
 pub enum PreTranslateMode {
     #[serde(rename = "pretrans")]
     PreTranslate,
@@ -139,7 +139,7 @@ impl PreTranslateMode {
         }
     }
 }
-#[derive(Clone, Serialize, Deserialize, Debug, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, Serialize, Deserialize, Debug, PartialEq, Eq, Hash)]
 pub enum PostTranslateMode {
     #[serde(rename = "posttrans")]
     PostTranslate,
@@ -185,7 +185,7 @@ impl DatasetFileName {
 pub type PreTranslateFileName = DatasetFileName;
 #[derive(Clone, Serialize, Deserialize, Debug, PartialEq, Eq, Hash)]
 pub struct GenerateRawFileName(
-    pub DatasetFileName,
+    pub OriginalDataset,
     pub DatasetLanguage,
     pub TranslateLevel,
     pub PreTranslateMode,
@@ -195,7 +195,7 @@ pub struct GenerateRawFileName(
 impl GenerateRawFileName {
     pub fn from_config_experiment(exp: &ToolExperiment) -> Self {
         GenerateRawFileName(
-            DatasetFileName::from_config_experiment(exp),
+            OriginalDataset::BfclV4Multiple,
             DatasetLanguage::from_config_experiment(exp),
             TranslateLevel::from_config_experiment(exp),
             PreTranslateMode::from_config_experiment(exp),
@@ -208,7 +208,7 @@ pub type ParseOutputFileName = GenerateRawFileName;
 pub type PostTranslateFileName = GenerateRawFileName;
 #[derive(Clone, Serialize, Deserialize, Debug, PartialEq, Eq, Hash)]
 pub struct EvaluateFileName(
-    pub DatasetFileName,
+    pub OriginalDataset,
     pub DatasetLanguage,
     pub TranslateLevel,
     pub PreTranslateMode,
@@ -219,7 +219,7 @@ pub struct EvaluateFileName(
 impl EvaluateFileName {
     pub fn from_config_experiment(exp: &ToolExperiment) -> Self {
         EvaluateFileName(
-            DatasetFileName::from_config_experiment(exp),
+            OriginalDataset::BfclV4Multiple,
             DatasetLanguage::from_config_experiment(exp),
             TranslateLevel::from_config_experiment(exp),
             PreTranslateMode::from_config_experiment(exp),

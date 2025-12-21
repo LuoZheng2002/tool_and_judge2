@@ -208,9 +208,63 @@ pass_parse_output(config)
 # Then we call the python interface adapter to get translated parameter values
 # Then we replace the original parameter values with translated ones
 
+pass_post_translate_prepare_aggregated_input(config)
+aggregated_input_file_path = pass_post_translate_aggregated_input_file_path(config)
+aggregated_output_file_path = pass_post_translate_aggregated_output_file_path(config)
+if os.path.exists(aggregated_output_file_path):
+    pass_post_translate_dispatch_results(config)
+# Each entry has a signature of type PostTranslateAggregatedInputEntry in src/tool/passes/pass_post_translate.rs
+input_entries = load_json_lines_from_file(aggregated_input_file_path)
+semaphore = asyncio.Semaphore(200)
+async def collect_single_parameter_translation_async(entry: dict) -> dict:
+    parameter_value = entry["parameter_value_to_translate"]
+    if parameter_value.isascii():
+        # no need to translate
+        return {
+            "original_parameter_value": parameter_value,
+            "translated_parameter_value": parameter_value,
+        }
+    async with semaphore:
+        try:
+            if config.model in [Model.Api(ApiModel.Gpt5), Model.Api(ApiModel.Gpt5Mini), Model.Api(ApiModel.Gpt5Nano)]:
+                from src_py.gpt5_backend import translate_tool_parameter_async
+                translated_value = await translate_tool_parameter_async(
+                    model_name = config.model.to_string(),
+                    client = client,
+                    parameter_value = parameter_value,
+                )
+            elif config.model in [Model.Local(LocalModel.Qwen3_8B), Model.Local(LocalModel.Qwen3_14B)]:
+                # from src_py.qwen3_backend import 
+                raise NotImplementedError("Qwen3 parameter translation not implemented yet.")
+            else:
+                raise NotImplementedError(f"Parameter translation not implemented for model {config.model}.")
+        except Exception as e:
+            print(f"Error translating parameter index {entry['id']}: {e}")
+            exit(1) # Todo: handle error properly
+        # Each output entry has a signature of type PostTranslateAggregatedOutputEntry in src/tool/passes/pass_post_translate.rs
+        return {
+            "original_parameter_value": parameter_value,
+            "translated_parameter_value": translated_value,
+        }
+async def collect_all_parameter_translations_async(entries: list[dict]) -> list[dict]:
+    tasks = [collect_single_parameter_translation_async(entry) for entry in entries]
+    with open(aggregated_output_file_path, "w") as f:
+        for i, coro in enumerate(asyncio.as_completed(tasks), 1):
+            result = await coro
+            f.write(json.dumps(result, ensure_ascii=False) + "\n")
+            f.flush()
+            print(f"Translated {i}/{len(entries)} parameters...")
+asyncio.run(collect_all_parameter_translations_async(input_entries))
+# finished processing post translation, deleting input file
+os.remove(aggregated_input_file_path)
+# dispatch results to respective dataset files
+pass_post_translate_dispatch_results(config)
+
 
 # The fifth pass is to evaluate the BFCL function calls
 # For each BFCL function call file, we call the rust function to evaluate it
+
+pass_evaluate(config)
 
 # We can remove the scoring pass
 
@@ -218,6 +272,9 @@ pass_parse_output(config)
 # In the first sub-pass, invalid parameter errors are collected. Other errors are ignored. No file is written to.
 # In the second sub-pass, all invalid parameter errors are categorized either through the cache or through gpt5.
 # Finally, we dispatch invalid parameter errors and determine other errors.
+
+
+
 
 # The seventh pass is to generate the final report.
 

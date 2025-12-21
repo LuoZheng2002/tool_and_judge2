@@ -1,232 +1,0 @@
-🔗 Found pyo3 bindings
-🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
-   Compiling pyo3-build-config v0.27.2
-   Compiling pyo3-macros-backend v0.27.2
-   Compiling pyo3-ffi v0.27.2
-   Compiling pyo3 v0.27.2
-   Compiling pyo3-macros v0.27.2
-   Compiling pyo3-async-runtimes v0.27.0
-   Compiling codebase_rs v0.1.0 (/projects/bfdz/zluo8/tool_and_judge2)
-warning: unused imports: `Value` and `value`
- --> src/tool_category_cache.rs:3:18
-  |
-3 | use serde_json::{Value, value};
-  |                  ^^^^^  ^^^^^
-  |
-  = note: `#[warn(unused_imports)]` on by default
-
-warning: unused imports: `Deserialize` and `Serialize`
- --> src/models/model_interface.rs:4:13
-  |
-4 | use serde::{Deserialize, Serialize};
-  |             ^^^^^^^^^^^  ^^^^^^^^^
-
-warning: unused import: `any::Any`
- --> src/models/backend.rs:1:11
-  |
-1 | use std::{any::Any, collections::HashMap, sync::Arc};
-  |           ^^^^^^^^
-
-warning: unused import: `Bound`
- --> src/models/backend.rs:4:12
-  |
-4 | use pyo3::{Bound, pyclass};
-  |            ^^^^^
-
-warning: unused import: `PyDict`
- --> src/models/api_backend.rs:1:53
-  |
-1 | use pyo3::{Py, PyAny, Python, types::{PyAnyMethods, PyDict}};
-  |                                                     ^^^^^^
-
-warning: unused imports: `GenerationResult` and `ModelBackend`
- --> src/models/api_backend.rs:5:23
-  |
-5 |     models::backend::{GenerationResult, ModelBackend},
-  |                       ^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^
-
-warning: unused imports: `Model` and `models::backend::ModelBackend`
- --> src/models/vllm_backend.rs:4:26
-  |
-4 |     config::{LocalModel, Model},
-  |                          ^^^^^
-5 |     models::backend::ModelBackend,
-  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-warning: unused import: `collections::HashMap`
- --> src/models/gpt5_interface.rs:1:21
-  |
-1 | use std::{any::Any, collections::HashMap, sync::Arc};
-  |                     ^^^^^^^^^^^^^^^^^^^^
-
-warning: unused import: `BfclGroundTruthFunctionCall`
-  --> src/models/gpt5_interface.rs:11:26
-   |
-11 |         BfclFunctionDef, BfclGroundTruthFunctionCall, BfclOutputFunctionCall, BfclParameter,
-   |                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-warning: unused imports: `PyAny` and `Py`
-  --> src/models/gpt5_interface.rs:17:12
-   |
-17 | use pyo3::{Py, PyAny, Python, types::PyAnyMethods};
-   |            ^^  ^^^^^
-
-warning: unused import: `serde_json::json`
-  --> src/models/gpt5_interface.rs:22:5
-   |
-22 | use serde_json::json;
-   |     ^^^^^^^^^^^^^^^^
-
-warning: unused import: `any::Any`
- --> src/models/llama3_1_interface.rs:1:11
-  |
-1 | use std::{any::Any, sync::Arc};
-  |           ^^^^^^^^
-
-warning: unused imports: `one_entry_map::KeyValuePair` and `vllm_backend::VllmBackend`
- --> src/models/llama3_1_interface.rs:6:42
-  |
-6 |         model_interface::ModelInterface, vllm_backend::VllmBackend,
-  |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^
-7 |     },
-8 |     one_entry_map::KeyValuePair,
-  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-warning: unused import: `serde_json::Value`
-  --> src/models/llama3_1_interface.rs:20:5
-   |
-20 | use serde_json::Value;
-   |     ^^^^^^^^^^^^^^^^^
-
-warning: unused import: `std::collections::HashMap`
- --> src/tool_bfcl_formats.rs:1:5
-  |
-1 | use std::collections::HashMap;
-  |     ^^^^^^^^^^^^^^^^^^^^^^^^^
-
-warning: unused import: `serde_json::json`
- --> src/tool_bfcl_formats.rs:5:5
-  |
-5 | use serde_json::json;
-  |     ^^^^^^^^^^^^^^^^
-
-warning: unused import: `Ordering`
-  --> src/tool_run.rs:12:31
-   |
-12 |         atomic::{AtomicUsize, Ordering},
-   |                               ^^^^^^^^
-
-warning: unused import: `self`
-  --> src/tool_run.rs:20:32
-   |
-20 |         function_name_mapper::{self, FunctionNameMapper},
-   |                                ^^^^
-
-warning: unused import: `BfclOutputFunctionCall`
- --> src/tool_evaluate.rs:5:49
-  |
-5 |         BfclDatasetEntry, BfclGroundTruthEntry, BfclOutputFunctionCall, BfclParameter,
-  |                                                 ^^^^^^^^^^^^^^^^^^^^^^
-
-warning: unused import: `tool_file_models::CategorizedEntry`
-  --> src/tool_categorize.rs:18:5
-   |
-18 |     tool_file_models::CategorizedEntry,
-   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-warning: unused import: `std::fs::File`
- --> src/util.rs:1:5
-  |
-1 | use std::fs::File;
-  |     ^^^^^^^^^^^^^
-
-warning: unused import: `Bound`
-  --> src/lib.rs:19:16
-   |
-19 |     use pyo3::{Bound, Py, pyfunction, types::PyList};
-   |                ^^^^^
-
-warning: unused variable: `total_entries`
-   --> src/tool_run.rs:445:17
-    |
-445 |             let total_entries = inference_raw_entries.len();
-    |                 ^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_total_entries`
-    |
-    = note: `#[warn(unused_variables)]` on by default
-
-warning: unused variable: `model_interface`
-  --> src/tool_categorize.rs:23:5
-   |
-23 |     model_interface: Arc<dyn ModelInterface>,
-   |     ^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_model_interface`
-
-warning: unused variable: `backend`
-  --> src/tool_categorize.rs:24:5
-   |
-24 |     backend: Arc<ModelBackend>,
-   |     ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_backend`
-
-warning: unused import: `prelude`
-  --> src/models/deepseek_interface.rs:18:12
-   |
-18 | use pyo3::{prelude::*, types::PyList};
-   |            ^^^^^^^
-
-warning: unused import: `prelude`
-  --> src/models/gpt5_interface.rs:18:12
-   |
-18 | use pyo3::{prelude::*, types::PyList};
-   |            ^^^^^^^
-
-warning: unused import: `prelude`
-  --> src/models/llama3_1_interface.rs:17:12
-   |
-17 | use pyo3::{prelude::*, types::PyList};
-   |            ^^^^^^^
-
-warning: unused variable: `raw_output`
-   --> src/models/llama3_1_interface.rs:253:9
-    |
-253 |         raw_output: &str,
-    |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_raw_output`
-
-warning: unused variable: `name_mapper`
-   --> src/models/llama3_1_interface.rs:254:9
-    |
-254 |         name_mapper: Arc<AtomicRefCell<FunctionNameMapper>>,
-    |         ^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_name_mapper`
-
-warning: fields `name` and `arguments` are never read
-  --> src/models/llama3_1_interface.rs:63:5
-   |
-62 | pub struct Llama3_1OutputFunctionCall {
-   |            -------------------------- fields in this struct
-63 |     name: String,
-   |     ^^^^
-64 |     arguments: IndexMap<String, serde_json::Value>,
-   |     ^^^^^^^^^
-   |
-   = note: `Llama3_1OutputFunctionCall` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
-   = note: `#[warn(dead_code)]` on by default
-
-warning: function `parse_llama3_1_function_call` is never used
-   --> src/models/llama3_1_interface.rs:345:4
-    |
-345 | fn parse_llama3_1_function_call(
-    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-warning: `codebase_rs` (lib) generated 32 warnings (run `cargo fix --lib -p codebase_rs` to apply 22 suggestions)
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 9.24s
-📖 Found type stub file at codebase_rs.pyi
-📦 Built wheel for CPython 3.13 to /tmp/.tmpj7MQWP/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
-🛠 Installed codebase_rs-0.1.0
-The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
-[0;36m(EngineCore_DP0 pid=1957910)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
-[0;36m(EngineCore_DP0 pid=1957910)[0;0m Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:01<00:04,  1.42s/it]
-[0;36m(EngineCore_DP0 pid=1957910)[0;0m Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:06<00:06,  3.31s/it]
-[0;36m(EngineCore_DP0 pid=1957910)[0;0m Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:10<00:03,  3.63s/it]
-[0;36m(EngineCore_DP0 pid=1957910)[0;0m Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:14<00:00,  3.79s/it]
-[0;36m(EngineCore_DP0 pid=1957910)[0;0m Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:14<00:00,  3.52s/it]
-[0;36m(EngineCore_DP0 pid=1957910)[0;0m 
-[0;36m(EngineCore_DP0 pid=1957910)[0;0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   3%|▎         | 1/35 [00:00<00:03,  9.15it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  11%|█▏        | 4/35 [00:00<00:01, 17.42it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  20%|██        | 7/35 [00:00<00:01, 19.99it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  29%|██▊       | 10/35 [00:00<00:01, 21.66it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  37%|███▋      | 13/35 [00:00<00:01, 11.52it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  46%|████▌     | 16/35 [00:01<00:01, 14.28it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  54%|█████▍    | 19/35 [00:01<00:00, 16.87it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 22/35 [00:01<00:00, 19.13it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  71%|███████▏  | 25/35 [00:01<00:00, 19.42it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  80%|████████  | 28/35 [00:01<00:00, 21.56it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  89%|████████▊ | 31/35 [00:01<00:00, 17.73it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 35/35 [00:02<00:00, 11.12it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 35/35 [00:02<00:00, 14.69it/s]
-[0;36m(EngineCore_DP0 pid=1957910)[0;0m Capturing CUDA graphs (decode, FULL):   0%|          | 0/19 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   5%|▌         | 1/19 [00:02<00:43,  2.42s/it]Capturing CUDA graphs (decode, FULL):  21%|██        | 4/19 [00:02<00:07,  2.05it/s]Capturing CUDA graphs (decode, FULL):  37%|███▋      | 7/19 [00:02<00:02,  4.07it/s]Capturing CUDA graphs (decode, FULL):  53%|█████▎    | 10/19 [00:02<00:01,  6.50it/s]Capturing CUDA graphs (decode, FULL):  74%|███████▎  | 14/19 [00:02<00:00, 10.12it/s]Capturing CUDA graphs (decode, FULL):  95%|█████████▍| 18/19 [00:02<00:00, 13.85it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 19/19 [00:03<00:00,  6.24it/s]

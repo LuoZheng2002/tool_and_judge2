@@ -14,7 +14,8 @@ use crate::{
         experiments::{DatasetFileName, PreTranslateFileName, PreTranslateMode},
     },
     utils::{
-        compare_id, get_model_safe_name, load_json_lines, model_name_to_safe_name, write_json_lines_to_file
+        compare_id, get_model_safe_name, load_json_lines, model_name_to_safe_name,
+        write_json_lines_to_file,
     },
 };
 
@@ -32,39 +33,38 @@ pub struct PreTranslateAggregatedOutputQuestionEntry {
     pub file_name: DatasetFileName,
 }
 #[derive(Clone, Serialize, Deserialize)]
-pub struct PreTranslateQuestionEntry{
+pub struct PreTranslateQuestionEntry {
     pub id: String,
     pub original_question: String,
     pub translated_question: String,
 }
-const PRE_TRANSLATION_AGGREGATED_QUESTIONS_INPUT_FILE_NAME: &str =
-    "pre_translation_aggregated_questions_input.jsonl";
-const PRE_TRANSLATION_AGGREGATED_QUESTIONS_OUTPUT_FILE_NAME: &str =
-    "pre_translation_aggregated_questions_output.jsonl";
+const PRE_TRANSLATE_AGGREGATED_QUESTIONS_INPUT_FILE_NAME: &str =
+    "pre_translate_aggregated_questions_input.jsonl";
+const PRE_TRANSLATE_AGGREGATED_QUESTIONS_OUTPUT_FILE_NAME: &str =
+    "pre_translate_aggregated_questions_output.jsonl";
 #[pyfunction]
-pub fn pass_pre_translation_aggregated_questions_input_file_path(config: &ToolConfig) -> String {
+pub fn pass_pre_translate_aggregated_questions_input_file_path(config: &ToolConfig) -> String {
     let model = config.model;
     let model_safe_name = get_model_safe_name(model);
     let file_path = BASE_RESULT_PATH
         .join(model_safe_name)
-        .join(PRE_TRANSLATION_AGGREGATED_QUESTIONS_INPUT_FILE_NAME);
+        .join(PRE_TRANSLATE_AGGREGATED_QUESTIONS_INPUT_FILE_NAME);
     file_path.to_str().unwrap().to_string()
 }
 #[pyfunction]
-pub fn pass_pre_translation_aggregated_questions_output_file_path(config: &ToolConfig) -> String {
+pub fn pass_pre_translate_aggregated_questions_output_file_path(config: &ToolConfig) -> String {
     let model = config.model;
     let model_safe_name = get_model_safe_name(model);
     let file_path = BASE_RESULT_PATH
         .join(model_safe_name)
-        .join(PRE_TRANSLATION_AGGREGATED_QUESTIONS_OUTPUT_FILE_NAME);
+        .join(PRE_TRANSLATE_AGGREGATED_QUESTIONS_OUTPUT_FILE_NAME);
     file_path.to_str().unwrap().to_string()
 }
 
 #[pyfunction]
-pub fn pass_pre_translation_prepare_aggregated_questions(config: &ToolConfig) {
+pub fn pass_pre_translate_prepare_aggregated_questions(config: &ToolConfig) {
     let model = config.model;
     let model_safe_name = get_model_safe_name(model);
-    let mut aggregated_entries: Vec<PreTranslateAggregatedInputQuestionEntry> = vec![];
     let mut dataset_file_names: HashSet<DatasetFileName> = HashSet::new();
     for experiment in config.experiments.iter() {
         let pre_translate_mode = PreTranslateMode::from_config_experiment(experiment);
@@ -73,6 +73,7 @@ pub fn pass_pre_translation_prepare_aggregated_questions(config: &ToolConfig) {
             dataset_file_names.insert(dataset_file_name);
         }
     }
+    let mut aggregated_entries: Vec<PreTranslateAggregatedInputQuestionEntry> = vec![];
     for dataset_file_name in dataset_file_names.iter() {
         let dataset_file_name_str = format!(
             "{}.jsonl",
@@ -137,18 +138,21 @@ pub fn pass_pre_translation_prepare_aggregated_questions(config: &ToolConfig) {
         .map(|entry| serde_json::to_value(entry).unwrap())
         .collect();
     // Rust's output path is Python's input path
-    let output_file_path = pass_pre_translation_aggregated_questions_input_file_path(config);
+    let output_file_path = pass_pre_translate_aggregated_questions_input_file_path(config);
     write_json_lines_to_file(&output_file_path, &aggregated_entries_serialized)
         .expect("Unable to write aggregated questions to file");
     println!("Wrote aggregated questions to file: {}", output_file_path);
 }
 
 #[pyfunction]
-pub fn pass_pre_translation_dispatch_results(config: &ToolConfig) {
-    let output_path = pass_pre_translation_aggregated_questions_output_file_path(config);
+pub fn pass_pre_translate_dispatch_results(config: &ToolConfig) {
+    let output_path = pass_pre_translate_aggregated_questions_output_file_path(config);
     let output_entries = load_json_lines(&output_path)
-        .expect("Unable to load pre-translation aggregated questions output file");
-    let output_entries_parsed: HashMap<(String, DatasetFileName), PreTranslateAggregatedOutputQuestionEntry> = output_entries
+        .expect("Unable to load pre-translate aggregated questions output file");
+    let output_entries_parsed: HashMap<
+        (String, DatasetFileName),
+        PreTranslateAggregatedOutputQuestionEntry,
+    > = output_entries
         .into_iter()
         .map(|entry_json| {
             let entry: PreTranslateAggregatedOutputQuestionEntry =
@@ -176,7 +180,7 @@ pub fn pass_pre_translation_dispatch_results(config: &ToolConfig) {
             .join("pre_translate")
             .join(&result_file_name_str);
         let dataset_entries = load_json_lines(&dataset_file_path)
-            .expect("Unable to load dataset file for dispatching pre-translation results");
+            .expect("Unable to load dataset file for dispatching pre-translate results");
         let ids = dataset_entries
             .into_iter()
             .map(|entry| {
@@ -185,26 +189,28 @@ pub fn pass_pre_translation_dispatch_results(config: &ToolConfig) {
                 parsed_entry.id
             })
             .collect::<HashSet<String>>();
-        let mut result_existing_entries: Vec<PreTranslateQuestionEntry> = match load_json_lines(&result_file_path) {
-            Ok(entries) => entries
-                .into_iter()
-                .map(|entry_json| {
-                    serde_json::from_value(entry_json).expect("Unable to parse result entry")
-                })
-                .collect(),
-            Err(_) => {
-                println!(
-                    "Result file {} does not exist, will be created.",
-                    result_file_path.to_str().unwrap()
-                );
-                vec![]
-            }
-        };
+        let mut result_existing_entries: Vec<PreTranslateQuestionEntry> =
+            match load_json_lines(&result_file_path) {
+                Ok(entries) => entries
+                    .into_iter()
+                    .map(|entry_json| {
+                        serde_json::from_value(entry_json).expect("Unable to parse result entry")
+                    })
+                    .collect(),
+                Err(_) => {
+                    println!(
+                        "Result file {} does not exist, will be created.",
+                        result_file_path.to_str().unwrap()
+                    );
+                    vec![]
+                }
+            };
         let result_existing_ids: HashSet<String> = result_existing_entries
             .iter()
             .map(|entry| entry.id.clone())
             .collect();
-        let result_missing_ids: HashSet<String> = ids.difference(&result_existing_ids).cloned().collect();
+        let result_missing_ids: HashSet<String> =
+            ids.difference(&result_existing_ids).cloned().collect();
         let mut missing_count = 0;
         for missing_id in result_missing_ids.iter() {
             let key = (missing_id.clone(), dataset_file_name.clone());
@@ -221,7 +227,10 @@ pub fn pass_pre_translation_dispatch_results(config: &ToolConfig) {
         }
         println!(
             "For result file {}, target entries: {}, dispatched entries: {}, missing entries: {}",
-            result_file_name_str, ids.len(), result_existing_entries.len(), missing_count
+            result_file_name_str,
+            ids.len(),
+            result_existing_entries.len(),
+            missing_count
         );
         result_existing_entries.sort_by(|a, b| compare_id(&a.id, &b.id));
         let result_existing_entries_serialized: Vec<serde_json::Value> = result_existing_entries
@@ -229,10 +238,17 @@ pub fn pass_pre_translation_dispatch_results(config: &ToolConfig) {
             .map(|entry| serde_json::to_value(entry).unwrap())
             .collect();
         write_json_lines_to_file(&result_file_path, &result_existing_entries_serialized)
-            .expect("Unable to write pre-translation result file");
-        println!("Wrote pre-translation result file: {}", result_file_path.to_str().unwrap());
+            .expect("Unable to write pre-translate result file");
+        println!(
+            "Wrote pre-translate result file: {:?}",
+            result_file_path
+        );
     }
     // remove the output file
-    std::fs::remove_file(&output_path).expect("Unable to remove pre-translation aggregated questions output file");
-    println!("Removed pre-translation aggregated questions output file: {}", output_path);
+    std::fs::remove_file(&output_path)
+        .expect("Unable to remove pre-translate aggregated questions output file");
+    println!(
+        "Removed pre-translate aggregated questions output file: {}",
+        output_path
+    );
 }

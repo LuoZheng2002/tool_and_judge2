@@ -54,7 +54,7 @@ async def translate_tool_question_async(model_name: str, client: any, question: 
     )
     return response.output_text.strip()
 
-async def translate_tool_answer_async(model_name: str, client: any, parameter_value: str) -> str:
+async def translate_tool_parameter_async(model_name: str, client: any, parameter_value: str) -> str:
     messages = [
             {
                 "role": "developer",

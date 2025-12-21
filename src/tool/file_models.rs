@@ -1,22 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use crate::{
-    tool::error_analysis::{EvaluationError, ToolErrorCategory},
-};
-
-
-
-
-
-
-
-#[derive(Serialize, Deserialize, Clone)]
-pub struct EvaluationResultEntry {
-    pub id: String,
-    pub valid: bool,
-    pub error: Option<EvaluationError>,
-}
-
+use crate::tool::error_analysis::{EvaluationError, ToolErrorCategory};
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct EvaluationSummary {
@@ -25,9 +9,3 @@ pub struct EvaluationSummary {
     pub correct_cases: usize,
 }
 
-#[derive(Serialize, Deserialize, Clone)]
-pub struct CategorizedEntry {
-    pub id: String,
-    pub error_category: ToolErrorCategory,
-    pub error: EvaluationError,
-}

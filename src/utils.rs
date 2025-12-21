@@ -2,15 +2,18 @@ use crate::{
     config::Model,
     tool::{
         bfcl_formats::{BfclDatasetEntry, BfclGroundTruthEntry},
-        file_models::{
-            CategorizedEntry, EvaluationResultEntry,
-        }, passes::{pass_generate_raw::GenerateRawEntry, pass_parse_output::ParseOutputEntry},
+        file_models::CategorizeEntry,
+        passes::{
+            pass_evaluate::EvaluateEntry, pass_generate_raw::GenerateRawEntry,
+            pass_parse_output::ParseOutputEntry,
+        },
     },
 };
 use serde_json::Value;
 use std::{
     fs::File,
-    io::{BufRead, BufReader}, path::Path,
+    io::{BufRead, BufReader},
+    path::Path,
 };
 pub fn load_json_lines2(file: File) -> Result<Vec<serde_json::Value>, String> {
     let reader = BufReader::new(file);
@@ -27,7 +30,13 @@ pub fn load_json_lines2(file: File) -> Result<Vec<serde_json::Value>, String> {
 }
 
 pub fn load_json_lines(file_path: impl AsRef<Path>) -> Result<Vec<serde_json::Value>, String> {
-    let file = File::open(&file_path).map_err(|e| format!("Unable to open file {}: {}", file_path.as_ref().display(), e))?;
+    let file = File::open(&file_path).map_err(|e| {
+        format!(
+            "Unable to open file {}: {}",
+            file_path.as_ref().display(),
+            e
+        )
+    })?;
     // let reader = BufReader::new(file);
 
     // let mut results = Vec::new();
@@ -141,18 +150,16 @@ pub fn serialize_inference_json_entries(
 }
 
 pub fn serialize_evaluation_result_entries(
-    evaluation_result_entries: &Vec<EvaluationResultEntry>,
+    evaluation_result_entries: &Vec<EvaluateEntry>,
 ) -> Vec<serde_json::Value> {
     evaluation_result_entries
         .iter()
-        .map(|entry| {
-            serde_json::to_value(entry).expect("Unable to serialize EvaluationResultEntry")
-        })
+        .map(|entry| serde_json::to_value(entry).expect("Unable to serialize EvaluateEntry"))
         .collect()
 }
 
 pub fn serialize_categorized_entries(
-    categorized_entries: &Vec<CategorizedEntry>,
+    categorized_entries: &Vec<CategorizeEntry>,
 ) -> Vec<serde_json::Value> {
     categorized_entries
         .iter()
@@ -225,7 +232,7 @@ pub fn deserialize_ground_truth_entries(
 
 pub fn deserialize_evaluation_result_entries(
     evaluation_result_entries: Vec<serde_json::Value>,
-) -> Vec<EvaluationResultEntry> {
+) -> Vec<EvaluateEntry> {
     evaluation_result_entries
         .iter()
         .map(|entry| {
@@ -235,7 +242,7 @@ pub fn deserialize_evaluation_result_entries(
 }
 pub fn deserialize_categorized_entries(
     categorized_entries: Vec<serde_json::Value>,
-) -> Vec<CategorizedEntry> {
+) -> Vec<CategorizeEntry> {
     categorized_entries
         .iter()
         .map(|entry| {
