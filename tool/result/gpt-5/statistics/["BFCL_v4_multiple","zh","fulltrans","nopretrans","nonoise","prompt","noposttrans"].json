@@ -8,10 +8,10 @@
     "MISC_ERROR": 4,
     "WRONG_VALUE": 1,
     "RELEVANT_BUT_INCORRECT": 19,
-    "EXACTLY_SAME_MEANING": 23,
+    "EXACTLY_SAME_MEANING": 24,
     "LANGUAGE_MISMATCH_WRONG_VALUE": 0,
     "LANGUAGE_MISMATCH_RELEVANT_BUT_INCORRECT": 0,
-    "LANGUAGE_MISMATCH_EXACTLY_SAME_MEANING": 1,
+    "LANGUAGE_MISMATCH_EXACTLY_SAME_MEANING": 0,
     "OTHER_ERROR": 0
   },
   "category_samples": {
@@ -61,6 +61,7 @@
       "multiple_115",
       "multiple_138",
       "multiple_151",
+      "multiple_160",
       "multiple_165",
       "multiple_171",
       "multiple_172",
@@ -69,9 +70,6 @@
       "multiple_187",
       "multiple_193",
       "multiple_194"
-    ],
-    "LANGUAGE_MISMATCH_EXACTLY_SAME_MEANING": [
-      "multiple_160"
     ]
   }
 }
