@@ -1,0 +1,12 @@
+✏️ Setting installed package as editable
+For dataset file ["BFCL_v4_multiple","zh","fulltrans","nonoise"].jsonl, total entries: 200, existing entries: 200, missing entries: 0
+For dataset file ["BFCL_v4_multiple","zh","fulltrans","syno"].jsonl, total entries: 200, existing entries: 200, missing entries: 0
+For dataset file ["BFCL_v4_multiple","zh","fulltrans","para"].jsonl, total entries: 200, existing entries: 200, missing entries: 0
+Wrote aggregated questions to file: tool/result/meta-llama-Llama-3.1-8B-Instruct/pre_translate_aggregated_questions_input.jsonl
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: tool_config_slurm1.py
+Processing configuration:  <builtins.ToolConfig object at 0x7f8bc9787530>
+----------PASS 1: PRE-TRANSLATE QUESTIONS----------

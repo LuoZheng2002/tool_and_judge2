@@ -1,0 +1,84 @@
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+warning: unused import: `backend::ModelBackend`
+ --> src/models/model_interface.rs:6:9
+  |
+6 |         backend::ModelBackend,
+  |         ^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: unused import: `sync::Arc`
+ --> src/models/deepseek_interface.rs:1:33
+  |
+1 | use std::{collections::HashMap, sync::Arc};
+  |                                 ^^^^^^^^^
+
+warning: unused import: `backend::ModelBackend`
+ --> src/models/deepseek_interface.rs:5:9
+  |
+5 |         backend::ModelBackend, function_name_mapper::FunctionNameMapper,
+  |         ^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `std::sync::Arc`
+ --> src/models/gpt5_interface.rs:1:5
+  |
+1 | use std::sync::Arc;
+  |     ^^^^^^^^^^^^^^
+
+warning: unused import: `backend::ModelBackend`
+ --> src/models/gpt5_interface.rs:5:9
+  |
+5 |         backend::ModelBackend, function_name_mapper::FunctionNameMapper,
+  |         ^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `Python`
+  --> src/models/gpt5_interface.rs:14:12
+   |
+14 | use pyo3::{Python, types::PyAnyMethods};
+   |            ^^^^^^
+
+warning: unused import: `std::sync::Arc`
+ --> src/models/llama3_1_interface.rs:1:5
+  |
+1 | use std::sync::Arc;
+  |     ^^^^^^^^^^^^^^
+
+warning: unused import: `backend::ModelBackend`
+ --> src/models/llama3_1_interface.rs:5:9
+  |
+5 |         backend::ModelBackend, function_name_mapper::FunctionNameMapper,
+  |         ^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `Python`
+  --> src/models/llama3_1_interface.rs:14:12
+   |
+14 | use pyo3::{Python, types::PyAnyMethods};
+   |            ^^^^^^
+
+warning: unused import: `types::PyAnyMethods`
+  --> src/models/llama3_1_interface.rs:14:20
+   |
+14 | use pyo3::{Python, types::PyAnyMethods};
+   |                    ^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `types::PyAnyMethods`
+  --> src/models/gpt5_interface.rs:14:20
+   |
+14 | use pyo3::{Python, types::PyAnyMethods};
+   |                    ^^^^^^^^^^^^^^^^^^^
+
+warning: `codebase_rs` (lib) generated 11 warnings (run `cargo fix --lib -p codebase_rs` to apply 9 suggestions)
+    Finished `release` profile [optimized] target(s) in 0.94s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmpZGHPI4/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+
+thread '<unnamed>' panicked at src/tool/passes/pass_pre_translate.rs:150:10:
+Unable to load pre-translate aggregated questions output file: "Unable to open file tool/result/meta-llama-Llama-3.1-8B-Instruct/pre_translate_aggregated_questions_output.jsonl: No such file or directory (os error 2)"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+Traceback (most recent call last):
+  File "/projects/bfdz/zluo8/tool_and_judge2/tool.py", line 167, in <module>
+    pass_pre_translate_dispatch_results(config)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+pyo3_runtime.PanicException: Unable to load pre-translate aggregated questions output file: "Unable to open file tool/result/meta-llama-Llama-3.1-8B-Instruct/pre_translate_aggregated_questions_output.jsonl: No such file or directory (os error 2)"
