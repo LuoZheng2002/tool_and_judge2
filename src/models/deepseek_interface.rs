@@ -1,8 +1,7 @@
-use std::{collections::HashMap, sync::Arc};
+use std::{collections::HashMap};
 
 use crate::{
-    models::{
-        backend::ModelBackend, function_name_mapper::FunctionNameMapper,
+    models::{ function_name_mapper::FunctionNameMapper,
         model_interface::ModelInterface,
     },
     one_entry_map::KeyValuePair,

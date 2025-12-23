@@ -1,0 +1,405 @@
+"""
+Granite 4.0 backend implementation using vLLM.
+
+This backend implements Granite 4.0's tool calling format as specified in:
+https://huggingface.co/ibm-granite/granite-4.0-micro
+
+Granite 4.0 uses:
+- Special tokens: <|start_of_role|>, <|end_of_role|>, <|end_of_text|>
+- Tool calls wrapped in <tool_call>...</tool_call> XML tags
+- OpenAI-compatible function definition schema
+"""
+
+import json
+import re
+from typing import Any, List
+
+from vllm import SamplingParams
+
+
+async def generate_tool_call_async(
+    engine: Any,
+    tokenizer: Any,
+    question: str,
+    tools: List[dict],
+    prompt_passing_in_english: bool
+) -> str:
+    """
+    Generate tool calls using Granite 4.0's native tool calling format.
+
+    Args:
+        engine: vLLM AsyncLLMEngine instance
+        tokenizer: Tokenizer instance
+        question: User question
+        tools: List of tool definitions in Granite 4.0 format
+        prompt_passing_in_english: Whether to pass parameters in English
+
+    Returns:
+        JSON string containing the tool calls
+    """
+    # Build messages for Granite 4.0's chat template
+    system_message = {
+        "role": "system",
+        "content": (
+            "You are an expert in composing functions. "
+            "You are given a question and a set of possible functions. "
+            "Based on the question, you will need to make one or more function/tool calls to achieve the purpose. "
+            "If none of the functions can be used, point it out. "
+            "If the given question lacks the parameters required by the function, also point it out.\n\n"
+            "You should ONLY return function calls in your response. "
+            "You MUST NOT include any other text, explanations, or direct answers. "
+            "If you decide to invoke any function(s), you MUST use the provided tools. "
+            "Do NOT attempt to answer the question directly without using the available functions."
+            f"{' IMPORTANT: Pass all parameter values in English' if prompt_passing_in_english else ''}"
+        )
+    }
+
+    messages = [
+        system_message,
+        {"role": "user", "content": question}
+    ]
+
+    # Apply chat template with tools
+    # The tokenizer.apply_chat_template will format the prompt according to Granite 4.0's conventions
+    formatted_prompt = tokenizer.apply_chat_template(
+        messages,
+        tools=tools,
+        add_generation_prompt=True,
+        tokenize=False
+    )
+
+    # Use vLLM to generate the response
+    from vllm.sampling_params import SamplingParams
+
+    sampling_params = SamplingParams(
+        temperature=0.0,  # Greedy decoding for tool calls
+        max_tokens=2048,
+        stop_token_ids=[tokenizer.eos_token_id]
+    )
+
+    # Generate with vLLM engine
+    request_id = f"granite4_toolcall_{id(question)}"
+    results_generator = engine.generate(
+        formatted_prompt,
+        sampling_params,
+        request_id
+    )
+
+    # Wait for completion
+    final_output = None
+    async for request_output in results_generator:
+        final_output = request_output
+
+    if final_output is None:
+        raise RuntimeError("vLLM generation returned no output")
+
+    # Extract the generated text
+    generated_text = final_output.outputs[0].text.strip()
+    return generated_text
+
+
+async def translate_tool_question_async(
+    engine: Any,
+    tokenizer: Any,
+    question: str
+) -> str:
+    """
+    Translate a question to English using Granite 4.0.
+
+    Args:
+        engine: vLLM AsyncLLMEngine instance
+        tokenizer: Tokenizer instance
+        question: Question to translate
+
+    Returns:
+        Translated question in English
+    """
+    messages = [
+        {
+            "role": "system",
+            "content": "You are a professional translator. Translate the given text to English accurately. If the given text is already in English or is language agnostic, return it unchanged."
+        },
+        {
+            "role": "user",
+            "content": f"Translate the following question to English. Only output the translated question, nothing else:\n\n{question}"
+        }
+    ]
+
+    formatted_prompt = tokenizer.apply_chat_template(
+        messages,
+        add_generation_prompt=True,
+        tokenize=False
+    )
+
+    from vllm.sampling_params import SamplingParams
+
+    sampling_params = SamplingParams(
+        temperature=0.0,
+        max_tokens=512,
+        stop_token_ids=[tokenizer.eos_token_id]
+    )
+
+    request_id = f"granite4_translate_q_{id(question)}"
+    results_generator = engine.generate(
+        formatted_prompt,
+        sampling_params,
+        request_id
+    )
+
+    final_output = None
+    async for request_output in results_generator:
+        final_output = request_output
+
+    if final_output is None:
+        raise RuntimeError("vLLM generation returned no output")
+
+    return final_output.outputs[0].text.strip()
+
+
+async def translate_tool_parameter_async(
+    engine: Any,
+    tokenizer: Any,
+    parameter_value: str
+) -> str:
+    """
+    Translate a parameter value to English using Granite 4.0.
+
+    Args:
+        engine: vLLM AsyncLLMEngine instance
+        tokenizer: Tokenizer instance
+        parameter_value: Parameter value to translate
+
+    Returns:
+        Translated parameter value in English
+    """
+    messages = [
+        {
+            "role": "system",
+            "content": "You are a professional translator. Translate the given text to English accurately. If the given text is already in English or is language agnostic, return it unchanged."
+        },
+        {
+            "role": "user",
+            "content": f"Translate the following text to English. Only output the translated text, nothing else:\n\n{parameter_value}"
+        }
+    ]
+
+    formatted_prompt = tokenizer.apply_chat_template(
+        messages,
+        add_generation_prompt=True,
+        tokenize=False
+    )
+
+    from vllm.sampling_params import SamplingParams
+
+    sampling_params = SamplingParams(
+        temperature=0.0,
+        max_tokens=512,
+        stop_token_ids=[tokenizer.eos_token_id]
+    )
+
+    request_id = f"granite4_translate_a_{id(parameter_value)}"
+    results_generator = engine.generate(
+        formatted_prompt,
+        sampling_params,
+        request_id
+    )
+
+    final_output = None
+    async for request_output in results_generator:
+        final_output = request_output
+
+    if final_output is None:
+        raise RuntimeError("vLLM generation returned no output")
+
+    return final_output.outputs[0].text.strip()
+
+
+def collect_perplexity_batch(
+    entries: List[dict],
+    model: Any,
+    tokenizer: Any,
+) -> List[dict]:
+    """
+    Collect raw logits and input_ids for a batch of entries using HuggingFace backend.
+
+    Args:
+        entries: List of entries, each containing 'question' and 'answer' fields
+        model: HuggingFace model instance
+        tokenizer: Tokenizer instance
+
+    Returns:
+        List of dicts containing 'logits' and 'input_ids' for each entry
+    """
+    import torch
+    from src_py.utils import language_abbreviation_to_name
+
+    # Prepare all prompts first
+    formatted_prompts = []
+    answers = []
+
+    for entry in entries:
+        question = entry['question']
+        answer = entry['answer']
+        lang = entry.get('lang', 'en')
+
+        # Map language abbreviation to full name
+        language_name = language_abbreviation_to_name(lang)
+
+        # Build language-specific instructions
+        instruction = f"Please answer the question in {language_name} with a concise phrase instead of a complete sentence."
+
+        # Combine question with instruction
+        user_content = f"{question}\n\n{instruction}"
+
+        # Build messages for chat template
+        messages = [
+            {
+                "role": "user",
+                "content": user_content
+            },
+            {
+                "role": "assistant",
+                "content": answer
+            }
+        ]
+
+        # Apply chat template to get the full formatted prompt
+        formatted_prompt = tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=False
+        )
+
+        formatted_prompts.append(formatted_prompt)
+        answers.append(answer)
+
+    # Tokenize all prompts with padding for batching
+    # Add truncation and max_length to prevent extremely long sequences
+    inputs = tokenizer(
+        formatted_prompts,
+        return_tensors="pt",
+        padding=True,
+        truncation=True,
+        max_length=2048,  # Limit to reasonable length
+        add_special_tokens=False
+    )
+
+    # Move batch to model's device
+    input_ids_batch = inputs.input_ids.to(model.device)
+    attention_mask = inputs.attention_mask.to(model.device)
+
+    # Get logits from model for the entire batch
+    with torch.no_grad():
+        outputs = model(input_ids_batch, attention_mask=attention_mask)
+        logits_batch = outputs.logits.cpu()  # [batch_size, seq_len, vocab_size], move to CPU
+
+    # Process each item in the batch
+    results = []
+    for i in range(len(entries)):
+        # Get the actual sequence length (excluding padding)
+        seq_len = attention_mask[i].sum().item()
+
+        # Extract logits and input_ids for this sequence (excluding padding)
+        logits = logits_batch[i, :seq_len, :]  # [seq_len, vocab_size]
+        input_ids = input_ids_batch[i, :seq_len].cpu().tolist()
+
+        # Store results with input_ids and logits
+        results.append({
+            'logits': logits,
+            'input_ids': input_ids,
+            'answer': answers[i]  # Keep answer for backward search
+        })
+
+    return results
+
+
+async def collect_preference_local_async(
+    question: str,
+    answer1: str,
+    answer2: str,
+    engine: Any,
+    tokenizer: Any,
+) -> tuple[float, float]:
+    """
+    Collect preference between two answers using Granite 4.0 backend.
+
+    Returns:
+        Tuple of (logprob_1, logprob_2) where:
+        - logprob_1: log probability of token "1"
+        - logprob_2: log probability of token "2"
+    """
+
+    messages = [
+        {
+            "role": "system",
+            "content": (
+                "You are an impartial judge. The user is going to provide one question and two answers. "
+                'If Answer 1 is better, respond with "1". '
+                'If Answer 2 is better, respond with "2". '
+                "Even if the answers are identical in correctness, try your best to choose a more favorable one. "
+                "IMPORTANT: You SHOULD NOT judge an answer's quality based on its language.\n"
+                'Only respond with "1" or "2", without any explanation.'
+            ),
+        },
+        {
+            "role": "user",
+            "content": (
+                f"Question: {question}\n"
+                f"Answer 1: {answer1}\n"
+                f"Answer 2: {answer2}\n"
+                "Which answer is better? Respond with '1' for Answer 1 or '2' for Answer 2."
+            ),
+        },
+    ]
+
+    # Convert chat messages to prompt text
+    prompt = tokenizer.apply_chat_template(
+        messages,
+        tokenize=False,
+        add_generation_prompt=True,
+    )
+
+    sampling_params = SamplingParams(
+        temperature=1.0,      # sampling at temperature 1.0
+        max_tokens=4,         # only need one token
+        stop=None,
+        logprobs=10,          # get top 10 token log probabilities
+    )
+
+    # vLLM async generation (returns an async generator)
+    request_id = f"granite4_preference_{id(question)}"
+    final_output = None
+    async for output in engine.generate(prompt, sampling_params, request_id):
+        # We only need the final result
+        final_output = output
+
+    if final_output is None:
+        raise RuntimeError("vLLM generation returned no output")
+
+    # Get the first token's logprobs
+    if not final_output.outputs[0].logprobs or len(final_output.outputs[0].logprobs) == 0:
+        raise RuntimeError("No logprobs returned from vLLM")
+
+    first_token_logprobs = final_output.outputs[0].logprobs[0]
+
+    # Get token IDs for "1" and "2"
+    token_1_id = tokenizer.encode("1", add_special_tokens=False)[0]
+    token_2_id = tokenizer.encode("2", add_special_tokens=False)[0]
+
+    # Extract log probabilities for tokens "1" and "2"
+    logprob_1 = None
+    logprob_2 = None
+
+    for token_id, logprob_obj in first_token_logprobs.items():
+        if token_id == token_1_id:
+            logprob_1 = logprob_obj.logprob
+        elif token_id == token_2_id:
+            logprob_2 = logprob_obj.logprob
+
+    # Check if both tokens are in the top k
+    if logprob_1 is None:
+        raise ValueError(f"Token '1' (ID: {token_1_id}) not found in top-k logprobs")
+    if logprob_2 is None:
+        raise ValueError(f"Token '2' (ID: {token_2_id}) not found in top-k logprobs")
+
+    return logprob_1, logprob_2

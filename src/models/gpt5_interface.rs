@@ -1,8 +1,6 @@
-use std::sync::Arc;
 
 use crate::{
-    models::{
-        backend::ModelBackend, function_name_mapper::FunctionNameMapper,
+    models::{function_name_mapper::FunctionNameMapper,
         model_interface::ModelInterface,
     },
     one_entry_map::KeyValuePair,
@@ -11,7 +9,6 @@ use crate::{
     tool::error_analysis::EvaluationError,
 };
 use indexmap::IndexMap;
-use pyo3::{Python, types::PyAnyMethods};
 use serde::{Deserialize, Serialize};
 
 use serde_json::Value;

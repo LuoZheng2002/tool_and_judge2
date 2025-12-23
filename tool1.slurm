@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=tool       # Job name
+#SBATCH --job-name=tool1       # Job name
 #SBATCH --output=z_tool1_%j.out        # Standard output log (%j = job ID)
 #SBATCH --error=z_tool1_%j.err         # Error log
 #SBATCH --time=00:30:00                 # Max runtime (HH:MM:SS)

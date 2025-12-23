@@ -60,7 +60,7 @@ async def generate_tool_call_async(
     sampling_params = SamplingParams(
         temperature=0.0,  # Greedy decoding for tool calls
         max_tokens=2048,
-        stop_token_ids=[tokenizer.eos_token_id, tokenizer.convert_tokens_to_ids("<|eot_id|>")]
+        stop_token_ids=[tokenizer.eos_token_id]
     )
 
     # Generate with vLLM engine
@@ -121,10 +121,10 @@ async def translate_tool_question_async(
     sampling_params = SamplingParams(
         temperature=0.0,
         max_tokens=512,
-        stop_token_ids=[tokenizer.eos_token_id, tokenizer.convert_tokens_to_ids("<|eot_id|>")]
+        stop_token_ids=[tokenizer.eos_token_id]
     )
 
-    request_id = f"qwen3_{id(question)}"
+    request_id = f"qwen3_translate_q_{id(question)}"
     results_generator = engine.generate(
         formatted_prompt,
         sampling_params,
@@ -179,7 +179,7 @@ async def translate_tool_parameter_async(
     sampling_params = SamplingParams(
         temperature=0.0,
         max_tokens=512,
-        stop_token_ids=[tokenizer.eos_token_id, tokenizer.convert_tokens_to_ids("<|eot_id|>")]
+        stop_token_ids=[tokenizer.eos_token_id]
     )
 
     request_id = f"qwen3_translate_a_{id(parameter_value)}"
