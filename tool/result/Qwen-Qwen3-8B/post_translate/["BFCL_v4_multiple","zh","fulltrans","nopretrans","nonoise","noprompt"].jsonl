@@ -5,10 +5,10 @@
 {"id":"multiple_4","valid":true,"result":{"Ok":[{"kinematics.calculate_displacement":{"initial_speed":20,"acceleration":10,"time":5}}]}}
 {"id":"multiple_5","valid":true,"result":{"Ok":[{"weather.get_by_coordinates_date":{"coordinates":[46.603354,1.8883340],"date":"2019-12-13"}}]}}
 {"id":"multiple_6","valid":true,"result":{"Ok":[{"capacitance_calculator.calculate":{"A":10,"d":0.01,"K":1.0}}]}}
-{"id":"multiple_7","valid":false,"result":{"Err":{"JsonDecodeError":{"error_message":"trailing characters at line 2 column 1","raw_output":"<tool_call>\n{\"name\": \"wildlife_population_assess_growth\", \"arguments\": {\"species\": \"鹿\", \"location\": \"华盛顿州\", \"duration\": 10}}\n</tool_call>\n<tool_call>\n{\"name\": \"ecological_impact_analyze\", \"arguments\": {\"species\": \"鹿\", \"ecosystem\": \"林地\", \"location\": \"华盛顿州\", \"timeframe\": 10}}\n</tool_call>"}}}}
+{"id":"multiple_7","valid":true,"result":{"Ok":[{"wildlife_population.assess_growth":{"species":"Deer","location":"Washington State","duration":10}},{"ecological_impact.analyze":{"species":"Deer","ecosystem":"Forest","location":"Washington State","timeframe":10}}]}}
 {"id":"multiple_8","valid":true,"result":{"Ok":[{"realestate.find_properties":{"location":"San Diego, CA","propertyType":"Villa","bedrooms":3,"budget":{"min":300000,"max":400000}}}]}}
 {"id":"multiple_9","valid":true,"result":{"Ok":[{"calculate_average":{"gradeDict":{"Mathematics":90,"Science":75,"History":82,"Music":89}}}]}}
-{"id":"multiple_10","valid":false,"result":{"Err":{"JsonDecodeError":{"error_message":"trailing characters at line 2 column 1","raw_output":"<tool_call>\n{\"name\": \"database_create_backup\", \"arguments\": {\"db_name\": \"员工数据库\", \"backup_location\": \"/backups/employee_database\", \"timestamp\": true}}\n</tool_call>\n<tool_call>\n{\"name\": \"database_modify_columns\", \"arguments\": {\"db_name\": \"员工数据库\", \"table\": \"personal_data\", \"operation\": \"delete\", \"columns\": [\"电子邮件地址\", \"社会安全号码\"]}}\n</tool_call>"}}}}
+{"id":"multiple_10","valid":true,"result":{"Ok":[{"database.create_backup":{"db_name":"Employee Database","backup_location":"/backups/employee_database","timestamp":true}},{"database.modify_columns":{"db_name":"Employee Database","table":"personal_data","operation":"delete","columns":["Email address","Social Security Number"]}}]}}
 {"id":"multiple_11","valid":true,"result":{"Ok":[{"math_roots.quadratic":{"a":5,"b":20,"c":-25}}]}}
 {"id":"multiple_12","valid":true,"result":{"Ok":[{"corporate_finance.calculate_YOY_growth_rate":{"company_name":"Tech Inc","year1":2019,"year1_revenue":1000000,"year2":2020,"year2_revenue":1200000}}]}}
 {"id":"multiple_13","valid":true,"result":{"Ok":[{"corporate_finance.revenue_forecast":{"company":"XYZ","product":"A","sales_units_increase_percentage":10}}]}}
@@ -51,7 +51,7 @@
 {"id":"multiple_50","valid":true,"result":{"Ok":[{"house_price_forecast":{"location":"New York","months":1}}]}}
 {"id":"multiple_51","valid":true,"result":{"Ok":[{"dice_roll_probability":{"desired_sum":7,"n_rolls":2,"sides_per_die":6}}]}}
 {"id":"multiple_52","valid":true,"result":{"Ok":[{"currency_conversion":{"amount":100,"from_currency":"EUR","to_currency":"USD"}}]}}
-{"id":"multiple_53","valid":false,"result":{"Err":{"JsonDecodeError":{"error_message":"trailing characters at line 2 column 1","raw_output":"<tool_call>\n{\"name\": \"linear_regression\", \"arguments\": {\"independent_var\": [\"interest_rate\", \"unemployment_rate\"], \"dependent_var\": \"house_price\", \"forecast_period\": 5}}\n</tool_call>\n<tool_call>\n{\"name\": \"random_forest_regression\", \"arguments\": {\"independent_var\": [\"interest_rate\", \"unemployment_rate\"], \"dependent_var\": \"house_price\", \"forecast_period\": 5}}\n</tool_call>"}}}}
+{"id":"multiple_53","valid":true,"result":{"Ok":[{"linear_regression":{"independent_var":["interest_rate","unemployment_rate"],"dependent_var":"house_price","forecast_period":5}},{"random_forest_regression":{"independent_var":["interest_rate","unemployment_rate"],"dependent_var":"house_price","forecast_period":5}}]}}
 {"id":"multiple_54","valid":true,"result":{"Ok":[{"corporate_finance.dividend_data":{"company":"Apple Inc.","years":5,"frequency":"annually"}}]}}
 {"id":"multiple_55","valid":true,"result":{"Ok":[{"stock_forecast":{"company":"Google","days":3}}]}}
 {"id":"multiple_56","valid":true,"result":{"Ok":[{"avg_closing_price":{"company":"Apple","days":60}}]}}
@@ -71,7 +71,7 @@
 {"id":"multiple_70","valid":true,"result":{"Ok":[{"european_history.get_monarchs":{"country":"France","century":18}}]}}
 {"id":"multiple_71","valid":true,"result":{"Ok":[{"get_population":{"year":1954,"category":"veterans"}}]}}
 {"id":"multiple_72","valid":true,"result":{"Ok":[{"us_history.population_by_state_year":{"state":"California","year":1970}}]}}
-{"id":"multiple_73","valid":false,"result":{"Err":{"JsonDecodeError":{"error_message":"trailing characters at line 2 column 1","raw_output":"<tool_call>\n{\"name\": \"religion_get_origin\", \"arguments\": {\"religion\": \"佛教\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"religion_get_core_beliefs\", \"arguments\": {\"religion\": \"佛教\"}}\n</tool_call>"}}}}
+{"id":"multiple_73","valid":true,"result":{"Ok":[{"religion.get_origin":{"religion":"Buddhism"}},{"religion.get_core_beliefs":{"religion":"Buddhism"}}]}}
 {"id":"multiple_74","valid":true,"result":{"Ok":[{"art_auction.fetch_artwork_price":{"artwork_name":"Starry Night","artist":"Vincent van Gogh","platform":"all"}}]}}
 {"id":"multiple_75","valid":true,"result":{"Ok":[{"paint_color.trends":{"room":"Living room","period":"Yearly"}}]}}
 {"id":"multiple_76","valid":true,"result":{"Ok":[{"sculpture.create_custom":{"item":"horse","material":"Bronze"}}]}}
@@ -158,7 +158,7 @@
 {"id":"multiple_157","valid":true,"result":{"Ok":[{"get_earliest_reference":{"name":"Jesus Christ","source":"scriptures"}}]}}
 {"id":"multiple_158","valid":true,"result":{"Ok":[{"religious_history.get_papal_biography":{"papal_name":"Innocent III","include_contributions":true}}]}}
 {"id":"multiple_159","valid":true,"result":{"Ok":[{"calculate_paint_needed":{"coverage_rate":400,"length":30,"height":12}}]}}
-{"id":"multiple_160","valid":true,"result":{"Ok":[{"get_sculpture_info":{"artist_name":"James Prensa","detail":true}}]}}
+{"id":"multiple_160","valid":true,"result":{"Ok":[{"get_sculpture_info":{"artist_name":"James Presa","detail":true}}]}}
 {"id":"multiple_161","valid":true,"result":{"Ok":[{"find_exhibition":{"location":"New York","art_form":"sculpture","month":"next","user_ratings":"high"}}]}}
 {"id":"multiple_162","valid":true,"result":{"Ok":[{"analyze_structure":{"building_id":"B1004","floors":[2,3,4],"mode":"dynamic"}}]}}
 {"id":"multiple_163","valid":true,"result":{"Ok":[{"metropolitan_museum.get_top_artworks":{"number":5,"sort_by":"popularity"}}]}}

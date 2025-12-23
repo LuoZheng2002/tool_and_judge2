@@ -8,7 +8,14 @@ use crate::{
     tool::error_analysis::EvaluationError,
 };
 use indexmap::IndexMap;
+use lazy_static::lazy_static;
+use regex::Regex;
 use serde::{Deserialize, Serialize};
+
+lazy_static! {
+    static ref TOOL_CALL_REGEX: Regex = Regex::new(r"(?s)<tool_call>(.*?)</tool_call>")
+        .expect("Failed to compile tool_call regex");
+}
 
 /// Qwen3 tool format following the Qwen documentation
 /// https://qwen.readthedocs.io/en/latest/framework/function_call.html
@@ -150,54 +157,35 @@ impl ModelInterface for Qwen3Interface {
         raw_output: &str,
         name_mapper: &FunctionNameMapper,
     ) -> Result<Vec<BfclOutputFunctionCall>, EvaluationError> {
-        let stripped_output = raw_output.strip_prefix("<tool_call>").unwrap_or(raw_output);
-        let stripped_output = stripped_output.strip_suffix("</tool_call>").unwrap_or(stripped_output);
-        let stripped_output = stripped_output.trim();
-        // Parse the raw output as JSON
-        let output_json = serde_json::from_str::<serde_json::Value>(stripped_output).map_err(|e| {
-            EvaluationError::JsonDecodeError {
-                error_message: e.to_string(),
-                raw_output: raw_output.to_string(),
-            }
-        })?;
+        // let output_without_whitespace: String = raw_output.chars().filter(|c| !c.is_whitespace()).collect();
+        // Use regex to extract all <tool_call>...</tool_call> patterns
+        let mut tool_call_contents: Vec<&str> = TOOL_CALL_REGEX
+            .captures_iter(&raw_output)
+            .map(|cap| cap.get(1).unwrap().as_str().trim())
+            .collect();
 
-        // Check if it's a single function call or an array
-        let qwen3_calls: Vec<Qwen3OutputFunctionCall> = if output_json.is_array() {
-            // Parse as array of function calls
-            serde_json::from_value(output_json).map_err(|e| EvaluationError::ParsingError {
-                error_message: e.to_string(),
-                raw_output: raw_output.to_string(),
-            })?
-        } else if output_json.is_object() {
-            // Try to parse as single function call
-            let single_call: Qwen3OutputFunctionCall =
-                serde_json::from_value(output_json).map_err(|e| EvaluationError::ParsingError {
-                    error_message: e.to_string(),
-                    raw_output: raw_output.to_string(),
+        // If no tool_call tags were found, try parsing the raw output directly
+        if tool_call_contents.is_empty() {
+            tool_call_contents.push(raw_output.trim());
+        }
+
+        // Parse each tool call content as JSON
+        // Each <tool_call> tag contains exactly one JSON object representing one function call
+        let mut qwen3_calls = Vec::new();
+        for content in tool_call_contents {
+            let qwen3_call: Qwen3OutputFunctionCall =
+                serde_json::from_str(content).map_err(|e| {
+                    EvaluationError::JsonDecodeError {
+                        error_message: e.to_string(),
+                        raw_output: raw_output.to_string(),
+                    }
                 })?;
-            vec![single_call]
-        } else {
-            return Err(EvaluationError::ParsingError {
-                error_message: "Expected JSON object or array".to_string(),
-                raw_output: raw_output.to_string(),
-            });
-        };
+            qwen3_calls.push(qwen3_call);
+        }
 
         // Convert Qwen3 format to BFCL format
         let mut bfcl_calls = Vec::new();
         for qwen3_call in qwen3_calls {
-            // Parse the arguments string as JSON
-            // let arguments: IndexMap<String, serde_json::Value> =
-            //     serde_json::from_str(&qwen3_call.arguments).map_err(|e| {
-            //         EvaluationError::JsonDecodeError {
-            //             error_message: format!(
-            //                 "Failed to parse arguments JSON string: {}",
-            //                 e
-            //             ),
-            //             raw_output: raw_output.to_string(),
-            //         }
-            //     })?;
-
             // Map the function name back to original
             let original_name = name_mapper
                 .sanitized_to_original

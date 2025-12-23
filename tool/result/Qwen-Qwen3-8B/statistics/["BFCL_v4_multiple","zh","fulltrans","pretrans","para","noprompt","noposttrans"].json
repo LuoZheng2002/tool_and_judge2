@@ -4,8 +4,8 @@
   "correct_cases": 153,
   "incorrect_cases": 47,
   "category_counts": {
-    "SYNTAX_ERROR": 3,
-    "MISC_ERROR": 0,
+    "SYNTAX_ERROR": 0,
+    "MISC_ERROR": 3,
     "WRONG_VALUE": 3,
     "RELEVANT_BUT_INCORRECT": 21,
     "EXACTLY_SAME_MEANING": 20,
@@ -15,7 +15,7 @@
     "OTHER_ERROR": 0
   },
   "category_samples": {
-    "SYNTAX_ERROR": [
+    "MISC_ERROR": [
       "multiple_7",
       "multiple_10",
       "multiple_53"

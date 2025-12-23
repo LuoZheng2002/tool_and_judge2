@@ -5,10 +5,10 @@
 {"id":"multiple_4","valid":true,"error":null}
 {"id":"multiple_5","valid":true,"error":null}
 {"id":"multiple_6","valid":true,"error":null}
-{"id":"multiple_7","valid":false,"error":{"JsonDecodeError":{"error_message":"trailing characters at line 2 column 1","raw_output":"<tool_call>\n{\"name\": \"wildlife_population_assess_growth\", \"arguments\": {\"species\": \"鹿\", \"location\": \"华盛顿州\", \"duration\": 10}}\n</tool_call>\n<tool_call>\n{\"name\": \"ecological_impact_analyze\", \"arguments\": {\"species\": \"鹿\", \"ecosystem\": \"森林\", \"location\": \"华盛顿州\", \"timeframe\": 10}}\n</tool_call>"}}}
+{"id":"multiple_7","valid":false,"error":{"InvalidEntryCount":{"expected_count":1,"actual_count":2,"decoded_output":"[{\"wildlife_population.assess_growth\":{\"species\":\"Deer\",\"location\":\"Washington State\",\"duration\":10}},{\"ecological_impact.analyze\":{\"species\":\"Deer\",\"ecosystem\":\"Forest\",\"location\":\"Washington State\",\"timeframe\":10}}]"}}}
 {"id":"multiple_8","valid":false,"error":{"InvalidParamValue":{"param":"propertyType","actual_value":"Villa","expected_values":["villa"],"decoded_output":"[{\"realestate.find_properties\":{\"location\":\"San Diego, CA\",\"propertyType\":\"Villa\",\"bedrooms\":3,\"budget\":{\"min\":300000,\"max\":400000}}}]"}}}
 {"id":"multiple_9","valid":false,"error":{"InvalidParamValue":{"param":"gradeDict","actual_value":{"Mathematics":90,"Science":75,"History":82,"Music":89},"expected_values":[{"math":[90],"science":[75],"history":[82],"music":[89]}],"decoded_output":"[{\"calculate_average\":{\"gradeDict\":{\"Mathematics\":90,\"Science\":75,\"History\":82,\"Music\":89}}}]"}}}
-{"id":"multiple_10","valid":false,"error":{"JsonDecodeError":{"error_message":"trailing characters at line 2 column 1","raw_output":"<tool_call>\n{\"name\": \"database_create_backup\", \"arguments\": {\"db_name\": \"员工数据库\", \"backup_location\": \"/backups/employee_database\", \"timestamp\": true}}\n</tool_call>\n<tool_call>\n{\"name\": \"database_modify_columns\", \"arguments\": {\"db_name\": \"员工数据库\", \"table\": \"personal_data\", \"operation\": \"delete\", \"columns\": [\"电子邮件地址\", \"社会安全号码\"]}}\n</tool_call>"}}}
+{"id":"multiple_10","valid":false,"error":{"InvalidEntryCount":{"expected_count":1,"actual_count":2,"decoded_output":"[{\"database.create_backup\":{\"db_name\":\"Employee Database\",\"backup_location\":\"/backups/employee_database\",\"timestamp\":true}},{\"database.modify_columns\":{\"db_name\":\"Employee Database\",\"table\":\"personal_data\",\"operation\":\"delete\",\"columns\":[\"Email address\",\"Social Security Number\"]}}]"}}}
 {"id":"multiple_11","valid":true,"error":null}
 {"id":"multiple_12","valid":true,"error":null}
 {"id":"multiple_13","valid":true,"error":null}
@@ -51,13 +51,13 @@
 {"id":"multiple_50","valid":true,"error":null}
 {"id":"multiple_51","valid":true,"error":null}
 {"id":"multiple_52","valid":true,"error":null}
-{"id":"multiple_53","valid":false,"error":{"JsonDecodeError":{"error_message":"trailing characters at line 2 column 1","raw_output":"<tool_call>\n{\"name\": \"linear_regression\", \"arguments\": {\"independent_var\": [\"interest_rate\", \"unemployment_rate\"], \"dependent_var\": \"house_price\", \"forecast_period\": 5}}\n</tool_call>\n<tool_call>\n{\"name\": \"random_forest_regression\", \"arguments\": {\"independent_var\": [\"interest_rate\", \"unemployment_rate\"], \"dependent_var\": \"house_price\", \"forecast_period\": 5}}\n</tool_call>"}}}
+{"id":"multiple_53","valid":false,"error":{"InvalidEntryCount":{"expected_count":1,"actual_count":2,"decoded_output":"[{\"linear_regression\":{\"independent_var\":[\"interest_rate\",\"unemployment_rate\"],\"dependent_var\":\"house_price\",\"forecast_period\":5}},{\"random_forest_regression\":{\"independent_var\":[\"interest_rate\",\"unemployment_rate\"],\"dependent_var\":\"house_price\",\"forecast_period\":5}}]"}}}
 {"id":"multiple_54","valid":true,"error":null}
 {"id":"multiple_55","valid":true,"error":null}
 {"id":"multiple_56","valid":true,"error":null}
 {"id":"multiple_57","valid":true,"error":null}
 {"id":"multiple_58","valid":false,"error":{"InvalidParamValue":{"param":"expertise","actual_value":"Marriage","expected_values":["Divorce"],"decoded_output":"[{\"lawyer.search\":{\"location\":\"Los Angeles, CA\",\"expertise\":\"Marriage\"}}]"}}}
-{"id":"multiple_59","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"Surrounding areas of New York City","expected_values":["New York","New York, NY","NY","New York City","NYC"],"decoded_output":"[{\"lawyer_finder\":{\"location\":\"Surrounding areas of New York City\",\"specialization\":[\"Criminal Law\"]}}]"}}}
+{"id":"multiple_59","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"Surrounding areas of New York","expected_values":["New York","New York, NY","NY","New York City","NYC"],"decoded_output":"[{\"lawyer_finder\":{\"location\":\"Surrounding areas of New York\",\"specialization\":[\"Criminal Law\"]}}]"}}}
 {"id":"multiple_60","valid":true,"error":null}
 {"id":"multiple_61","valid":false,"error":{"InvalidParamValue":{"param":"specialization","actual_value":"residential design","expected_values":["small space garden design"],"decoded_output":"[{\"landscape_architect.find_specialty\":{\"location\":\"Portland, OR\",\"specialization\":\"residential design\",\"years_experience\":5}}]"}}}
 {"id":"multiple_62","valid":true,"error":null}
@@ -158,7 +158,7 @@
 {"id":"multiple_157","valid":true,"error":null}
 {"id":"multiple_158","valid":true,"error":null}
 {"id":"multiple_159","valid":true,"error":null}
-{"id":"multiple_160","valid":false,"error":{"InvalidParamValue":{"param":"artist_name","actual_value":"James Prensa","expected_values":["James Plensa"],"decoded_output":"[{\"get_sculpture_info\":{\"artist_name\":\"James Prensa\",\"detail\":true}}]"}}}
+{"id":"multiple_160","valid":false,"error":{"InvalidParamValue":{"param":"artist_name","actual_value":"James Presa","expected_values":["James Plensa"],"decoded_output":"[{\"get_sculpture_info\":{\"artist_name\":\"James Presa\",\"detail\":true}}]"}}}
 {"id":"multiple_161","valid":false,"error":{"InvalidParamValue":{"param":"month","actual_value":"Next month","expected_values":["upcoming","next month","upcoming month","next",""],"decoded_output":"[{\"find_exhibition\":{\"location\":\"New York\",\"art_form\":\"sculpture\",\"month\":\"Next month\",\"user_ratings\":\"high\"}}]"}}}
 {"id":"multiple_162","valid":true,"error":null}
 {"id":"multiple_163","valid":true,"error":null}

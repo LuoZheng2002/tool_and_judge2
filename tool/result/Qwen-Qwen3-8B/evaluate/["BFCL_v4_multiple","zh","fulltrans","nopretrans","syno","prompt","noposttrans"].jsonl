@@ -5,10 +5,10 @@
 {"id":"multiple_4","valid":true,"error":null}
 {"id":"multiple_5","valid":true,"error":null}
 {"id":"multiple_6","valid":true,"error":null}
-{"id":"multiple_7","valid":false,"error":{"JsonDecodeError":{"error_message":"trailing characters at line 2 column 1","raw_output":"<tool_call>\n{\"name\": \"wildlife_population_assess_growth\", \"arguments\": {\"species\": \"鹿\", \"location\": \"华盛顿州\", \"duration\": 10}}\n</tool_call>\n<tool_call>\n{\"name\": \"ecological_impact_analyze\", \"arguments\": {\"species\": \"鹿\", \"ecosystem\": \"林地\", \"location\": \"华盛顿州\", \"timeframe\": 10}}\n</tool_call>"}}}
+{"id":"multiple_7","valid":false,"error":{"InvalidEntryCount":{"expected_count":1,"actual_count":2,"decoded_output":"[{\"wildlife_population.assess_growth\":{\"species\":\"鹿\",\"location\":\"华盛顿州\",\"duration\":10}},{\"ecological_impact.analyze\":{\"species\":\"鹿\",\"ecosystem\":\"林地\",\"location\":\"华盛顿州\",\"timeframe\":10}}]"}}}
 {"id":"multiple_8","valid":false,"error":{"InvalidParamValue":{"param":"propertyType","actual_value":"residential","expected_values":["villa"],"decoded_output":"[{\"realestate.find_properties\":{\"location\":\"San Diego, CA\",\"propertyType\":\"residential\",\"bedrooms\":3,\"budget\":{\"min\":300000,\"max\":400000}}}]"}}}
 {"id":"multiple_9","valid":false,"error":{"InvalidParamValue":{"param":"gradeDict","actual_value":{"数学":90,"科学":75,"历史":82,"音乐":89},"expected_values":[{"math":[90],"science":[75],"history":[82],"music":[89]}],"decoded_output":"[{\"calculate_average\":{\"gradeDict\":{\"数学\":90,\"科学\":75,\"历史\":82,\"音乐\":89}}}]"}}}
-{"id":"multiple_10","valid":false,"error":{"JsonDecodeError":{"error_message":"trailing characters at line 2 column 1","raw_output":"<tool_call>\n{\"name\": \"database_create_backup\", \"arguments\": {\"db_name\": \"员工数据库\", \"backup_location\": \"/backups/employee_database\", \"timestamp\": true}}\n</tool_call>\n<tool_call>\n{\"name\": \"database_modify_columns\", \"arguments\": {\"db_name\": \"员工数据库\", \"table\": \"personal_data\", \"operation\": \"delete\", \"columns\": [\"电子邮件地址\", \"社会安全号码\"]}}\n</tool_call>"}}}
+{"id":"multiple_10","valid":false,"error":{"InvalidEntryCount":{"expected_count":1,"actual_count":2,"decoded_output":"[{\"database.create_backup\":{\"db_name\":\"员工数据库\",\"backup_location\":\"/backups/employee_database\",\"timestamp\":true}},{\"database.modify_columns\":{\"db_name\":\"员工数据库\",\"table\":\"personal_data\",\"operation\":\"delete\",\"columns\":[\"电子邮件地址\",\"社会安全号码\"]}}]"}}}
 {"id":"multiple_11","valid":true,"error":null}
 {"id":"multiple_12","valid":true,"error":null}
 {"id":"multiple_13","valid":true,"error":null}
@@ -51,7 +51,7 @@
 {"id":"multiple_50","valid":true,"error":null}
 {"id":"multiple_51","valid":true,"error":null}
 {"id":"multiple_52","valid":true,"error":null}
-{"id":"multiple_53","valid":false,"error":{"JsonDecodeError":{"error_message":"trailing characters at line 2 column 1","raw_output":"<tool_call>\n{\"name\": \"linear_regression\", \"arguments\": {\"independent_var\": [\"interest_rate\", \"unemployment_rate\"], \"dependent_var\": \"house_price\", \"forecast_period\": 5}}\n</tool_call>\n<tool_call>\n{\"name\": \"random_forest_regression\", \"arguments\": {\"independent_var\": [\"interest_rate\", \"unemployment_rate\"], \"dependent_var\": \"house_price\", \"forecast_period\": 5}}\n</tool_call>"}}}
+{"id":"multiple_53","valid":false,"error":{"InvalidEntryCount":{"expected_count":1,"actual_count":2,"decoded_output":"[{\"linear_regression\":{\"independent_var\":[\"interest_rate\",\"unemployment_rate\"],\"dependent_var\":\"house_price\",\"forecast_period\":5}},{\"random_forest_regression\":{\"independent_var\":[\"interest_rate\",\"unemployment_rate\"],\"dependent_var\":\"house_price\",\"forecast_period\":5}}]"}}}
 {"id":"multiple_54","valid":true,"error":null}
 {"id":"multiple_55","valid":false,"error":{"InvalidParamValue":{"param":"company","actual_value":"谷歌","expected_values":["Google","GOOG"],"decoded_output":"[{\"stock_forecast\":{\"company\":\"谷歌\",\"days\":3}}]"}}}
 {"id":"multiple_56","valid":true,"error":null}
@@ -71,7 +71,7 @@
 {"id":"multiple_70","valid":true,"error":null}
 {"id":"multiple_71","valid":true,"error":null}
 {"id":"multiple_72","valid":true,"error":null}
-{"id":"multiple_73","valid":false,"error":{"JsonDecodeError":{"error_message":"trailing characters at line 2 column 1","raw_output":"<tool_call>\n{\"name\": \"religion_get_origin\", \"arguments\": {\"religion\": \"佛教\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"religion_get_core_beliefs\", \"arguments\": {\"religion\": \"佛教\"}}\n</tool_call>"}}}
+{"id":"multiple_73","valid":false,"error":{"InvalidEntryCount":{"expected_count":1,"actual_count":2,"decoded_output":"[{\"religion.get_origin\":{\"religion\":\"佛教\"}},{\"religion.get_core_beliefs\":{\"religion\":\"佛教\"}}]"}}}
 {"id":"multiple_74","valid":false,"error":{"InvalidParamValue":{"param":"artwork_name","actual_value":"星夜","expected_values":["Starry Night"],"decoded_output":"[{\"art_auction.fetch_artwork_price\":{\"artwork_name\":\"星夜\",\"artist\":\"梵高\",\"platform\":\"all\"}}]"}}}
 {"id":"multiple_75","valid":false,"error":{"InvalidParamValue":{"param":"period","actual_value":"Yearly","expected_values":["","Daily"],"decoded_output":"[{\"paint_color.trends\":{\"room\":\"Living room\",\"period\":\"Yearly\"}}]"}}}
 {"id":"multiple_76","valid":true,"error":null}

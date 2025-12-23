@@ -16,6 +16,6 @@ for noise in [AddNoiseMode.NoNoise, AddNoiseMode.Synonym, AddNoiseMode.Paraphras
         experiments.append(ToolExperiment(translate, noise))
 
 config = ToolConfig(
-    Model.Local(LocalModel.Llama3_1_8B),
+    Model.Local(LocalModel.Qwen3_14B),
     experiments
 )

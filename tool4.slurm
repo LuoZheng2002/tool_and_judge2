@@ -7,7 +7,7 @@
 # #SBATCH --mail-type=BEGIN,END,FAIL
 # #SBATCH --mail-user=luozheng@usc.edu
 # #SBATCH --partition=gpuH200x8
-#SBATCH --gres=gpu:1                     # Request 1 GPU
+#SBATCH --gres=gpu:4                     # Request 4 GPUs
 #SBATCH --cpus-per-task=4                # CPU cores
 #SBATCH --mem=32G                        # RAM
 #SBATCH --account=bfdz-delta-gpu    # Your Slurm account/project
@@ -26,4 +26,4 @@ export HF_HOME=/work/nvme/bfdz/zluo8/huggingface
 
 # Run the training script
 
-python tool.py --config tool_config_slurm4.py --num-gpus 1
+python tool.py --config tool_config_slurm4.py --num-gpus 4

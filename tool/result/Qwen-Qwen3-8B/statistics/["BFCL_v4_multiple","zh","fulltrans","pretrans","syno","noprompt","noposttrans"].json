@@ -4,8 +4,8 @@
   "correct_cases": 157,
   "incorrect_cases": 43,
   "category_counts": {
-    "SYNTAX_ERROR": 4,
-    "MISC_ERROR": 1,
+    "SYNTAX_ERROR": 1,
+    "MISC_ERROR": 4,
     "WRONG_VALUE": 0,
     "RELEVANT_BUT_INCORRECT": 17,
     "EXACTLY_SAME_MEANING": 21,
@@ -16,13 +16,13 @@
   },
   "category_samples": {
     "SYNTAX_ERROR": [
-      "multiple_7",
-      "multiple_10",
-      "multiple_53",
       "multiple_76"
     ],
     "MISC_ERROR": [
-      "multiple_38"
+      "multiple_7",
+      "multiple_10",
+      "multiple_38",
+      "multiple_53"
     ],
     "RELEVANT_BUT_INCORRECT": [
       "multiple_8",
