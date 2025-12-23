@@ -52,7 +52,7 @@ pub struct Qwen3Parameter {
 #[derive(Deserialize, Clone)]
 pub struct Qwen3OutputFunctionCall {
     name: String,
-    arguments: String, // JSON string that needs parsing
+    arguments: IndexMap<String, serde_json::Value>, // JSON string that needs parsing
 }
 
 #[derive(Copy, Clone)]
@@ -187,16 +187,16 @@ impl ModelInterface for Qwen3Interface {
         let mut bfcl_calls = Vec::new();
         for qwen3_call in qwen3_calls {
             // Parse the arguments string as JSON
-            let arguments: IndexMap<String, serde_json::Value> =
-                serde_json::from_str(&qwen3_call.arguments).map_err(|e| {
-                    EvaluationError::JsonDecodeError {
-                        error_message: format!(
-                            "Failed to parse arguments JSON string: {}",
-                            e
-                        ),
-                        raw_output: raw_output.to_string(),
-                    }
-                })?;
+            // let arguments: IndexMap<String, serde_json::Value> =
+            //     serde_json::from_str(&qwen3_call.arguments).map_err(|e| {
+            //         EvaluationError::JsonDecodeError {
+            //             error_message: format!(
+            //                 "Failed to parse arguments JSON string: {}",
+            //                 e
+            //             ),
+            //             raw_output: raw_output.to_string(),
+            //         }
+            //     })?;
 
             // Map the function name back to original
             let original_name = name_mapper
@@ -207,7 +207,7 @@ impl ModelInterface for Qwen3Interface {
 
             bfcl_calls.push(BfclOutputFunctionCall(KeyValuePair {
                 key: original_name,
-                value: arguments,
+                value: qwen3_call.arguments,
             }));
         }
 

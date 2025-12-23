@@ -61,7 +61,7 @@ async def generate_tool_call_async(
 
     # Convert response to JSON format similar to gpt5_backend
     response_dict = response.choices[0].message.model_dump(exclude_none=True)
-    return json.dumps(response_dict)
+    return json.dumps(response_dict, ensure_ascii=False)
 
 
 async def translate_tool_question_async(model_name: str, client: Any, question: str) -> str:

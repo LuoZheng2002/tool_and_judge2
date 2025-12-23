@@ -17,17 +17,17 @@
   "category_samples": {
     "SYNTAX_ERROR": [
       "multiple_7",
-      "multiple_40",
       "multiple_49",
       "multiple_50",
       "multiple_53",
       "multiple_61",
       "multiple_68",
+      "multiple_82",
       "multiple_86",
       "multiple_88",
       "multiple_148",
-      "multiple_149",
-      "multiple_182"
+      "multiple_182",
+      "multiple_196"
     ],
     "MISC_ERROR": [
       "multiple_26"
@@ -36,11 +36,11 @@
       "multiple_10",
       "multiple_33",
       "multiple_47",
-      "multiple_58",
       "multiple_99",
       "multiple_119",
       "multiple_121",
       "multiple_124",
+      "multiple_156",
       "multiple_193"
     ],
     "EXACTLY_SAME_MEANING": [
