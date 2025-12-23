@@ -109,28 +109,34 @@ async def main_async():
     # Each entry has a signature of type PreTranslateAggregatedInputQuestionEntry in src/tool/passes/pass_pre_translate.rs
     question_entries = load_json_lines_from_file(aggregated_questions_input_file_path)
     # Define all async functions first
-    async def collect_single_question_translation_async(entry: dict, semaphore, client_or_engine, tokenizer_or_none, is_api) -> dict:
+    async def collect_single_question_translation_async(entry: dict, semaphore) -> dict:
+        # Create backend on demand
+        global main_backend_created, main_client, main_engine, main_tokenizer, main_is_api
+        if not main_backend_created:
+            main_client, main_engine, main_tokenizer, main_is_api = create_backend(config.model)
+            main_backend_created = True
+
         async with semaphore:
             try:
                 if config.model in [Model.Api(ApiModel.Gpt5), Model.Api(ApiModel.Gpt5Mini), Model.Api(ApiModel.Gpt5Nano)]:
                     from src_py.gpt5_backend import translate_tool_question_async
                     translated_question = await translate_tool_question_async(
                         model_name = config.model.to_string(),
-                        client = client_or_engine,
+                        client = main_client,
                         question = entry["question"],
                     )
                 elif config.model in [Model.Local(LocalModel.Qwen3_8B), Model.Local(LocalModel.Qwen3_14B), Model.Local(LocalModel.Qwen3_32B), Model.Local(LocalModel.Qwen3_30bA3b), Model.Local(LocalModel.Qwen3Next80bA3b)]:
                     from src_py.qwen3_backend import translate_tool_question_async
                     translated_question = await translate_tool_question_async(
-                        engine = client_or_engine,
-                        tokenizer = tokenizer_or_none,
+                        engine = main_engine,
+                        tokenizer = main_tokenizer,
                         question = entry["question"],
                     )
                 elif config.model in [Model.Local(LocalModel.Llama3_1_8B), Model.Local(LocalModel.Llama3_1_70B)]:
                     from src_py.llama3_1_backend import translate_tool_question_async
                     translated_question = await translate_tool_question_async(
-                        engine = client_or_engine,
-                        tokenizer = tokenizer_or_none,
+                        engine = main_engine,
+                        tokenizer = main_tokenizer,
                         question = entry["question"],
                     )
                 else:
@@ -146,18 +152,8 @@ async def main_async():
                 "file_name": entry["file_name"],
             }
     async def collect_all_question_translations_async(entries: list[dict]) -> list[dict]:
-        # Create backend inside async context to ensure proper event loop integration
-        global main_backend_created, main_client, main_engine, main_tokenizer, main_is_api
-        if not main_backend_created and len(entries) > 0:
-            main_client, main_engine, main_tokenizer, main_is_api = create_backend(config.model)
-            main_backend_created = True
-
-        # Determine which backend to use
-        client_or_engine = main_client if main_is_api else main_engine
-        tokenizer_or_none = None if main_is_api else main_tokenizer
-
         semaphore = asyncio.Semaphore(200)
-        tasks = [collect_single_question_translation_async(entry, semaphore, client_or_engine, tokenizer_or_none, main_is_api) for entry in entries]
+        tasks = [collect_single_question_translation_async(entry, semaphore) for entry in entries]
         with open(aggregated_questions_output_file_path, "w") as f:
             for i, coro in enumerate(asyncio.as_completed(tasks), 1):
                 result = await coro
@@ -165,10 +161,9 @@ async def main_async():
                 f.flush()
                 print(f"Translated {i}/{len(entries)} questions...")
 
-    if len(question_entries) > 0:
-        await collect_all_question_translations_async(question_entries)
-        # dispatch results to respective dataset files
-        pass_pre_translate_dispatch_results(config)
+    await collect_all_question_translations_async(question_entries)
+    # dispatch results to respective dataset files
+    pass_pre_translate_dispatch_results(config)
     # finished processing pre translation, deleting input file
     os.remove(aggregated_questions_input_file_path)
     
@@ -197,14 +192,20 @@ async def main_async():
     # Each entry has a signature of type GenerateRawAggregatedInputEntry in src/tool/passes/pass_generate_raw.rs
     input_entries = load_json_lines_from_file(aggregated_input_file_path)
 
-    async def collect_single_raw_function_call_async(entry: dict, semaphore, client_or_engine, tokenizer_or_none, is_api) -> dict:
+    async def collect_single_raw_function_call_async(entry: dict, semaphore) -> dict:
+        # Create backend on demand
+        global main_backend_created, main_client, main_engine, main_tokenizer, main_is_api
+        if not main_backend_created:
+            main_client, main_engine, main_tokenizer, main_is_api = create_backend(config.model)
+            main_backend_created = True
+
         async with semaphore:
             try:
                 if config.model in [Model.Api(ApiModel.Gpt5), Model.Api(ApiModel.Gpt5Mini), Model.Api(ApiModel.Gpt5Nano)]:
                     from src_py.gpt5_backend import generate_tool_call_async
                     raw_output = await generate_tool_call_async(
                         model_name = config.model.to_string(),
-                        client = client_or_engine,
+                        client = main_client,
                         question=entry["question"],
                         tools = entry["tools"],
                         prompt_passing_in_english = entry["prompt_passing_in_english"],
@@ -212,8 +213,8 @@ async def main_async():
                 elif config.model in [Model.Local(LocalModel.Qwen3_8B), Model.Local(LocalModel.Qwen3_14B), Model.Local(LocalModel.Qwen3_32B), Model.Local(LocalModel.Qwen3_30bA3b), Model.Local(LocalModel.Qwen3Next80bA3b)]:
                     from src_py.qwen3_backend import generate_tool_call_async
                     raw_output = await generate_tool_call_async(
-                        engine = client_or_engine,
-                        tokenizer = tokenizer_or_none,
+                        engine = main_engine,
+                        tokenizer = main_tokenizer,
                         question=entry["question"],
                         tools = entry["tools"],
                         prompt_passing_in_english = entry["prompt_passing_in_english"],
@@ -221,8 +222,8 @@ async def main_async():
                 elif config.model in [Model.Local(LocalModel.Llama3_1_8B), Model.Local(LocalModel.Llama3_1_70B)]:
                     from src_py.llama3_1_backend import generate_tool_call_async
                     raw_output = await generate_tool_call_async(
-                        engine = client_or_engine,
-                        tokenizer = tokenizer_or_none,
+                        engine = main_engine,
+                        tokenizer = main_tokenizer,
                         question=entry["question"],
                         tools = entry["tools"],
                         prompt_passing_in_english = entry["prompt_passing_in_english"],
@@ -239,18 +240,8 @@ async def main_async():
                 "file_name": entry["file_name"],
             }
     async def collect_all_raw_function_calls_async(entries: list[dict]) -> list[dict]:
-        # Use or create backend inside async context to ensure proper event loop integration
-        global main_backend_created, main_client, main_engine, main_tokenizer, main_is_api
-        if not main_backend_created and len(entries) > 0:
-            main_client, main_engine, main_tokenizer, main_is_api = create_backend(config.model)
-            main_backend_created = True
-
-        # Determine which backend to use
-        client_or_engine = main_client if main_is_api else main_engine
-        tokenizer_or_none = None if main_is_api else main_tokenizer
-
         semaphore = asyncio.Semaphore(200)
-        tasks = [collect_single_raw_function_call_async(entry, semaphore, client_or_engine, tokenizer_or_none, main_is_api) for entry in entries]
+        tasks = [collect_single_raw_function_call_async(entry, semaphore) for entry in entries]
         with open(aggregated_output_file_path, "w") as f:
             for i, coro in enumerate(asyncio.as_completed(tasks), 1):
                 result = await coro
@@ -258,10 +249,9 @@ async def main_async():
                 f.flush()
                 print(f"Generated raw function call {i}/{len(entries)}...")
 
-    if len(input_entries) > 0:
-        await collect_all_raw_function_calls_async(input_entries)
-        # dispatch results to respective dataset files
-        pass_generate_raw_dispatch_results(config)
+    await collect_all_raw_function_calls_async(input_entries)
+    # dispatch results to respective dataset files
+    pass_generate_raw_dispatch_results(config)
     # finished processing raw function calls, deleting input file
     os.remove(aggregated_input_file_path)
     
@@ -290,7 +280,13 @@ async def main_async():
     # Each entry has a signature of type PostTranslateAggregatedInputEntry in src/tool/passes/pass_post_translate.rs
     input_entries = load_json_lines_from_file(aggregated_input_file_path)
 
-    async def collect_single_parameter_translation_async(entry: dict, semaphore, client_or_engine, tokenizer_or_none, is_api) -> dict:
+    async def collect_single_parameter_translation_async(entry: dict, semaphore) -> dict:
+        # Create backend on demand
+        global main_backend_created, main_client, main_engine, main_tokenizer, main_is_api
+        if not main_backend_created:
+            main_client, main_engine, main_tokenizer, main_is_api = create_backend(config.model)
+            main_backend_created = True
+
         parameter_value = entry["parameter_value_to_translate"]
         if parameter_value.isascii():
             # no need to translate
@@ -304,21 +300,21 @@ async def main_async():
                     from src_py.gpt5_backend import translate_tool_parameter_async
                     translated_value = await translate_tool_parameter_async(
                         model_name = config.model.to_string(),
-                        client = client_or_engine,
+                        client = main_client,
                         parameter_value = parameter_value,
                     )
                 elif config.model in [Model.Local(LocalModel.Qwen3_8B), Model.Local(LocalModel.Qwen3_14B), Model.Local(LocalModel.Qwen3_32B), Model.Local(LocalModel.Qwen3_30bA3b), Model.Local(LocalModel.Qwen3Next80bA3b)]:
                     from src_py.qwen3_backend import translate_tool_parameter_async
                     translated_value = await translate_tool_parameter_async(
-                        engine = client_or_engine,
-                        tokenizer = tokenizer_or_none,
+                        engine = main_engine,
+                        tokenizer = main_tokenizer,
                         parameter_value = parameter_value,
                     )
                 elif config.model in [Model.Local(LocalModel.Llama3_1_8B), Model.Local(LocalModel.Llama3_1_70B)]:
                     from src_py.llama3_1_backend import translate_tool_parameter_async
                     translated_value = await translate_tool_parameter_async(
-                        engine = client_or_engine,
-                        tokenizer = tokenizer_or_none,
+                        engine = main_engine,
+                        tokenizer = main_tokenizer,
                         parameter_value = parameter_value,
                     )
                 else:
@@ -332,18 +328,8 @@ async def main_async():
                 "translated_parameter_value": translated_value,
             }
     async def collect_all_parameter_translations_async(entries: list[dict]) -> list[dict]:
-        # Use or create backend inside async context to ensure proper event loop integration
-        global main_backend_created, main_client, main_engine, main_tokenizer, main_is_api
-        if not main_backend_created and len(entries) > 0:
-            main_client, main_engine, main_tokenizer, main_is_api = create_backend(config.model)
-            main_backend_created = True
-
-        # Determine which backend to use
-        client_or_engine = main_client if main_is_api else main_engine
-        tokenizer_or_none = None if main_is_api else main_tokenizer
-
         semaphore = asyncio.Semaphore(200)
-        tasks = [collect_single_parameter_translation_async(entry, semaphore, client_or_engine, tokenizer_or_none, main_is_api) for entry in entries]
+        tasks = [collect_single_parameter_translation_async(entry, semaphore) for entry in entries]
         with open(aggregated_output_file_path, "w") as f:
             for i, coro in enumerate(asyncio.as_completed(tasks), 1):
                 result = await coro
@@ -351,10 +337,9 @@ async def main_async():
                 f.flush()
                 print(f"Translated {i}/{len(entries)} parameters...")
 
-    if len(input_entries) > 0:
-        await collect_all_parameter_translations_async(input_entries)
-        # dispatch results to respective dataset files
-        pass_post_translate_dispatch_results(config)
+    await collect_all_parameter_translations_async(input_entries)
+    # dispatch results to respective dataset files
+    pass_post_translate_dispatch_results(config)
     # finished processing post translation, deleting input file
     os.remove(aggregated_input_file_path)
     
