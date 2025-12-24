@@ -79,6 +79,20 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
         show_all_combined: If True, show all 18 combinations in a single plot with grouping
     """
 
+    # Map language names to language tags
+    language_tag_map = {
+        "English": "en",
+        "Chinese": "zh",
+        "Hindi": "hi",
+        "Igbo": "igbo"
+    }
+
+    # Get the language tag for filtering
+    language_tag = language_tag_map.get(language)
+    if language_tag is None:
+        print(f"Error: Unknown language '{language}'. Valid options: {', '.join(language_tag_map.keys())}")
+        return
+
     # Initialize data structure: dict[translate_mode][noise_mode][category] = count
     data_dict = {}
     for tm in translate_modes:
@@ -128,12 +142,17 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
                     print(f"Warning: Unexpected filename format '{score_file.name}' (expected 7 elements, got {len(tags)})")
                     continue
 
-                language_tag = tags[1]
+                file_language_tag = tags[1]
                 translate_level_tag = tags[2]
                 pre_translate_tag = tags[3]
                 noise_tag = tags[4]
                 prompt_translate_tag = tags[5]
                 post_translate_tag = tags[6]
+
+                # Skip files that don't match the selected language
+                # Exception: Always include English "en" as it represents the NT (Not Translated) baseline
+                if file_language_tag != language_tag and file_language_tag != "en":
+                    continue
 
                 # Map noise_tag to noise_mode
                 if noise_tag == "nonoise":
@@ -147,11 +166,11 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
                     continue
 
                 # Map combination of tags to translate_mode (same logic as heatmap)
-                if language_tag == "en" and translate_level_tag == "na":
+                if file_language_tag == "en" and translate_level_tag == "na":
                     translate_mode = "NT"
-                elif language_tag in ["zh", "hi", "igbo"] and translate_level_tag == "parttrans":
+                elif file_language_tag in ["zh", "hi", "igbo"] and translate_level_tag == "parttrans":
                     translate_mode = "PAR"
-                elif language_tag in ["zh", "hi", "igbo"] and translate_level_tag == "fulltrans":
+                elif file_language_tag in ["zh", "hi", "igbo"] and translate_level_tag == "fulltrans":
                     if (pre_translate_tag == "nopretrans" and prompt_translate_tag == "noprompt" and
                         post_translate_tag == "noposttrans"):
                         translate_mode = "FT"
