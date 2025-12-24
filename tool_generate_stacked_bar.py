@@ -62,7 +62,8 @@ def pascal_to_readable(pascal_str: str) -> str:
 def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str,
                                 selected_translate_mode: str = None,
                                 selected_noise_mode: str = None,
-                                max_height: float = 0.5) -> None:
+                                max_height: float = 0.5,
+                                show_all_combined: bool = False) -> None:
     """
     Generate a stacked bar chart for a given model showing error type distributions.
 
@@ -73,6 +74,7 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
         selected_translate_mode: If specified, only show bars for this translate mode across noise modes
         selected_noise_mode: If specified, only show bars for this noise mode across translate modes
         max_height: Maximum height of the vertical axis (default: 0.5, range: 0.0-1.0)
+        show_all_combined: If True, show all 18 combinations in a single plot with grouping
     """
 
     # Initialize data structure: dict[translate_mode][noise_mode][category] = count
@@ -194,10 +196,37 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
     if selected_translate_mode and selected_noise_mode:
         print("Error: Cannot specify both translate_mode and noise_mode")
         return
+    elif show_all_combined:
+        # Show all 18 combinations grouped by translate mode
+        bar_labels = []
+        bar_data = []
+        bar_positions = []
+        pos = 0
+        group_spacing = 0.5  # Extra space between translate mode groups
+
+        # Map noise modes to short abbreviations
+        noise_mode_abbrev = {
+            "NO_NOISE": "NO",
+            "PARAPHRASE": "PARA",
+            "SYNONYM": "SYNO"
+        }
+
+        for tm in translate_modes:
+            for nm in noise_modes:
+                bar_labels.append(noise_mode_abbrev[nm])  # Use abbreviated noise mode name
+                category_counts = data_dict[tm][nm]
+                bar_data.append(category_counts)
+                bar_positions.append(pos)
+                pos += 1
+            pos += group_spacing  # Add extra space after each translate mode group
+
+        title = f"{model_name} - All Translate and Noise Modes"
+        output_name = f"stacked_bar_{model_name}_all_combined.png"
     elif selected_translate_mode:
         # Show bars for selected translate mode across noise modes
         bar_labels = noise_modes
         bar_data = []
+        bar_positions = None
         for nm in noise_modes:
             category_counts = data_dict[selected_translate_mode][nm]
             bar_data.append(category_counts)
@@ -207,6 +236,7 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
         # Show bars for selected noise mode across translate modes
         bar_labels = translate_modes
         bar_data = []
+        bar_positions = None
         for tm in translate_modes:
             category_counts = data_dict[tm][selected_noise_mode]
             bar_data.append(category_counts)
@@ -216,6 +246,7 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
         # Default: show all combinations (might be too many bars)
         bar_labels = []
         bar_data = []
+        bar_positions = None
         for tm in translate_modes:
             for nm in noise_modes:
                 bar_labels.append(f"{tm}_{nm}")
@@ -240,20 +271,31 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
     print(f"\nError distribution for model '{model_name}':")
     print(df)
 
-    # Plot stacked bar chart (reduced width to accommodate legend)
-    fig, ax = plt.subplots(figsize=(10, 6))
+    # Plot stacked bar chart (wider if showing all combined)
+    if show_all_combined:
+        fig, ax = plt.subplots(figsize=(16, 6))
+    else:
+        fig, ax = plt.subplots(figsize=(10, 6))
 
     # Convert counts to rates by dividing by 200
     df_rate = df / 200.0
 
-    # Create stacked bars
-    bottom = np.zeros(len(bar_labels))
+    # Create stacked bars with custom positions if specified
+    if bar_positions is not None:
+        x_positions = bar_positions
+        bottom = np.zeros(len(bar_positions))
+    else:
+        x_positions = range(len(bar_labels))
+        bottom = np.zeros(len(bar_labels))
+
     for category in error_categories:
         values = df_rate[category].values
         # Convert category name to readable format for legend
         readable_label = pascal_to_readable(category)
-        ax.bar(bar_labels, values, label=readable_label, bottom=bottom,
-               color=category_colors[category], edgecolor='white', linewidth=0.5)
+        # Use half width (0.4) for combined view, standard width (0.8) otherwise
+        bar_width = 0.4 if show_all_combined else 0.8
+        ax.bar(x_positions, values, label=readable_label, bottom=bottom,
+               color=category_colors[category], edgecolor='white', linewidth=0.5, width=bar_width)
         bottom += values
 
     # Calculate totals for each bar (as rates)
@@ -262,7 +304,8 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
     # Add total numbers on top of each bar
     for i, total in enumerate(totals):
         if total > 0:  # Only annotate if there's data
-            ax.text(i, total, f'{total:.3f}',
+            x_pos = x_positions[i] if bar_positions is not None else i
+            ax.text(x_pos, total, f'{total:.3f}',
                    ha='center', va='bottom', fontsize=9, fontweight='bold')
 
     # Set y-axis range to the specified max_height
@@ -276,8 +319,20 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
     # Place legend outside plot area on the right with smaller font
     ax.legend(loc='center left', bbox_to_anchor=(1.02, 0.5), fontsize=9)
 
-    # Rotate x-axis labels if there are many bars
-    if len(bar_labels) > 10:
+    # Handle x-axis labels and ticks
+    if show_all_combined:
+        # Set x-tick positions and labels
+        ax.set_xticks(x_positions)
+        ax.set_xticklabels(bar_labels, rotation=45, ha='right', fontsize=8)
+
+        # Add translate mode group labels below the noise mode labels
+        group_spacing = 0.5
+        for i, tm in enumerate(translate_modes):
+            # Calculate the center position of each translate mode group
+            group_center = i * (len(noise_modes) + group_spacing) + (len(noise_modes) - 1) / 2
+            ax.text(group_center, -max_height * 0.15, tm,
+                   ha='center', va='top', fontsize=10, fontweight='bold')
+    elif len(bar_labels) > 10:
         plt.xticks(rotation=45, ha='right')
     else:
         plt.xticks(rotation=0)
@@ -331,6 +386,11 @@ if __name__ == "__main__":
         default=0.5,
         help="Maximum height of the vertical axis (default: 0.5, range: 0.0-1.0)"
     )
+    parser.add_argument(
+        "--all-combined",
+        action="store_true",
+        help="Generate a single 18-column plot with all translate and noise modes grouped together"
+    )
 
     args = parser.parse_args()
 
@@ -339,7 +399,16 @@ if __name__ == "__main__":
         print(f"Generating stacked bar charts for {model}")
         print(f"{'='*60}")
 
-        if args.translate_mode or args.noise_mode:
+        if args.all_combined:
+            # Generate single combined chart with all 18 combinations
+            generate_stacked_bar_chart(
+                model,
+                args.output_dir,
+                args.result_dir,
+                max_height=args.max_height,
+                show_all_combined=True
+            )
+        elif args.translate_mode or args.noise_mode:
             # Generate chart with specified filter
             generate_stacked_bar_chart(
                 model,
