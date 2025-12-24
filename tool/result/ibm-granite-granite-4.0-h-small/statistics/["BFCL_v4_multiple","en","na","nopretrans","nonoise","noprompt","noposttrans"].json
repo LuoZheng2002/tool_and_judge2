@@ -1,0 +1,33 @@
+{
+  "accuracy": 0.96,
+  "total_cases": 200,
+  "correct_cases": 192,
+  "incorrect_cases": 8,
+  "category_counts": {
+    "SYNTAX_ERROR": 0,
+    "MISC_ERROR": 1,
+    "WRONG_VALUE": 0,
+    "RELEVANT_BUT_INCORRECT": 3,
+    "EXACTLY_SAME_MEANING": 4,
+    "LANGUAGE_MISMATCH_WRONG_VALUE": 0,
+    "LANGUAGE_MISMATCH_RELEVANT_BUT_INCORRECT": 0,
+    "LANGUAGE_MISMATCH_EXACTLY_SAME_MEANING": 0,
+    "OTHER_ERROR": 0
+  },
+  "category_samples": {
+    "MISC_ERROR": [
+      "multiple_7"
+    ],
+    "RELEVANT_BUT_INCORRECT": [
+      "multiple_91",
+      "multiple_92",
+      "multiple_186"
+    ],
+    "EXACTLY_SAME_MEANING": [
+      "multiple_29",
+      "multiple_33",
+      "multiple_53",
+      "multiple_99"
+    ]
+  }
+}
