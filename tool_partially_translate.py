@@ -149,19 +149,14 @@ async def main():
     parser.add_argument(
         "--language",
         choices=["igbo", "chinese", "hindi"],
-        default="igbo",
+        required=True,
         help="Target language (igbo, chinese, or hindi)"
     )
     parser.add_argument(
         "--api",
         choices=["deepseek", "gpt5"],
-        default="gpt5",
+        required=True,
         help="API to use (deepseek or gpt5)"
-    )
-    parser.add_argument(
-        "--model",
-        default=None,
-        help="Model name (default: deepseek-chat for deepseek, gpt-5-nano for gpt5)"
     )
     parser.add_argument(
         "--input",
@@ -197,10 +192,7 @@ async def main():
     target_language = language_map[args.language]
 
     # Set default model based on API
-    if args.model:
-        model_name = args.model
-    else:
-        model_name = "deepseek-chat" if api_type == "deepseek" else "gpt-5-nano"
+    model_name = "deepseek-chat" if api_type == "deepseek" else "gpt-5"
 
     # Set default output file
     if args.output:
