@@ -1,0 +1,200 @@
+{"id":"multiple_0","valid":true,"error":null}
+{"id":"multiple_1","valid":true,"error":null}
+{"id":"multiple_2","valid":false,"error":{"InvalidParamValue":{"param":"country","actual_value":"ब्राज़ील","expected_values":["Brazil"],"decoded_output":"[{\"country_info.capital\":{\"country\":\"ब्राज़ील\"}}]"}}}
+{"id":"multiple_3","valid":true,"error":null}
+{"id":"multiple_4","valid":true,"error":null}
+{"id":"multiple_5","valid":true,"error":null}
+{"id":"multiple_6","valid":true,"error":null}
+{"id":"multiple_7","valid":true,"error":null}
+{"id":"multiple_8","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपकी संपत्ति खोज में मदद कर सकता हूं, लेकिन मुझे एक महत्वपूर्ण जानकारी की आवश्यकता है। आपने $300,000 से $400,000 के बीच बजट में San Diego में 3 बेडरूम की villa खरीदने के लिए खोज करने को कहा है, लेकिन मुझे यह जानने की जरूरत है कि आप किस प्रकार की संपत्ति (propertyType) चाहते हैं।\\n\\nक्या आप \\\"villa\\\" के अलावा कोई अन्य विशिष्ट प्रकार की संपत्ति चाहते हैं, जैसे कि:\\n- single-family home\\n- townhouse  \\n- condo\\n- या कोई अन्य विशिष्ट प्रकार?\\n\\nकृपया संपत्ति के प्रकार (propertyType) की जानकारी दें ताकि मैं आपके लिए सटीक खोज कर सकूं।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_9","valid":true,"error":null}
+{"id":"multiple_10","valid":false,"error":{"InvalidParamValue":{"param":"columns","actual_value":["email addresses","social security numbers"],"expected_values":[["email","ssn"],["ssn","email"],["email","social_security_number"],["social_security_number","email"],["email","social security number"],["social security number","email"]],"decoded_output":"[{\"database.modify_columns\":{\"db_name\":\"employees\",\"table\":\"personal_data\",\"operation\":\"delete\",\"columns\":[\"email addresses\",\"social security numbers\"]}}]"}}}
+{"id":"multiple_11","valid":true,"error":null}
+{"id":"multiple_12","valid":true,"error":null}
+{"id":"multiple_13","valid":false,"error":{"WrongFuncName":{"expected_name":"corporate_finance.revenue_forecast","actual_name":"corporate_finance.product_price","decoded_output":"[{\"corporate_finance.product_price\":{\"company\":\"XYZ\",\"product\":\"A\"}}]"}}}
+{"id":"multiple_14","valid":true,"error":null}
+{"id":"multiple_15","valid":true,"error":null}
+{"id":"multiple_16","valid":true,"error":null}
+{"id":"multiple_17","valid":true,"error":null}
+{"id":"multiple_18","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपकी जानकारी के लिए बताना चाहूंगा कि मेरे पास Battle of Stalingrad के बारे में विशिष्ट जानकारी प्राप्त करने के लिए उपलब्ध फ़ंक्शन नहीं है। मेरे पास केवल यूरोपीय इतिहास से संबंधित युद्धों, नेताओं और लड़ाइयों के बारे में जानकारी प्राप्त करने के लिए फ़ंक्शन हैं, लेकिन Battle of Stalingrad एक यूरोपीय लड़ाई नहीं है - यह रूस (एशिया/यूरोप सीमा पर) में हुई थी और द्वितीय विश्व युद्ध का हिस्सा थी।\\n\\nमेरे उपलब्ध फ़ंक्शन केवल विशिष्ट रूप से यूरोपीय ऐतिहासिक लड़ाइयों के लिए हैं।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_19","valid":false,"error":{"InvalidParamValue":{"param":"religion","actual_value":"ईसाई","expected_values":["Christianity"],"decoded_output":"[{\"religion_history.get_schisms\":{\"religion\":\"ईसाई\",\"count\":3}}]"}}}
+{"id":"multiple_20","valid":true,"error":null}
+{"id":"multiple_21","valid":true,"error":null}
+{"id":"multiple_22","valid":true,"error":null}
+{"id":"multiple_23","valid":true,"error":null}
+{"id":"multiple_24","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपके प्रश्न में दिए गए शतरंज चैंपियनशिप के बारे में अधिक जानकारी की आवश्यकता है। आपने एडिनबर्ग में शतरंज चैंपियनशिप का उल्लेख किया है, लेकिन मेरे पास उपलब्ध फ़ंक्शन के लिए निम्नलिखित जानकारी चाहिए:\\n\\n1. शतरंज क्लब का नाम\\n2. शहर (एडिनबर्ग)\\n3. आयोजन/इवेंट (शतरंज चैंपियनशिप)\\n\\nक्या आप बता सकते हैं कि एडिनबर्ग में किस शतरंज क्लब में यह चैंपियनशिप हो रही है? इस जानकारी के बिना मैं क्लब का स्थान निर्धारित नहीं कर सकता और इसलिए लंदन से एडिनबर्ग तक का मार्ग भी नहीं बता सकता।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_25","valid":true,"error":null}
+{"id":"multiple_26","valid":false,"error":{"WrongFuncName":{"expected_name":"game_rewards.get","actual_name":"game_missions.list","decoded_output":"[{\"game_missions.list\":{\"game\":\"Fortnite\"}}]"}}}
+{"id":"multiple_27","valid":true,"error":null}
+{"id":"multiple_28","valid":true,"error":null}
+{"id":"multiple_29","valid":false,"error":{"InvalidParamValue":{"param":"function1","actual_value":"3x+2","expected_values":["3x + 2","lambda x: 3x + 2"],"decoded_output":"[{\"functions.intersect\":{\"function1\":\"3x+2\",\"function2\":\"2x+3\"}}]"}}}
+{"id":"multiple_30","valid":true,"error":null}
+{"id":"multiple_31","valid":true,"error":null}
+{"id":"multiple_32","valid":true,"error":null}
+{"id":"multiple_33","valid":false,"error":{"InvalidParamValue":{"param":"func","actual_value":"3*x^2","expected_values":["3x**2","lambda x: 3x**2"],"decoded_output":"[{\"calculate_integral\":{\"func\":\"3*x^2\",\"a\":1,\"b\":2}}]"}}}
+{"id":"multiple_34","valid":true,"error":null}
+{"id":"multiple_35","valid":true,"error":null}
+{"id":"multiple_36","valid":true,"error":null}
+{"id":"multiple_37","valid":true,"error":null}
+{"id":"multiple_38","valid":true,"error":null}
+{"id":"multiple_39","valid":true,"error":null}
+{"id":"multiple_40","valid":true,"error":null}
+{"id":"multiple_41","valid":true,"error":null}
+{"id":"multiple_42","valid":true,"error":null}
+{"id":"multiple_43","valid":true,"error":null}
+{"id":"multiple_44","valid":true,"error":null}
+{"id":"multiple_45","valid":true,"error":null}
+{"id":"multiple_46","valid":true,"error":null}
+{"id":"multiple_47","valid":false,"error":{"InvalidParamValue":{"param":"rounding","actual_value":4,"expected_values":["",0],"decoded_output":"[{\"cosine_similarity.calculate\":{\"vector1\":[3,2,1],\"vector2\":[1,2,3],\"rounding\":4}}]"}}}
+{"id":"multiple_48","valid":true,"error":null}
+{"id":"multiple_49","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मुझे चक्रवृद्धि ब्याज की गणना करने के लिए आवश्यक जानकारी दी गई है:\\n- मूल राशि: 1500\\n- समय: 2 वर्ष\\n- वार्षिक ब्याज दर: 2.5%\\n\\nहालाँकि, चक्रवृद्धि ब्याज की गणना के लिए मुझे यह भी जानना आवश्यक है कि ब्याज कितनी बार चक्रवृद्धि होता है (compound_freq)। क्या आप बता सकते हैं कि ब्याज वार्षिक, अर्धवार्षिक, त्रैमासिक या किसी अन्य आवृत्ति से चक्रवृद्धि होता है?\\n\\nयदि यह वार्षिक चक्रवृद्धि है, तो मैं compound_freq = 1 के साथ गणना कर सकता हूँ।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_50","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मुझे आवास की कीमतों का अनुमान लगाने के लिए आपको कुछ अतिरिक्त जानकारी की आवश्यकता है:\\n\\n1. **महीनों की संख्या**: आपने \\\"अगले महीने\\\" के लिए पूछा है, तो क्या आप 1 महीने का अनुमान चाहते हैं?\\n\\n2. **विशेषताएँ**: क्या आप कुछ विशेष विशेषताओं (जैसे SqFt, Bedrooms, Bathrooms, Location) के आधार पर अनुमान चाहते हैं?\\n\\nक्या आप इन विवरणों की पुष्टि कर सकते हैं ताकि मैं सटीक अनुमान प्रदान कर सकूँ?\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_51","valid":true,"error":null}
+{"id":"multiple_52","valid":true,"error":null}
+{"id":"multiple_53","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपकी मदद करना चाहूंगा, लेकिन मुझे यह जानकारी चाहिए कि आप किस डेटा या डेटासेट का उपयोग कर रहे हैं। मेरे पास उपलब्ध फ़ंक्शन्स को निम्नलिखित पैरामीटर्स की आवश्यकता है:\\n\\n1. **independent_var**: स्वतंत्र चरों की सूची (जैसे \\\"interest rates\\\", \\\"unemployment rates\\\")\\n2. **dependent_var**: आश्रित चर (जैसे \\\"house prices\\\")\\n3. **forecast_period**: पूर्वानुमान अवधि (वर्षों में)\\n\\nहालांकि, मुझे यह नहीं पता कि आपके पास कौन सा डेटा है या आप किस डेटासेट का उपयोग कर रहे हैं। क्या आप निम्नलिखित जानकारी प्रदान कर सकते हैं:\\n\\n- क्या आपके पास interest rates, unemployment rates और house prices का ऐतिहासिक डेटा है?\\n- क्या ये डेटा किसी विशिष्ट देश या क्षेत्र के हैं?\\n- क्या आप linear regression या random forest regression में से किसी एक विधि को प्राथमिकता देते हैं?\\n\\nइस जानकारी के बिना मैं फ़ंक्शन कॉल नहीं कर सकता।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_54","valid":true,"error":null}
+{"id":"multiple_55","valid":true,"error":null}
+{"id":"multiple_56","valid":true,"error":null}
+{"id":"multiple_57","valid":true,"error":null}
+{"id":"multiple_58","valid":false,"error":{"InvalidParamValue":{"param":"expertise","actual_value":"Marriage","expected_values":["Divorce"],"decoded_output":"[{\"lawyer.search\":{\"location\":\"Los Angeles, CA\",\"expertise\":\"Marriage\"}}]"}}}
+{"id":"multiple_59","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपको न्यू यॉर्क में आपराधिक कानून के विशेषज्ञ वकीलों को खोजने में मदद कर सकता हूं। हालांकि, मुझे आपकी एक और जानकारी चाहिए - आप कितने वर्षों का अनुभव रखने वाले वकील की तलाश कर रहे हैं? क्या आप नए वकील चाहते हैं या अधिक अनुभवी?\\n\\nकृपया अपनी पसंद के अनुभव के वर्षों की जानकारी दें, ताकि मैं आपके लिए सबसे उपयुक्त वकीलों की खोज कर सकूं।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_60","valid":true,"error":null}
+{"id":"multiple_61","valid":false,"error":{"InvalidParamValue":{"param":"specialization","actual_value":"residential design","expected_values":["small space garden design"],"decoded_output":"[{\"landscape_architect.find_specialty\":{\"location\":\"Portland, OR\",\"specialization\":\"residential design\",\"years_experience\":5}}]"}}}
+{"id":"multiple_62","valid":true,"error":null}
+{"id":"multiple_63","valid":true,"error":null}
+{"id":"multiple_64","valid":true,"error":null}
+{"id":"multiple_65","valid":true,"error":null}
+{"id":"multiple_66","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपके लिए ट्रैफ़िक का अनुमान लगा सकता हूं, लेकिन मुझे एक महत्वपूर्ण जानकारी की आवश्यकता है। आपने \\\"इस सप्ताहांत\\\" का उल्लेख किया है, लेकिन मुझे यह निर्दिष्ट करने की आवश्यकता है कि क्या आपका मतलब \\\"weekend\\\" (सप्ताहांत) से है या कोई विशिष्ट समय अवधि।\\n\\nक्या आप स्पष्ट कर सकते हैं कि आप किस समय अवधि के लिए ट्रैफ़िक का अनुमान चाहते हैं? मैं 'weekend' या 'now' विकल्पों का उपयोग कर सकता हूं।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_67","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपके प्रश्न का उत्तर देने के लिए उपलब्ध कार्यों का उपयोग नहीं कर सकता। आपका प्रश्न \\\"नमस्ते, आप कैसे हैं?\\\" एक सामान्य अभिवादन है, लेकिन मेरे पास इसका उत्तर देने के लिए कोई उपयुक्त कार्य नहीं है। मेरे पास केवल अनुवाद, भावना विश्लेषण और शब्द गणना के कार्य उपलब्ध हैं।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_68","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपकी मदद करना चाहूंगा, लेकिन आपके प्रश्न में एक महत्वपूर्ण जानकारी गायब है। आपने New York public library में historical fiction पुस्तक खोजने के लिए कहा है, लेकिन आपको किसी विशिष्ट पुस्तक का शीर्षक (title) भी बताना होगा।\\n\\nक्या आप किसी विशेष historical fiction पुस्तक का नाम जानते हैं जिसे आप New York public library में खोजना चाहते हैं? या फिर आप किसी विशिष्ट historical fiction पुस्तक के बारे में जानकारी चाहते हैं?\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_69","valid":true,"error":null}
+{"id":"multiple_70","valid":true,"error":null}
+{"id":"multiple_71","valid":true,"error":null}
+{"id":"multiple_72","valid":true,"error":null}
+{"id":"multiple_73","valid":false,"error":{"InvalidParamValue":{"param":"religion","actual_value":"बौद्ध धर्म","expected_values":["Buddhism"],"decoded_output":"[{\"religion.get_origin\":{\"religion\":\"बौद्ध धर्म\"}}]"}}}
+{"id":"multiple_74","valid":true,"error":null}
+{"id":"multiple_75","valid":true,"error":null}
+{"id":"multiple_76","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपके लिए एक कस्टम ब्रॉन्ज मूर्ति का ऑर्डर तैयार कर सकता हूँ। हालाँकि, मुझे मूर्ति का आकार (इंच में) जानने की आवश्यकता है। कृपया बताएं कि आप कितने इंच की मूर्ति चाहते हैं?\\n\\nउपलब्ध सामग्री विकल्प हैं: Bronze, Marble, Terracotta, Wood, और Stone। आपने पहले से ही Bronze का चयन किया है।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_77","valid":true,"error":null}
+{"id":"multiple_78","valid":true,"error":null}
+{"id":"multiple_79","valid":true,"error":null}
+{"id":"multiple_80","valid":true,"error":null}
+{"id":"multiple_81","valid":true,"error":null}
+{"id":"multiple_82","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपके लिए संगीत उत्पन्न कर सकता हूं, लेकिन मुझे समय सिग्नेचर (time signature) की जानकारी चाहिए। आपने केवल गति (120 bpm) और कुंजी (C मेजर) दी है। कृपया समय सिग्नेचर भी बताएं, जैसे 4/4, 3/4, आदि।\\n\\nया फिर, क्या आप चाहते हैं कि मैं डिफ़ॉल्ट 4/4 समय सिग्नेचर का उपयोग करूं?\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_83","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मुझे यह जानकारी देने के लिए खेद है कि मैं आपके प्रश्न का उत्तर नहीं दे सकता। आपने बार्सिलोना के लिए लियोनेल मेस्सी के कुल गोलों के बारे में पूछा है, लेकिन मेरे पास उपलब्ध फ़ंक्शन में एक आवश्यक पैरामीटर \\\"competition\\\" (प्रतियोगिता) की जानकारी चाहिए।\\n\\nआपके प्रश्न में सिर्फ टीम (बार्सिलोना) और खिलाड़ी (लियोनेल मेस्सी) का नाम है, लेकिन यह स्पष्ट नहीं है कि किस प्रतियोगिता के लिए गोलों की गिनती चाहिए - क्या सभी प्रतियोगिताओं में, सिर्फ लीग में, या किसी विशेष प्रतियोगिता में?\\n\\nकृपया यह बताएं कि आप किस प्रतियोगिता के लिए गोलों की गिनती चाहते हैं, जैसे:\\n- \\\"La Liga\\\" (लीग मैचों के लिए)\\n- \\\"UEFA Champions League\\\" \\n- \\\"Copa del Rey\\\"\\n- या \\\"all competitions\\\" (सभी प्रतियोगिताओं के लिए)\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_84","valid":true,"error":null}
+{"id":"multiple_85","valid":true,"error":null}
+{"id":"multiple_86","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपकी मदद करना चाहूंगा, लेकिन मुझे BoardGameGeek से खेलों की सिफारिश करने के लिए एक महत्वपूर्ण जानकारी चाहिए। आपने 2 खिलाड़ियों के लिए रणनीति आधारित बोर्ड गेम की सिफारिश मांगी है, लेकिन मुझे यह जानने की जरूरत है कि आप किस कठिनाई स्तर की तलाश में हैं - शुरुआती, मध्यम या उन्नत?\\n\\nक्या आप कृपया अपनी पसंद का कठिनाई स्तर बता सकते हैं?\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_87","valid":true,"error":null}
+{"id":"multiple_88","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मुझे आपके प्रश्न का उत्तर देने के लिए 'World of Warcraft' गेम के लिए 2020 में सक्रिय खिलाड़ियों की संख्या जानने की आवश्यकता है। हालाँकि, मुझे यह भी जानकारी चाहिए कि आप किस प्लेटफॉर्म (PC, Xbox, Playstation, आदि) के बारे में पूछ रहे हैं। क्या आप कृपया बता सकते हैं कि आप किस प्लेटफॉर्म पर 'World of Warcraft' के सक्रिय खिलाड़ियों की संख्या जानना चाहते हैं?\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_89","valid":true,"error":null}
+{"id":"multiple_90","valid":true,"error":null}
+{"id":"multiple_91","valid":false,"error":{"InvalidParamValue":{"param":"ingredientLimit","actual_value":5,"expected_values":[4],"decoded_output":"[{\"recipe.find\":{\"mainIngredient\":\"apple\",\"ingredientLimit\":5}}]"}}}
+{"id":"multiple_92","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मुझे आपकी मदद करने में खुशी होगी, लेकिन मुझे आपके स्थान के बारे में अधिक जानकारी चाहिए। आपने \\\"Denver के निकट\\\" (Denver के पास) बताया है, लेकिन मुझे विशिष्ट शहर और राज्य की आवश्यकता है।\\n\\nक्या आप बता सकते हैं कि आप किस विशिष्ट स्थान पर हैं? उदाहरण के लिए:\\n- Denver, CO\\n- Aurora, CO  \\n- Lakewood, CO\\n- या कोई अन्य निकटवर्ती शहर\\n\\nएक बार आप विशिष्ट स्थान बता दें, तो मैं आपके लिए Walmart में उपलब्ध शाकाहारी (vegan) और ग्लूटेन-मुक्त (gluten-free) उत्पादों की सूची प्राप्त कर सकता हूँ।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_93","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"न्यू यॉर्क","expected_values":["New York","New York, NY","NYC"],"decoded_output":"[{\"hotel.book\":{\"location\":\"न्यू यॉर्क\",\"roomType\":\"डीलक्स\",\"nights\":2,\"additional_services\":[\"breakfast\"]}}]"}}}
+{"id":"multiple_94","valid":false,"error":{"InvalidParamValue":{"param":"roomType","actual_value":"queen size bed suite","expected_values":["suite with queen size bed"],"decoded_output":"[{\"hotel_room_pricing.get\":{\"hotelName\":\"Hilton New York\",\"roomType\":\"queen size bed suite\",\"nights\":3}}]"}}}
+{"id":"multiple_95","valid":true,"error":null}
+{"id":"multiple_96","valid":true,"error":null}
+{"id":"multiple_97","valid":true,"error":null}
+{"id":"multiple_98","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मुझे वृत्त का परिमाप (circumference) निकालने के लिए त्रिज्या (radius) की आवश्यकता है। आपने \\\"3 के त्रिज्या\\\" बताया है, लेकिन यह स्पष्ट नहीं है कि यह 3 किस इकाई में है। क्या यह 3 सेंटीमीटर, मीटर, या कोई अन्य इकाई है?\\n\\nकृपया त्रिज्या की इकाई भी बताएं ताकि मैं सही परिमाप की गणना कर सकूं।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_99","valid":false,"error":{"InvalidParamValue":{"param":"function","actual_value":"2x^2","expected_values":["2x**2","lambda x: 2x**2"],"decoded_output":"[{\"calculus.derivative\":{\"function\":\"2x^2\",\"value\":1,\"function_variable\":\"x\"}}]"}}}
+{"id":"multiple_100","valid":true,"error":null}
+{"id":"multiple_101","valid":true,"error":null}
+{"id":"multiple_102","valid":true,"error":null}
+{"id":"multiple_103","valid":true,"error":null}
+{"id":"multiple_104","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मुझे न्यूयॉर्क सिटी से वाशिंगटन डी.सी. तक की सबसे कम ड्राइविंग दूरी जानने के लिए आपको दूरी की इकाई (unit) की जानकारी चाहिए। कृपया बताएं कि आप दूरी किस इकाई में चाहते हैं - किलोमीटर (kilometers) या मील (miles)?\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_105","valid":true,"error":null}
+{"id":"multiple_106","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मुझे आपके प्रश्न के लिए आवश्यक जानकारी की कमी है। इलेक्ट्रिक फील्ड स्ट्रेंथ की गणना करने के लिए मुझे माध्यम (medium) की जानकारी चाहिए। क्या यह चार्ज वैक्यूम में है या किसी अन्य माध्यम में?\\n\\nआप निम्नलिखित में से कोई एक विकल्प चुन सकते हैं:\\n- \\\"vacuum\\\" (डिफ़ॉल्ट)\\n- \\\"air\\\" (हवा)\\n- \\\"water\\\" (पानी)\\n- \\\"glass\\\" (कांच)\\n- या कोई अन्य विशिष्ट माध्यम\\n\\nकृपया माध्यम निर्दिष्ट करें ताकि मैं सही गणना कर सकूं।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_107","valid":true,"error":null}
+{"id":"multiple_108","valid":true,"error":null}
+{"id":"multiple_109","valid":true,"error":null}
+{"id":"multiple_110","valid":true,"error":null}
+{"id":"multiple_111","valid":true,"error":null}
+{"id":"multiple_112","valid":true,"error":null}
+{"id":"multiple_113","valid":true,"error":null}
+{"id":"multiple_114","valid":true,"error":null}
+{"id":"multiple_115","valid":true,"error":null}
+{"id":"multiple_116","valid":true,"error":null}
+{"id":"multiple_117","valid":true,"error":null}
+{"id":"multiple_118","valid":true,"error":null}
+{"id":"multiple_119","valid":false,"error":{"InvalidParamValue":{"param":"table","actual_value":"तालिका","expected_values":["user"],"decoded_output":"[{\"database.query\":{\"table\":\"तालिका\",\"conditions\":[{\"field\":\"उम्र\",\"operation\":\">\",\"value\":\"25\"},{\"field\":\"नौकरी\",\"operation\":\"=\",\"value\":\"engineer\"}]}}]"}}}
+{"id":"multiple_120","valid":true,"error":null}
+{"id":"multiple_121","valid":false,"error":{"InvalidParamValue":{"param":"unit","actual_value":"वर्ग मीटर","expected_values":["","square meters"],"decoded_output":"[{\"geometry.area_triangle\":{\"base\":6,\"height\":10,\"unit\":\"वर्ग मीटर\"}}]"}}}
+{"id":"multiple_122","valid":true,"error":null}
+{"id":"multiple_123","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं देख रहा हूं कि आप एक पत्तों के डेक से राजा निकालने की संभावना जानना चाहते हैं। हालांकि, इस प्रश्न का उत्तर देने के लिए मेरे पास उपलब्ध फ़ंक्शन को कुछ विशिष्ट पैरामीटर की आवश्यकता है:\\n\\n1. कुल संभावित परिणाम (total_outcomes)\\n2. अनुकूल परिणाम (favorable_outcomes)  \\n3. गोल करने के लिए दशमलव स्थान (round_to)\\n\\nआपके प्रश्न में यह स्पष्ट नहीं है कि:\\n- कितने पत्तों का डेक है? (आमतौर पर 52 पत्तों का डेक होता है)\\n- कितने राजा हैं? (आमतौर पर 4 राजा होते हैं)\\n\\nक्या आप इन विवरणों को स्पष्ट कर सकते हैं? उदाहरण के लिए, क्या यह 52 पत्तों के मानक डेक से एक राजा निकालने की संभावना है?\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_124","valid":false,"error":{"InvalidParamValue":{"param":"round","actual_value":4,"expected_values":["",2],"decoded_output":"[{\"probabilities.calculate_single\":{\"total_outcomes\":52,\"event_outcomes\":4,\"round\":4}}]"}}}
+{"id":"multiple_125","valid":true,"error":null}
+{"id":"multiple_126","valid":true,"error":null}
+{"id":"multiple_127","valid":true,"error":null}
+{"id":"multiple_128","valid":true,"error":null}
+{"id":"multiple_129","valid":true,"error":null}
+{"id":"multiple_130","valid":true,"error":null}
+{"id":"multiple_131","valid":true,"error":null}
+{"id":"multiple_132","valid":true,"error":null}
+{"id":"multiple_133","valid":false,"error":{"InvalidParamValue":{"param":"annual_yield","actual_value":5,"expected_values":[0.05],"decoded_output":"[{\"calculate_mutual_fund_balance\":{\"investment_amount\":50000,\"annual_yield\":5,\"years\":3}}]"}}}
+{"id":"multiple_134","valid":true,"error":null}
+{"id":"multiple_135","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपकी मदद करना चाहूंगा, लेकिन इस मामले की जानकारी प्राप्त करने के लिए मुझे कोर्ट का नाम भी चाहिए। आपने केवल केस नंबर (2022/AL2562) और राज्य (कैलिफ़ोर्निया) बताया है, लेकिन यह मामला किस कोर्ट में चल रहा था - यह जानकारी आवश्यक है।\\n\\nक्या आप बता सकते हैं कि यह मामला किस कोर्ट में था? उदाहरण के लिए:\\n- सुप्रीम कोर्ट ऑफ कैलिफ़ोर्निया\\n- कोर्ट ऑफ अपील\\n- सुपीरियर कोर्ट\\n- या कोई विशिष्ट जिला कोर्ट\\n\\nएक बार कोर्ट का नाम मिल जाए, तो मैं आपको पीड़ित की जानकारी प्राप्त कर सकता हूं।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_136","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपको San Francisco में 2020 के हिंसक अपराध की दर प्रदान करना चाहूंगा, लेकिन मुझे इस जानकारी के लिए आवश्यक राज्य (state) पैरामीटर की आवश्यकता है। क्या आप कृपया बता सकते हैं कि San Francisco किस राज्य में स्थित है?\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_137","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपके लिए Google कंपनी से जुड़ी कैलिफोर्निया में चल रही कानूनी कार्यवाहियों की जानकारी प्राप्त कर सकता हूं। हालांकि, मुझे एक महत्वपूर्ण जानकारी की आवश्यकता है: आपने जनवरी 1, 2021 का उल्लेख किया है, लेकिन क्या यह शुरुआती तिथि है या अंतिम तिथि? \\n\\nक्या आप यह स्पष्ट कर सकते हैं कि आप किस समय अवधि की कानूनी कार्यवाहियों की जानकारी चाहते हैं? उदाहरण के लिए:\\n- जनवरी 1, 2021 से अब तक की सभी कार्यवाहियाँ\\n- या कोई विशिष्ट अंतिम तिथि?\\n\\nएक बार आप शुरुआती और अंतिम तिथि स्पष्ट कर दें, मैं आपके लिए खोज कर सकता हूं।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_138","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं देख रहा हूं कि आप \\\"R बनाम Adams\\\" कानूनी मामले की संपूर्ण जानकारी प्राप्त करना चाहते हैं। हालांकि, इसके लिए मुझे केस आईडी (case_id) की आवश्यकता है। क्या आप इस मामले का विशिष्ट केस आईडी प्रदान कर सकते हैं? \\n\\nउदाहरण के लिए, यदि केस आईडी \\\"R_v_Adams_2023\\\" या इसी तरह का कोई पहचानकर्ता है, तो मैं उसके लिए विस्तृत जानकारी प्राप्त कर सकता हूं।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_139","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपकी मदद करना चाहूंगा, लेकिन इस समय मेरे पास कंपनी के पेटेंट मुकदमों की जानकारी प्राप्त करने के लिए आवश्यक टूल उपलब्ध नहीं है। \\n\\nआपने Apple Inc. के 2010 वर्ष के पेटेंट मुकदमों की जानकारी मांगी है, लेकिन इस प्रकार की कानूनी जानकारी प्राप्त करने की कार्यक्षमता वर्तमान में उपलब्ध नहीं है।\\n\\nक्या मैं आपकी किसी अन्य प्रकार की जानकारी प्राप्त करने में मदद कर सकता हूं?\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_140","valid":true,"error":null}
+{"id":"multiple_141","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपके अनुरोध को समझता हूं, लेकिन मुझे मुकदमे की जानकारी प्राप्त करने के लिए केस की स्थिति (बंद है या नहीं) की जानकारी भी चाहिए। आपने केवल केस आईडी (1234) प्रदान की है, लेकिन यह जांचने के लिए कि क्या मुकदमा पहले से बंद है, मुझे `closed_status` पैरामीटर की आवश्यकता है।\\n\\nक्या आप कृपया यह बता सकते हैं कि आप किस स्थिति की जांच करना चाहते हैं:\\n1. क्या मुकदमा बंद है? (closed_status = true)\\n2. क्या मुकदमा खुला है? (closed_status = false)\\n\\nया फिर आप दोनों स्थितियों के लिए अलग-अलग जांच करना चाहते हैं?\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_142","valid":true,"error":null}
+{"id":"multiple_143","valid":true,"error":null}
+{"id":"multiple_144","valid":true,"error":null}
+{"id":"multiple_145","valid":true,"error":null}
+{"id":"multiple_146","valid":true,"error":null}
+{"id":"multiple_147","valid":true,"error":null}
+{"id":"multiple_148","valid":true,"error":null}
+{"id":"multiple_149","valid":false,"error":{"InvalidParamValue":{"param":"text","actual_value":"मैं यहाँ के खाने को पसंद करता हूँ! यह हमेशा ताजा और स्वादिष्ट होता है।","expected_values":["I love the food here! It's always fresh and delicious."],"decoded_output":"[{\"sentiment_analysis\":{\"text\":\"मैं यहाँ के खाने को पसंद करता हूँ! यह हमेशा ताजा और स्वादिष्ट होता है।\",\"language\":\"Hindi\"}}]"}}}
+{"id":"multiple_150","valid":true,"error":null}
+{"id":"multiple_151","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपकी मदद करना चाहूंगा, लेकिन इस प्रश्न के लिए मेरे पास आवश्यक फ़ंक्शन नहीं है। आप \\\"behaviour और group dynamics से संबंधित psychology\\\" विषय पर ट्विटर पर सबसे ज्यादा फॉलो किए जाने वाले व्यक्ति की खोज करना चाहते हैं, लेकिन मेरे पास उपलब्ध social_media_analytics_most_followed फ़ंक्शन को region पैरामीटर की आवश्यकता होती है, जो आपके प्रश्न में नहीं दिया गया है।\\n\\nक्या आप किसी विशिष्ट क्षेत्र (जैसे भारत, यूरोप, उत्तरी अमेरिका, या global) के बारे में बता सकते हैं? इस जानकारी के बिना मैं आपके लिए यह खोज नहीं कर सकता।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_152","valid":true,"error":null}
+{"id":"multiple_153","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपके प्रश्न का उत्तर देने में सहायता करना चाहूंगा, लेकिन मेरे पास उपलब्ध टूल्स में से कोई भी टूल इस विशिष्ट ऐतिहासिक घटना की तारीख प्राप्त करने के लिए उपयुक्त नहीं है। \\\"लिस्बन संधि\\\" (Lisbon Treaty) के बारे में जानकारी प्राप्त करने के लिए मुझे एक ऐसा टूल चाहिए जो ऐतिहासिक घटनाओं की तारीखें प्रदान कर सके, लेकिन मेरे पास मौजूद `get_event_date` टूल केवल सामान्य ऐतिहासिक घटनाओं के लिए है और विशिष्ट संधियों या अंतरराष्ट्रीय समझौतों के लिए डिज़ाइन नहीं किया गया है।\\n\\nयदि आप किसी अन्य प्रकार की ऐतिहासिक घटना या किसी विशिष्ट स्थान पर घटित घटना के बारे में पूछना चाहते हैं, तो मैं आपकी सहायता कर सकता हूँ।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_154","valid":true,"error":null}
+{"id":"multiple_155","valid":true,"error":null}
+{"id":"multiple_156","valid":false,"error":{"InvalidParamValue":{"param":"category","actual_value":"Physics","expected_values":["","all"],"decoded_output":"[{\"historical_contrib.get_contrib\":{\"scientist\":\"Albert Einstein\",\"date\":\"1915-03-17\",\"category\":\"Physics\"}}]"}}}
+{"id":"multiple_157","valid":true,"error":null}
+{"id":"multiple_158","valid":true,"error":null}
+{"id":"multiple_159","valid":true,"error":null}
+{"id":"multiple_160","valid":true,"error":null}
+{"id":"multiple_161","valid":true,"error":null}
+{"id":"multiple_162","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपके प्रश्न को समझता हूं, लेकिन मुझे आपके लिए संरचनात्मक विश्लेषण करने के लिए कुछ आवश्यक जानकारी चाहिए। आपने भवन ID B1004 और मंजिलें (2nd, 3rd, 4th) बताई हैं, लेकिन मुझे यह स्पष्ट नहीं है कि आप किस प्रकार का विश्लेषण चाहते हैं।\\n\\nक्या आप विशिष्ट रूप से बता सकते हैं कि आप किस प्रकार का संरचनात्मक विश्लेषण चाहते हैं? उदाहरण के लिए:\\n- स्थैतिक विश्लेषण (static)\\n- गतिशील विश्लेषण (dynamic)\\n- या कोई अन्य विशेष प्रकार का विश्लेषण\\n\\nएक बार आप विश्लेषण का प्रकार बता दें, तो मैं आपके लिए उचित फंक्शन कॉल कर सकता हूं।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_163","valid":true,"error":null}
+{"id":"multiple_164","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मुझे आपके प्रश्न का उत्तर देने के लिए आवश्यक जानकारी की कमी है। आपने Fender American Professional II Stratocaster के Rosewood Finish की खुदरा कीमत पूछी है, लेकिन मुझे इस उपकरण की कीमत प्राप्त करने के लिए ब्रांड, मॉडल और फिनिश की आवश्यकता है।\\n\\nआपने ब्रांड (Fender) और फिनिश (Rosewood Finish) तो बताया है, लेकिन मॉडल का नाम पूरी तरह स्पष्ट नहीं है। क्या आपका मतलब \\\"American Professional II Stratocaster\\\" से है? यदि हाँ, तो कृपया मॉडल का सटीक नाम स्पष्ट करें।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_165","valid":true,"error":null}
+{"id":"multiple_166","valid":true,"error":null}
+{"id":"multiple_167","valid":true,"error":null}
+{"id":"multiple_168","valid":true,"error":null}
+{"id":"multiple_169","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपके प्रश्न को समझता हूं, लेकिन मुझे संगीत स्केल के बारे में जानकारी प्राप्त करने के लिए आवश्यक टूल में कुछ स्पष्टीकरण की आवश्यकता है।\\n\\nआपने \\\"C शार्प मेजर\\\" के बारे में पूछा है, लेकिन संगीत सिद्धांत में \\\"C शार्प मेजर\\\" की दो संभावनाएं हैं:\\n1. C# मेजर (C sharp major)\\n2. C मेजर (C major)\\n\\nक्या आपका मतलब \\\"C sharp major\\\" (C# मेजर) है या \\\"C major\\\" (C मेजर) है? कृपया स्पष्ट करें ताकि मैं सही संगीत स्केल की जानकारी प्रदान कर सकूं।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_170","valid":true,"error":null}
+{"id":"multiple_171","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपके प्रश्न का उत्तर देने के लिए उपलब्ध फ़ंक्शन का उपयोग कर सकता हूं, लेकिन मुझे कुछ जानकारी की आवश्यकता है। आपने 28 जनवरी, 2021 को Lakers और Clippers के बीच हुए मैच के बारे में पूछा है, लेकिन मुझे यह जानने की आवश्यकता है कि यह मैच किस स्थान (वेन्यू) पर खेला गया था।\\n\\nक्या आप बता सकते हैं कि यह मैच कहाँ खेला गया था? उदाहरण के लिए:\\n- Staples Center (जो दोनों टीमों का घरेलू मैदान है)\\n- या कोई अन्य स्थान\\n\\nएक बार आप वेन्यू की जानकारी प्रदान कर दें, तो मैं आपके लिए मैच का परिणाम प्राप्त कर सकता हूं।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_172","valid":true,"error":null}
+{"id":"multiple_173","valid":true,"error":null}
+{"id":"multiple_174","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपकी प्रश्न का उत्तर देने के लिए sports_ranking फ़ंक्शन का उपयोग कर सकता हूँ, लेकिन मुझे एक आवश्यक पैरामीटर की जानकारी चाहिए। आपने \\\"Premier League\\\" और \\\"Manchester United\\\" का उल्लेख किया है, लेकिन मुझे सीज़न (season) की जानकारी भी चाहिए।\\n\\nक्या आप यह बता सकते हैं कि आप किस सीज़न की रैंकिंग जानना चाहते हैं? यदि आप वर्तमान सीज़न (2024) की जानकारी चाहते हैं, तो मैं उसके लिए फ़ंक्शन कॉल कर सकता हूँ।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_175","valid":true,"error":null}
+{"id":"multiple_176","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपकी मदद करना चाहूंगा, लेकिन Manchester United के अगले 6 खेलों का कार्यक्रम जानने के लिए मुझे `sports_team_get_schedule` फंक्शन का उपयोग करना होगा। इस फंक्शन के लिए `location` पैरामीटर भी आवश्यक है, जो आपके प्रश्न में नहीं दिया गया है।\\n\\nक्या आप बता सकते हैं कि आप किस स्थान (शहर या स्टेडियम) के खेलों का कार्यक्रम देखना चाहते हैं? या फिर आप सभी स्थानों के खेलों का कार्यक्रम देखना चाहते हैं?\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_177","valid":true,"error":null}
+{"id":"multiple_178","valid":true,"error":null}
+{"id":"multiple_179","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मुझे पॉकर में फुल हाउस प्राप्त करने की संभावना की गणना करने के लिए आवश्यक जानकारी चाहिए। पॉकर प्रायिकता फ़ंक्शन को डेक का आकार और हाथ का आकार दोनों की आवश्यकता होती है।\\n\\nकृपया निम्नलिखित जानकारी प्रदान करें:\\n1. डेक का आकार (आमतौर पर 52 कार्ड)\\n2. हाथ का आकार (आमतौर पर 5 कार्ड)\\n\\nक्या आप मानक 52-कार्ड डेक और 5-कार्ड हाथ के लिए संभावना जानना चाहते हैं?\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_180","valid":true,"error":null}
+{"id":"multiple_181","valid":true,"error":null}
+{"id":"multiple_182","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपके लिए मल्टीप्लेयर गेम खोज सकता हूं, लेकिन मुझे एक और जानकारी चाहिए। आप किस जेनर (शैली) के गेम पसंद करेंगे? उपलब्ध विकल्प हैं: Action, Adventure, Racing, Strategy, या Simulation।\\n\\nकृपया अपनी पसंद का जेनर बताएं ताकि मैं आपके लिए सही गेम खोज सकूं।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_183","valid":true,"error":null}
+{"id":"multiple_184","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं देख रहा हूं कि आप 2 सर्विंग्स के लिए एक शाकाहारी pasta और cheese की विधि चाहते हैं। हालांकि, मेरे पास उपलब्ध फ़ंक्शन के लिए सभी आवश्यक पैरामीटर नहीं हैं।\\n\\nrecipe_search फ़ंक्शन को तीन आवश्यक पैरामीटर चाहिए:\\n1. dietary_restriction (आहार प्रतिबंध) - यह तो \\\"Vegetarian\\\" (शाकाहारी) है\\n2. servings (सर्विंग्स) - यह 2 है\\n3. ingredients (सामग्री) - यह पैरामीटर आपने नहीं दिया है\\n\\nक्या आप pasta और cheese रेसिपी के लिए कोई विशेष सामग्री बताना चाहेंगे? जैसे कि किस तरह का pasta (penne, spaghetti, macaroni, etc.) और किस तरह का cheese (cheddar, mozzarella, parmesan, etc.)?\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_185","valid":true,"error":null}
+{"id":"multiple_186","valid":true,"error":null}
+{"id":"multiple_187","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं Whole Foods पर कीमतों की जांच करने में आपकी मदद कर सकता हूं, लेकिन मुझे एक और जानकारी चाहिए। आपने लॉस एंजेलेस का उल्लेख किया है, लेकिन लॉस एंजेल्स में कई Whole Foods स्टोर हैं। क्या आप बता सकते हैं कि आप किस विशिष्ट स्थान या पते पर कीमतें जानना चाहते हैं? उदाहरण के लिए:\\n\\n- \\\"Los Angeles, Downtown\\\"\\n- \\\"Los Angeles, Santa Monica\\\" \\n- \\\"Los Angeles, West Hollywood\\\"\\n- या कोई अन्य विशिष्ट स्थान\\n\\nएक बार आप सटीक स्थान बता दें, तो मैं टमाटर और लेट्यूस की कीमतों की जांच कर सकता हूं।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_188","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मुझे आपकी किराना दुकान खोजने में मदद करने के लिए कुछ और जानकारी चाहिए। आपने बर्कले का उल्लेख किया है, लेकिन मुझे आपकी वर्तमान स्थान (my_location) की जानकारी चाहिए ताकि मैं आपके निकटतम दुकानें खोज सकूं।\\n\\nक्या आप अपना वर्तमान पता या स्थान बता सकते हैं? उदाहरण के लिए:\\n- \\\"Berkeley, California\\\"\\n- \\\"University of California, Berkeley\\\"\\n- या कोई विशिष्ट पता\\n\\nएक बार मुझे आपका स्थान मिल जाए, तो मैं 4.5 स्टार रेटिंग वाली दुकानें खोज सकता हूँ जो टमाटर और पालतू जानवरों का खाना उपलब्ध कराती हैं।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_189","valid":true,"error":null}
+{"id":"multiple_190","valid":false,"error":{"InvalidParamValue":{"param":"hotel_name","actual_value":"हिल्टन होटल","expected_values":["Hilton Hotel","Hilton"],"decoded_output":"[{\"book_hotel\":{\"hotel_name\":\"हिल्टन होटल\",\"location\":\"शिकागो\",\"room_type\":\"एकल कमरा\",\"start_date\":\"10 दिसंबर 2022\",\"nights\":2}}]"}}}
+{"id":"multiple_191","valid":true,"error":null}
+{"id":"multiple_192","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपकी मदद करना चाहूंगा, लेकिन मेरे पास मुद्रा रूपांतरण के लिए जो फ़ंक्शन है, उसे विशिष्ट मुद्रा कोड की आवश्यकता होती है। आपने \\\"Euros\\\" और \\\"Canadian dollars\\\" का उल्लेख किया है, लेकिन फ़ंक्शन को मानक मुद्रा कोड (जैसे EUR, CAD) की आवश्यकता होती है।\\n\\nक्या आप कृपया निम्नलिखित जानकारी प्रदान कर सकते हैं:\\n1. 150 यूरो को कनाडाई डॉलर में बदलना है\\n2. मुद्रा कोड: EUR (यूरो) से CAD (कनाडाई डॉलर)\\n\\nअगर आप यह जानकारी प्रदान करते हैं, तो मैं रूपांतरण कर सकता हूं।\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_193","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मैं आपको Eiffel Tower से Louvre Museum तक की दूरी और समय की जानकारी प्रदान कर सकता हूं। इसके लिए मुझे आपकी वर्तमान स्थिति (start_location) की जानकारी चाहिए। क्या आप बता सकते हैं कि आप कहां से यात्रा शुरू कर रहे हैं? या फिर क्या आप Eiffel Tower से सीधे Louvre Museum तक की यात्रा के बारे में पूछ रहे हैं?\\n\\nअगर आप Eiffel Tower से Louvre Museum तक की यात्रा के बारे में पूछ रहे हैं, तो कृपया मुझे बताएं कि आप किस शहर में हैं या आपकी वर्तमान स्थिति क्या है?\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_194","valid":true,"error":null}
+{"id":"multiple_195","valid":true,"error":null}
+{"id":"multiple_196","valid":false,"error":{"ParsingError":{"error_message":"Expected 'tool_calls' array in response","raw_output":"{\"content\": \"मुझे आपके प्रश्न के लिए क्षमा करें, लेकिन मेरे पास हिंदी में उत्तर देने की क्षमता नहीं है। आपका प्रश्न प्लाज्मा मेम्ब्रेन (कोशिका झिल्ली) में मौजूद प्रोटीनों के बारे में पूछ रहा है।\\n\\nहालांकि, मेरे पास कोशिका के विभिन्न खंडों में प्रोटीनों की सूची प्राप्त करने के लिए एक उपकरण है, लेकिन यह केवल अंग्रेजी में काम करता है। यदि आप अंग्रेजी में प्रश्न पूछें, तो मैं आपकी सहायता कर सकता हूँ।\\n\\nकृपया अपना प्रश्न अंग्रेजी में दोहराएं, जैसे: \\\"What are the names of proteins present in the plasma membrane?\\\"\", \"role\": \"assistant\"}"}}}
+{"id":"multiple_197","valid":true,"error":null}
+{"id":"multiple_198","valid":true,"error":null}
+{"id":"multiple_199","valid":true,"error":null}

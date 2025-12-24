@@ -22,7 +22,7 @@ translate_modes = [
 noise_modes = ["NO_NOISE", "PARAPHRASE", "SYNONYM"]
 
 
-def generate_heatmap(model_name: str, output_dir: str, result_dir: str) -> None:
+def generate_heatmap(model_name: str, output_dir: str, result_dir: str, language: str) -> None:
     """
     Generate a heatmap for a given model showing accuracy across translate and noise modes.
 
@@ -30,7 +30,22 @@ def generate_heatmap(model_name: str, output_dir: str, result_dir: str) -> None:
         model_name: The model directory name (e.g., "gpt-5", "gpt-5-mini", "gpt-5-nano")
         output_dir: Directory to save the heatmap image (default: current directory)
         result_dir: Directory containing the score files (default: "result/score")
+        language: The language name for the plot title (e.g., "Chinese", "Hindi", "Igbo")
     """
+
+    # Map language names to language tags
+    language_tag_map = {
+        "English": "en",
+        "Chinese": "zh",
+        "Hindi": "hi",
+        "Igbo": "igbo"
+    }
+
+    # Get the language tag for filtering
+    language_tag = language_tag_map.get(language)
+    if language_tag is None:
+        print(f"Error: Unknown language '{language}'. Valid options: {', '.join(language_tag_map.keys())}")
+        return
 
     # Initialize data structure: dict[translate_mode][noise_mode] = accuracy
     data_dict = {}
@@ -84,12 +99,17 @@ def generate_heatmap(model_name: str, output_dir: str, result_dir: str) -> None:
                     print(f"Warning: Unexpected filename format '{score_file.name}' (expected 7 elements, got {len(tags)})")
                     continue
 
-                language_tag = tags[1]
+                file_language_tag = tags[1]
                 translate_level_tag = tags[2]
                 pre_translate_tag = tags[3]
                 noise_tag = tags[4]
                 prompt_translate_tag = tags[5]
                 post_translate_tag = tags[6]
+
+                # Skip files that don't match the selected language
+                # Exception: Always include English "en" as it represents the NT (Not Translated) baseline
+                if file_language_tag != language_tag and file_language_tag != "en":
+                    continue
 
                 # Map noise_tag to noise_mode
                 if noise_tag == "nonoise":
@@ -104,13 +124,13 @@ def generate_heatmap(model_name: str, output_dir: str, result_dir: str) -> None:
 
                 # Map combination of tags to translate_mode
                 # NT = en + na
-                if language_tag == "en" and translate_level_tag == "na":
+                if file_language_tag == "en" and translate_level_tag == "na":
                     translate_mode = "NT"
                 # PAR = (zh or hi or igbo) + parttrans
-                elif language_tag in ["zh", "hi", "igbo"] and translate_level_tag == "parttrans":
+                elif file_language_tag in ["zh", "hi", "igbo"] and translate_level_tag == "parttrans":
                     translate_mode = "PAR"
                 # All other cases require fulltrans
-                elif language_tag in ["zh", "hi", "igbo"] and translate_level_tag == "fulltrans":
+                elif file_language_tag in ["zh", "hi", "igbo"] and translate_level_tag == "fulltrans":
                     # FT = fulltrans + nopretrans + noprompt + noposttrans
                     if (pre_translate_tag == "nopretrans" and prompt_translate_tag == "noprompt" and
                         post_translate_tag == "noposttrans"):
@@ -133,7 +153,7 @@ def generate_heatmap(model_name: str, output_dir: str, result_dir: str) -> None:
                         continue
                 else:
                     print(f"Error: Unknown language/translate_level combination in {score_file.name}")
-                    print(f"  language={language_tag}, translate_level={translate_level_tag}")
+                    print(f"  language={file_language_tag}, translate_level={translate_level_tag}")
                     exit(1)
 
                 # Store the accuracy
@@ -192,13 +212,13 @@ def generate_heatmap(model_name: str, output_dir: str, result_dir: str) -> None:
                     color="black", fontsize=9   # black text = readable on light colormap
                 )
 
-    plt.title(f"Heatmap: {model_name} - Translate Mode × Noise Mode")
+    plt.title(f"Accuracy of {model_name} Under {language} Queries")
     plt.tight_layout()
 
     # Create output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
 
-    output_path = os.path.join(output_dir, f"heatmap_{model_name}.png")
+    output_path = os.path.join(output_dir, f"heatmap_{model_name}_{language}.png")
     plt.savefig(output_path)
     print(f"\nSaved heatmap to {output_path}")
     plt.close()
@@ -217,6 +237,10 @@ if __name__ == "__main__":
         help="Model names to process (e.g., gpt-5 gpt-5-mini gpt-5-nano)"
     )
     parser.add_argument(
+        "language",
+        help="Language name for the plot title (e.g., Chinese, Hindi, Igbo)"
+    )
+    parser.add_argument(
         "--output-dir",
         default="tool/plots/heatmaps",
         help="Directory to save heatmap images (default: current directory)"
@@ -233,4 +257,4 @@ if __name__ == "__main__":
         print(f"\n{'='*60}")
         print(f"Generating heatmap for {model}")
         print(f"{'='*60}")
-        generate_heatmap(model, args.output_dir, args.result_dir)
+        generate_heatmap(model, args.output_dir, args.result_dir, args.language)

@@ -12,10 +12,15 @@ for noise in [AddNoiseMode.NoNoise, AddNoiseMode.Synonym, AddNoiseMode.Paraphras
         TranslateMode.Translated(language=Language.Chinese, option=TranslateOption.FullyTranslatedPromptTranslate),
         TranslateMode.Translated(language=Language.Chinese, option=TranslateOption.FullyTranslatedPreTranslate),
         TranslateMode.Translated(language=Language.Chinese, option=TranslateOption.FullyTranslatedPostTranslate),
+        TranslateMode.Translated(language=Language.Hindi, option=TranslateOption.FullyTranslated),
+        TranslateMode.Translated(language=Language.Hindi, option=TranslateOption.PartiallyTranslated),
+        TranslateMode.Translated(language=Language.Hindi, option=TranslateOption.FullyTranslatedPromptTranslate),
+        TranslateMode.Translated(language=Language.Hindi, option=TranslateOption.FullyTranslatedPreTranslate),
+        TranslateMode.Translated(language=Language.Hindi, option=TranslateOption.FullyTranslatedPostTranslate),
     ]:
         experiments.append(ToolExperiment(translate, noise))
 
 config = ToolConfig(
-    Model.Api(ApiModel.DeepSeek),
+    Model.Api(ApiModel.Gpt5Mini),
     experiments
 )
