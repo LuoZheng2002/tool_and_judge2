@@ -1,0 +1,200 @@
+{"id":"multiple_0","valid":true,"error":null}
+{"id":"multiple_1","valid":true,"error":null}
+{"id":"multiple_2","valid":false,"error":{"InvalidParamValue":{"param":"country","actual_value":"ब्राज़ील","expected_values":["Brazil"],"decoded_output":"[{\"country_info.capital\":{\"country\":\"ब्राज़ील\"}}]"}}}
+{"id":"multiple_3","valid":true,"error":null}
+{"id":"multiple_4","valid":true,"error":null}
+{"id":"multiple_5","valid":true,"error":null}
+{"id":"multiple_6","valid":true,"error":null}
+{"id":"multiple_7","valid":false,"error":{"InvalidEntryCount":{"expected_count":1,"actual_count":2,"decoded_output":"[{\"wildlife_population.assess_growth\":{\"species\":\"deer\",\"location\":\"Washington state\",\"duration\":10}},{\"ecological_impact.analyze\":{\"species\":\"deer\",\"ecosystem\":\"forest\",\"location\":\"Washington state\",\"timeframe\":10}}]"}}}
+{"id":"multiple_8","valid":true,"error":null}
+{"id":"multiple_9","valid":true,"error":null}
+{"id":"multiple_10","valid":false,"error":{"InvalidEntryCount":{"expected_count":1,"actual_count":2,"decoded_output":"[{\"database.create_backup\":{\"db_name\":\"employees\",\"backup_location\":\"/backups/employees_backup\",\"timestamp\":true}},{\"database.modify_columns\":{\"db_name\":\"employees\",\"table\":\"personal_data\",\"operation\":\"delete\",\"columns\":[\"email addresses\",\"social security numbers\"]}}]"}}}
+{"id":"multiple_11","valid":true,"error":null}
+{"id":"multiple_12","valid":true,"error":null}
+{"id":"multiple_13","valid":true,"error":null}
+{"id":"multiple_14","valid":true,"error":null}
+{"id":"multiple_15","valid":false,"error":{"InvalidParamValue":{"param":"month","actual_value":"दिसंबर","expected_values":["December","Dec"],"decoded_output":"[{\"solarFarm.potential\":{\"coordinates\":[43.653225,-79.383186],\"panelArea\":80000,\"month\":\"दिसंबर\"}}]"}}}
+{"id":"multiple_16","valid":true,"error":null}
+{"id":"multiple_17","valid":true,"error":null}
+{"id":"multiple_18","valid":true,"error":null}
+{"id":"multiple_19","valid":false,"error":{"InvalidParamValue":{"param":"religion","actual_value":"ईसाई","expected_values":["Christianity"],"decoded_output":"[{\"religion_history.get_schisms\":{\"religion\":\"ईसाई\",\"count\":3}}]"}}}
+{"id":"multiple_20","valid":false,"error":{"InvalidParamValue":{"param":"material","actual_value":"संगमरमर","expected_values":["marble"],"decoded_output":"[{\"sculpture_price.calculate\":{\"material\":\"संगमरमर\",\"size\":3}}]"}}}
+{"id":"multiple_21","valid":true,"error":null}
+{"id":"multiple_22","valid":false,"error":{"WrongFuncName":{"expected_name":"sports_data.basketball.most_points_single_game","actual_name":"sports_data.basketball.most_points_single_season","decoded_output":"[{\"sports_data.basketball.most_points_single_season\":{\"league\":\"NBA\"}}]"}}}
+{"id":"multiple_23","valid":true,"error":null}
+{"id":"multiple_24","valid":false,"error":{"InvalidParamValue":{"param":"start","actual_value":"लंदन","expected_values":["London"],"decoded_output":"[{\"route_planner.calculate_route\":{\"start\":\"लंदन\",\"destination\":\"एडिनबर्ग\",\"method\":\"fastest\"}}]"}}}
+{"id":"multiple_25","valid":true,"error":null}
+{"id":"multiple_26","valid":true,"error":null}
+{"id":"multiple_27","valid":false,"error":{"InvalidParamValue":{"param":"start_location","actual_value":"पेरिस, फ्रांस","expected_values":["Paris, France","Paris"],"decoded_output":"[{\"maps.shortest_path\":{\"start_location\":\"पेरिस, फ्रांस\",\"end_location\":\"रोम, इटली\",\"mode\":\"transit\"}}]"}}}
+{"id":"multiple_28","valid":true,"error":null}
+{"id":"multiple_29","valid":false,"error":{"InvalidParamValue":{"param":"function1","actual_value":"3x+2","expected_values":["3x + 2","lambda x: 3x + 2"],"decoded_output":"[{\"functions.intersect\":{\"function1\":\"3x+2\",\"function2\":\"2x+3\"}}]"}}}
+{"id":"multiple_30","valid":true,"error":null}
+{"id":"multiple_31","valid":true,"error":null}
+{"id":"multiple_32","valid":true,"error":null}
+{"id":"multiple_33","valid":false,"error":{"InvalidParamValue":{"param":"func","actual_value":"3x^2","expected_values":["3x**2","lambda x: 3x**2"],"decoded_output":"[{\"calculate_integral\":{\"func\":\"3x^2\",\"a\":1,\"b\":2}}]"}}}
+{"id":"multiple_34","valid":true,"error":null}
+{"id":"multiple_35","valid":true,"error":null}
+{"id":"multiple_36","valid":true,"error":null}
+{"id":"multiple_37","valid":true,"error":null}
+{"id":"multiple_38","valid":false,"error":{"InvalidParamValue":{"param":"city","actual_value":"न्यूयॉर्क","expected_values":["New York","New York, NY","New York City","NYC","NY"],"decoded_output":"[{\"library.search_book\":{\"book_name\":\"The Alchemist\",\"city\":\"न्यूयॉर्क\"}}]"}}}
+{"id":"multiple_39","valid":true,"error":null}
+{"id":"multiple_40","valid":true,"error":null}
+{"id":"multiple_41","valid":true,"error":null}
+{"id":"multiple_42","valid":true,"error":null}
+{"id":"multiple_43","valid":true,"error":null}
+{"id":"multiple_44","valid":true,"error":null}
+{"id":"multiple_45","valid":true,"error":null}
+{"id":"multiple_46","valid":true,"error":null}
+{"id":"multiple_47","valid":true,"error":null}
+{"id":"multiple_48","valid":true,"error":null}
+{"id":"multiple_49","valid":true,"error":null}
+{"id":"multiple_50","valid":true,"error":null}
+{"id":"multiple_51","valid":true,"error":null}
+{"id":"multiple_52","valid":true,"error":null}
+{"id":"multiple_53","valid":false,"error":{"InvalidEntryCount":{"expected_count":1,"actual_count":2,"decoded_output":"[{\"linear_regression\":{\"independent_var\":[\"interest rates\",\"unemployment rates\"],\"dependent_var\":\"house prices\",\"forecast_period\":5}},{\"random_forest_regression\":{\"independent_var\":[\"interest rates\",\"unemployment rates\"],\"dependent_var\":\"house prices\",\"forecast_period\":5}}]"}}}
+{"id":"multiple_54","valid":true,"error":null}
+{"id":"multiple_55","valid":true,"error":null}
+{"id":"multiple_56","valid":true,"error":null}
+{"id":"multiple_57","valid":true,"error":null}
+{"id":"multiple_58","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"लॉस एंजेलेस, CA","expected_values":["Los Angeles","Los Angeles, CA","LA"],"decoded_output":"[{\"lawyer.search\":{\"location\":\"लॉस एंजेलेस, CA\",\"expertise\":\"Divorce\"}}]"}}}
+{"id":"multiple_59","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"न्यू यॉर्क","expected_values":["New York","New York, NY","NY","New York City","NYC"],"decoded_output":"[{\"lawyer_finder\":{\"location\":\"न्यू यॉर्क\",\"specialization\":[\"आपराधिक कानून\"]}}]"}}}
+{"id":"multiple_60","valid":true,"error":null}
+{"id":"multiple_61","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"पोर्टलैंड, OR","expected_values":["Portland","Portland, OR"],"decoded_output":"[{\"landscape_architect.find_specialty\":{\"location\":\"पोर्टलैंड, OR\",\"specialization\":\"छोटे स्थान के बगीचे के डिज़ाइन\",\"years_experience\":5}}]"}}}
+{"id":"multiple_62","valid":true,"error":null}
+{"id":"multiple_63","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"न्यू यॉर्क","expected_values":["New York","New York, NY","New York City","NYC"],"decoded_output":"[{\"air_quality_forecast\":{\"location\":\"न्यू यॉर्क\",\"days\":7}}]"}}}
+{"id":"multiple_64","valid":true,"error":null}
+{"id":"multiple_65","valid":false,"error":{"InvalidParamValue":{"param":"origin","actual_value":"न्यू यॉर्क सिटी","expected_values":["New York City","NYC"],"decoded_output":"[{\"geodistance.find\":{\"origin\":\"न्यू यॉर्क सिटी\",\"destination\":\"लॉस एंजेलेस\"}}]"}}}
+{"id":"multiple_66","valid":true,"error":null}
+{"id":"multiple_67","valid":false,"error":{"InvalidParamValue":{"param":"text","actual_value":"नमस्ते, आप कैसे हैं?","expected_values":["Hello, how are you?"],"decoded_output":"[{\"translate\":{\"text\":\"नमस्ते, आप कैसे हैं?\",\"source_language\":\"hi\",\"target_language\":\"en\"}}]"}}}
+{"id":"multiple_68","valid":true,"error":null}
+{"id":"multiple_69","valid":true,"error":null}
+{"id":"multiple_70","valid":true,"error":null}
+{"id":"multiple_71","valid":true,"error":null}
+{"id":"multiple_72","valid":true,"error":null}
+{"id":"multiple_73","valid":false,"error":{"InvalidParamValue":{"param":"religion","actual_value":"बौद्ध धर्म","expected_values":["Buddhism"],"decoded_output":"[{\"religion.get_origin\":{\"religion\":\"बौद्ध धर्म\"}}]"}}}
+{"id":"multiple_74","valid":true,"error":null}
+{"id":"multiple_75","valid":false,"error":{"InvalidParamValue":{"param":"period","actual_value":"Monthly","expected_values":["","Daily"],"decoded_output":"[{\"paint_color.trends\":{\"room\":\"Living room\",\"period\":\"Monthly\"}}]"}}}
+{"id":"multiple_76","valid":true,"error":null}
+{"id":"multiple_77","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"न्यू यॉर्क","expected_values":["New York","New York, NY","New York City","NYC"],"decoded_output":"[{\"artwork_search.find\":{\"type\":\"sculpture\",\"location\":\"न्यू यॉर्क\",\"era\":\"contemporary\"}}]"}}}
+{"id":"multiple_78","valid":true,"error":null}
+{"id":"multiple_79","valid":true,"error":null}
+{"id":"multiple_80","valid":true,"error":null}
+{"id":"multiple_81","valid":true,"error":null}
+{"id":"multiple_82","valid":true,"error":null}
+{"id":"multiple_83","valid":false,"error":{"InvalidParamValue":{"param":"player_name","actual_value":"लियोनेल मेस्सी","expected_values":["Lionel Messi"],"decoded_output":"[{\"player_stats.get_all_time_goals\":{\"player_name\":\"लियोनेल मेस्सी\",\"team_name\":\"बार्सिलोना\"}}]"}}}
+{"id":"multiple_84","valid":true,"error":null}
+{"id":"multiple_85","valid":true,"error":null}
+{"id":"multiple_86","valid":true,"error":null}
+{"id":"multiple_87","valid":true,"error":null}
+{"id":"multiple_88","valid":true,"error":null}
+{"id":"multiple_89","valid":true,"error":null}
+{"id":"multiple_90","valid":true,"error":null}
+{"id":"multiple_91","valid":false,"error":{"InvalidParamValue":{"param":"ingredientLimit","actual_value":5,"expected_values":[4],"decoded_output":"[{\"recipe.find\":{\"mainIngredient\":\"apple\",\"ingredientLimit\":5}}]"}}}
+{"id":"multiple_92","valid":true,"error":null}
+{"id":"multiple_93","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"न्यू यॉर्क","expected_values":["New York","New York, NY","NYC"],"decoded_output":"[{\"hotel.book\":{\"location\":\"न्यू यॉर्क\",\"roomType\":\"deluxe\",\"nights\":2,\"additional_services\":[\"breakfast\"]}}]"}}}
+{"id":"multiple_94","valid":false,"error":{"InvalidParamValue":{"param":"roomType","actual_value":"queen size bed suite","expected_values":["suite with queen size bed"],"decoded_output":"[{\"hotel_room_pricing.get\":{\"hotelName\":\"Hilton New York\",\"roomType\":\"queen size bed suite\",\"nights\":3}}]"}}}
+{"id":"multiple_95","valid":true,"error":null}
+{"id":"multiple_96","valid":true,"error":null}
+{"id":"multiple_97","valid":true,"error":null}
+{"id":"multiple_98","valid":true,"error":null}
+{"id":"multiple_99","valid":false,"error":{"InvalidParamValue":{"param":"function","actual_value":"2x^2","expected_values":["2x**2","lambda x: 2x**2"],"decoded_output":"[{\"calculus.derivative\":{\"function\":\"2x^2\",\"value\":1,\"function_variable\":\"x\"}}]"}}}
+{"id":"multiple_100","valid":true,"error":null}
+{"id":"multiple_101","valid":true,"error":null}
+{"id":"multiple_102","valid":true,"error":null}
+{"id":"multiple_103","valid":true,"error":null}
+{"id":"multiple_104","valid":false,"error":{"InvalidParamValue":{"param":"origin","actual_value":"न्यू यॉर्क सिटी","expected_values":["New York City","NYC"],"decoded_output":"[{\"get_shortest_driving_distance\":{\"origin\":\"न्यू यॉर्क सिटी\",\"destination\":\"वाशिंगटन डी.सी.\"}}]"}}}
+{"id":"multiple_105","valid":true,"error":null}
+{"id":"multiple_106","valid":true,"error":null}
+{"id":"multiple_107","valid":true,"error":null}
+{"id":"multiple_108","valid":true,"error":null}
+{"id":"multiple_109","valid":true,"error":null}
+{"id":"multiple_110","valid":true,"error":null}
+{"id":"multiple_111","valid":true,"error":null}
+{"id":"multiple_112","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"येलोस्टोन नेशनल पार्क","expected_values":["Yellowstone National Park"],"decoded_output":"[{\"forest_growth_forecast\":{\"location\":\"येलोस्टोन नेशनल पार्क\",\"years\":5,\"include_human_impact\":true}}]"}}}
+{"id":"multiple_113","valid":true,"error":null}
+{"id":"multiple_114","valid":true,"error":null}
+{"id":"multiple_115","valid":true,"error":null}
+{"id":"multiple_116","valid":true,"error":null}
+{"id":"multiple_117","valid":true,"error":null}
+{"id":"multiple_118","valid":true,"error":null}
+{"id":"multiple_119","valid":true,"error":null}
+{"id":"multiple_120","valid":true,"error":null}
+{"id":"multiple_121","valid":true,"error":null}
+{"id":"multiple_122","valid":true,"error":null}
+{"id":"multiple_123","valid":true,"error":null}
+{"id":"multiple_124","valid":true,"error":null}
+{"id":"multiple_125","valid":true,"error":null}
+{"id":"multiple_126","valid":true,"error":null}
+{"id":"multiple_127","valid":true,"error":null}
+{"id":"multiple_128","valid":true,"error":null}
+{"id":"multiple_129","valid":true,"error":null}
+{"id":"multiple_130","valid":true,"error":null}
+{"id":"multiple_131","valid":true,"error":null}
+{"id":"multiple_132","valid":true,"error":null}
+{"id":"multiple_133","valid":true,"error":null}
+{"id":"multiple_134","valid":true,"error":null}
+{"id":"multiple_135","valid":true,"error":null}
+{"id":"multiple_136","valid":false,"error":{"InvalidParamValue":{"param":"type","actual_value":"violent crime","expected_values":["violent","Violent"],"decoded_output":"[{\"get_crime_rate\":{\"city\":\"San Francisco\",\"state\":\"California\",\"type\":\"violent crime\",\"year\":2020}}]"}}}
+{"id":"multiple_137","valid":true,"error":null}
+{"id":"multiple_138","valid":true,"error":null}
+{"id":"multiple_139","valid":true,"error":null}
+{"id":"multiple_140","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"कैलिफोर्निया","expected_values":["California","CA"],"decoded_output":"[{\"lawsuits_search\":{\"company_name\":\"Google\",\"location\":\"कैलिफोर्निया\",\"year\":2020}}]"}}}
+{"id":"multiple_141","valid":true,"error":null}
+{"id":"multiple_142","valid":true,"error":null}
+{"id":"multiple_143","valid":true,"error":null}
+{"id":"multiple_144","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"लंदन","expected_values":["London"],"decoded_output":"[{\"air_quality\":{\"location\":\"लंदन\",\"date\":\"2022/08/16\"}}]"}}}
+{"id":"multiple_145","valid":true,"error":null}
+{"id":"multiple_146","valid":true,"error":null}
+{"id":"multiple_147","valid":true,"error":null}
+{"id":"multiple_148","valid":true,"error":null}
+{"id":"multiple_149","valid":false,"error":{"InvalidParamValue":{"param":"language","actual_value":"en","expected_values":["english","English"],"decoded_output":"[{\"sentiment_analysis\":{\"text\":\"I love the food here! It's always fresh and delicious.\",\"language\":\"en\"}}]"}}}
+{"id":"multiple_150","valid":true,"error":null}
+{"id":"multiple_151","valid":true,"error":null}
+{"id":"multiple_152","valid":true,"error":null}
+{"id":"multiple_153","valid":false,"error":{"InvalidParamValue":{"param":"event","actual_value":"लिस्बन संधि","expected_values":["Treaty of Lisbon","Signing of the Treaty of Lisbon"],"decoded_output":"[{\"get_event_date\":{\"event\":\"लिस्बन संधि\",\"location\":\"लिस्बन\"}}]"}}}
+{"id":"multiple_154","valid":true,"error":null}
+{"id":"multiple_155","valid":true,"error":null}
+{"id":"multiple_156","valid":false,"error":{"InvalidParamValue":{"param":"category","actual_value":"Physics","expected_values":["","all"],"decoded_output":"[{\"historical_contrib.get_contrib\":{\"scientist\":\"Albert Einstein\",\"date\":\"1915-03-17\",\"category\":\"Physics\"}}]"}}}
+{"id":"multiple_157","valid":true,"error":null}
+{"id":"multiple_158","valid":true,"error":null}
+{"id":"multiple_159","valid":true,"error":null}
+{"id":"multiple_160","valid":true,"error":null}
+{"id":"multiple_161","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"न्यू यॉर्क","expected_values":["New York","New York, NY","New York City","NYC","NY"],"decoded_output":"[{\"find_exhibition\":{\"location\":\"न्यू यॉर्क\",\"art_form\":\"modern sculpture\",\"month\":\"अगले महीने\",\"user_ratings\":\"high\"}}]"}}}
+{"id":"multiple_162","valid":true,"error":null}
+{"id":"multiple_163","valid":true,"error":null}
+{"id":"multiple_164","valid":true,"error":null}
+{"id":"multiple_165","valid":true,"error":null}
+{"id":"multiple_166","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"लॉस एंजेलेस","expected_values":["Los Angeles","LA"],"decoded_output":"[{\"concert.search\":{\"genre\":\"classical\",\"location\":\"लॉस एंजेलेस\",\"date\":\"this weekend\",\"price_range\":\"cheap\"}}]"}}}
+{"id":"multiple_167","valid":true,"error":null}
+{"id":"multiple_168","valid":true,"error":null}
+{"id":"multiple_169","valid":false,"error":{"JsonDecodeError":{"error_message":"trailing characters at line 1 column 77","raw_output":"<tool_call>\n{\"name\": \"musical_scale\", \"arguments\": {\"key\": \"C#\"}, \"scale_type\": \"major\"}}\n</tool_call>"}}}
+{"id":"multiple_170","valid":true,"error":null}
+{"id":"multiple_171","valid":true,"error":null}
+{"id":"multiple_172","valid":true,"error":null}
+{"id":"multiple_173","valid":true,"error":null}
+{"id":"multiple_174","valid":true,"error":null}
+{"id":"multiple_175","valid":true,"error":null}
+{"id":"multiple_176","valid":true,"error":null}
+{"id":"multiple_177","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"न्यू यॉर्क","expected_values":["New York","New York, NY","NYC"],"decoded_output":"[{\"board_game.chess.get_top_players\":{\"location\":\"न्यू यॉर्क\",\"minimum_rating\":2300}}]"}}}
+{"id":"multiple_178","valid":true,"error":null}
+{"id":"multiple_179","valid":true,"error":null}
+{"id":"multiple_180","valid":true,"error":null}
+{"id":"multiple_181","valid":true,"error":null}
+{"id":"multiple_182","valid":true,"error":null}
+{"id":"multiple_183","valid":false,"error":{"InvalidParamValue":{"param":"website","actual_value":"foodnetwork.com","expected_values":["Foodnetwork.com"],"decoded_output":"[{\"recipe_info.get_calories\":{\"website\":\"foodnetwork.com\",\"recipe\":\"Beef Lasagna\"}}]"}}}
+{"id":"multiple_184","valid":true,"error":null}
+{"id":"multiple_185","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"बोस्टन, MA","expected_values":["Boston","Boston, MA"],"decoded_output":"[{\"restaurant_search.find_closest\":{\"location\":\"बोस्टन, MA\",\"cuisine\":\"सुशी\",\"amenities\":[\"पैटियो\"]}}]"}}}
+{"id":"multiple_186","valid":true,"error":null}
+{"id":"multiple_187","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"लॉस एंजेलेस","expected_values":["Los Angeles","LA"],"decoded_output":"[{\"whole_foods.check_price\":{\"location\":\"लॉस एंजेलेस\",\"items\":[\"टमाटर\",\"लेट्यूस\"]}}]"}}}
+{"id":"multiple_188","valid":false,"error":{"InvalidParamValue":{"param":"my_location","actual_value":"बर्कले","expected_values":["Berkeley","Berkeley,California","Berkeley,CA","Berkeley, CA"],"decoded_output":"[{\"grocery_store.find_best\":{\"my_location\":\"बर्कले\",\"rating\":4.5,\"products\":[\"टमाटर\",\"पालतू जानवरों का खाना\"]}}]"}}}
+{"id":"multiple_189","valid":true,"error":null}
+{"id":"multiple_190","valid":false,"error":{"InvalidParamValue":{"param":"hotel_name","actual_value":"हिल्टन होटल","expected_values":["Hilton Hotel","Hilton"],"decoded_output":"[{\"book_hotel\":{\"hotel_name\":\"हिल्टन होटल\",\"location\":\"शिकागो\",\"room_type\":\"एक सिंगल रूम\",\"start_date\":\"2022-12-10\",\"nights\":2}}]"}}}
+{"id":"multiple_191","valid":true,"error":null}
+{"id":"multiple_192","valid":true,"error":null}
+{"id":"multiple_193","valid":true,"error":null}
+{"id":"multiple_194","valid":true,"error":null}
+{"id":"multiple_195","valid":true,"error":null}
+{"id":"multiple_196","valid":false,"error":{"InvalidParamValue":{"param":"cell_compartment","actual_value":"प्लाज्मा मेम्ब्रेन","expected_values":["plasma membrane"],"decoded_output":"[{\"cellbio.get_proteins\":{\"cell_compartment\":\"प्लाज्मा मेम्ब्रेन\",\"include_description\":false}}]"}}}
+{"id":"multiple_197","valid":true,"error":null}
+{"id":"multiple_198","valid":true,"error":null}
+{"id":"multiple_199","valid":true,"error":null}
