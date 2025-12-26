@@ -17,7 +17,7 @@ from tool_stacked_bar_common import (
 
 def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str,
                                 language: str,
-                                max_height: float = 0.5) -> None:
+                                max_height: float = None) -> None:
     """
     Generate a stacked bar chart for a given model showing error type distributions.
     Shows all 18 combinations (6 translate modes × 3 noise modes) grouped by translate mode.
@@ -27,7 +27,7 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
         output_dir: Directory to save the chart image
         result_dir: Directory containing the result files (default: "tool/result")
         language: The language name for the plot title (e.g., "Chinese", "Hindi", "Igbo")
-        max_height: Maximum height of the vertical axis (default: 0.5, range: 0.0-1.0)
+        max_height: Maximum height of the vertical axis (default: None, auto-calculated from data)
     """
 
     # Load data using common module
@@ -103,21 +103,28 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
     # Calculate totals for each bar (as rates)
     totals = df_rate.sum(axis=1).values
 
+    # Calculate y-axis max height (ceiling to nearest 0.1)
+    if max_height is None:
+        data_max = totals.max()
+        max_height = np.ceil(data_max * 10) / 10  # Round up to nearest 0.1
+        if max_height == data_max:  # If already at boundary, add 0.1
+            max_height += 0.1
+
     # Add total numbers on top of each bar
     for i, total in enumerate(totals):
         if total > 0:  # Only annotate if there's data
             ax.text(x_positions[i], total, f'{total:.3f}',
                    ha='center', va='bottom', fontsize=7, fontweight='bold')
 
-    # Set y-axis range to the specified max_height
+    # Set y-axis range to the calculated max_height
     ax.set_ylim(0, max_height)
 
     # Customize plot
     ax.set_ylabel('Error Rate', fontsize=12)
     ax.set_title(title, fontsize=14, fontweight='bold')
 
-    # Place legend outside plot area on the right with smaller font
-    ax.legend(loc='center left', bbox_to_anchor=(1.02, 0.5), fontsize=9)
+    # Place legend outside plot area on the right
+    ax.legend(loc='center left', bbox_to_anchor=(1.02, 0.5), fontsize=11)
 
     # Set x-tick positions and labels
     ax.set_xticks(x_positions)
@@ -153,16 +160,13 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(
         description="Generate stacked bar charts showing error type distributions for specified models. "
-                    "Shows all 18 combinations (6 translate modes × 3 noise modes) grouped by translate mode."
+                    "Shows all 18 combinations (6 translate modes × 3 noise modes) grouped by translate mode. "
+                    "Automatically generates plots for Chinese, Hindi, and Igbo."
     )
     parser.add_argument(
         "models",
         nargs="+",
         help="Model names to process (e.g., gpt-5 gpt-5-mini gpt-5-nano)"
-    )
-    parser.add_argument(
-        "language",
-        help="Language name for the plot title (e.g., Chinese, Hindi, Igbo)"
     )
     parser.add_argument(
         "--output-dir",
@@ -177,21 +181,26 @@ if __name__ == "__main__":
     parser.add_argument(
         "--max-height",
         type=float,
-        default=0.5,
-        help="Maximum height of the vertical axis (default: 0.5, range: 0.0-1.0)"
+        default=None,
+        help="Maximum height of the vertical axis (default: auto-calculated from data, rounded up to nearest 0.1)"
     )
 
     args = parser.parse_args()
 
+    # Languages to process
+    languages = ["Chinese", "Hindi", "Igbo"]
+
     for model in args.models:
         print(f"\n{'='*60}")
-        print(f"Generating stacked bar chart for {model}")
+        print(f"Generating stacked bar charts for {model}")
         print(f"{'='*60}")
 
-        generate_stacked_bar_chart(
-            model,
-            args.output_dir,
-            args.result_dir,
-            args.language,
-            max_height=args.max_height
-        )
+        for language in languages:
+            print(f"\nProcessing language: {language}")
+            generate_stacked_bar_chart(
+                model,
+                args.output_dir,
+                args.result_dir,
+                language,
+                max_height=args.max_height
+            )

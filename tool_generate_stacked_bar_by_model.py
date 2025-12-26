@@ -18,7 +18,7 @@ from tool_stacked_bar_common import (
 def generate_stacked_bar_chart_by_model(model_names: list, output_dir: str, result_dir: str,
                                          language: str,
                                          translate_mode: str,
-                                         max_height: float = 0.5,
+                                         max_height: float = None,
                                          show_all_combined: bool = False) -> None:
     """
     Generate a stacked bar chart comparing models showing error type distributions.
@@ -30,7 +30,7 @@ def generate_stacked_bar_chart_by_model(model_names: list, output_dir: str, resu
         result_dir: Directory containing the result files (default: "tool/result")
         language: The language name for the plot title (e.g., "Chinese", "Hindi", "Igbo")
         translate_mode: The translate mode to filter by (e.g., "FT", "PT", "PRE", "POST")
-        max_height: Maximum height of the vertical axis (default: 0.5, range: 0.0-1.0)
+        max_height: Maximum height of the vertical axis (default: None, auto-calculated from data)
         show_all_combined: If True, show all model x noise mode combinations in a single plot with grouping
     """
 
@@ -128,6 +128,13 @@ def generate_stacked_bar_chart_by_model(model_names: list, output_dir: str, resu
     # Calculate totals for each bar (as rates)
     totals = df_rate.sum(axis=1).values
 
+    # Calculate y-axis max height (ceiling to nearest 0.1)
+    if max_height is None:
+        data_max = totals.max()
+        max_height = np.ceil(data_max * 10) / 10  # Round up to nearest 0.1
+        if max_height == data_max:  # If already at boundary, add 0.1
+            max_height += 0.1
+
     # Add total numbers on top of each bar
     for i, total in enumerate(totals):
         if total > 0:  # Only annotate if there's data
@@ -135,15 +142,15 @@ def generate_stacked_bar_chart_by_model(model_names: list, output_dir: str, resu
             ax.text(x_pos, total, f'{total:.3f}',
                    ha='center', va='bottom', fontsize=7, fontweight='bold')
 
-    # Set y-axis range to the specified max_height
+    # Set y-axis range to the calculated max_height
     ax.set_ylim(0, max_height)
 
     # Customize plot
     ax.set_ylabel('Error Rate', fontsize=12)
     ax.set_title(title, fontsize=14, fontweight='bold')
 
-    # Place legend outside plot area on the right with smaller font
-    ax.legend(loc='center left', bbox_to_anchor=(1.02, 0.5), fontsize=9)
+    # Place legend outside plot area on the right
+    ax.legend(loc='center left', bbox_to_anchor=(1.02, 0.5), fontsize=11)
 
     # Handle x-axis labels and ticks
     if show_all_combined:
@@ -218,8 +225,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "--max-height",
         type=float,
-        default=0.5,
-        help="Maximum height of the vertical axis (default: 0.5, range: 0.0-1.0)"
+        default=None,
+        help="Maximum height of the vertical axis (default: auto-calculated from data, rounded up to nearest 0.1)"
     )
     parser.add_argument(
         "--all-combined",
