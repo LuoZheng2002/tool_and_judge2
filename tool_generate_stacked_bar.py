@@ -41,6 +41,7 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
     bar_labels = []
     bar_data = []
     bar_positions = []
+    bar_widths = []  # Track custom widths for each bar
     pos = 0
     bar_spacing = 0.6  # Spacing between bars within a group
     group_spacing = 0.3  # Extra space between translate mode groups
@@ -52,13 +53,30 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
         "SYNONYM": "SYNO"
     }
 
+    # Special handling for Igbo: only NT has all three noise modes, others only have NO_NOISE
+    is_igbo = (language == "Igbo")
+
     for tm in translate_modes:
-        for nm in noise_modes:
-            bar_labels.append(noise_mode_abbrev[nm])  # Use abbreviated noise mode name
-            category_counts = data_dict[tm][nm]
+        if is_igbo and tm != "NT":
+            # For Igbo non-NT modes: single wide bar spanning the width of three bars
+            bar_labels.append("NO")  # Show "NO" sub-label
+            category_counts = data_dict[tm]["NO_NOISE"]
             bar_data.append(category_counts)
-            bar_positions.append(pos)
-            pos += bar_spacing  # Use smaller spacing between bars
+            # Calculate center position for a bar that spans three bar widths
+            bar_center = pos + bar_spacing
+            bar_positions.append(bar_center)
+            # Width spans three bars and two gaps: 3 * 0.4 + 2 * (0.6 - 0.4) = 1.6
+            bar_widths.append(1.6)
+            pos += 3 * bar_spacing  # Move position as if we placed three bars
+        else:
+            # Normal case: three bars for three noise modes
+            for nm in noise_modes:
+                bar_labels.append(noise_mode_abbrev[nm])  # Use abbreviated noise mode name
+                category_counts = data_dict[tm][nm]
+                bar_data.append(category_counts)
+                bar_positions.append(pos)
+                bar_widths.append(0.4)  # Standard bar width
+                pos += bar_spacing  # Use smaller spacing between bars
         pos += group_spacing  # Add extra space after each translate mode group
 
     title = f"Tool Calling Errors of {model_name} Under {language} Queries"
@@ -94,10 +112,9 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
         values = df_rate[category].values
         # Convert category name to readable format for legend
         readable_label = pascal_to_readable(category)
-        # Use half width (0.4) for better spacing
-        bar_width = 0.4
+        # Use custom bar widths for each bar
         ax.bar(x_positions, values, label=readable_label, bottom=bottom,
-               color=category_colors[category], edgecolor='white', linewidth=0.5, width=bar_width)
+               color=category_colors[category], edgecolor='white', linewidth=0.5, width=bar_widths)
         bottom += values
 
     # Calculate totals for each bar (as rates)
@@ -131,9 +148,16 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
     ax.set_xticklabels(bar_labels, rotation=45, ha='right', fontsize=8)
 
     # Add translate mode group labels as a second row below noise mode labels
+    pos_tracker = 0
     for i, tm in enumerate(translate_modes):
-        # Calculate the center position of each translate mode group
-        group_center = i * (len(noise_modes) * bar_spacing + group_spacing) + (len(noise_modes) - 1) * bar_spacing / 2
+        if is_igbo and tm != "NT":
+            # For Igbo non-NT modes: center is at the single wide bar
+            group_center = pos_tracker + bar_spacing
+            pos_tracker += 3 * bar_spacing + group_spacing
+        else:
+            # Normal case: center of three bars
+            group_center = pos_tracker + (len(noise_modes) - 1) * bar_spacing / 2
+            pos_tracker += len(noise_modes) * bar_spacing + group_spacing
         ax.text(group_center, -max_height * 0.08, tm,
                ha='center', va='top', fontsize=10, fontweight='bold')
 
