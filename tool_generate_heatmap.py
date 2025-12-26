@@ -19,7 +19,7 @@ translate_modes = [
     "POST", # Fully Translated + Post-Translate
 ]
 
-noise_modes = ["NO_NOISE", "PARAPHRASE", "SYNONYM"]
+noise_modes = ["NO", "PARA", "SYNO"]
 
 
 def generate_heatmap(model_name: str, output_dir: str, result_dir: str, language: str) -> None:
@@ -113,11 +113,11 @@ def generate_heatmap(model_name: str, output_dir: str, result_dir: str, language
 
                 # Map noise_tag to noise_mode
                 if noise_tag == "nonoise":
-                    noise_mode = "NO_NOISE"
+                    noise_mode = "NO"
                 elif noise_tag == "para":
-                    noise_mode = "PARAPHRASE"
+                    noise_mode = "PARA"
                 elif noise_tag == "syno":
-                    noise_mode = "SYNONYM"
+                    noise_mode = "SYNO"
                 else:
                     print(f"Warning: Unknown noise tag '{noise_tag}' in {score_file.name}")
                     continue
@@ -198,6 +198,10 @@ def generate_heatmap(model_name: str, output_dir: str, result_dir: str, language
     # Ticks (transposed: translate modes on x-axis, noise modes on y-axis)
     plt.xticks(np.arange(len(translate_modes)), translate_modes, rotation=45)
     plt.yticks(np.arange(len(noise_modes)), noise_modes)
+
+    # Axis labels
+    plt.xlabel("Translate Mode")
+    plt.ylabel("Noise Mode")
 
     # Annotate values in each grid cell
     for i in range(df.shape[0]):
