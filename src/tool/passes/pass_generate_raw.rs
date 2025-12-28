@@ -5,12 +5,9 @@ use serde::{Deserialize, Serialize};
 
 use crate::{
     config::{ToolConfig, ToolExperiment, TranslateMode},
-    models::{
-        function_name_mapper::{FunctionNameMapper},
-        model_interface::get_model_interface,
-    },
+    models::{function_name_mapper::FunctionNameMapper, model_interface::get_model_interface},
     tool::{
-        base_path::{BASE_DATASET_PATH, BASE_RESULT_PATH},
+        base_path::{TOOL_BASE_RESULT_PATH, TOOL_BASE_DATASET_PATH},
         bfcl_formats::BfclDatasetEntry,
         experiments::{
             DatasetFileName, GenerateRawFileName, PreTranslateMode, PromptTranslateMode,
@@ -52,7 +49,7 @@ const GENERATE_RAW_AGGREGATED_OUTPUT_FILE_NAME: &str = "generate_raw_aggregated_
 pub fn pass_generate_raw_aggregated_input_file_path(config: &ToolConfig) -> String {
     let model = config.model;
     let model_safe_name = get_model_safe_name(model);
-    let file_path = BASE_RESULT_PATH
+    let file_path = TOOL_BASE_RESULT_PATH
         .join(&model_safe_name)
         .join(GENERATE_RAW_AGGREGATED_INPUT_FILE_NAME);
     file_path.to_str().unwrap().to_string()
@@ -61,7 +58,7 @@ pub fn pass_generate_raw_aggregated_input_file_path(config: &ToolConfig) -> Stri
 pub fn pass_generate_raw_aggregated_output_file_path(config: &ToolConfig) -> String {
     let model = config.model;
     let model_safe_name = get_model_safe_name(model);
-    let file_path = BASE_RESULT_PATH
+    let file_path = TOOL_BASE_RESULT_PATH
         .join(&model_safe_name)
         .join(GENERATE_RAW_AGGREGATED_OUTPUT_FILE_NAME);
     file_path.to_str().unwrap().to_string()
@@ -106,7 +103,7 @@ pub fn pass_generate_raw_prepare_aggregated_input(config: &ToolConfig) {
                         "{}.jsonl",
                         serde_json::to_string(&dataset_file_name).unwrap()
                     );
-                    let pre_translate_result_file_path = BASE_RESULT_PATH
+                    let pre_translate_result_file_path = TOOL_BASE_RESULT_PATH
                         .join(&model_safe_name)
                         .join("pre_translate")
                         .join(&pre_translate_result_file_name_str);
@@ -126,8 +123,8 @@ pub fn pass_generate_raw_prepare_aggregated_input(config: &ToolConfig) {
                 }
                 PreTranslateMode::NoPreTranslate => None,
             };
-        let dataset_file_path = BASE_DATASET_PATH.join(&dataset_file_name_str);
-        let result_file_path = BASE_RESULT_PATH
+        let dataset_file_path = TOOL_BASE_DATASET_PATH.join(&dataset_file_name_str);
+        let result_file_path = TOOL_BASE_RESULT_PATH
             .join(&model_safe_name)
             .join("generate_raw")
             .join(&result_file_name_str);
@@ -240,8 +237,8 @@ pub fn pass_generate_raw_dispatch_results(config: &ToolConfig) {
             "{}.jsonl",
             serde_json::to_string(&result_file_name).unwrap()
         );
-        let dataset_file_path = BASE_DATASET_PATH.join(&dataset_file_name_str);
-        let result_file_path = BASE_RESULT_PATH
+        let dataset_file_path = TOOL_BASE_DATASET_PATH.join(&dataset_file_name_str);
+        let result_file_path = TOOL_BASE_RESULT_PATH
             .join(&model_safe_name)
             .join("generate_raw")
             .join(&result_file_name_str);
@@ -314,7 +311,7 @@ pub fn pass_generate_raw_dispatch_results(config: &ToolConfig) {
 }
 
 pub fn generate_function_name_mapper_file() {
-    let output_file_path = BASE_DATASET_PATH.join("function_name_mapper.jsonl");
+    let output_file_path = TOOL_BASE_DATASET_PATH.join("function_name_mapper.jsonl");
     let vanilla_experiment = ToolExperiment {
         translate_mode: TranslateMode::NotTranslated {},
         add_noise_mode: crate::config::AddNoiseMode::NoNoise,
@@ -324,7 +321,7 @@ pub fn generate_function_name_mapper_file() {
         "{}.jsonl",
         serde_json::to_string(&dataset_file_name).unwrap()
     );
-    let dataset_path = BASE_DATASET_PATH.join(&dataset_file_name_str);
+    let dataset_path = TOOL_BASE_DATASET_PATH.join(&dataset_file_name_str);
     let dataset_entries = load_json_lines(&dataset_path).expect("Failed to open dataset");
     let dataset_entries_parsed: Vec<BfclDatasetEntry> = dataset_entries
         .into_iter()
@@ -383,7 +380,7 @@ pub fn generate_function_name_mapper_file() {
 }
 
 pub fn get_function_name_mapper() -> FunctionNameMapper {
-    let function_name_mapper_file_path = BASE_DATASET_PATH.join("function_name_mapper.jsonl");
+    let function_name_mapper_file_path = TOOL_BASE_DATASET_PATH.join("function_name_mapper.jsonl");
     if !function_name_mapper_file_path.exists() {
         generate_function_name_mapper_file();
     }

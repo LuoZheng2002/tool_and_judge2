@@ -82,8 +82,7 @@ model_safe_name = get_model_directory_safe_name(model_name)
 # Start the first pass
 
 experiment_str = config.experiment.to_string()
-combined_input_path = f"judge/result/{model_safe_name}/{experiment_str}_input.jsonl"
-combined_output_path = f"judge/result/{model_safe_name}/{experiment_str}_output.jsonl"
+
 
 main_vllm_backend_created = False
 main_hf_backend_created = False
@@ -102,20 +101,23 @@ async def main_async():
             sorted_langs = sorted([lang1, lang2])
             first_lang = sorted_langs[0]
             second_lang = sorted_langs[1]
+
+            preference_aggregated_input_path = preference_aggregated_input_file_path(config)
+            preference_aggregated_output_path = preference_aggregated_output_file_path(config)
             # load two answers datasets
 
             # generate a filename based on uuid
             # uuid_str = str(uuid.uuid4())
             
-            # check if there is file at combined_output_path
-            if os.path.exists(combined_output_path):
-                dispatch_preference_results(model_safe_name, lang1, lang2, combined_output_path)
+            # check if there is file at preference_aggregated_output_path
+            if os.path.exists(preference_aggregated_output_path):
+                dispatch_preference_results(model_safe_name, first_lang, second_lang, preference_aggregated_output_path)
                 # delete this file
                 os.remove(combined_output_path)
                 print(f"Dispatched results from existing file: {combined_output_path}")
             
             # call rust function to concatenate two datasets
-            concatenate_preference_datasets(model_safe_name, first_lang, second_lang, combined_input_path, debug_limit=args.debug_limit)
+            preference_prepare_aggregated_input(model_safe_name, first_lang, second_lang, debug_limit=args.debug_limit)
             combined_entries = load_json_lines_from_file(combined_input_path)
             semaphore = asyncio.Semaphore(200)
             async def collect_single_preference_async(entry: dict) -> dict:
@@ -280,99 +282,158 @@ async def main_async():
             # create directory if not exists
             os.makedirs(os.path.dirname(perplexity_dataset_path), exist_ok=True)
             # first get the existing file content
-            # TODO
+            try:
+                existing_perplexity_dataset_entries = load_json_lines_from_file(perplexity_dataset_path)
+                existing_perplexity_dataset_entries = {entry['index']: entry for entry in existing_perplexity_dataset_entries}
+            except FileNotFoundError:
+                existing_perplexity_dataset_entries = {}
+            # then get the indices to process
+            indices_to_process = []
+            for index, entry in dataset_entries.items():
+                if index not in existing_perplexity_dataset_entries and index in response_entries:
+                    indices_to_process.append(index)
+            print(f"Total entries in dataset for language {lang}: {len(dataset_entries)}")
+            print(f"Existing entries in perplexity dataset file: {len(existing_perplexity_dataset_entries)}")
+            print(f"Entries to process for perplexity dataset in this run: {len(indices_to_process)}")
+            if args.debug_limit is not None:
+                indices_to_process = indices_to_process[: args.debug_limit]
+                print(f"Debug limit applied, processing only first {args.debug_limit} entries")
+            # then write an async function to process them
+            semaphore = asyncio.Semaphore(200)
+            async def collect_single_perplexity_dataset_async(
+                index: int,
+                question: str,
+                response: str,
+                answer_correct: str,
+                answer_incorrect: str,
+                subject: str,
+            ) -> dict:
+                """
+                entry is of type PerplexityDatasetEntry in src/judge/result_file_model.rs 
+                """
+                global assistant_api_backend_created, assistant_client
+                assistant_model_name = "gpt-5"
+                if not assistant_api_backend_created:
+                    print(f"Creating Assistant API client for model {assistant_model_name}...", flush=True)
+                    from src_py.api_backend import create_api_backend
+                    assistant_client = create_api_backend(assistant_model_name)
+                    print(f"Assistant API client created for model {assistant_model_name}", flush=True)
+                    assistant_api_backend_created = True
+                client = assistant_client
+                async with semaphore:
+                    from src_py.gpt5_backend import merge_perplexity_dataset_async
+                    result = await merge_perplexity_dataset_async(
+                        assistant_model_name,
+                        client,
+                        question,
+                        response,
+                        answer_correct,
+                        answer_incorrect,
+                    )
+                return {
+                    "index": index,
+                    "statement_correct": result["statement_correct"],
+                    "statement_incorrect": result["statement_incorrect"],
+                    "subject": subject,
+                }
+            async def collect_all_perplexity_dataset_entries() -> list[dict]:
+                tasks = []
+                for index in indices_to_process:
+                    dataset_entry = dataset_entries[index]
+                    response_entry = response_entries[index]
+                    task = collect_single_perplexity_dataset_async(
+                        index,
+                        response_entry['question'],
+                        response_entry['response'],
+                        dataset_entry['answer1'] if dataset_entry['is_correct1'] else dataset_entry['answer2'],
+                        dataset_entry['answer2'] if dataset_entry['is_correct1'] else dataset_entry['answer1'],
+                        dataset_entry['subject'],
+                    )
+                    tasks.append(task)
+                with open(perplexity_dataset_path, 'a', encoding='utf-8') as f:
+                    for i, coro in enumerate(asyncio.as_completed(tasks), 1):
+                        result = await coro
+                        f.write(json.dumps(result, ensure_ascii=False) + '\n')
+                        f.flush()
+                        print(f"Written {i}/{len(indices_to_process)} entries to perplexity dataset file")
+            asyncio.run(collect_all_perplexity_dataset_entries())
+            # sort the perplexity dataset file by index
+            all_perplexity_dataset_entries = load_json_lines_from_file(perplexity_dataset_path)
+            all_perplexity_dataset_entries.sort(key=lambda x: x['index'])
+            with open(perplexity_dataset_path, 'w', encoding='utf-8') as f:
+                for entry in all_perplexity_dataset_entries:
+                    f.write(json.dumps(entry, ensure_ascii=False) + '\n')
+            print(f"Completed writing all perplexity dataset entries to {perplexity_dataset_path}")
 
-            # collect the perplexity from the processed entries (to the perplexity folder)
-            if os.path.exists(combined_output_path):
-                dispatch_perplexity_results(model_safe_name, lang, combined_output_path)
-                # delete this file
-                os.remove(combined_output_path)
-                print(f"Dispatched results from existing file: {combined_output_path}")
+            # third pass: input is perplexity dataset, output is perplexity
 
-            # call rust function to concatenate two datasets
-            # TODO: This should be replaced by loading from perplexity_dataset folder
-            concatenate_perplexity_datasets(model_safe_name, lang, combined_input_path, debug_limit=args.debug_limit)
-            combined_entries = load_json_lines_from_file(combined_input_path)
-            if len(combined_entries) == 0:
-                print(f"All entries for experiment {experiment_str} have been processed. Exiting.")
-                exit(0)
-            # perplexity uses huggingface backend
-            from src_py.huggingface_backend import create_huggingface_backend
-            
-            print(f"Creating backend for model {model_name} with batch size {batch_size}...", flush=True)
-            model, tokenizer = create_huggingface_backend(model_name, batch_size)
-            print(f"Backend created for model {model_name} with batch size {batch_size}", flush=True)
-            # combined_entries has type OneAnswerEntry in src/judge/generate_dataset.rs
-            # output entries have type PerplexityResultEntry in src/judge/result_file_model.rs
+            # we need to aggregate and dispatch here
 
-            
+            # # collect the perplexity from the processed entries (to the perplexity folder)
+            # perplexity_dataset_entries = load_json_lines_from_file(perplexity_dataset_path)
+            # perplexity_dataset_entries = {entry['index']: entry for entry in perplexity_dataset_entries}
 
-            # Process entries in batches
-            print(f"Processing {len(combined_entries)} entries with batch size {batch_size}", flush=True)
-            total_processed = 0
+            # # check existing results from the perplexity result file
+            # # it is better to combine correct and incorrect statements into one file to reduce the number of files
+            # perplexity_result_path = f"judge/result/{model_safe_name}/perplexity/{lang}.jsonl"
 
-            # Open file for writing results incrementally
-            with open(combined_output_path, 'w', encoding='utf-8') as f:
-                for i in range(0, len(combined_entries), batch_size):
-                    batch_entries = combined_entries[i:i+batch_size]
-                    print(f"Processing batch {i//batch_size + 1}/{(len(combined_entries) + batch_size - 1)//batch_size}", flush=True)
+            # # create directory if not exists
+            # os.makedirs(os.path.dirname(perplexity_result_path), exist_ok=True)
+            # try:
+            #     existing_perplexity_results = load_json_lines_from_file(perplexity_result_path)
+            #     existing_perplexity_result_entries = {entry['index']: entry for entry in existing_perplexity_results}
+            # except FileNotFoundError:
+            #     existing_perplexity_result_entries = {}
+            # indices_to_process = []
+            # for index, entry in perplexity_dataset_entries.items():
+            #     if index not in existing_perplexity_result_entries:
+            #         indices_to_process.append(index)
+            # print(f"Total entries in perplexity dataset for language {lang}: {len(perplexity_dataset_entries)}")
+            # print(f"Existing results in perplexity result file: {len(existing_perplexity_result_entries)}")
+            # print(f"Entries to process for perplexity results in this run: {len(indices_to_process)}")
+            # if args.debug_limit is not None:
+            #     indices_to_process = indices_to_process[: args.debug_limit]
+            #     print(f"Debug limit applied, processing only first {args.debug_limit} entries")
+            # print(f"Generating perplexity results for language {lang}...", flush=True)
+            # total_processed = 0
 
-                    # Get model outputs for the batch
-                    if config.model == LocalModel.Llama3_3_70B:
-                        from src_py.llama3_1_backend import collect_perplexity_batch
-                    elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b]:
-                        from src_py.qwen3_backend import collect_perplexity_batch
-                    else:
-                        raise ValueError(f"Unsupported model for perplexity collection: {config.model}")
+            # with open(perplexity_result_path, 'a', encoding='utf-8') as f:
+            #     for i in range(0, len(indices_to_process), batch_size):
+            #         batch_indices = indices_to_process[i:i+batch_size]
+            #         batch_entries = [perplexity_dataset_entries[index] for index in batch_indices]
+            #         print(f"Processing batch {i//batch_size + 1}/{(len(indices_to_process) + batch_size - 1)//batch_size}", flush=True)
 
-                    batch_outputs = collect_perplexity_batch(batch_entries, model, tokenizer)
+            #         # Get model outputs for the batch
+            #         if config.model == LocalModel.Llama3_3_70B:
+            #             from src_py.llama3_1_backend import collect_perplexity_batch
+            #         elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b]:
+            #             from src_py.qwen3_backend import collect_perplexity_batch
+            #         else:
+            #             raise ValueError(f"Unsupported model for perplexity collection: {config.model}")
 
-                    # Process each entry in the batch and write immediately
-                    for entry, output in zip(batch_entries, batch_outputs):
-                        try:
-                            perplexity = calculate_perplexity_from_logits(
-                                output['logits'],
-                                output['input_ids'],
-                                output['answer'],
-                                tokenizer
-                            )
+            #         batch_outputs = collect_perplexity_batch(batch_entries, args.num_gpus, config.model)
 
-                            result_entry = {
-                                'index': entry['index'],
-                                'perplexity': {'Ok': perplexity},
-                                'question': entry['question'],
-                                'answer': entry['answer'],
-                                'lang': entry['lang'],
-                                'is_correct': entry['is_correct'],
-                                'subject': entry['subject'],
-                            }
-                        except Exception as e:
-                            error_message = str(e)
-                            result_entry = {
-                                'index': entry['index'],
-                                'perplexity': {'Err': error_message},
-                                'question': entry['question'],
-                                'answer': entry['answer'],
-                                'lang': entry['lang'],
-                                'is_correct': entry['is_correct'],
-                                'subject': entry['subject'],
-                            }
+            #         # Process each entry in the batch and write immediately
+            #         for entry, output in zip(batch_entries, batch_outputs):
+            #             result_entry = {
+            #                 'index': entry['index'],
+            #                 'perplexity_correct': output['perplexity_correct'],
+            #                 'perplexity_incorrect': output['perplexity_incorrect'],
+            #                 'question': entry['question'],
+            #                 'processed_answer_correct': entry['statement_correct'],
+            #                 'processed_answer_incorrect': entry['statement_incorrect'],
+            #                 'lang': lang,
+            #                 'subject': entry['subject'],
+            #             }
+            #             # Write result immediately
+            #             f.write(json.dumps(result_entry, ensure_ascii=False) + '\n')
+            #             f.flush()
+            #             total_processed += 1
 
-                        # Write result immediately
-                        f.write(json.dumps(result_entry, ensure_ascii=False) + '\n')
-                        total_processed += 1
-
-                    # Flush after each batch to ensure results are written
-                    f.flush()
-                    print(f"Written {total_processed}/{len(combined_entries)} entries to file", flush=True)
-
-            print(f"Completed writing all {total_processed} results to {combined_output_path}")
-
-            # Dispatch results
-            dispatch_perplexity_results(model_safe_name, lang, combined_output_path)
-            # Delete this file
-            os.remove(combined_output_path)
-            print(f"Dispatched results and removed file: {combined_output_path}")
+            #         # Flush after each batch to ensure results are written
+            #         f.flush()
+            #         print(f"Written {total_processed}/{len(indices_to_process)} entries to perplexity result file", flush=True)
+            # print(f"Completed writing all {total_processed} perplexity results to {perplexity_result_path}")
 
 if __name__ == "__main__":
     asyncio.run(main_async())

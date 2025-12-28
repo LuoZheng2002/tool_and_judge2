@@ -5,7 +5,7 @@ use pyo3::{Python, pyfunction, types::PyAnyMethods};
 use serde::{Deserialize, Serialize};
 
 use crate::{
-    utils::{load_json_lines, write_json_lines_to_file},
+    judge::base_paths::JUDGE_BASE_DATASET_PATH, utils::{load_json_lines, write_json_lines_to_file}
 };
 
 #[derive(Serialize, Deserialize)]
@@ -390,7 +390,10 @@ pub fn generate_two_answers_dataset(lang1: &str, lang2: &str) {
 
 #[pyfunction]
 pub fn generate_two_answers_same_lang_dataset(lang: &str) {
-    let output_path = format!("judge/datasets/two_answers_same_lang/{}.jsonl", lang);
+    // let output_path = format!("judge/datasets/two_answers_same_lang/{}.jsonl", lang);
+    let output_path = JUDGE_BASE_DATASET_PATH
+        .join("two_answers_same_lang")
+        .join(format!("{}.jsonl", lang));
     if Path::new(&output_path).exists() {
         println!(
             "Two answers same language dataset for language {} already exists. Skipping generation.",
@@ -398,8 +401,14 @@ pub fn generate_two_answers_same_lang_dataset(lang: &str) {
         );
         return;
     }
-    let input_path_correct = format!("judge/datasets/one_answer/{}_correct.jsonl", lang);
-    let input_path_incorrect = format!("judge/datasets/one_answer/{}_incorrect.jsonl", lang);
+    // let input_path_correct = format!("judge/datasets/one_answer/{}_correct.jsonl", lang);
+    // let input_path_incorrect = format!("judge/datasets/one_answer/{}_incorrect.jsonl", lang);
+    let input_path_correct = JUDGE_BASE_DATASET_PATH
+        .join("one_answer")
+        .join(format!("{}_correct.jsonl", lang));
+    let input_path_incorrect = JUDGE_BASE_DATASET_PATH
+        .join("one_answer")
+        .join(format!("{}_incorrect.jsonl", lang));
     let input_paths_exist = [
         &input_path_correct,
         &input_path_incorrect,

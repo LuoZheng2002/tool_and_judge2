@@ -5,7 +5,7 @@ use pyo3::pyfunction;
 use crate::{
     config::ToolConfig,
     tool::{
-        base_path::{BASE_DATASET_PATH, BASE_RESULT_PATH},
+        base_path::{TOOL_BASE_DATASET_PATH, TOOL_BASE_RESULT_PATH},
         bfcl_formats::{BfclDatasetEntry, BfclGroundTruthEntry},
         error_analysis::EvaluationError,
         experiments::{
@@ -38,7 +38,7 @@ pub fn pass_evaluate(config: &ToolConfig) {
             "{}.jsonl",
             serde_json::to_string(&evaluate_file_name).unwrap()
         );
-        let evaluate_file_path = BASE_RESULT_PATH
+        let evaluate_file_path = TOOL_BASE_RESULT_PATH
             .join(&model_safe_name)
             .join("evaluate")
             .join(&evaluate_file_name_str);
@@ -47,7 +47,7 @@ pub fn pass_evaluate(config: &ToolConfig) {
             "{}.jsonl",
             serde_json::to_string(&parse_output_file_name).unwrap()
         );
-        let parse_output_file_path = BASE_RESULT_PATH
+        let parse_output_file_path = TOOL_BASE_RESULT_PATH
             .join(&model_safe_name)
             .join("parse_output")
             .join(&parse_output_file_name_str);
@@ -66,7 +66,7 @@ pub fn pass_evaluate(config: &ToolConfig) {
             "{}.jsonl",
             serde_json::to_string(&dataset_file_name).unwrap()
         );
-        let dataset_file_path = BASE_DATASET_PATH.join(&dataset_file_name_str);
+        let dataset_file_path = TOOL_BASE_DATASET_PATH.join(&dataset_file_name_str);
         let dataset_entries =
             load_json_lines(&dataset_file_path).expect("Failed to load dataset file");
         let dataset_entries_parsed: HashMap<String, BfclDatasetEntry> = dataset_entries
@@ -78,7 +78,7 @@ pub fn pass_evaluate(config: &ToolConfig) {
             })
             .collect();
         // This is a hardcoded value; might be invalid if using other datasets
-        let ground_truth_file_path = BASE_DATASET_PATH
+        let ground_truth_file_path = TOOL_BASE_DATASET_PATH
             .join("possible_answer")
             .join("BFCL_v4_multiple.jsonl");
         let ground_truth_entries =
@@ -103,7 +103,7 @@ pub fn pass_evaluate(config: &ToolConfig) {
                         "{}.jsonl",
                         serde_json::to_string(&post_translate_file_name).unwrap()
                     );
-                    let post_translate_file_path = BASE_RESULT_PATH
+                    let post_translate_file_path = TOOL_BASE_RESULT_PATH
                         .join(&model_safe_name)
                         .join("post_translate")
                         .join(&post_translate_file_name_str);

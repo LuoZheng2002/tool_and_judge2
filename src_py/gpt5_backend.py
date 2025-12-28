@@ -140,3 +140,18 @@ Put your final answer in \\boxed{{category_name}}."""
         # return "LLM returns exception"
         print(f"Exception during categorize_parameter_value_async: {e}")
         exit(1)
+
+
+
+async def merge_perplexity_dataset_async(
+    model_name: str,
+    client: Any,
+    question: str,
+    response: str,
+    answer_correct: str,
+    answer_incorrect: str,
+) -> dict:
+    '''
+    returns a dict with keys: statement_correct, statement_incorrect
+    '''
+    pass

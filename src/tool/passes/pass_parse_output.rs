@@ -5,7 +5,7 @@ use crate::{
     config::ToolConfig,
     models::model_interface::get_model_interface,
     tool::{
-        base_path::BASE_RESULT_PATH, bfcl_formats::BfclOutputFunctionCall,
+        base_path::TOOL_BASE_RESULT_PATH, bfcl_formats::BfclOutputFunctionCall,
         error_analysis::EvaluationError, experiments::GenerateRawFileName,
         passes::pass_generate_raw::{GenerateRawEntry, get_function_name_mapper},
     },
@@ -31,12 +31,12 @@ pub fn pass_parse_output(config: &ToolConfig) {
             "{}.jsonl",
             serde_json::to_string(&generate_raw_file_name).unwrap()
         );
-        let generate_raw_file_path = BASE_RESULT_PATH
+        let generate_raw_file_path = TOOL_BASE_RESULT_PATH
             .join(&model_safe_name)
             .join("generate_raw")
             .join(&generate_raw_file_name_str);
         let parse_output_file_name_str = generate_raw_file_name_str.clone();
-        let parse_output_file_path = BASE_RESULT_PATH
+        let parse_output_file_path = TOOL_BASE_RESULT_PATH
             .join(&model_safe_name)
             .join("parse_output")
             .join(&parse_output_file_name_str);

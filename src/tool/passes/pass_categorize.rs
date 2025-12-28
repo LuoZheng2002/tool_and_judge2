@@ -9,7 +9,7 @@ use serde::{Deserialize, Serialize};
 use crate::{
     config::ToolConfig,
     tool::{
-        base_path::BASE_RESULT_PATH,
+        base_path::TOOL_BASE_RESULT_PATH,
         category_cache::CategoryCache,
         error_analysis::{EvaluationError, ToolErrorCategory},
         experiments::CategorizeFileName,
@@ -46,7 +46,7 @@ const CATEGORY_CACHE_LOCK_FILE_NAME: &str = "category_cache.lock";
 pub fn pass_categorize_aggregated_input_file_path(config: &ToolConfig) -> String {
     let model = config.model;
     let model_safe_name = get_model_safe_name(model);
-    let file_path = BASE_RESULT_PATH
+    let file_path = TOOL_BASE_RESULT_PATH
         .join(&model_safe_name)
         .join(CATEGORIZE_AGGREGATED_INPUT_FILE_NAME);
     file_path.to_str().unwrap().to_string()
@@ -56,7 +56,7 @@ pub fn pass_categorize_aggregated_input_file_path(config: &ToolConfig) -> String
 pub fn pass_categorize_aggregated_output_file_path(config: &ToolConfig) -> String {
     let model = config.model;
     let model_safe_name = get_model_safe_name(model);
-    let file_path = BASE_RESULT_PATH
+    let file_path = TOOL_BASE_RESULT_PATH
         .join(&model_safe_name)
         .join(CATEGORIZE_AGGREGATED_OUTPUT_FILE_NAME);
     file_path.to_str().unwrap().to_string()
@@ -73,8 +73,8 @@ pub fn pass_categorize_prepare_aggregated_input(config: &ToolConfig) {
         .map(|experiment| CategorizeFileName::from_config_experiment(experiment))
         .collect();
     // let mut aggregated_entries: Vec<CategorizeAggregatedInputEntry> = vec![];
-    let category_cache_path = BASE_RESULT_PATH.join(CATEGORY_CACHE_FILE_NAME);
-    let category_cache_lock_path = BASE_RESULT_PATH.join(CATEGORY_CACHE_LOCK_FILE_NAME);
+    let category_cache_path = TOOL_BASE_RESULT_PATH.join(CATEGORY_CACHE_FILE_NAME);
+    let category_cache_lock_path = TOOL_BASE_RESULT_PATH.join(CATEGORY_CACHE_LOCK_FILE_NAME);
     println!("Acquiring lock for category cache file...");
     let lock_file = File::create(category_cache_lock_path)
         .expect("Failed to create lock file for category cache");
@@ -87,7 +87,7 @@ pub fn pass_categorize_prepare_aggregated_input(config: &ToolConfig) {
             "{}.jsonl",
             serde_json::to_string(&result_file_name).unwrap()
         );
-        let evaluate_file_path = BASE_RESULT_PATH
+        let evaluate_file_path = TOOL_BASE_RESULT_PATH
             .join(&model_safe_name)
             .join("evaluate")
             .join(&evaluate_file_name_str);
@@ -196,8 +196,8 @@ pub fn pass_categorize_dispatch_results(config: &ToolConfig) {
             (key, entry_parsed.error_category.clone())
         })
         .collect();
-    let category_cache_path = BASE_RESULT_PATH.join(CATEGORY_CACHE_FILE_NAME);
-    let category_cache_lock_path = BASE_RESULT_PATH.join(CATEGORY_CACHE_LOCK_FILE_NAME);
+    let category_cache_path = TOOL_BASE_RESULT_PATH.join(CATEGORY_CACHE_FILE_NAME);
+    let category_cache_lock_path = TOOL_BASE_RESULT_PATH.join(CATEGORY_CACHE_LOCK_FILE_NAME);
     println!("Acquiring lock for category cache file...");
     let lock_file = File::create(category_cache_lock_path)
         .expect("Failed to create lock file for category cache");
@@ -211,11 +211,11 @@ pub fn pass_categorize_dispatch_results(config: &ToolConfig) {
             serde_json::to_string(&categorize_file_name).unwrap()
         );
         let evaluate_file_name_str = categorize_file_name_str.clone();
-        let evaluate_file_path = BASE_RESULT_PATH
+        let evaluate_file_path = TOOL_BASE_RESULT_PATH
             .join(&model_safe_name)
             .join("evaluate")
             .join(&evaluate_file_name_str);
-        let categorize_file_path = BASE_RESULT_PATH
+        let categorize_file_path = TOOL_BASE_RESULT_PATH
             .join(&model_safe_name)
             .join("categorize")
             .join(&categorize_file_name_str);

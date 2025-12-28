@@ -5,7 +5,7 @@ use pyo3::pyfunction;
 use serde::Serialize;
 use strum::IntoEnumIterator;
 
-use crate::{config::ToolConfig, tool::{base_path::BASE_RESULT_PATH, error_analysis::ToolErrorCategory, experiments::EvaluateFileName, passes::{pass_categorize::CategorizeEntry, pass_evaluate::EvaluateEntry}}, utils::{get_model_safe_name, load_json_lines}};
+use crate::{config::ToolConfig, tool::{base_path::TOOL_BASE_RESULT_PATH, error_analysis::ToolErrorCategory, experiments::EvaluateFileName, passes::{pass_categorize::CategorizeEntry, pass_evaluate::EvaluateEntry}}, utils::{get_model_safe_name, load_json_lines}};
 
 #[derive(Serialize, Clone)]
 pub struct Statistics {
@@ -32,15 +32,15 @@ pub fn pass_statistics(config: &ToolConfig) {
             "{}.json", // Use .json extension for statistics file
             serde_json::to_string(&evaluate_file_name).unwrap()
         );
-        let evaluate_file_path = BASE_RESULT_PATH
+        let evaluate_file_path = TOOL_BASE_RESULT_PATH
             .join(&model_safe_name)
             .join("evaluate")
             .join(&evaluate_file_name_str);
-        let categorize_file_path = BASE_RESULT_PATH
+        let categorize_file_path = TOOL_BASE_RESULT_PATH
             .join(&model_safe_name)
             .join("categorize")
             .join(&categorize_file_name_str);
-        let statistics_file_path = BASE_RESULT_PATH
+        let statistics_file_path = TOOL_BASE_RESULT_PATH
             .join(&model_safe_name)
             .join("statistics")
             .join(&statistics_file_name_str);

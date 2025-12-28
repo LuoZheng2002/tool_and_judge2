@@ -1,21 +1,16 @@
-use std::{
-    collections::{HashMap, HashSet},
-};
+use std::collections::{HashMap, HashSet};
 
 use pyo3::pyfunction;
 use serde::{Deserialize, Serialize};
 
 use crate::{
-    config::{ToolConfig},
+    config::ToolConfig,
     tool::{
-        base_path::{BASE_DATASET_PATH, BASE_RESULT_PATH},
+        base_path::{TOOL_BASE_DATASET_PATH, TOOL_BASE_RESULT_PATH},
         bfcl_formats::BfclDatasetEntry,
         experiments::{DatasetFileName, PreTranslateMode},
     },
-    utils::{
-        compare_id, get_model_safe_name, load_json_lines,
-        write_json_lines_to_file,
-    },
+    utils::{compare_id, get_model_safe_name, load_json_lines, write_json_lines_to_file},
 };
 
 #[derive(Clone, Serialize)]
@@ -45,7 +40,7 @@ const PRE_TRANSLATE_AGGREGATED_QUESTIONS_OUTPUT_FILE_NAME: &str =
 pub fn pass_pre_translate_aggregated_questions_input_file_path(config: &ToolConfig) -> String {
     let model = config.model;
     let model_safe_name = get_model_safe_name(model);
-    let file_path = BASE_RESULT_PATH
+    let file_path = TOOL_BASE_RESULT_PATH
         .join(model_safe_name)
         .join(PRE_TRANSLATE_AGGREGATED_QUESTIONS_INPUT_FILE_NAME);
     file_path.to_str().unwrap().to_string()
@@ -54,7 +49,7 @@ pub fn pass_pre_translate_aggregated_questions_input_file_path(config: &ToolConf
 pub fn pass_pre_translate_aggregated_questions_output_file_path(config: &ToolConfig) -> String {
     let model = config.model;
     let model_safe_name = get_model_safe_name(model);
-    let file_path = BASE_RESULT_PATH
+    let file_path = TOOL_BASE_RESULT_PATH
         .join(model_safe_name)
         .join(PRE_TRANSLATE_AGGREGATED_QUESTIONS_OUTPUT_FILE_NAME);
     file_path.to_str().unwrap().to_string()
@@ -79,8 +74,8 @@ pub fn pass_pre_translate_prepare_aggregated_questions(config: &ToolConfig) {
             serde_json::to_string(dataset_file_name).unwrap()
         );
         let result_file_name_str = dataset_file_name_str.clone();
-        let dataset_file_path = BASE_DATASET_PATH.join(&dataset_file_name_str);
-        let result_file_path = BASE_RESULT_PATH
+        let dataset_file_path = TOOL_BASE_DATASET_PATH.join(&dataset_file_name_str);
+        let result_file_path = TOOL_BASE_RESULT_PATH
             .join(&model_safe_name)
             .join("pre_translate")
             .join(&result_file_name_str);
@@ -173,8 +168,8 @@ pub fn pass_pre_translate_dispatch_results(config: &ToolConfig) {
             serde_json::to_string(&dataset_file_name).unwrap()
         );
         let result_file_name_str = dataset_file_name_str.clone();
-        let dataset_file_path = BASE_DATASET_PATH.join(&dataset_file_name_str);
-        let result_file_path = BASE_RESULT_PATH
+        let dataset_file_path = TOOL_BASE_DATASET_PATH.join(&dataset_file_name_str);
+        let result_file_path = TOOL_BASE_RESULT_PATH
             .join(&model_safe_name)
             .join("pre_translate")
             .join(&result_file_name_str);
@@ -238,10 +233,7 @@ pub fn pass_pre_translate_dispatch_results(config: &ToolConfig) {
             .collect();
         write_json_lines_to_file(&result_file_path, &result_existing_entries_serialized)
             .expect("Unable to write pre-translate result file");
-        println!(
-            "Wrote pre-translate result file: {:?}",
-            result_file_path
-        );
+        println!("Wrote pre-translate result file: {:?}", result_file_path);
     }
     // remove the output file
     std::fs::remove_file(&output_path)

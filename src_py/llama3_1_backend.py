@@ -230,17 +230,18 @@ def collect_perplexity_batch(
     # Prepare all prompts first
     formatted_prompts = []
     answers = []
-
+    # entry is of type PerplexityDatasetEntry
     for entry in entries:
         question = entry['question']
-        answer = entry['answer']
-        lang = entry.get('lang', 'en')
+        processed_answer_correct = entry['processed_answer_correct']
+        processed_answer_incorrect = entry['processed_answer_incorrect']
+        lang = entry.get('lang')
 
         # Map language abbreviation to full name
         language_name = language_abbreviation_to_name(lang)
 
         # Build language-specific instructions (following qwen3_interface.py format)
-        instruction = f"Please answer the question in {language_name} with a concise phrase instead of a complete sentence."
+        instruction = f"Please concisely answer the question in {language_name}."
 
         # Combine question with instruction
         user_content = f"{question}\n\n{instruction}"
@@ -253,10 +254,10 @@ def collect_perplexity_batch(
             },
             {
                 "role": "assistant",
-                "content": answer
+                "content": processed_answer_correct
             }
         ]
-
+        
         # Apply chat template to get the full formatted prompt
         formatted_prompt = tokenizer.apply_chat_template(
             messages,

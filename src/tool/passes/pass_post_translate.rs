@@ -8,7 +8,7 @@ use crate::{
     config::ToolConfig,
     one_entry_map::KeyValuePair,
     tool::{
-        base_path::BASE_RESULT_PATH,
+        base_path::TOOL_BASE_RESULT_PATH,
         bfcl_formats::BfclOutputFunctionCall,
         experiments::{ParseOutputFileName, PostTranslateFileName, PostTranslateMode},
         passes::pass_parse_output::ParseOutputEntry,
@@ -37,7 +37,7 @@ const POST_TRANSLATE_AGGREGATED_OUTPUT_FILE_NAME: &str = "post_translate_aggrega
 pub fn pass_post_translate_aggregated_input_file_path(config: &ToolConfig) -> String {
     let model = config.model;
     let model_safe_name = get_model_safe_name(model);
-    let file_path = BASE_RESULT_PATH
+    let file_path = TOOL_BASE_RESULT_PATH
         .join(&model_safe_name)
         .join(POST_TRANSLATE_AGGREGATED_INPUT_FILE_NAME);
     file_path.to_str().unwrap().to_string()
@@ -46,7 +46,7 @@ pub fn pass_post_translate_aggregated_input_file_path(config: &ToolConfig) -> St
 pub fn pass_post_translate_aggregated_output_file_path(config: &ToolConfig) -> String {
     let model = config.model;
     let model_safe_name = get_model_safe_name(model);
-    let file_path = BASE_RESULT_PATH
+    let file_path = TOOL_BASE_RESULT_PATH
         .join(&model_safe_name)
         .join(POST_TRANSLATE_AGGREGATED_OUTPUT_FILE_NAME);
     file_path.to_str().unwrap().to_string()
@@ -77,11 +77,11 @@ pub fn pass_post_translate_prepare_aggregated_input(config: &ToolConfig) {
             serde_json::to_string(&result_file_name).unwrap()
         );
         let parse_output_file_name_str = result_file_name_str.clone();
-        let parse_output_file_path = BASE_RESULT_PATH
+        let parse_output_file_path = TOOL_BASE_RESULT_PATH
             .join(&model_safe_name)
             .join("parse_output")
             .join(&parse_output_file_name_str);
-        let result_file_path = BASE_RESULT_PATH
+        let result_file_path = TOOL_BASE_RESULT_PATH
             .join(&model_safe_name)
             .join("post_translate")
             .join(&result_file_name_str);
@@ -185,11 +185,11 @@ pub fn pass_post_translate_dispatch_results(config: &ToolConfig) {
             serde_json::to_string(&parse_output_file_name).unwrap()
         );
         let post_translate_file_name_str = parse_output_file_name_str.clone();
-        let parse_output_file_path = BASE_RESULT_PATH
+        let parse_output_file_path = TOOL_BASE_RESULT_PATH
             .join(&model_safe_name)
             .join("parse_output")
             .join(&parse_output_file_name_str);
-        let post_translate_file_path = BASE_RESULT_PATH
+        let post_translate_file_path = TOOL_BASE_RESULT_PATH
             .join(&model_safe_name)
             .join("post_translate")
             .join(&post_translate_file_name_str);

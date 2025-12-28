@@ -26,13 +26,10 @@ pub mod codebase_rs {
             AddNoiseMode, ApiModel, JudgeConfig, JudgeExperiment, Language, LocalModel, Model,
             ToolConfig, ToolExperiment, TranslateMode, TranslateOption,
         },
+        judge::preference::preference_prepare_aggregated_input,
         judge::{
-            concatenate_datasets::concatenate_one_answer_datasets,
-            concatenate_datasets::concatenate_two_answers_datasets,
-        },
-        judge::{
-            dispatch_results::dispatch_perplexity_results,
-            dispatch_results::dispatch_preference_results,
+            perplexity::dispatch_preference_results,
+            perplexity::perplexity_dispatch_generate_perplexity_results,
         },
         models::backend::GenerationResult,
         tool::{
