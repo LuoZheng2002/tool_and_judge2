@@ -1,0 +1,93 @@
+{
+  "accuracy": 0.7,
+  "total_cases": 200,
+  "correct_cases": 140,
+  "incorrect_cases": 60,
+  "category_counts": {
+    "SYNTAX_ERROR": 4,
+    "MISC_ERROR": 2,
+    "WRONG_VALUE": 1,
+    "RELEVANT_BUT_INCORRECT": 22,
+    "EXACTLY_SAME_MEANING": 12,
+    "LANGUAGE_MISMATCH_WRONG_VALUE": 6,
+    "LANGUAGE_MISMATCH_RELEVANT_BUT_INCORRECT": 0,
+    "LANGUAGE_MISMATCH_EXACTLY_SAME_MEANING": 13,
+    "OTHER_ERROR": 0
+  },
+  "category_samples": {
+    "SYNTAX_ERROR": [
+      "multiple_76",
+      "multiple_119",
+      "multiple_136",
+      "multiple_142"
+    ],
+    "MISC_ERROR": [
+      "multiple_7",
+      "multiple_53"
+    ],
+    "WRONG_VALUE": [
+      "multiple_164"
+    ],
+    "RELEVANT_BUT_INCORRECT": [
+      "multiple_9",
+      "multiple_10",
+      "multiple_25",
+      "multiple_58",
+      "multiple_59",
+      "multiple_61",
+      "multiple_68",
+      "multiple_80",
+      "multiple_92",
+      "multiple_93",
+      "multiple_99",
+      "multiple_115",
+      "multiple_126",
+      "multiple_134",
+      "multiple_146",
+      "multiple_149",
+      "multiple_157",
+      "multiple_161",
+      "multiple_184",
+      "multiple_186",
+      "multiple_187",
+      "multiple_191"
+    ],
+    "EXACTLY_SAME_MEANING": [
+      "multiple_8",
+      "multiple_12",
+      "multiple_13",
+      "multiple_26",
+      "multiple_33",
+      "multiple_79",
+      "multiple_94",
+      "multiple_138",
+      "multiple_151",
+      "multiple_153",
+      "multiple_172",
+      "multiple_181"
+    ],
+    "LANGUAGE_MISMATCH_WRONG_VALUE": [
+      "multiple_2",
+      "multiple_18",
+      "multiple_38",
+      "multiple_78",
+      "multiple_91",
+      "multiple_168"
+    ],
+    "LANGUAGE_MISMATCH_EXACTLY_SAME_MEANING": [
+      "multiple_23",
+      "multiple_50",
+      "multiple_60",
+      "multiple_63",
+      "multiple_67",
+      "multiple_72",
+      "multiple_83",
+      "multiple_112",
+      "multiple_160",
+      "multiple_165",
+      "multiple_174",
+      "multiple_176",
+      "multiple_199"
+    ]
+  }
+}

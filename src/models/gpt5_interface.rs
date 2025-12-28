@@ -275,11 +275,12 @@ impl ModelInterface for Gpt5Interface {
             //     let name_mapper_borrow = name_mapper.borrow();
             //     name_mapper_borrow.get_original_name(&func_call.name)
             // };
+            // If model hallucinated a function name not in the mapper, use the name as-is
             let original_function_name = name_mapper
                 .sanitized_to_original
                 .get(&func_call.name)
-                .expect("Function name mapper does not contain key")
-                .clone();
+                .cloned()
+                .unwrap_or_else(|| func_call.name.clone());
             let bfcl_output_function_call = BfclOutputFunctionCall(KeyValuePair {
                 key: original_function_name,
                 value: func_call.arguments,

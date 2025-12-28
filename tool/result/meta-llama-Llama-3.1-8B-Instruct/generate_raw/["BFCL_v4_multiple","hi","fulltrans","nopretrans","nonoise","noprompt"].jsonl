@@ -1,0 +1,200 @@
+{"id":"multiple_0","raw_output":"{\"name\": \"triangle_properties_get\", \"parameters\": {\"side1\": \"5\", \"side2\": \"4\", \"side3\": \"3\", \"get_area\": \"true\", \"get_perimeter\": \"true\", \"get_angles\": \"true\"}}"}
+{"id":"multiple_1","raw_output":"{\"name\": \"math_triangle_area_heron\", \"parameters\": {\"side1\": 3, \"side2\": 4, \"side3\": 5}}"}
+{"id":"multiple_2","raw_output":"{\"name\": \"country_info_capital\", \"parameters\": {\"country\": \"\\u092c\\u0930\\u0930\\u0930\\u093e\\u0930\"}}"}
+{"id":"multiple_3","raw_output":"{\"name\": \"EuclideanDistance_calculate\", \"parameters\": {\"pointA\": \"[3, 4]\", \"pointB\": \"[1, 2]\", \"rounding\": \"0\"}}"}
+{"id":"multiple_4","raw_output":"{\"name\": \"kinematics_calculate_displacement\", \"parameters\": {\"initial_speed\": \"20\", \"acceleration\": \"10\", \"time\": \"5\", \"rounding\": \"2\"}}"}
+{"id":"multiple_5","raw_output":"{\"name\": \"weather_get_by_coordinates_date\", \"parameters\": {\"date\": \"2019-12-13\", \"coordinates\": \"[46.603354, 1.8883340]\"}}"}
+{"id":"multiple_6","raw_output":"{\"name\": \"capacitance_calculator_calculate\", \"parameters\": {\"A\": \"10\", \"d\": \"0.01\", \"K\": \"1.0\"}}"}
+{"id":"multiple_7","raw_output":"{\"name\": \"wildlife_population_assess_growth\", \"parameters\": {\"species\": \"हिरण\", \"location\": \"वाशिंगटन राज्य\", \"duration\": 10}}; {\"name\": \"ecological_impact_analyze\", \"parameters\": {\"species\": \"हिरण\", \"ecosystem\": \"वन\", \"location\": \"वाशिंगटन राज्य\"}}"}
+{"id":"multiple_8","raw_output":"{\"name\": \"realestate_find_properties\", \"parameters\": {\"location\": \"San Diego, CA\", \"propertyType\": \"villa\", \"bedrooms\": \"3\", \"budget\": {\"min\": \"300000\", \"max\": \"400000\"}}}"}
+{"id":"multiple_9","raw_output":"{\"name\": \"calculate_average\", \"parameters\": {\"gradeDict\": \"{'गणित':90, 'विज्ञान':75, 'इतिहास':82, 'संगीत':89}\"}}"}
+{"id":"multiple_10","raw_output":"{\"name\": \"database_modify_columns\", \"parameters\": {\"db_name\": \"कर्मचारियों का डेटाबेस\", \"table\": \"personal_data\", \"operation\": \"delete\", \"columns\": \"['ईमेल पता', 'सामाजिक सुरक्षा संख्या']\"}}"}
+{"id":"multiple_11","raw_output":"{\"name\": \"math_roots_quadratic\", \"parameters\": {\"a\": \"5\", \"b\": \"20\", \"c\": \"-25\"}}"}
+{"id":"multiple_12","raw_output":"{\"name\": \"corporate_finance_calculate_YOY_growth_rate\", \"parameters\": {\"company_name\": \"टेक इंक\", \"year1\": \"2019\", \"year1_revenue\": \"1000000\", \"year2\": \"2020\", \"year2_revenue\": \"1200000\"}}"}
+{"id":"multiple_13","raw_output":"{\"name\": \"corporate_finance_revenue_forecast\", \"parameters\": {\"product\": \"A\", \"company\": \"XYZ\", \"sales_units_increase_percentage\": 10}}"}
+{"id":"multiple_14","raw_output":"{\"name\": \"finance_property_depreciation\", \"parameters\": {\"initial_cost\": \"200000\", \"depreciation_rate\": \"3\", \"years\": \"5\"}}"}
+{"id":"multiple_15","raw_output":"{\"name\": \"solarFarm_potential\", \"parameters\": {\"month\": \"\\u0926\\u093e\\u0938\\u094d\\u0924\\u093e\", \"panelArea\": 80000, \"coordinates\": \"[43.653225, -79.383186]\"}}"}
+{"id":"multiple_16","raw_output":"{\"name\": \"population_genetics_calculate_ne\", \"parameters\": {\"species\": \"जंगली बाघ\", \"generations\": \"100\", \"probability\": \"0.95\"}}"}
+{"id":"multiple_17","raw_output":"{\"name\": \"currency_conversion_get_rate\", \"parameters\": {\"from_currency\": \"EUR\", \"to_currency\": \"USD\", \"date\": \"2022-01-01\"}}"}
+{"id":"multiple_18","raw_output":"{\"name\": \"european_history_battle_details\", \"parameters\": {\"battle\": \"\\u0938\\u0924\\u0947\\u0924\\u0947\\u0930\\u093e\\u0930\\u093e\\u0938\\u094d\\u0930\\u093e\\u0938\\u0947\"}}"}
+{"id":"multiple_19","raw_output":"{\"name\": \"religion_history_get_schisms\", \"parameters\": {\"religion\": \"\\u0907\\u0924\\u0938\\u0930\\u093e\\u0938\\u0915\\u093e\", \"count\": \"3\"}}"}
+{"id":"multiple_20","raw_output":"{\"name\": \"sculpture_price_calculate\", \"parameters\": {\"material\": \"marble\", \"size\": \"3\", \"complexity\": \"medium\"}}"}
+{"id":"multiple_21","raw_output":"{\"name\": \"generate_sound_wave\", \"parameters\": {\"frequency\": \"440\", \"duration\": \"5\", \"wave_type\": \"sine\"}}"}
+{"id":"multiple_22","raw_output":"{\"name\": \"sports_data_basketball_most_points_single_season\", \"parameters\": {\"league\": \"NBA\"}}"}
+{"id":"multiple_23","raw_output":"{\"name\": \"basketball_player_stats_get\", \"parameters\": {\"player_name\": \"लेब्रोन जेम्स\", \"stats_fields\": \"['points_per_game', 'assists', 'minutes_per_game']\"}}"}
+{"id":"multiple_24","raw_output":"{\"name\": \"route_planner_calculate_route\", \"parameters\": {\"start\": \"लंदन\", \"destination\": \"एडिनबर्ग\", \"method\": \"fastest\"}}"}
+{"id":"multiple_25","raw_output":"{\"name\": \"video_games_store_price\", \"parameters\": {\"game_title\": \"असैसिन्स क्रीड वल्हाला\", \"platform\": \"प्लेस्टेशन\", \"region\": \"अमेरिका\"}}"}
+{"id":"multiple_26","raw_output":"{\"name\": \"game_rewards_get\", \"parameters\": {\"game\": \"फोर्टनाइट\", \"platform\": \"प्लेस्टेशन\", \"mission\": \"\", \"trophy\": \"\"}}"}
+{"id":"multiple_27","raw_output":"{\"name\": \"maps_shortest_path\", \"parameters\": {\"mode\": \"transit\", \"start_location\": \"\\u092a\\u0938\\u0930\\u093e\\u0938, \\u092b\\u093f\\u0930\\u093e\\u0938\", \"end_location\": \"\\u0932\\u0947\\u0921\\u093e, \\u0903\\u092e\\u0938\\u094d\\u0930\\u093e\\u0938\"}}"}
+{"id":"multiple_28","raw_output":"{\"name\": \"solve_quadratic_equation\", \"parameters\": {\"a\": \"2\", \"b\": \"3\", \"c\": \"-4\"}}"}
+{"id":"multiple_29","raw_output":"{\"name\": \"functions_intersect\", \"parameters\": {\"function1\": \"3x+2\", \"function2\": \"2x+3\"}}"}
+{"id":"multiple_30","raw_output":"{\"name\": \"rectangle_area\", \"parameters\": {\"length\": 12, \"width\": 5}}"}
+{"id":"multiple_31","raw_output":"{\"name\": \"geometry_rectangle_calculate\", \"parameters\": {\"width\": \"7\", \"length\": \"10\"}}"}
+{"id":"multiple_32","raw_output":"{\"name\": \"geometry_calculate_cone_volume\", \"parameters\": {\"radius\": \"4\", \"height\": \"7\", \"round_off\": \"0\"}}"}
+{"id":"multiple_33","raw_output":"{\"name\": \"calculate_integral\", \"parameters\": {\"func\": \"3*x**2\", \"a\": \"1\", \"b\": \"2\"}}"}
+{"id":"multiple_34","raw_output":"{\"name\": \"math_lcm\", \"parameters\": {\"num1\": 18, \"num2\": 12}}"}
+{"id":"multiple_35","raw_output":"{\"name\": \"calculate_gcd\", \"parameters\": {\"num1\": 128, \"num2\": 256, \"algorithm\": \"euclidean\"}}"}
+{"id":"multiple_36","raw_output":"{\"name\": \"kinematics_calculate_speed_from_rest\", \"parameters\": {\"distance\": \"20\", \"time\": \"4\", \"initial_speed\": \"0\"}}"}
+{"id":"multiple_37","raw_output":"{\"name\": \"kinematics_final_velocity\", \"parameters\": {\"initial_velocity\": 40, \"time\": 6, \"acceleration\": -9.81}}"}
+{"id":"multiple_38","raw_output":"{\"name\": \"library_search_book\", \"parameters\": {\"book_name\": \"द अल्केमिस्ट\", \"city\": \"न्यूयॉर्क\", \"availability\": \"false\", \"genre\": \"\"}}"}
+{"id":"multiple_39","raw_output":"{\"name\": \"ride_hailing_get_rides\", \"parameters\": {\"max_cost\": \"50000\", \"source\": \"न्यू यॉर्क\", \"destination\": \"फिलाडेल्फिया\"}}"}
+{"id":"multiple_40","raw_output":"{\"name\": \"electromagnetism_biot_savart_law\", \"parameters\": {\"current\": \"12\", \"distance\": \"8\"}}"}
+{"id":"multiple_41","raw_output":"{\"name\": \"magnetic_field_calculate\", \"parameters\": {\"I\": 10, \"r\": 0.01}}"}
+{"id":"multiple_42","raw_output":"{\"name\": \"calculate_final_temperature\", \"parameters\": {\"quantity1\": \"2\", \"temperature1\": \"300\", \"quantity2\": \"3\", \"temperature2\": \"400\"}}"}
+{"id":"multiple_43","raw_output":"{\"name\": \"biological_calc_energy\", \"parameters\": {\"mols\": \"5\", \"substance\": \"C6H12O6\", \"joules_per_mol\": \"2800\"}}"}
+{"id":"multiple_44","raw_output":"{\"name\": \"calculate_weight_in_space\", \"parameters\": {\"weight_earth_kg\": \"70\", \"planet\": \"मंगल\"}}"}
+{"id":"multiple_45","raw_output":"{\"name\": \"geology_get_era\", \"parameters\": {\"era_name\": \"बर्फ़ युग\", \"calculate_years_ago\": \"True\"}}"}
+{"id":"multiple_46","raw_output":"{\"name\": \"sort_list\", \"parameters\": {\"elements\": \"['Sam', 'Alice', 'Jack']\", \"order\": \"asc\"}}"}
+{"id":"multiple_47","raw_output":"{\"name\": \"cosine_similarity_calculate\", \"parameters\": {\"vector1\": \"[3, 2, 1]\", \"vector2\": \"[1, 2, 3]\", \"rounding\": \"0\"}}"}
+{"id":"multiple_48","raw_output":"{\"name\": \"library_find_nearby\", \"parameters\": {\"location\": \"न्यू यॉर्क सिटी, NY\", \"preferences\": \"[\\\"Pet-friendly\\\", \\\"Disabled Access\\\"]\"}}"}
+{"id":"multiple_49","raw_output":"{\"name\": \"calc_Compound_Interest\", \"parameters\": {\"principle_amount\": 1500, \"duration\": 2, \"annual_rate\": 2.5, \"compound_freq\": 1}}"}
+{"id":"multiple_50","raw_output":"{\"name\": \"house_price_forecast\", \"parameters\": {\"location\": \"न्यू यॉर्क\", \"months\": \"1\"}}"}
+{"id":"multiple_51","raw_output":"{\"name\": \"dice_roll_probability\", \"parameters\": {\"desired_sum\": \"7\", \"n_rolls\": \"2\", \"sides_per_die\": \"6\"}}"}
+{"id":"multiple_52","raw_output":"{\"name\": \"currency_conversion\", \"parameters\": {\"amount\": 100, \"from_currency\": \"EUR\", \"to_currency\": \"USD\"}}"}
+{"id":"multiple_53","raw_output":"{\"name\": \"random_forest_regression\", \"parameters\": {\"independent_var\": \"['interest_rates', 'unemployment_rates']\", \"dependent_var\": \"house_prices\", \"forecast_period\": \"5\", \"n_estimators\": \"100\"}}"}
+{"id":"multiple_54","raw_output":"{\"name\": \"corporate_finance_dividend_data\", \"parameters\": {\"company\": \"एप्पल इंक\", \"years\": \"5\", \"frequency\": \"annually\"}}"}
+{"id":"multiple_55","raw_output":"{\"name\": \"stock_forecast\", \"parameters\": {\"company\": \"गूगल\", \"days\": \"3\", \"model\": \"regression\"}}"}
+{"id":"multiple_56","raw_output":"{\"name\": \"avg_closing_price\", \"parameters\": {\"company\": \"एप्पल\", \"days\": \"60\", \"data_source\": \"yahoo finance\"}}"}
+{"id":"multiple_57","raw_output":"{\"name\": \"financial_compound_interest\", \"parameters\": {\"principle\": 1000, \"rate\": 0.05, \"time\": 10, \"n\": 4}}"}
+{"id":"multiple_58","raw_output":"{\"name\": \"lawyer_search\", \"parameters\": {\"location\": \"लॉस एंजेलेस, CA\", \"expertise\": \"तलाक\"}}"}
+{"id":"multiple_59","raw_output":"{\"name\": \"lawyer_finder\", \"parameters\": {\"location\": \"न्यू यॉर्क\", \"specialization\": \"आपराधिक कानून\", \"experience\": \"1\"}}"}
+{"id":"multiple_60","raw_output":"{\"name\": \"humidity_temperature_forecast\", \"parameters\": {\"location\": \"न्यू यॉर्क सिटी\", \"days\": \"7\"}}"}
+{"id":"multiple_61","raw_output":"{\"name\": \"landscape_architect_find_specialty\", \"parameters\": {\"location\": \"पोर्टलैंड\", \"specialization\": \"\\u0938\\u093e\\u0930\\u0947\\u0917\\u093e\\u0938\\u094d\\u0930 \\u0917\\u093e\\u0930\\u094d\\u0930\\u093e\\u093e\\u0938\\u094d\\u0930\", \"years_experience\": \"5\"}}"}
+{"id":"multiple_62","raw_output":"{\"name\": \"nature_park_find_nearby\", \"parameters\": {\"location\": \"Boston, MA\", \"features\": \"[\\\"Camping\\\", \\\"Scenic View\\\"]\"}}"}
+{"id":"multiple_63","raw_output":"{\"name\": \"air_quality_forecast\", \"parameters\": {\"location\": \"न्यू यॉर्क\", \"days\": 7}}"}
+{"id":"multiple_64","raw_output":"{\"name\": \"uv_index_get_future\", \"parameters\": {\"location\": \"टोक्यो\", \"date\": \"06-01-2023\"}}"}
+{"id":"multiple_65","raw_output":"{\"name\": \"geodistance_find\", \"parameters\": {\"origin\": \"न्यू यॉर्क सिटी\", \"destination\": \"लॉस एंजेलेस\", \"unit\": \"km\"}}"}
+{"id":"multiple_66","raw_output":"{\"name\": \"traffic_estimate\", \"parameters\": {\"start_location\": \"Las Vegas\", \"end_location\": \"Los Angeles\", \"time_period\": \"weekend\"}}"}
+{"id":"multiple_67","raw_output":"{\"name\": \"translate\", \"parameters\": {\"text\": \"नमस्ते, आप कैसे हैं?\", \"source_language\": \"hi\", \"target_language\": \"en\"}}"}
+{"id":"multiple_68","raw_output":"{\"name\": \"library_search_books\", \"parameters\": {\"genre\": \"historical fiction\", \"location\": \"न्यूयॉर्क सार्वजनिक पुस्तकालय\", \"title\": \"\"}}"}
+{"id":"multiple_69","raw_output":"{\"name\": \"five_factor_model_analyse\", \"parameters\": {\"talkative\": \"True\", \"nervous\": \"True\", \"artistic_interests\": \"False\", \"lazy\": \"True\", \"forgiving\": \"True\"}}"}
+{"id":"multiple_70","raw_output":"{\"name\": \"european_history_get_monarchs\", \"parameters\": {\"country\": \"France\", \"century\": \"18\"}}"}
+{"id":"multiple_71","raw_output":"{\"name\": \"get_population\", \"parameters\": {\"year\": \"1954\", \"category\": \"veterans\"}}"}
+{"id":"multiple_72","raw_output":"{\"name\": \"us_history_population_by_state_year\", \"parameters\": {\"state\": \"कैलिफोर्निया\", \"year\": \"1970\"}}"}
+{"id":"multiple_73","raw_output":"{\"name\": \"religion_get_origin\", \"parameters\": {\"religion\": \"\\u092c\\u093e\\u0924\\u093e\\u0930\\u093e \\u0915\\u093e\\u0930\\u093e\\u0938\\u094d\\u0924\"}}"}
+{"id":"multiple_74","raw_output":"{\"name\": \"art_auction_fetch_artwork_price\", \"parameters\": {\"artwork_name\": \"स्टारी नाइट\", \"artist\": \"वैन गॉग\", \"platform\": \"all\"}}"}
+{"id":"multiple_75","raw_output":"{\"name\": \"paint_color_trends\", \"parameters\": {\"room\": \"Living room\", \"period\": \"Daily\"}}"}
+{"id":"multiple_76","raw_output":"{\"name\": \"sculpture_create_custom\", \"parameters\": {\"item\": \"horse\", \"material\": \"Bronze\"}}"}
+{"id":"multiple_77","raw_output":"{\"name\": \"artwork_search_find\", \"parameters\": {\"type\": \"sculpture\", \"location\": \"न्यू यॉर्क\", \"era\": \"contemporary\"}}"}
+{"id":"multiple_78","raw_output":"{\"name\": \"museum_info\", \"parameters\": {\"museum\": \"प्राकृतिक इतिहास संग्रहालय\", \"city\": \"लंदन\", \"features\": \"timeings,exhibitions,accessibility\"}}"}
+{"id":"multiple_79","raw_output":"{\"name\": \"exhibition_info\", \"parameters\": {\"museum_name\": \"न्यूयॉर्क के मॉडर्न आर्ट म्यूजियम\", \"month\": \"1\"}}"}
+{"id":"multiple_80","raw_output":"{\"name\": \"music_shop_find_nearby\", \"parameters\": {\"location\": \"नैशविल, TN\", \"services\": \"[\\\"Guitar Lessons\\\", \\\"Violin Lessons\\\"]\"}}"}
+{"id":"multiple_81","raw_output":"{\"name\": \"concert_book_ticket\", \"parameters\": {\"artist\": \"एमिनेम\", \"location\": \"न्यू यॉर्क सिटी\", \"add_ons\": \"[\\\"Backstage Pass\\\"]\"}}"}
+{"id":"multiple_82","raw_output":"{\"name\": \"music_generate\", \"parameters\": {\"key\": \"C मेजर\", \"tempo\": \"120\", \"time_signature\": \"4/4\"}}"}
+{"id":"multiple_83","raw_output":"{\"name\": \"player_stats_get_all_time_goals\", \"parameters\": {\"player_name\": \"लियोनेल मेस्सी\", \"team_name\": \"बार्सिलोना\"}}"}
+{"id":"multiple_84","raw_output":"{\"name\": \"getTopGoalScorers\", \"parameters\": {\"competition\": \"UEFA Champions League\", \"team\": \"Barcelona\", \"number\": \"10\"}}"}
+{"id":"multiple_85","raw_output":"{\"name\": \"soccer_scores_get_scores\", \"parameters\": {\"team\": \"रियल मैड्रिड\", \"league\": \"ला लीगा\", \"rounds\": \"5\"}}"}
+{"id":"multiple_86","raw_output":"{\"name\": \"BoardGameGeek_recommend\", \"parameters\": {\"numPlayers\": \"2\", \"category\": \"strategy\"}}"}
+{"id":"multiple_87","raw_output":"{\"name\": \"games_update_find\", \"parameters\": {\"game\": \"साइबरपंक 2077\", \"platform\": \"Xbox\", \"region\": \"global\"}}"}
+{"id":"multiple_88","raw_output":"{\"name\": \"video_games_get_player_count\", \"parameters\": {\"game_title\": \"वर्ल्ड ऑफ वॉरक्राफ्ट\", \"year\": \"2020\", \"platform\": \"\"}}"}
+{"id":"multiple_89","raw_output":"{\"name\": \"recipe_search\", \"parameters\": {\"ingredients\": \"['चिकन', 'मशरूम']\", \"calories\": \"500\", \"meal\": \"लंच\"}}"}
+{"id":"multiple_90","raw_output":"{\"name\": \"restaurant_find_group\", \"parameters\": {\"location\": \"Seattle, WA\", \"cuisine\": \"[\\\"Seafood\\\"]\", \"group_size\": \"5\"}}"}
+{"id":"multiple_91","raw_output":"{\"name\": \"recipe_find\", \"parameters\": {\"mainIngredient\": \"\\u0938\\u092e\\u0936\", \"ingredientLimit\": \"5\"}}"}
+{"id":"multiple_92","raw_output":"{\"name\": \"walmart_vegan_products\", \"parameters\": {\"location\": \"Denver, CO\", \"categories\": \"['vegan', 'gluten-free']\"}}"}
+{"id":"multiple_93","raw_output":"{\"name\": \"hotel_book\", \"parameters\": {\"location\": \"न्यूयॉर्क\", \"roomType\": \"डीलक्स\", \"nights\": \"2\", \"additional_services\": \"[\\\"breakfast\\\"]\"}}"}
+{"id":"multiple_94","raw_output":"{\"name\": \"hotel_room_pricing_get\", \"parameters\": {\"hotelName\": \"Hilton New York\", \"roomType\": \"Queen Size Bed Suite\", \"nights\": 3}}"}
+{"id":"multiple_95","raw_output":"{\"name\": \"currency_exchange_convert\", \"parameters\": {\"amount\": \"200\", \"from_currency\": \"EUR\", \"to_currency\": \"USD\", \"live_conversion\": \"true\"}}"}
+{"id":"multiple_96","raw_output":"{\"name\": \"solve_quadratic_equation_1\", \"parameters\": {\"a\": 2, \"b\": 6, \"c\": 5}}"}
+{"id":"multiple_97","raw_output":"{\"name\": \"geometry_area_circle\", \"parameters\": {\"radius\": \"10\", \"units\": \"meters\"}}"}
+{"id":"multiple_98","raw_output":"{\"name\": \"geometry_circumference\", \"parameters\": {\"radius\": \"3\", \"units\": \"cm\"}}"}
+{"id":"multiple_99","raw_output":"{\"name\": \"calculus_derivative\", \"parameters\": {\"function\": \"2*x^2\", \"value\": \"1\", \"function_variable\": \"x\"}}"}
+{"id":"multiple_100","raw_output":"{\"name\": \"math_hcf\", \"parameters\": {\"number1\": \"36\", \"number2\": \"24\"}}"}
+{"id":"multiple_101","raw_output":"{\"name\": \"math_gcd\", \"parameters\": {\"num1\": \"12\", \"num2\": \"18\"}}"}
+{"id":"multiple_102","raw_output":"{\"name\": \"calculate_displacement\", \"parameters\": {\"initial_velocity\": \"10\", \"time\": \"5\", \"acceleration\": \"9.8\"}}"}
+{"id":"multiple_103","raw_output":"{\"name\": \"calculate_final_speed\", \"parameters\": {\"height\": \"100\", \"initial_velocity\": \"0\", \"gravity\": \"9.8\"}}"}
+{"id":"multiple_104","raw_output":"{\"name\": \"get_shortest_driving_distance\", \"parameters\": {\"origin\": \"न्यूयॉर्क सिटी\", \"destination\": \"वाशिंगटन डी.सी.\"}}"}
+{"id":"multiple_105","raw_output":"{\"name\": \"calculate_magnetic_field\", \"parameters\": {\"current\": \"5\", \"radius\": \"4\", \"permeability\": \"0.01\"}}"}
+{"id":"multiple_106","raw_output":"{\"name\": \"calculate_electric_field_strength\", \"parameters\": {\"charge\": \"0.01\", \"distance\": \"4\", \"medium\": \"vacuum\"}}"}
+{"id":"multiple_107","raw_output":"{\"name\": \"calculate_density\", \"parameters\": {\"mass\": \"45\", \"volume\": \"15\"}}"}
+{"id":"multiple_108","raw_output":"{\"name\": \"calc_heat_capacity\", \"parameters\": {\"temp\": 298, \"volume\": 10, \"gas\": \"air\"}}"}
+{"id":"multiple_109","raw_output":"{\"name\": \"cellbio_get_proteins\", \"parameters\": {\"cell_compartment\": \"plasma membrane\", \"include_description\": \"false\"}}"}
+{"id":"multiple_110","raw_output":"{\"name\": \"mutation_type_find\", \"parameters\": {\"snp_id\": \"rs6034464\", \"species\": \"Homo sapiens\"}}"}
+{"id":"multiple_111","raw_output":"{\"name\": \"calculate_genotype_frequency\", \"parameters\": {\"allele_frequency\": \"0.3\", \"genotype\": \"AA\"}}"}
+{"id":"multiple_112","raw_output":"{\"name\": \"forest_growth_forecast\", \"parameters\": {\"location\": \"येलोस्टोन राष्ट्रीय उद्यान\", \"years\": \"5\", \"include_human_impact\": \"true\"}}"}
+{"id":"multiple_113","raw_output":"{\"name\": \"calculate_fitness\", \"parameters\": {\"trait_values\": \"[0.8, 0.7]\", \"trait_contributions\": \"[0.4, 0.6]\"}}"}
+{"id":"multiple_114","raw_output":"{\"name\": \"prediction_evolution\", \"parameters\": {\"species\": \"होमो सैपियन्स\", \"years\": \"50\", \"model\": \"Darwin\"}}"}
+{"id":"multiple_115","raw_output":"{\"name\": \"find_restaurants\", \"parameters\": {\"location\": \"मैनहट्टन\", \"food_type\": \"थाई\", \"number\": \"5\", \"dietary_requirements\": \"['शाकाहारी']\"}}"}
+{"id":"multiple_116","raw_output":"{\"name\": \"calculate_bmi\", \"parameters\": {\"weight\": 85, \"height\": 180}}"}
+{"id":"multiple_117","raw_output":"{\"name\": \"calculate_BMI\", \"parameters\": {\"weight_kg\": \"70\", \"height_m\": \"1.75\"}}"}
+{"id":"multiple_118","raw_output":"{\"name\": \"imdb_find_movies_by_actor\", \"parameters\": {\"actor_name\": \"लियोनार्डो डिकैप्रियो\", \"year\": \"2010\", \"category\": \"all\"}}"}
+{"id":"multiple_119","raw_output":"{\"name\": \"database_query\", \"parameters\": {\"table\": \"user_table\", \"conditions\": \"[{\\\"field\": \\\"age\\\", \\\"operation\\\": \\\">\\\", \\\"value\\\": \\\"25\\\"}, {\\\"field\\\": \\\"job\\\", \\\"operation\\\": \\\"=\\\", \\\"value\\\": \\\"इंजीनियर\\\"}]\"}}"}
+{"id":"multiple_120","raw_output":"{\"name\": \"light_travel_time\", \"parameters\": {\"distance_in_light_years\": \"4\", \"speed_of_light\": \"299792458\"}}"}
+{"id":"multiple_121","raw_output":"{\"name\": \"geometry_area_triangle\", \"parameters\": {\"base\": \"6\", \"height\": \"10\", \"unit\": \"square meters\"}}"}
+{"id":"multiple_122","raw_output":"{\"name\": \"run_linear_regression\", \"parameters\": {\"standardize\": \"True\", \"predictors\": \"['Age', 'Income', 'Education']\", \"target\": \"Purchase_Amount\"}}"}
+{"id":"multiple_123","raw_output":"{\"name\": \"calculate_probability\", \"parameters\": {\"total_outcomes\": \"52\", \"favorable_outcomes\": \"4\", \"round_to\": \"2\"}}"}
+{"id":"multiple_124","raw_output":"{\"name\": \"probabilities_calculate_single\", \"parameters\": {\"total_outcomes\": \"52\", \"event_outcomes\": \"1\", \"round\": \"2\"}}"}
+{"id":"multiple_125","raw_output":"{\"name\": \"run_two_sample_ttest\", \"parameters\": {\"group1\": \"[3, 4, 5, 6, 4]\", \"group2\": \"[7, 8, 9, 8, 7]\", \"equal_variance\": \"true\"}}"}
+{"id":"multiple_126","raw_output":"{\"name\": \"t_test\", \"parameters\": {\"dataset_A\": \"[12, 24, 36]\", \"dataset_B\": \"[15, 30, 45]\", \"alpha\": \"0\"}}"}
+{"id":"multiple_127","raw_output":"{\"name\": \"finance_calculate_quarterly_dividend_per_share\", \"parameters\": {\"total_payout\": 50000000, \"outstanding_shares\": 100000000}}"}
+{"id":"multiple_128","raw_output":"{\"name\": \"calculate_return_on_equity\", \"parameters\": {\"dividends_paid\": \"200000\", \"net_income\": \"2000000\", \"shareholder_equity\": \"10000000\"}}"}
+{"id":"multiple_129","raw_output":"{\"name\": \"compound_interest\", \"parameters\": {\"principal\": 10000, \"annual_rate\": 5, \"compounding_freq\": \"monthly\", \"time_in_years\": 5}}"}
+{"id":"multiple_130","raw_output":"{\"name\": \"calculate_cagr\", \"parameters\": {\"initial_value\": 2000, \"final_value\": 3000, \"period_in_years\": 4}}"}
+{"id":"multiple_131","raw_output":"{\"name\": \"market_performance_get_data\", \"parameters\": {\"indexes\": \"['S&P 500', 'Dow Jones']\", \"days\": \"5\", \"detailed\": \"false\"}}"}
+{"id":"multiple_132","raw_output":"{\"name\": \"finance_calculate_future_value\", \"parameters\": {\"initial_investment\": \"20000\", \"rate_of_return\": \"0.08\", \"years\": \"5\", \"contribution\": \"0\"}}"}
+{"id":"multiple_133","raw_output":"{\"name\": \"calculate_mutual_fund_balance\", \"parameters\": {\"investment_amount\": 50000, \"annual_yield\": 0.05, \"years\": 3}}"}
+{"id":"multiple_134","raw_output":"{\"name\": \"crime_record_get_record\", \"parameters\": {\"case_number\": \"CA123456\", \"county\": \"सैन डिएगो काउंटी\", \"details\": \"true\"}}"}
+{"id":"multiple_135","raw_output":"{\"name\": \"get_case_info\", \"parameters\": {\"docket\": \"2022/AL2562\", \"court\": \"कैलिफोर्निया\", \"info_type\": \"पीड़ित\"}}"}
+{"id":"multiple_136","raw_output":"{\"name\": \"get_crime_rate\", \"parameters\": {\"city\": \"सैन फ्रांसिस्को\", \"state\": \"कैलिफोर्निया\", \"type\": \"हिंसक अपराध\", \"year\": 2020}}"}
+{"id":"multiple_137","raw_output":"{\"name\": \"lawsuit_search\", \"parameters\": {\"company\": \"गूगल\", \"start_date\": \"2021-01-01\", \"location\": \"कैलिफ़ोर्निया\", \"status\": \"ongoing\"}}"}
+{"id":"multiple_138","raw_output":"{\"name\": \"legal_case_fetch\", \"parameters\": {\"case_id\": \"R बनाम एडम्स\", \"details\": \"true\"}}"}
+{"id":"multiple_139","raw_output":"{\"name\": \"lawsuit_details_find\", \"parameters\": {\"company_name\": \"\\u0906\\u093e\\u0930\\u093e\\u0930\\u093f\\u0938\\u094d\\u0930\", \"year\": \"2010\", \"case_type\": \"Patent\"}}"}
+{"id":"multiple_140","raw_output":"{\"name\": \"lawsuits_search\", \"parameters\": {\"company_name\": \"गूगल\", \"location\": \"कैलिफोर्निया\", \"year\": \"2020\", \"case_type\": \"all\"}}"}
+{"id":"multiple_141","raw_output":"{\"name\": \"lawsuit_check_case\", \"parameters\": {\"case_id\": \"1234\", \"closed_status\": \"true\"}}"}
+{"id":"multiple_142","raw_output":"{\"name\": \"weather_humidity_forecast\", \"parameters\": {\"location\": \"मियामी, फ्लोरिडा\", \"days\": \"7\"}}"}
+{"id":"multiple_143","raw_output":"{\"name\": \"calculate_slope_gradient\", \"parameters\": {\"unit\": \"degree\", \"point1\": \"[40.7128, -74.0060]\", \"point2\": \"[34.0522, -118.2437]\"}}"}
+{"id":"multiple_144","raw_output":"{\"name\": \"air_quality\", \"parameters\": {\"location\": \"लंदन\", \"date\": \"2022/08/16\"}}"}
+{"id":"multiple_145","raw_output":"{\"name\": \"calculate_emissions\", \"parameters\": {\"distance\": 12000, \"fuel_type\": \"gasoline\", \"fuel_efficiency\": 20}}"}
+{"id":"multiple_146","raw_output":"{\"name\": \"restaurant_find_nearby\", \"parameters\": {\"location\": \"Seattle, WA\", \"cuisine\": \"\\u0938\\u093e\\u0939\\u093e\\u0924\\u093e\", \"max_distance\": \"10\"}}"}
+{"id":"multiple_147","raw_output":"{\"name\": \"map_service_get_directions\", \"parameters\": {\"start\": \"न्यूयॉर्क\", \"end\": \"लॉस एंजेलेस\", \"avoid\": \"[\\\"tolls\\\", \\\"highways\\\"]\"}}"}
+{"id":"multiple_148","raw_output":"{\"name\": \"get_stock_info\", \"parameters\": {\"company_name\": \"एप्पल इंक.\", \"detail_level\": \"detailed\", \"market\": \"NASDAQ\"}}"}
+{"id":"multiple_149","raw_output":"{\"name\": \"sentiment_analysis\", \"parameters\": {\"text\": \"\\u092e\\u093e \\u0915\\u093e\\u0930\\u093e\\u0932\\u093e\\u0938\\u094d\\u0930 \\u0915\\u093e\\u0930\\u093e\\u0932\\u093e\\u0938\\u094d\\u0930 \\u0915\\u093e\\u0930\\u093e\\u0932\\u093e\\u0938\\u094d\\u0930 \\u0915\\u093e\\u0930\\u093e\\u0932\\u093e\\u0938\\u094d\\u0930 \\u0915\\u093e\\u0930\\u093e\\u0932\\u093e\\u0938\\u094d\\u0930 \\u0915\\u093e\\u0930\\u093e\\u0932\\u093e\\u0938\\u094d\\u0930 \\u0915\\u093e\\u0930\\u093e\\u0932\\u093e\\u0938\\u094d\\u0930!\", \"language\": \"hi\"}}"}
+{"id":"multiple_150","raw_output":"{\"name\": \"calculate_neuronal_activity\", \"parameters\": {\"input_synaptic_rate\": \"200\", \"weight\": \"0.5\", \"decay_rate\": \"0.1\"}}"}
+{"id":"multiple_151","raw_output":"{\"name\": \"social_media_analytics_most_followed\", \"parameters\": {\"topic\": \"व्यवहार और समूह गतिशीलता\", \"sub_topics\": \"['मनोविज्ञान', 'पсихोलॉजी']\", \"region\": \"global\"}}"}
+{"id":"multiple_152","raw_output":"{\"name\": \"history_get_key_events\", \"parameters\": {\"country\": \"जर्मन\", \"start_year\": \"1871\", \"end_year\": \"1945\", \"event_type\": \"['War']\"}}"}
+{"id":"multiple_153","raw_output":"{\"name\": \"get_event_date\", \"parameters\": {\"event\": \"\\u0932\\u093f\\u0938\\u094d\\u0930\\u093e\\u0938 \\u0938\\u094d\\u0930\\u093e\\u0938\", \"location\": \"लिस्बन\"}}"}
+{"id":"multiple_154","raw_output":"{\"name\": \"US_president_in_year\", \"parameters\": {\"year\": \"1861\", \"full_name\": \"true\"}}"}
+{"id":"multiple_155","raw_output":"{\"name\": \"get_discoverer\", \"parameters\": {\"discovery\": \"न्यूट्रॉन\", \"detail\": \"true\"}}"}
+{"id":"multiple_156","raw_output":"{\"name\": \"historical_contrib_get_contrib\", \"parameters\": {\"scientist\": \"अल्बर्ट आइंस्टीन\", \"date\": \"1915-03-17\", \"category\": \"विज्ञान\"}}"}
+{"id":"multiple_157","raw_output":"{\"name\": \"get_earliest_reference\", \"parameters\": {\"name\": \"यीशु मसीह\", \"source\": \"scriptures\"}}"}
+{"id":"multiple_158","raw_output":"{\"name\": \"religious_history_get_papal_biography\", \"parameters\": {\"papal_name\": \"पोप इनोसेंट III\", \"include_contributions\": \"true\"}}"}
+{"id":"multiple_159","raw_output":"{\"name\": \"calculate_paint_needed\", \"parameters\": {\"coverage_rate\": 400, \"length\": 30, \"height\": 12}}"}
+{"id":"multiple_160","raw_output":"{\"name\": \"get_sculpture_info\", \"parameters\": {\"artist_name\": \"जेम्स प्लेंसा\", \"detail\": \"True\"}}"}
+{"id":"multiple_161","raw_output":"{\"name\": \"find_exhibition\", \"parameters\": {\"location\": \"न्यू यॉर्क\", \"art_form\": \"आधुनिक मूर्तिकला\", \"month\": \"अगला महीना\", \"user_ratings\": \"high\"}}"}
+{"id":"multiple_162","raw_output":"{\"name\": \"analyze_structure\", \"parameters\": {\"mode\": \"dynamic\", \"floors\": \"[2, 3, 4]\", \"building_id\": \"B1004\"}}"}
+{"id":"multiple_163","raw_output":"{\"name\": \"metropolitan_museum_get_top_artworks\", \"parameters\": {\"number\": \"5\", \"sort_by\": \"popularity\"}}"}
+{"id":"multiple_164","raw_output":"{\"name\": \"instrument_price_get\", \"parameters\": {\"brand\": \"Fender\", \"model\": \"American Professional II Stratocaster\", \"finish\": \"Rosewood\"}}"}
+{"id":"multiple_165","raw_output":"{\"name\": \"guitar_price_find\", \"parameters\": {\"model\": \"Gibson Les Paul\", \"condition\": \"Excellent\", \"location\": \"शिकागो\"}}"}
+{"id":"multiple_166","raw_output":"{\"name\": \"concert_search\", \"parameters\": {\"genre\": \"classical\", \"location\": \"Los Angeles\", \"date\": \"this weekend\", \"price_range\": \"cheap\"}}"}
+{"id":"multiple_167","raw_output":"{\"name\": \"music_generator_generate_melody\", \"parameters\": {\"key\": \"C\", \"start_note\": \"C4\", \"length\": 16, \"tempo\": 120}}"}
+{"id":"multiple_168","raw_output":"{\"name\": \"get_song_lyrics\", \"parameters\": {\"song_title\": \"\\u0926\\u093e\\u0938\\u093e\\u0938\\u094d\\u0930\\u0928\\u093e\", \"artist_name\": \"\\u0928\\u0947\\u092e\\u093e\\u0938\\u094d\\u0930\\u0928\\u093e\", \"lang\": \"Hindi\"}}"}
+{"id":"multiple_169","raw_output":"{\"name\": \"musical_scale\", \"parameters\": {\"key\": \"C#\", \"scale_type\": \"major\"}}"}
+{"id":"multiple_170","raw_output":"{\"name\": \"soccer_stat_get_player_stats\", \"parameters\": {\"league\": \"all\", \"season\": \"2019-2020\", \"player_name\": \"\\u0915\\u0930\\u0938\\u0930\\u093e\\u0930\\u093e \\u0930\\u093f\\u0930\\u093e\\u0930\\u093e\"}}"}
+{"id":"multiple_171","raw_output":"{\"name\": \"game_result_get_winner\", \"parameters\": {\"teams\": \"['लेकर्स', 'क्लिपर्स']\", \"date\": \"2021-01-28\"}}"}
+{"id":"multiple_172","raw_output":"{\"name\": \"sports_db_find_athlete\", \"parameters\": {\"name\": \"लेब्रोन जेम्स\", \"sport\": \"बास्केटबॉल\"}}"}
+{"id":"multiple_173","raw_output":"{\"name\": \"get_defense_ranking\", \"parameters\": {\"season\": \"2021\", \"top\": \"1\"}}"}
+{"id":"multiple_174","raw_output":"{\"name\": \"sports_ranking\", \"parameters\": {\"league\": \"प्रीमियर लीग\", \"team\": \"\\u092e\\u0938\\u093e\\u0930\\u093e\\u0938\\u094d\\u0924\\u0947\\u0928\\u094d\\u0930\", \"season\": \"2024\"}}"}
+{"id":"multiple_175","raw_output":"{\"name\": \"sports_ranking_get_top_player\", \"parameters\": {\"gender\": \"women\", \"sport\": \"tennis\"}}"}
+{"id":"multiple_176","raw_output":"{\"name\": \"sports_team_get_schedule\", \"parameters\": {\"num_of_games\": \"6\", \"league\": \"प्रीमियर लीग\", \"team_name\": \"मैनचेस्टर यूनाइटेड\"}}"}
+{"id":"multiple_177","raw_output":"{\"name\": \"board_game_chess_get_top_players\", \"parameters\": {\"location\": \"न्यू यॉर्क\", \"minimum_rating\": \"2300\", \"number_of_players\": \"10\"}}"}
+{"id":"multiple_178","raw_output":"{\"name\": \"find_card_in_deck\", \"parameters\": {\"rank\": \"Queen\", \"suit\": \"Hearts\"}}"}
+{"id":"multiple_179","raw_output":"{\"name\": \"poker_probability_full_house\", \"parameters\": {\"deck_size\": \"52\", \"hand_size\": \"5\"}}"}
+{"id":"multiple_180","raw_output":"{\"name\": \"game_stats_fetch_player_statistics\", \"parameters\": {\"game\": \"Zelda\", \"username\": \"Sam\", \"platform\": \"Switch\"}}"}
+{"id":"multiple_181","raw_output":"{\"name\": \"soccer_get_last_match\", \"parameters\": {\"include_stats\": \"true\", \"team_name\": \"लिवरपूल एफ.सी.\"}}"}
+{"id":"multiple_182","raw_output":"{\"name\": \"multiplayer_game_finder\", \"parameters\": {\"rating\": \"4.5\", \"platform\": \"Windows 10\"}}"}
+{"id":"multiple_183","raw_output":"{\"name\": \"recipe_info_get_calories\", \"parameters\": {\"website\": \"Foodnetwork.com\", \"recipe\": \"\\u092c\\u0938\\u0936 \\u0932\\u093f\\u0938\\u093e\\u0938\", \"optional_meal_time\": \"\"}}"}
+{"id":"multiple_184","raw_output":"{\"name\": \"recipe_search\", \"parameters\": {\"dietary_restriction\": \"Vegetarian\", \"servings\": \"2\", \"ingredients\": \"['pasta', 'cheese']\"}}"}
+{"id":"multiple_185","raw_output":"{\"name\": \"restaurant_search_find_closest\", \"parameters\": {\"location\": \"बोस्टन, MA\", \"cuisine\": \"सुशी\", \"amenities\": \"[\\\"पैटियो\\\"]\"}}"}
+{"id":"multiple_186","raw_output":"{\"name\": \"find_recipe\", \"parameters\": {\"dietary_restrictions\": \"vegetarian\", \"recipe_type\": \"breakfast\", \"time\": \"30\"}}"}
+{"id":"multiple_187","raw_output":"{\"name\": \"whole_foods_check_price\", \"parameters\": {\"location\": \"लॉस एंजेलेस\", \"items\": \"['टमाटर', 'सलाद']\"}}"}
+{"id":"multiple_188","raw_output":"{\"name\": \"grocery_store_find_best\", \"parameters\": {\"rating\": \"4.5\", \"my_location\": \"बर्कले\", \"products\": \"['टमाटर', 'पालतू जानवरों का खाना']\"}}"}
+{"id":"multiple_189","raw_output":"{\"name\": \"timezone_convert\", \"parameters\": {\"time\": \"3pm\", \"from_timezone\": \"न्यू यॉर्क\", \"to_timezone\": \"लंदन\"}}"}
+{"id":"multiple_190","raw_output":"{\"name\": \"book_hotel\", \"parameters\": {\"location\": \"शिकागो\", \"nights\": \"2\", \"room_type\": \"सिंगल\", \"hotel_name\": \"हिल्टन\", \"start_date\": \"10 दिसंबर 2022\"}}"}
+{"id":"multiple_191","raw_output":"{\"name\": \"book_hotel\", \"parameters\": {\"hotel_name\": \"पैराडाइज\", \"location\": \"लास वेगास\", \"room_type\": \"लक्जरी\", \"start_date\": \"05-12-2022\", \"stay_duration\": \"3\", \"view\": \"शहर\"}}"}
+{"id":"multiple_192","raw_output":"{\"name\": \"currency_conversion_convert\", \"parameters\": {\"amount\": \"150\", \"from_currency\": \"EUR\", \"to_currency\": \"CAD\"}}"}
+{"id":"multiple_193","raw_output":"{\"name\": \"maps_get_distance_duration\", \"parameters\": {\"start_location\": \"Eiffel Tower\", \"end_location\": \"Louvre Museum\", \"traffic\": \"false\"}}"}
+{"id":"multiple_194","raw_output":"{\"name\": \"get_museum_hours\", \"parameters\": {\"museum_name\": \"मेट्रोपॉलिटन म्यूज़ियम ऑफ़ आर्ट\", \"day\": \"शनिवार\"}}"}
+{"id":"multiple_195","raw_output":"{\"name\": \"calc_heat_capacity\", \"parameters\": {\"temp\": \"298\", \"volume\": \"10\", \"gas\": \"air\"}}"}
+{"id":"multiple_196","raw_output":"{\"name\": \"cellbio_get_proteins\", \"parameters\": {\"cell_compartment\": \"plasma membrane\", \"include_description\": \"false\"}}"}
+{"id":"multiple_197","raw_output":"{\"name\": \"mutation_type_find\", \"parameters\": {\"snp_id\": \"rs6034464\", \"species\": \"Homo sapiens\"}}"}
+{"id":"multiple_198","raw_output":"{\"name\": \"calculate_genotype_frequency\", \"parameters\": {\"allele_frequency\": \"0.3\", \"genotype\": \"AA\"}}"}
+{"id":"multiple_199","raw_output":"{\"name\": \"forest_growth_forecast\", \"parameters\": {\"location\": \"येलोस्टोन\", \"years\": \"5\", \"include_human_impact\": \"true\"}}"}
