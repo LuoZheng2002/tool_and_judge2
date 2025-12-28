@@ -1,0 +1,93 @@
+{
+  "accuracy": 0.7,
+  "total_cases": 200,
+  "correct_cases": 140,
+  "incorrect_cases": 60,
+  "category_counts": {
+    "SYNTAX_ERROR": 2,
+    "MISC_ERROR": 2,
+    "WRONG_VALUE": 14,
+    "RELEVANT_BUT_INCORRECT": 22,
+    "EXACTLY_SAME_MEANING": 14,
+    "LANGUAGE_MISMATCH_WRONG_VALUE": 4,
+    "LANGUAGE_MISMATCH_RELEVANT_BUT_INCORRECT": 0,
+    "LANGUAGE_MISMATCH_EXACTLY_SAME_MEANING": 2,
+    "OTHER_ERROR": 0
+  },
+  "category_samples": {
+    "SYNTAX_ERROR": [
+      "multiple_7",
+      "multiple_119"
+    ],
+    "MISC_ERROR": [
+      "multiple_22",
+      "multiple_53"
+    ],
+    "WRONG_VALUE": [
+      "multiple_2",
+      "multiple_15",
+      "multiple_18",
+      "multiple_19",
+      "multiple_27",
+      "multiple_61",
+      "multiple_91",
+      "multiple_124",
+      "multiple_139",
+      "multiple_146",
+      "multiple_149",
+      "multiple_156",
+      "multiple_170",
+      "multiple_183"
+    ],
+    "RELEVANT_BUT_INCORRECT": [
+      "multiple_9",
+      "multiple_10",
+      "multiple_12",
+      "multiple_39",
+      "multiple_65",
+      "multiple_74",
+      "multiple_78",
+      "multiple_80",
+      "multiple_99",
+      "multiple_115",
+      "multiple_126",
+      "multiple_136",
+      "multiple_151",
+      "multiple_152",
+      "multiple_157",
+      "multiple_160",
+      "multiple_161",
+      "multiple_171",
+      "multiple_186",
+      "multiple_187",
+      "multiple_188",
+      "multiple_191"
+    ],
+    "EXACTLY_SAME_MEANING": [
+      "multiple_8",
+      "multiple_16",
+      "multiple_25",
+      "multiple_26",
+      "multiple_29",
+      "multiple_33",
+      "multiple_45",
+      "multiple_68",
+      "multiple_79",
+      "multiple_89",
+      "multiple_94",
+      "multiple_135",
+      "multiple_155",
+      "multiple_172"
+    ],
+    "LANGUAGE_MISMATCH_WRONG_VALUE": [
+      "multiple_73",
+      "multiple_153",
+      "multiple_168",
+      "multiple_174"
+    ],
+    "LANGUAGE_MISMATCH_EXACTLY_SAME_MEANING": [
+      "multiple_44",
+      "multiple_67"
+    ]
+  }
+}

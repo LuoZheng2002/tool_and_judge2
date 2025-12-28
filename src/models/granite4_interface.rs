@@ -203,11 +203,12 @@ impl ModelInterface for Granite4Interface {
         let mut bfcl_calls = Vec::new();
         for granite4_call in granite4_calls {
             // Map the function name back to original
+            // If model hallucinated a function name not in the mapper, use the name as-is
             let original_name = name_mapper
                 .sanitized_to_original
                 .get(&granite4_call.name)
-                .expect("Function name mapper does not contain key")
-                .clone();
+                .cloned()
+                .unwrap_or_else(|| granite4_call.name.clone());
 
             bfcl_calls.push(BfclOutputFunctionCall(KeyValuePair {
                 key: original_name,

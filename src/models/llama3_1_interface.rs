@@ -244,12 +244,12 @@ fn llama3_1_call_to_bfcl_call(
     llama3_1_call: Llama3_1OutputFunctionCall,
     name_mapper: &FunctionNameMapper,
 ) -> BfclOutputFunctionCall {
-    // let mapped_name = name_mapper.get_original_name(&llama3_1_call.name);
+    // If model hallucinated a function name not in the mapper, use the name as-is
     let mapped_name = name_mapper
         .sanitized_to_original
         .get(&llama3_1_call.name)
-        .expect("Function name mapper does not contain key")
-        .clone();
+        .cloned()
+        .unwrap_or_else(|| llama3_1_call.name.clone());
 
     // Parse string parameters to their proper types
     let parsed_parameters: IndexMap<String, serde_json::Value> = llama3_1_call

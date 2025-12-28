@@ -1,0 +1,200 @@
+{"id":"multiple_0","valid":true,"error":null}
+{"id":"multiple_1","valid":true,"error":null}
+{"id":"multiple_2","valid":false,"error":{"InvalidParamValue":{"param":"country","actual_value":"ब्राजील","expected_values":["Brazil"],"decoded_output":"[{\"country_info.capital\":{\"country\":\"ब्राजील\"}}]"}}}
+{"id":"multiple_3","valid":true,"error":null}
+{"id":"multiple_4","valid":true,"error":null}
+{"id":"multiple_5","valid":true,"error":null}
+{"id":"multiple_6","valid":true,"error":null}
+{"id":"multiple_7","valid":false,"error":{"JsonDecodeError":{"error_message":"trailing characters at line 1 column 131","raw_output":"{\"name\": \"wildlife_population_assess_growth\", \"parameters\": {\"species\": \"deer\", \"location\": \"Washington state\", \"duration\": \"10\"}}; {\"name\": \"ecological_impact_analyze\", \"parameters\": {\"species\": \"deer\", \"ecosystem\": \"forest\", \"location\": \"Washington state\"}}"}}}
+{"id":"multiple_8","valid":false,"error":{"InvalidParamValue":{"param":"budget","actual_value":{"min":"300000","max":"400000"},"expected_values":[{"min":[300000],"max":[400000]}],"decoded_output":"[{\"realestate.find_properties\":{\"location\":\"San Diego, CA\",\"propertyType\":\"villa\",\"bedrooms\":3,\"budget\":{\"min\":\"300000\",\"max\":\"400000\"}}}]"}}}
+{"id":"multiple_9","valid":false,"error":{"InvalidParamValue":{"param":"gradeDict","actual_value":{"गणित":90,"विज्ञान":75,"इतिहास":82,"संगीत":89},"expected_values":[{"math":[90],"science":[75],"history":[82],"music":[89]}],"decoded_output":"[{\"calculate_average\":{\"gradeDict\":{\"गणित\":90,\"विज्ञान\":75,\"इतिहास\":82,\"संगीत\":89}}}]"}}}
+{"id":"multiple_10","valid":false,"error":{"InvalidParamValue":{"param":"db_name","actual_value":"कर्मचारियों के डेटाबेस","expected_values":["employees"],"decoded_output":"[{\"database.modify_columns\":{\"db_name\":\"कर्मचारियों के डेटाबेस\",\"table\":\"personal_data\",\"operation\":\"delete\",\"columns\":[\"ईमेल आईडी\",\"सामाजिक सुरक्षा नंबर\"]}}]"}}}
+{"id":"multiple_11","valid":true,"error":null}
+{"id":"multiple_12","valid":false,"error":{"InvalidParamValue":{"param":"company_name","actual_value":"टेक इंक","expected_values":["Tech Inc"],"decoded_output":"[{\"corporate_finance.calculate_YOY_growth_rate\":{\"company_name\":\"टेक इंक\",\"year1\":2019,\"year1_revenue\":1000000,\"year2\":2020,\"year2_revenue\":1200000}}]"}}}
+{"id":"multiple_13","valid":true,"error":null}
+{"id":"multiple_14","valid":true,"error":null}
+{"id":"multiple_15","valid":true,"error":null}
+{"id":"multiple_16","valid":false,"error":{"InvalidParamValue":{"param":"species","actual_value":"जंगली बाघ","expected_values":["wild tiger","tiger"],"decoded_output":"[{\"population_genetics.calculate_ne\":{\"species\":\"जंगली बाघ\",\"generations\":100,\"probability\":0.95}}]"}}}
+{"id":"multiple_17","valid":false,"error":{"InvalidParamValue":{"param":"from_currency","actual_value":"USD","expected_values":["EUR","Euro"],"decoded_output":"[{\"currency_conversion.get_rate\":{\"from_currency\":\"USD\",\"to_currency\":\"EUR\",\"date\":\"January 1, 2022\"}}]"}}}
+{"id":"multiple_18","valid":false,"error":{"InvalidParamValue":{"param":"battle","actual_value":"सतेतेरारास्रासे","expected_values":["Battle of Stalingrad","Stalingrad"],"decoded_output":"[{\"european_history.battle_details\":{\"battle\":\"सतेतेरारास्रासे\"}}]"}}}
+{"id":"multiple_19","valid":false,"error":{"InvalidParamValue":{"param":"religion","actual_value":"ईसाई धर्म","expected_values":["Christianity"],"decoded_output":"[{\"religion_history.get_schisms\":{\"religion\":\"ईसाई धर्म\",\"count\":3}}]"}}}
+{"id":"multiple_20","valid":false,"error":{"InvalidParamValue":{"param":"material","actual_value":"संगमरमर","expected_values":["marble"],"decoded_output":"[{\"sculpture_price.calculate\":{\"material\":\"संगमरमर\",\"size\":3,\"complexity\":\"medium\"}}]"}}}
+{"id":"multiple_21","valid":true,"error":null}
+{"id":"multiple_22","valid":false,"error":{"WrongFuncName":{"expected_name":"sports_data.basketball.most_points_single_game","actual_name":"sports_data.basketball.most_points_career","decoded_output":"[{\"sports_data.basketball.most_points_career\":{\"league\":\"NBA\"}}]"}}}
+{"id":"multiple_23","valid":false,"error":{"InvalidParamValue":{"param":"player_name","actual_value":"लेब्रोन जेम्स","expected_values":["LeBron James"],"decoded_output":"[{\"basketball.player_stats.get\":{\"player_name\":\"लेब्रोन जेम्स\",\"stats_fields\":[\"points_per_game\",\"assists\",\"minutes_per_game\"]}}]"}}}
+{"id":"multiple_24","valid":true,"error":null}
+{"id":"multiple_25","valid":false,"error":{"InvalidParamValue":{"param":"game_title","actual_value":"असैसिन्स क्रीड वल्हाला","expected_values":["Assassins Creed Valhalla"],"decoded_output":"[{\"video_games.store_price\":{\"game_title\":\"असैसिन्स क्रीड वल्हाला\",\"platform\":\"प्लेस्टेशन\",\"region\":\"अमेरिका\"}}]"}}}
+{"id":"multiple_26","valid":true,"error":null}
+{"id":"multiple_27","valid":true,"error":null}
+{"id":"multiple_28","valid":true,"error":null}
+{"id":"multiple_29","valid":false,"error":{"InvalidParamValue":{"param":"function1","actual_value":"3x+2","expected_values":["3x + 2","lambda x: 3x + 2"],"decoded_output":"[{\"functions.intersect\":{\"function1\":\"3x+2\",\"function2\":\"2x+3\"}}]"}}}
+{"id":"multiple_30","valid":true,"error":null}
+{"id":"multiple_31","valid":true,"error":null}
+{"id":"multiple_32","valid":true,"error":null}
+{"id":"multiple_33","valid":false,"error":{"InvalidParamValue":{"param":"func","actual_value":"3*x**2","expected_values":["3x**2","lambda x: 3x**2"],"decoded_output":"[{\"calculate_integral\":{\"func\":\"3*x**2\",\"a\":1,\"b\":2}}]"}}}
+{"id":"multiple_34","valid":true,"error":null}
+{"id":"multiple_35","valid":true,"error":null}
+{"id":"multiple_36","valid":true,"error":null}
+{"id":"multiple_37","valid":false,"error":{"InvalidParamValue":{"param":"acceleration","actual_value":9.81,"expected_values":[-9.81,""],"decoded_output":"[{\"kinematics.final_velocity\":{\"initial_velocity\":40,\"time\":6,\"acceleration\":9.81}}]"}}}
+{"id":"multiple_38","valid":false,"error":{"InvalidParamValue":{"param":"book_name","actual_value":"दालेरास्रास","expected_values":["The Alchemist"],"decoded_output":"[{\"library.search_book\":{\"book_name\":\"दालेरास्रास\",\"city\":\"न्यूयॉर्क\",\"availability\":false,\"genre\":\"\"}}]"}}}
+{"id":"multiple_39","valid":false,"error":{"InvalidParamValue":{"param":"max_cost","actual_value":50000,"expected_values":[50],"decoded_output":"[{\"ride_hailing.get_rides\":{\"max_cost\":50000,\"source\":\"न्यू यॉर्क\",\"destination\":\"फिलाडेल्फिया\"}}]"}}}
+{"id":"multiple_40","valid":true,"error":null}
+{"id":"multiple_41","valid":true,"error":null}
+{"id":"multiple_42","valid":true,"error":null}
+{"id":"multiple_43","valid":true,"error":null}
+{"id":"multiple_44","valid":false,"error":{"InvalidParamValue":{"param":"planet","actual_value":"मंगल","expected_values":["Mars"],"decoded_output":"[{\"calculate.weight_in_space\":{\"weight_earth_kg\":70,\"planet\":\"मंगल\"}}]"}}}
+{"id":"multiple_45","valid":false,"error":{"InvalidParamValue":{"param":"era_name","actual_value":"बर्फ़ युग","expected_values":["Ice age"],"decoded_output":"[{\"geology.get_era\":{\"era_name\":\"बर्फ़ युग\",\"calculate_years_ago\":true}}]"}}}
+{"id":"multiple_46","valid":true,"error":null}
+{"id":"multiple_47","valid":true,"error":null}
+{"id":"multiple_48","valid":true,"error":null}
+{"id":"multiple_49","valid":true,"error":null}
+{"id":"multiple_50","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"न्यू यॉर्क","expected_values":["New York","New York, NY","NYC","New York City"],"decoded_output":"[{\"house_price_forecast\":{\"location\":\"न्यू यॉर्क\",\"months\":1}}]"}}}
+{"id":"multiple_51","valid":true,"error":null}
+{"id":"multiple_52","valid":false,"error":{"InvalidParamValue":{"param":"from_currency","actual_value":"यूरो","expected_values":["Euro","EUR"],"decoded_output":"[{\"currency_conversion\":{\"amount\":100,\"from_currency\":\"यूरो\",\"to_currency\":\"अमेरिकी डॉलर\"}}]"}}}
+{"id":"multiple_53","valid":false,"error":{"JsonDecodeError":{"error_message":"expected `,` or `}` at line 1 column 75","raw_output":"{\"name\": \"random_forest_regression\", \"parameters\": {\"independent_var\": \"[\"\"ब्याज दर\"\", \"\"बेरोजगारी की दर\"\"], \" \"dependent_var\": \"\"घरों की कीमत\"\", \"n_estimators\": \"100\", \"forecast_period\": \"5\"}}"}}}
+{"id":"multiple_54","valid":true,"error":null}
+{"id":"multiple_55","valid":true,"error":null}
+{"id":"multiple_56","valid":true,"error":null}
+{"id":"multiple_57","valid":true,"error":null}
+{"id":"multiple_58","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"लॉस एंजेलेस, CA","expected_values":["Los Angeles","Los Angeles, CA","LA"],"decoded_output":"[{\"lawyer.search\":{\"location\":\"लॉस एंजेलेस, CA\",\"expertise\":\"तलाक\"}}]"}}}
+{"id":"multiple_59","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"न्यू यॉर्क","expected_values":["New York","New York, NY","NY","New York City","NYC"],"decoded_output":"[{\"lawyer_finder\":{\"location\":\"न्यू यॉर्क\",\"specialization\":\"[आहषासकासगा]\",\"experience\":5}}]"}}}
+{"id":"multiple_60","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"न्यू यॉर्क सिटी","expected_values":["New York City","NYC"],"decoded_output":"[{\"humidity_temperature_forecast\":{\"location\":\"न्यू यॉर्क सिटी\",\"days\":7}}]"}}}
+{"id":"multiple_61","valid":true,"error":null}
+{"id":"multiple_62","valid":true,"error":null}
+{"id":"multiple_63","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"न्यू यॉर्क","expected_values":["New York","New York, NY","New York City","NYC"],"decoded_output":"[{\"air_quality_forecast\":{\"location\":\"न्यू यॉर्क\",\"days\":7}}]"}}}
+{"id":"multiple_64","valid":true,"error":null}
+{"id":"multiple_65","valid":false,"error":{"InvalidParamValue":{"param":"origin","actual_value":"न्यू यॉर्क सिटी","expected_values":["New York City","NYC"],"decoded_output":"[{\"geodistance.find\":{\"origin\":\"न्यू यॉर्क सिटी\",\"destination\":\"लॉस एंजेलेस\",\"unit\":\"km\"}}]"}}}
+{"id":"multiple_66","valid":true,"error":null}
+{"id":"multiple_67","valid":false,"error":{"InvalidParamValue":{"param":"text","actual_value":"नमस्ते, आप कैसे हैं?","expected_values":["Hello, how are you?"],"decoded_output":"[{\"translate\":{\"text\":\"नमस्ते, आप कैसे हैं?\",\"source_language\":\"hi\",\"target_language\":\"en\"}}]"}}}
+{"id":"multiple_68","valid":false,"error":{"InvalidParamValue":{"param":"genre","actual_value":"इतिहास","expected_values":["Historical Fiction","historical fiction"],"decoded_output":"[{\"library.search_books\":{\"genre\":\"इतिहास\",\"location\":\"न्यूयॉर्क सार्वजनिक पुस्तकालय\",\"title\":\"\"}}]"}}}
+{"id":"multiple_69","valid":true,"error":null}
+{"id":"multiple_70","valid":false,"error":{"InvalidParamValue":{"param":"country","actual_value":"फ्रांस","expected_values":["France"],"decoded_output":"[{\"european_history.get_monarchs\":{\"country\":\"फ्रांस\",\"century\":18}}]"}}}
+{"id":"multiple_71","valid":true,"error":null}
+{"id":"multiple_72","valid":false,"error":{"InvalidParamValue":{"param":"state","actual_value":"कैलिफोर्निया","expected_values":["California","CA"],"decoded_output":"[{\"us_history.population_by_state_year\":{\"state\":\"कैलिफोर्निया\",\"year\":1970}}]"}}}
+{"id":"multiple_73","valid":false,"error":{"InvalidParamValue":{"param":"religion","actual_value":"बौद्ध धर्म","expected_values":["Buddhism"],"decoded_output":"[{\"religion.get_origin\":{\"religion\":\"बौद्ध धर्म\"}}]"}}}
+{"id":"multiple_74","valid":false,"error":{"InvalidParamValue":{"param":"artwork_name","actual_value":"स्टारी नाइट","expected_values":["Starry Night"],"decoded_output":"[{\"art_auction.fetch_artwork_price\":{\"artwork_name\":\"स्टारी नाइट\",\"artist\":\"वैन गॉग\",\"platform\":\"all\"}}]"}}}
+{"id":"multiple_75","valid":true,"error":null}
+{"id":"multiple_76","valid":false,"error":{"JsonDecodeError":{"error_message":"expected `,` or `}` at line 1 column 79","raw_output":"{\"name\": \"sculpture_create_custom\", \"parameters\": {\"item\": \"घोड़ा, \"material\": \"Bronze\"}}"}}}
+{"id":"multiple_77","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"न्यू यॉर्क","expected_values":["New York","New York, NY","New York City","NYC"],"decoded_output":"[{\"artwork_search.find\":{\"type\":\"sculpture\",\"location\":\"न्यू यॉर्क\",\"era\":\"contemporary\"}}]"}}}
+{"id":"multiple_78","valid":false,"error":{"InvalidParamValue":{"param":"museum","actual_value":"लंदन का प्राकृतिक इतिहास संग्रहालय","expected_values":["Natural History Museum"],"decoded_output":"[{\"museum_info\":{\"museum\":\"लंदन का प्राकृतिक इतिहास संग्रहालय\",\"city\":\"लंदन\",\"features\":\"timeings, exhibitions, accessibility\"}}]"}}}
+{"id":"multiple_79","valid":false,"error":{"InvalidParamValue":{"param":"museum_name","actual_value":"Modern Art Museum in New York","expected_values":["Museum of Modern Art","MOMA","Museum of Modern Art, New York"],"decoded_output":"[{\"exhibition_info\":{\"museum_name\":\"Modern Art Museum in New York\",\"month\":1}}]"}}}
+{"id":"multiple_80","valid":false,"error":{"InvalidParamValue":{"param":"services","actual_value":["Guitar Lessons","Violin Lessons"],"expected_values":[["Violin Lessons"]],"decoded_output":"[{\"music_shop.find_nearby\":{\"location\":\"Nashville, TN\",\"services\":[\"Guitar Lessons\",\"Violin Lessons\"]}}]"}}}
+{"id":"multiple_81","valid":false,"error":{"InvalidParamValue":{"param":"artist","actual_value":"एमिनेम","expected_values":["Eminem"],"decoded_output":"[{\"concert.book_ticket\":{\"artist\":\"एमिनेम\",\"location\":\"न्यू यॉर्क सिटी\",\"add_ons\":[\"Backstage Pass\"]}}]"}}}
+{"id":"multiple_82","valid":false,"error":{"InvalidParamValue":{"param":"key","actual_value":"C मेजर","expected_values":["C Major"],"decoded_output":"[{\"music.generate\":{\"key\":\"C मेजर\",\"tempo\":120,\"time_signature\":\"4/4\"}}]"}}}
+{"id":"multiple_83","valid":false,"error":{"InvalidParamValue":{"param":"player_name","actual_value":"लियोनेल मेस्सी","expected_values":["Lionel Messi"],"decoded_output":"[{\"player_stats.get_all_time_goals\":{\"player_name\":\"लियोनेल मेस्सी\",\"team_name\":\"बार्सिलोना\"}}]"}}}
+{"id":"multiple_84","valid":true,"error":null}
+{"id":"multiple_85","valid":false,"error":{"InvalidParamValue":{"param":"team","actual_value":"रियल मैड्रिड","expected_values":["Real Madrid"],"decoded_output":"[{\"soccer_scores.get_scores\":{\"team\":\"रियल मैड्रिड\",\"league\":\"ला लीगा\",\"rounds\":5}}]"}}}
+{"id":"multiple_86","valid":false,"error":{"InvalidParamValue":{"param":"category","actual_value":"रणनीति","expected_values":["strategy"],"decoded_output":"[{\"BoardGameGeek.recommend\":{\"numPlayers\":2,\"category\":\"रणनीति\",\"difficulty\":\"advanced\"}}]"}}}
+{"id":"multiple_87","valid":true,"error":null}
+{"id":"multiple_88","valid":false,"error":{"InvalidParamValue":{"param":"game_title","actual_value":"वर्ल्ड ऑफ वॉरक्राफ्ट","expected_values":["World of Warcraft"],"decoded_output":"[{\"video_games.get_player_count\":{\"game_title\":\"वर्ल्ड ऑफ वॉरक्राफ्ट\",\"year\":2020}}]"}}}
+{"id":"multiple_89","valid":false,"error":{"InvalidParamValue":{"param":"ingredients","actual_value":["चिकन","मशरूम"],"expected_values":[["chicken","mushrooms"],["mushrooms","chicken"]],"decoded_output":"[{\"recipe_search\":{\"ingredients\":[\"चिकन\",\"मशरूम\"],\"calories\":500,\"meal\":\"लंच\"}}]"}}}
+{"id":"multiple_90","valid":true,"error":null}
+{"id":"multiple_91","valid":false,"error":{"InvalidParamValue":{"param":"mainIngredient","actual_value":"सेब","expected_values":["apple pie","apple"],"decoded_output":"[{\"recipe.find\":{\"mainIngredient\":\"सेब\",\"ingredientLimit\":5}}]"}}}
+{"id":"multiple_92","valid":true,"error":null}
+{"id":"multiple_93","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"न्यूयॉर्क","expected_values":["New York","New York, NY","NYC"],"decoded_output":"[{\"hotel.book\":{\"location\":\"न्यूयॉर्क\",\"roomType\":\"डीलक्स\",\"nights\":2,\"additional_services\":[\"नाश्ते\"]}}]"}}}
+{"id":"multiple_94","valid":false,"error":{"InvalidParamValue":{"param":"roomType","actual_value":"Queen size bed suite","expected_values":["suite with queen size bed"],"decoded_output":"[{\"hotel_room_pricing.get\":{\"hotelName\":\"Hilton New York\",\"roomType\":\"Queen size bed suite\",\"nights\":3}}]"}}}
+{"id":"multiple_95","valid":true,"error":null}
+{"id":"multiple_96","valid":true,"error":null}
+{"id":"multiple_97","valid":false,"error":{"InvalidParamValue":{"param":"units","actual_value":"मीटर","expected_values":["","meters"],"decoded_output":"[{\"geometry.area_circle\":{\"radius\":10,\"units\":\"मीटर\"}}]"}}}
+{"id":"multiple_98","valid":true,"error":null}
+{"id":"multiple_99","valid":false,"error":{"InvalidParamValue":{"param":"function","actual_value":"2*x**2","expected_values":["2x**2","lambda x: 2x**2"],"decoded_output":"[{\"calculus.derivative\":{\"function\":\"2*x**2\",\"value\":1,\"function_variable\":\"x\"}}]"}}}
+{"id":"multiple_100","valid":true,"error":null}
+{"id":"multiple_101","valid":true,"error":null}
+{"id":"multiple_102","valid":true,"error":null}
+{"id":"multiple_103","valid":true,"error":null}
+{"id":"multiple_104","valid":false,"error":{"InvalidParamValue":{"param":"origin","actual_value":"न्यूयॉर्क सिटी","expected_values":["New York City","NYC"],"decoded_output":"[{\"get_shortest_driving_distance\":{\"origin\":\"न्यूयॉर्क सिटी\",\"destination\":\"वाशिंगटन डी.सी.\",\"unit\":\"किलोमीटर\"}}]"}}}
+{"id":"multiple_105","valid":false,"error":{"InvalidParamValue":{"param":"permeability","actual_value":0,"expected_values":["",0.01],"decoded_output":"[{\"calculate_magnetic_field\":{\"current\":5,\"radius\":4,\"permeability\":0}}]"}}}
+{"id":"multiple_106","valid":true,"error":null}
+{"id":"multiple_107","valid":true,"error":null}
+{"id":"multiple_108","valid":true,"error":null}
+{"id":"multiple_109","valid":true,"error":null}
+{"id":"multiple_110","valid":true,"error":null}
+{"id":"multiple_111","valid":true,"error":null}
+{"id":"multiple_112","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"Yosemite National Park","expected_values":["Yellowstone National Park"],"decoded_output":"[{\"forest_growth_forecast\":{\"location\":\"Yosemite National Park\",\"years\":5,\"include_human_impact\":true}}]"}}}
+{"id":"multiple_113","valid":true,"error":null}
+{"id":"multiple_114","valid":true,"error":null}
+{"id":"multiple_115","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"मैनहट्टन","expected_values":["Manhattan"],"decoded_output":"[{\"find_restaurants\":{\"location\":\"मैनहट्टन\",\"food_type\":\"थाई\",\"number\":5,\"dietary_requirements\":[\"शाकाहारी\"]}}]"}}}
+{"id":"multiple_116","valid":true,"error":null}
+{"id":"multiple_117","valid":true,"error":null}
+{"id":"multiple_118","valid":false,"error":{"InvalidParamValue":{"param":"actor_name","actual_value":"लियोनार्डो डिकैप्रियो","expected_values":["Leonardo DiCaprio"],"decoded_output":"[{\"imdb.find_movies_by_actor\":{\"actor_name\":\"लियोनार्डो डिकैप्रियो\",\"year\":2010,\"category\":\"all\"}}]"}}}
+{"id":"multiple_119","valid":false,"error":{"JsonDecodeError":{"error_message":"expected `,` or `}` at line 1 column 91","raw_output":"{\"name\": \"database_query\", \"parameters\": {\"table\": \"table_name\", \"conditions\": \"[{\\\"field\": \\\"age\\\", \\\"operation\\\": \\\">\\\", \\\"value\\\": \\\"25\\\"}, {\\\"field\\\": \\\"job\\\", \\\"operation\\\": \\\"=\\\", \\\"value\\\": \\\"इंजीनियर\\\"}]\"}}"}}}
+{"id":"multiple_120","valid":true,"error":null}
+{"id":"multiple_121","valid":true,"error":null}
+{"id":"multiple_122","valid":true,"error":null}
+{"id":"multiple_123","valid":true,"error":null}
+{"id":"multiple_124","valid":false,"error":{"InvalidParamValue":{"param":"event_outcomes","actual_value":1,"expected_values":[4],"decoded_output":"[{\"probabilities.calculate_single\":{\"total_outcomes\":52,\"event_outcomes\":1,\"round\":2}}]"}}}
+{"id":"multiple_125","valid":true,"error":null}
+{"id":"multiple_126","valid":false,"error":{"InvalidParamValue":{"param":"alpha","actual_value":0,"expected_values":["",0.05],"decoded_output":"[{\"t_test\":{\"dataset_A\":[12,24,36],\"dataset_B\":[15,30,45],\"alpha\":0}}]"}}}
+{"id":"multiple_127","valid":true,"error":null}
+{"id":"multiple_128","valid":true,"error":null}
+{"id":"multiple_129","valid":true,"error":null}
+{"id":"multiple_130","valid":true,"error":null}
+{"id":"multiple_131","valid":true,"error":null}
+{"id":"multiple_132","valid":true,"error":null}
+{"id":"multiple_133","valid":true,"error":null}
+{"id":"multiple_134","valid":true,"error":null}
+{"id":"multiple_135","valid":false,"error":{"InvalidParamValue":{"param":"court","actual_value":"कैलिफोर्निया","expected_values":["California","CA"],"decoded_output":"[{\"get_case_info\":{\"docket\":\"2022/AL2562\",\"court\":\"कैलिफोर्निया\",\"info_type\":\"पीड़ित\"}}]"}}}
+{"id":"multiple_136","valid":false,"error":{"InvalidParamValue":{"param":"city","actual_value":"सैन फ्रांसिस्को","expected_values":["San Francisco","San Francisco, CA","SF"],"decoded_output":"[{\"get_crime_rate\":{\"city\":\"सैन फ्रांसिस्को\",\"state\":\"कैलिफोर्निया\",\"type\":\"हिंसक अपराध\",\"year\":2020}}]"}}}
+{"id":"multiple_137","valid":false,"error":{"InvalidParamValue":{"param":"company","actual_value":"गूगल","expected_values":["Google"],"decoded_output":"[{\"lawsuit_search\":{\"company\":\"गूगल\",\"start_date\":\"1 जनवरी 2021\",\"location\":\"कैलिफ़ोर्निया\",\"status\":\"ongoing\"}}]"}}}
+{"id":"multiple_138","valid":false,"error":{"InvalidParamValue":{"param":"case_id","actual_value":"R बनाम एडम्स","expected_values":["R vs Adams","R_vs_Adams"],"decoded_output":"[{\"legal_case.fetch\":{\"case_id\":\"R बनाम एडम्स\",\"details\":true}}]"}}}
+{"id":"multiple_139","valid":false,"error":{"InvalidParamValue":{"param":"company_name","actual_value":"एप्पल इंक.","expected_values":["Apple Inc."],"decoded_output":"[{\"lawsuit_details.find\":{\"company_name\":\"एप्पल इंक.\",\"year\":2010,\"case_type\":\"Patent\"}}]"}}}
+{"id":"multiple_140","valid":true,"error":null}
+{"id":"multiple_141","valid":true,"error":null}
+{"id":"multiple_142","valid":false,"error":{"JsonDecodeError":{"error_message":"expected `,` or `}` at line 1 column 118","raw_output":"{\"name\": \"weather_humidity_forecast\", \"parameters\": {\"location\": \"मियामी, फ्लोरिडा, days\": \"7\"}}"}}}
+{"id":"multiple_143","valid":true,"error":null}
+{"id":"multiple_144","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"लंदन","expected_values":["London"],"decoded_output":"[{\"air_quality\":{\"location\":\"लंदन\",\"date\":\"2022/08/16\"}}]"}}}
+{"id":"multiple_145","valid":true,"error":null}
+{"id":"multiple_146","valid":true,"error":null}
+{"id":"multiple_147","valid":false,"error":{"InvalidParamValue":{"param":"start","actual_value":"न्यूयॉर्क","expected_values":["New York","New York, NY","NYC"],"decoded_output":"[{\"map_service.get_directions\":{\"start\":\"न्यूयॉर्क\",\"end\":\"लॉस एंजेलेस\",\"avoid\":[\"highways\",\"tolls\"]}}]"}}}
+{"id":"multiple_148","valid":true,"error":null}
+{"id":"multiple_149","valid":false,"error":{"JsonDecodeError":{"error_message":"EOF while parsing a string at line 1 column 3994","raw_output":"{\"name\": \"sentiment_analysis\", \"parameters\": {\"text\": \"\\u092e\\u093e\\u0926\\u0947 \\u0928\\u093e\\u0930\\u093e\\u0938 \\u0915\\u093e\\u0930\\u093e\\u0938 \\u0915\\u093e\\u0930\\u093e\\u0938 \\u0928\\u093e\\u0930\\u093e\\u0938 \\u0928\\u093e\\u0930\\u093e\\u0938 \\u0939\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u093e\\u0930\\u093e\\u0938 \\u0938\\u"}}}
+{"id":"multiple_150","valid":true,"error":null}
+{"id":"multiple_151","valid":false,"error":{"InvalidParamValue":{"param":"topic","actual_value":"व्यवहार और समूह गतिशीलता","expected_values":["psychology","Psychology"],"decoded_output":"[{\"social_media_analytics.most_followed\":{\"topic\":\"व्यवहार और समूह गतिशीलता\",\"sub_topics\":[\"मनोविज्ञान\",\"ट्विटर\"],\"region\":\"भारत\"}}]"}}}
+{"id":"multiple_152","valid":true,"error":null}
+{"id":"multiple_153","valid":false,"error":{"InvalidParamValue":{"param":"event","actual_value":"लिस्बन संधि","expected_values":["Treaty of Lisbon","Signing of the Treaty of Lisbon"],"decoded_output":"[{\"get_event_date\":{\"event\":\"लिस्बन संधि\",\"location\":\"लिस्बन\"}}]"}}}
+{"id":"multiple_154","valid":true,"error":null}
+{"id":"multiple_155","valid":false,"error":{"InvalidParamValue":{"param":"discovery","actual_value":"न्यूट्रॉन","expected_values":["neutron"],"decoded_output":"[{\"get_discoverer\":{\"discovery\":\"न्यूट्रॉन\",\"detail\":true}}]"}}}
+{"id":"multiple_156","valid":false,"error":{"InvalidParamValue":{"param":"scientist","actual_value":"अल्बर्ट आइंस्टीन","expected_values":["Albert Einstein"],"decoded_output":"[{\"historical_contrib.get_contrib\":{\"scientist\":\"अल्बर्ट आइंस्टीन\",\"date\":\"1915-03-17\",\"category\":\"विज्ञान\"}}]"}}}
+{"id":"multiple_157","valid":false,"error":{"InvalidParamValue":{"param":"name","actual_value":"यीशु मसीह","expected_values":["Jesus Christ"],"decoded_output":"[{\"get_earliest_reference\":{\"name\":\"यीशु मसीह\",\"source\":\"scriptures\"}}]"}}}
+{"id":"multiple_158","valid":false,"error":{"InvalidParamValue":{"param":"papal_name","actual_value":"इनोसेंट III","expected_values":["Innocent III","Pope Innocent III"],"decoded_output":"[{\"religious_history.get_papal_biography\":{\"papal_name\":\"इनोसेंट III\",\"include_contributions\":true}}]"}}}
+{"id":"multiple_159","valid":true,"error":null}
+{"id":"multiple_160","valid":false,"error":{"InvalidParamValue":{"param":"artist_name","actual_value":"जेम्स प्लेंसा","expected_values":["James Plensa"],"decoded_output":"[{\"get_sculpture_info\":{\"artist_name\":\"जेम्स प्लेंसा\",\"detail\":true}}]"}}}
+{"id":"multiple_161","valid":true,"error":null}
+{"id":"multiple_162","valid":true,"error":null}
+{"id":"multiple_163","valid":true,"error":null}
+{"id":"multiple_164","valid":true,"error":null}
+{"id":"multiple_165","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"शिकागो","expected_values":["Chicago","Chicago area"],"decoded_output":"[{\"guitar_price.find\":{\"model\":\"Gibson Les Paul\",\"condition\":\"Excellent\",\"location\":\"शिकागो\"}}]"}}}
+{"id":"multiple_166","valid":true,"error":null}
+{"id":"multiple_167","valid":false,"error":{"InvalidParamValue":{"param":"key","actual_value":"C मेजर","expected_values":["C"],"decoded_output":"[{\"music_generator.generate_melody\":{\"key\":\"C मेजर\",\"start_note\":\"C4\",\"length\":16,\"tempo\":120}}]"}}}
+{"id":"multiple_168","valid":false,"error":{"InvalidParamValue":{"param":"song_title","actual_value":"कासासिसासि","expected_values":["Bohemian Rhapsody"],"decoded_output":"[{\"get_song_lyrics\":{\"song_title\":\"कासासिसासि\",\"artist_name\":\"नेमास्ता\",\"lang\":\"Hindi\"}}]"}}}
+{"id":"multiple_169","valid":false,"error":{"InvalidParamValue":{"param":"key","actual_value":"C शार्प मेजर","expected_values":["C#","C sharp"],"decoded_output":"[{\"musical_scale\":{\"key\":\"C शार्प मेजर\",\"scale_type\":\"major\"}}]"}}}
+{"id":"multiple_170","valid":false,"error":{"InvalidParamValue":{"param":"player_name","actual_value":"क्रिस्टियानो रोनाल्डो","expected_values":["Cristiano Ronaldo"],"decoded_output":"[{\"soccer_stat.get_player_stats\":{\"player_name\":\"क्रिस्टियानो रोनाल्डो\",\"season\":\"2019-2020\",\"league\":\"all\"}}]"}}}
+{"id":"multiple_171","valid":false,"error":{"InvalidParamValue":{"param":"teams","actual_value":["लेकर्स","क्लिपर्स"],"expected_values":[["Lakers","Clippers"],["Clippers","Lakers"]],"decoded_output":"[{\"game_result.get_winner\":{\"teams\":[\"लेकर्स\",\"क्लिपर्स\"],\"date\":\"2021-01-28\"}}]"}}}
+{"id":"multiple_172","valid":false,"error":{"InvalidParamValue":{"param":"name","actual_value":"लेब्रोन जेम्स","expected_values":["Lebron James"],"decoded_output":"[{\"sports_db.find_athlete\":{\"name\":\"लेब्रोन जेम्स\",\"sport\":\"बास्केटबॉल\"}}]"}}}
+{"id":"multiple_173","valid":true,"error":null}
+{"id":"multiple_174","valid":false,"error":{"InvalidParamValue":{"param":"league","actual_value":"प्रीमियर लीग","expected_values":["Premier League"],"decoded_output":"[{\"sports_ranking\":{\"league\":\"प्रीमियर लीग\",\"team\":\"मैनचेस्टर यूनाइटेड\",\"season\":2024}}]"}}}
+{"id":"multiple_175","valid":true,"error":null}
+{"id":"multiple_176","valid":false,"error":{"InvalidParamValue":{"param":"league","actual_value":"प्रीमियर लीग","expected_values":["Premier League","PL"],"decoded_output":"[{\"sports_team.get_schedule\":{\"num_of_games\":6,\"league\":\"प्रीमियर लीग\",\"team_name\":\"मैनचेस्टर यूनाइटेड\"}}]"}}}
+{"id":"multiple_177","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"न्यू यॉर्क","expected_values":["New York","New York, NY","NYC"],"decoded_output":"[{\"board_game.chess.get_top_players\":{\"location\":\"न्यू यॉर्क\",\"minimum_rating\":2300,\"number_of_players\":10}}]"}}}
+{"id":"multiple_178","valid":false,"error":{"InvalidParamValue":{"param":"suit","actual_value":"षारास","expected_values":["Hearts"],"decoded_output":"[{\"find_card_in_deck\":{\"rank\":\"Queen\",\"suit\":\"षारास\",\"deck\":[]}}]"}}}
+{"id":"multiple_179","valid":true,"error":null}
+{"id":"multiple_180","valid":false,"error":{"InvalidParamValue":{"param":"platform","actual_value":"PC","expected_values":["Switch","Nintendo Switch"],"decoded_output":"[{\"game_stats.fetch_player_statistics\":{\"game\":\"Zelda\",\"username\":\"Sam\",\"platform\":\"PC\"}}]"}}}
+{"id":"multiple_181","valid":false,"error":{"InvalidParamValue":{"param":"team_name","actual_value":"लिवरपूल एफ.सी.","expected_values":["Liverpool F.C.","Liverpool"],"decoded_output":"[{\"soccer.get_last_match\":{\"include_stats\":true,\"team_name\":\"लिवरपूल एफ.सी.\"}}]"}}}
+{"id":"multiple_182","valid":true,"error":null}
+{"id":"multiple_183","valid":false,"error":{"InvalidParamValue":{"param":"recipe","actual_value":"बीफ लसग्ना","expected_values":["Beef Lasagna","Beef Lasagna Recipe"],"decoded_output":"[{\"recipe_info.get_calories\":{\"website\":\"Foodnetwork.com\",\"recipe\":\"बीफ लसग्ना\",\"optional_meal_time\":\"\"}}]"}}}
+{"id":"multiple_184","valid":true,"error":null}
+{"id":"multiple_185","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"बोस्टन, MA","expected_values":["Boston","Boston, MA"],"decoded_output":"[{\"restaurant_search.find_closest\":{\"location\":\"बोस्टन, MA\",\"cuisine\":\"सुशी\",\"amenities\":[\"पैटियो\"]}}]"}}}
+{"id":"multiple_186","valid":false,"error":{"InvalidParamValue":{"param":"dietary_restrictions","actual_value":"vegetarian","expected_values":["vegan"],"decoded_output":"[{\"find_recipe\":{\"dietary_restrictions\":\"vegetarian\",\"recipe_type\":\"breakfast\",\"time\":30}}]"}}}
+{"id":"multiple_187","valid":false,"error":{"InvalidParamValue":{"param":"items","actual_value":["tomato","salad"],"expected_values":[["tomatoes","lettuce"],["lettuce","tomatoes"]],"decoded_output":"[{\"whole_foods.check_price\":{\"location\":\"Los Angeles\",\"items\":[\"tomato\",\"salad\"]}}]"}}}
+{"id":"multiple_188","valid":false,"error":{"InvalidParamValue":{"param":"my_location","actual_value":"बर्कले","expected_values":["Berkeley","Berkeley,California","Berkeley,CA","Berkeley, CA"],"decoded_output":"[{\"grocery_store.find_best\":{\"rating\":4.5,\"my_location\":\"बर्कले\",\"products\":[\"टमाटर\",\"पालतू जानवरों के खाने\"]}}]"}}}
+{"id":"multiple_189","valid":true,"error":null}
+{"id":"multiple_190","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"शिकागो","expected_values":["Chicago"],"decoded_output":"[{\"book_hotel\":{\"location\":\"शिकागो\",\"nights\":2,\"room_type\":\"एकल\",\"hotel_name\":\"हिल्टन\",\"start_date\":\"10 दिसंबर 2022\"}}]"}}}
+{"id":"multiple_191","valid":false,"error":{"InvalidParamValue":{"param":"hotel_name","actual_value":"Paradise Hotel","expected_values":["Hotel Paradise"],"decoded_output":"[{\"book_hotel\":{\"hotel_name\":\"Paradise Hotel\",\"location\":\"Las Vegas\",\"room_type\":\"Luxury\",\"start_date\":\"05-12-2022\",\"stay_duration\":3,\"view\":\"city\"}}]"}}}
+{"id":"multiple_192","valid":false,"error":{"InvalidParamValue":{"param":"from_currency","actual_value":"यूरो","expected_values":["EUR"],"decoded_output":"[{\"currency_conversion.convert\":{\"amount\":150,\"from_currency\":\"यूरो\",\"to_currency\":\"कनाडाई डॉलर\"}}]"}}}
+{"id":"multiple_193","valid":true,"error":null}
+{"id":"multiple_194","valid":true,"error":null}
+{"id":"multiple_195","valid":true,"error":null}
+{"id":"multiple_196","valid":true,"error":null}
+{"id":"multiple_197","valid":true,"error":null}
+{"id":"multiple_198","valid":true,"error":null}
+{"id":"multiple_199","valid":false,"error":{"InvalidParamValue":{"param":"location","actual_value":"Yeloston","expected_values":["Yellowstone","yellowstone"],"decoded_output":"[{\"forest_growth_forecast\":{\"location\":\"Yeloston\",\"years\":5,\"include_human_impact\":true}}]"}}}
