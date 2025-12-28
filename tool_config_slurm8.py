@@ -28,6 +28,6 @@ for translate in [
     experiments.append(ToolExperiment(translate, AddNoiseMode.NoNoise))
 
 config = ToolConfig(
-    Model.Local(LocalModel.Qwen3_32B),
+    Model.Local(LocalModel.Qwen3Next80bA3b),
     experiments
 )

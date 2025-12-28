@@ -26,7 +26,6 @@ pub mod codebase_rs {
             AddNoiseMode, ApiModel, JudgeConfig, JudgeExperiment, Language, LocalModel, Model,
             ToolConfig, ToolExperiment, TranslateMode, TranslateOption,
         },
-        judge::concatenate_datasets::concatenate_two_answers_datasets,
         judge::preference::preference_prepare_aggregated_input,
         judge::{
             perplexity::{
@@ -42,9 +41,7 @@ pub mod codebase_rs {
                 perplexity_prepare_generate_perplexity_aggregated_input,
                 perplexity_prepare_generate_styled_answers_input,
                 perplexity_prepare_response_input,
-            },
-            dispatch_results::dispatch_perplexity_results,
-            dispatch_results::dispatch_preference_results,
+            }
         },
         models::backend::GenerationResult,
         tool::{

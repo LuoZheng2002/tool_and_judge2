@@ -28,6 +28,6 @@ for translate in [
     experiments.append(ToolExperiment(translate, AddNoiseMode.NoNoise))
 
 config = ToolConfig(
-    Model.Local(LocalModel.Llama3_1_8B),
+    Model.Local(LocalModel.Llama3_1_70B),
     experiments
 )
