@@ -58,10 +58,8 @@ pub struct GenerateStyledAnswersInputEntry {
 pub struct StyledAnswersEntry {
     pub index: usize,
     pub question: String,
-    pub styled_answer_correct: String,
-    pub styled_answer_incorrect: String,
-    pub original_answer_correct: String,
-    pub original_answer_incorrect: String,
+    pub styled_response_correct: String,
+    pub styled_response_incorrect: String,
     pub lang: String,
     pub subject: String,
 }
@@ -70,8 +68,7 @@ pub struct StyledAnswersEntry {
 pub struct GeneratePerplexityAggregatedInputEntry {
     pub index: usize,
     pub question: String,
-    pub styled_answer: String,
-    pub original_answer: String,
+    pub styled_response: String,
     pub is_correct: bool,
     pub lang: String,
     pub subject: String,
@@ -82,7 +79,7 @@ pub struct PerplexityEntry {
     pub index: usize,
     pub perplexity: f64,
     pub question: String,
-    pub styled_answer: String,
+    pub styled_response: String,
     pub original_answer: String,
     pub is_correct: bool,
     pub lang: String,
@@ -513,8 +510,7 @@ pub fn perplexity_prepare_generate_perplexity_aggregated_input(
             let input_entry = GeneratePerplexityAggregatedInputEntry {
                 index: *index,
                 question: styled_answers_entry.question.clone(),
-                styled_answer: styled_answers_entry.styled_answer_correct.clone(),
-                original_answer: styled_answers_entry.original_answer_correct.clone(),
+                styled_response: styled_answers_entry.styled_response_correct.clone(),
                 is_correct: true,
                 lang: styled_answers_entry.lang.clone(),
                 subject: styled_answers_entry.subject.clone(),
@@ -529,8 +525,7 @@ pub fn perplexity_prepare_generate_perplexity_aggregated_input(
             let input_entry = GeneratePerplexityAggregatedInputEntry {
                 index: *index,
                 question: styled_answers_entry.question.clone(),
-                styled_answer: styled_answers_entry.styled_answer_incorrect.clone(),
-                original_answer: styled_answers_entry.original_answer_incorrect.clone(),
+                styled_response: styled_answers_entry.styled_response_incorrect.clone(),
                 is_correct: false,
                 lang: styled_answers_entry.lang.clone(),
                 subject: styled_answers_entry.subject.clone(),

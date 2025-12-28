@@ -209,56 +209,55 @@ async def main_async():
             input_entries = load_json_lines_from_file(generate_response_input_file_path)
             print(f"Total entries to generate responses for language {lang}: {len(input_entries)}")
 
-            # Process entries in batches
-            model_size = config.model.size_in_billion_parameters()
-            # Reduce batch size significantly for HuggingFace backend due to padding overhead
-            # With max_length=2048 and padding, memory usage is batch_size * 2048 * hidden_size
-            batch_size = max(1, int(60 * args.num_gpus / model_size))  # Reduced from 120 to 60
-            # print(f"Processing {len(indices_to_process)} entries...", flush=True)
-            total_processed = 0
-            with open(generate_response_output_file_path, 'w') as f:
-                for i in range(0, len(input_entries), batch_size):
-                    batch_entries = input_entries[i:i+batch_size]
-                    print(f"Processing batch {i//batch_size + 1}/{(len(input_entries) + batch_size - 1)//batch_size}", flush=True)
-                    
-                    if not main_hf_backend_created:
-                        print(f"Creating HuggingFace backend for model {model_name} using {args.num_gpus} GPUs...", flush=True)
-                        from src_py.huggingface_backend import create_huggingface_backend
-                        main_hf_model, main_tokenizer = create_huggingface_backend(model_name, args.num_gpus)
-                        print(f"HuggingFace backend created for model {model_name}", flush=True)
-                        main_hf_backend_created = True
-                    hf_model = main_hf_model
-                    hf_tokenizer = main_tokenizer
+            # Process entries asynchronously using vLLM
+            semaphore = asyncio.Semaphore(200)
 
-                    # Get model outputs for the batch
+            async def collect_single_response_async(entry: dict) -> dict:
+                """
+                entry is of type GenerateResponseInputEntry
+                """
+                global main_vllm_backend_created, main_vllm_engine, main_tokenizer
+                if not main_vllm_backend_created:
+                    print(f"Creating VLLM backend for model {model_name} using {args.num_gpus} GPUs...", flush=True)
+                    main_vllm_engine, main_tokenizer = create_vllm_backend(model_name, args.num_gpus)
+                    print(f"VLLM backend created for model {model_name}", flush=True)
+                    main_vllm_backend_created = True
+                engine = main_vllm_engine
+                tokenizer = main_tokenizer
+                async with semaphore:
                     if config.model == LocalModel.Llama3_3_70B:
-                        from src_py.llama3_1_backend import generate_response_batch
+                        from src_py.llama3_1_backend import generate_response_async
                     elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b]:
-                        from src_py.qwen3_backend import generate_response_batch
+                        from src_py.qwen3_backend import generate_response_async
                     else:
                         raise ValueError(f"Unsupported model for response collection: {config.model}")
+                    try:
+                        response = await generate_response_async(entry, engine, tokenizer)
+                    except Exception as e:
+                        error_message = str(e)
+                        print(f"Error generating response for entry {entry['index']}: {error_message}")
+                        response = f"ERROR: {error_message}"
 
-                    batch_outputs = generate_response_batch(batch_entries, hf_model, hf_tokenizer)
+                    return {
+                        'index': entry['index'],
+                        'question': entry['question'],
+                        'response': response,
+                        'lang': entry['lang'],
+                        'subject': entry['subject'],
+                    }
 
-                    # Process each entry in the batch and write immediately
-                    for entry, output in zip(batch_entries, batch_outputs):
-                        result_entry = {
-                            'index': entry['index'],
-                            'question': entry['question'],
-                            'response': output,
-                            'lang': entry['lang'],
-                            'subject': entry['subject'],
-                        }
-                        # Write result immediately
-                        f.write(json.dumps(result_entry, ensure_ascii=False) + '\n')
+            async def collect_all_response_entries() -> list[dict]:
+                tasks = [collect_single_response_async(entry) for entry in input_entries]
+                with open(generate_response_output_file_path, 'w', encoding='utf-8') as f:
+                    for i, coro in enumerate(asyncio.as_completed(tasks), 1):
+                        result = await coro
+                        f.write(json.dumps(result, ensure_ascii=False) + '\n')
                         f.flush()
-                        total_processed += 1
+                        print(f"Written {i}/{len(input_entries)} entries to file")
 
-                    # Flush after each batch to ensure results are written
-                    f.flush()
-                    print(f"Written {total_processed}/{len(input_entries)} entries to file", flush=True)
+            await collect_all_response_entries()
             perplexity_dispatch_response_results(config)
-            print(f"Completed writing all {total_processed} responses to {generate_response_output_file_path}")
+            print(f"Completed writing all responses to {generate_response_output_file_path}")
 
             # debug: stop here
             exit(1)
@@ -305,10 +304,8 @@ async def main_async():
                 return {
                     'index': entry['index'],
                     'question': entry['question'],
-                    'styled_answer_correct': result['styled_answer_correct'],
-                    'styled_answer_incorrect': result['styled_answer_incorrect'],
-                    'original_answer_correct': entry['original_answer_correct'],
-                    'original_answer_incorrect': entry['original_answer_incorrect'],
+                    'styled_response_correct': result['styled_response_correct'],
+                    'styled_response_incorrect': result['styled_response_incorrect'],
                     'lang': entry['lang'],
                     'subject': entry['subject'],
                 }
@@ -364,11 +361,11 @@ async def main_async():
                     for entry, output in zip(batch_entries, batch_outputs):
                         result_entry = {
                             'index': entry['index'],
-                            'perplexity_correct': output['perplexity_correct'],
-                            'perplexity_incorrect': output['perplexity_incorrect'],
+                            'perplexity': output['perplexity'],
                             'question': entry['question'],
-                            'processed_answer_correct': entry['statement_correct'],
-                            'processed_answer_incorrect': entry['statement_incorrect'],
+                            'styled_response': entry['styled_response'],
+                            'original_answer': entry['original_answer'],
+                            'is_correct': entry['is_correct'],
                             'lang': lang,
                             'subject': entry['subject'],
                         }

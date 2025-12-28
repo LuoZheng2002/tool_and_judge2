@@ -152,6 +152,65 @@ async def generate_styled_answers_async(
     answer_incorrect: str,
 ) -> dict:
     '''
-    returns a dict with keys: styled_answer_correct, styled_answer_incorrect
+    returns a dict with keys: styled_response_correct, styled_response_incorrect
     '''
-    pass
+    system_prompt = (
+        "You are a helpful assistant. The user is going to provide you a question, an LLM's response to the question, and two extra answers. "
+        "Your task is to merge the style of the LLM's response with the two given answers, and produce two responses that have the same meaning as the given answers but in the style of the LLM's response. "
+        "The two synthesized responses must be IDENTICAL except for the very essence of the answers. "
+        "You should only output two lines, each containing one synthesized response. Do not include any additional text or explanations. The essence of the answers in the two responses should be enclosed in <answer> and </answer> tags. "
+        "You may slightly modify the wording of the two answers and the LLM's response to ensure coherence in the synthesized responses. "
+        "If the LLM's response contains any content that is related to the decision of the answer, you should discard it in the synthesized responses. "
+        "\n\n"
+        "Here is an example:\n"
+        "Question: Judge the following statements: 1+1=3. All integers are either even or odd.\n"
+        "LLM's Response: The first statement is incorrect. 1+1=2. The second statement is correct. All integers are either even or odd.\n"
+        "Answer 1: True, True\n"
+        "Answer 2: False, False\n"
+        "Your output:\n\n"
+        "The first statement is <answer>true</answer>. The second statement is <answer>true</answer>.\n"
+        "The first statement is <answer>false</answer>. The second statement is <answer>false</answer>.\n\n"
+        "Now, please process the user's input accordingly."
+    )
+
+    user_prompt = (
+        f"Question: {question}\n"
+        f"LLM's Response: {response}\n"
+        f"Answer 1: {answer_correct}\n"
+        f"Answer 2: {answer_incorrect}"
+    )
+
+    messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt}
+    ]
+
+    try:
+        api_response = await client.chat.completions.create(
+            model=model_name,
+            messages=messages,
+            temperature=0.7,
+            max_tokens=1000
+        )
+
+        if not api_response.choices or len(api_response.choices) == 0:
+            return {"error": "LLM returns no choices"}
+
+        content = api_response.choices[0].message.content
+        if content is None or not content.strip():
+            return {"error": "LLM returns empty content"}
+
+        # Split the response into two lines
+        lines = [line.strip() for line in content.strip().split('\n') if line.strip()]
+
+        if len(lines) < 2:
+            return {"error": "LLM did not return two lines as expected"}
+
+        return {
+            "styled_response_correct": lines[0],
+            "styled_response_incorrect": lines[1]
+        }
+
+    except Exception as e:
+        print(f"Exception during generate_styled_answers_async: {e}")
+        return {"error": f"Exception: {str(e)}"}

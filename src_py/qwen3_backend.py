@@ -288,7 +288,78 @@ def generate_response_batch(
 
     return responses
 
+async def generate_response_async(
+    entry: dict,
+    engine: Any,
+    tokenizer: Any,
+) -> str:
+    """
+    Generate a single response using vLLM backend asynchronously.
 
+    Args:
+        entry: Entry containing 'question' field
+        engine: vLLM AsyncLLMEngine instance
+        tokenizer: Tokenizer instance
+
+    Returns:
+        Generated response as a string
+    """
+    from src_py.utils import language_abbreviation_to_name
+
+    question = entry['question']
+    lang = entry.get('lang', 'en')
+
+    # Map language abbreviation to full name
+    language_name = language_abbreviation_to_name(lang)
+
+    # Build language-specific instructions
+    instruction = f"Please concisely answer the question in {language_name}."
+
+    # Combine question with instruction
+    user_content = f"{question}\n\n{instruction}"
+
+    # Build messages for chat template
+    messages = [
+        {
+            "role": "user",
+            "content": user_content
+        }
+    ]
+
+    # Apply chat template to get the full formatted prompt
+    formatted_prompt = tokenizer.apply_chat_template(
+        messages,
+        tokenize=False,
+        add_generation_prompt=True,
+        enable_thinking=False,
+    )
+
+    # Use vLLM to generate the response
+    sampling_params = SamplingParams(
+        temperature=0.0,  # Greedy decoding
+        max_tokens=256,
+        stop_token_ids=[tokenizer.eos_token_id]
+    )
+
+    # Generate with vLLM engine
+    request_id = f"qwen3_response_{id(entry)}"
+    results_generator = engine.generate(
+        formatted_prompt,
+        sampling_params,
+        request_id
+    )
+
+    # Wait for completion
+    final_output = None
+    async for request_output in results_generator:
+        final_output = request_output
+
+    if final_output is None:
+        raise RuntimeError("vLLM generation returned no output")
+
+    # Extract the generated text
+    generated_text = final_output.outputs[0].text.strip()
+    return generated_text
 
 
 def collect_perplexity_batch(
