@@ -159,8 +159,6 @@ pub fn perplexity_generate_perplexity_aggregated_output_file_path(config: &Judge
 
 #[pyfunction]
 pub fn perplexity_prepare_response_input(
-    // model_safe_name: &str,
-    // lang: &str,
     config: &JudgeConfig,
     debug_limit: Option<usize>,
 ) {
@@ -634,6 +632,13 @@ pub fn perplexity_dispatch_response_results(config: &JudgeConfig) {
         "Dispatched response results for model: {}, lang: {}",
         model_safe_name, lang
     );
+    // remove the aggregated output file after dispatching
+    std::fs::remove_file(&input_file_path)
+        .expect("Failed to remove aggregated response output file after dispatching");
+    println!(
+        "Removed aggregated response output file: {}",
+        input_file_path
+    );
 }
 
 #[pyfunction]
@@ -715,6 +720,13 @@ pub fn perplexity_dispatch_styled_answers_results(config: &JudgeConfig) {
     println!(   
         "Dispatched styled answers results for model: {}, lang: {}",
         model_safe_name, lang
+    );
+    // remove the aggregated output file after dispatching
+    std::fs::remove_file(&input_file_path)
+        .expect("Failed to remove aggregated styled answers output file after dispatching");
+    println!(
+        "Removed aggregated styled answers output file: {}",
+        input_file_path
     );
 }
 
@@ -851,5 +863,12 @@ pub fn perplexity_dispatch_generate_perplexity_results(config: &JudgeConfig) {
     println!(
         "Dispatched perplexity results for model: {}, lang: {}",
         model_safe_name, lang
+    );
+    // remove the aggregated output file after dispatching
+    std::fs::remove_file(&input_file_path)
+        .expect("Failed to remove aggregated perplexity output file after dispatching");
+    println!(
+        "Removed aggregated perplexity output file: {}",
+        input_file_path
     );
 }

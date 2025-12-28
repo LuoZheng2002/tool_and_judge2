@@ -307,7 +307,7 @@ def collect_perplexity_batch(
 
     return results
 
-def collect_response_batch(
+def generate_response_batch(
     entries: List[dict],
     model: Any,
     tokenizer: Any,

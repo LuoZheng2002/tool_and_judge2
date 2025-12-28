@@ -143,7 +143,7 @@ Put your final answer in \\boxed{{category_name}}."""
 
 
 
-async def merge_perplexity_dataset_async(
+async def generate_styled_answers_async(
     model_name: str,
     client: Any,
     question: str,
@@ -152,6 +152,6 @@ async def merge_perplexity_dataset_async(
     answer_incorrect: str,
 ) -> dict:
     '''
-    returns a dict with keys: statement_correct, statement_incorrect
+    returns a dict with keys: styled_answer_correct, styled_answer_incorrect
     '''
     pass
