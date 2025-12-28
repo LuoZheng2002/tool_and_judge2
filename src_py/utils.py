@@ -123,6 +123,160 @@ def language_abbreviation_to_name(abbreviation: str) -> str:
 
 
 
+def trim_styled_response_and_get_char_mask(styled_response: str):
+    """
+    Trim <answer> tags from a styled response and create a character-level mask.
+
+    Args:
+        styled_response: str, the response with <answer> tags (e.g., "The answer is <answer>42</answer>.")
+
+    Returns:
+        tuple: (trimmed_response, char_mask) where:
+            - trimmed_response: str, response with <answer> tags removed
+            - char_mask: list of bool, True for character positions that were inside <answer> tags
+    """
+    import re
+
+    # Pattern to match <answer>...</answer>
+    pattern = r'<answer>(.*?)</answer>'
+
+    # Track character positions
+    char_positions = []  # List of (char, is_answer)
+    last_end = 0
+
+    for match in re.finditer(pattern, styled_response):
+        # Add non-answer text before this match
+        before_text = styled_response[last_end:match.start()]
+        for char in before_text:
+            char_positions.append((char, False))
+
+        # Add answer text
+        answer_text = match.group(1)
+        for char in answer_text:
+            char_positions.append((char, True))
+
+        last_end = match.end()
+
+    # Add remaining text after last match
+    remaining_text = styled_response[last_end:]
+    for char in remaining_text:
+        char_positions.append((char, False))
+
+    # Build trimmed response and char mask
+    trimmed_response = ''.join(char for char, _ in char_positions)
+    char_mask = [is_answer for _, is_answer in char_positions]
+
+    return trimmed_response, char_mask
+
+
+def convert_char_mask_to_token_mask(trimmed_response: str, char_mask: list, tokenizer: Any):
+    """
+    Convert a character-level mask to a token-level mask.
+
+    Args:
+        trimmed_response: str, the response text (without tags)
+        char_mask: list of bool, True for character positions that should be masked
+        tokenizer: Tokenizer instance
+
+    Returns:
+        list of bool: token-level mask, True for tokens that were inside masked characters
+    """
+    # Tokenize the trimmed response
+    tokens = tokenizer(trimmed_response, add_special_tokens=False)
+    input_ids = tokens.input_ids
+
+    # Create token mask by checking which tokens correspond to masked characters
+    # We'll mark a token as "masked" if any of its characters were masked
+    token_mask = []
+
+    # Get character spans for each token
+    char_idx = 0
+    for token_id in input_ids:
+        token_text = tokenizer.decode([token_id], skip_special_tokens=True)
+        token_len = len(token_text)
+
+        # Check if any character in this token's span is masked
+        is_masked_token = False
+        for i in range(char_idx, min(char_idx + token_len, len(char_mask))):
+            if i < len(char_mask) and char_mask[i]:
+                is_masked_token = True
+                break
+
+        token_mask.append(is_masked_token)
+        char_idx += token_len
+
+    return token_mask
+
+
+def parse_styled_response_to_mask(styled_response: str, tokenizer: Any):
+    """
+    Parse a styled response with <answer> tags and create a mask for highlighted tokens.
+
+    This is a convenience function that combines trim_styled_response_and_get_char_mask
+    and convert_char_mask_to_token_mask.
+
+    Args:
+        styled_response: str, the response with <answer> tags (e.g., "The answer is <answer>42</answer>.")
+        tokenizer: Tokenizer instance
+
+    Returns:
+        tuple: (trimmed_response, answer_mask) where:
+            - trimmed_response: str, response with <answer> tags removed
+            - answer_mask: list of bool, True for tokens that were inside <answer> tags
+    """
+    trimmed_response, char_mask = trim_styled_response_and_get_char_mask(styled_response)
+    token_mask = convert_char_mask_to_token_mask(trimmed_response, char_mask, tokenizer)
+    return trimmed_response, token_mask
+
+
+def calculate_perplexity_from_logits_with_mask(logits, input_ids, answer_mask):
+    """
+    Calculate perplexity for masked answer tokens.
+
+    Args:
+        logits: torch.Tensor of shape [seq_len, vocab_size]
+        input_ids: List of token IDs
+        answer_mask: List of bool, True for positions that should be included in perplexity calculation
+
+    Returns:
+        float: perplexity value
+    """
+    import torch
+    import math
+
+    # Shift logits and labels for next-token prediction
+    shift_logits = logits[:-1, :]  # All but last position
+    shift_labels = torch.tensor(input_ids[1:])  # All but first position
+
+    # Compute log probabilities
+    log_probs = torch.nn.functional.log_softmax(shift_logits, dim=-1)
+
+    # Gather log probs for the actual next tokens
+    selected_log_probs = log_probs.gather(1, shift_labels.unsqueeze(-1)).squeeze(-1)
+
+    # Apply mask (shift mask by 1 to align with next-token prediction)
+    # answer_mask[i] indicates whether token i should be included
+    # For next-token prediction, we want log_prob of predicting token i+1 from position i
+    # So we use answer_mask[1:] to select which predictions to include
+    if len(answer_mask) > 1:
+        shifted_mask = answer_mask[1:]  # Shift to align with next-token prediction
+        mask_tensor = torch.tensor(shifted_mask, dtype=torch.bool)
+
+        # Select only the log probs where mask is True
+        masked_log_probs = selected_log_probs[mask_tensor]
+
+        # Calculate perplexity
+        if len(masked_log_probs) > 0:
+            avg_log_prob = masked_log_probs.mean().item()
+            perplexity = math.exp(-avg_log_prob)
+        else:
+            perplexity = float('inf')
+    else:
+        perplexity = float('inf')
+
+    return perplexity
+
+
 def calculate_perplexity_from_logits(logits, input_ids, answer, tokenizer):
     """
     Calculate perplexity for an answer using backward search to locate answer tokens.

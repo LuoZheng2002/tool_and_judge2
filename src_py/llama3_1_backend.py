@@ -208,6 +208,61 @@ async def translate_tool_parameter_async(
     return final_output.outputs[0].text.strip()
 
 
+def forward_for_perplexity(
+    formatted_prompts: List[str],
+    model: Any,
+    tokenizer: Any,
+) -> List[dict]:
+    """
+    Get logits and input_ids for a batch of formatted prompts.
+
+    Args:
+        formatted_prompts: List of formatted prompt strings (already includes assistant response)
+        model: HuggingFace model instance
+        tokenizer: Tokenizer instance
+
+    Returns:
+        List of dicts containing 'logits' and 'input_ids' for each prompt
+    """
+    import torch
+
+    # Tokenize all prompts with padding for batching
+    inputs = tokenizer(
+        formatted_prompts,
+        return_tensors="pt",
+        padding=True,
+        truncation=True,
+        max_length=2048,
+        add_special_tokens=False
+    )
+
+    # Move batch to model's device
+    input_ids_batch = inputs.input_ids.to(model.device)
+    attention_mask = inputs.attention_mask.to(model.device)
+
+    # Get logits from model for the entire batch
+    with torch.no_grad():
+        outputs = model(input_ids_batch, attention_mask=attention_mask)
+        logits_batch = outputs.logits.cpu()  # [batch_size, seq_len, vocab_size], move to CPU
+
+    # Process each item in the batch
+    results = []
+    for i in range(len(formatted_prompts)):
+        # Get the actual sequence length (excluding padding)
+        seq_len = attention_mask[i].sum().item()
+
+        # Extract logits and input_ids for this sequence (excluding padding)
+        logits = logits_batch[i, :seq_len, :]  # [seq_len, vocab_size]
+        input_ids = input_ids_batch[i, :seq_len].cpu().tolist()
+
+        results.append({
+            'logits': logits,
+            'input_ids': input_ids,
+        })
+
+    return results
+
+
 def collect_perplexity_batch(
     entries: List[dict],
     model: Any,
