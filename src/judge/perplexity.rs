@@ -11,9 +11,9 @@ use crate::{
     judge::{
         base_paths::{JUDGE_BASE_DATASET_PATH, JUDGE_BASE_RESULT_PATH},
         generate_dataset::{
-            PerplexityDatasetMaskEntry, TwoAnswersSameLangEntry, generate_one_answer_dataset,
+            PerplexityDatasetMaskEntry, TwoAnswersSameLangEntry,
             generate_perplexity_dataset_mask, generate_two_answers_same_lang_dataset,
-            get_preference_indices, get_valid_perplexity_indices,
+            get_valid_perplexity_indices,
         },
     },
     utils::{get_model_safe_name, load_json_lines, write_json_lines_to_file},

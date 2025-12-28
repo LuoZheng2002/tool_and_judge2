@@ -101,11 +101,12 @@ async def main_async():
     # Then we have the question only dataset file. Its path can be retrieved from Rust code.
     # Then we get the python array object from reading the file
     print("----------PASS 1: PRE-TRANSLATE QUESTIONS----------")
+    aggregated_questions_input_file_path = pass_pre_translate_aggregated_questions_input_file_path(config)
+    aggregated_questions_output_file_path = pass_pre_translate_aggregated_questions_output_file_path(config)
     if os.path.exists(aggregated_questions_output_file_path):
         pass_pre_translate_dispatch_results(config)
     pass_pre_translate_prepare_aggregated_questions(config)
-    aggregated_questions_input_file_path = pass_pre_translate_aggregated_questions_input_file_path(config)
-    aggregated_questions_output_file_path = pass_pre_translate_aggregated_questions_output_file_path(config)
+    
     
     # Each entry has a signature of type PreTranslateAggregatedInputQuestionEntry in src/tool/passes/pass_pre_translate.rs
     question_entries = load_json_lines_from_file(aggregated_questions_input_file_path)
@@ -199,11 +200,12 @@ async def main_async():
     # We generate the function name map and store it in a file for later use
 
     print("----------PASS 2: GENERATE RAW FUNCTION CALLS----------")
+    aggregated_input_file_path = pass_generate_raw_aggregated_input_file_path(config)
+    aggregated_output_file_path = pass_generate_raw_aggregated_output_file_path(config)
     if os.path.exists(aggregated_output_file_path):
         pass_generate_raw_dispatch_results(config)
     pass_generate_raw_prepare_aggregated_input(config)
-    aggregated_input_file_path = pass_generate_raw_aggregated_input_file_path(config)
-    aggregated_output_file_path = pass_generate_raw_aggregated_output_file_path(config)
+    
     
     # Each entry has a signature of type GenerateRawAggregatedInputEntry in src/tool/passes/pass_generate_raw.rs
     input_entries = load_json_lines_from_file(aggregated_input_file_path)
@@ -307,11 +309,12 @@ async def main_async():
     # Then we replace the original parameter values with translated ones
 
     print("----------PASS 4: POST-TRANSLATE FUNCTION CALLS----------")
+    aggregated_input_file_path = pass_post_translate_aggregated_input_file_path(config)
+    aggregated_output_file_path = pass_post_translate_aggregated_output_file_path(config)
     if os.path.exists(aggregated_output_file_path):
         pass_post_translate_dispatch_results(config)
     pass_post_translate_prepare_aggregated_input(config)
-    aggregated_input_file_path = pass_post_translate_aggregated_input_file_path(config)
-    aggregated_output_file_path = pass_post_translate_aggregated_output_file_path(config)
+    
     
     # Each entry has a signature of type PostTranslateAggregatedInputEntry in src/tool/passes/pass_post_translate.rs
     input_entries = load_json_lines_from_file(aggregated_input_file_path)
@@ -405,11 +408,12 @@ async def main_async():
     # In the second sub-pass, all invalid parameter errors are categorized either through the cache or through gpt5.
     # Finally, we dispatch invalid parameter errors and determine other errors.
     print("----------PASS 6: CATEGORIZE PARAMETER VALUE MISMATCHES----------")
+    aggregated_input_file_path = pass_categorize_aggregated_input_file_path(config)
+    aggregated_output_file_path = pass_categorize_aggregated_output_file_path(config)
     if os.path.exists(aggregated_output_file_path):
         pass_categorize_dispatch_results(config)
     pass_categorize_prepare_aggregated_input(config)
-    aggregated_input_file_path = pass_categorize_aggregated_input_file_path(config)
-    aggregated_output_file_path = pass_categorize_aggregated_output_file_path(config)
+    
     
     # Each entry has a signature of type CategorizeAggregatedInputEntry in src/tool/passes/pass_categorize.rs
     input_entries = load_json_lines_from_file(aggregated_input_file_path)

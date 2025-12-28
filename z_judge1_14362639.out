@@ -1,0 +1,604 @@
+✏️ Setting installed package as editable
+Dispatching response results for model: Qwen-Qwen3-8B, lang: en, input file: judge/result/Qwen-Qwen3-8B/perplexity_response_output.jsonl
+Warning: Missing 8561 entries for model: Qwen-Qwen3-8B, lang: en
+Dispatched response results for model: Qwen-Qwen3-8B, lang: en
+Removed aggregated response output file: judge/result/Qwen-Qwen3-8B/perplexity_response_output.jsonl
+Response input dataset for language en written to judge/result/Qwen-Qwen3-8B/perplexity_response_input.jsonl
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm1.py
+Processing configuration:  <builtins.JudgeConfig object at 0x7f768dd53b40>
+Total entries to generate responses for language en: 8561
+Processing batch 1/1223
+Creating HuggingFace backend for model Qwen/Qwen3-8B using 1 GPUs...
+Creating HuggingFace backend for model Qwen/Qwen3-8B with batch size 1...
+Loading model from HuggingFace...
+Found 1 GPUs
+GPU 0: 39.49 GB available, using 35 GB
+Model loaded, setting to eval mode...
+Model in eval mode
+Model device map: {'': 0}
+HuggingFace backend created successfully for Qwen/Qwen3-8B
+HuggingFace backend created for model Qwen/Qwen3-8B
+Written 7/8561 entries to file
+Processing batch 2/1223
+Written 14/8561 entries to file
+Processing batch 3/1223
+Written 21/8561 entries to file
+Processing batch 4/1223
+Written 28/8561 entries to file
+Processing batch 5/1223
+Written 35/8561 entries to file
+Processing batch 6/1223
+Written 42/8561 entries to file
+Processing batch 7/1223
+Written 49/8561 entries to file
+Processing batch 8/1223
+Written 56/8561 entries to file
+Processing batch 9/1223
+Written 63/8561 entries to file
+Processing batch 10/1223
+Written 70/8561 entries to file
+Processing batch 11/1223
+Written 77/8561 entries to file
+Processing batch 12/1223
+Written 84/8561 entries to file
+Processing batch 13/1223
+Written 91/8561 entries to file
+Processing batch 14/1223
+Written 98/8561 entries to file
+Processing batch 15/1223
+Written 105/8561 entries to file
+Processing batch 16/1223
+Written 112/8561 entries to file
+Processing batch 17/1223
+Written 119/8561 entries to file
+Processing batch 18/1223
+Written 126/8561 entries to file
+Processing batch 19/1223
+Written 133/8561 entries to file
+Processing batch 20/1223
+Written 140/8561 entries to file
+Processing batch 21/1223
+Written 147/8561 entries to file
+Processing batch 22/1223
+Written 154/8561 entries to file
+Processing batch 23/1223
+Written 161/8561 entries to file
+Processing batch 24/1223
+Written 168/8561 entries to file
+Processing batch 25/1223
+Written 175/8561 entries to file
+Processing batch 26/1223
+Written 182/8561 entries to file
+Processing batch 27/1223
+Written 189/8561 entries to file
+Processing batch 28/1223
+Written 196/8561 entries to file
+Processing batch 29/1223
+Written 203/8561 entries to file
+Processing batch 30/1223
+Written 210/8561 entries to file
+Processing batch 31/1223
+Written 217/8561 entries to file
+Processing batch 32/1223
+Written 224/8561 entries to file
+Processing batch 33/1223
+Written 231/8561 entries to file
+Processing batch 34/1223
+Written 238/8561 entries to file
+Processing batch 35/1223
+Written 245/8561 entries to file
+Processing batch 36/1223
+Written 252/8561 entries to file
+Processing batch 37/1223
+Written 259/8561 entries to file
+Processing batch 38/1223
+Written 266/8561 entries to file
+Processing batch 39/1223
+Written 273/8561 entries to file
+Processing batch 40/1223
+Written 280/8561 entries to file
+Processing batch 41/1223
+Written 287/8561 entries to file
+Processing batch 42/1223
+Written 294/8561 entries to file
+Processing batch 43/1223
+Written 301/8561 entries to file
+Processing batch 44/1223
+Written 308/8561 entries to file
+Processing batch 45/1223
+Written 315/8561 entries to file
+Processing batch 46/1223
+Written 322/8561 entries to file
+Processing batch 47/1223
+Written 329/8561 entries to file
+Processing batch 48/1223
+Written 336/8561 entries to file
+Processing batch 49/1223
+Written 343/8561 entries to file
+Processing batch 50/1223
+Written 350/8561 entries to file
+Processing batch 51/1223
+Written 357/8561 entries to file
+Processing batch 52/1223
+Written 364/8561 entries to file
+Processing batch 53/1223
+Written 371/8561 entries to file
+Processing batch 54/1223
+Written 378/8561 entries to file
+Processing batch 55/1223
+Written 385/8561 entries to file
+Processing batch 56/1223
+Written 392/8561 entries to file
+Processing batch 57/1223
+Written 399/8561 entries to file
+Processing batch 58/1223
+Written 406/8561 entries to file
+Processing batch 59/1223
+Written 413/8561 entries to file
+Processing batch 60/1223
+Written 420/8561 entries to file
+Processing batch 61/1223
+Written 427/8561 entries to file
+Processing batch 62/1223
+Written 434/8561 entries to file
+Processing batch 63/1223
+Written 441/8561 entries to file
+Processing batch 64/1223
+Written 448/8561 entries to file
+Processing batch 65/1223
+Written 455/8561 entries to file
+Processing batch 66/1223
+Written 462/8561 entries to file
+Processing batch 67/1223
+Written 469/8561 entries to file
+Processing batch 68/1223
+Written 476/8561 entries to file
+Processing batch 69/1223
+Written 483/8561 entries to file
+Processing batch 70/1223
+Written 490/8561 entries to file
+Processing batch 71/1223
+Written 497/8561 entries to file
+Processing batch 72/1223
+Written 504/8561 entries to file
+Processing batch 73/1223
+Written 511/8561 entries to file
+Processing batch 74/1223
+Written 518/8561 entries to file
+Processing batch 75/1223
+Written 525/8561 entries to file
+Processing batch 76/1223
+Written 532/8561 entries to file
+Processing batch 77/1223
+Written 539/8561 entries to file
+Processing batch 78/1223
+Written 546/8561 entries to file
+Processing batch 79/1223
+Written 553/8561 entries to file
+Processing batch 80/1223
+Written 560/8561 entries to file
+Processing batch 81/1223
+Written 567/8561 entries to file
+Processing batch 82/1223
+Written 574/8561 entries to file
+Processing batch 83/1223
+Written 581/8561 entries to file
+Processing batch 84/1223
+Written 588/8561 entries to file
+Processing batch 85/1223
+Written 595/8561 entries to file
+Processing batch 86/1223
+Written 602/8561 entries to file
+Processing batch 87/1223
+Written 609/8561 entries to file
+Processing batch 88/1223
+Written 616/8561 entries to file
+Processing batch 89/1223
+Written 623/8561 entries to file
+Processing batch 90/1223
+Written 630/8561 entries to file
+Processing batch 91/1223
+Written 637/8561 entries to file
+Processing batch 92/1223
+Written 644/8561 entries to file
+Processing batch 93/1223
+Written 651/8561 entries to file
+Processing batch 94/1223
+Written 658/8561 entries to file
+Processing batch 95/1223
+Written 665/8561 entries to file
+Processing batch 96/1223
+Written 672/8561 entries to file
+Processing batch 97/1223
+Written 679/8561 entries to file
+Processing batch 98/1223
+Written 686/8561 entries to file
+Processing batch 99/1223
+Written 693/8561 entries to file
+Processing batch 100/1223
+Written 700/8561 entries to file
+Processing batch 101/1223
+Written 707/8561 entries to file
+Processing batch 102/1223
+Written 714/8561 entries to file
+Processing batch 103/1223
+Written 721/8561 entries to file
+Processing batch 104/1223
+Written 728/8561 entries to file
+Processing batch 105/1223
+Written 735/8561 entries to file
+Processing batch 106/1223
+Written 742/8561 entries to file
+Processing batch 107/1223
+Written 749/8561 entries to file
+Processing batch 108/1223
+Written 756/8561 entries to file
+Processing batch 109/1223
+Written 763/8561 entries to file
+Processing batch 110/1223
+Written 770/8561 entries to file
+Processing batch 111/1223
+Written 777/8561 entries to file
+Processing batch 112/1223
+Written 784/8561 entries to file
+Processing batch 113/1223
+Written 791/8561 entries to file
+Processing batch 114/1223
+Written 798/8561 entries to file
+Processing batch 115/1223
+Written 805/8561 entries to file
+Processing batch 116/1223
+Written 812/8561 entries to file
+Processing batch 117/1223
+Written 819/8561 entries to file
+Processing batch 118/1223
+Written 826/8561 entries to file
+Processing batch 119/1223
+Written 833/8561 entries to file
+Processing batch 120/1223
+Written 840/8561 entries to file
+Processing batch 121/1223
+Written 847/8561 entries to file
+Processing batch 122/1223
+Written 854/8561 entries to file
+Processing batch 123/1223
+Written 861/8561 entries to file
+Processing batch 124/1223
+Written 868/8561 entries to file
+Processing batch 125/1223
+Written 875/8561 entries to file
+Processing batch 126/1223
+Written 882/8561 entries to file
+Processing batch 127/1223
+Written 889/8561 entries to file
+Processing batch 128/1223
+Written 896/8561 entries to file
+Processing batch 129/1223
+Written 903/8561 entries to file
+Processing batch 130/1223
+Written 910/8561 entries to file
+Processing batch 131/1223
+Written 917/8561 entries to file
+Processing batch 132/1223
+Written 924/8561 entries to file
+Processing batch 133/1223
+Written 931/8561 entries to file
+Processing batch 134/1223
+Written 938/8561 entries to file
+Processing batch 135/1223
+Written 945/8561 entries to file
+Processing batch 136/1223
+Written 952/8561 entries to file
+Processing batch 137/1223
+Written 959/8561 entries to file
+Processing batch 138/1223
+Written 966/8561 entries to file
+Processing batch 139/1223
+Written 973/8561 entries to file
+Processing batch 140/1223
+Written 980/8561 entries to file
+Processing batch 141/1223
+Written 987/8561 entries to file
+Processing batch 142/1223
+Written 994/8561 entries to file
+Processing batch 143/1223
+Written 1001/8561 entries to file
+Processing batch 144/1223
+Written 1008/8561 entries to file
+Processing batch 145/1223
+Written 1015/8561 entries to file
+Processing batch 146/1223
+Written 1022/8561 entries to file
+Processing batch 147/1223
+Written 1029/8561 entries to file
+Processing batch 148/1223
+Written 1036/8561 entries to file
+Processing batch 149/1223
+Written 1043/8561 entries to file
+Processing batch 150/1223
+Written 1050/8561 entries to file
+Processing batch 151/1223
+Written 1057/8561 entries to file
+Processing batch 152/1223
+Written 1064/8561 entries to file
+Processing batch 153/1223
+Written 1071/8561 entries to file
+Processing batch 154/1223
+Written 1078/8561 entries to file
+Processing batch 155/1223
+Written 1085/8561 entries to file
+Processing batch 156/1223
+Written 1092/8561 entries to file
+Processing batch 157/1223
+Written 1099/8561 entries to file
+Processing batch 158/1223
+Written 1106/8561 entries to file
+Processing batch 159/1223
+Written 1113/8561 entries to file
+Processing batch 160/1223
+Written 1120/8561 entries to file
+Processing batch 161/1223
+Written 1127/8561 entries to file
+Processing batch 162/1223
+Written 1134/8561 entries to file
+Processing batch 163/1223
+Written 1141/8561 entries to file
+Processing batch 164/1223
+Written 1148/8561 entries to file
+Processing batch 165/1223
+Written 1155/8561 entries to file
+Processing batch 166/1223
+Written 1162/8561 entries to file
+Processing batch 167/1223
+Written 1169/8561 entries to file
+Processing batch 168/1223
+Written 1176/8561 entries to file
+Processing batch 169/1223
+Written 1183/8561 entries to file
+Processing batch 170/1223
+Written 1190/8561 entries to file
+Processing batch 171/1223
+Written 1197/8561 entries to file
+Processing batch 172/1223
+Written 1204/8561 entries to file
+Processing batch 173/1223
+Written 1211/8561 entries to file
+Processing batch 174/1223
+Written 1218/8561 entries to file
+Processing batch 175/1223
+Written 1225/8561 entries to file
+Processing batch 176/1223
+Written 1232/8561 entries to file
+Processing batch 177/1223
+Written 1239/8561 entries to file
+Processing batch 178/1223
+Written 1246/8561 entries to file
+Processing batch 179/1223
+Written 1253/8561 entries to file
+Processing batch 180/1223
+Written 1260/8561 entries to file
+Processing batch 181/1223
+Written 1267/8561 entries to file
+Processing batch 182/1223
+Written 1274/8561 entries to file
+Processing batch 183/1223
+Written 1281/8561 entries to file
+Processing batch 184/1223
+Written 1288/8561 entries to file
+Processing batch 185/1223
+Written 1295/8561 entries to file
+Processing batch 186/1223
+Written 1302/8561 entries to file
+Processing batch 187/1223
+Written 1309/8561 entries to file
+Processing batch 188/1223
+Written 1316/8561 entries to file
+Processing batch 189/1223
+Written 1323/8561 entries to file
+Processing batch 190/1223
+Written 1330/8561 entries to file
+Processing batch 191/1223
+Written 1337/8561 entries to file
+Processing batch 192/1223
+Written 1344/8561 entries to file
+Processing batch 193/1223
+Written 1351/8561 entries to file
+Processing batch 194/1223
+Written 1358/8561 entries to file
+Processing batch 195/1223
+Written 1365/8561 entries to file
+Processing batch 196/1223
+Written 1372/8561 entries to file
+Processing batch 197/1223
+Written 1379/8561 entries to file
+Processing batch 198/1223
+Written 1386/8561 entries to file
+Processing batch 199/1223
+Written 1393/8561 entries to file
+Processing batch 200/1223
+Written 1400/8561 entries to file
+Processing batch 201/1223
+Written 1407/8561 entries to file
+Processing batch 202/1223
+Written 1414/8561 entries to file
+Processing batch 203/1223
+Written 1421/8561 entries to file
+Processing batch 204/1223
+Written 1428/8561 entries to file
+Processing batch 205/1223
+Written 1435/8561 entries to file
+Processing batch 206/1223
+Written 1442/8561 entries to file
+Processing batch 207/1223
+Written 1449/8561 entries to file
+Processing batch 208/1223
+Written 1456/8561 entries to file
+Processing batch 209/1223
+Written 1463/8561 entries to file
+Processing batch 210/1223
+Written 1470/8561 entries to file
+Processing batch 211/1223
+Written 1477/8561 entries to file
+Processing batch 212/1223
+Written 1484/8561 entries to file
+Processing batch 213/1223
+Written 1491/8561 entries to file
+Processing batch 214/1223
+Written 1498/8561 entries to file
+Processing batch 215/1223
+Written 1505/8561 entries to file
+Processing batch 216/1223
+Written 1512/8561 entries to file
+Processing batch 217/1223
+Written 1519/8561 entries to file
+Processing batch 218/1223
+Written 1526/8561 entries to file
+Processing batch 219/1223
+Written 1533/8561 entries to file
+Processing batch 220/1223
+Written 1540/8561 entries to file
+Processing batch 221/1223
+Written 1547/8561 entries to file
+Processing batch 222/1223
+Written 1554/8561 entries to file
+Processing batch 223/1223
+Written 1561/8561 entries to file
+Processing batch 224/1223
+Written 1568/8561 entries to file
+Processing batch 225/1223
+Written 1575/8561 entries to file
+Processing batch 226/1223
+Written 1582/8561 entries to file
+Processing batch 227/1223
+Written 1589/8561 entries to file
+Processing batch 228/1223
+Written 1596/8561 entries to file
+Processing batch 229/1223
+Written 1603/8561 entries to file
+Processing batch 230/1223
+Written 1610/8561 entries to file
+Processing batch 231/1223
+Written 1617/8561 entries to file
+Processing batch 232/1223
+Written 1624/8561 entries to file
+Processing batch 233/1223
+Written 1631/8561 entries to file
+Processing batch 234/1223
+Written 1638/8561 entries to file
+Processing batch 235/1223
+Written 1645/8561 entries to file
+Processing batch 236/1223
+Written 1652/8561 entries to file
+Processing batch 237/1223
+Written 1659/8561 entries to file
+Processing batch 238/1223
+Written 1666/8561 entries to file
+Processing batch 239/1223
+Written 1673/8561 entries to file
+Processing batch 240/1223
+Written 1680/8561 entries to file
+Processing batch 241/1223
+Written 1687/8561 entries to file
+Processing batch 242/1223
+Written 1694/8561 entries to file
+Processing batch 243/1223
+Written 1701/8561 entries to file
+Processing batch 244/1223
+Written 1708/8561 entries to file
+Processing batch 245/1223
+Written 1715/8561 entries to file
+Processing batch 246/1223
+Written 1722/8561 entries to file
+Processing batch 247/1223
+Written 1729/8561 entries to file
+Processing batch 248/1223
+Written 1736/8561 entries to file
+Processing batch 249/1223
+Written 1743/8561 entries to file
+Processing batch 250/1223
+Written 1750/8561 entries to file
+Processing batch 251/1223
+Written 1757/8561 entries to file
+Processing batch 252/1223
+Written 1764/8561 entries to file
+Processing batch 253/1223
+Written 1771/8561 entries to file
+Processing batch 254/1223
+Written 1778/8561 entries to file
+Processing batch 255/1223
+Written 1785/8561 entries to file
+Processing batch 256/1223
+Written 1792/8561 entries to file
+Processing batch 257/1223
+Written 1799/8561 entries to file
+Processing batch 258/1223
+Written 1806/8561 entries to file
+Processing batch 259/1223
+Written 1813/8561 entries to file
+Processing batch 260/1223
+Written 1820/8561 entries to file
+Processing batch 261/1223
+Written 1827/8561 entries to file
+Processing batch 262/1223
+Written 1834/8561 entries to file
+Processing batch 263/1223
+Written 1841/8561 entries to file
+Processing batch 264/1223
+Written 1848/8561 entries to file
+Processing batch 265/1223
+Written 1855/8561 entries to file
+Processing batch 266/1223
+Written 1862/8561 entries to file
+Processing batch 267/1223
+Written 1869/8561 entries to file
+Processing batch 268/1223
+Written 1876/8561 entries to file
+Processing batch 269/1223
+Written 1883/8561 entries to file
+Processing batch 270/1223
+Written 1890/8561 entries to file
+Processing batch 271/1223
+Written 1897/8561 entries to file
+Processing batch 272/1223
+Written 1904/8561 entries to file
+Processing batch 273/1223
+Written 1911/8561 entries to file
+Processing batch 274/1223
+Written 1918/8561 entries to file
+Processing batch 275/1223
+Written 1925/8561 entries to file
+Processing batch 276/1223
+Written 1932/8561 entries to file
+Processing batch 277/1223
+Written 1939/8561 entries to file
+Processing batch 278/1223
+Written 1946/8561 entries to file
+Processing batch 279/1223
+Written 1953/8561 entries to file
+Processing batch 280/1223
+Written 1960/8561 entries to file
+Processing batch 281/1223
+Written 1967/8561 entries to file
+Processing batch 282/1223
+Written 1974/8561 entries to file
+Processing batch 283/1223
+Written 1981/8561 entries to file
+Processing batch 284/1223
+Written 1988/8561 entries to file
+Processing batch 285/1223
+Written 1995/8561 entries to file
+Processing batch 286/1223
+Written 2002/8561 entries to file
+Processing batch 287/1223
+Written 2009/8561 entries to file
+Processing batch 288/1223
+Written 2016/8561 entries to file
+Processing batch 289/1223
+Written 2023/8561 entries to file
+Processing batch 290/1223
+Written 2030/8561 entries to file
+Processing batch 291/1223

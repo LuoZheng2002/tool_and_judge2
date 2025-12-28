@@ -1,0 +1,60 @@
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+warning: unused imports: `Deserialize` and `Serialize`
+ --> src/judge/result_file_model.rs:1:13
+  |
+1 | use serde::{Deserialize, Serialize};
+  |             ^^^^^^^^^^^  ^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: unused import: `indexmap::IndexMap`
+ --> src/judge/preference.rs:6:5
+  |
+6 | use indexmap::IndexMap;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `OneAnswerEntry`, `PerplexityDatasetMaskEntry`, `generate_one_answer_dataset`, `generate_perplexity_dataset_mask`, and `tool::base_path::TOOL_BASE_DATASET_PATH`
+  --> src/judge/preference.rs:15:13
+   |
+15 |             OneAnswerEntry, PerplexityDatasetMaskEntry, TwoAnswersEntry,
+   |             ^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+16 |             generate_one_answer_dataset, generate_perplexity_dataset_mask,
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+20 |     tool::base_path::TOOL_BASE_DATASET_PATH,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `generate_one_answer_dataset` and `get_preference_indices`
+  --> src/judge/perplexity.rs:14:66
+   |
+14 |             PerplexityDatasetMaskEntry, TwoAnswersSameLangEntry, generate_one_answer_dataset,
+   |                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+15 |             generate_perplexity_dataset_mask, generate_two_answers_same_lang_dataset,
+16 |             get_preference_indices, get_valid_perplexity_indices,
+   |             ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: `codebase_rs` (lib) generated 4 warnings (run `cargo fix --lib -p codebase_rs` to apply 4 suggestions)
+    Finished `release` profile [optimized] target(s) in 1.09s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmpIhgnhW/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+Traceback (most recent call last):
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 368, in <module>
+    asyncio.run(main_async())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 231, in main_async
+    batch_outputs = generate_response_batch(batch_entries, args.num_gpus, config.model)
+  File "/projects/bfdz/zluo8/tool_and_judge2/src_py/qwen3_backend.py", line 247, in generate_response_batch
+    formatted_prompt = tokenizer.apply_chat_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'builtins.LocalModel' object has no attribute 'apply_chat_template'

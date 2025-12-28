@@ -95,6 +95,7 @@ assistant_client = None
 
 
 async def main_async():
+    global main_hf_backend_created, main_hf_model, main_tokenizer
     match config.experiment:
         case JudgeExperiment.PreferenceDirect(lang1=lang1, lang2=lang2):
             # Determine alphabetical order for language codes
@@ -198,11 +199,12 @@ async def main_async():
             # Assume all filtered entries can be successfully processed
 
             # first pass: do the response generation
+            generate_response_input_file_path = perplexity_generate_response_input_file_path(config)
+            generate_response_output_file_path = perplexity_generate_response_output_file_path(config)
             if os.path.exists(generate_response_output_file_path):
                 perplexity_dispatch_response_results(config)
             perplexity_prepare_response_input(config, debug_limit=args.debug_limit)
-            generate_response_input_file_path = perplexity_generate_response_input_file_path(config)
-            generate_response_output_file_path = perplexity_generate_response_output_file_path(config)
+            
             
             input_entries = load_json_lines_from_file(generate_response_input_file_path)
             print(f"Total entries to generate responses for language {lang}: {len(input_entries)}")
@@ -218,6 +220,15 @@ async def main_async():
                 for i in range(0, len(input_entries), batch_size):
                     batch_entries = input_entries[i:i+batch_size]
                     print(f"Processing batch {i//batch_size + 1}/{(len(input_entries) + batch_size - 1)//batch_size}", flush=True)
+                    
+                    if not main_hf_backend_created:
+                        print(f"Creating HuggingFace backend for model {model_name} using {args.num_gpus} GPUs...", flush=True)
+                        from src_py.huggingface_backend import create_huggingface_backend
+                        main_hf_model, main_tokenizer = create_huggingface_backend(model_name, args.num_gpus)
+                        print(f"HuggingFace backend created for model {model_name}", flush=True)
+                        main_hf_backend_created = True
+                    hf_model = main_hf_model
+                    hf_tokenizer = main_tokenizer
 
                     # Get model outputs for the batch
                     if config.model == LocalModel.Llama3_3_70B:
@@ -227,7 +238,7 @@ async def main_async():
                     else:
                         raise ValueError(f"Unsupported model for response collection: {config.model}")
 
-                    batch_outputs = generate_response_batch(batch_entries, args.num_gpus, config.model)
+                    batch_outputs = generate_response_batch(batch_entries, hf_model, hf_tokenizer)
 
                     # Process each entry in the batch and write immediately
                     for entry, output in zip(batch_entries, batch_outputs):
@@ -254,11 +265,12 @@ async def main_async():
 
             
             # pass 2: call gpt-5/deepseek to merge the style with the ground truth (to the perplexity_dataset folder)
+            generate_styled_answers_input_file_path = perplexity_generate_styled_answers_input_file_path(config)
+            generate_styled_answers_output_file_path = perplexity_generate_styled_answers_output_file_path(config)
             if os.path.exists(generate_styled_answers_output_file_path):
                 perplexity_dispatch_styled_answers_results(config)
             perplexity_prepare_generate_styled_answers_input(config, debug_limit=args.debug_limit)
-            generate_styled_answers_input_file_path = perplexity_generate_styled_answers_input_file_path(config)
-            generate_styled_answers_output_file_path = perplexity_generate_styled_answers_output_file_path(config)
+            
             input_entries = load_json_lines_from_file(generate_styled_answers_input_file_path)
             print(f"Total entries to generate styled answers for language {lang}: {len(input_entries)}")
 
@@ -313,11 +325,12 @@ async def main_async():
             print(f"Completed writing all styled answers to {generate_styled_answers_output_file_path}")
 
             # third pass: input is perplexity dataset, output is perplexity
+            generate_perplexity_aggregated_input_file_path = perplexity_generate_perplexity_aggregated_input_file_path(config)
+            generate_perplexity_aggregated_output_file_path = perplexity_generate_perplexity_aggregated_output_file_path(config)
             if os.path.exists(generate_perplexity_aggregated_output_file_path):
                 perplexity_dispatch_generate_perplexity_results(config)
             perplexity_prepare_generate_perplexity_aggregated_input(config, debug_limit=args.debug_limit)
-            generate_perplexity_aggregated_input_file_path = perplexity_generate_perplexity_aggregated_input_file_path(config)
-            generate_perplexity_aggregated_output_file_path = perplexity_generate_perplexity_aggregated_output_file_path(config)
+            
             
             input_entries = load_json_lines_from_file(generate_perplexity_aggregated_input_file_path)
             print(f"Total entries to calculate perplexity for language {lang}: {len(input_entries)}")
@@ -327,6 +340,15 @@ async def main_async():
                     batch_indices = indices_to_process[i:i+batch_size]
                     batch_entries = [perplexity_dataset_entries[index] for index in batch_indices]
                     print(f"Processing batch {i//batch_size + 1}/{(len(indices_to_process) + batch_size - 1)//batch_size}", flush=True)
+
+                    if not main_hf_backend_created:
+                        print(f"Creating HuggingFace backend for model {model_name} using {args.num_gpus} GPUs...", flush=True)
+                        from src_py.huggingface_backend import create_huggingface_backend
+                        main_hf_model, main_tokenizer = create_huggingface_backend(model_name, args.num_gpus)
+                        print(f"HuggingFace backend created for model {model_name}", flush=True)
+                        main_hf_backend_created = True
+                    hf_model = main_hf_model
+                    hf_tokenizer = main_tokenizer
 
                     # Get model outputs for the batch
                     if config.model == LocalModel.Llama3_3_70B:

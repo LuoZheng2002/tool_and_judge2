@@ -3,7 +3,6 @@ use std::{
     path::Path,
 };
 
-use indexmap::IndexMap;
 use pyo3::pyfunction;
 use serde::{Deserialize, Serialize};
 
@@ -11,13 +10,10 @@ use crate::{
     config::{JudgeConfig, Model},
     judge::{
         base_paths::{JUDGE_BASE_DATASET_PATH, JUDGE_BASE_RESULT_PATH},
-        generate_dataset::{
-            OneAnswerEntry, PerplexityDatasetMaskEntry, TwoAnswersEntry,
-            generate_one_answer_dataset, generate_perplexity_dataset_mask,
+        generate_dataset::{TwoAnswersEntry,
             generate_two_answers_dataset, get_preference_indices,
         },
     },
-    tool::base_path::TOOL_BASE_DATASET_PATH,
     utils::{get_model_safe_name, load_json_lines, write_json_lines_to_file},
 };
 

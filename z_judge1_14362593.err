@@ -1,0 +1,4 @@
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 343
+    global main_hf_backend_created, main_hf_model, main_tokenizer
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: name 'main_hf_backend_created' is used prior to global declaration
