@@ -11,3 +11,921 @@ Loading config from: judge_config_slurm2.py
 Processing configuration:  <builtins.JudgeConfig object at 0x7ff8ae682dd0>
 Total entries to generate responses for language zh_cn: 8561
 Creating VLLM backend for model Qwen/Qwen3-8B using 1 GPUs...
+Creating vLLM backend for model Qwen/Qwen3-8B with 1 GPUs...
+INFO 12-29 00:26:22 [model.py:637] Resolved architecture: Qwen3ForCausalLM
+INFO 12-29 00:26:22 [model.py:1750] Using max model len 5000
+INFO 12-29 00:26:29 [scheduler.py:228] Chunked prefill is enabled with max_num_batched_tokens=2048.
+[0;36m(EngineCore_DP0 pid=3784421)[0;0m INFO 12-29 00:26:29 [core.py:93] Initializing a V1 LLM engine (v0.12.0) with config: model='Qwen/Qwen3-8B', speculative_config=None, tokenizer='Qwen/Qwen3-8B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=5000, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01), seed=0, served_model_name=Qwen/Qwen3-8B, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer'], 'compile_mm_encoder': False, 'compile_sizes': [], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'eliminate_noops': True, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 256, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>}, 'local_cache_dir': None}
+[0;36m(EngineCore_DP0 pid=3784421)[0;0m INFO 12-29 00:26:47 [parallel_state.py:1200] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://141.142.254.3:35663 backend=nccl
+[0;36m(EngineCore_DP0 pid=3784421)[0;0m INFO 12-29 00:26:47 [parallel_state.py:1408] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank 0
+[0;36m(EngineCore_DP0 pid=3784421)[0;0m INFO 12-29 00:26:48 [gpu_model_runner.py:3467] Starting to load model Qwen/Qwen3-8B...
+[0;36m(EngineCore_DP0 pid=3784421)[0;0m INFO 12-29 00:26:54 [cuda.py:411] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION']
+[0;36m(EngineCore_DP0 pid=3784421)[0;0m INFO 12-29 00:27:06 [default_loader.py:308] Loading weights took 11.13 seconds
+[0;36m(EngineCore_DP0 pid=3784421)[0;0m INFO 12-29 00:27:06 [gpu_model_runner.py:3549] Model loading took 15.2683 GiB memory and 17.277996 seconds
+[0;36m(EngineCore_DP0 pid=3784421)[0;0m INFO 12-29 00:27:25 [backends.py:655] Using cache directory: /u/zluo8/.cache/vllm/torch_compile_cache/967cfb33b2/rank_0_0/backbone for vLLM's torch.compile
+[0;36m(EngineCore_DP0 pid=3784421)[0;0m INFO 12-29 00:27:25 [backends.py:715] Dynamo bytecode transform time: 18.75 s
+[0;36m(EngineCore_DP0 pid=3784421)[0;0m INFO 12-29 00:27:31 [backends.py:216] Directly load the compiled graph(s) for dynamic shape from the cache, took 4.012 s
+[0;36m(EngineCore_DP0 pid=3784421)[0;0m INFO 12-29 00:27:36 [monitor.py:34] torch.compile takes 22.76 s in total
+[0;36m(EngineCore_DP0 pid=3784421)[0;0m INFO 12-29 00:27:40 [gpu_worker.py:359] Available KV cache memory: 19.53 GiB
+[0;36m(EngineCore_DP0 pid=3784421)[0;0m INFO 12-29 00:27:40 [kv_cache_utils.py:1286] GPU KV cache size: 142,176 tokens
+[0;36m(EngineCore_DP0 pid=3784421)[0;0m INFO 12-29 00:27:40 [kv_cache_utils.py:1291] Maximum concurrency for 5,000 tokens per request: 28.39x
+[0;36m(EngineCore_DP0 pid=3784421)[0;0m INFO 12-29 00:27:47 [gpu_model_runner.py:4466] Graph capturing finished in 6 secs, took 0.41 GiB
+[0;36m(EngineCore_DP0 pid=3784421)[0;0m INFO 12-29 00:27:47 [core.py:254] init engine (profile, create kv cache, warmup model) took 40.51 seconds
+vLLM backend created successfully for Qwen/Qwen3-8B
+VLLM backend created for model Qwen/Qwen3-8B
+Dispatching response results for model: Qwen-Qwen3-8B, lang: zh_cn, input file: judge/result/Qwen-Qwen3-8B/perplexity_response_output.jsonl
+Cannot open file: Unable to open file judge/result/Qwen-Qwen3-8B/response/zh_cn.jsonl: No such file or directory (os error 2), assuming empty result file
+Dispatched response results for model: Qwen-Qwen3-8B, lang: zh_cn
+Removed aggregated response output file: judge/result/Qwen-Qwen3-8B/perplexity_response_output.jsonl
+File judge/result/Qwen-Qwen3-8B/styled_answers/zh_cn.jsonl does not exist, assuming no completed entries.
+Styled answers input dataset for language zh_cn written to judge/result/Qwen-Qwen3-8B/perplexity_styled_answers_input.jsonl
+Written 20/8561 entries to file
+Written 40/8561 entries to file
+Written 60/8561 entries to file
+Written 80/8561 entries to file
+Written 100/8561 entries to file
+Written 120/8561 entries to file
+Written 140/8561 entries to file
+Written 160/8561 entries to file
+Written 180/8561 entries to file
+Written 200/8561 entries to file
+Written 220/8561 entries to file
+Written 240/8561 entries to file
+Written 260/8561 entries to file
+Written 280/8561 entries to file
+Written 300/8561 entries to file
+Written 320/8561 entries to file
+Written 340/8561 entries to file
+Written 360/8561 entries to file
+Written 380/8561 entries to file
+Written 400/8561 entries to file
+Written 420/8561 entries to file
+Written 440/8561 entries to file
+Written 460/8561 entries to file
+Written 480/8561 entries to file
+Written 500/8561 entries to file
+Written 520/8561 entries to file
+Written 540/8561 entries to file
+Written 560/8561 entries to file
+Written 580/8561 entries to file
+Written 600/8561 entries to file
+Written 620/8561 entries to file
+Written 640/8561 entries to file
+Written 660/8561 entries to file
+Written 680/8561 entries to file
+Written 700/8561 entries to file
+Written 720/8561 entries to file
+Written 740/8561 entries to file
+Written 760/8561 entries to file
+Written 780/8561 entries to file
+Written 800/8561 entries to file
+Written 820/8561 entries to file
+Written 840/8561 entries to file
+Written 860/8561 entries to file
+Written 880/8561 entries to file
+Written 900/8561 entries to file
+Written 920/8561 entries to file
+Written 940/8561 entries to file
+Written 960/8561 entries to file
+Written 980/8561 entries to file
+Written 1000/8561 entries to file
+Written 1020/8561 entries to file
+Written 1040/8561 entries to file
+Written 1060/8561 entries to file
+Written 1080/8561 entries to file
+Written 1100/8561 entries to file
+Written 1120/8561 entries to file
+Written 1140/8561 entries to file
+Written 1160/8561 entries to file
+Written 1180/8561 entries to file
+Written 1200/8561 entries to file
+Written 1220/8561 entries to file
+Written 1240/8561 entries to file
+Written 1260/8561 entries to file
+Written 1280/8561 entries to file
+Written 1300/8561 entries to file
+Written 1320/8561 entries to file
+Written 1340/8561 entries to file
+Written 1360/8561 entries to file
+Written 1380/8561 entries to file
+Written 1400/8561 entries to file
+Written 1420/8561 entries to file
+Written 1440/8561 entries to file
+Written 1460/8561 entries to file
+Written 1480/8561 entries to file
+Written 1500/8561 entries to file
+Written 1520/8561 entries to file
+Written 1540/8561 entries to file
+Written 1560/8561 entries to file
+Written 1580/8561 entries to file
+Written 1600/8561 entries to file
+Written 1620/8561 entries to file
+Written 1640/8561 entries to file
+Written 1660/8561 entries to file
+Written 1680/8561 entries to file
+Written 1700/8561 entries to file
+Written 1720/8561 entries to file
+Written 1740/8561 entries to file
+Written 1760/8561 entries to file
+Written 1780/8561 entries to file
+Written 1800/8561 entries to file
+Written 1820/8561 entries to file
+Written 1840/8561 entries to file
+Written 1860/8561 entries to file
+Written 1880/8561 entries to file
+Written 1900/8561 entries to file
+Written 1920/8561 entries to file
+Written 1940/8561 entries to file
+Written 1960/8561 entries to file
+Written 1980/8561 entries to file
+Written 2000/8561 entries to file
+Written 2020/8561 entries to file
+Written 2040/8561 entries to file
+Written 2060/8561 entries to file
+Written 2080/8561 entries to file
+Written 2100/8561 entries to file
+Written 2120/8561 entries to file
+Written 2140/8561 entries to file
+Written 2160/8561 entries to file
+Written 2180/8561 entries to file
+Written 2200/8561 entries to file
+Written 2220/8561 entries to file
+Written 2240/8561 entries to file
+Written 2260/8561 entries to file
+Written 2280/8561 entries to file
+Written 2300/8561 entries to file
+Written 2320/8561 entries to file
+Written 2340/8561 entries to file
+Written 2360/8561 entries to file
+Written 2380/8561 entries to file
+Written 2400/8561 entries to file
+Written 2420/8561 entries to file
+Written 2440/8561 entries to file
+Written 2460/8561 entries to file
+Written 2480/8561 entries to file
+Written 2500/8561 entries to file
+Written 2520/8561 entries to file
+Written 2540/8561 entries to file
+Written 2560/8561 entries to file
+Written 2580/8561 entries to file
+Written 2600/8561 entries to file
+Written 2620/8561 entries to file
+Written 2640/8561 entries to file
+Written 2660/8561 entries to file
+Written 2680/8561 entries to file
+Written 2700/8561 entries to file
+Written 2720/8561 entries to file
+Written 2740/8561 entries to file
+Written 2760/8561 entries to file
+Written 2780/8561 entries to file
+Written 2800/8561 entries to file
+Written 2820/8561 entries to file
+Written 2840/8561 entries to file
+Written 2860/8561 entries to file
+Written 2880/8561 entries to file
+Written 2900/8561 entries to file
+Written 2920/8561 entries to file
+Written 2940/8561 entries to file
+Written 2960/8561 entries to file
+Written 2980/8561 entries to file
+Written 3000/8561 entries to file
+Written 3020/8561 entries to file
+Written 3040/8561 entries to file
+Written 3060/8561 entries to file
+Written 3080/8561 entries to file
+Written 3100/8561 entries to file
+Written 3120/8561 entries to file
+Written 3140/8561 entries to file
+Written 3160/8561 entries to file
+Written 3180/8561 entries to file
+Written 3200/8561 entries to file
+Written 3220/8561 entries to file
+Written 3240/8561 entries to file
+Written 3260/8561 entries to file
+Written 3280/8561 entries to file
+Written 3300/8561 entries to file
+Written 3320/8561 entries to file
+Written 3340/8561 entries to file
+Written 3360/8561 entries to file
+Written 3380/8561 entries to file
+Written 3400/8561 entries to file
+Written 3420/8561 entries to file
+Written 3440/8561 entries to file
+Written 3460/8561 entries to file
+Written 3480/8561 entries to file
+Written 3500/8561 entries to file
+Written 3520/8561 entries to file
+Written 3540/8561 entries to file
+Written 3560/8561 entries to file
+Written 3580/8561 entries to file
+Written 3600/8561 entries to file
+Written 3620/8561 entries to file
+Written 3640/8561 entries to file
+Written 3660/8561 entries to file
+Written 3680/8561 entries to file
+Written 3700/8561 entries to file
+Written 3720/8561 entries to file
+Written 3740/8561 entries to file
+Written 3760/8561 entries to file
+Written 3780/8561 entries to file
+Written 3800/8561 entries to file
+Written 3820/8561 entries to file
+Written 3840/8561 entries to file
+Written 3860/8561 entries to file
+Written 3880/8561 entries to file
+Written 3900/8561 entries to file
+Written 3920/8561 entries to file
+Written 3940/8561 entries to file
+Written 3960/8561 entries to file
+Written 3980/8561 entries to file
+Written 4000/8561 entries to file
+Written 4020/8561 entries to file
+Written 4040/8561 entries to file
+Written 4060/8561 entries to file
+Written 4080/8561 entries to file
+Written 4100/8561 entries to file
+Written 4120/8561 entries to file
+Written 4140/8561 entries to file
+Written 4160/8561 entries to file
+Written 4180/8561 entries to file
+Written 4200/8561 entries to file
+Written 4220/8561 entries to file
+Written 4240/8561 entries to file
+Written 4260/8561 entries to file
+Written 4280/8561 entries to file
+Written 4300/8561 entries to file
+Written 4320/8561 entries to file
+Written 4340/8561 entries to file
+Written 4360/8561 entries to file
+Written 4380/8561 entries to file
+Written 4400/8561 entries to file
+Written 4420/8561 entries to file
+Written 4440/8561 entries to file
+Written 4460/8561 entries to file
+Written 4480/8561 entries to file
+Written 4500/8561 entries to file
+Written 4520/8561 entries to file
+Written 4540/8561 entries to file
+Written 4560/8561 entries to file
+Written 4580/8561 entries to file
+Written 4600/8561 entries to file
+Written 4620/8561 entries to file
+Written 4640/8561 entries to file
+Written 4660/8561 entries to file
+Written 4680/8561 entries to file
+Written 4700/8561 entries to file
+Written 4720/8561 entries to file
+Written 4740/8561 entries to file
+Written 4760/8561 entries to file
+Written 4780/8561 entries to file
+Written 4800/8561 entries to file
+Written 4820/8561 entries to file
+Written 4840/8561 entries to file
+Written 4860/8561 entries to file
+Written 4880/8561 entries to file
+Written 4900/8561 entries to file
+Written 4920/8561 entries to file
+Written 4940/8561 entries to file
+Written 4960/8561 entries to file
+Written 4980/8561 entries to file
+Written 5000/8561 entries to file
+Written 5020/8561 entries to file
+Written 5040/8561 entries to file
+Written 5060/8561 entries to file
+Written 5080/8561 entries to file
+Written 5100/8561 entries to file
+Written 5120/8561 entries to file
+Written 5140/8561 entries to file
+Written 5160/8561 entries to file
+Written 5180/8561 entries to file
+Written 5200/8561 entries to file
+Written 5220/8561 entries to file
+Written 5240/8561 entries to file
+Written 5260/8561 entries to file
+Written 5280/8561 entries to file
+Written 5300/8561 entries to file
+Written 5320/8561 entries to file
+Written 5340/8561 entries to file
+Written 5360/8561 entries to file
+Written 5380/8561 entries to file
+Written 5400/8561 entries to file
+Written 5420/8561 entries to file
+Written 5440/8561 entries to file
+Written 5460/8561 entries to file
+Written 5480/8561 entries to file
+Written 5500/8561 entries to file
+Written 5520/8561 entries to file
+Written 5540/8561 entries to file
+Written 5560/8561 entries to file
+Written 5580/8561 entries to file
+Written 5600/8561 entries to file
+Written 5620/8561 entries to file
+Written 5640/8561 entries to file
+Written 5660/8561 entries to file
+Written 5680/8561 entries to file
+Written 5700/8561 entries to file
+Written 5720/8561 entries to file
+Written 5740/8561 entries to file
+Written 5760/8561 entries to file
+Written 5780/8561 entries to file
+Written 5800/8561 entries to file
+Written 5820/8561 entries to file
+Written 5840/8561 entries to file
+Written 5860/8561 entries to file
+Written 5880/8561 entries to file
+Written 5900/8561 entries to file
+Written 5920/8561 entries to file
+Written 5940/8561 entries to file
+Written 5960/8561 entries to file
+Written 5980/8561 entries to file
+Written 6000/8561 entries to file
+Written 6020/8561 entries to file
+Written 6040/8561 entries to file
+Written 6060/8561 entries to file
+Written 6080/8561 entries to file
+Written 6100/8561 entries to file
+Written 6120/8561 entries to file
+Written 6140/8561 entries to file
+Written 6160/8561 entries to file
+Written 6180/8561 entries to file
+Written 6200/8561 entries to file
+Written 6220/8561 entries to file
+Written 6240/8561 entries to file
+Written 6260/8561 entries to file
+Written 6280/8561 entries to file
+Written 6300/8561 entries to file
+Written 6320/8561 entries to file
+Written 6340/8561 entries to file
+Written 6360/8561 entries to file
+Written 6380/8561 entries to file
+Written 6400/8561 entries to file
+Written 6420/8561 entries to file
+Written 6440/8561 entries to file
+Written 6460/8561 entries to file
+Written 6480/8561 entries to file
+Written 6500/8561 entries to file
+Written 6520/8561 entries to file
+Written 6540/8561 entries to file
+Written 6560/8561 entries to file
+Written 6580/8561 entries to file
+Written 6600/8561 entries to file
+Written 6620/8561 entries to file
+Written 6640/8561 entries to file
+Written 6660/8561 entries to file
+Written 6680/8561 entries to file
+Written 6700/8561 entries to file
+Written 6720/8561 entries to file
+Written 6740/8561 entries to file
+Written 6760/8561 entries to file
+Written 6780/8561 entries to file
+Written 6800/8561 entries to file
+Written 6820/8561 entries to file
+Written 6840/8561 entries to file
+Written 6860/8561 entries to file
+Written 6880/8561 entries to file
+Written 6900/8561 entries to file
+Written 6920/8561 entries to file
+Written 6940/8561 entries to file
+Written 6960/8561 entries to file
+Written 6980/8561 entries to file
+Written 7000/8561 entries to file
+Written 7020/8561 entries to file
+Written 7040/8561 entries to file
+Written 7060/8561 entries to file
+Written 7080/8561 entries to file
+Written 7100/8561 entries to file
+Written 7120/8561 entries to file
+Written 7140/8561 entries to file
+Written 7160/8561 entries to file
+Written 7180/8561 entries to file
+Written 7200/8561 entries to file
+Written 7220/8561 entries to file
+Written 7240/8561 entries to file
+Written 7260/8561 entries to file
+Written 7280/8561 entries to file
+Written 7300/8561 entries to file
+Written 7320/8561 entries to file
+Written 7340/8561 entries to file
+Written 7360/8561 entries to file
+Written 7380/8561 entries to file
+Written 7400/8561 entries to file
+Written 7420/8561 entries to file
+Written 7440/8561 entries to file
+Written 7460/8561 entries to file
+Written 7480/8561 entries to file
+Written 7500/8561 entries to file
+Written 7520/8561 entries to file
+Written 7540/8561 entries to file
+Written 7560/8561 entries to file
+Written 7580/8561 entries to file
+Written 7600/8561 entries to file
+Written 7620/8561 entries to file
+Written 7640/8561 entries to file
+Written 7660/8561 entries to file
+Written 7680/8561 entries to file
+Written 7700/8561 entries to file
+Written 7720/8561 entries to file
+Written 7740/8561 entries to file
+Written 7760/8561 entries to file
+Written 7780/8561 entries to file
+Written 7800/8561 entries to file
+Written 7820/8561 entries to file
+Written 7840/8561 entries to file
+Written 7860/8561 entries to file
+Written 7880/8561 entries to file
+Written 7900/8561 entries to file
+Written 7920/8561 entries to file
+Written 7940/8561 entries to file
+Written 7960/8561 entries to file
+Written 7980/8561 entries to file
+Written 8000/8561 entries to file
+Written 8020/8561 entries to file
+Written 8040/8561 entries to file
+Written 8060/8561 entries to file
+Written 8080/8561 entries to file
+Written 8100/8561 entries to file
+Written 8120/8561 entries to file
+Written 8140/8561 entries to file
+Written 8160/8561 entries to file
+Written 8180/8561 entries to file
+Written 8200/8561 entries to file
+Written 8220/8561 entries to file
+Written 8240/8561 entries to file
+Written 8260/8561 entries to file
+Written 8280/8561 entries to file
+Written 8300/8561 entries to file
+Written 8320/8561 entries to file
+Written 8340/8561 entries to file
+Written 8360/8561 entries to file
+Written 8380/8561 entries to file
+Written 8400/8561 entries to file
+Written 8420/8561 entries to file
+Written 8440/8561 entries to file
+Written 8460/8561 entries to file
+Written 8480/8561 entries to file
+Written 8500/8561 entries to file
+Written 8520/8561 entries to file
+Written 8540/8561 entries to file
+Written 8560/8561 entries to file
+Completed writing all responses to judge/result/Qwen-Qwen3-8B/perplexity_response_output.jsonl
+Total entries to generate styled answers for language zh_cn: 8561
+Creating Assistant API client for model gpt-4.1...
+Created API backend for model gpt-4.1 with auto-retry on rate limits
+Assistant API client created for model gpt-4.1
+Dispatching styled answers results for model: Qwen-Qwen3-8B, lang: zh_cn, input file: judge/result/Qwen-Qwen3-8B/perplexity_styled_answers_output.jsonl
+Cannot open file: Unable to open file judge/result/Qwen-Qwen3-8B/styled_answers/zh_cn.jsonl: No such file or directory (os error 2), assuming empty result file
+Dispatched styled answers results for model: Qwen-Qwen3-8B, lang: zh_cn
+Removed aggregated styled answers output file: judge/result/Qwen-Qwen3-8B/perplexity_styled_answers_output.jsonl
+File "judge/result/Qwen-Qwen3-8B/perplexity/zh_cn_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Qwen-Qwen3-8B/perplexity/zh_cn_incorrect.jsonl" does not exist, assuming no completed entries.
+Concatenated perplexity dataset for language zh_cn written to judge/result/Qwen-Qwen3-8B/perplexity_aggregated_input.jsonl
+Written 20/8561 entries to styled answers file
+Written 40/8561 entries to styled answers file
+Written 60/8561 entries to styled answers file
+Written 80/8561 entries to styled answers file
+Written 100/8561 entries to styled answers file
+Written 120/8561 entries to styled answers file
+Written 140/8561 entries to styled answers file
+Written 160/8561 entries to styled answers file
+Written 180/8561 entries to styled answers file
+Written 200/8561 entries to styled answers file
+Written 220/8561 entries to styled answers file
+Written 240/8561 entries to styled answers file
+Written 260/8561 entries to styled answers file
+Written 280/8561 entries to styled answers file
+Written 300/8561 entries to styled answers file
+Written 320/8561 entries to styled answers file
+Written 340/8561 entries to styled answers file
+Written 360/8561 entries to styled answers file
+Written 380/8561 entries to styled answers file
+Written 400/8561 entries to styled answers file
+Written 420/8561 entries to styled answers file
+Written 440/8561 entries to styled answers file
+Written 460/8561 entries to styled answers file
+Written 480/8561 entries to styled answers file
+Written 500/8561 entries to styled answers file
+Written 520/8561 entries to styled answers file
+Written 540/8561 entries to styled answers file
+Written 560/8561 entries to styled answers file
+Written 580/8561 entries to styled answers file
+Written 600/8561 entries to styled answers file
+Written 620/8561 entries to styled answers file
+Written 640/8561 entries to styled answers file
+Written 660/8561 entries to styled answers file
+Written 680/8561 entries to styled answers file
+Written 700/8561 entries to styled answers file
+Written 720/8561 entries to styled answers file
+Written 740/8561 entries to styled answers file
+Written 760/8561 entries to styled answers file
+Written 780/8561 entries to styled answers file
+Written 800/8561 entries to styled answers file
+Written 820/8561 entries to styled answers file
+Written 840/8561 entries to styled answers file
+Written 860/8561 entries to styled answers file
+Written 880/8561 entries to styled answers file
+Written 900/8561 entries to styled answers file
+Written 920/8561 entries to styled answers file
+Written 940/8561 entries to styled answers file
+When generating for lang zh_cn, question index 1482, question: Let HH be a Merkle-Damgard hash function is H:X^{\, exceeded maximum trials for generating styled answers, use fallback
+Written 960/8561 entries to styled answers file
+Written 980/8561 entries to styled answers file
+Written 1000/8561 entries to styled answers file
+Written 1020/8561 entries to styled answers file
+When generating for lang zh_cn, question index 1470, question: A satellite of mass m orbits a planet of mass M in, exceeded maximum trials for generating styled answers, use fallback
+Written 1040/8561 entries to styled answers file
+Written 1060/8561 entries to styled answers file
+When generating for lang zh_cn, question index 37, question: Determine whether the polynomial in Z[x] satisfies, exceeded maximum trials for generating styled answers, use fallback
+Written 1080/8561 entries to styled answers file
+Written 1100/8561 entries to styled answers file
+Written 1120/8561 entries to styled answers file
+Written 1140/8561 entries to styled answers file
+Written 1160/8561 entries to styled answers file
+Written 1180/8561 entries to styled answers file
+Written 1200/8561 entries to styled answers file
+Written 1220/8561 entries to styled answers file
+Written 1240/8561 entries to styled answers file
+Written 1260/8561 entries to styled answers file
+Written 1280/8561 entries to styled answers file
+Written 1300/8561 entries to styled answers file
+Written 1320/8561 entries to styled answers file
+Written 1340/8561 entries to styled answers file
+Written 1360/8561 entries to styled answers file
+Written 1380/8561 entries to styled answers file
+Written 1400/8561 entries to styled answers file
+Written 1420/8561 entries to styled answers file
+Written 1440/8561 entries to styled answers file
+Written 1460/8561 entries to styled answers file
+Written 1480/8561 entries to styled answers file
+Written 1500/8561 entries to styled answers file
+Written 1520/8561 entries to styled answers file
+Written 1540/8561 entries to styled answers file
+Written 1560/8561 entries to styled answers file
+Written 1580/8561 entries to styled answers file
+Written 1600/8561 entries to styled answers file
+Written 1620/8561 entries to styled answers file
+Written 1640/8561 entries to styled answers file
+Written 1660/8561 entries to styled answers file
+Written 1680/8561 entries to styled answers file
+Written 1700/8561 entries to styled answers file
+Written 1720/8561 entries to styled answers file
+Written 1740/8561 entries to styled answers file
+Written 1760/8561 entries to styled answers file
+Written 1780/8561 entries to styled answers file
+Written 1800/8561 entries to styled answers file
+Written 1820/8561 entries to styled answers file
+Written 1840/8561 entries to styled answers file
+Written 1860/8561 entries to styled answers file
+Written 1880/8561 entries to styled answers file
+Written 1900/8561 entries to styled answers file
+Written 1920/8561 entries to styled answers file
+Written 1940/8561 entries to styled answers file
+Written 1960/8561 entries to styled answers file
+When generating for lang zh_cn, question index 5587, question: The midterm scores for a statistics course were ap, exceeded maximum trials for generating styled answers, use fallback
+Written 1980/8561 entries to styled answers file
+Written 2000/8561 entries to styled answers file
+Written 2020/8561 entries to styled answers file
+Written 2040/8561 entries to styled answers file
+Written 2060/8561 entries to styled answers file
+Written 2080/8561 entries to styled answers file
+Written 2100/8561 entries to styled answers file
+Written 2120/8561 entries to styled answers file
+Written 2140/8561 entries to styled answers file
+Written 2160/8561 entries to styled answers file
+When generating for lang zh_cn, question index 1952, question: The voltage induced in an inductor is represented , exceeded maximum trials for generating styled answers, use fallback
+Written 2180/8561 entries to styled answers file
+Written 2200/8561 entries to styled answers file
+Written 2220/8561 entries to styled answers file
+Written 2240/8561 entries to styled answers file
+Written 2260/8561 entries to styled answers file
+Written 2280/8561 entries to styled answers file
+When generating for lang zh_cn, question index 2099, question: A worker on an assembly line takes 7 hours to prod, exceeded maximum trials for generating styled answers, use fallback
+Written 2300/8561 entries to styled answers file
+Written 2320/8561 entries to styled answers file
+Written 2340/8561 entries to styled answers file
+Written 2360/8561 entries to styled answers file
+Written 2380/8561 entries to styled answers file
+Written 2400/8561 entries to styled answers file
+When generating for lang zh_cn, question index 76, question: Statement 1 | S_n is non-Abelian for all n >= 3. S, exceeded maximum trials for generating styled answers, use fallback
+Written 2420/8561 entries to styled answers file
+Written 2440/8561 entries to styled answers file
+When generating for lang zh_cn, question index 2179, question: Jerry read a 200-page book in 10 hours. At that ra, exceeded maximum trials for generating styled answers, use fallback
+Written 2460/8561 entries to styled answers file
+Written 2480/8561 entries to styled answers file
+Written 2500/8561 entries to styled answers file
+Written 2520/8561 entries to styled answers file
+Written 2540/8561 entries to styled answers file
+Written 2560/8561 entries to styled answers file
+Written 2580/8561 entries to styled answers file
+Written 2600/8561 entries to styled answers file
+Written 2620/8561 entries to styled answers file
+Written 2640/8561 entries to styled answers file
+Written 2660/8561 entries to styled answers file
+Written 2680/8561 entries to styled answers file
+Written 2700/8561 entries to styled answers file
+Written 2720/8561 entries to styled answers file
+Written 2740/8561 entries to styled answers file
+Written 2760/8561 entries to styled answers file
+Written 2780/8561 entries to styled answers file
+Written 2800/8561 entries to styled answers file
+Written 2820/8561 entries to styled answers file
+Written 2840/8561 entries to styled answers file
+Written 2860/8561 entries to styled answers file
+Written 2880/8561 entries to styled answers file
+Written 2900/8561 entries to styled answers file
+Written 2920/8561 entries to styled answers file
+Written 2940/8561 entries to styled answers file
+Written 2960/8561 entries to styled answers file
+Written 2980/8561 entries to styled answers file
+Written 3000/8561 entries to styled answers file
+Written 3020/8561 entries to styled answers file
+Written 3040/8561 entries to styled answers file
+Written 3060/8561 entries to styled answers file
+Written 3080/8561 entries to styled answers file
+Written 3100/8561 entries to styled answers file
+Written 3120/8561 entries to styled answers file
+When generating for lang zh_cn, question index 2175, question: It takes a machine 12 minutes to fill 200 bottles , exceeded maximum trials for generating styled answers, use fallback
+Written 3140/8561 entries to styled answers file
+Written 3160/8561 entries to styled answers file
+Written 3180/8561 entries to styled answers file
+Written 3200/8561 entries to styled answers file
+Written 3220/8561 entries to styled answers file
+Written 3240/8561 entries to styled answers file
+Written 3260/8561 entries to styled answers file
+Written 3280/8561 entries to styled answers file
+Written 3300/8561 entries to styled answers file
+Written 3320/8561 entries to styled answers file
+Written 3340/8561 entries to styled answers file
+Written 3360/8561 entries to styled answers file
+When generating for lang zh_cn, question index 9697, question: The following types of research findings provide s, exceeded maximum trials for generating styled answers, use fallback
+Written 3380/8561 entries to styled answers file
+Written 3400/8561 entries to styled answers file
+Written 3420/8561 entries to styled answers file
+Written 3440/8561 entries to styled answers file
+Written 3460/8561 entries to styled answers file
+Written 3480/8561 entries to styled answers file
+Written 3500/8561 entries to styled answers file
+Written 3520/8561 entries to styled answers file
+Written 3540/8561 entries to styled answers file
+Written 3560/8561 entries to styled answers file
+Written 3580/8561 entries to styled answers file
+Written 3600/8561 entries to styled answers file
+Written 3620/8561 entries to styled answers file
+Written 3640/8561 entries to styled answers file
+Written 3660/8561 entries to styled answers file
+Written 3680/8561 entries to styled answers file
+Written 3700/8561 entries to styled answers file
+Written 3720/8561 entries to styled answers file
+Written 3740/8561 entries to styled answers file
+Written 3760/8561 entries to styled answers file
+Written 3780/8561 entries to styled answers file
+Written 3800/8561 entries to styled answers file
+Written 3820/8561 entries to styled answers file
+Written 3840/8561 entries to styled answers file
+Written 3860/8561 entries to styled answers file
+Written 3880/8561 entries to styled answers file
+Written 3900/8561 entries to styled answers file
+Written 3920/8561 entries to styled answers file
+Written 3940/8561 entries to styled answers file
+Written 3960/8561 entries to styled answers file
+Written 3980/8561 entries to styled answers file
+Written 4000/8561 entries to styled answers file
+Written 4020/8561 entries to styled answers file
+Written 4040/8561 entries to styled answers file
+Written 4060/8561 entries to styled answers file
+Written 4080/8561 entries to styled answers file
+Written 4100/8561 entries to styled answers file
+Written 4120/8561 entries to styled answers file
+Written 4140/8561 entries to styled answers file
+Written 4160/8561 entries to styled answers file
+Written 4180/8561 entries to styled answers file
+Written 4200/8561 entries to styled answers file
+Written 4220/8561 entries to styled answers file
+Written 4240/8561 entries to styled answers file
+Written 4260/8561 entries to styled answers file
+Written 4280/8561 entries to styled answers file
+Written 4300/8561 entries to styled answers file
+Written 4320/8561 entries to styled answers file
+Written 4340/8561 entries to styled answers file
+Written 4360/8561 entries to styled answers file
+Written 4380/8561 entries to styled answers file
+Written 4400/8561 entries to styled answers file
+Written 4420/8561 entries to styled answers file
+Written 4440/8561 entries to styled answers file
+Written 4460/8561 entries to styled answers file
+Written 4480/8561 entries to styled answers file
+Written 4500/8561 entries to styled answers file
+Written 4520/8561 entries to styled answers file
+Written 4540/8561 entries to styled answers file
+Written 4560/8561 entries to styled answers file
+Written 4580/8561 entries to styled answers file
+Written 4600/8561 entries to styled answers file
+Written 4620/8561 entries to styled answers file
+Written 4640/8561 entries to styled answers file
+Written 4660/8561 entries to styled answers file
+Written 4680/8561 entries to styled answers file
+Written 4700/8561 entries to styled answers file
+Written 4720/8561 entries to styled answers file
+Written 4740/8561 entries to styled answers file
+Written 4760/8561 entries to styled answers file
+Written 4780/8561 entries to styled answers file
+Written 4800/8561 entries to styled answers file
+Written 4820/8561 entries to styled answers file
+Written 4840/8561 entries to styled answers file
+Written 4860/8561 entries to styled answers file
+Written 4880/8561 entries to styled answers file
+Written 4900/8561 entries to styled answers file
+Written 4920/8561 entries to styled answers file
+Written 4940/8561 entries to styled answers file
+Written 4960/8561 entries to styled answers file
+Written 4980/8561 entries to styled answers file
+Written 5000/8561 entries to styled answers file
+Written 5020/8561 entries to styled answers file
+Written 5040/8561 entries to styled answers file
+Written 5060/8561 entries to styled answers file
+Written 5080/8561 entries to styled answers file
+Written 5100/8561 entries to styled answers file
+Written 5120/8561 entries to styled answers file
+Written 5140/8561 entries to styled answers file
+Written 5160/8561 entries to styled answers file
+Written 5180/8561 entries to styled answers file
+Written 5200/8561 entries to styled answers file
+Written 5220/8561 entries to styled answers file
+Written 5240/8561 entries to styled answers file
+Written 5260/8561 entries to styled answers file
+Written 5280/8561 entries to styled answers file
+Written 5300/8561 entries to styled answers file
+Written 5320/8561 entries to styled answers file
+Written 5340/8561 entries to styled answers file
+Written 5360/8561 entries to styled answers file
+Written 5380/8561 entries to styled answers file
+Written 5400/8561 entries to styled answers file
+When generating for lang zh_cn, question index 7417, question: How many moles of HCl must be added to sufficient , exceeded maximum trials for generating styled answers, use fallback
+Written 5420/8561 entries to styled answers file
+Written 5440/8561 entries to styled answers file
+Written 5460/8561 entries to styled answers file
+Written 5480/8561 entries to styled answers file
+Written 5500/8561 entries to styled answers file
+Written 5520/8561 entries to styled answers file
+Written 5540/8561 entries to styled answers file
+Written 5560/8561 entries to styled answers file
+Written 5580/8561 entries to styled answers file
+Written 5600/8561 entries to styled answers file
+Written 5620/8561 entries to styled answers file
+Written 5640/8561 entries to styled answers file
+Written 5660/8561 entries to styled answers file
+Written 5680/8561 entries to styled answers file
+Written 5700/8561 entries to styled answers file
+Written 5720/8561 entries to styled answers file
+Written 5740/8561 entries to styled answers file
+Written 5760/8561 entries to styled answers file
+Written 5780/8561 entries to styled answers file
+Written 5800/8561 entries to styled answers file
+Written 5820/8561 entries to styled answers file
+Written 5840/8561 entries to styled answers file
+Written 5860/8561 entries to styled answers file
+Written 5880/8561 entries to styled answers file
+Written 5900/8561 entries to styled answers file
+Written 5920/8561 entries to styled answers file
+Written 5940/8561 entries to styled answers file
+Written 5960/8561 entries to styled answers file
+Written 5980/8561 entries to styled answers file
+Written 6000/8561 entries to styled answers file
+Written 6020/8561 entries to styled answers file
+Written 6040/8561 entries to styled answers file
+Written 6060/8561 entries to styled answers file
+Written 6080/8561 entries to styled answers file
+Written 6100/8561 entries to styled answers file
+Written 6120/8561 entries to styled answers file
+Written 6140/8561 entries to styled answers file
+Written 6160/8561 entries to styled answers file
+Written 6180/8561 entries to styled answers file
+Written 6200/8561 entries to styled answers file
+Written 6220/8561 entries to styled answers file
+Written 6240/8561 entries to styled answers file
+Written 6260/8561 entries to styled answers file
+Written 6280/8561 entries to styled answers file
+Written 6300/8561 entries to styled answers file
+Written 6320/8561 entries to styled answers file
+Written 6340/8561 entries to styled answers file
+Written 6360/8561 entries to styled answers file
+Written 6380/8561 entries to styled answers file
+Written 6400/8561 entries to styled answers file
+Written 6420/8561 entries to styled answers file
+Written 6440/8561 entries to styled answers file
+Written 6460/8561 entries to styled answers file
+Written 6480/8561 entries to styled answers file
+Written 6500/8561 entries to styled answers file
+Written 6520/8561 entries to styled answers file
+Written 6540/8561 entries to styled answers file
+Written 6560/8561 entries to styled answers file
+Written 6580/8561 entries to styled answers file
+Written 6600/8561 entries to styled answers file
+Written 6620/8561 entries to styled answers file
+Written 6640/8561 entries to styled answers file
+Written 6660/8561 entries to styled answers file
+Written 6680/8561 entries to styled answers file
+Written 6700/8561 entries to styled answers file
+Written 6720/8561 entries to styled answers file
+Written 6740/8561 entries to styled answers file
+Written 6760/8561 entries to styled answers file
+Written 6780/8561 entries to styled answers file
+Written 6800/8561 entries to styled answers file
+Written 6820/8561 entries to styled answers file
+Written 6840/8561 entries to styled answers file
+Written 6860/8561 entries to styled answers file
+Written 6880/8561 entries to styled answers file
+Written 6900/8561 entries to styled answers file
+Written 6920/8561 entries to styled answers file
+Written 6940/8561 entries to styled answers file
+Written 6960/8561 entries to styled answers file
+Written 6980/8561 entries to styled answers file
+Written 7000/8561 entries to styled answers file
+Written 7020/8561 entries to styled answers file
+Written 7040/8561 entries to styled answers file
+Written 7060/8561 entries to styled answers file
+Written 7080/8561 entries to styled answers file
+Written 7100/8561 entries to styled answers file
+Written 7120/8561 entries to styled answers file
+Written 7140/8561 entries to styled answers file
+Written 7160/8561 entries to styled answers file
+Written 7180/8561 entries to styled answers file
+Written 7200/8561 entries to styled answers file
+Written 7220/8561 entries to styled answers file
+Written 7240/8561 entries to styled answers file
+Written 7260/8561 entries to styled answers file
+Written 7280/8561 entries to styled answers file
+Written 7300/8561 entries to styled answers file
+Written 7320/8561 entries to styled answers file
+Written 7340/8561 entries to styled answers file
+Written 7360/8561 entries to styled answers file
+Written 7380/8561 entries to styled answers file
+Written 7400/8561 entries to styled answers file
+Written 7420/8561 entries to styled answers file
+Written 7440/8561 entries to styled answers file
+Written 7460/8561 entries to styled answers file
+Written 7480/8561 entries to styled answers file
+Written 7500/8561 entries to styled answers file
+Written 7520/8561 entries to styled answers file
+Written 7540/8561 entries to styled answers file
+Written 7560/8561 entries to styled answers file
+Written 7580/8561 entries to styled answers file
+Written 7600/8561 entries to styled answers file
+Written 7620/8561 entries to styled answers file
+Written 7640/8561 entries to styled answers file
+Written 7660/8561 entries to styled answers file
+Written 7680/8561 entries to styled answers file
+Written 7700/8561 entries to styled answers file
+Written 7720/8561 entries to styled answers file
+Written 7740/8561 entries to styled answers file
+Written 7760/8561 entries to styled answers file
+Written 7780/8561 entries to styled answers file
+Written 7800/8561 entries to styled answers file
+Written 7820/8561 entries to styled answers file
+Written 7840/8561 entries to styled answers file
+Written 7860/8561 entries to styled answers file
+Written 7880/8561 entries to styled answers file
+Written 7900/8561 entries to styled answers file
+Written 7920/8561 entries to styled answers file
+Written 7940/8561 entries to styled answers file
+Written 7960/8561 entries to styled answers file
+Written 7980/8561 entries to styled answers file
+Written 8000/8561 entries to styled answers file
+Written 8020/8561 entries to styled answers file
+Written 8040/8561 entries to styled answers file
+When generating for lang zh_cn, question index 6942, question: Which of the following is true of a convolution ke, exceeded maximum trials for generating styled answers, use fallback
+Written 8060/8561 entries to styled answers file
+Written 8080/8561 entries to styled answers file
+Written 8100/8561 entries to styled answers file
+Written 8120/8561 entries to styled answers file
+Written 8140/8561 entries to styled answers file
+Written 8160/8561 entries to styled answers file
+Written 8180/8561 entries to styled answers file
+Written 8200/8561 entries to styled answers file
+Written 8220/8561 entries to styled answers file
+Written 8240/8561 entries to styled answers file
+Written 8260/8561 entries to styled answers file
+Written 8280/8561 entries to styled answers file
+Written 8300/8561 entries to styled answers file
+Written 8320/8561 entries to styled answers file
+Written 8340/8561 entries to styled answers file
+Written 8360/8561 entries to styled answers file
+Written 8380/8561 entries to styled answers file
+Written 8400/8561 entries to styled answers file
+Written 8420/8561 entries to styled answers file
+Written 8440/8561 entries to styled answers file
+Written 8460/8561 entries to styled answers file
+Written 8480/8561 entries to styled answers file
+Written 8500/8561 entries to styled answers file
+Written 8520/8561 entries to styled answers file
+Written 8540/8561 entries to styled answers file
+Written 8560/8561 entries to styled answers file
+Completed writing all styled answers to judge/result/Qwen-Qwen3-8B/perplexity_styled_answers_output.jsonl
+Total entries to calculate perplexity for language zh_cn: 17122
+Using batch size: 15 based on model size and number of GPUs
+Processing batch 1/1142
+Creating HuggingFace backend for model Qwen/Qwen3-8B using 1 GPUs and batch size 15...
+Creating HuggingFace backend for model Qwen/Qwen3-8B with batch size 15...
+Loading model from HuggingFace...
+Found 1 GPUs
+GPU 0: 39.49 GB available, using 35 GB
+ERROR 12-29 00:31:40 [core_client.py:600] Engine core proc EngineCore_DP0 died unexpectedly, shutting down client.
