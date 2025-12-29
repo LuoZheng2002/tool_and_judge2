@@ -338,7 +338,8 @@ async def main_async():
             print(f"Total entries to calculate perplexity for language {lang}: {len(input_entries)}")
 
             # Define batch size for processing
-            batch_size = 32  # Adjust based on GPU memory
+            batch_size =  int(120 * args.num_gpus / config.model.size_in_billion_parameters())
+            print(f"Using batch size: {batch_size} based on model size and number of GPUs")
             total_processed = 0
 
             with open(generate_perplexity_aggregated_output_file_path, 'w') as f:
@@ -347,9 +348,9 @@ async def main_async():
                     print(f"Processing batch {i//batch_size + 1}/{(len(input_entries) + batch_size - 1)//batch_size}", flush=True)
 
                     if not main_hf_backend_created:
-                        print(f"Creating HuggingFace backend for model {model_name} using {args.num_gpus} GPUs...", flush=True)
+                        print(f"Creating HuggingFace backend for model {model_name} using {args.num_gpus} GPUs and batch size {batch_size}...", flush=True)
                         from src_py.huggingface_backend import create_huggingface_backend
-                        main_hf_model, main_tokenizer = create_huggingface_backend(config.model, args.num_gpus)
+                        main_hf_model, main_tokenizer = create_huggingface_backend(config.model, batch_size)
                         print(f"HuggingFace backend created for model {model_name}", flush=True)
                         main_hf_backend_created = True
                     hf_model = main_hf_model
@@ -431,7 +432,7 @@ async def main_async():
                     # Part 3: Calculate perplexity for each entry and write immediately
                     for entry, forward_result, char_mask, trimmed_prompt in zip(batch_entries, forward_results, char_masks, trimmed_prompts):
                         # Convert character mask to token mask
-                        token_mask = convert_char_mask_to_token_mask(trimmed_prompt, char_mask, hf_tokenizer)
+                        token_mask = convert_char_mask_to_token_mask(trimmed_prompt, char_mask, hf_tokenizer, debug=True)
 
                         # Calculate perplexity using the mask
                         perplexity = calculate_perplexity_from_logits_with_mask(

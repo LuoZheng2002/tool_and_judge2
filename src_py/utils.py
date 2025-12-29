@@ -192,7 +192,7 @@ def trim_styled_response_and_get_char_mask(styled_response: str):
     return trim_forward_prompt_and_get_char_mask(styled_response)
 
 
-def convert_char_mask_to_token_mask(trimmed_response: str, char_mask: list, tokenizer: Any):
+def convert_char_mask_to_token_mask(trimmed_response: str, char_mask: list, tokenizer: Any, debug: bool = False):
     """
     Convert a character-level mask to a token-level mask.
 
@@ -200,6 +200,7 @@ def convert_char_mask_to_token_mask(trimmed_response: str, char_mask: list, toke
         trimmed_response: str, the response text (without tags)
         char_mask: list of bool, True for character positions that should be masked
         tokenizer: Tokenizer instance
+        debug: bool, if True, print debug information about masked tokens
 
     Returns:
         list of bool: token-level mask, True for tokens that were inside masked characters
@@ -211,11 +212,12 @@ def convert_char_mask_to_token_mask(trimmed_response: str, char_mask: list, toke
     # Create token mask by checking which tokens correspond to masked characters
     # We'll mark a token as "masked" if any of its characters were masked
     token_mask = []
+    masked_token_ids = []  # Store token IDs of masked tokens for debugging
 
     # Get character spans for each token
     char_idx = 0
     for token_id in input_ids:
-        token_text = tokenizer.decode([token_id], skip_special_tokens=True)
+        token_text = tokenizer.decode([token_id], skip_special_tokens=False)
         token_len = len(token_text)
 
         # Check if any character in this token's span is masked
@@ -226,7 +228,16 @@ def convert_char_mask_to_token_mask(trimmed_response: str, char_mask: list, toke
                 break
 
         token_mask.append(is_masked_token)
+        if is_masked_token:
+            masked_token_ids.append(token_id)
         char_idx += token_len
+
+    # Debug print if requested
+    if debug:
+        # Decode the masked tokens together to get the correct text
+        masked_text = tokenizer.decode(masked_token_ids, skip_special_tokens=True)
+        print(f"[DEBUG] trimmed_response: {repr(trimmed_response)}, char_mask length: {len(char_mask)}, token_mask length: {len(token_mask)}")
+        print(f"[DEBUG] Masked: {sum(token_mask)}/{len(token_mask)} tokens | Text: {repr(masked_text)}")
 
     return token_mask
 
@@ -267,6 +278,10 @@ def calculate_perplexity_from_logits_with_mask(logits, input_ids, answer_mask):
     import torch
     import math
 
+    # Assert relationships between parameters
+    assert logits.shape[0] == len(input_ids), f"logits sequence length {logits.shape[0]} should equal input_ids length ({len(input_ids)})"
+    assert len(answer_mask) == len(input_ids), f"answer_mask length {len(answer_mask)} should equal input_ids length ({len(input_ids)})"
+
     # Shift logits and labels for next-token prediction
     shift_logits = logits[:-1, :]  # All but last position
     shift_labels = torch.tensor(input_ids[1:])  # All but first position
@@ -281,21 +296,18 @@ def calculate_perplexity_from_logits_with_mask(logits, input_ids, answer_mask):
     # answer_mask[i] indicates whether token i should be included
     # For next-token prediction, we want log_prob of predicting token i+1 from position i
     # So we use answer_mask[1:] to select which predictions to include
-    if len(answer_mask) > 1:
-        shifted_mask = answer_mask[1:]  # Shift to align with next-token prediction
-        mask_tensor = torch.tensor(shifted_mask, dtype=torch.bool)
+    assert len(answer_mask) >= 2, "answer_mask must have at least 2 elements to align with shifted predictions"
+    shifted_mask = answer_mask[1:]  # Shift to align with next-token prediction
+    mask_tensor = torch.tensor(shifted_mask, dtype=torch.bool)
 
-        # Select only the log probs where mask is True
-        masked_log_probs = selected_log_probs[mask_tensor]
+    # Select only the log probs where mask is True
+    masked_log_probs = selected_log_probs[mask_tensor]
 
-        # Calculate perplexity
-        if len(masked_log_probs) > 0:
-            avg_log_prob = masked_log_probs.mean().item()
-            perplexity = math.exp(-avg_log_prob)
-        else:
-            perplexity = float('inf')
-    else:
-        perplexity = float('inf')
+    assert len(masked_log_probs) > 0, "No tokens were selected by the answer mask for perplexity calculation"
+    
+    # Calculate perplexity
+    avg_log_prob = masked_log_probs.mean().item()
+    perplexity = math.exp(-avg_log_prob)
 
     return perplexity
 
