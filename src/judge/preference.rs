@@ -1,3 +1,4 @@
+use core::panic;
 use std::{
     collections::{HashMap, HashSet},
     path::Path,
@@ -7,12 +8,10 @@ use pyo3::pyfunction;
 use serde::{Deserialize, Serialize};
 
 use crate::{
-    config::{JudgeConfig, Model},
+    config::{JudgeConfig, JudgeExperiments, Model},
     judge::{
         base_paths::{JUDGE_BASE_DATASET_PATH, JUDGE_BASE_RESULT_PATH},
-        generate_dataset::{TwoAnswersEntry,
-            generate_two_answers_dataset, get_preference_indices,
-        },
+        generate_dataset::{TwoAnswersEntry, generate_two_answers_dataset, get_preference_indices},
     },
     utils::{get_model_safe_name, load_json_lines, write_json_lines_to_file},
 };
@@ -63,228 +62,238 @@ pub fn preference_aggregated_output_file_path(config: &JudgeConfig) -> String {
 }
 
 #[pyfunction]
-pub fn preference_prepare_aggregated_input(
-    model_safe_name: &str,
-    lang1: &str,
-    lang2: &str,
-    config: &JudgeConfig,
-    debug_limit: Option<usize>,
-) {
+pub fn preference_prepare_aggregated_input(config: &JudgeConfig, debug_limit: Option<usize>) {
+    let model_safe_name = get_model_safe_name(Model::Local(config.model));
     let output_file_path = preference_aggregated_input_file_path(config);
-    let lang1_correct_lang2_incorrect_dataset_path = JUDGE_BASE_DATASET_PATH
-        .join("two_answers")
-        .join(format!("{}_correct_{}_incorrect.jsonl", lang1, lang2));
-    let lang1_incorrect_lang2_correct_dataset_path = JUDGE_BASE_DATASET_PATH
-        .join("two_answers")
-        .join(format!("{}_incorrect_{}_correct.jsonl", lang1, lang2));
-    let both_correct_dataset_path = JUDGE_BASE_DATASET_PATH
-        .join("two_answers")
-        .join(format!("{}_correct_{}_correct.jsonl", lang1, lang2));
-    let both_incorrect_dataset_path = JUDGE_BASE_DATASET_PATH
-        .join("two_answers")
-        .join(format!("{}_incorrect_{}_incorrect.jsonl", lang1, lang2));
-    let lang1_correct_lang2_incorrect_result_path = JUDGE_BASE_RESULT_PATH
-        .join(&model_safe_name)
-        .join("preference")
-        .join(format!("{}_correct_{}_incorrect.jsonl", lang1, lang2));
-    let lang1_incorrect_lang2_correct_result_path = JUDGE_BASE_RESULT_PATH
-        .join(&model_safe_name)
-        .join("preference")
-        .join(format!("{}_incorrect_{}_correct.jsonl", lang1, lang2));
-    let both_correct_result_path = JUDGE_BASE_RESULT_PATH
-        .join(&model_safe_name)
-        .join("preference")
-        .join(format!("{}_correct_{}_correct.jsonl", lang1, lang2));
-    let both_incorrect_result_path = JUDGE_BASE_RESULT_PATH
-        .join(&model_safe_name)
-        .join("preference")
-        .join(format!("{}_incorrect_{}_incorrect.jsonl", lang1, lang2));
-    let output_paths_exist = [
-        &lang1_correct_lang2_incorrect_dataset_path,
-        &lang1_incorrect_lang2_correct_dataset_path,
-        &both_correct_dataset_path,
-        &both_incorrect_dataset_path,
-    ]
-    .iter()
-    .all(|path| Path::new(path).exists());
-    if !output_paths_exist {
-        println!(
-            "Two answers datasets for languages {} and {} not found. Generating...",
-            lang1, lang2
-        );
-        generate_two_answers_dataset(&lang1, &lang2);
-    }
-    let lang1_correct_lang2_incorrect_dataset_entries =
-        load_json_lines(&lang1_correct_lang2_incorrect_dataset_path)
-            .expect("Failed to load lang1 correct lang2 incorrect dataset");
-    let lang1_incorrect_lang2_correct_dataset_entries =
-        load_json_lines(&lang1_incorrect_lang2_correct_dataset_path)
-            .expect("Failed to load lang1 incorrect lang2 correct dataset");
-    let both_correct_dataset_entries =
-        load_json_lines(&both_correct_dataset_path).expect("Failed to load both correct dataset");
-    let both_incorrect_dataset_entries = load_json_lines(&both_incorrect_dataset_path)
-        .expect("Failed to load both incorrect dataset");
+    let mut aggregated_entries: Vec<TwoAnswersEntry> = Vec::new();
+    let language_pairs: Vec<(String, String)> = match &config.experiments {
+        JudgeExperiments::Vllm {
+            preference_experiments,
+            ..
+        } => preference_experiments
+            .iter()
+            .map(|exp| (exp.lang1.clone(), exp.lang2.clone()))
+            .collect(),
+        JudgeExperiments::HuggingFace { .. } => {
+            panic!("Preference experiments are not supported for HuggingFace backend");
+        }
+    };
+    for (lang1, lang2) in language_pairs.iter() {
+        let lang1_correct_lang2_incorrect_dataset_path = JUDGE_BASE_DATASET_PATH
+            .join("two_answers")
+            .join(format!("{}_correct_{}_incorrect.jsonl", lang1, lang2));
+        let lang1_incorrect_lang2_correct_dataset_path = JUDGE_BASE_DATASET_PATH
+            .join("two_answers")
+            .join(format!("{}_incorrect_{}_correct.jsonl", lang1, lang2));
+        let both_correct_dataset_path = JUDGE_BASE_DATASET_PATH
+            .join("two_answers")
+            .join(format!("{}_correct_{}_correct.jsonl", lang1, lang2));
+        let both_incorrect_dataset_path = JUDGE_BASE_DATASET_PATH
+            .join("two_answers")
+            .join(format!("{}_incorrect_{}_incorrect.jsonl", lang1, lang2));
+        let lang1_correct_lang2_incorrect_result_path = JUDGE_BASE_RESULT_PATH
+            .join(&model_safe_name)
+            .join("preference")
+            .join(format!("{}_correct_{}_incorrect.jsonl", lang1, lang2));
+        let lang1_incorrect_lang2_correct_result_path = JUDGE_BASE_RESULT_PATH
+            .join(&model_safe_name)
+            .join("preference")
+            .join(format!("{}_incorrect_{}_correct.jsonl", lang1, lang2));
+        let both_correct_result_path = JUDGE_BASE_RESULT_PATH
+            .join(&model_safe_name)
+            .join("preference")
+            .join(format!("{}_correct_{}_correct.jsonl", lang1, lang2));
+        let both_incorrect_result_path = JUDGE_BASE_RESULT_PATH
+            .join(&model_safe_name)
+            .join("preference")
+            .join(format!("{}_incorrect_{}_incorrect.jsonl", lang1, lang2));
+        let output_paths_exist = [
+            &lang1_correct_lang2_incorrect_dataset_path,
+            &lang1_incorrect_lang2_correct_dataset_path,
+            &both_correct_dataset_path,
+            &both_incorrect_dataset_path,
+        ]
+        .iter()
+        .all(|path| Path::new(path).exists());
+        if !output_paths_exist {
+            println!(
+                "Two answers datasets for languages {} and {} not found. Generating...",
+                lang1, lang2
+            );
+            generate_two_answers_dataset(&lang1, &lang2);
+        }
+        let lang1_correct_lang2_incorrect_dataset_entries =
+            load_json_lines(&lang1_correct_lang2_incorrect_dataset_path)
+                .expect("Failed to load lang1 correct lang2 incorrect dataset");
+        let lang1_incorrect_lang2_correct_dataset_entries =
+            load_json_lines(&lang1_incorrect_lang2_correct_dataset_path)
+                .expect("Failed to load lang1 incorrect lang2 correct dataset");
+        let both_correct_dataset_entries = load_json_lines(&both_correct_dataset_path)
+            .expect("Failed to load both correct dataset");
+        let both_incorrect_dataset_entries = load_json_lines(&both_incorrect_dataset_path)
+            .expect("Failed to load both incorrect dataset");
 
-    let lang1_correct_lang2_incorrect_dataset_parsed: Vec<TwoAnswersEntry> =
-        lang1_correct_lang2_incorrect_dataset_entries
+        let lang1_correct_lang2_incorrect_dataset_parsed: Vec<TwoAnswersEntry> =
+            lang1_correct_lang2_incorrect_dataset_entries
+                .into_iter()
+                .map(|entry| {
+                    serde_json::from_value(entry)
+                        .expect("Failed to parse lang1 correct lang2 incorrect dataset entry")
+                })
+                .collect();
+        let lang1_incorrect_lang2_correct_dataset_parsed: Vec<TwoAnswersEntry> =
+            lang1_incorrect_lang2_correct_dataset_entries
+                .into_iter()
+                .map(|entry| {
+                    serde_json::from_value(entry)
+                        .expect("Failed to parse lang1 incorrect lang2 correct dataset entry")
+                })
+                .collect();
+        let both_correct_dataset_parsed: Vec<TwoAnswersEntry> = both_correct_dataset_entries
             .into_iter()
             .map(|entry| {
-                serde_json::from_value(entry)
-                    .expect("Failed to parse lang1 correct lang2 incorrect dataset entry")
+                serde_json::from_value(entry).expect("Failed to parse both correct dataset entry")
             })
             .collect();
-    let lang1_incorrect_lang2_correct_dataset_parsed: Vec<TwoAnswersEntry> =
-        lang1_incorrect_lang2_correct_dataset_entries
+        let both_incorrect_dataset_parsed: Vec<TwoAnswersEntry> = both_incorrect_dataset_entries
             .into_iter()
             .map(|entry| {
-                serde_json::from_value(entry)
-                    .expect("Failed to parse lang1 incorrect lang2 correct dataset entry")
+                serde_json::from_value(entry).expect("Failed to parse both incorrect dataset entry")
             })
             .collect();
-    let both_correct_dataset_parsed: Vec<TwoAnswersEntry> = both_correct_dataset_entries
-        .into_iter()
-        .map(|entry| {
-            serde_json::from_value(entry).expect("Failed to parse both correct dataset entry")
-        })
-        .collect();
-    let both_incorrect_dataset_parsed: Vec<TwoAnswersEntry> = both_incorrect_dataset_entries
-        .into_iter()
-        .map(|entry| {
-            serde_json::from_value(entry).expect("Failed to parse both incorrect dataset entry")
-        })
-        .collect();
 
-    let lang1_correct_lang2_incorrect_result_ids =
-        match load_json_lines(&lang1_correct_lang2_incorrect_result_path) {
+        let lang1_correct_lang2_incorrect_result_ids =
+            match load_json_lines(&lang1_correct_lang2_incorrect_result_path) {
+                Ok(entries) => entries
+                    .into_iter()
+                    .map(|entry| {
+                        let parsed: PreferenceResultEntry = serde_json::from_value(entry)
+                            .expect("Failed to parse lang1 correct lang2 incorrect result entry");
+                        parsed.index
+                    })
+                    .collect(),
+                Err(_) => {
+                    println!(
+                        "File {:?} does not exist, assuming no completed entries.",
+                        lang1_correct_lang2_incorrect_result_path
+                    );
+                    HashSet::new()
+                }
+            };
+        let lang1_incorrect_lang2_correct_result_ids =
+            match load_json_lines(&lang1_incorrect_lang2_correct_result_path) {
+                Ok(entries) => entries
+                    .into_iter()
+                    .map(|entry| {
+                        let parsed: PreferenceResultEntry = serde_json::from_value(entry)
+                            .expect("Failed to parse lang1 incorrect lang2 correct result entry");
+                        parsed.index
+                    })
+                    .collect(),
+                Err(_) => {
+                    println!(
+                        "File {:?} does not exist, assuming no completed entries.",
+                        lang1_incorrect_lang2_correct_result_path
+                    );
+                    HashSet::new()
+                }
+            };
+        let both_correct_result_ids = match load_json_lines(&both_correct_result_path) {
             Ok(entries) => entries
                 .into_iter()
                 .map(|entry| {
                     let parsed: PreferenceResultEntry = serde_json::from_value(entry)
-                        .expect("Failed to parse lang1 correct lang2 incorrect result entry");
+                        .expect("Failed to parse both correct result entry");
                     parsed.index
                 })
                 .collect(),
             Err(_) => {
                 println!(
                     "File {:?} does not exist, assuming no completed entries.",
-                    lang1_correct_lang2_incorrect_result_path
+                    both_correct_result_path
                 );
                 HashSet::new()
             }
         };
-    let lang1_incorrect_lang2_correct_result_ids =
-        match load_json_lines(&lang1_incorrect_lang2_correct_result_path) {
+        let both_incorrect_result_ids = match load_json_lines(&both_incorrect_result_path) {
             Ok(entries) => entries
                 .into_iter()
                 .map(|entry| {
                     let parsed: PreferenceResultEntry = serde_json::from_value(entry)
-                        .expect("Failed to parse lang1 incorrect lang2 correct result entry");
+                        .expect("Failed to parse both incorrect result entry");
                     parsed.index
                 })
                 .collect(),
             Err(_) => {
                 println!(
                     "File {:?} does not exist, assuming no completed entries.",
-                    lang1_incorrect_lang2_correct_result_path
+                    both_incorrect_result_path
                 );
                 HashSet::new()
             }
         };
-    let both_correct_result_ids = match load_json_lines(&both_correct_result_path) {
-        Ok(entries) => entries
-            .into_iter()
-            .map(|entry| {
-                let parsed: PreferenceResultEntry = serde_json::from_value(entry)
-                    .expect("Failed to parse both correct result entry");
-                parsed.index
-            })
-            .collect(),
-        Err(_) => {
-            println!(
-                "File {:?} does not exist, assuming no completed entries.",
-                both_correct_result_path
-            );
-            HashSet::new()
-        }
-    };
-    let both_incorrect_result_ids = match load_json_lines(&both_incorrect_result_path) {
-        Ok(entries) => entries
-            .into_iter()
-            .map(|entry| {
-                let parsed: PreferenceResultEntry = serde_json::from_value(entry)
-                    .expect("Failed to parse both incorrect result entry");
-                parsed.index
-            })
-            .collect(),
-        Err(_) => {
-            println!(
-                "File {:?} does not exist, assuming no completed entries.",
-                both_incorrect_result_path
-            );
-            HashSet::new()
-        }
-    };
 
-    // conditionally concatenate
-    let mut combined_entries: Vec<TwoAnswersEntry> = Vec::new();
-    let mut count = 0;
-    for entry in lang1_correct_lang2_incorrect_dataset_parsed {
-        if let Some(limit) = debug_limit {
-            if count >= limit {
-                break;
+        // conditionally concatenate
+
+        let mut count = 0;
+        for entry in lang1_correct_lang2_incorrect_dataset_parsed {
+            if let Some(limit) = debug_limit {
+                if count >= limit {
+                    break;
+                }
+                count += 1;
             }
-            count += 1;
+            if !lang1_correct_lang2_incorrect_result_ids.contains(&entry.index) {
+                aggregated_entries.push(entry);
+            }
         }
-        if !lang1_correct_lang2_incorrect_result_ids.contains(&entry.index) {
-            combined_entries.push(entry);
+        count = 0;
+        for entry in lang1_incorrect_lang2_correct_dataset_parsed {
+            if let Some(limit) = debug_limit {
+                if count >= limit {
+                    break;
+                }
+                count += 1;
+            }
+            if !lang1_incorrect_lang2_correct_result_ids.contains(&entry.index) {
+                aggregated_entries.push(entry);
+            }
+        }
+        count = 0;
+        for entry in both_correct_dataset_parsed {
+            if let Some(limit) = debug_limit {
+                if count >= limit {
+                    break;
+                }
+                count += 1;
+            }
+            if !both_correct_result_ids.contains(&entry.index) {
+                aggregated_entries.push(entry);
+            }
+        }
+        count = 0;
+        for entry in both_incorrect_dataset_parsed {
+            if let Some(limit) = debug_limit {
+                if count >= limit {
+                    break;
+                }
+                count += 1;
+            }
+            if !both_incorrect_result_ids.contains(&entry.index) {
+                aggregated_entries.push(entry);
+            }
         }
     }
-    count = 0;
-    for entry in lang1_incorrect_lang2_correct_dataset_parsed {
-        if let Some(limit) = debug_limit {
-            if count >= limit {
-                break;
-            }
-            count += 1;
-        }
-        if !lang1_incorrect_lang2_correct_result_ids.contains(&entry.index) {
-            combined_entries.push(entry);
-        }
-    }
-    count = 0;
-    for entry in both_correct_dataset_parsed {
-        if let Some(limit) = debug_limit {
-            if count >= limit {
-                break;
-            }
-            count += 1;
-        }
-        if !both_correct_result_ids.contains(&entry.index) {
-            combined_entries.push(entry);
-        }
-    }
-    count = 0;
-    for entry in both_incorrect_dataset_parsed {
-        if let Some(limit) = debug_limit {
-            if count >= limit {
-                break;
-            }
-            count += 1;
-        }
-        if !both_incorrect_result_ids.contains(&entry.index) {
-            combined_entries.push(entry);
-        }
-    }
-    let combined_entries_serialized: Vec<serde_json::Value> = combined_entries
+    let aggregated_entries_serialized: Vec<serde_json::Value> = aggregated_entries
         .iter()
         .map(|entry| serde_json::to_value(entry).expect("Failed to serialize combined entry"))
         .collect();
     // write to output file
-    write_json_lines_to_file(&output_file_path, &combined_entries_serialized)
+    write_json_lines_to_file(&output_file_path, &aggregated_entries_serialized)
         .expect("Failed to write combined two answers dataset");
     println!(
-        "Concatenated two answers dataset for languages {} and {} written to {:?}",
-        lang1, lang2, output_file_path
+        "Concatenated two answers dataset for language pairs{:?} written to {:?}",
+        language_pairs, output_file_path
     );
 }
 

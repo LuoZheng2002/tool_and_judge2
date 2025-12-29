@@ -63,17 +63,23 @@ class ToolExperiment:
 class ToolConfig:
     def __new__(cls, model: Model, experiment_configs: list[ToolExperiment]) -> ToolConfig: ...
 
-class JudgeExperiment:
-    PreferenceDirect = JudgeExperiment_PreferenceDirect
-    Perplexity = JudgeExperiment_Perplexity
+class JudgeExperiments:
+    HuggingFace = JudgeExperiments_HuggingFace
+    Vllm = JudgeExperiments_Vllm
 
-class JudgeExperiment_PreferenceDirect:
-    def __new__(cls, *, lang1: str, lang2: str) -> JudgeExperiment: ...
+class JudgeExperiments_HuggingFace:
+    def __new__(cls, *, perplexity_experiments: list[PerplexityExperiment]) -> JudgeExperiments: ...
 
-class JudgeExperiment_Perplexity:
-    def __new__(cls, *, lang: str) -> JudgeExperiment: ...
+class JudgeExperiments_Vllm:
+    def __new__(cls, *, preference_experiments: list[PreferenceExperiment], perplexity_experiments: list[PerplexityExperiment]) -> JudgeExperiments: ...
+
+class PreferenceExperiment:
+    def __new__(cls, lang1: str, lang2: str) -> PreferenceExperiment: ...
+
+class PerplexityExperiment:
+    def __new__(cls, lang: str) -> PerplexityExperiment: ...
 
 class JudgeConfig:
-    def __new__(cls, model: LocalModel, experiment: JudgeExperiment) -> JudgeConfig: ...
+    def __new__(cls, model: LocalModel, experiments: JudgeExperiments) -> JudgeConfig: ...
     model: LocalModel
-    experiment: JudgeExperiment
+    experiments: JudgeExperiments

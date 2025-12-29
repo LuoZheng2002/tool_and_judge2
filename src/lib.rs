@@ -23,7 +23,7 @@ pub mod codebase_rs {
     #[pymodule_export]
     use super::{
         config::{
-            AddNoiseMode, ApiModel, JudgeConfig, JudgeExperiment, Language, LocalModel, Model,
+            AddNoiseMode, ApiModel, JudgeConfig, JudgeExperiments, PerplexityExperiment, PreferenceExperiment, Language, LocalModel, Model,
             ToolConfig, ToolExperiment, TranslateMode, TranslateOption,
         },
         judge::preference::preference_prepare_aggregated_input,

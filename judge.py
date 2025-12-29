@@ -99,21 +99,13 @@ async def main_async():
     global main_hf_backend_created, main_hf_model, main_tokenizer
     global main_vllm_backend_created, main_vllm_engine, main_tokenizer
     global assistant_api_backend_created, assistant_client
-    match config.experiment:
-        case JudgeExperiment.PreferenceDirect(lang1=lang1, lang2=lang2):
-            # Determine alphabetical order for language codes
-            sorted_langs = sorted([lang1, lang2])
-            first_lang = sorted_langs[0]
-            second_lang = sorted_langs[1]
+    match config.experiments:
+        case JudgeExperiments.Vllm(_, _):
+            # -------------------- preference experiment -------------------- #
 
             preference_aggregated_input_path = preference_aggregated_input_file_path(config)
             preference_aggregated_output_path = preference_aggregated_output_file_path(config)
-            # load two answers datasets
 
-            # generate a filename based on uuid
-            # uuid_str = str(uuid.uuid4())
-            
-            # check if there is file at preference_aggregated_output_path
             if os.path.exists(preference_aggregated_output_path):
                 dispatch_preference_results(model_safe_name, first_lang, second_lang, preference_aggregated_output_path)
                 # delete this file
@@ -121,7 +113,7 @@ async def main_async():
                 print(f"Dispatched results from existing file: {combined_output_path}")
             
             # call rust function to concatenate two datasets
-            preference_prepare_aggregated_input(model_safe_name, first_lang, second_lang, debug_limit=args.debug_limit)
+            preference_prepare_aggregated_input(config, debug_limit=args.debug_limit)
             combined_entries = load_json_lines_from_file(combined_input_path)
             semaphore = asyncio.Semaphore(200)
             async def collect_single_preference_async(entry: dict) -> dict:

@@ -238,21 +238,51 @@ impl ToolConfig {
 /* Judge Project Configuration                                                                          */
 /* ---------------------------------------------------------------------------------------------------- */
 
+// #[pyclass]
+// #[derive(Clone, Debug)]
+// pub enum JudgeExperiment {
+//     PreferenceDirect { lang1: String, lang2: String },
+//     Perplexity { lang: String },
+// }
+
+
 #[pyclass]
 #[derive(Clone, Debug)]
-pub enum JudgeExperiment {
-    PreferenceDirect { lang1: String, lang2: String },
-    Perplexity { lang: String },
+pub enum JudgeExperiments {
+    HuggingFace{
+        perplexity_experiments: Vec<PerplexityExperiment>,
+    },
+    Vllm{
+        preference_experiments: Vec<PreferenceExperiment>,
+        perplexity_experiments: Vec<PerplexityExperiment>,
+    }
+}
+
+#[pyclass]
+#[derive(Clone, Debug)]
+pub struct PerplexityExperiment {
+    pub lang: String,
 }
 #[pymethods]
-impl JudgeExperiment {
-    pub fn to_string(&self) -> String {
-        match self {
-            JudgeExperiment::PreferenceDirect { lang1, lang2 } => {
-                format!("preference_{}_{}", lang1, lang2)
-            }
-            JudgeExperiment::Perplexity { lang } => format!("perplexity_{}", lang),
-        }
+impl PerplexityExperiment {
+    #[new]
+    fn new(lang: String) -> Self {
+        PerplexityExperiment { lang }
+    }
+}
+
+#[pyclass]
+#[derive(Clone, Debug)]
+pub struct PreferenceExperiment {
+    pub lang1: String,
+    pub lang2: String,
+}
+
+#[pymethods]
+impl PreferenceExperiment {
+    #[new]
+    fn new(lang1: String, lang2: String) -> Self {
+        PreferenceExperiment { lang1, lang2 }
     }
 }
 
@@ -262,13 +292,13 @@ pub struct JudgeConfig {
     #[pyo3(get)]
     pub model: LocalModel,
     #[pyo3(get)]
-    pub experiment: JudgeExperiment,
+    pub experiments: JudgeExperiments,
 }
 
 #[pymethods]
 impl JudgeConfig {
     #[new]
-    fn new(model: LocalModel, experiment: JudgeExperiment) -> Self {
-        JudgeConfig { model, experiment }
+    fn new(model: LocalModel, experiments: JudgeExperiments) -> Self {
+        JudgeConfig { model, experiments }
     }
 }
