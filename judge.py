@@ -362,27 +362,23 @@ async def main_async():
                     # Import utilities
                     from src_py.utils import (
                         language_abbreviation_to_name,
-                        trim_styled_response_and_get_char_mask,
+                        trim_forward_prompt_and_get_char_mask,
                         convert_char_mask_to_token_mask,
                         calculate_perplexity_from_logits_with_mask
                     )
 
                     # Part 1: Parse styled responses and prepare data
-                    formatted_prompts = []
                     char_masks = []
-                    trimmed_responses = []
+                    trimmed_prompts = []
 
                     for entry in batch_entries:
                         question = entry['question']
-                        # Use whichever styled response is present
-                        styled_response = entry.get('styled_response_correct') or entry.get('styled_response_incorrect') or entry.get('styled_response')
-                        entry_lang = entry.get('lang', lang)
-
-                        # Trim answer tags and get character-level mask
-                        trimmed_response, char_mask = trim_styled_response_and_get_char_mask(styled_response)
+                        # Use whichever styled response is present (with <answer> tags)
+                        styled_response = entry['styled_response']
+                        lang = entry['lang']
 
                         # Map language abbreviation to full name
-                        language_name = language_abbreviation_to_name(entry_lang)
+                        language_name = language_abbreviation_to_name(lang)
 
                         # Build language-specific instructions
                         instruction = f"Please concisely answer the question in {language_name}."
@@ -390,7 +386,7 @@ async def main_async():
                         # Combine question with instruction
                         user_content = f"{question}\n\n{instruction}"
 
-                        # Build messages for chat template
+                        # Build messages for chat template (with styled response that has <answer> tags)
                         messages = [
                             {
                                 "role": "user",
@@ -398,37 +394,39 @@ async def main_async():
                             },
                             {
                                 "role": "assistant",
-                                "content": trimmed_response
+                                "content": styled_response  # Keep <answer> tags for now
                             }
                         ]
 
-                        # Apply chat template to get the full formatted prompt
+                        # Apply chat template to get the formatted prompt with <answer> tags
                         # Handle model-specific tokenization parameters
                         if config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b]:
-                            formatted_prompt = hf_tokenizer.apply_chat_template(
+                            formatted_prompt_with_tags = hf_tokenizer.apply_chat_template(
                                 messages,
                                 tokenize=False,
                                 add_generation_prompt=False,
                                 enable_thinking=False,
                             )
                         else:
-                            formatted_prompt = hf_tokenizer.apply_chat_template(
+                            formatted_prompt_with_tags = hf_tokenizer.apply_chat_template(
                                 messages,
                                 tokenize=False,
                                 add_generation_prompt=False
                             )
 
-                        formatted_prompts.append(formatted_prompt)
+                        # Now trim the <answer> tags from the complete formatted prompt and get character-level mask
+                        trimmed_prompt, char_mask = trim_forward_prompt_and_get_char_mask(formatted_prompt_with_tags)
+
                         char_masks.append(char_mask)
-                        trimmed_responses.append(trimmed_response)
+                        trimmed_prompts.append(trimmed_prompt)
 
                     # Part 2: Forward pass through model
-                    forward_results = forward_for_perplexity(formatted_prompts, hf_model, hf_tokenizer)
+                    forward_results = forward_for_perplexity(trimmed_prompts, hf_model, hf_tokenizer)
 
                     # Part 3: Calculate perplexity for each entry and write immediately
-                    for entry, forward_result, char_mask, trimmed_response in zip(batch_entries, forward_results, char_masks, trimmed_responses):
+                    for entry, forward_result, char_mask, trimmed_prompt in zip(batch_entries, forward_results, char_masks, trimmed_prompts):
                         # Convert character mask to token mask
-                        token_mask = convert_char_mask_to_token_mask(trimmed_response, char_mask, hf_tokenizer)
+                        token_mask = convert_char_mask_to_token_mask(trimmed_prompt, char_mask, hf_tokenizer)
 
                         # Calculate perplexity using the mask
                         perplexity = calculate_perplexity_from_logits_with_mask(
