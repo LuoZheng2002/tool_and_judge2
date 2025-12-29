@@ -101,20 +101,17 @@ async def main_async():
     global assistant_api_backend_created, assistant_client
     match config.experiments:
         case JudgeExperiments.Vllm(_, _):
+            print("This run uses VLLM backend.")
             # -------------------- preference experiment -------------------- #
-
+            print("Starting preference experiment...", flush=True)
             preference_aggregated_input_path = preference_aggregated_input_file_path(config)
             preference_aggregated_output_path = preference_aggregated_output_file_path(config)
 
             if os.path.exists(preference_aggregated_output_path):
-                dispatch_preference_results(model_safe_name, first_lang, second_lang, preference_aggregated_output_path)
-                # delete this file
-                os.remove(combined_output_path)
-                print(f"Dispatched results from existing file: {combined_output_path}")
+                dispatch_preference_results(config)
             
-            # call rust function to concatenate two datasets
             preference_prepare_aggregated_input(config, debug_limit=args.debug_limit)
-            combined_entries = load_json_lines_from_file(combined_input_path)
+            combined_entries = load_json_lines_from_file(preference_aggregated_input_path)
             semaphore = asyncio.Semaphore(200)
             async def collect_single_preference_async(entry: dict) -> dict:
                 """
@@ -168,32 +165,20 @@ async def main_async():
                         "is_correct2": entry["is_correct2"],
                         "subject": entry["subject"],
                     }
-            
             async def collect_all_preference_entries() -> list[dict]:
                 tasks = [collect_single_preference_async(entry) for entry in combined_entries]
-                with open(combined_output_path, 'w', encoding='utf-8') as f:
+                with open(preference_aggregated_output_path, 'w', encoding='utf-8') as f:
                     for i, coro in enumerate(asyncio.as_completed(tasks), 1):
                         result = await coro
                         f.write(json.dumps(result, ensure_ascii=False) + '\n')
                         f.flush()
                         print(f"Written {i}/{len(combined_entries)} entries to file")
             await collect_all_preference_entries()
-
-            # dispatch results
-            dispatch_preference_results(model_safe_name, lang1, lang2, combined_output_path)
-            # delete this file
-            os.remove(combined_output_path)
-            print(f"Dispatched results and removed file: {combined_output_path}")
-        case JudgeExperiment.Perplexity(lang=lang):
-            # collect the response (to the response folder)
-            # we only need the questions for the first pass, but will need the two answers for the second pass
-            # however, we need two answers of the same language, so we can only load two one-answer datasets and combine them
-            # we do not concatenate the datasets because two conjugated cases should be processed at the same time.
-
-            # Use the existing filtering before letting LLMs to merge the dataset
-            # Assume all filtered entries can be successfully processed
-
-            # first pass: do the response generation
+            dispatch_preference_results(config)
+            print("Preference experiment finished.")
+            # -------------------- perplexity experiment -------------------- #
+            print("Starting perplexity experiment...", flush=True)
+            # ---------- pass 1: collect response ---------- #
             generate_response_input_file_path = perplexity_generate_response_input_file_path(config)
             generate_response_output_file_path = perplexity_generate_response_output_file_path(config)
             if os.path.exists(generate_response_output_file_path):
@@ -254,12 +239,8 @@ async def main_async():
             await collect_all_response_entries()
             perplexity_dispatch_response_results(config)
             print(f"Completed writing all responses to {generate_response_output_file_path}")
-
-            # # debug: stop here
-            # exit(1)
-
             
-            # pass 2: call gpt-5/deepseek to merge the style with the ground truth (to the perplexity_dataset folder)
+            # ---------- pass 2: generate styled responses ---------- #
             generate_styled_answers_input_file_path = perplexity_generate_styled_answers_input_file_path(config)
             generate_styled_answers_output_file_path = perplexity_generate_styled_answers_output_file_path(config)
             if os.path.exists(generate_styled_answers_output_file_path):
@@ -271,7 +252,7 @@ async def main_async():
 
             # then write an async function to process them
             semaphore = asyncio.Semaphore(200)
-            async def collect_single_styled_answers_async(
+            async def collect_single_styled_responses_async(
                 entry: dict,
             ) -> dict:
                 """
@@ -312,8 +293,8 @@ async def main_async():
                     'lang': entry['lang'],
                     'subject': entry['subject'],
                 }
-            async def collect_all_perplexity_dataset_entries() -> list[dict]:
-                tasks = [collect_single_styled_answers_async(entry) for entry in input_entries]
+            async def collect_all_styled_responses_entries() -> list[dict]:
+                tasks = [collect_single_styled_responses_async(entry) for entry in input_entries]
                 with open(generate_styled_answers_output_file_path, 'a', encoding='utf-8') as f:
                     for i, coro in enumerate(asyncio.as_completed(tasks), 1):
                         result = await coro
@@ -321,17 +302,17 @@ async def main_async():
                         f.flush()
                         if i % 20 == 0:
                             print(f"Written {i}/{len(input_entries)} entries to styled answers file")
-            await collect_all_perplexity_dataset_entries()
+            await collect_all_styled_responses_entries()
             perplexity_dispatch_styled_answers_results(config)
             print(f"Completed writing all styled answers to {generate_styled_answers_output_file_path}")
-
-            # third pass: input is perplexity dataset, output is perplexity
+            print("Perplexity experiment finished.")
+        case JudgeExperiments.HuggingFace(_):            
+            # ---------- pass 3: forward and collect perplexity ---------- #
             generate_perplexity_aggregated_input_file_path = perplexity_generate_perplexity_aggregated_input_file_path(config)
             generate_perplexity_aggregated_output_file_path = perplexity_generate_perplexity_aggregated_output_file_path(config)
             if os.path.exists(generate_perplexity_aggregated_output_file_path):
                 perplexity_dispatch_generate_perplexity_results(config)
             perplexity_prepare_generate_perplexity_aggregated_input(config, debug_limit=args.debug_limit)
-            
             
             input_entries = load_json_lines_from_file(generate_perplexity_aggregated_input_file_path)
             print(f"Total entries to calculate perplexity for language {lang}: {len(input_entries)}")
