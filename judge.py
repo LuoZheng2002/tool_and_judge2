@@ -91,10 +91,12 @@ async def main_async():
     global main_hf_backend_created, main_hf_model, main_tokenizer
     global main_vllm_backend_created, main_vllm_engine, main_tokenizer
     global assistant_api_backend_created, assistant_client
+
+    model_name = config.model.to_string()
     match config.experiments:
         case JudgeExperiments.Vllm(_, _):
             print("This run uses VLLM backend.")
-            model_name = config.model.to_string()
+            
             # -------------------- preference experiment -------------------- #
             print("Starting preference experiment...", flush=True)
             preference_aggregated_input_path = preference_aggregated_input_file_path(config)
@@ -246,7 +248,7 @@ async def main_async():
             perplexity_prepare_generate_styled_answers_input(config, debug_limit=args.debug_limit)
             
             input_entries = load_json_lines_from_file(generate_styled_answers_input_file_path)
-            print(f"Total entries to generate styled answers for language {lang}: {len(input_entries)}")
+            print(f"Total entries to generate styled answers: {len(input_entries)}")
 
             # then write an async function to process them
             semaphore = asyncio.Semaphore(200)
@@ -313,7 +315,7 @@ async def main_async():
             perplexity_prepare_generate_perplexity_aggregated_input(config, debug_limit=args.debug_limit)
             
             input_entries = load_json_lines_from_file(generate_perplexity_aggregated_input_file_path)
-            print(f"Total entries to calculate perplexity for language {lang}: {len(input_entries)}")
+            print(f"Total entries to calculate perplexity: {len(input_entries)}")
 
             # Define batch size for processing
             batch_size =  int(120 * args.num_gpus / config.model.size_in_billion_parameters())

@@ -1,0 +1,23 @@
+✏️ Setting installed package as editable
+Dispatching perplexity results for model: Qwen-Qwen3-8B, languages: ["en", "zh_cn"], input file: judge/result/Qwen-Qwen3-8B/perplexity_aggregated_output.jsonl
+Cannot open file: Unable to open file judge/result/Qwen-Qwen3-8B/perplexity/en_correct.jsonl: No such file or directory (os error 2), assuming empty result file
+Cannot open file: Unable to open file judge/result/Qwen-Qwen3-8B/perplexity/en_incorrect.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 8561 correct entries for model: Qwen-Qwen3-8B, lang: en
+Warning: Missing 8561 incorrect entries for model: Qwen-Qwen3-8B, lang: en
+Dispatched perplexity results for model: Qwen-Qwen3-8B, lang: en
+Cannot open file: Unable to open file judge/result/Qwen-Qwen3-8B/perplexity/zh_cn_correct.jsonl: No such file or directory (os error 2), assuming empty result file
+Cannot open file: Unable to open file judge/result/Qwen-Qwen3-8B/perplexity/zh_cn_incorrect.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 8561 correct entries for model: Qwen-Qwen3-8B, lang: zh_cn
+Warning: Missing 8561 incorrect entries for model: Qwen-Qwen3-8B, lang: zh_cn
+Dispatched perplexity results for model: Qwen-Qwen3-8B, lang: zh_cn
+Removed aggregated perplexity output file: judge/result/Qwen-Qwen3-8B/perplexity_aggregated_output.jsonl
+Concatenated perplexity dataset for languages ["en", "zh_cn"] written to judge/result/Qwen-Qwen3-8B/perplexity_aggregated_input.jsonl
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm2.py
+Total entries to calculate perplexity: 34244
+Using batch size: 15 based on model size and number of GPUs
+Processing batch 1/2283
+Creating HuggingFace backend for model Qwen/Qwen3-8B using 1 GPUs and batch size 15...
