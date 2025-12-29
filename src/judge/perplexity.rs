@@ -37,38 +37,43 @@ pub struct GenerateResponseInputEntry {
 #[derive(Clone, Deserialize, Serialize)]
 pub struct ResponseEntry {
     pub index: usize,
-    pub question: String,
     pub response: String,
+    pub question: String,    
     pub lang: String,
     pub subject: String,
 }
 
 #[derive(Clone, Deserialize, Serialize)]
 pub struct GenerateStyledAnswersInputEntry {
-    pub index: usize,
-    pub question: String,
+    pub index: usize,    
     pub response: String,
     pub original_answer_correct: String,
     pub original_answer_incorrect: String,
+    pub question: String,
     pub lang: String,
     pub subject: String,
 }
 
 #[derive(Clone, Deserialize, Serialize)]
 pub struct StyledAnswersEntry {
-    pub index: usize,
-    pub question: String,
+    pub index: usize,    
     pub styled_response_correct: String,
     pub styled_response_incorrect: String,
+    pub response: String,
+    pub original_answer_correct: String,
+    pub original_answer_incorrect: String,
+    pub question: String,
     pub lang: String,
     pub subject: String,
 }
 
 #[derive(Clone, Deserialize, Serialize)]
 pub struct GeneratePerplexityAggregatedInputEntry {
-    pub index: usize,
-    pub question: String,
+    pub index: usize,    
     pub styled_response: String,
+    pub response: String,
+    pub original_answer: String,
+    pub question: String,
     pub is_correct: bool,
     pub lang: String,
     pub subject: String,
@@ -77,10 +82,11 @@ pub struct GeneratePerplexityAggregatedInputEntry {
 #[derive(Clone, Deserialize, Serialize)]
 pub struct PerplexityEntry {
     pub index: usize,
-    pub perplexity: f64,
-    pub question: String,
+    pub perplexity: f64,    
     pub styled_response: String,
-    // pub original_answer: String,
+    pub response: String,
+    pub original_answer: String,
+    pub question: String,
     pub is_correct: bool,
     pub lang: String,
     pub subject: String,
@@ -511,8 +517,10 @@ pub fn perplexity_prepare_generate_perplexity_aggregated_input(
             // only extract the correct answer part
             let input_entry = GeneratePerplexityAggregatedInputEntry {
                 index: *index,
-                question: styled_answers_entry.question.clone(),
                 styled_response: styled_answers_entry.styled_response_correct.clone(),
+                response: styled_answers_entry.response.clone(),
+                original_answer: styled_answers_entry.original_answer_correct.clone(),
+                question: styled_answers_entry.question.clone(),
                 is_correct: true,
                 lang: styled_answers_entry.lang.clone(),
                 subject: styled_answers_entry.subject.clone(),
@@ -524,10 +532,12 @@ pub fn perplexity_prepare_generate_perplexity_aggregated_input(
                 .get(index)
                 .expect("Missing incorrect one answer entry");
             // only extract the incorrect answer part
-            let input_entry = GeneratePerplexityAggregatedInputEntry {
+            let input_entry = GeneratePerplexityAggregatedInputEntry{
                 index: *index,
-                question: styled_answers_entry.question.clone(),
                 styled_response: styled_answers_entry.styled_response_incorrect.clone(),
+                response: styled_answers_entry.response.clone(),
+                original_answer: styled_answers_entry.original_answer_incorrect.clone(),
+                question: styled_answers_entry.question.clone(),
                 is_correct: false,
                 lang: styled_answers_entry.lang.clone(),
                 subject: styled_answers_entry.subject.clone(),

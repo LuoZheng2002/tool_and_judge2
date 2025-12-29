@@ -63,10 +63,13 @@ if __name__ == "__main__":
         "4. Are the details from the LLM's response faithfully preserved, including letter cases and special decorations like \"**\" for bold?\n" 
         "Finally, output the final version of the two responses in the last two lines."
     )
-    user_prompt = ("Question: Which of the following best describes the structure that collects urine in the body?\n"
-    "LLM's Response: The structure that collects urine in the body is the **urinary bladder**.\n"
-    "Answer 1: Bladder\n"
-    "Answer 2: Kidney")
+    # user_prompt = ("Question: Which of the following best describes the structure that collects urine in the body?\n"
+    # "LLM's Response: The structure that collects urine in the body is the **urinary bladder**.\n"
+    # "Answer 1: Bladder\n"
+    # "Answer 2: Kidney")
+    user_prompt = ("Statement 1 | A factor group of a non-Abelian group is non-Abelian. Statement 2 | If K is a normal subgroup of H and H is a normal subgroup of G, then K is a normal subgroup of G.\n"
+    "LLM's Response: Statement 1 is false. A factor group of a non-Abelian group can be Abelian. Statement 2 is true. If K is a normal subgroup of H and H is a normal subgroup of G, then K is indeed a normal subgroup of G.\n"
+    
     print(f"user_prompt: {user_prompt}")
 
     result = call_gpt4(system_prompt, user_prompt)

@@ -146,6 +146,8 @@ Put your final answer in \\boxed{{category_name}}."""
 async def generate_styled_answers_async(
     model_name: str,
     client: Any,
+    index: int,
+    lang: str,
     question: str,
     response: str,
     answer_correct: str,
@@ -164,12 +166,12 @@ async def generate_styled_answers_async(
         "\n\n"
         "Here is an example:\n"
         "Question: Judge the following statements: 1+1=3. All integers are either even or odd.\n"
-        "LLM's Response: The first statement is incorrect. 1+1=2. The second statement is correct. All integers are either even or odd.\n"
+        "LLM's Response: The first statement is incorrect. 1+1=2. The second statement is **correct**. All integers are either even or odd.\n"
         "Answer 1: True, True\n"
         "Answer 2: False, False\n"
         "Your final output:\n"
-        "The first statement is <answer>true</answer>. The second statement is <answer>true</answer>.\n"
-        "The first statement is <answer>false</answer>. The second statement is <answer>false</answer>.\n\n"
+        "The first statement is <answer>true</answer>. The second statement is **<answer>true</answer>**.\n"
+        "The first statement is <answer>false</answer>. The second statement is **<answer>false</answer>**.\n\n"
         "Begin your response with your first trial of generating the two synthesized answers. Then check the following:\n"
         "1. Is the essence of the answers enclosed in <answer> and </answer> tags while the rest of the content is in the style of the LLM's response?\n"
         "2. Apart from the content inside the <answer> tags, are the two responses identical?\n" 
@@ -191,30 +193,52 @@ async def generate_styled_answers_async(
     ]
 
     try:
-        api_response = await client.chat.completions.create(
-            model=model_name,
-            messages=messages,
-            temperature=0.7,
-            max_tokens=1000
-        )
+        max_trials = 3
+        num_trials = 0
+        while True:
+            num_trials += 1
+            if num_trials > max_trials:
+                # return {"error": "Exceeded maximum trials for generating styled answers"}
+                # print(f"When generating for question {question}, exceeded maximum trials for generating styled answers")
+                # exit(1)
+                # the fallback is to wrap the original answers with <answer> directly
+                print(f"When generating for lang {lang}, question index {index}, question: {question[:50]}, exceeded maximum trials for generating styled answers, use fallback")
+                styled_response_1 = f"<answer>{answer_correct}</answer>."
+                styled_response_2 = f"<answer>{answer_incorrect}</answer>."
+                return {
+                    "styled_response_correct": styled_response_1,
+                    "styled_response_incorrect": styled_response_2
+                }
+            api_response = await client.chat.completions.create(
+                model=model_name,
+                messages=messages,
+                temperature=0.7,
+                max_tokens=1000
+            )
 
-        if not api_response.choices or len(api_response.choices) == 0:
-            return {"error": "LLM returns no choices"}
+            if not api_response.choices or len(api_response.choices) == 0:
+                continue  # Retry
 
-        content = api_response.choices[0].message.content
-        if content is None or not content.strip():
-            return {"error": "LLM returns empty content"}
+            content = api_response.choices[0].message.content
+            if content is None or not content.strip():
+                continue  # Retry
 
-        # Split the response into two lines
-        lines = [line.strip() for line in content.strip().split('\n') if line.strip()]
+            # Split the response into two lines
+            lines = [line.strip() for line in content.strip().split('\n') if line.strip()]
 
-        if len(lines) < 2:
-            return {"error": "LLM did not return two lines as expected"}
+            if len(lines) < 2:
+                continue  # Retry
 
-        return {
-            "styled_response_correct": lines[-2],
-            "styled_response_incorrect": lines[-1]
-        }
+            styled_response_1 = lines[-2]
+            styled_response_2 = lines[-1]
+            if '<answer>' not in styled_response_1 or '</answer>' not in styled_response_1:
+                continue  # Retry
+            if '<answer>' not in styled_response_2 or '</answer>' not in styled_response_2:
+                continue  # Retry
+            return {
+                "styled_response_correct": styled_response_1,
+                "styled_response_incorrect": styled_response_2
+            }
 
     except Exception as e:
         print(f"Exception during generate_styled_answers_async: {e}")

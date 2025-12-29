@@ -243,8 +243,8 @@ async def main_async():
 
                     return {
                         'index': entry['index'],
-                        'question': entry['question'],
                         'response': response,
+                        'question': entry['question'],                        
                         'lang': entry['lang'],
                         'subject': entry['subject'],
                     }
@@ -256,7 +256,8 @@ async def main_async():
                         result = await coro
                         f.write(json.dumps(result, ensure_ascii=False) + '\n')
                         f.flush()
-                        print(f"Written {i}/{len(input_entries)} entries to file")
+                        if i % 20 == 0:
+                            print(f"Written {i}/{len(input_entries)} entries to file")
 
             await collect_all_response_entries()
             perplexity_dispatch_response_results(config)
@@ -300,6 +301,8 @@ async def main_async():
                     result = await generate_styled_answers_async(
                         assistant_model_name,
                         client,
+                        entry['index'],
+                        entry['lang'],
                         entry['question'],
                         entry['response'],
                         entry['original_answer_correct'],
@@ -307,10 +310,13 @@ async def main_async():
                     )
                 # return type is StyledAnswersEntry in src/judge/perplexity.rs
                 return {
-                    'index': entry['index'],
-                    'question': entry['question'],
+                    'index': entry['index'],                    
                     'styled_response_correct': result['styled_response_correct'],
                     'styled_response_incorrect': result['styled_response_incorrect'],
+                    'response': entry['response'],
+                    'original_answer_correct': entry['original_answer_correct'],
+                    'original_answer_incorrect': entry['original_answer_incorrect'],
+                    'question': entry['question'],
                     'lang': entry['lang'],
                     'subject': entry['subject'],
                 }
@@ -321,7 +327,8 @@ async def main_async():
                         result = await coro
                         f.write(json.dumps(result, ensure_ascii=False) + '\n')
                         f.flush()
-                        print(f"Written {i}/{len(input_entries)} entries to styled answers file")
+                        if i % 20 == 0:
+                            print(f"Written {i}/{len(input_entries)} entries to styled answers file")
             await collect_all_perplexity_dataset_entries()
             perplexity_dispatch_styled_answers_results(config)
             print(f"Completed writing all styled answers to {generate_styled_answers_output_file_path}")
@@ -432,7 +439,7 @@ async def main_async():
                     # Part 3: Calculate perplexity for each entry and write immediately
                     for entry, forward_result, char_mask, trimmed_prompt in zip(batch_entries, forward_results, char_masks, trimmed_prompts):
                         # Convert character mask to token mask
-                        input_ids, token_mask = convert_char_mask_to_token_mask(trimmed_prompt, char_mask, hf_tokenizer, debug=True)
+                        input_ids, token_mask = convert_char_mask_to_token_mask(trimmed_prompt, char_mask, hf_tokenizer, debug=False)
 
                         # Verify input_ids match between tokenization and forward pass
                         assert input_ids == forward_result['input_ids'], \
@@ -447,13 +454,14 @@ async def main_async():
 
                         result_entry = {
                             'index': entry['index'],
-                            'perplexity': perplexity,
+                            'perplexity': perplexity,                            
+                            'styled_response': entry['styled_response'],
+                            'response': entry['response'],
+                            'original_answer': entry['original_answer'],
                             'question': entry['question'],
-                            'styled_response': entry.get('styled_response_correct') or entry.get('styled_response_incorrect') or entry.get('styled_response'),
-                            # 'original_answer': entry.get('original_answer', ''),
-                            'is_correct': entry.get('is_correct', False),
-                            'lang': lang,
-                            'subject': entry.get('subject', ''),
+                            'is_correct': entry['is_correct'],
+                            'lang': entry['lang'],
+                            'subject': entry['subject'],
                         }
                         # Write result immediately
                         f.write(json.dumps(result_entry, ensure_ascii=False) + '\n')
