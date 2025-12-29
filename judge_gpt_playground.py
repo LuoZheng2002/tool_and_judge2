@@ -1,4 +1,6 @@
 import os
+import re
+import json
 from openai import OpenAI
 from dotenv import load_dotenv
 
@@ -44,35 +46,50 @@ if __name__ == "__main__":
         "You are a helpful assistant. The user is going to provide you a question, an LLM's response to the question, and two extra answers. "
         "Your task is to merge the style of the LLM's response with the two given answers, and produce two responses that have the same meaning as the given answers but in the style of the LLM's response. "
         "The two synthesized responses must be IDENTICAL except for the very essence of the answers. "
-        "The final answer consists of two lines, each containing one synthesized response. The essence of the answers in the two responses should be enclosed in <answer> and </answer> tags. "
+        "The essence of the answers in the two responses should be enclosed in <answer> and </answer> tags. "
         "You may slightly modify the wording of the two answers and the LLM's response to ensure coherence in the synthesized responses. "
         "If the LLM's response contains any content that is related to the decision of the answer, you should discard it in the synthesized responses. "
         "\n\n"
         "Here is an example:\n"
         "Question: Judge the following statements: 1+1=3. All integers are either even or odd.\n"
-        "LLM's Response: The first statement is incorrect. 1+1=2. The second statement is correct. All integers are either even or odd.\n"
+        "LLM's Response: The first statement is incorrect. 1+1=2. The second statement is **correct**. All integers are either even or odd.\n"
         "Answer 1: True, True\n"
         "Answer 2: False, False\n"
         "Your final output:\n"
-        "The first statement is <answer>true</answer>. The second statement is <answer>true</answer>.\n"
-        "The first statement is <answer>false</answer>. The second statement is <answer>false</answer>.\n\n"
-        "Begin your response with your first trial of generating the two synthesized answers. Then check the following:\n"
+        "{\n"
+        '  "response_1": "The first statement is <answer>true</answer>. The second statement is **<answer>true</answer>**.",\n'
+        '  "response_2": "The first statement is <answer>false</answer>. The second statement is **<answer>false</answer>**."\n'
+        "}\n\n"
+        "Begin your response with your first trial of generating the two synthesized answers WITHOUT using JSON format. Then check the following:\n"
         "1. Is the essence of the answers enclosed in <answer> and </answer> tags while the rest of the content is in the style of the LLM's response?\n"
-        "2. Apart from the content inside the <answer> tags, are the two responses identical?\n" 
-        "3. Does the content outside the <answer> tags reveal the decision of the answers? If so, it should be removed.\n" 
-        "4. Are the details from the LLM's response faithfully preserved, including letter cases and special decorations like \"**\" for bold?\n" 
-        "Finally, output the final version of the two responses in the last two lines."
+        "2. Apart from the content inside the <answer> tags, are the two responses identical?\n"
+        "3. Does the content outside the <answer> tags reveal the decision of the answers? If so, it should be removed.\n"
+        "4. Are the details from the LLM's response faithfully preserved, including letter cases and special decorations like \"**\" for bold?\n"
+        'Finally, output the final version of the two responses in JSON format with keys "response_1" and "response_2".'
     )
-    # user_prompt = ("Question: Which of the following best describes the structure that collects urine in the body?\n"
-    # "LLM's Response: The structure that collects urine in the body is the **urinary bladder**.\n"
-    # "Answer 1: Bladder\n"
-    # "Answer 2: Kidney")
-    user_prompt = ("Statement 1 | A factor group of a non-Abelian group is non-Abelian. Statement 2 | If K is a normal subgroup of H and H is a normal subgroup of G, then K is a normal subgroup of G.\n"
-    "LLM's Response: Statement 1 is false. A factor group of a non-Abelian group can be Abelian. Statement 2 is true. If K is a normal subgroup of H and H is a normal subgroup of G, then K is indeed a normal subgroup of G.\n"
+    user_prompt = ("Question: Which of the following best describes the structure that collects urine in the body?\n"
+    "LLM's Response: The structure that collects urine in the body is the **urinary bladder**.\n"
+    "Answer 1: Bladder\n"
+    "Answer 2: Kidney")
     
     print(f"user_prompt: {user_prompt}")
 
     result = call_gpt4(system_prompt, user_prompt)
 
     if result:
-        print(f"Response: {result}")
+        print(f"Raw Response: {result}\n")
+
+        # Extract and parse JSON from the response - use the last match
+        json_matches = re.findall(r'\{[^{}]*"response_1"[^{}]*"response_2"[^{}]*\}', result, re.DOTALL)
+
+        if json_matches:
+            json_str = json_matches[-1]  # Use the last match
+            try:
+                parsed_json = json.loads(json_str)
+                print(f"Parsed JSON:")
+                print(f"  response_1: {parsed_json.get('response_1')}")
+                print(f"  response_2: {parsed_json.get('response_2')}")
+            except json.JSONDecodeError as e:
+                print(f"Failed to parse JSON: {e}")
+        else:
+            print("No JSON object found in response")
