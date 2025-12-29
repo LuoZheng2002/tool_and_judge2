@@ -331,12 +331,15 @@ async def main_async():
             
             input_entries = load_json_lines_from_file(generate_perplexity_aggregated_input_file_path)
             print(f"Total entries to calculate perplexity for language {lang}: {len(input_entries)}")
-            
+
+            # Define batch size for processing
+            batch_size = 32  # Adjust based on GPU memory
+            total_processed = 0
+
             with open(generate_perplexity_aggregated_output_file_path, 'w') as f:
-                for i in range(0, len(indices_to_process), batch_size):
-                    batch_indices = indices_to_process[i:i+batch_size]
-                    batch_entries = [perplexity_dataset_entries[index] for index in batch_indices]
-                    print(f"Processing batch {i//batch_size + 1}/{(len(indices_to_process) + batch_size - 1)//batch_size}", flush=True)
+                for i in range(0, len(input_entries), batch_size):
+                    batch_entries = input_entries[i:i+batch_size]
+                    print(f"Processing batch {i//batch_size + 1}/{(len(input_entries) + batch_size - 1)//batch_size}", flush=True)
 
                     if not main_hf_backend_created:
                         print(f"Creating HuggingFace backend for model {model_name} using {args.num_gpus} GPUs...", flush=True)
@@ -347,27 +350,102 @@ async def main_async():
                     hf_model = main_hf_model
                     hf_tokenizer = main_tokenizer
 
-                    # Get model outputs for the batch
+                    # Three-part perplexity calculation
+                    # Import model-specific forward function
                     if config.model == LocalModel.Llama3_3_70B:
-                        from src_py.llama3_1_backend import collect_perplexity_batch
+                        from src_py.llama3_1_backend import forward_for_perplexity
                     elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b]:
-                        from src_py.qwen3_backend import collect_perplexity_batch
+                        from src_py.qwen3_backend import forward_for_perplexity
                     else:
                         raise ValueError(f"Unsupported model for perplexity collection: {config.model}")
 
-                    batch_outputs = collect_perplexity_batch(batch_entries, args.num_gpus, config.model)
+                    # Import utilities
+                    from src_py.utils import (
+                        language_abbreviation_to_name,
+                        trim_styled_response_and_get_char_mask,
+                        convert_char_mask_to_token_mask,
+                        calculate_perplexity_from_logits_with_mask
+                    )
 
-                    # Process each entry in the batch and write immediately
-                    for entry, output in zip(batch_entries, batch_outputs):
+                    # Part 1: Parse styled responses and prepare data
+                    formatted_prompts = []
+                    char_masks = []
+                    trimmed_responses = []
+
+                    for entry in batch_entries:
+                        question = entry['question']
+                        # Use whichever styled response is present
+                        styled_response = entry.get('styled_response_correct') or entry.get('styled_response_incorrect') or entry.get('styled_response')
+                        entry_lang = entry.get('lang', lang)
+
+                        # Trim answer tags and get character-level mask
+                        trimmed_response, char_mask = trim_styled_response_and_get_char_mask(styled_response)
+
+                        # Map language abbreviation to full name
+                        language_name = language_abbreviation_to_name(entry_lang)
+
+                        # Build language-specific instructions
+                        instruction = f"Please concisely answer the question in {language_name}."
+
+                        # Combine question with instruction
+                        user_content = f"{question}\n\n{instruction}"
+
+                        # Build messages for chat template
+                        messages = [
+                            {
+                                "role": "user",
+                                "content": user_content
+                            },
+                            {
+                                "role": "assistant",
+                                "content": trimmed_response
+                            }
+                        ]
+
+                        # Apply chat template to get the full formatted prompt
+                        # Handle model-specific tokenization parameters
+                        if config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b]:
+                            formatted_prompt = hf_tokenizer.apply_chat_template(
+                                messages,
+                                tokenize=False,
+                                add_generation_prompt=False,
+                                enable_thinking=False,
+                            )
+                        else:
+                            formatted_prompt = hf_tokenizer.apply_chat_template(
+                                messages,
+                                tokenize=False,
+                                add_generation_prompt=False
+                            )
+
+                        formatted_prompts.append(formatted_prompt)
+                        char_masks.append(char_mask)
+                        trimmed_responses.append(trimmed_response)
+
+                    # Part 2: Forward pass through model
+                    forward_results = forward_for_perplexity(formatted_prompts, hf_model, hf_tokenizer)
+
+                    # Part 3: Calculate perplexity for each entry and write immediately
+                    for entry, forward_result, char_mask, trimmed_response in zip(batch_entries, forward_results, char_masks, trimmed_responses):
+                        # Convert character mask to token mask
+                        token_mask = convert_char_mask_to_token_mask(trimmed_response, char_mask, hf_tokenizer)
+
+                        # Calculate perplexity using the mask
+                        perplexity = calculate_perplexity_from_logits_with_mask(
+                            forward_result['logits'],
+                            forward_result['input_ids'],
+                            token_mask
+                        )
+
                         result_entry = {
                             'index': entry['index'],
-                            'perplexity': output['perplexity'],
+                            'perplexity': perplexity,
                             'question': entry['question'],
-                            'styled_response': entry['styled_response'],
-                            'original_answer': entry['original_answer'],
-                            'is_correct': entry['is_correct'],
+                            'styled_response': entry.get('styled_response_correct') or entry.get('styled_response_incorrect') or entry.get('styled_response'),
+                            'original_answer': entry.get('original_answer', ''),
+                            'is_correct': entry.get('is_correct', False),
                             'lang': lang,
-                            'subject': entry['subject'],
+                            'subject': entry.get('subject', ''),
                         }
                         # Write result immediately
                         f.write(json.dumps(result_entry, ensure_ascii=False) + '\n')
@@ -376,7 +454,7 @@ async def main_async():
 
                     # Flush after each batch to ensure results are written
                     f.flush()
-                    print(f"Written {total_processed}/{len(indices_to_process)} entries to perplexity result file", flush=True)
+                    print(f"Written {total_processed}/{len(input_entries)} entries to perplexity result file", flush=True)
             perplexity_dispatch_generate_perplexity_results(config)
             print(f"Completed writing all {total_processed} perplexity results to {generate_perplexity_aggregated_output_file_path}")
 
