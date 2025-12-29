@@ -123,6 +123,8 @@ async def main_async():
                         from src_py.llama3_1_backend import collect_preference_local_async
                     elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b]:
                         from src_py.qwen3_backend import collect_preference_local_async
+                    elif config.model == LocalModel.AyaExpanse32b:
+                        from src_py.aya_expanse_backend import collect_preference_local_async
                     else:
                         raise ValueError(f"Unsupported model for preference collection: {config.model}")
                     try:
@@ -180,7 +182,7 @@ async def main_async():
             
             
             input_entries = load_json_lines_from_file(generate_response_input_file_path)
-            print(f"Total entries to generate responses for language {lang}: {len(input_entries)}")
+            print(f"Total entries to generate responses: {len(input_entries)}")
 
             # Process entries asynchronously using vLLM
             semaphore = asyncio.Semaphore(200)
@@ -202,6 +204,8 @@ async def main_async():
                         from src_py.llama3_1_backend import generate_response_async
                     elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b]:
                         from src_py.qwen3_backend import generate_response_async
+                    elif config.model == LocalModel.AyaExpanse32b:
+                        from src_py.aya_expanse_backend import generate_response_async
                     else:
                         raise ValueError(f"Unsupported model for response collection: {config.model}")
                     try:
@@ -335,6 +339,8 @@ async def main_async():
                         from src_py.llama3_1_backend import forward_for_perplexity
                     elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b]:
                         from src_py.qwen3_backend import forward_for_perplexity
+                    elif config.model == LocalModel.AyaExpanse32b:
+                        from src_py.aya_expanse_backend import forward_for_perplexity
                     else:
                         raise ValueError(f"Unsupported model for perplexity collection: {config.model}")
 
