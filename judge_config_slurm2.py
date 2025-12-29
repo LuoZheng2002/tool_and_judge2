@@ -1,5 +1,5 @@
 from codebase_rs import *
 
-
-config = JudgeConfig(LocalModel.Qwen3_8B, JudgeExperiment.Perplexity(lang="zh_cn"))
-
+config = JudgeConfig(LocalModel.Qwen3_8B, JudgeExperiments.HuggingFace(
+    perplexity_experiments=[PerplexityExperiment("en"), PerplexityExperiment("zh_cn")]
+))

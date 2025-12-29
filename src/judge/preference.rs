@@ -162,7 +162,7 @@ pub fn preference_prepare_aggregated_input(config: &JudgeConfig, debug_limit: Op
 }
 
 #[pyfunction]
-pub fn dispatch_preference_results(config: &JudgeConfig) {
+pub fn preference_dispatch_preference_results(config: &JudgeConfig) {
     let model_safe_name = get_model_safe_name(Model::Local(config.model));
     let language_pairs: Vec<(String, String)> = match &config.experiments {
         JudgeExperiments::Vllm {

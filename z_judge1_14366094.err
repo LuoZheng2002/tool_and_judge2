@@ -1,32 +1,0 @@
-🔗 Found pyo3 bindings
-🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
-    Blocking waiting for file lock on build directory
-    Finished `release` profile [optimized] target(s) in 0.87s
-📖 Found type stub file at codebase_rs.pyi
-📦 Built wheel for CPython 3.13 to /tmp/.tmp0v4WQD/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
-🛠 Installed codebase_rs-0.1.0
-`torch_dtype` is deprecated! Use `dtype` instead!
-Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:02<00:10,  2.75s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:05<00:08,  2.68s/it]Loading checkpoint shards:  60%|██████    | 3/5 [00:08<00:05,  2.71s/it]Loading checkpoint shards:  80%|████████  | 4/5 [00:10<00:02,  2.51s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:11<00:00,  2.03s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:11<00:00,  2.30s/it]
-Traceback (most recent call last):
-  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 465, in <module>
-    asyncio.run(main_async())
-    ~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 195, in run
-    return runner.run(main)
-           ~~~~~~~~~~^^^^^^
-  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 118, in run
-    return self._loop.run_until_complete(task)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
-    return future.result()
-           ~~~~~~~~~~~~~^^
-  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 437, in main_async
-    perplexity = calculate_perplexity_from_logits_with_mask(
-        forward_result['logits'],
-        forward_result['input_ids'],
-        token_mask
-    )
-  File "/projects/bfdz/zluo8/tool_and_judge2/src_py/utils.py", line 305, in calculate_perplexity_from_logits_with_mask
-    assert len(masked_log_probs) > 0, "No tokens were selected by the answer mask for perplexity calculation"
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError: No tokens were selected by the answer mask for perplexity calculation

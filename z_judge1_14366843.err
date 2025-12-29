@@ -1,10 +1,0 @@
-🔗 Found pyo3 bindings
-🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
-    Finished `release` profile [optimized] target(s) in 3.06s
-📖 Found type stub file at codebase_rs.pyi
-📦 Built wheel for CPython 3.13 to /tmp/.tmpDECXgt/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
-🛠 Installed codebase_rs-0.1.0
-/projects/bfdz/zluo8/tool_and_judge2/src_py/gpt5_backend.py:20: SyntaxWarning: 'str' object is not callable; perhaps you missed a comma?
-  "You are an expert in composing functions. "
-`torch_dtype` is deprecated! Use `dtype` instead!
-Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:03<00:12,  3.23s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:05<00:08,  2.89s/it]Loading checkpoint shards:  60%|██████    | 3/5 [00:08<00:05,  2.78s/it]Loading checkpoint shards:  80%|████████  | 4/5 [00:10<00:02,  2.53s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:11<00:00,  1.94s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:11<00:00,  2.31s/it]

@@ -75,14 +75,6 @@ from src_py.vllm_backend import create_vllm_backend
 
 print(f"Loading config from: {args.config}")
 config: JudgeConfig = load_config_from_file(args.config, "config")
-print("Processing configuration: ", config)
-
-
-model_name = config.model.to_string() # Get model name from Rust enum
-model_safe_name = get_model_directory_safe_name(model_name)
-# Start the first pass
-
-experiment_str = config.experiment.to_string()
 
 
 main_vllm_backend_created = False
@@ -102,13 +94,14 @@ async def main_async():
     match config.experiments:
         case JudgeExperiments.Vllm(_, _):
             print("This run uses VLLM backend.")
+            model_name = config.model.to_string()
             # -------------------- preference experiment -------------------- #
             print("Starting preference experiment...", flush=True)
             preference_aggregated_input_path = preference_aggregated_input_file_path(config)
             preference_aggregated_output_path = preference_aggregated_output_file_path(config)
 
             if os.path.exists(preference_aggregated_output_path):
-                dispatch_preference_results(config)
+                preference_dispatch_preference_results(config)
             
             preference_prepare_aggregated_input(config, debug_limit=args.debug_limit)
             combined_entries = load_json_lines_from_file(preference_aggregated_input_path)
@@ -174,7 +167,7 @@ async def main_async():
                         f.flush()
                         print(f"Written {i}/{len(combined_entries)} entries to file")
             await collect_all_preference_entries()
-            dispatch_preference_results(config)
+            preference_dispatch_preference_results(config)
             print("Preference experiment finished.")
             # -------------------- perplexity experiment -------------------- #
             print("Starting perplexity experiment...", flush=True)
