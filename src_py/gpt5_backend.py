@@ -158,7 +158,7 @@ async def generate_styled_answers_async(
         "You are a helpful assistant. The user is going to provide you a question, an LLM's response to the question, and two extra answers. "
         "Your task is to merge the style of the LLM's response with the two given answers, and produce two responses that have the same meaning as the given answers but in the style of the LLM's response. "
         "The two synthesized responses must be IDENTICAL except for the very essence of the answers. "
-        "You should only output two lines, each containing one synthesized response. Do not include any additional text or explanations. The essence of the answers in the two responses should be enclosed in <answer> and </answer> tags. "
+        "The final answer consists of two lines, each containing one synthesized response. The essence of the answers in the two responses should be enclosed in <answer> and </answer> tags. "
         "You may slightly modify the wording of the two answers and the LLM's response to ensure coherence in the synthesized responses. "
         "If the LLM's response contains any content that is related to the decision of the answer, you should discard it in the synthesized responses. "
         "\n\n"
@@ -167,10 +167,15 @@ async def generate_styled_answers_async(
         "LLM's Response: The first statement is incorrect. 1+1=2. The second statement is correct. All integers are either even or odd.\n"
         "Answer 1: True, True\n"
         "Answer 2: False, False\n"
-        "Your output:\n\n"
+        "Your final output:\n"
         "The first statement is <answer>true</answer>. The second statement is <answer>true</answer>.\n"
         "The first statement is <answer>false</answer>. The second statement is <answer>false</answer>.\n\n"
-        "Now, please process the user's input accordingly."
+        "Begin your response with your first trial of generating the two synthesized answers. Then check the following:\n"
+        "1. Is the essence of the answers enclosed in <answer> and </answer> tags while the rest of the content is in the style of the LLM's response?\n"
+        "2. Apart from the content inside the <answer> tags, are the two responses identical?\n" 
+        "3. Does the content outside the <answer> tags reveal the decision of the answers? If so, it should be removed.\n" 
+        "4. Are the details from the LLM's response faithfully preserved, including letter cases and special decorations like \"**\" for bold?\n" 
+        "Finally, output the final version of the two responses in the last two lines."
     )
 
     user_prompt = (
@@ -207,8 +212,8 @@ async def generate_styled_answers_async(
             return {"error": "LLM did not return two lines as expected"}
 
         return {
-            "styled_response_correct": lines[0],
-            "styled_response_incorrect": lines[1]
+            "styled_response_correct": lines[-2],
+            "styled_response_incorrect": lines[-1]
         }
 
     except Exception as e:
