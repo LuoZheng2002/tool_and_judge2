@@ -245,6 +245,10 @@ def convert_char_mask_to_token_mask(trimmed_response: str, char_mask: list, toke
         masked_text = tokenizer.decode(masked_token_ids, skip_special_tokens=True)
         print(f"[DEBUG] trimmed_response length: {len(trimmed_response)}, char_mask length: {len(char_mask)}, input_ids length: {len(input_ids)}, token_mask length: {len(token_mask)}")
         print(f"[DEBUG] Masked: {sum(token_mask)}/{len(token_mask)} tokens | Text: {repr(masked_text)}")
+        if sum(token_mask) <=0:
+            print(f"trimmed_response: {repr(trimmed_response)}\n char_mask: {char_mask}\n input_ids: {input_ids}\n token_mask: {token_mask}\n")
+            print(f"[DEBUG] ERROR: No tokens were masked!")
+            exit(1)
 
     return input_ids, token_mask
 
