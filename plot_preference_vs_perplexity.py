@@ -34,11 +34,13 @@ def load_jsonl(file_path: str) -> List[dict]:
 
 def get_perplexity_value(entry: dict) -> Optional[float]:
     """Extract perplexity value from Result type."""
-    perplexity = entry.get('perplexity')
-    if isinstance(perplexity, dict):
-        if 'Ok' in perplexity:
-            return perplexity['Ok']
-    return None
+    # perplexity = entry.get('perplexity')
+    # if isinstance(perplexity, dict):
+    #     if 'Ok' in perplexity:
+    #         return perplexity['Ok']
+    # return None
+    perplexity = entry['perplexity']
+    return perplexity
 
 
 def get_preference_value(entry: dict) -> Optional[float]:
@@ -236,8 +238,8 @@ def main():
                        help='First language code (e.g., en)')
     parser.add_argument('lang2', type=str,
                        help='Second language code (e.g., zh_cn)')
-    parser.add_argument('--output-dir', type=str, default='plots',
-                       help='Output directory for plots (default: plots)')
+    parser.add_argument('--output-dir', type=str, default='judge/plots',
+                       help='Output directory for plots (default: judge/plots)')
     parser.add_argument('--filter-outliers', action='store_true',
                        help='Filter outliers using percentile-based approach')
     parser.add_argument('--keep-percentage', type=float, default=0.90,

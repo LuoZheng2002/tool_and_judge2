@@ -1,0 +1,13 @@
+✏️ Setting installed package as editable
+Two answers same language dataset for language zh_cn not found. Generating...
+Generated two answers same language dataset for language zh_cn.
+File judge/result/Qwen-Qwen3-8B/response/zh_cn.jsonl does not exist, assuming no completed entries.
+Response input dataset for language zh_cn written to judge/result/Qwen-Qwen3-8B/perplexity_response_input.jsonl
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm2.py
+Processing configuration:  <builtins.JudgeConfig object at 0x7ff8ae682dd0>
+Total entries to generate responses for language zh_cn: 8561
+Creating VLLM backend for model Qwen/Qwen3-8B using 1 GPUs...
