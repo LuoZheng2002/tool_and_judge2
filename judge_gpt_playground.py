@@ -10,14 +10,14 @@ load_dotenv()
 # Initialize OpenAI client with API key from environment
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-def call_gpt4(system_prompt: str, user_prompt: str, model: str = "gpt-4-turbo") -> str:
+def call_gpt4(system_prompt: str, user_prompt: str, model: str = "gpt-4.1") -> str:
     """
     Call GPT-4 with system and user prompts.
 
     Args:
         system_prompt: The system prompt to set the context/behavior
         user_prompt: The user's input/question
-        model: The model to use (default: gpt-4-turbo)
+        model: The model to use (default: gpt-4.1)
 
     Returns:
         The assistant's response as a string
@@ -47,7 +47,7 @@ if __name__ == "__main__":
         "Your task is to merge the style of the LLM's response with the two given answers, and produce two responses that have the same meaning as the given answers but in the style of the LLM's response. "
         "The two synthesized responses must be IDENTICAL except for the very essence of the answers. "
         "The essence of the answers in the two responses should be enclosed in <answer> and </answer> tags. "
-        "You may slightly modify the wording of the two answers and the LLM's response to ensure coherence in the synthesized responses. "
+        # "You may slightly modify the wording of the two answers and the LLM's response to ensure coherence in the synthesized responses. "
         "If the LLM's response contains any content that is related to the decision of the answer, you should discard it in the synthesized responses. "
         "\n\n"
         "Here is an example:\n"
@@ -65,16 +65,21 @@ if __name__ == "__main__":
         "2. Apart from the content inside the <answer> tags, are the two responses identical?\n"
         "3. Does the content outside the <answer> tags reveal the decision of the answers? If so, it should be removed.\n"
         "4. Are the details from the LLM's response faithfully preserved, including letter cases and special decorations like \"**\" for bold?\n"
+        "5. Did you make up styles or sentence framing that do not exist in the LLM's response? If the LLM's response contains only the direct answer without any framing, then wrap the answer with <answer> tags directly without adding any other styles or sentence framing.\n"
         'Finally, output the final version of the two responses in JSON format with keys "response_1" and "response_2".'
     )
-    user_prompt = ("Question: Which of the following best describes the structure that collects urine in the body?\n"
-    "LLM's Response: The structure that collects urine in the body is the **urinary bladder**.\n"
-    "Answer 1: Bladder\n"
-    "Answer 2: Kidney")
+    # user_prompt = ("Question: Which of the following best describes the structure that collects urine in the body?\n"
+    # "LLM's Response: The structure that collects urine in the body is the **urinary bladder**.\n"
+    # "Answer 1: Bladder\n"
+    # "Answer 2: Kidney")
+    user_prompt = ("Question: Which of the following conditions is characterized by incompetence of the esophageal sphincter?\n"
+    "LLM's Response: 胃食管反流病\n"
+    "Answer 1: 胃食管反流病\n"
+    "Answer 2: 幽门狭窄")
     
     print(f"user_prompt: {user_prompt}")
 
-    result = call_gpt4(system_prompt, user_prompt)
+    result = call_gpt4(system_prompt, user_prompt, model="gpt-4.1")
 
     if result:
         print(f"Raw Response: {result}\n")
