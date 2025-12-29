@@ -86,6 +86,8 @@ pub enum LocalModel {
     Llama3_1_70B,
     #[strum(serialize = "meta-llama/Llama-3.3-70B-Instruct")]
     Llama3_3_70B,
+    #[strum(serialize = "CohereLabs/aya-expanse-32b")]
+    AyaExpanse32b,
 }
 #[pymethods]
 impl LocalModel {
@@ -104,6 +106,7 @@ impl LocalModel {
             LocalModel::Llama3_1_8B => 8.0,
             LocalModel::Llama3_1_70B => 70.0,
             LocalModel::Llama3_3_70B => 70.0,
+            LocalModel::AyaExpanse32b => 32.0,
         }
     }
     fn __richcmp__(&self, other: PyRef<LocalModel>, op: CompareOp) -> PyResult<bool> {
