@@ -9,6 +9,8 @@ pub enum ApiModel {
     Gpt5Mini,
     #[strum(serialize = "gpt-5-nano")]
     Gpt5Nano,
+    #[strum(serialize = "gpt-4.1")]
+    Gpt4_1,
     #[strum(serialize = "deepseek-chat")]
     DeepSeek,
     #[strum(serialize = "meta.llama3-1-8b-instruct-v1:0")]
@@ -33,7 +35,7 @@ impl ApiModel {
     }
     pub fn api_key_name(&self) -> String {
         match self {
-            ApiModel::Gpt5 | ApiModel::Gpt5Mini | ApiModel::Gpt5Nano => {
+            ApiModel::Gpt5 | ApiModel::Gpt5Mini | ApiModel::Gpt5Nano | ApiModel::Gpt4_1 => {
                 "OPENAI_API_KEY".to_string()
             }
             ApiModel::DeepSeek => "DEEPSEEK_API_KEY".to_string(),
@@ -44,7 +46,7 @@ impl ApiModel {
     }
     pub fn base_url(&self) -> String {
         match self {
-            ApiModel::Gpt5 | ApiModel::Gpt5Mini | ApiModel::Gpt5Nano => {
+            ApiModel::Gpt5 | ApiModel::Gpt5Mini | ApiModel::Gpt5Nano | ApiModel::Gpt4_1 => {
                 "https://api.openai.com/v1".to_string()
             }
             ApiModel::DeepSeek => "https://api.deepseek.com".to_string(),

@@ -11,6 +11,7 @@ class ApiModel(Enum):
     GPT_5 = "gpt-5"
     GPT_5_MINI = "gpt-5-mini"
     GPT_5_NANO = "gpt-5-nano"
+    GPT_4_1 = "gpt-4.1"
     GPT_4O_MINI = "gpt-4o-mini"  # Used for post-processing
     DEEPSEEK_CHAT = "deepseek-chat"
     LLAMA_3_1_8B = "meta.llama3-1-8b-instruct-v1:0"
@@ -29,27 +30,6 @@ class LocalModel(Enum):
     QWEN3_NEXT_80B_A3B = "Qwen/Qwen3-Next-80B-A3B-Instruct"
 
 ToolModel = Union[ApiModel, LocalModel]
-
-# Models that require function name sanitization (e.g., GPT-5 doesn't allow dots in function names)
-# This mapping is used to determine if we need to build name mappings for a model
-MODEL_REQUIRES_NAME_SANITIZATION = {
-    ApiModel.GPT_5: True,
-    ApiModel.GPT_5_MINI: True,
-    ApiModel.GPT_5_NANO: True,
-    # All other models default to False (no sanitization needed)
-}
-
-def requires_name_sanitization(model: ToolModel) -> bool:
-    """
-    Check if a model requires function name sanitization.
-
-    Args:
-        model: ApiModel or LocalModel enum
-
-    Returns:
-        True if the model requires name sanitization, False otherwise
-    """
-    return MODEL_REQUIRES_NAME_SANITIZATION.get(model, False)
 
 class Language(Enum):
     CHINESE = auto()

@@ -9,7 +9,7 @@ from src_py.utils import load_config_from_file
 from src_py.utils import load_json_lines_from_file
 from src_py.utils import combine_entries_to_pairs
 from src_py.utils import get_model_directory_safe_name
-from src_py.vllm_backend import create_vllm_backend
+
 from src_py.utils import calculate_perplexity_from_logits
 
 import argparse
@@ -69,8 +69,9 @@ with open(lock_file_path, "w") as lock_file:
         fcntl.flock(lock_file.fileno(), fcntl.LOCK_UN)
         print("Released build lock.")
 
-# from codebase_rs import concatenate_preference_datasets, concatenate_perplexity_datasets, dispatch_preference_results, dispatch_perplexity_results
 from codebase_rs import *
+
+from src_py.vllm_backend import create_vllm_backend
 
 print(f"Loading config from: {args.config}")
 config: JudgeConfig = load_config_from_file(args.config, "config")
@@ -96,6 +97,8 @@ assistant_client = None
 
 async def main_async():
     global main_hf_backend_created, main_hf_model, main_tokenizer
+    global main_vllm_backend_created, main_vllm_engine, main_tokenizer
+    global assistant_api_backend_created, assistant_client
     match config.experiment:
         case JudgeExperiment.PreferenceDirect(lang1=lang1, lang2=lang2):
             # Determine alphabetical order for language codes
@@ -128,7 +131,7 @@ async def main_async():
                 global main_vllm_backend_created, main_vllm_engine, main_tokenizer
                 if not main_vllm_backend_created:
                     print(f"Creating VLLM backend for model {model_name} using {args.num_gpus} GPUs...", flush=True)
-                    main_vllm_engine, main_tokenizer = create_vllm_backend(model_name, args.num_gpus)
+                    main_vllm_engine, main_tokenizer = create_vllm_backend(config.model, args.num_gpus)
                     print(f"VLLM backend created for model {model_name}", flush=True)
                     main_vllm_backend_created = True
                 engine = main_vllm_engine
@@ -182,7 +185,7 @@ async def main_async():
                         f.write(json.dumps(result, ensure_ascii=False) + '\n')
                         f.flush()
                         print(f"Written {i}/{len(combined_entries)} entries to file")
-            asyncio.run(collect_all_preference_entries())
+            await collect_all_preference_entries()
 
             # dispatch results
             dispatch_preference_results(model_safe_name, lang1, lang2, combined_output_path)
@@ -219,7 +222,7 @@ async def main_async():
                 global main_vllm_backend_created, main_vllm_engine, main_tokenizer
                 if not main_vllm_backend_created:
                     print(f"Creating VLLM backend for model {model_name} using {args.num_gpus} GPUs...", flush=True)
-                    main_vllm_engine, main_tokenizer = create_vllm_backend(model_name, args.num_gpus)
+                    main_vllm_engine, main_tokenizer = create_vllm_backend(config.model, args.num_gpus)
                     print(f"VLLM backend created for model {model_name}", flush=True)
                     main_vllm_backend_created = True
                 engine = main_vllm_engine
@@ -259,8 +262,8 @@ async def main_async():
             perplexity_dispatch_response_results(config)
             print(f"Completed writing all responses to {generate_response_output_file_path}")
 
-            # debug: stop here
-            exit(1)
+            # # debug: stop here
+            # exit(1)
 
             
             # pass 2: call gpt-5/deepseek to merge the style with the ground truth (to the perplexity_dataset folder)
@@ -282,11 +285,13 @@ async def main_async():
                 entry is of type GenerateStyledAnswersInputEntry in src/judge/perplexity.rs 
                 """
                 global assistant_api_backend_created, assistant_client
-                assistant_model_name = "gpt-5"
+                # assistant_model_name = "gpt-5"
+                assistant_model = ApiModel.Gpt4_1
+                assistant_model_name = assistant_model.to_string()
                 if not assistant_api_backend_created:
                     print(f"Creating Assistant API client for model {assistant_model_name}...", flush=True)
                     from src_py.api_backend import create_api_backend
-                    assistant_client = create_api_backend(assistant_model_name)
+                    assistant_client = create_api_backend(assistant_model)
                     print(f"Assistant API client created for model {assistant_model_name}", flush=True)
                     assistant_api_backend_created = True
                 client = assistant_client
@@ -316,8 +321,8 @@ async def main_async():
                         result = await coro
                         f.write(json.dumps(result, ensure_ascii=False) + '\n')
                         f.flush()
-                        print(f"Written {i}/{len(input_entries)} entries to perplexity dataset file")
-            asyncio.run(collect_all_perplexity_dataset_entries())
+                        print(f"Written {i}/{len(input_entries)} entries to styled answers file")
+            await collect_all_perplexity_dataset_entries()
             perplexity_dispatch_styled_answers_results(config)
             print(f"Completed writing all styled answers to {generate_styled_answers_output_file_path}")
 
@@ -344,7 +349,7 @@ async def main_async():
                     if not main_hf_backend_created:
                         print(f"Creating HuggingFace backend for model {model_name} using {args.num_gpus} GPUs...", flush=True)
                         from src_py.huggingface_backend import create_huggingface_backend
-                        main_hf_model, main_tokenizer = create_huggingface_backend(model_name, args.num_gpus)
+                        main_hf_model, main_tokenizer = create_huggingface_backend(config.model, args.num_gpus)
                         print(f"HuggingFace backend created for model {model_name}", flush=True)
                         main_hf_backend_created = True
                     hf_model = main_hf_model

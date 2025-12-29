@@ -277,7 +277,8 @@ pub fn perplexity_prepare_generate_styled_answers_input(
     let two_answers_same_lang_path = JUDGE_BASE_DATASET_PATH
         .join("two_answers_same_lang")
         .join(format!("{}.jsonl", lang));
-    let result_path = JUDGE_BASE_DATASET_PATH
+    let result_path = JUDGE_BASE_RESULT_PATH
+        .join(&model_safe_name)
         .join("styled_answers")
         .join(format!("{}.jsonl", lang));
     let perplexity_mask_path = JUDGE_BASE_DATASET_PATH.join("perplexity_mask.jsonl");
@@ -340,7 +341,7 @@ pub fn perplexity_prepare_generate_styled_answers_input(
             HashSet::new()
         }
     };
-    let indices = two_answers_same_lang_entries_parsed.keys();
+    let indices = response_entries_parsed.keys();
     let mut aggregated_entries: Vec<GenerateStyledAnswersInputEntry> = Vec::new();
     let mut count = 0;
     for index in indices {
@@ -404,7 +405,8 @@ pub fn perplexity_prepare_generate_perplexity_aggregated_input(
         _ => panic!("Invalid experiment type for perplexity_prepare_aggregated_input"),
     };
     let output_file_path = perplexity_generate_perplexity_aggregated_input_file_path(config);
-    let styled_answers_path = JUDGE_BASE_DATASET_PATH
+    let styled_answers_path = JUDGE_BASE_RESULT_PATH
+        .join(&model_safe_name)
         .join("styled_answers")
         .join(format!("{}.jsonl", lang));
     let correct_result_path = JUDGE_BASE_RESULT_PATH
@@ -481,8 +483,8 @@ pub fn perplexity_prepare_generate_perplexity_aggregated_input(
                 (parsed.index, parsed)
             })
             .collect();
-    let dataset_length = styled_answers_entries_parsed.len();
-    assert_eq!(dataset_length, perplexity_mask_entries_parsed.len());
+    // let dataset_length = styled_answers_entries_parsed.len();
+    // assert_eq!(dataset_length, perplexity_mask_entries_parsed.len());
     let indices = styled_answers_entries_parsed.keys();
     let mut combined_entries: Vec<GeneratePerplexityAggregatedInputEntry> = Vec::new();
     let mut count = 0;
@@ -648,7 +650,8 @@ pub fn perplexity_dispatch_styled_answers_results(config: &JudgeConfig) {
         "Dispatching styled answers results for model: {}, lang: {}, input file: {}",
         model_safe_name, lang, input_file_path
     );
-    let result_path = JUDGE_BASE_DATASET_PATH
+    let result_path = JUDGE_BASE_RESULT_PATH
+        .join(&model_safe_name)
         .join("styled_answers")
         .join(format!("{}.jsonl", lang));
     let mut result_entries: Vec<StyledAnswersEntry> = match load_json_lines(&result_path) {
