@@ -203,9 +203,13 @@ def convert_char_mask_to_token_mask(trimmed_response: str, char_mask: list, toke
         debug: bool, if True, print debug information about masked tokens
 
     Returns:
-        list of bool: token-level mask, True for tokens that were inside masked characters
+        tuple: (input_ids, token_mask) where:
+            - input_ids: list of token IDs
+            - token_mask: list of bool, True for tokens that were inside masked characters
     """
     # Tokenize the trimmed response
+    # Note: add_special_tokens=False because trimmed_response already contains special tokens
+    # as text from apply_chat_template(tokenize=False)
     tokens = tokenizer(trimmed_response, add_special_tokens=False)
     input_ids = tokens.input_ids
 
@@ -232,14 +236,17 @@ def convert_char_mask_to_token_mask(trimmed_response: str, char_mask: list, toke
             masked_token_ids.append(token_id)
         char_idx += token_len
 
+    # Assert consistency
+    assert len(input_ids) == len(token_mask), f"input_ids length {len(input_ids)} should equal token_mask length {len(token_mask)}"
+
     # Debug print if requested
     if debug:
         # Decode the masked tokens together to get the correct text
         masked_text = tokenizer.decode(masked_token_ids, skip_special_tokens=True)
-        print(f"[DEBUG] trimmed_response: {repr(trimmed_response)}, char_mask length: {len(char_mask)}, token_mask length: {len(token_mask)}")
+        print(f"[DEBUG] trimmed_response length: {len(trimmed_response)}, char_mask length: {len(char_mask)}, input_ids length: {len(input_ids)}, token_mask length: {len(token_mask)}")
         print(f"[DEBUG] Masked: {sum(token_mask)}/{len(token_mask)} tokens | Text: {repr(masked_text)}")
 
-    return token_mask
+    return input_ids, token_mask
 
 
 def parse_styled_response_to_mask(styled_response: str, tokenizer: Any):
@@ -254,13 +261,14 @@ def parse_styled_response_to_mask(styled_response: str, tokenizer: Any):
         tokenizer: Tokenizer instance
 
     Returns:
-        tuple: (trimmed_response, answer_mask) where:
+        tuple: (trimmed_response, input_ids, answer_mask) where:
             - trimmed_response: str, response with <answer> tags removed
+            - input_ids: list of token IDs
             - answer_mask: list of bool, True for tokens that were inside <answer> tags
     """
     trimmed_response, char_mask = trim_styled_response_and_get_char_mask(styled_response)
-    token_mask = convert_char_mask_to_token_mask(trimmed_response, char_mask, tokenizer)
-    return trimmed_response, token_mask
+    input_ids, token_mask = convert_char_mask_to_token_mask(trimmed_response, char_mask, tokenizer)
+    return trimmed_response, input_ids, token_mask
 
 
 def calculate_perplexity_from_logits_with_mask(logits, input_ids, answer_mask):

@@ -432,7 +432,11 @@ async def main_async():
                     # Part 3: Calculate perplexity for each entry and write immediately
                     for entry, forward_result, char_mask, trimmed_prompt in zip(batch_entries, forward_results, char_masks, trimmed_prompts):
                         # Convert character mask to token mask
-                        token_mask = convert_char_mask_to_token_mask(trimmed_prompt, char_mask, hf_tokenizer, debug=True)
+                        input_ids, token_mask = convert_char_mask_to_token_mask(trimmed_prompt, char_mask, hf_tokenizer, debug=True)
+
+                        # Verify input_ids match between tokenization and forward pass
+                        assert input_ids == forward_result['input_ids'], \
+                            f"input_ids mismatch: tokenized {len(input_ids)} tokens, forward pass has {len(forward_result['input_ids'])} tokens"
 
                         # Calculate perplexity using the mask
                         perplexity = calculate_perplexity_from_logits_with_mask(
@@ -446,7 +450,7 @@ async def main_async():
                             'perplexity': perplexity,
                             'question': entry['question'],
                             'styled_response': entry.get('styled_response_correct') or entry.get('styled_response_incorrect') or entry.get('styled_response'),
-                            'original_answer': entry.get('original_answer', ''),
+                            # 'original_answer': entry.get('original_answer', ''),
                             'is_correct': entry.get('is_correct', False),
                             'lang': lang,
                             'subject': entry.get('subject', ''),

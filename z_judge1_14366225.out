@@ -1,0 +1,2201 @@
+✏️ Setting installed package as editable
+Response input dataset for language en written to judge/result/Qwen-Qwen3-8B/perplexity_response_input.jsonl
+Dispatching response results for model: Qwen-Qwen3-8B, lang: en, input file: judge/result/Qwen-Qwen3-8B/perplexity_response_output.jsonl
+Dispatched response results for model: Qwen-Qwen3-8B, lang: en
+Removed aggregated response output file: judge/result/Qwen-Qwen3-8B/perplexity_response_output.jsonl
+Styled answers input dataset for language en written to judge/result/Qwen-Qwen3-8B/perplexity_styled_answers_input.jsonl
+Dispatching styled answers results for model: Qwen-Qwen3-8B, lang: en, input file: judge/result/Qwen-Qwen3-8B/perplexity_styled_answers_output.jsonl
+Dispatched styled answers results for model: Qwen-Qwen3-8B, lang: en
+Removed aggregated styled answers output file: judge/result/Qwen-Qwen3-8B/perplexity_styled_answers_output.jsonl
+Concatenated perplexity dataset for language en written to judge/result/Qwen-Qwen3-8B/perplexity_aggregated_input.jsonl
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm1.py
+Processing configuration:  <builtins.JudgeConfig object at 0x7f420e65eec0>
+Total entries to generate responses for language en: 0
+Completed writing all responses to judge/result/Qwen-Qwen3-8B/perplexity_response_output.jsonl
+Total entries to generate styled answers for language en: 0
+Completed writing all styled answers to judge/result/Qwen-Qwen3-8B/perplexity_styled_answers_output.jsonl
+Total entries to calculate perplexity for language en: 17122
+Using batch size: 15 based on model size and number of GPUs
+Processing batch 1/1142
+Creating HuggingFace backend for model Qwen/Qwen3-8B using 1 GPUs and batch size 15...
+Creating HuggingFace backend for model Qwen/Qwen3-8B with batch size 15...
+Loading model from HuggingFace...
+Found 1 GPUs
+GPU 0: 39.49 GB available, using 35 GB
+Model loaded, setting to eval mode...
+Model in eval mode
+Model device map: {'': 0}
+HuggingFace backend created successfully for Qwen/Qwen3-8B
+HuggingFace backend created for model Qwen/Qwen3-8B
+[DEBUG] trimmed_response length: 352, char_mask length: 352, input_ids length: 86, token_mask length: 86
+[DEBUG] Masked: 2/86 tokens | Text: ' false false'
+[DEBUG] trimmed_response length: 351, char_mask length: 351, input_ids length: 86, token_mask length: 86
+[DEBUG] Masked: 2/86 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 378, char_mask length: 378, input_ids length: 99, token_mask length: 99
+[DEBUG] Masked: 2/99 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 380, char_mask length: 380, input_ids length: 99, token_mask length: 99
+[DEBUG] Masked: 2/99 tokens | Text: ' false false'
+[DEBUG] trimmed_response length: 369, char_mask length: 369, input_ids length: 87, token_mask length: 87
+[DEBUG] Masked: 2/87 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 371, char_mask length: 371, input_ids length: 87, token_mask length: 87
+[DEBUG] Masked: 2/87 tokens | Text: ' false false'
+[DEBUG] trimmed_response length: 287, char_mask length: 287, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 2/70 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 286, char_mask length: 286, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 2/70 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 351, char_mask length: 351, input_ids length: 91, token_mask length: 91
+[DEBUG] Masked: 2/91 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 351, char_mask length: 351, input_ids length: 91, token_mask length: 91
+[DEBUG] Masked: 2/91 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 236, char_mask length: 236, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 6/65 tokens | Text: ' both symmetric and anti-symmetric'
+[DEBUG] trimmed_response length: 226, char_mask length: 226, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 3/62 tokens | Text: ' an equivalence relation'
+[DEBUG] trimmed_response length: 285, char_mask length: 285, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 2/65 tokens | Text: ' false false'
+[DEBUG] trimmed_response length: 284, char_mask length: 284, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 2/65 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 311, char_mask length: 311, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 4/59 tokens | Text: ' zero has no inverse'
+Written 15/17122 entries to perplexity result file
+Processing batch 2/1142
+[DEBUG] trimmed_response length: 332, char_mask length: 332, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 6/61 tokens | Text: ' multiplication is not a binary operation'
+[DEBUG] trimmed_response length: 382, char_mask length: 382, input_ids length: 98, token_mask length: 98
+[DEBUG] Masked: 2/98 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 384, char_mask length: 384, input_ids length: 98, token_mask length: 98
+[DEBUG] Masked: 2/98 tokens | Text: ' false false'
+[DEBUG] trimmed_response length: 369, char_mask length: 369, input_ids length: 98, token_mask length: 98
+[DEBUG] Masked: 2/98 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 371, char_mask length: 371, input_ids length: 98, token_mask length: 98
+[DEBUG] Masked: 2/98 tokens | Text: ' false false'
+[DEBUG] trimmed_response length: 342, char_mask length: 342, input_ids length: 90, token_mask length: 90
+[DEBUG] Masked: 2/90 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 341, char_mask length: 341, input_ids length: 90, token_mask length: 90
+[DEBUG] Masked: 2/90 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 265, char_mask length: 265, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 3/51 tokens | Text: ' abelian group'
+[DEBUG] trimmed_response length: 275, char_mask length: 275, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 4/52 tokens | Text: ' semi group with identity'
+[DEBUG] trimmed_response length: 306, char_mask length: 306, input_ids length: 72, token_mask length: 72
+[DEBUG] Masked: 2/72 tokens | Text: ' false false'
+[DEBUG] trimmed_response length: 305, char_mask length: 305, input_ids length: 72, token_mask length: 72
+[DEBUG] Masked: 2/72 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 321, char_mask length: 321, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 7/68 tokens | Text: ' infinite, non-abelian group'
+[DEBUG] trimmed_response length: 317, char_mask length: 317, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 5/66 tokens | Text: ' infinite, abelian group'
+[DEBUG] trimmed_response length: 315, char_mask length: 315, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 2/76 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 315, char_mask length: 315, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 2/76 tokens | Text: ' false true'
+Written 30/17122 entries to perplexity result file
+Processing batch 3/1142
+[DEBUG] trimmed_response length: 362, char_mask length: 362, input_ids length: 94, token_mask length: 94
+[DEBUG] Masked: 1/94 tokens | Text: '3'
+[DEBUG] trimmed_response length: 362, char_mask length: 362, input_ids length: 94, token_mask length: 94
+[DEBUG] Masked: 1/94 tokens | Text: '5'
+[DEBUG] trimmed_response length: 361, char_mask length: 361, input_ids length: 87, token_mask length: 87
+[DEBUG] Masked: 2/87 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 360, char_mask length: 360, input_ids length: 87, token_mask length: 87
+[DEBUG] Masked: 2/87 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 307, char_mask length: 307, input_ids length: 69, token_mask length: 69
+[DEBUG] Masked: 2/69 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 309, char_mask length: 309, input_ids length: 69, token_mask length: 69
+[DEBUG] Masked: 2/69 tokens | Text: ' false false'
+[DEBUG] trimmed_response length: 335, char_mask length: 335, input_ids length: 87, token_mask length: 87
+[DEBUG] Masked: 2/87 tokens | Text: ' false false'
+[DEBUG] trimmed_response length: 334, char_mask length: 334, input_ids length: 87, token_mask length: 87
+[DEBUG] Masked: 2/87 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 246, char_mask length: 246, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 3/71 tokens | Text: ' abelian group'
+[DEBUG] trimmed_response length: 249, char_mask length: 249, input_ids length: 73, token_mask length: 73
+[DEBUG] Masked: 5/73 tokens | Text: ' non-abelian group'
+[DEBUG] trimmed_response length: 374, char_mask length: 374, input_ids length: 92, token_mask length: 92
+[DEBUG] Masked: 2/92 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 376, char_mask length: 376, input_ids length: 92, token_mask length: 92
+[DEBUG] Masked: 2/92 tokens | Text: ' false false'
+[DEBUG] trimmed_response length: 386, char_mask length: 386, input_ids length: 103, token_mask length: 103
+[DEBUG] Masked: 2/103 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 388, char_mask length: 388, input_ids length: 103, token_mask length: 103
+[DEBUG] Masked: 2/103 tokens | Text: ' false false'
+[DEBUG] trimmed_response length: 349, char_mask length: 349, input_ids length: 86, token_mask length: 86
+[DEBUG] Masked: 4/86 tokens | Text: ' p = 3'
+Written 45/17122 entries to perplexity result file
+Processing batch 4/1142
+[DEBUG] trimmed_response length: 349, char_mask length: 349, input_ids length: 86, token_mask length: 86
+[DEBUG] Masked: 4/86 tokens | Text: ' p = 5'
+[DEBUG] trimmed_response length: 259, char_mask length: 259, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 2/56 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 258, char_mask length: 258, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 2/56 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 396, char_mask length: 396, input_ids length: 97, token_mask length: 97
+[DEBUG] Masked: 2/97 tokens | Text: ' false false'
+[DEBUG] trimmed_response length: 395, char_mask length: 395, input_ids length: 97, token_mask length: 97
+[DEBUG] Masked: 2/97 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 315, char_mask length: 315, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 2/63 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 315, char_mask length: 315, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 2/63 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 390, char_mask length: 390, input_ids length: 98, token_mask length: 98
+[DEBUG] Masked: 2/98 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 390, char_mask length: 390, input_ids length: 98, token_mask length: 98
+[DEBUG] Masked: 2/98 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 310, char_mask length: 310, input_ids length: 74, token_mask length: 74
+[DEBUG] Masked: 2/74 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 310, char_mask length: 310, input_ids length: 74, token_mask length: 74
+[DEBUG] Masked: 2/74 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 341, char_mask length: 341, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 2/76 tokens | Text: ' false false'
+[DEBUG] trimmed_response length: 340, char_mask length: 340, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 2/76 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 351, char_mask length: 351, input_ids length: 98, token_mask length: 98
+[DEBUG] Masked: 2/98 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 351, char_mask length: 351, input_ids length: 98, token_mask length: 98
+[DEBUG] Masked: 2/98 tokens | Text: ' false true'
+Written 60/17122 entries to perplexity result file
+Processing batch 5/1142
+[DEBUG] trimmed_response length: 291, char_mask length: 291, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 2/64 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 290, char_mask length: 290, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 2/64 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 359, char_mask length: 359, input_ids length: 93, token_mask length: 93
+[DEBUG] Masked: 2/93 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 359, char_mask length: 359, input_ids length: 93, token_mask length: 93
+[DEBUG] Masked: 2/93 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 296, char_mask length: 296, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 1/66 tokens | Text: ' true'
+[DEBUG] trimmed_response length: 296, char_mask length: 296, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 1/66 tokens | Text: ' true'
+[DEBUG] trimmed_response length: 259, char_mask length: 259, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 2/68 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 258, char_mask length: 258, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 2/68 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 300, char_mask length: 300, input_ids length: 72, token_mask length: 72
+[DEBUG] Masked: 2/72 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 302, char_mask length: 302, input_ids length: 72, token_mask length: 72
+[DEBUG] Masked: 2/72 tokens | Text: ' false false'
+[DEBUG] trimmed_response length: 353, char_mask length: 353, input_ids length: 88, token_mask length: 88
+[DEBUG] Masked: 2/88 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 355, char_mask length: 355, input_ids length: 88, token_mask length: 88
+[DEBUG] Masked: 2/88 tokens | Text: ' false false'
+[DEBUG] trimmed_response length: 300, char_mask length: 300, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 2/68 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 299, char_mask length: 299, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 2/68 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 391, char_mask length: 391, input_ids length: 82, token_mask length: 82
+[DEBUG] Masked: 1/82 tokens | Text: ' false'
+Written 75/17122 entries to perplexity result file
+Processing batch 6/1142
+[DEBUG] trimmed_response length: 390, char_mask length: 390, input_ids length: 82, token_mask length: 82
+[DEBUG] Masked: 1/82 tokens | Text: ' true'
+[DEBUG] trimmed_response length: 345, char_mask length: 345, input_ids length: 85, token_mask length: 85
+[DEBUG] Masked: 2/85 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 345, char_mask length: 345, input_ids length: 85, token_mask length: 85
+[DEBUG] Masked: 2/85 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 269, char_mask length: 269, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 2/59 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 269, char_mask length: 269, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 2/59 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 353, char_mask length: 353, input_ids length: 97, token_mask length: 97
+[DEBUG] Masked: 2/97 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 352, char_mask length: 352, input_ids length: 97, token_mask length: 97
+[DEBUG] Masked: 2/97 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 389, char_mask length: 389, input_ids length: 84, token_mask length: 84
+[DEBUG] Masked: 2/84 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 391, char_mask length: 391, input_ids length: 84, token_mask length: 84
+[DEBUG] Masked: 2/84 tokens | Text: ' false false'
+[DEBUG] trimmed_response length: 354, char_mask length: 354, input_ids length: 88, token_mask length: 88
+[DEBUG] Masked: 2/88 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 353, char_mask length: 353, input_ids length: 88, token_mask length: 88
+[DEBUG] Masked: 2/88 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 265, char_mask length: 265, input_ids length: 75, token_mask length: 75
+[DEBUG] Masked: 2/75 tokens | Text: ' false false'
+[DEBUG] trimmed_response length: 264, char_mask length: 264, input_ids length: 75, token_mask length: 75
+[DEBUG] Masked: 2/75 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 340, char_mask length: 340, input_ids length: 88, token_mask length: 88
+[DEBUG] Masked: 2/88 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 340, char_mask length: 340, input_ids length: 88, token_mask length: 88
+[DEBUG] Masked: 2/88 tokens | Text: ' false true'
+Written 90/17122 entries to perplexity result file
+Processing batch 7/1142
+[DEBUG] trimmed_response length: 304, char_mask length: 304, input_ids length: 84, token_mask length: 84
+[DEBUG] Masked: 1/84 tokens | Text: ' false'
+[DEBUG] trimmed_response length: 303, char_mask length: 303, input_ids length: 84, token_mask length: 84
+[DEBUG] Masked: 1/84 tokens | Text: ' true'
+[DEBUG] trimmed_response length: 393, char_mask length: 393, input_ids length: 94, token_mask length: 94
+[DEBUG] Masked: 2/94 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 393, char_mask length: 393, input_ids length: 94, token_mask length: 94
+[DEBUG] Masked: 2/94 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 322, char_mask length: 322, input_ids length: 75, token_mask length: 75
+[DEBUG] Masked: 2/75 tokens | Text: ' false false'
+[DEBUG] trimmed_response length: 321, char_mask length: 321, input_ids length: 75, token_mask length: 75
+[DEBUG] Masked: 2/75 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 342, char_mask length: 342, input_ids length: 75, token_mask length: 75
+[DEBUG] Masked: 2/75 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 341, char_mask length: 341, input_ids length: 75, token_mask length: 75
+[DEBUG] Masked: 2/75 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 361, char_mask length: 361, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 2/76 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 363, char_mask length: 363, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 2/76 tokens | Text: ' false false'
+[DEBUG] trimmed_response length: 381, char_mask length: 381, input_ids length: 100, token_mask length: 100
+[DEBUG] Masked: 2/100 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 381, char_mask length: 381, input_ids length: 100, token_mask length: 100
+[DEBUG] Masked: 2/100 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 386, char_mask length: 386, input_ids length: 98, token_mask length: 98
+[DEBUG] Masked: 2/98 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 385, char_mask length: 385, input_ids length: 98, token_mask length: 98
+[DEBUG] Masked: 2/98 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 374, char_mask length: 374, input_ids length: 85, token_mask length: 85
+[DEBUG] Masked: 2/85 tokens | Text: ' true false'
+Written 105/17122 entries to perplexity result file
+Processing batch 8/1142
+[DEBUG] trimmed_response length: 374, char_mask length: 374, input_ids length: 85, token_mask length: 85
+[DEBUG] Masked: 2/85 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 352, char_mask length: 352, input_ids length: 94, token_mask length: 94
+[DEBUG] Masked: 2/94 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 354, char_mask length: 354, input_ids length: 94, token_mask length: 94
+[DEBUG] Masked: 2/94 tokens | Text: ' false false'
+[DEBUG] trimmed_response length: 308, char_mask length: 308, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 2/68 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 308, char_mask length: 308, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 2/68 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 363, char_mask length: 363, input_ids length: 84, token_mask length: 84
+[DEBUG] Masked: 2/84 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 362, char_mask length: 362, input_ids length: 84, token_mask length: 84
+[DEBUG] Masked: 2/84 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 310, char_mask length: 310, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 2/70 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 309, char_mask length: 309, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 2/70 tokens | Text: ' true true'
+[DEBUG] trimmed_response length: 383, char_mask length: 383, input_ids length: 102, token_mask length: 102
+[DEBUG] Masked: 2/102 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 383, char_mask length: 383, input_ids length: 102, token_mask length: 102
+[DEBUG] Masked: 2/102 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 300, char_mask length: 300, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 2/70 tokens | Text: ' true false'
+[DEBUG] trimmed_response length: 300, char_mask length: 300, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 2/70 tokens | Text: ' false true'
+[DEBUG] trimmed_response length: 280, char_mask length: 280, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 5/55 tokens | Text: ' paralysis of the facial muscles'
+[DEBUG] trimmed_response length: 298, char_mask length: 298, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 9/59 tokens | Text: ' paralysis of the facial muscles and loss of taste'
+Written 120/17122 entries to perplexity result file
+Processing batch 9/1142
+[DEBUG] trimmed_response length: 296, char_mask length: 296, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 16/64 tokens | Text: ' a recessive maxilla due to failure of elongation of the cranial base'
+[DEBUG] trimmed_response length: 272, char_mask length: 272, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 9/57 tokens | Text: ' an enlarged frontal bone due to hydrocephaly'
+[DEBUG] trimmed_response length: 275, char_mask length: 275, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 1/51 tokens | Text: ' bladder'
+[DEBUG] trimmed_response length: 274, char_mask length: 274, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 1/51 tokens | Text: ' kidney'
+[DEBUG] trimmed_response length: 326, char_mask length: 326, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 3/67 tokens | Text: ' glomerulus'
+[DEBUG] trimmed_response length: 329, char_mask length: 329, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 4/68 tokens | Text: ' Loop of Henle'
+[DEBUG] trimmed_response length: 312, char_mask length: 312, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 6/62 tokens | Text: ' only be able to breathe quietly'
+[DEBUG] trimmed_response length: 299, char_mask length: 299, input_ids length: 58, token_mask length: 58
+[DEBUG] Masked: 3/58 tokens | Text: ' impossible to predict'
+[DEBUG] trimmed_response length: 314, char_mask length: 314, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 4/66 tokens | Text: ' epigastric'
+[DEBUG] trimmed_response length: 317, char_mask length: 317, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 4/66 tokens | Text: ' hypochondriac'
+[DEBUG] trimmed_response length: 238, char_mask length: 238, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 6/50 tokens | Text: ' ten weeks post-fertilization'
+[DEBUG] trimmed_response length: 241, char_mask length: 241, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 6/50 tokens | Text: ' twelve weeks post-fertilization'
+[DEBUG] trimmed_response length: 255, char_mask length: 255, input_ids length: 47, token_mask length: 47
+[DEBUG] Masked: 9/47 tokens | Text: ' contraction of contralateral limb musculature'
+[DEBUG] trimmed_response length: 259, char_mask length: 259, input_ids length: 46, token_mask length: 46
+[DEBUG] Masked: 8/46 tokens | Text: ' bilateral contraction of antigravity limb muscles'
+[DEBUG] trimmed_response length: 364, char_mask length: 364, input_ids length: 73, token_mask length: 73
+[DEBUG] Masked: 12/73 tokens | Text: ' pupillary dilatation and a lateral strabismus'
+Written 135/17122 entries to perplexity result file
+Processing batch 10/1142
+[DEBUG] trimmed_response length: 365, char_mask length: 365, input_ids length: 72, token_mask length: 72
+[DEBUG] Masked: 11/72 tokens | Text: ' pupillary constriction and a medial strabismus'
+[DEBUG] trimmed_response length: 465, char_mask length: 465, input_ids length: 91, token_mask length: 91
+[DEBUG] Masked: 16/91 tokens | Text: ' cricothyroid muscle is still functional but the interarytenoids are weak'
+[DEBUG] trimmed_response length: 466, char_mask length: 466, input_ids length: 91, token_mask length: 91
+[DEBUG] Masked: 16/91 tokens | Text: ' cricothyroid muscle is paralyzed but the interarytenoids are fully active'
+[DEBUG] trimmed_response length: 293, char_mask length: 293, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 9/52 tokens | Text: ' external intercostal muscles and diaphragm'
+[DEBUG] trimmed_response length: 293, char_mask length: 293, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 9/52 tokens | Text: ' internal intercostal muscles and diaphragm'
+[DEBUG] trimmed_response length: 224, char_mask length: 224, input_ids length: 43, token_mask length: 43
+[DEBUG] Masked: 2/43 tokens | Text: ' testes'
+[DEBUG] trimmed_response length: 229, char_mask length: 229, input_ids length: 44, token_mask length: 44
+[DEBUG] Masked: 3/44 tokens | Text: ' glans penis'
+[DEBUG] trimmed_response length: 288, char_mask length: 288, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 2/55 tokens | Text: ' pulmonary veins'
+[DEBUG] trimmed_response length: 278, char_mask length: 278, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 2/55 tokens | Text: ' aorta'
+[DEBUG] trimmed_response length: 255, char_mask length: 255, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 3/52 tokens | Text: ' trachea'
+[DEBUG] trimmed_response length: 256, char_mask length: 256, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 2/51 tokens | Text: ' pancreas'
+[DEBUG] trimmed_response length: 236, char_mask length: 236, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 9/50 tokens | Text: ' in the upper wall of the right atrium'
+[DEBUG] trimmed_response length: 238, char_mask length: 238, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 10/51 tokens | Text: ' in the upper wall of the left ventricle'
+[DEBUG] trimmed_response length: 260, char_mask length: 260, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 5/53 tokens | Text: ' deep to its inferior border'
+[DEBUG] trimmed_response length: 267, char_mask length: 267, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 5/53 tokens | Text: ' superficial to its inferior border'
+Written 150/17122 entries to perplexity result file
+Processing batch 11/1142
+[DEBUG] trimmed_response length: 334, char_mask length: 334, input_ids length: 69, token_mask length: 69
+[DEBUG] Masked: 7/69 tokens | Text: ' left and right submental lymph nodes'
+[DEBUG] trimmed_response length: 327, char_mask length: 327, input_ids length: 69, token_mask length: 69
+[DEBUG] Masked: 7/69 tokens | Text: ' left submandibular lymph node'
+[DEBUG] trimmed_response length: 326, char_mask length: 326, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 5/63 tokens | Text: ' nephrolithiasis'
+[DEBUG] trimmed_response length: 328, char_mask length: 328, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 5/63 tokens | Text: ' polycystic kidney'
+[DEBUG] trimmed_response length: 264, char_mask length: 264, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 6/56 tokens | Text: ' facial artery crosses the mandible'
+[DEBUG] trimmed_response length: 263, char_mask length: 263, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 6/56 tokens | Text: ' facial artery crosses the maxilla'
+[DEBUG] trimmed_response length: 332, char_mask length: 332, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 2/65 tokens | Text: ' spleen'
+[DEBUG] trimmed_response length: 341, char_mask length: 341, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 2/65 tokens | Text: ' urinary bladder'
+[DEBUG] trimmed_response length: 328, char_mask length: 328, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 22/66 tokens | Text: ' formed of Purkinje fibres and is the only electrical connection between the atria and the ventricles'
+[DEBUG] trimmed_response length: 344, char_mask length: 344, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 21/65 tokens | Text: ' formed of autonomic nerve processes and forms one of several electrical connections between the atria and ventricles'
+[DEBUG] trimmed_response length: 287, char_mask length: 287, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 2/54 tokens | Text: ' flexion'
+[DEBUG] trimmed_response length: 289, char_mask length: 289, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 2/54 tokens | Text: ' pronation'
+[DEBUG] trimmed_response length: 344, char_mask length: 344, input_ids length: 73, token_mask length: 73
+[DEBUG] Masked: 9/73 tokens | Text: ' constriction of the laryngeal entrance'
+[DEBUG] trimmed_response length: 339, char_mask length: 339, input_ids length: 73, token_mask length: 73
+[DEBUG] Masked: 9/73 tokens | Text: ' upward movement of the epiglottis'
+[DEBUG] trimmed_response length: 250, char_mask length: 250, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 3/49 tokens | Text: ' duodenum'
+Written 165/17122 entries to perplexity result file
+Processing batch 12/1142
+[DEBUG] trimmed_response length: 251, char_mask length: 251, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 3/49 tokens | Text: ' ileocecum'
+[DEBUG] trimmed_response length: 320, char_mask length: 320, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 11/64 tokens | Text: ' palatine, frontonasal and secondary nasal processes'
+[DEBUG] trimmed_response length: 342, char_mask length: 342, input_ids length: 69, token_mask length: 69
+[DEBUG] Masked: 16/69 tokens | Text: ' palatine, frontonasal, secondary nasal processes and mandibular processes'
+[DEBUG] trimmed_response length: 367, char_mask length: 367, input_ids length: 72, token_mask length: 72
+[DEBUG] Masked: 2/72 tokens | Text: ' spleen'
+[DEBUG] trimmed_response length: 369, char_mask length: 369, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 1/71 tokens | Text: ' appendix'
+[DEBUG] trimmed_response length: 273, char_mask length: 273, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 4/56 tokens | Text: ' thoracic and abdominal'
+[DEBUG] trimmed_response length: 274, char_mask length: 274, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 7/59 tokens | Text: ' pericardial and pleural'
+[DEBUG] trimmed_response length: 236, char_mask length: 236, input_ids length: 47, token_mask length: 47
+[DEBUG] Masked: 7/47 tokens | Text: ' smooth muscle and respiratory epithelium'
+[DEBUG] trimmed_response length: 247, char_mask length: 247, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 10/50 tokens | Text: ' cartilage, smooth muscle and respiratory epithelium'
+[DEBUG] trimmed_response length: 317, char_mask length: 317, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 1/64 tokens | Text: ' liver'
+[DEBUG] trimmed_response length: 318, char_mask length: 318, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 2/65 tokens | Text: ' spleen'
+[DEBUG] trimmed_response length: 332, char_mask length: 332, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 6/63 tokens | Text: ' gastroesophageal reflux disease'
+[DEBUG] trimmed_response length: 317, char_mask length: 317, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 5/62 tokens | Text: ' pyloric stenosis'
+[DEBUG] trimmed_response length: 287, char_mask length: 287, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 7/61 tokens | Text: ' trigeminal and vagus nerves'
+[DEBUG] trimmed_response length: 283, char_mask length: 283, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 5/59 tokens | Text: ' facial and vagus nerves'
+Written 180/17122 entries to perplexity result file
+Processing batch 13/1142
+[DEBUG] trimmed_response length: 317, char_mask length: 317, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 2/67 tokens | Text: ' femur'
+[DEBUG] trimmed_response length: 327, char_mask length: 327, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 5/70 tokens | Text: ' symphysis pubis'
+[DEBUG] trimmed_response length: 363, char_mask length: 363, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 21/76 tokens | Text: ' lower lip, mandibular teeth, and labial gingivae of the anterior mandibular teeth'
+[DEBUG] trimmed_response length: 403, char_mask length: 403, input_ids length: 87, token_mask length: 87
+[DEBUG] Masked: 32/87 tokens | Text: ' lower lip, mandibular teeth, labial gingivae of the anterior teeth, and buccal gingivae of the posterior mandibular teeth'
+[DEBUG] trimmed_response length: 306, char_mask length: 306, input_ids length: 74, token_mask length: 74
+[DEBUG] Masked: 18/74 tokens | Text: ' internal laryngeal nerve, which is the afferent limb of the cough reflex'
+[DEBUG] trimmed_response length: 304, char_mask length: 304, input_ids length: 74, token_mask length: 74
+[DEBUG] Masked: 18/74 tokens | Text: ' external laryngeal nerve, which is the afferent limb of the gag reflex'
+[DEBUG] trimmed_response length: 302, char_mask length: 302, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 14/62 tokens | Text: ' intramembranous ossification and follow the somatic growth pattern'
+[DEBUG] trimmed_response length: 301, char_mask length: 301, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 13/61 tokens | Text: ' intramembranous ossification and follow the neural growth pattern'
+[DEBUG] trimmed_response length: 353, char_mask length: 353, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 2/67 tokens | Text: ' lower leg'
+[DEBUG] trimmed_response length: 348, char_mask length: 348, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 1/66 tokens | Text: ' toes'
+[DEBUG] trimmed_response length: 229, char_mask length: 229, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 4/48 tokens | Text: ' erythrocyte'
+[DEBUG] trimmed_response length: 226, char_mask length: 226, input_ids length: 46, token_mask length: 46
+[DEBUG] Masked: 2/46 tokens | Text: ' basophil'
+[DEBUG] trimmed_response length: 214, char_mask length: 214, input_ids length: 46, token_mask length: 46
+[DEBUG] Masked: 6/46 tokens | Text: ' frontal and parietal bones'
+[DEBUG] trimmed_response length: 217, char_mask length: 217, input_ids length: 47, token_mask length: 47
+[DEBUG] Masked: 7/47 tokens | Text: ' left and right parietal bones'
+[DEBUG] trimmed_response length: 388, char_mask length: 388, input_ids length: 87, token_mask length: 87
+[DEBUG] Masked: 11/87 tokens | Text: ' hyoid bone thyroid cartilage cricoid cartilage'
+Written 195/17122 entries to perplexity result file
+Processing batch 14/1142
+[DEBUG] trimmed_response length: 388, char_mask length: 388, input_ids length: 87, token_mask length: 87
+[DEBUG] Masked: 11/87 tokens | Text: ' thyroid cartilage hyoid bone cricoid cartilage'
+[DEBUG] trimmed_response length: 299, char_mask length: 299, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 4/61 tokens | Text: ' the vagus nerves'
+[DEBUG] trimmed_response length: 301, char_mask length: 301, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 5/62 tokens | Text: ' the phrenic nerves'
+[DEBUG] trimmed_response length: 280, char_mask length: 280, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 15/54 tokens | Text: ' left ventricle → aorta → arteries → capillaries → veins'
+[DEBUG] trimmed_response length: 291, char_mask length: 291, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 15/54 tokens | Text: ' right ventricle → pulmonary trunk → arteries → capillaries → veins'
+[DEBUG] trimmed_response length: 226, char_mask length: 226, input_ids length: 45, token_mask length: 45
+[DEBUG] Masked: 1/45 tokens | Text: ' dorsal'
+[DEBUG] trimmed_response length: 227, char_mask length: 227, input_ids length: 45, token_mask length: 45
+[DEBUG] Masked: 1/45 tokens | Text: ' frontal'
+[DEBUG] trimmed_response length: 250, char_mask length: 250, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 14/52 tokens | Text: ' superficial to masseter and enters the mouth opposite the upper second molar'
+[DEBUG] trimmed_response length: 246, char_mask length: 246, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 14/52 tokens | Text: ' deep to masseter and enters the mouth opposite the upper second premolar'
+[DEBUG] trimmed_response length: 213, char_mask length: 213, input_ids length: 43, token_mask length: 43
+[DEBUG] Masked: 1/43 tokens | Text: ' downward'
+[DEBUG] trimmed_response length: 211, char_mask length: 211, input_ids length: 43, token_mask length: 43
+[DEBUG] Masked: 1/43 tokens | Text: ' inward'
+[DEBUG] trimmed_response length: 246, char_mask length: 246, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 14/51 tokens | Text: ' a terminal branch of the maxillary division of the trigeminal nerve'
+[DEBUG] trimmed_response length: 240, char_mask length: 240, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 12/49 tokens | Text: ' a terminal branch of the maxillary branch of the facial nerve'
+[DEBUG] trimmed_response length: 305, char_mask length: 305, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 4/56 tokens | Text: ' peristalsis'
+[DEBUG] trimmed_response length: 307, char_mask length: 307, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 3/55 tokens | Text: ' regurgitation'
+Written 210/17122 entries to perplexity result file
+Processing batch 15/1142
+[DEBUG] trimmed_response length: 329, char_mask length: 329, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 2/63 tokens | Text: ' synapse'
+[DEBUG] trimmed_response length: 330, char_mask length: 330, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 2/63 tokens | Text: ' dendrite'
+[DEBUG] trimmed_response length: 357, char_mask length: 357, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 2/62 tokens | Text: ' pancreas'
+[DEBUG] trimmed_response length: 362, char_mask length: 362, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 2/62 tokens | Text: ' adrenal gland'
+[DEBUG] trimmed_response length: 327, char_mask length: 327, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 14/63 tokens | Text: ' loss of taste and somaesthetic sensation over the posterior third of the tongue'
+[DEBUG] trimmed_response length: 286, char_mask length: 286, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 7/56 tokens | Text: ' paralysis of the muscles of the tongue'
+[DEBUG] trimmed_response length: 301, char_mask length: 301, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 2/59 tokens | Text: ' pulmonary arteries'
+[DEBUG] trimmed_response length: 298, char_mask length: 298, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 2/59 tokens | Text: ' pulmonary veins'
+[DEBUG] trimmed_response length: 386, char_mask length: 386, input_ids length: 72, token_mask length: 72
+[DEBUG] Masked: 5/72 tokens | Text: ' lift their shoulders against resistance'
+[DEBUG] trimmed_response length: 386, char_mask length: 386, input_ids length: 72, token_mask length: 72
+[DEBUG] Masked: 5/72 tokens | Text: ' lift their shoulders without impairment'
+[DEBUG] trimmed_response length: 316, char_mask length: 316, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 4/66 tokens | Text: ' tracheal rings'
+[DEBUG] trimmed_response length: 319, char_mask length: 319, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 3/65 tokens | Text: ' thyroid cartilage'
+[DEBUG] trimmed_response length: 482, char_mask length: 482, input_ids length: 97, token_mask length: 97
+[DEBUG] Masked: 2/97 tokens | Text: ' mental nerve'
+[DEBUG] trimmed_response length: 482, char_mask length: 482, input_ids length: 99, token_mask length: 99
+[DEBUG] Masked: 4/99 tokens | Text: ' buccal nerve'
+[DEBUG] trimmed_response length: 435, char_mask length: 435, input_ids length: 80, token_mask length: 80
+[DEBUG] Masked: 17/80 tokens | Text: ' the capsule and ligaments of the TMJ and the lateral pterygoid muscle'
+Written 225/17122 entries to perplexity result file
+Processing batch 16/1142
+[DEBUG] trimmed_response length: 427, char_mask length: 427, input_ids length: 79, token_mask length: 79
+[DEBUG] Masked: 16/79 tokens | Text: ' the articular disc of the TMJ and the medial pterygoid muscle'
+[DEBUG] trimmed_response length: 319, char_mask length: 319, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 4/60 tokens | Text: ' acetylcholine'
+[DEBUG] trimmed_response length: 321, char_mask length: 321, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 5/61 tokens | Text: ' cholecystokinin'
+[DEBUG] trimmed_response length: 258, char_mask length: 258, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 3/52 tokens | Text: ' Lamina IX'
+[DEBUG] trimmed_response length: 257, char_mask length: 257, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 3/52 tokens | Text: ' Lamina I'
+[DEBUG] trimmed_response length: 351, char_mask length: 351, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 15/70 tokens | Text: ' anterior fragment to be displaced downwards by the action of the digastric muscle'
+[DEBUG] trimmed_response length: 361, char_mask length: 361, input_ids length: 73, token_mask length: 73
+[DEBUG] Masked: 18/73 tokens | Text: ' posterior fragment to be displaced anteriorly by the action of the lateral pterygoid muscle'
+[DEBUG] trimmed_response length: 305, char_mask length: 305, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 4/67 tokens | Text: ' abducens nerve'
+[DEBUG] trimmed_response length: 307, char_mask length: 307, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 5/68 tokens | Text: ' oculomotor nerve'
+[DEBUG] trimmed_response length: 469, char_mask length: 469, input_ids length: 94, token_mask length: 94
+[DEBUG] Masked: 2/94 tokens | Text: ' atrophy'
+[DEBUG] trimmed_response length: 473, char_mask length: 473, input_ids length: 94, token_mask length: 94
+[DEBUG] Masked: 2/94 tokens | Text: ' contracture'
+[DEBUG] trimmed_response length: 316, char_mask length: 316, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 3/63 tokens | Text: ' spastic paralysis'
+[DEBUG] trimmed_response length: 316, char_mask length: 316, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 4/64 tokens | Text: ' flaccid paralysis'
+[DEBUG] trimmed_response length: 419, char_mask length: 419, input_ids length: 86, token_mask length: 86
+[DEBUG] Masked: 17/86 tokens | Text: ' right lung because the right main bronchus is wider and more vertical than the left'
+[DEBUG] trimmed_response length: 418, char_mask length: 418, input_ids length: 86, token_mask length: 86
+[DEBUG] Masked: 17/86 tokens | Text: ' left lung because the left main bronchus is wider and more vertical than the right'
+Written 240/17122 entries to perplexity result file
+Processing batch 17/1142
+[DEBUG] trimmed_response length: 238, char_mask length: 238, input_ids length: 46, token_mask length: 46
+[DEBUG] Masked: 2/46 tokens | Text: ' electrolytes'
+[DEBUG] trimmed_response length: 235, char_mask length: 235, input_ids length: 47, token_mask length: 47
+[DEBUG] Masked: 3/47 tokens | Text: ' estrogens'
+[DEBUG] trimmed_response length: 310, char_mask length: 310, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 10/60 tokens | Text: ' sympathetic post-ganglionic neurons and target organs'
+[DEBUG] trimmed_response length: 305, char_mask length: 305, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 14/64 tokens | Text: ' parasympathetic pre- and post-ganglionic neurons'
+[DEBUG] trimmed_response length: 258, char_mask length: 258, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 3/50 tokens | Text: " Bartholin's"
+[DEBUG] trimmed_response length: 260, char_mask length: 260, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 5/52 tokens | Text: ' Bulbourethral'
+[DEBUG] trimmed_response length: 363, char_mask length: 363, input_ids length: 69, token_mask length: 69
+[DEBUG] Masked: 6/69 tokens | Text: ' inferior to the thyroid cartilage'
+[DEBUG] trimmed_response length: 363, char_mask length: 363, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 8/71 tokens | Text: ' inferior to the cricoid cartilage'
+[DEBUG] trimmed_response length: 274, char_mask length: 274, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 9/61 tokens | Text: ' arachnoid and pia maters'
+[DEBUG] trimmed_response length: 277, char_mask length: 277, input_ids length: 58, token_mask length: 58
+[DEBUG] Masked: 6/58 tokens | Text: ' pia mater and brain surface'
+[DEBUG] trimmed_response length: 302, char_mask length: 302, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 5/60 tokens | Text: ' epiglottis'
+[DEBUG] trimmed_response length: 298, char_mask length: 298, input_ids length: 58, token_mask length: 58
+[DEBUG] Masked: 3/58 tokens | Text: ' larynx'
+[DEBUG] trimmed_response length: 280, char_mask length: 280, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 1/60 tokens | Text: ' floor'
+[DEBUG] trimmed_response length: 287, char_mask length: 287, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 2/61 tokens | Text: ' lateral wall'
+[DEBUG] trimmed_response length: 270, char_mask length: 270, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 1/55 tokens | Text: ' collagen'
+Written 255/17122 entries to perplexity result file
+Processing batch 18/1142
+[DEBUG] trimmed_response length: 269, char_mask length: 269, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 3/57 tokens | Text: ' heparin'
+[DEBUG] trimmed_response length: 266, char_mask length: 266, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 6/54 tokens | Text: ' a combination of these three processes'
+[DEBUG] trimmed_response length: 249, char_mask length: 249, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 4/52 tokens | Text: ' descent of the tongue'
+[DEBUG] trimmed_response length: 417, char_mask length: 417, input_ids length: 83, token_mask length: 83
+[DEBUG] Masked: 18/83 tokens | Text: ' buccal surfaces of the upper molars and lingual surfaces of the lower incisors'
+[DEBUG] trimmed_response length: 417, char_mask length: 417, input_ids length: 82, token_mask length: 82
+[DEBUG] Masked: 17/82 tokens | Text: ' palatal surfaces of the upper molars and labial surfaces of the lower incisors'
+[DEBUG] trimmed_response length: 373, char_mask length: 373, input_ids length: 80, token_mask length: 80
+[DEBUG] Masked: 14/80 tokens | Text: ' the mucosa covering the vocal folds is tightly attached to the underlying tissues'
+[DEBUG] trimmed_response length: 354, char_mask length: 354, input_ids length: 78, token_mask length: 78
+[DEBUG] Masked: 12/78 tokens | Text: ' fluid will drain rapidly into the thorax below the vocal folds'
+[DEBUG] trimmed_response length: 229, char_mask length: 229, input_ids length: 44, token_mask length: 44
+[DEBUG] Masked: 12/44 tokens | Text: ' arise from the ascending aorta and fill during diastole'
+[DEBUG] trimmed_response length: 231, char_mask length: 231, input_ids length: 46, token_mask length: 46
+[DEBUG] Masked: 14/46 tokens | Text: ' arise from the arch of the aorta and fill during diastole'
+[DEBUG] trimmed_response length: 320, char_mask length: 320, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 7/63 tokens | Text: ' left lateral pterygoid muscle'
+[DEBUG] trimmed_response length: 321, char_mask length: 321, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 7/63 tokens | Text: ' right lateral pterygoid muscle'
+[DEBUG] trimmed_response length: 239, char_mask length: 239, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 15/59 tokens | Text: ' diaphragm, parietal pleura, and pericardium'
+[DEBUG] trimmed_response length: 260, char_mask length: 260, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 20/64 tokens | Text: ' diaphragm, parietal pleura, pericardium, and intercostal muscles'
+[DEBUG] trimmed_response length: 409, char_mask length: 409, input_ids length: 85, token_mask length: 85
+[DEBUG] Masked: 13/85 tokens | Text: ' red below the mucogingival junction and light pink above it'
+[DEBUG] trimmed_response length: 396, char_mask length: 396, input_ids length: 83, token_mask length: 83
+[DEBUG] Masked: 11/83 tokens | Text: ' red on both sides of the mucogingival junction'
+Written 270/17122 entries to perplexity result file
+Processing batch 19/1142
+[DEBUG] trimmed_response length: 260, char_mask length: 260, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 7/54 tokens | Text: ' maxillary and mandibular processes'
+[DEBUG] trimmed_response length: 261, char_mask length: 261, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 7/54 tokens | Text: ' left and right mandibular processes'
+[DEBUG] trimmed_response length: 314, char_mask length: 314, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 11/65 tokens | Text: ' to be palpable both intra- and extraorally'
+[DEBUG] trimmed_response length: 323, char_mask length: 323, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 9/63 tokens | Text: ' only to be detectable by radiographical examination'
+[DEBUG] trimmed_response length: 198, char_mask length: 198, input_ids length: 44, token_mask length: 44
+[DEBUG] Masked: 8/44 tokens | Text: ' resorb bone and differentiate from monocytes'
+[DEBUG] trimmed_response length: 218, char_mask length: 218, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 13/49 tokens | Text: ' deposit bone and differentiate from periosteal mesenchymal cells'
+[DEBUG] trimmed_response length: 270, char_mask length: 270, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 17/57 tokens | Text: ' is attached to the condylar process and is responsible for protruding the mandible'
+[DEBUG] trimmed_response length: 249, char_mask length: 249, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 13/53 tokens | Text: ' is attached to the coronoid process and elevates the mandible'
+[DEBUG] trimmed_response length: 261, char_mask length: 261, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 6/56 tokens | Text: ' pulmonary artery to the aorta'
+[DEBUG] trimmed_response length: 261, char_mask length: 261, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 6/56 tokens | Text: ' aorta to the pulmonary artery'
+[DEBUG] trimmed_response length: 268, char_mask length: 268, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 19/61 tokens | Text: ' keratinised and has submucosa and minor salivary glands posterolaterally'
+[DEBUG] trimmed_response length: 271, char_mask length: 271, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 20/62 tokens | Text: ' non-keratinised and has submucosa and minor salivary glands posteromedially'
+[DEBUG] trimmed_response length: 297, char_mask length: 297, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 21/65 tokens | Text: ' the inferior articular demifacet of T5 and the superior articular demifacet of T6'
+[DEBUG] trimmed_response length: 258, char_mask length: 258, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 11/55 tokens | Text: ' the superior and inferior demifacets of T6'
+[DEBUG] trimmed_response length: 342, char_mask length: 342, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 2/67 tokens | Text: ' spleen'
+Written 285/17122 entries to perplexity result file
+Processing batch 20/1142
+[DEBUG] trimmed_response length: 344, char_mask length: 344, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 2/67 tokens | Text: ' pancreas'
+[DEBUG] trimmed_response length: 263, char_mask length: 263, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 2/50 tokens | Text: ' respiration'
+[DEBUG] trimmed_response length: 264, char_mask length: 264, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 2/50 tokens | Text: ' alimentation'
+[DEBUG] trimmed_response length: 383, char_mask length: 383, input_ids length: 78, token_mask length: 78
+[DEBUG] Masked: 6/78 tokens | Text: ' skull bones and dura mater'
+[DEBUG] trimmed_response length: 381, char_mask length: 381, input_ids length: 80, token_mask length: 80
+[DEBUG] Masked: 8/80 tokens | Text: ' dura mater and arachnoid'
+[DEBUG] trimmed_response length: 335, char_mask length: 335, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 15/67 tokens | Text: ' maxillary anterior teeth, their labial gingivae and the upper lip'
+[DEBUG] trimmed_response length: 357, char_mask length: 357, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 19/71 tokens | Text: ' maxillary anterior teeth, their labial gingivae, the upper lip and anterior hard palate'
+[DEBUG] trimmed_response length: 276, char_mask length: 276, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 14/65 tokens | Text: ' the foramen ovale, rotundum, and spinosum'
+[DEBUG] trimmed_response length: 293, char_mask length: 293, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 20/71 tokens | Text: ' the foramen ovale, rotundum, spinosum, and foramen lacerum'
+[DEBUG] trimmed_response length: 268, char_mask length: 268, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 3/50 tokens | Text: ' narcolepsy'
+[DEBUG] trimmed_response length: 266, char_mask length: 266, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 3/50 tokens | Text: ' dyslexia'
+[DEBUG] trimmed_response length: 253, char_mask length: 253, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 3/50 tokens | Text: ' alveoli'
+[DEBUG] trimmed_response length: 253, char_mask length: 253, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 2/49 tokens | Text: ' bronchi'
+[DEBUG] trimmed_response length: 341, char_mask length: 341, input_ids length: 69, token_mask length: 69
+[DEBUG] Masked: 4/69 tokens | Text: ' closed, greenstick'
+[DEBUG] trimmed_response length: 342, char_mask length: 342, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 5/70 tokens | Text: ' complex, comminuted'
+Written 300/17122 entries to perplexity result file
+Processing batch 21/1142
+[DEBUG] trimmed_response length: 293, char_mask length: 293, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 4/66 tokens | Text: ' fallopian tube'
+[DEBUG] trimmed_response length: 284, char_mask length: 284, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 2/64 tokens | Text: ' ovary'
+[DEBUG] trimmed_response length: 336, char_mask length: 336, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 1/68 tokens | Text: ' prostate'
+[DEBUG] trimmed_response length: 335, char_mask length: 335, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 3/70 tokens | Text: ' scrotum'
+[DEBUG] trimmed_response length: 267, char_mask length: 267, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 10/54 tokens | Text: ' anterior and lateral to the medial pterygoid'
+[DEBUG] trimmed_response length: 251, char_mask length: 251, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 7/51 tokens | Text: ' through the medial pterygoid'
+[DEBUG] trimmed_response length: 296, char_mask length: 296, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 5/60 tokens | Text: ' pernicious anemia'
+[DEBUG] trimmed_response length: 294, char_mask length: 294, input_ids length: 58, token_mask length: 58
+[DEBUG] Masked: 3/58 tokens | Text: " Graves' disease"
+[DEBUG] trimmed_response length: 268, char_mask length: 268, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 4/62 tokens | Text: ' sacral spinal nerves'
+[DEBUG] trimmed_response length: 270, char_mask length: 270, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 3/61 tokens | Text: ' cervical spinal nerves'
+[DEBUG] trimmed_response length: 272, char_mask length: 272, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 3/56 tokens | Text: ' Olfactory'
+[DEBUG] trimmed_response length: 272, char_mask length: 272, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 3/56 tokens | Text: ' Trochlear'
+[DEBUG] trimmed_response length: 255, char_mask length: 255, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 5/52 tokens | Text: ' medulla oblongata'
+[DEBUG] trimmed_response length: 248, char_mask length: 248, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 3/50 tokens | Text: ' cerebellum'
+[DEBUG] trimmed_response length: 254, char_mask length: 254, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 2/49 tokens | Text: ' starches'
+Written 315/17122 entries to perplexity result file
+Processing batch 22/1142
+[DEBUG] trimmed_response length: 254, char_mask length: 254, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 1/48 tokens | Text: ' proteins'
+[DEBUG] trimmed_response length: 248, char_mask length: 248, input_ids length: 45, token_mask length: 45
+[DEBUG] Masked: 3/45 tokens | Text: ' sensory neuronal processes'
+[DEBUG] trimmed_response length: 262, char_mask length: 262, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 6/48 tokens | Text: ' sensory and autonomic neuronal processes'
+[DEBUG] trimmed_response length: 261, char_mask length: 261, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 3/53 tokens | Text: ' Pituitary'
+[DEBUG] trimmed_response length: 259, char_mask length: 259, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 2/52 tokens | Text: ' Adrenal'
+[DEBUG] trimmed_response length: 368, char_mask length: 368, input_ids length: 73, token_mask length: 73
+[DEBUG] Masked: 12/73 tokens | Text: ' lingual branch of the mandibular trigeminal nerve'
+[DEBUG] trimmed_response length: 360, char_mask length: 360, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 10/71 tokens | Text: ' chorda tympani branch of the facial nerve'
+[DEBUG] trimmed_response length: 324, char_mask length: 324, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 3/65 tokens | Text: ' urethra'
+[DEBUG] trimmed_response length: 325, char_mask length: 325, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 2/64 tokens | Text: ' testicle'
+[DEBUG] trimmed_response length: 316, char_mask length: 316, input_ids length: 58, token_mask length: 58
+[DEBUG] Masked: 4/58 tokens | Text: ' its distance from you'
+[DEBUG] trimmed_response length: 320, char_mask length: 320, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 5/59 tokens | Text: ' its speed relative to you'
+[DEBUG] trimmed_response length: 236, char_mask length: 236, input_ids length: 44, token_mask length: 44
+[DEBUG] Masked: 9/44 tokens | Text: ' because the atmosphere preferentially scatters short wavelengths'
+[DEBUG] trimmed_response length: 242, char_mask length: 242, input_ids length: 46, token_mask length: 46
+[DEBUG] Masked: 11/46 tokens | Text: " because the Earth's atmosphere preferentially absorbs all other colors"
+[DEBUG] trimmed_response length: 475, char_mask length: 475, input_ids length: 89, token_mask length: 89
+[DEBUG] Masked: 32/89 tokens | Text: ' only in the sense that it has not yet been proven wrong, as scientific theories can never be definitively proven true—only supported by evidence until potentially disproven'
+[DEBUG] trimmed_response length: 424, char_mask length: 424, input_ids length: 75, token_mask length: 75
+[DEBUG] Masked: 18/75 tokens | Text: ' when you and many others have rigorously tested the hypothesis and obtained consistent experimental results supporting it'
+Written 330/17122 entries to perplexity result file
+Processing batch 23/1142
+[DEBUG] trimmed_response length: 494, char_mask length: 494, input_ids length: 97, token_mask length: 97
+[DEBUG] Masked: 20/97 tokens | Text: ' broken down into hydrogen and oxygen by ultraviolet light, with the hydrogen escaping into space through thermal escape'
+[DEBUG] trimmed_response length: 421, char_mask length: 421, input_ids length: 85, token_mask length: 85
+[DEBUG] Masked: 8/85 tokens | Text: ' consumed by a civilization of thirsty Martians'
+[DEBUG] trimmed_response length: 326, char_mask length: 326, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 10/64 tokens | Text: ' radioactive dating of lunar samples shows that they are older'
+[DEBUG] trimmed_response length: 331, char_mask length: 331, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 14/68 tokens | Text: " the Moon's surface is more heavily eroded than the Earth's surface"
+[DEBUG] trimmed_response length: 250, char_mask length: 250, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 1/48 tokens | Text: ' helium'
+[DEBUG] trimmed_response length: 248, char_mask length: 248, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 1/48 tokens | Text: ' iron'
+[DEBUG] trimmed_response length: 478, char_mask length: 478, input_ids length: 90, token_mask length: 90
+[DEBUG] Masked: 4/90 tokens | Text: ' debris from comets'
+[DEBUG] trimmed_response length: 464, char_mask length: 464, input_ids length: 85, token_mask length: 85
+[DEBUG] Masked: 3/85 tokens | Text: ' debris from asteroids'
+[DEBUG] trimmed_response length: 355, char_mask length: 355, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 17/76 tokens | Text: ' the solar wind electromagnetically "blows" the ions directly away from the Sun'
+[DEBUG] trimmed_response length: 337, char_mask length: 337, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 11/70 tokens | Text: " radiation pressure from the Sun's light pushes the ions away"
+[DEBUG] trimmed_response length: 328, char_mask length: 328, input_ids length: 75, token_mask length: 75
+[DEBUG] Masked: 19/75 tokens | Text: ' by comparing the maximum altitude of the Sun in two cities at different latitudes on the same day'
+[DEBUG] trimmed_response length: 270, char_mask length: 270, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 7/63 tokens | Text: ' by sending fleets of ships around Earth'
+[DEBUG] trimmed_response length: 231, char_mask length: 231, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 8/48 tokens | Text: ' a dwarf galaxy orbiting the Milky Way'
+[DEBUG] trimmed_response length: 235, char_mask length: 235, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 8/48 tokens | Text: ' the closest planetary nebula to the Earth'
+[DEBUG] trimmed_response length: 320, char_mask length: 320, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 12/67 tokens | Text: ' these craters contain the only permanently shadowed regions on Mercury'
+Written 345/17122 entries to perplexity result file
+Processing batch 24/1142
+[DEBUG] trimmed_response length: 311, char_mask length: 311, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 14/70 tokens | Text: ' actually water-ice is all over Mercury and not just at the poles'
+[DEBUG] trimmed_response length: 283, char_mask length: 283, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 3/65 tokens | Text: ' Laniakea'
+[DEBUG] trimmed_response length: 283, char_mask length: 283, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 2/64 tokens | Text: ' Sculptor'
+[DEBUG] trimmed_response length: 237, char_mask length: 237, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 1/48 tokens | Text: ' Jupiter'
+[DEBUG] trimmed_response length: 236, char_mask length: 236, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 1/48 tokens | Text: ' Saturn'
+[DEBUG] trimmed_response length: 558, char_mask length: 558, input_ids length: 101, token_mask length: 101
+[DEBUG] Masked: 19/101 tokens | Text: ' It is the only one that has both a partially molten metallic core and reasonably rapid rotation.'
+[DEBUG] trimmed_response length: 420, char_mask length: 420, input_ids length: 75, token_mask length: 75
+[DEBUG] Masked: 10/75 tokens | Text: ' It rotates much faster than any other terrestrial world.'
+[DEBUG] trimmed_response length: 441, char_mask length: 441, input_ids length: 93, token_mask length: 93
+[DEBUG] Masked: 6/93 tokens | Text: ' the star is moving toward us'
+[DEBUG] trimmed_response length: 444, char_mask length: 444, input_ids length: 94, token_mask length: 94
+[DEBUG] Masked: 7/94 tokens | Text: ' the star is moving away from us'
+[DEBUG] trimmed_response length: 319, char_mask length: 319, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 14/64 tokens | Text: ' the rigid rocky material of the crust and uppermost portion of the mantle'
+[DEBUG] trimmed_response length: 285, char_mask length: 285, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 7/57 tokens | Text: ' the softer rocky material of the mantle'
+[DEBUG] trimmed_response length: 285, char_mask length: 285, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 16/57 tokens | Text: ' a large gap visible from Earth produced by an orbital resonance with the moon Mimas'
+[DEBUG] trimmed_response length: 265, char_mask length: 265, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 11/52 tokens | Text: ' a dark ring visible from Earth composed of dark dusty particles'
+[DEBUG] trimmed_response length: 304, char_mask length: 304, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 10/54 tokens | Text: ' chunks of large differentiated asteroids that were shattered by collisions'
+[DEBUG] trimmed_response length: 272, char_mask length: 272, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 9/53 tokens | Text: ' chunks of rock chipped off the planet Mars'
+Written 360/17122 entries to perplexity result file
+Processing batch 25/1142
+[DEBUG] trimmed_response length: 305, char_mask length: 305, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 1/62 tokens | Text: ' Io'
+[DEBUG] trimmed_response length: 311, char_mask length: 311, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 2/63 tokens | Text: ' Callisto'
+[DEBUG] trimmed_response length: 300, char_mask length: 300, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 9/57 tokens | Text: ' because Mars has a more eccentric orbit than Earth'
+[DEBUG] trimmed_response length: 296, char_mask length: 296, input_ids length: 58, token_mask length: 58
+[DEBUG] Masked: 10/58 tokens | Text: " because Mars' axis is more tilted than Earth's"
+[DEBUG] trimmed_response length: 302, char_mask length: 302, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 7/67 tokens | Text: " Io's orbit being slightly elliptical"
+[DEBUG] trimmed_response length: 308, char_mask length: 308, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 8/68 tokens | Text: ' a gap with no asteroids between the orbits'
+[DEBUG] trimmed_response length: 327, char_mask length: 327, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 15/57 tokens | Text: ' metals sank to the center during a time when the interiors were molten throughout'
+[DEBUG] trimmed_response length: 312, char_mask length: 312, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 12/54 tokens | Text: ' radioactivity created metals in the core from the decay of uranium'
+[DEBUG] trimmed_response length: 414, char_mask length: 414, input_ids length: 82, token_mask length: 82
+[DEBUG] Masked: 33/82 tokens | Text: ' only metals and rocks were able to condense due to the high temperatures, while hydrogen compounds, despite being more abundant, could only condense in the cooler outer regions'
+[DEBUG] trimmed_response length: 274, char_mask length: 274, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 15/55 tokens | Text: 'Denser materials, being heavier, sank toward the center of the nebula'
+[DEBUG] trimmed_response length: 265, char_mask length: 265, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 14/53 tokens | Text: ' the age of the solar system is approximately 4.6 billion years'
+[DEBUG] trimmed_response length: 245, char_mask length: 245, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 9/48 tokens | Text: ' the solar system once contained 10 planets'
+[DEBUG] trimmed_response length: 328, char_mask length: 328, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 5/65 tokens | Text: ' a single point of light'
+[DEBUG] trimmed_response length: 362, char_mask length: 362, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 11/71 tokens | Text: ' two points of light touching, resembling a small dumbbell'
+[DEBUG] trimmed_response length: 245, char_mask length: 245, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 11/51 tokens | Text: ' the path of the Sun in the sky throughout a year'
+Written 375/17122 entries to perplexity result file
+Processing batch 26/1142
+[DEBUG] trimmed_response length: 242, char_mask length: 242, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 9/49 tokens | Text: ' the axial tilt of the Earth throughout a year'
+[DEBUG] trimmed_response length: 262, char_mask length: 262, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 5/51 tokens | Text: ' the acceleration of the universe'
+[DEBUG] trimmed_response length: 270, char_mask length: 270, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 6/52 tokens | Text: ' the microwave background of the universe'
+[DEBUG] trimmed_response length: 372, char_mask length: 372, input_ids length: 69, token_mask length: 69
+[DEBUG] Masked: 17/69 tokens | Text: ' the spectra of some meteorites closely match the spectra of asteroids found in the asteroid belt'
+[DEBUG] trimmed_response length: 423, char_mask length: 423, input_ids length: 77, token_mask length: 77
+[DEBUG] Masked: 24/77 tokens | Text: ' collisions are common there, and researchers are able to track fragments from their source asteroid to Earth, where they become meteorites'
+[DEBUG] trimmed_response length: 351, char_mask length: 351, input_ids length: 69, token_mask length: 69
+[DEBUG] Masked: 12/69 tokens | Text: ' they actually contain a significant fraction of non-gaseous matter'
+[DEBUG] trimmed_response length: 374, char_mask length: 374, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 19/76 tokens | Text: ' the materials that make up these planets are primarily in the form of a plasma, not a gas'
+[DEBUG] trimmed_response length: 399, char_mask length: 399, input_ids length: 75, token_mask length: 75
+[DEBUG] Masked: 13/75 tokens | Text: " Jupiter's greater mass compresses it more thus increasing its density."
+[DEBUG] trimmed_response length: 428, char_mask length: 428, input_ids length: 81, token_mask length: 81
+[DEBUG] Masked: 17/81 tokens | Text: ' Saturn has a larger proportion of hydrogen and helium than Jupiter and is therefore less dense.'
+[DEBUG] trimmed_response length: 338, char_mask length: 338, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 12/62 tokens | Text: ' brightness measurements made during mutual eclipses of Pluto and Charon'
+[DEBUG] trimmed_response length: 315, char_mask length: 315, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 9/59 tokens | Text: ' radar observations made by the Arecibo telescope'
+[DEBUG] trimmed_response length: 318, char_mask length: 318, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 11/63 tokens | Text: ' leftover planetesimals that never accreted into planets'
+[DEBUG] trimmed_response length: 314, char_mask length: 314, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 7/59 tokens | Text: ' the shattered remains of collisions between planets'
+[DEBUG] trimmed_response length: 247, char_mask length: 247, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 7/50 tokens | Text: ' radioactive dating of rocks and meteorites'
+[DEBUG] trimmed_response length: 247, char_mask length: 247, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 8/51 tokens | Text: ' the layering of materials within the Earth'
+Written 390/17122 entries to perplexity result file
+Processing batch 27/1142
+[DEBUG] trimmed_response length: 198, char_mask length: 198, input_ids length: 39, token_mask length: 39
+[DEBUG] Masked: 1/39 tokens | Text: ' unknown'
+[DEBUG] trimmed_response length: 210, char_mask length: 210, input_ids length: 44, token_mask length: 44
+[DEBUG] Masked: 7/44 tokens | Text: ' aliens (panspermia).'
+[DEBUG] trimmed_response length: 291, char_mask length: 291, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 5/60 tokens | Text: ' the same as your latitude'
+[DEBUG] trimmed_response length: 307, char_mask length: 307, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 7/62 tokens | Text: ' your angular distance from the North Pole'
+[DEBUG] trimmed_response length: 502, char_mask length: 502, input_ids length: 91, token_mask length: 91
+[DEBUG] Masked: 24/91 tokens | Text: ' greenhouse gases transmit visible light, heating the surface, and then absorb infrared light from Earth, trapping the heat near the surface'
+[DEBUG] trimmed_response length: 434, char_mask length: 434, input_ids length: 78, token_mask length: 78
+[DEBUG] Masked: 17/78 tokens | Text: ' greenhouse gases absorb infrared light from the Sun, which then heats the atmosphere and the surface'
+[DEBUG] trimmed_response length: 286, char_mask length: 286, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 3/54 tokens | Text: ' increasing its density'
+[DEBUG] trimmed_response length: 288, char_mask length: 288, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 2/55 tokens | Text: ' less dense'
+[DEBUG] trimmed_response length: 337, char_mask length: 337, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 15/57 tokens | Text: ' metals differentiated to the center during a time when the interiors were molten throughout'
+[DEBUG] trimmed_response length: 289, char_mask length: 289, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 8/50 tokens | Text: ' the entire planets are made mostly of metal'
+[DEBUG] trimmed_response length: 248, char_mask length: 248, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 6/52 tokens | Text: ' the U.S.S.R..'
+[DEBUG] trimmed_response length: 244, char_mask length: 244, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 4/50 tokens | Text: ' the U.S..'
+[DEBUG] trimmed_response length: 308, char_mask length: 308, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 12/60 tokens | Text: ' the breaking of small Jovian moons to form ring materials'
+[DEBUG] trimmed_response length: 290, char_mask length: 290, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 12/60 tokens | Text: ' the 2:3 periodic ratio of Neptune:Pluto'
+[DEBUG] trimmed_response length: 418, char_mask length: 418, input_ids length: 78, token_mask length: 78
+[DEBUG] Masked: 22/78 tokens | Text: ' the solar wind was able to strip away most of the atmosphere, significantly reducing the greenhouse effect and cooling Mars down'
+Written 405/17122 entries to perplexity result file
+Processing batch 28/1142
+[DEBUG] trimmed_response length: 390, char_mask length: 390, input_ids length: 73, token_mask length: 73
+[DEBUG] Masked: 17/73 tokens | Text: ' the planet received fewer charged particles from the solar wind and therefore was not heated as much'
+[DEBUG] trimmed_response length: 359, char_mask length: 359, input_ids length: 83, token_mask length: 83
+[DEBUG] Masked: 10/83 tokens | Text: ' no solar day; Planet X is tidally locked'
+[DEBUG] trimmed_response length: 358, char_mask length: 358, input_ids length: 84, token_mask length: 84
+[DEBUG] Masked: 6/84 tokens | Text: ' about 10 Earth days'
+[DEBUG] trimmed_response length: 359, char_mask length: 359, input_ids length: 75, token_mask length: 75
+[DEBUG] Masked: 4/75 tokens | Text: ' higher in the sky'
+[DEBUG] trimmed_response length: 358, char_mask length: 358, input_ids length: 75, token_mask length: 75
+[DEBUG] Masked: 4/75 tokens | Text: ' lower in the sky'
+[DEBUG] trimmed_response length: 279, char_mask length: 279, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 15/55 tokens | Text: ' could occur at any time, as the probability remains the same each year.'
+[DEBUG] trimmed_response length: 266, char_mask length: 266, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 11/51 tokens | Text: ' is expected to happen hundreds of millennia in the future.'
+[DEBUG] trimmed_response length: 324, char_mask length: 324, input_ids length: 58, token_mask length: 58
+[DEBUG] Masked: 7/58 tokens | Text: ' substantial motion relative to the background stars'
+[DEBUG] trimmed_response length: 278, char_mask length: 278, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 4/53 tokens | Text: ' emit pulsed radiation'
+[DEBUG] trimmed_response length: 347, char_mask length: 347, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 20/67 tokens | Text: ' as the cloud shrank, its gravitational potential energy was converted to kinetic energy and then into thermal energy'
+[DEBUG] trimmed_response length: 289, char_mask length: 289, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 9/56 tokens | Text: ' collisions among planetesimals generated friction and heat'
+[DEBUG] trimmed_response length: 297, char_mask length: 297, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 5/56 tokens | Text: ' absorption lines due to hydrogen'
+[DEBUG] trimmed_response length: 276, char_mask length: 276, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 6/50 tokens | Text: ' only emission lines characteristic of hydrogen'
+[DEBUG] trimmed_response length: 405, char_mask length: 405, input_ids length: 90, token_mask length: 90
+[DEBUG] Masked: 4/90 tokens | Text: '25 times brighter'
+[DEBUG] trimmed_response length: 404, char_mask length: 404, input_ids length: 89, token_mask length: 89
+[DEBUG] Masked: 3/89 tokens | Text: '2 times brighter'
+Written 420/17122 entries to perplexity result file
+Processing batch 29/1142
+[DEBUG] trimmed_response length: 322, char_mask length: 322, input_ids length: 80, token_mask length: 80
+[DEBUG] Masked: 5/80 tokens | Text: '5 kg25 N'
+[DEBUG] trimmed_response length: 324, char_mask length: 324, input_ids length: 82, token_mask length: 82
+[DEBUG] Masked: 7/82 tokens | Text: '10 kg100 N'
+[DEBUG] trimmed_response length: 330, char_mask length: 330, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 14/70 tokens | Text: ' Chicxulub Crater, Yucatán Peninsula in Mexico'
+[DEBUG] trimmed_response length: 299, char_mask length: 299, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 3/59 tokens | Text: ' Quebec, Canada'
+[DEBUG] trimmed_response length: 388, char_mask length: 388, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 10/76 tokens | Text: " the Moon's umbra must pass over your location"
+[DEBUG] trimmed_response length: 396, char_mask length: 396, input_ids length: 78, token_mask length: 78
+[DEBUG] Masked: 12/78 tokens | Text: " the Earth must be entirely within the Moon's penumbra"
+[DEBUG] trimmed_response length: 341, char_mask length: 341, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 8/65 tokens | Text: ' solar eclipses would occur much more frequently'
+[DEBUG] trimmed_response length: 337, char_mask length: 337, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 7/64 tokens | Text: ' solar eclipses would have shorter durations'
+[DEBUG] trimmed_response length: 287, char_mask length: 287, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 3/57 tokens | Text: ' Hawking radiation'
+[DEBUG] trimmed_response length: 293, char_mask length: 293, input_ids length: 58, token_mask length: 58
+[DEBUG] Masked: 4/58 tokens | Text: ' Schwarzschild radiation'
+[DEBUG] trimmed_response length: 248, char_mask length: 248, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 6/52 tokens | Text: '2.5 million light-years'
+[DEBUG] trimmed_response length: 248, char_mask length: 248, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 6/52 tokens | Text: '3.2 million light-years'
+[DEBUG] trimmed_response length: 390, char_mask length: 390, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 16/70 tokens | Text: ' organisms living deep in the oceans around seafloor volcanic vents and in hot springs'
+[DEBUG] trimmed_response length: 374, char_mask length: 374, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 12/66 tokens | Text: ' plankton that use sunlight as an energy source through photosynthesis'
+[DEBUG] trimmed_response length: 349, char_mask length: 349, input_ids length: 80, token_mask length: 80
+[DEBUG] Masked: 23/80 tokens | Text: ' by measuring the maximum altitude of the Sun in two cities at different latitudes at the same time on the same day'
+Written 435/17122 entries to perplexity result file
+Processing batch 30/1142
+[DEBUG] trimmed_response length: 309, char_mask length: 309, input_ids length: 72, token_mask length: 72
+[DEBUG] Masked: 15/72 tokens | Text: " by measuring the size of Earth's shadow on the Moon during a lunar eclipse"
+[DEBUG] trimmed_response length: 333, char_mask length: 333, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 22/76 tokens | Text: ' nitrogen, methane, and carbon monoxide ices which sublimate into an atmosphere near perihelion'
+[DEBUG] trimmed_response length: 309, char_mask length: 309, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 14/68 tokens | Text: ' nitrogen, methane, and carbon monoxide ices which always remain frozen'
+[DEBUG] trimmed_response length: 432, char_mask length: 432, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 14/76 tokens | Text: " human activities that are increasing the concentration of greenhouse gases in Earth's atmosphere"
+[DEBUG] trimmed_response length: 388, char_mask length: 388, input_ids length: 74, token_mask length: 74
+[DEBUG] Masked: 12/74 tokens | Text: ' the fact that our politicians spout a lot of hot air'
+[DEBUG] trimmed_response length: 408, char_mask length: 408, input_ids length: 73, token_mask length: 73
+[DEBUG] Masked: 17/73 tokens | Text: ' the spectra of some meteorites closely resemble the spectra of asteroids found in the asteroid belt'
+[DEBUG] trimmed_response length: 403, char_mask length: 403, input_ids length: 74, token_mask length: 74
+[DEBUG] Masked: 18/74 tokens | Text: ' the asteroid belt is the only possible source of meteorites, so they must originate from there'
+[DEBUG] trimmed_response length: 277, char_mask length: 277, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 4/56 tokens | Text: ' size of the planet'
+[DEBUG] trimmed_response length: 284, char_mask length: 284, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 4/56 tokens | Text: ' presence of an atmosphere'
+[DEBUG] trimmed_response length: 388, char_mask length: 388, input_ids length: 83, token_mask length: 83
+[DEBUG] Masked: 12/83 tokens | Text: ' distance at which one astronomical unit measures one arcsecond from Earth'
+[DEBUG] trimmed_response length: 398, char_mask length: 398, input_ids length: 87, token_mask length: 87
+[DEBUG] Masked: 16/87 tokens | Text: ' orbital distance of the solar system around the center of the Milky Way in one year'
+[DEBUG] trimmed_response length: 269, char_mask length: 269, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 2/48 tokens | Text: ' black holes'
+[DEBUG] trimmed_response length: 266, char_mask length: 266, input_ids length: 47, token_mask length: 47
+[DEBUG] Masked: 1/47 tokens | Text: ' galaxies'
+[DEBUG] trimmed_response length: 363, char_mask length: 363, input_ids length: 79, token_mask length: 79
+[DEBUG] Masked: 13/79 tokens | Text: ' waxing gibbous, full, waning gibbous'
+[DEBUG] trimmed_response length: 316, char_mask length: 316, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 2/66 tokens | Text: ' new only'
+Written 450/17122 entries to perplexity result file
+Processing batch 31/1142
+[DEBUG] trimmed_response length: 343, char_mask length: 343, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 13/62 tokens | Text: ' because it is in the southern hemisphere, where it is winter now'
+[DEBUG] trimmed_response length: 343, char_mask length: 343, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 13/62 tokens | Text: ' because it is in the northern hemisphere, where it is winter now'
+[DEBUG] trimmed_response length: 390, char_mask length: 390, input_ids length: 77, token_mask length: 77
+[DEBUG] Masked: 14/77 tokens | Text: ' the atmosphere on Mars is too thin to trap a significant amount of heat'
+[DEBUG] trimmed_response length: 369, char_mask length: 369, input_ids length: 75, token_mask length: 75
+[DEBUG] Masked: 22/75 tokens | Text: ' there actually is a strong greenhouse effect and Mars would be 35°C colder than it is now without it'
+[DEBUG] trimmed_response length: 266, char_mask length: 266, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 11/51 tokens | Text: ' alternating bands of rising and falling air at different latitudes'
+[DEBUG] trimmed_response length: 268, char_mask length: 268, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 10/50 tokens | Text: " alternating regions of charged particles in Jupiter's magnetic field"
+[DEBUG] trimmed_response length: 210, char_mask length: 210, input_ids length: 45, token_mask length: 45
+[DEBUG] Masked: 6/45 tokens | Text: ' Phobos and Deimos'
+[DEBUG] trimmed_response length: 210, char_mask length: 210, input_ids length: 44, token_mask length: 44
+[DEBUG] Masked: 5/44 tokens | Text: ' Tritos and Desmos'
+[DEBUG] trimmed_response length: 271, char_mask length: 271, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 13/55 tokens | Text: ' the period of rotation is the same on every point on the disk'
+[DEBUG] trimmed_response length: 258, char_mask length: 258, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 10/52 tokens | Text: ' the part closer to the axis has a shorter period'
+[DEBUG] trimmed_response length: 239, char_mask length: 239, input_ids length: 46, token_mask length: 46
+[DEBUG] Masked: 4/46 tokens | Text: ' Cassiopeia'
+[DEBUG] trimmed_response length: 236, char_mask length: 236, input_ids length: 46, token_mask length: 46
+[DEBUG] Masked: 4/46 tokens | Text: ' Cepheus'
+[DEBUG] trimmed_response length: 364, char_mask length: 364, input_ids length: 84, token_mask length: 84
+[DEBUG] Masked: 2/84 tokens | Text: '6 meters'
+[DEBUG] trimmed_response length: 362, char_mask length: 362, input_ids length: 84, token_mask length: 84
+[DEBUG] Masked: 2/84 tokens | Text: '6 feet'
+[DEBUG] trimmed_response length: 284, char_mask length: 284, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 4/65 tokens | Text: '29 Earth days'
+Written 465/17122 entries to perplexity result file
+Processing batch 32/1142
+[DEBUG] trimmed_response length: 277, char_mask length: 277, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 2/62 tokens | Text: ' a year'
+[DEBUG] trimmed_response length: 276, char_mask length: 276, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 7/51 tokens | Text: ' Are we alone in the universe?'
+[DEBUG] trimmed_response length: 280, char_mask length: 280, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 8/52 tokens | Text: ' Will the Sun become a black hole?'
+[DEBUG] trimmed_response length: 246, char_mask length: 246, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 5/60 tokens | Text: ' further from the Earth longer'
+[DEBUG] trimmed_response length: 247, char_mask length: 247, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 5/60 tokens | Text: ' further from the Earth shorter'
+[DEBUG] trimmed_response length: 244, char_mask length: 244, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 1/50 tokens | Text: ' hydrogen'
+[DEBUG] trimmed_response length: 242, char_mask length: 242, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 1/50 tokens | Text: ' helium'
+[DEBUG] trimmed_response length: 295, char_mask length: 295, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 7/62 tokens | Text: ' about 5.2 times longer'
+[DEBUG] trimmed_response length: 367, char_mask length: 367, input_ids length: 73, token_mask length: 73
+[DEBUG] Masked: 18/73 tokens | Text: ' not determinable with the given information, as it depends on the inclination of the new orbit'
+[DEBUG] trimmed_response length: 313, char_mask length: 313, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 2/65 tokens | Text: ' too diffuse'
+[DEBUG] trimmed_response length: 371, char_mask length: 371, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 7/76 tokens | Text: " charged particles which aren't luminous"
+[DEBUG] trimmed_response length: 306, char_mask length: 306, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 13/66 tokens | Text: ' formed as gas giants beyond the frost line and then migrated inwards'
+[DEBUG] trimmed_response length: 329, char_mask length: 329, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 18/71 tokens | Text: ' formed as dense rocky planets close to the star in the same orbits that they are seen today'
+[DEBUG] trimmed_response length: 270, char_mask length: 270, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 8/51 tokens | Text: ' ability to measure the angular separation of objects'
+[DEBUG] trimmed_response length: 265, char_mask length: 265, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 7/50 tokens | Text: ' ability to measure the distance between objects'
+Written 480/17122 entries to perplexity result file
+Processing batch 33/1142
+[DEBUG] trimmed_response length: 340, char_mask length: 340, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 5/71 tokens | Text: '23.5 degrees'
+[DEBUG] trimmed_response length: 340, char_mask length: 340, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 5/71 tokens | Text: '20.3 degrees'
+[DEBUG] trimmed_response length: 295, char_mask length: 295, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 9/59 tokens | Text: " the Moon's rotational and orbital periods are equal"
+[DEBUG] trimmed_response length: 297, char_mask length: 297, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 10/60 tokens | Text: ' the Moon has a nearly circular orbit around the Earth'
+[DEBUG] trimmed_response length: 294, char_mask length: 294, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 4/62 tokens | Text: ' buried in lava flows'
+[DEBUG] trimmed_response length: 283, char_mask length: 283, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 13/60 tokens | Text: ' too small to have been hit during the Late Heavy Bombardment'
+[DEBUG] trimmed_response length: 318, char_mask length: 318, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 1/66 tokens | Text: ' Orion'
+[DEBUG] trimmed_response length: 323, char_mask length: 323, input_ids length: 69, token_mask length: 69
+[DEBUG] Masked: 4/69 tokens | Text: ' Cassiopeia'
+[DEBUG] trimmed_response length: 406, char_mask length: 406, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 10/76 tokens | Text: ' sand-sized particles from comets that cause meteor showers'
+[DEBUG] trimmed_response length: 426, char_mask length: 426, input_ids length: 77, token_mask length: 77
+[DEBUG] Masked: 10/77 tokens | Text: ' asteroidal debris that burns up and causes meteor showers'
+[DEBUG] trimmed_response length: 367, char_mask length: 367, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 29/66 tokens | Text: " greenhouse gases allow visible sunlight to reach Earth's surface, warming it, and then absorb infrared radiation emitted by the surface, trapping heat near the surface"
+[DEBUG] trimmed_response length: 292, char_mask length: 292, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 17/54 tokens | Text: ' the dense atmosphere at lower altitudes, due to higher pressure, traps heat more effectively'
+[DEBUG] trimmed_response length: 395, char_mask length: 395, input_ids length: 73, token_mask length: 73
+[DEBUG] Masked: 21/73 tokens | Text: " detecting the gravitational effect of an orbiting planet by looking for the Doppler shifts in the star's spectrum"
+[DEBUG] trimmed_response length: 379, char_mask length: 379, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 18/70 tokens | Text: " detecting the shift of the star's position against the sky due to the planet's gravitational pull"
+[DEBUG] trimmed_response length: 347, char_mask length: 347, input_ids length: 79, token_mask length: 79
+[DEBUG] Masked: 11/79 tokens | Text: '1.5 x 10¹⁷ meters'
+Written 495/17122 entries to perplexity result file
+Processing batch 34/1142
+[DEBUG] trimmed_response length: 347, char_mask length: 347, input_ids length: 78, token_mask length: 78
+[DEBUG] Masked: 10/78 tokens | Text: '9.3 x 10¹³ meters'
+[DEBUG] trimmed_response length: 437, char_mask length: 437, input_ids length: 96, token_mask length: 96
+[DEBUG] Masked: 28/96 tokens | Text: ' to explain the observation that planets sometimes appear to move westward (retrograde) rather than eastward relative to the stars in our sky'
+[DEBUG] trimmed_response length: 362, char_mask length: 362, input_ids length: 80, token_mask length: 80
+[DEBUG] Masked: 12/80 tokens | Text: ' to explain why the Greeks were unable to observe stellar parallax'
+[DEBUG] trimmed_response length: 271, char_mask length: 271, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 1/59 tokens | Text: ' Earth'
+[DEBUG] trimmed_response length: 277, char_mask length: 277, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 3/60 tokens | Text: ' Mars and Earth'
+[DEBUG] trimmed_response length: 243, char_mask length: 243, input_ids length: 45, token_mask length: 45
+[DEBUG] Masked: 9/45 tokens | Text: ' molecules scatter blue light more effectively than red light'
+[DEBUG] trimmed_response length: 214, char_mask length: 214, input_ids length: 42, token_mask length: 42
+[DEBUG] Masked: 6/42 tokens | Text: ' the Sun mainly emits blue light'
+[DEBUG] trimmed_response length: 343, char_mask length: 343, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 10/61 tokens | Text: ' both a molten metallic core and reasonably fast rotation'
+[DEBUG] trimmed_response length: 305, char_mask length: 305, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 3/54 tokens | Text: ' fast rotation only'
+[DEBUG] trimmed_response length: 257, char_mask length: 257, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 14/51 tokens | Text: " along Jupiter's orbit, 60° ahead of and behind Jupiter"
+[DEBUG] trimmed_response length: 237, char_mask length: 237, input_ids length: 44, token_mask length: 44
+[DEBUG] Masked: 7/44 tokens | Text: ' in the center of the asteroid belt'
+[DEBUG] trimmed_response length: 405, char_mask length: 405, input_ids length: 90, token_mask length: 90
+[DEBUG] Masked: 25/90 tokens | Text: ' light gases (H, He), hydrogen compounds (H₂O, CH₄, NH₃), rocks, metals'
+[DEBUG] trimmed_response length: 405, char_mask length: 405, input_ids length: 90, token_mask length: 90
+[DEBUG] Masked: 25/90 tokens | Text: ' hydrogen compounds (H₂O, CH₄, NH₃), light gases (H, He), metals, rocks'
+[DEBUG] trimmed_response length: 339, char_mask length: 339, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 8/67 tokens | Text: ' it cannot trap a significant amount of heat'
+[DEBUG] trimmed_response length: 364, char_mask length: 364, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 12/71 tokens | Text: ' it does not have enough internal heat to drive the greenhouse effect'
+Written 510/17122 entries to perplexity result file
+Processing batch 35/1142
+[DEBUG] trimmed_response length: 382, char_mask length: 382, input_ids length: 77, token_mask length: 77
+[DEBUG] Masked: 14/77 tokens | Text: ' never fully proven correct, only as "yet to be proven wrong."'
+[DEBUG] trimmed_response length: 419, char_mask length: 419, input_ids length: 78, token_mask length: 78
+[DEBUG] Masked: 15/78 tokens | Text: ' proven correct after you have repeated your experiment many times and obtained consistent results.'
+[DEBUG] trimmed_response length: 391, char_mask length: 391, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 16/76 tokens | Text: ' methane does not condense into ice in the warmer atmospheric temperatures of Jupiter and Saturn'
+[DEBUG] trimmed_response length: 396, char_mask length: 396, input_ids length: 81, token_mask length: 81
+[DEBUG] Masked: 21/81 tokens | Text: ' methane did not exist in the solar nebula at the radii of Jupiter and Saturn when the planets formed'
+[DEBUG] trimmed_response length: 365, char_mask length: 365, input_ids length: 69, token_mask length: 69
+[DEBUG] Masked: 22/69 tokens | Text: ' there are many geologic features on Mars that are difficult to explain unless liquid water was once stable at the surface'
+[DEBUG] trimmed_response length: 394, char_mask length: 394, input_ids length: 74, token_mask length: 74
+[DEBUG] Masked: 27/74 tokens | Text: ' all planets tend to begin with warm, wet climates and gradually become cold and dry, with smaller planets like Mars cooling faster than larger planets'
+[DEBUG] trimmed_response length: 339, char_mask length: 339, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 11/57 tokens | Text: ' by contracting, which converts gravitational potential energy into thermal energy'
+[DEBUG] trimmed_response length: 316, char_mask length: 316, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 9/55 tokens | Text: ' through internal friction caused by its high rotation rate'
+[DEBUG] trimmed_response length: 222, char_mask length: 222, input_ids length: 46, token_mask length: 46
+[DEBUG] Masked: 4/46 tokens | Text: ' all of the above'
+[DEBUG] trimmed_response length: 213, char_mask length: 213, input_ids length: 43, token_mask length: 43
+[DEBUG] Masked: 1/43 tokens | Text: ' Neptune'
+[DEBUG] trimmed_response length: 340, char_mask length: 340, input_ids length: 73, token_mask length: 73
+[DEBUG] Masked: 15/73 tokens | Text: ' their rapid rotation causes the mass near the equator to be flung outward'
+[DEBUG] trimmed_response length: 342, char_mask length: 342, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 12/70 tokens | Text: ' their internal heat sources exert pressure against the sides of the planets'
+[DEBUG] trimmed_response length: 328, char_mask length: 328, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 10/55 tokens | Text: ' by contracting and converting gravitational potential energy into thermal energy'
+[DEBUG] trimmed_response length: 338, char_mask length: 338, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 12/57 tokens | Text: ' through internal friction resulting from its rapid rotation rate and differential rotation'
+[DEBUG] trimmed_response length: 286, char_mask length: 286, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 14/54 tokens | Text: ' the region around a star where liquid water can potentially exist on planetary surfaces'
+Written 525/17122 entries to perplexity result file
+Processing batch 36/1142
+[DEBUG] trimmed_response length: 248, char_mask length: 248, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 9/49 tokens | Text: ' the region around a star where humans can survive'
+[DEBUG] trimmed_response length: 272, char_mask length: 272, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 5/52 tokens | Text: ' to measure galactic distances'
+[DEBUG] trimmed_response length: 277, char_mask length: 277, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 6/53 tokens | Text: ' to measure galactic energy-density'
+[DEBUG] trimmed_response length: 298, char_mask length: 298, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 6/55 tokens | Text: ' luminosity integrated over all wavelengths'
+[DEBUG] trimmed_response length: 315, char_mask length: 315, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 8/57 tokens | Text: ' luminosity integrated over vertically polarized wavelengths'
+[DEBUG] trimmed_response length: 227, char_mask length: 227, input_ids length: 44, token_mask length: 44
+[DEBUG] Masked: 9/44 tokens | Text: ' from the dismantling of small moons by impacts'
+[DEBUG] trimmed_response length: 225, char_mask length: 225, input_ids length: 42, token_mask length: 42
+[DEBUG] Masked: 7/42 tokens | Text: ' from fragments of planets ejected by impacts'
+[DEBUG] trimmed_response length: 209, char_mask length: 209, input_ids length: 44, token_mask length: 44
+[DEBUG] Masked: 8/44 tokens | Text: ' dark lavas filling older impact basins'
+[DEBUG] trimmed_response length: 201, char_mask length: 201, input_ids length: 42, token_mask length: 42
+[DEBUG] Masked: 6/42 tokens | Text: ' the bright regions on the Moon'
+[DEBUG] trimmed_response length: 245, char_mask length: 245, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 5/50 tokens | Text: '150 million km'
+[DEBUG] trimmed_response length: 245, char_mask length: 245, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 5/50 tokens | Text: '170 million km'
+[DEBUG] trimmed_response length: 585, char_mask length: 585, input_ids length: 110, token_mask length: 110
+[DEBUG] Masked: 4/110 tokens | Text: ' cheap secure financial crime'
+[DEBUG] trimmed_response length: 597, char_mask length: 597, input_ids length: 110, token_mask length: 110
+[DEBUG] Masked: 5/110 tokens | Text: ' expensive unsecure charitable giving'
+[DEBUG] trimmed_response length: 421, char_mask length: 421, input_ids length: 78, token_mask length: 78
+[DEBUG] Masked: 5/78 tokens | Text: ' unsafe practices distress fear serious'
+[DEBUG] trimmed_response length: 420, char_mask length: 420, input_ids length: 78, token_mask length: 78
+[DEBUG] Masked: 5/78 tokens | Text: ' safe practices wants jealousy trivial'
+Written 540/17122 entries to perplexity result file
+Processing batch 37/1142
+[DEBUG] trimmed_response length: 284, char_mask length: 284, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 2/51 tokens | Text: ' employee duties'
+[DEBUG] trimmed_response length: 284, char_mask length: 284, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 2/51 tokens | Text: ' employee rights'
+[DEBUG] trimmed_response length: 379, char_mask length: 379, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 3/70 tokens | Text: ' work-life balance'
+[DEBUG] trimmed_response length: 374, char_mask length: 374, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 3/70 tokens | Text: ' presenteeism'
+[DEBUG] trimmed_response length: 606, char_mask length: 606, input_ids length: 103, token_mask length: 103
+[DEBUG] Masked: 2/103 tokens | Text: 'Industrial ecosystems'
+[DEBUG] trimmed_response length: 606, char_mask length: 606, input_ids length: 104, token_mask length: 104
+[DEBUG] Masked: 3/104 tokens | Text: 'Ecological ecosystems'
+[DEBUG] trimmed_response length: 317, char_mask length: 317, input_ids length: 58, token_mask length: 58
+[DEBUG] Masked: 4/58 tokens | Text: ' preference utilitarianism'
+[DEBUG] trimmed_response length: 318, char_mask length: 318, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 5/59 tokens | Text: ' The Categorical Imperative'
+[DEBUG] trimmed_response length: 291, char_mask length: 291, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 3/52 tokens | Text: ' to its shareholders'
+[DEBUG] trimmed_response length: 323, char_mask length: 323, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 8/57 tokens | Text: ' to balance the interest of society and shareholders'
+[DEBUG] trimmed_response length: 287, char_mask length: 287, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 1/51 tokens | Text: ' Flexible'
+[DEBUG] trimmed_response length: 285, char_mask length: 285, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 1/51 tokens | Text: ' Modern'
+[DEBUG] trimmed_response length: 435, char_mask length: 435, input_ids length: 92, token_mask length: 92
+[DEBUG] Masked: 3/92 tokens | Text: ' disclosure clarity accuracy'
+[DEBUG] trimmed_response length: 437, char_mask length: 437, input_ids length: 92, token_mask length: 92
+[DEBUG] Masked: 3/92 tokens | Text: ' disclosure clarity efficiency'
+[DEBUG] trimmed_response length: 409, char_mask length: 409, input_ids length: 79, token_mask length: 79
+[DEBUG] Masked: 7/79 tokens | Text: ' public services social, economic and environmental'
+Written 555/17122 entries to perplexity result file
+Processing batch 38/1142
+[DEBUG] trimmed_response length: 410, char_mask length: 410, input_ids length: 79, token_mask length: 79
+[DEBUG] Masked: 7/79 tokens | Text: ' private services social, economic and environmental'
+[DEBUG] trimmed_response length: 262, char_mask length: 262, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 2/50 tokens | Text: ' deceptive pricing'
+[DEBUG] trimmed_response length: 257, char_mask length: 257, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 2/50 tokens | Text: ' price fixing'
+[DEBUG] trimmed_response length: 355, char_mask length: 355, input_ids length: 77, token_mask length: 77
+[DEBUG] Masked: 9/77 tokens | Text: ' Normative, Descriptive, and Instrumental'
+[DEBUG] trimmed_response length: 351, char_mask length: 351, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 8/76 tokens | Text: ' Normative, Descriptive, and Economic'
+[DEBUG] trimmed_response length: 636, char_mask length: 636, input_ids length: 105, token_mask length: 105
+[DEBUG] Masked: 5/105 tokens | Text: ' healthy and safe working conditions'
+[DEBUG] trimmed_response length: 617, char_mask length: 617, input_ids length: 102, token_mask length: 102
+[DEBUG] Masked: 2/102 tokens | Text: ' employee privacy'
+[DEBUG] trimmed_response length: 301, char_mask length: 301, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 4/54 tokens | Text: ' to make a profit'
+[DEBUG] trimmed_response length: 305, char_mask length: 305, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 3/53 tokens | Text: ' to procure resources'
+[DEBUG] trimmed_response length: 305, char_mask length: 305, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 15/59 tokens | Text: " it is in an organization's own best interest to act in an ethical way"
+[DEBUG] trimmed_response length: 327, char_mask length: 327, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 18/62 tokens | Text: " it is in an organization's own best interest to follow the legislation and abide by the law"
+[DEBUG] trimmed_response length: 304, char_mask length: 304, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 2/57 tokens | Text: ' Consumer privacy'
+[DEBUG] trimmed_response length: 306, char_mask length: 306, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 2/57 tokens | Text: ' Consumer exclusion'
+[DEBUG] trimmed_response length: 354, char_mask length: 354, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 3/66 tokens | Text: ' Cognitive moral development'
+[DEBUG] trimmed_response length: 341, char_mask length: 341, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 2/65 tokens | Text: ' Power distance'
+Written 570/17122 entries to perplexity result file
+Processing batch 39/1142
+[DEBUG] trimmed_response length: 546, char_mask length: 546, input_ids length: 102, token_mask length: 102
+[DEBUG] Masked: 3/102 tokens | Text: 'Normative descriptive'
+[DEBUG] trimmed_response length: 544, char_mask length: 544, input_ids length: 102, token_mask length: 102
+[DEBUG] Masked: 3/102 tokens | Text: 'Ethical descriptive'
+[DEBUG] trimmed_response length: 347, char_mask length: 347, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 2/57 tokens | Text: ' increase revenue'
+[DEBUG] trimmed_response length: 345, char_mask length: 345, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 2/57 tokens | Text: ' increase costs'
+[DEBUG] trimmed_response length: 481, char_mask length: 481, input_ids length: 85, token_mask length: 85
+[DEBUG] Masked: 4/85 tokens | Text: ' social licence to operate'
+[DEBUG] trimmed_response length: 474, char_mask length: 474, input_ids length: 83, token_mask length: 83
+[DEBUG] Masked: 2/83 tokens | Text: ' community approval'
+[DEBUG] trimmed_response length: 452, char_mask length: 452, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 2/76 tokens | Text: ' Corporate Transparency'
+[DEBUG] trimmed_response length: 448, char_mask length: 448, input_ids length: 77, token_mask length: 77
+[DEBUG] Masked: 3/77 tokens | Text: ' Corporate Openness'
+[DEBUG] trimmed_response length: 580, char_mask length: 580, input_ids length: 101, token_mask length: 101
+[DEBUG] Masked: 17/101 tokens | Text: 'Environmental management systems, such as ISO 14001 and EMAS,'
+[DEBUG] trimmed_response length: 576, char_mask length: 576, input_ids length: 99, token_mask length: 99
+[DEBUG] Masked: 15/99 tokens | Text: 'Social accountability standards, such as EMAS and SA8000,'
+[DEBUG] trimmed_response length: 531, char_mask length: 531, input_ids length: 99, token_mask length: 99
+[DEBUG] Masked: 3/99 tokens | Text: ' China Relationship Market'
+[DEBUG] trimmed_response length: 532, char_mask length: 532, input_ids length: 99, token_mask length: 99
+[DEBUG] Masked: 3/99 tokens | Text: ' Canada Market Relationship'
+[DEBUG] trimmed_response length: 534, char_mask length: 534, input_ids length: 93, token_mask length: 93
+[DEBUG] Masked: 7/93 tokens | Text: ' intrusive artificial consumerism insecurity social stereotypes'
+[DEBUG] trimmed_response length: 526, char_mask length: 526, input_ids length: 93, token_mask length: 93
+[DEBUG] Masked: 7/93 tokens | Text: ' intrusive artificial de-materialism security happiness'
+[DEBUG] trimmed_response length: 527, char_mask length: 527, input_ids length: 99, token_mask length: 99
+[DEBUG] Masked: 2/99 tokens | Text: ' share price'
+Written 585/17122 entries to perplexity result file
+Processing batch 40/1142
+[DEBUG] trimmed_response length: 525, char_mask length: 525, input_ids length: 99, token_mask length: 99
+[DEBUG] Masked: 2/99 tokens | Text: ' share price'
+[DEBUG] trimmed_response length: 329, char_mask length: 329, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 20/63 tokens | Text: ' a theory which states that an action is morally right if it promotes the greatest good for the greatest number'
+[DEBUG] trimmed_response length: 333, char_mask length: 333, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 20/63 tokens | Text: ' a theory which states that an action is morally incorrect if it promotes the greatest good for the greatest number'
+[DEBUG] trimmed_response length: 489, char_mask length: 489, input_ids length: 86, token_mask length: 86
+[DEBUG] Masked: 5/86 tokens | Text: ' decision planned behaviour rationality'
+[DEBUG] trimmed_response length: 498, char_mask length: 498, input_ids length: 88, token_mask length: 88
+[DEBUG] Masked: 7/88 tokens | Text: ' attitudinal market equilibrium social pressures'
+[DEBUG] trimmed_response length: 355, char_mask length: 355, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 2/59 tokens | Text: ' Green Marketing'
+[DEBUG] trimmed_response length: 365, char_mask length: 365, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 4/61 tokens | Text: ' Superfund reauthorization'
+[DEBUG] trimmed_response length: 421, char_mask length: 421, input_ids length: 69, token_mask length: 69
+[DEBUG] Masked: 18/69 tokens | Text: ' informal relationships, owner and family member influence on the organisation, and lack of organisational resources'
+[DEBUG] trimmed_response length: 415, char_mask length: 415, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 17/68 tokens | Text: ' bureaucratic and formal organisational structure, lack of organisational resources, and conflicts of interest'
+[DEBUG] trimmed_response length: 459, char_mask length: 459, input_ids length: 82, token_mask length: 82
+[DEBUG] Masked: 5/82 tokens | Text: ' global production network dynamic relational'
+[DEBUG] trimmed_response length: 462, char_mask length: 462, input_ids length: 82, token_mask length: 82
+[DEBUG] Masked: 5/82 tokens | Text: ' international supply chain dynamic disconnected'
+[DEBUG] trimmed_response length: 484, char_mask length: 484, input_ids length: 86, token_mask length: 86
+[DEBUG] Masked: 2/86 tokens | Text: ' moral imagination'
+[DEBUG] trimmed_response length: 486, char_mask length: 486, input_ids length: 86, token_mask length: 86
+[DEBUG] Masked: 2/86 tokens | Text: ' ethical reflexivity'
+[DEBUG] trimmed_response length: 350, char_mask length: 350, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 3/68 tokens | Text: 'Moral framing'
+[DEBUG] trimmed_response length: 360, char_mask length: 360, input_ids length: 69, token_mask length: 69
+[DEBUG] Masked: 4/69 tokens | Text: 'Ethical window dressing'
+Written 600/17122 entries to perplexity result file
+Processing batch 41/1142
+[DEBUG] trimmed_response length: 346, char_mask length: 346, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 3/63 tokens | Text: ' locus of control'
+[DEBUG] trimmed_response length: 347, char_mask length: 347, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 2/62 tokens | Text: ' moral imagination'
+[DEBUG] trimmed_response length: 375, char_mask length: 375, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 2/70 tokens | Text: ' Social Contract'
+[DEBUG] trimmed_response length: 371, char_mask length: 371, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 2/70 tokens | Text: ' Duty Ethics'
+[DEBUG] trimmed_response length: 362, char_mask length: 362, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 11/65 tokens | Text: ' Economic, Legal, Ethical, and Philanthropic'
+[DEBUG] trimmed_response length: 363, char_mask length: 363, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 10/64 tokens | Text: ' Economic, Legal, Cultural, and Philanthropic'
+[DEBUG] trimmed_response length: 613, char_mask length: 613, input_ids length: 107, token_mask length: 107
+[DEBUG] Masked: 7/107 tokens | Text: ' proactive groups under-represented increase'
+[DEBUG] trimmed_response length: 609, char_mask length: 609, input_ids length: 107, token_mask length: 107
+[DEBUG] Masked: 7/107 tokens | Text: ' passive groups under-represented retain'
+[DEBUG] trimmed_response length: 625, char_mask length: 625, input_ids length: 123, token_mask length: 123
+[DEBUG] Masked: 7/123 tokens | Text: ' caveat emptor buyer beware regulation national'
+[DEBUG] trimmed_response length: 626, char_mask length: 626, input_ids length: 126, token_mask length: 126
+[DEBUG] Masked: 10/126 tokens | Text: ' cemptor eaveat buyer beware regulation national'
+[DEBUG] trimmed_response length: 357, char_mask length: 357, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 2/66 tokens | Text: ' consumer vulnerability'
+[DEBUG] trimmed_response length: 353, char_mask length: 353, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 2/66 tokens | Text: ' consumer inclusion'
+[DEBUG] trimmed_response length: 794, char_mask length: 794, input_ids length: 156, token_mask length: 156
+[DEBUG] Masked: 8/156 tokens | Text: 'powerlegitimacyurgency salience'
+[DEBUG] trimmed_response length: 794, char_mask length: 794, input_ids length: 154, token_mask length: 154
+[DEBUG] Masked: 6/154 tokens | Text: 'saliencepowerurgency legitimacy'
+[DEBUG] trimmed_response length: 437, char_mask length: 437, input_ids length: 84, token_mask length: 84
+[DEBUG] Masked: 10/84 tokens | Text: ' Principle Ethics of duty, Ethics of rights and justice'
+Written 615/17122 entries to perplexity result file
+Processing batch 42/1142
+[DEBUG] trimmed_response length: 415, char_mask length: 415, input_ids length: 82, token_mask length: 82
+[DEBUG] Masked: 8/82 tokens | Text: ' Principle Utilitarianism, Egoism'
+[DEBUG] trimmed_response length: 572, char_mask length: 572, input_ids length: 100, token_mask length: 100
+[DEBUG] Masked: 8/100 tokens | Text: 'Corporate political activitylobbyinglegalcampaigning'
+[DEBUG] trimmed_response length: 590, char_mask length: 590, input_ids length: 101, token_mask length: 101
+[DEBUG] Masked: 9/101 tokens | Text: 'Corporate political activityconsumer marketingenvironmentalcampaigning'
+[DEBUG] trimmed_response length: 544, char_mask length: 544, input_ids length: 105, token_mask length: 105
+[DEBUG] Masked: 16/105 tokens | Text: ' Denial of injury Appeal to higher loyalties Metaphor of the ledger'
+[DEBUG] trimmed_response length: 544, char_mask length: 544, input_ids length: 105, token_mask length: 105
+[DEBUG] Masked: 16/105 tokens | Text: ' Denial of injury Metaphor of the ledger Appeal to higher loyalties'
+[DEBUG] trimmed_response length: 473, char_mask length: 473, input_ids length: 86, token_mask length: 86
+[DEBUG] Masked: 3/86 tokens | Text: ' individual situational'
+[DEBUG] trimmed_response length: 470, char_mask length: 470, input_ids length: 85, token_mask length: 85
+[DEBUG] Masked: 2/85 tokens | Text: ' tailored individual'
+[DEBUG] trimmed_response length: 515, char_mask length: 515, input_ids length: 87, token_mask length: 87
+[DEBUG] Masked: 5/87 tokens | Text: ' bottom globalisation social environmental'
+[DEBUG] trimmed_response length: 515, char_mask length: 515, input_ids length: 87, token_mask length: 87
+[DEBUG] Masked: 5/87 tokens | Text: ' top globalisation political environmental'
+[DEBUG] trimmed_response length: 524, char_mask length: 524, input_ids length: 110, token_mask length: 110
+[DEBUG] Masked: 5/110 tokens | Text: ' shareholders care and skill diligence'
+[DEBUG] trimmed_response length: 524, char_mask length: 524, input_ids length: 110, token_mask length: 110
+[DEBUG] Masked: 5/110 tokens | Text: ' stakeholders care and skill diligence'
+[DEBUG] trimmed_response length: 478, char_mask length: 478, input_ids length: 85, token_mask length: 85
+[DEBUG] Masked: 5/85 tokens | Text: ' supply loops recapture waste'
+[DEBUG] trimmed_response length: 478, char_mask length: 478, input_ids length: 84, token_mask length: 84
+[DEBUG] Masked: 4/84 tokens | Text: ' supply loops redesign profit'
+[DEBUG] trimmed_response length: 638, char_mask length: 638, input_ids length: 124, token_mask length: 124
+[DEBUG] Masked: 9/124 tokens | Text: ' Social accountability standard SA 8000'
+[DEBUG] trimmed_response length: 638, char_mask length: 638, input_ids length: 124, token_mask length: 124
+[DEBUG] Masked: 9/124 tokens | Text: ' Social accountability standard SA 9000'
+Written 630/17122 entries to perplexity result file
+Processing batch 43/1142
+[DEBUG] trimmed_response length: 348, char_mask length: 348, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 3/67 tokens | Text: 'Postmodern ethics'
+[DEBUG] trimmed_response length: 345, char_mask length: 345, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 4/68 tokens | Text: 'Ethics of duty'
+[DEBUG] trimmed_response length: 454, char_mask length: 454, input_ids length: 79, token_mask length: 79
+[DEBUG] Masked: 4/79 tokens | Text: ' absolutism relativism'
+[DEBUG] trimmed_response length: 454, char_mask length: 454, input_ids length: 79, token_mask length: 79
+[DEBUG] Masked: 4/79 tokens | Text: ' relativism absolutism'
+[DEBUG] trimmed_response length: 703, char_mask length: 703, input_ids length: 111, token_mask length: 111
+[DEBUG] Masked: 5/111 tokens | Text: ' interest uncertain speculative tangible assets'
+[DEBUG] trimmed_response length: 697, char_mask length: 697, input_ids length: 111, token_mask length: 111
+[DEBUG] Masked: 5/111 tokens | Text: ' interest certain assured tangible assets'
+[DEBUG] trimmed_response length: 482, char_mask length: 482, input_ids length: 89, token_mask length: 89
+[DEBUG] Masked: 7/89 tokens | Text: 'Consequentialist cost-benefit analysis'
+[DEBUG] trimmed_response length: 470, char_mask length: 470, input_ids length: 87, token_mask length: 87
+[DEBUG] Masked: 5/87 tokens | Text: 'Rationalised annual audit'
+[DEBUG] trimmed_response length: 304, char_mask length: 304, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 6/68 tokens | Text: ' social policies social programmes social impacts'
+[DEBUG] trimmed_response length: 307, char_mask length: 307, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 6/68 tokens | Text: ' social evaluations social programmes social impacts'
+[DEBUG] trimmed_response length: 434, char_mask length: 434, input_ids length: 74, token_mask length: 74
+[DEBUG] Masked: 4/74 tokens | Text: ' social accounting financial accounting'
+[DEBUG] trimmed_response length: 439, char_mask length: 439, input_ids length: 75, token_mask length: 75
+[DEBUG] Masked: 5/75 tokens | Text: ' annual report publication social accounting'
+[DEBUG] trimmed_response length: 357, char_mask length: 357, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 2/60 tokens | Text: ' dirty tricks'
+[DEBUG] trimmed_response length: 377, char_mask length: 377, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 3/61 tokens | Text: ' reasonable competitive behaviour'
+[DEBUG] trimmed_response length: 472, char_mask length: 472, input_ids length: 84, token_mask length: 84
+[DEBUG] Masked: 4/84 tokens | Text: ' proactive cost effectiveness faster'
+Written 645/17122 entries to perplexity result file
+Processing batch 44/1142
+[DEBUG] trimmed_response length: 470, char_mask length: 470, input_ids length: 84, token_mask length: 84
+[DEBUG] Masked: 4/84 tokens | Text: ' proactive heightened costs faster'
+[DEBUG] trimmed_response length: 371, char_mask length: 371, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 2/65 tokens | Text: ' supermarket industry'
+[DEBUG] trimmed_response length: 369, char_mask length: 369, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 2/65 tokens | Text: ' chemicals industry'
+[DEBUG] trimmed_response length: 479, char_mask length: 479, input_ids length: 80, token_mask length: 80
+[DEBUG] Masked: 2/80 tokens | Text: 'Fair trade'
+[DEBUG] trimmed_response length: 485, char_mask length: 485, input_ids length: 81, token_mask length: 81
+[DEBUG] Masked: 3/81 tokens | Text: 'Ethical sourcing'
+[DEBUG] trimmed_response length: 300, char_mask length: 300, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 2/52 tokens | Text: ' personal values'
+[DEBUG] trimmed_response length: 303, char_mask length: 303, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 2/52 tokens | Text: ' personal attitudes'
+[DEBUG] trimmed_response length: 452, char_mask length: 452, input_ids length: 87, token_mask length: 87
+[DEBUG] Masked: 6/87 tokens | Text: ' Corporate rights Corporate effect stakeholder'
+[DEBUG] trimmed_response length: 457, char_mask length: 457, input_ids length: 88, token_mask length: 88
+[DEBUG] Masked: 7/88 tokens | Text: ' Corporate deniability Corporate effect stakeholder'
+[DEBUG] trimmed_response length: 360, char_mask length: 360, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 18/66 tokens | Text: ' close, since there is considerable overlap between ethics and the law, though they are not equivalent'
+[DEBUG] trimmed_response length: 325, char_mask length: 325, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 13/61 tokens | Text: ' not at all close, as ethics and the law are virtually incompatible'
+[DEBUG] trimmed_response length: 823, char_mask length: 823, input_ids length: 155, token_mask length: 155
+[DEBUG] Masked: 4/155 tokens | Text: ' professional organizational personal organizational'
+[DEBUG] trimmed_response length: 819, char_mask length: 819, input_ids length: 155, token_mask length: 155
+[DEBUG] Masked: 4/155 tokens | Text: ' professional individual personal organizational'
+[DEBUG] trimmed_response length: 242, char_mask length: 242, input_ids length: 43, token_mask length: 43
+[DEBUG] Masked: 1/43 tokens | Text: ' stamina'
+[DEBUG] trimmed_response length: 243, char_mask length: 243, input_ids length: 43, token_mask length: 43
+[DEBUG] Masked: 1/43 tokens | Text: ' strength'
+Written 660/17122 entries to perplexity result file
+Processing batch 45/1142
+[DEBUG] trimmed_response length: 265, char_mask length: 265, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 3/53 tokens | Text: " Alzheimer's disease"
+[DEBUG] trimmed_response length: 278, char_mask length: 278, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 7/57 tokens | Text: ' cerebrovascular (stroke) disease'
+[DEBUG] trimmed_response length: 235, char_mask length: 235, input_ids length: 47, token_mask length: 47
+[DEBUG] Masked: 7/47 tokens | Text: ' the patient has a colostomy'
+[DEBUG] trimmed_response length: 260, char_mask length: 260, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 5/48 tokens | Text: ' the immediate post-operative period'
+[DEBUG] trimmed_response length: 267, char_mask length: 267, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 6/49 tokens | Text: ' relative contribution of aerobic metabolism increases'
+[DEBUG] trimmed_response length: 260, char_mask length: 260, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 6/49 tokens | Text: ' anaerobic contribution progressively increases'
+[DEBUG] trimmed_response length: 414, char_mask length: 414, input_ids length: 73, token_mask length: 73
+[DEBUG] Masked: 25/73 tokens | Text: ' elevating the pH and buffering capacity of the extracellular fluid, which allows for a faster efflux of hydrogen ions from muscle'
+[DEBUG] trimmed_response length: 413, char_mask length: 413, input_ids length: 72, token_mask length: 72
+[DEBUG] Masked: 24/72 tokens | Text: ' reducing the pH and buffering capacity of the extracellular fluid, which allows for a faster efflux of hydrogen ions from muscle'
+[DEBUG] trimmed_response length: 229, char_mask length: 229, input_ids length: 46, token_mask length: 46
+[DEBUG] Masked: 10/46 tokens | Text: ' triplet sequences of nucleotide bases in mRNA or DNA'
+[DEBUG] trimmed_response length: 232, char_mask length: 232, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 12/48 tokens | Text: ' quadruplet sequences of nucleotide bases in mRNA or DNA'
+[DEBUG] trimmed_response length: 258, char_mask length: 258, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 3/51 tokens | Text: ' carnitine'
+[DEBUG] trimmed_response length: 259, char_mask length: 259, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 3/51 tokens | Text: ' thiokinase'
+[DEBUG] trimmed_response length: 381, char_mask length: 381, input_ids length: 84, token_mask length: 84
+[DEBUG] Masked: 15/84 tokens | Text: ' B (rhesus negative) and O (rhesus negative).'
+[DEBUG] trimmed_response length: 362, char_mask length: 362, input_ids length: 78, token_mask length: 78
+[DEBUG] Masked: 8/78 tokens | Text: ' B (rhesus negative) only'
+[DEBUG] trimmed_response length: 272, char_mask length: 272, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 5/54 tokens | Text: ' glucose-1-phosphate'
+Written 675/17122 entries to perplexity result file
+Processing batch 46/1142
+[DEBUG] trimmed_response length: 272, char_mask length: 272, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 5/54 tokens | Text: ' glucose-6-phosphate'
+[DEBUG] trimmed_response length: 283, char_mask length: 283, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 6/54 tokens | Text: ' actin and myosin'
+[DEBUG] trimmed_response length: 291, char_mask length: 291, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 8/56 tokens | Text: ' troponin and tropomyosin'
+[DEBUG] trimmed_response length: 284, char_mask length: 284, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 5/56 tokens | Text: ' unilateral fixed dilated pupil'
+[DEBUG] trimmed_response length: 272, char_mask length: 272, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 3/54 tokens | Text: ' oval shaped pupils'
+[DEBUG] trimmed_response length: 373, char_mask length: 373, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 24/70 tokens | Text: ' turn off the transfusion, inform medical staff immediately, and follow transfusion policy advice on dealing with acute transfusion reactions'
+[DEBUG] trimmed_response length: 304, char_mask length: 304, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 11/57 tokens | Text: ' leave the transfusion running and contact the medical staff immediately'
+[DEBUG] trimmed_response length: 459, char_mask length: 459, input_ids length: 91, token_mask length: 91
+[DEBUG] Masked: 3/91 tokens | Text: '30 minutes'
+[DEBUG] trimmed_response length: 459, char_mask length: 459, input_ids length: 91, token_mask length: 91
+[DEBUG] Masked: 3/91 tokens | Text: '90 minutes'
+[DEBUG] trimmed_response length: 271, char_mask length: 271, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 6/57 tokens | Text: ' when the catheter is blocked'
+[DEBUG] trimmed_response length: 273, char_mask length: 273, input_ids length: 58, token_mask length: 58
+[DEBUG] Masked: 7/58 tokens | Text: ' when the catheter is bypassing'
+[DEBUG] trimmed_response length: 257, char_mask length: 257, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 4/62 tokens | Text: ' trauma or burns patients'
+[DEBUG] trimmed_response length: 241, char_mask length: 241, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 1/59 tokens | Text: ' children'
+[DEBUG] trimmed_response length: 251, char_mask length: 251, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 5/49 tokens | Text: ' via a protein transporter molecule'
+[DEBUG] trimmed_response length: 236, char_mask length: 236, input_ids length: 47, token_mask length: 47
+[DEBUG] Masked: 3/47 tokens | Text: ' by simple diffusion'
+Written 690/17122 entries to perplexity result file
+Processing batch 47/1142
+[DEBUG] trimmed_response length: 289, char_mask length: 289, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 7/55 tokens | Text: ' the components of the electron transport chain'
+[DEBUG] trimmed_response length: 261, char_mask length: 261, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 3/51 tokens | Text: ' glycogen molecules'
+[DEBUG] trimmed_response length: 262, char_mask length: 262, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 4/49 tokens | Text: ' a pea-sized amount'
+[DEBUG] trimmed_response length: 272, char_mask length: 272, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 6/51 tokens | Text: ' the length of the toothbrush'
+[DEBUG] trimmed_response length: 298, char_mask length: 298, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 11/53 tokens | Text: ' innate ability and the capacity to respond to the training stimulus'
+[DEBUG] trimmed_response length: 268, char_mask length: 268, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 7/49 tokens | Text: ' a high energy diet and large appetite'
+[DEBUG] trimmed_response length: 290, char_mask length: 290, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 5/67 tokens | Text: ' always 1:1'
+[DEBUG] trimmed_response length: 288, char_mask length: 288, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 1/63 tokens | Text: ' variable'
+[DEBUG] trimmed_response length: 309, char_mask length: 309, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 1/51 tokens | Text: ' testosterone'
+[DEBUG] trimmed_response length: 305, char_mask length: 305, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 1/51 tokens | Text: ' cortisol'
+[DEBUG] trimmed_response length: 263, char_mask length: 263, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 4/52 tokens | Text: ' bound to albumin'
+[DEBUG] trimmed_response length: 273, char_mask length: 273, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 5/53 tokens | Text: ' inside the red blood cells'
+[DEBUG] trimmed_response length: 239, char_mask length: 239, input_ids length: 47, token_mask length: 47
+[DEBUG] Masked: 7/47 tokens | Text: ' increased when intracellular ADP rises'
+[DEBUG] trimmed_response length: 241, char_mask length: 241, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 10/50 tokens | Text: ' increased when muscle pH falls below 6.9'
+[DEBUG] trimmed_response length: 258, char_mask length: 258, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 4/48 tokens | Text: ' gain in body mass'
+Written 705/17122 entries to perplexity result file
+Processing batch 48/1142
+[DEBUG] trimmed_response length: 254, char_mask length: 254, input_ids length: 47, token_mask length: 47
+[DEBUG] Masked: 3/47 tokens | Text: ' muscle cramps'
+[DEBUG] trimmed_response length: 234, char_mask length: 234, input_ids length: 47, token_mask length: 47
+[DEBUG] Masked: 6/47 tokens | Text: ' diastole and systole'
+[DEBUG] trimmed_response length: 248, char_mask length: 248, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 9/50 tokens | Text: ' diastole, systole, and contraction'
+[DEBUG] trimmed_response length: 298, char_mask length: 298, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 9/55 tokens | Text: ' failure of the ATP supply to match the demand'
+[DEBUG] trimmed_response length: 266, char_mask length: 266, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 3/49 tokens | Text: ' lack of skill'
+[DEBUG] trimmed_response length: 268, char_mask length: 268, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 5/52 tokens | Text: ' right ventricular hypertrophy'
+[DEBUG] trimmed_response length: 254, char_mask length: 254, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 5/52 tokens | Text: ' aortic stenosis'
+[DEBUG] trimmed_response length: 282, char_mask length: 282, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 8/54 tokens | Text: ' reduces pain intensity but also causes sedation'
+[DEBUG] trimmed_response length: 283, char_mask length: 283, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 9/55 tokens | Text: ' reduces pain intensity but also causes diarrhoea'
+[DEBUG] trimmed_response length: 356, char_mask length: 356, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 5/64 tokens | Text: ' the arteries have elastic recoil'
+[DEBUG] trimmed_response length: 349, char_mask length: 349, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 5/64 tokens | Text: ' the atria are contracting'
+[DEBUG] trimmed_response length: 328, char_mask length: 328, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 10/65 tokens | Text: ' poor technique, physical impairment, or lack of understanding'
+[DEBUG] trimmed_response length: 285, char_mask length: 285, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 4/59 tokens | Text: ' severe leg ulcers'
+[DEBUG] trimmed_response length: 272, char_mask length: 272, input_ids length: 58, token_mask length: 58
+[DEBUG] Masked: 5/58 tokens | Text: '100 per minute'
+[DEBUG] trimmed_response length: 284, char_mask length: 284, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 4/56 tokens | Text: ' varies with each patient'
+Written 720/17122 entries to perplexity result file
+Processing batch 49/1142
+[DEBUG] trimmed_response length: 413, char_mask length: 413, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 8/71 tokens | Text: ' muscle ATP and phosphocreatine content'
+[DEBUG] trimmed_response length: 415, char_mask length: 415, input_ids length: 69, token_mask length: 69
+[DEBUG] Masked: 6/69 tokens | Text: ' the ability to regulate body temperature'
+[DEBUG] trimmed_response length: 288, char_mask length: 288, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 6/57 tokens | Text: ' after using their steroid inhaler'
+[DEBUG] trimmed_response length: 296, char_mask length: 296, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 9/60 tokens | Text: ' before using their bronchodilator inhaler'
+[DEBUG] trimmed_response length: 243, char_mask length: 243, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 6/53 tokens | Text: '10-30 seconds'
+[DEBUG] trimmed_response length: 243, char_mask length: 243, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 6/53 tokens | Text: '30-50 seconds'
+[DEBUG] trimmed_response length: 260, char_mask length: 260, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 8/48 tokens | Text: ' preload, contractility, and afterload'
+[DEBUG] trimmed_response length: 270, char_mask length: 270, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 9/49 tokens | Text: ' contractility, blood volume, and blood pressure'
+[DEBUG] trimmed_response length: 321, char_mask length: 321, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 16/71 tokens | Text: ' proximal phalanx, middle phalanx, distal phalanx'
+[DEBUG] trimmed_response length: 321, char_mask length: 321, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 16/71 tokens | Text: ' distal phalanx, middle phalanx, proximal phalanx'
+[DEBUG] trimmed_response length: 232, char_mask length: 232, input_ids length: 44, token_mask length: 44
+[DEBUG] Masked: 2/44 tokens | Text: ' Insulin'
+[DEBUG] trimmed_response length: 233, char_mask length: 233, input_ids length: 45, token_mask length: 45
+[DEBUG] Masked: 3/45 tokens | Text: ' Glycogen'
+[DEBUG] trimmed_response length: 208, char_mask length: 208, input_ids length: 47, token_mask length: 47
+[DEBUG] Masked: 6/47 tokens | Text: '3-5cm in length'
+[DEBUG] trimmed_response length: 209, char_mask length: 209, input_ids length: 43, token_mask length: 43
+[DEBUG] Masked: 3/43 tokens | Text: ' below skin level'
+[DEBUG] trimmed_response length: 272, char_mask length: 272, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 10/54 tokens | Text: ' they are unable to pass air through their vocal cords'
+Written 735/17122 entries to perplexity result file
+Processing batch 50/1142
+[DEBUG] trimmed_response length: 261, char_mask length: 261, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 7/51 tokens | Text: ' they are unable to breathe in sufficiently'
+[DEBUG] trimmed_response length: 305, char_mask length: 305, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 7/53 tokens | Text: ' each time post-operative observations are undertaken'
+[DEBUG] trimmed_response length: 258, char_mask length: 258, input_ids length: 47, token_mask length: 47
+[DEBUG] Masked: 1/47 tokens | Text: ' daily'
+[DEBUG] trimmed_response length: 372, char_mask length: 372, input_ids length: 79, token_mask length: 79
+[DEBUG] Masked: 7/79 tokens | Text: ' call for assistance from a medical practitioner'
+[DEBUG] trimmed_response length: 348, char_mask length: 348, input_ids length: 77, token_mask length: 77
+[DEBUG] Masked: 5/77 tokens | Text: ' try harder to remove it'
+[DEBUG] trimmed_response length: 221, char_mask length: 221, input_ids length: 42, token_mask length: 42
+[DEBUG] Masked: 2/42 tokens | Text: ' room temperature'
+[DEBUG] trimmed_response length: 209, char_mask length: 209, input_ids length: 41, token_mask length: 41
+[DEBUG] Masked: 1/41 tokens | Text: ' warm'
+[DEBUG] trimmed_response length: 437, char_mask length: 437, input_ids length: 82, token_mask length: 82
+[DEBUG] Masked: 14/82 tokens | Text: ' physical, psychological, and pharmacological needs, followed by regular reassessment'
+[DEBUG] trimmed_response length: 408, char_mask length: 408, input_ids length: 80, token_mask length: 80
+[DEBUG] Masked: 15/80 tokens | Text: ' none of the above, as the main priority is to limit drug side effects'
+[DEBUG] trimmed_response length: 276, char_mask length: 276, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 3/56 tokens | Text: " Alzheimer's disease"
+[DEBUG] trimmed_response length: 267, char_mask length: 267, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 1/54 tokens | Text: ' Depression'
+[DEBUG] trimmed_response length: 375, char_mask length: 375, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 19/76 tokens | Text: ' look for chest movements, listen for breath sounds, and feel for exhaled air on your cheek'
+[DEBUG] trimmed_response length: 217, char_mask length: 217, input_ids length: 44, token_mask length: 44
+[DEBUG] Masked: 6/44 tokens | Text: ' assess for 30 seconds'
+[DEBUG] trimmed_response length: 308, char_mask length: 308, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 2/59 tokens | Text: '2 seconds'
+[DEBUG] trimmed_response length: 309, char_mask length: 309, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 3/60 tokens | Text: '10 seconds'
+Written 750/17122 entries to perplexity result file
+Processing batch 51/1142
+[DEBUG] trimmed_response length: 211, char_mask length: 211, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 5/48 tokens | Text: ' reduced amount of gastric acid'
+[DEBUG] trimmed_response length: 199, char_mask length: 199, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 5/48 tokens | Text: ' pernicious anaemia'
+[DEBUG] trimmed_response length: 370, char_mask length: 370, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 2/76 tokens | Text: ' normal saline'
+[DEBUG] trimmed_response length: 367, char_mask length: 367, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 2/76 tokens | Text: ' Solution G'
+[DEBUG] trimmed_response length: 181, char_mask length: 181, input_ids length: 40, token_mask length: 40
+[DEBUG] Masked: 6/40 tokens | Text: ' a firm mass of scar tissue'
+[DEBUG] trimmed_response length: 176, char_mask length: 176, input_ids length: 40, token_mask length: 40
+[DEBUG] Masked: 6/40 tokens | Text: ' a fine, hairline scar'
+[DEBUG] trimmed_response length: 243, char_mask length: 243, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 6/50 tokens | Text: ' it is clear or slightly yellow'
+[DEBUG] trimmed_response length: 240, char_mask length: 240, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 5/49 tokens | Text: ' it contains red blood cells'
+[DEBUG] trimmed_response length: 276, char_mask length: 276, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 7/55 tokens | Text: ' a single Y chromosome from the father'
+[DEBUG] trimmed_response length: 282, char_mask length: 282, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 8/56 tokens | Text: ' the number of X chromosomes from the mother'
+[DEBUG] trimmed_response length: 242, char_mask length: 242, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 3/50 tokens | Text: ' gluconeogenesis'
+[DEBUG] trimmed_response length: 241, char_mask length: 241, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 4/51 tokens | Text: ' glycogenolysis'
+[DEBUG] trimmed_response length: 384, char_mask length: 384, input_ids length: 78, token_mask length: 78
+[DEBUG] Masked: 12/78 tokens | Text: ' return it to the blood bank and inform them of the reason'
+[DEBUG] trimmed_response length: 384, char_mask length: 384, input_ids length: 78, token_mask length: 78
+[DEBUG] Masked: 12/78 tokens | Text: ' refrigerate it for at least 12 hours before administering'
+[DEBUG] trimmed_response length: 272, char_mask length: 272, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 21/59 tokens | Text: ' when the Korotkoff sounds disappear and then return during phase 2 as the bladder is deflated'
+Written 765/17122 entries to perplexity result file
+Processing batch 52/1142
+[DEBUG] trimmed_response length: 258, char_mask length: 258, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 18/56 tokens | Text: ' when the Korotkoff sounds do not disappear even when the cuff is fully deflated'
+[DEBUG] trimmed_response length: 323, char_mask length: 323, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 5/64 tokens | Text: ' dryness of the skin'
+[DEBUG] trimmed_response length: 299, char_mask length: 299, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 8/61 tokens | Text: ' more slippery than soap or emollients'
+[DEBUG] trimmed_response length: 226, char_mask length: 226, input_ids length: 46, token_mask length: 46
+[DEBUG] Masked: 2/46 tokens | Text: ' recessive'
+[DEBUG] trimmed_response length: 226, char_mask length: 226, input_ids length: 45, token_mask length: 45
+[DEBUG] Masked: 1/45 tokens | Text: ' redundant'
+[DEBUG] trimmed_response length: 255, char_mask length: 255, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 10/49 tokens | Text: ' water intake is less than is needed to maintain balance'
+[DEBUG] trimmed_response length: 255, char_mask length: 255, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 10/49 tokens | Text: ' water intake is more than is needed to maintain balance'
+[DEBUG] trimmed_response length: 341, char_mask length: 341, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 3/71 tokens | Text: ' carnosine'
+[DEBUG] trimmed_response length: 339, char_mask length: 339, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 3/71 tokens | Text: ' amylase'
+[DEBUG] trimmed_response length: 276, char_mask length: 276, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 4/51 tokens | Text: ' bladder outflow obstruction'
+[DEBUG] trimmed_response length: 265, char_mask length: 265, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 2/49 tokens | Text: ' drinking alcohol'
+[DEBUG] trimmed_response length: 217, char_mask length: 217, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 6/49 tokens | Text: ' rectus sheath abdominus'
+[DEBUG] trimmed_response length: 208, char_mask length: 208, input_ids length: 47, token_mask length: 47
+[DEBUG] Masked: 6/47 tokens | Text: ' next to the umbilicus'
+[DEBUG] trimmed_response length: 277, char_mask length: 277, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 7/51 tokens | Text: ' more women are now engaged in sport'
+[DEBUG] trimmed_response length: 282, char_mask length: 282, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 7/51 tokens | Text: ' women have evolved a greater muscle mass'
+Written 780/17122 entries to perplexity result file
+Processing batch 53/1142
+[DEBUG] trimmed_response length: 223, char_mask length: 223, input_ids length: 46, token_mask length: 46
+[DEBUG] Masked: 7/46 tokens | Text: ' deoxyribonucleic acid'
+[DEBUG] trimmed_response length: 218, char_mask length: 218, input_ids length: 44, token_mask length: 44
+[DEBUG] Masked: 5/44 tokens | Text: ' ribonucleic acid'
+[DEBUG] trimmed_response length: 251, char_mask length: 251, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 2/48 tokens | Text: ' respiratory failure'
+[DEBUG] trimmed_response length: 254, char_mask length: 254, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 4/50 tokens | Text: ' being generally unwell'
+[DEBUG] trimmed_response length: 216, char_mask length: 216, input_ids length: 43, token_mask length: 43
+[DEBUG] Masked: 5/43 tokens | Text: ' the nerve stimulus is removed'
+[DEBUG] trimmed_response length: 221, char_mask length: 221, input_ids length: 45, token_mask length: 45
+[DEBUG] Masked: 7/45 tokens | Text: ' the nerve stimulus is too forceful'
+[DEBUG] trimmed_response length: 233, char_mask length: 233, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 11/49 tokens | Text: ' when an artery is close to the surface of the skin'
+[DEBUG] trimmed_response length: 213, char_mask length: 213, input_ids length: 44, token_mask length: 44
+[DEBUG] Masked: 6/44 tokens | Text: ' every time the atria contracts'
+[DEBUG] trimmed_response length: 251, char_mask length: 251, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 14/60 tokens | Text: ' catalyses the conversion of pyruvate to acetyl CoA'
+[DEBUG] trimmed_response length: 248, char_mask length: 248, input_ids length: 58, token_mask length: 58
+[DEBUG] Masked: 12/58 tokens | Text: ' catalyses the conversion of pyruvate to lactate'
+[DEBUG] trimmed_response length: 263, char_mask length: 263, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 7/52 tokens | Text: ' using water may cause electrolyte imbalance'
+[DEBUG] trimmed_response length: 252, char_mask length: 252, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 6/51 tokens | Text: ' the medical staff may be unhappy'
+[DEBUG] trimmed_response length: 259, char_mask length: 259, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 6/59 tokens | Text: '0-135 degrees'
+[DEBUG] trimmed_response length: 259, char_mask length: 259, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 6/59 tokens | Text: '0-155 degrees'
+[DEBUG] trimmed_response length: 319, char_mask length: 319, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 2/53 tokens | Text: '1 minute'
+Written 795/17122 entries to perplexity result file
+Processing batch 54/1142
+[DEBUG] trimmed_response length: 320, char_mask length: 320, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 2/53 tokens | Text: '4 minutes'
+[DEBUG] trimmed_response length: 298, char_mask length: 298, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 6/56 tokens | Text: ' calcium binding to troponin'
+[DEBUG] trimmed_response length: 298, char_mask length: 298, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 6/56 tokens | Text: ' potassium binding to myosin'
+[DEBUG] trimmed_response length: 268, char_mask length: 268, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 14/54 tokens | Text: ' the extent to which the total adenine nucleotide pool is phosphorylated'
+[DEBUG] trimmed_response length: 266, char_mask length: 266, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 13/53 tokens | Text: ' the difference between the charge on the outside and inside of a cell'
+[DEBUG] trimmed_response length: 258, char_mask length: 258, input_ids length: 58, token_mask length: 58
+[DEBUG] Masked: 4/58 tokens | Text: ' store of calcium ions'
+[DEBUG] trimmed_response length: 263, char_mask length: 263, input_ids length: 58, token_mask length: 58
+[DEBUG] Masked: 4/58 tokens | Text: ' store of digestive enzymes'
+[DEBUG] trimmed_response length: 188, char_mask length: 188, input_ids length: 37, token_mask length: 37
+[DEBUG] Masked: 5/37 tokens | Text: ' four valves and four chambers'
+[DEBUG] trimmed_response length: 187, char_mask length: 187, input_ids length: 37, token_mask length: 37
+[DEBUG] Masked: 5/37 tokens | Text: ' two valves and four chambers'
+[DEBUG] trimmed_response length: 331, char_mask length: 331, input_ids length: 72, token_mask length: 72
+[DEBUG] Masked: 21/72 tokens | Text: ' to create an air seal within the trachea and reduce the risk of aspirating saliva or gastric contents'
+[DEBUG] trimmed_response length: 252, char_mask length: 252, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 6/57 tokens | Text: ' to reduce local oedema'
+[DEBUG] trimmed_response length: 272, char_mask length: 272, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 2/57 tokens | Text: ' peptide bonds'
+[DEBUG] trimmed_response length: 273, char_mask length: 273, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 2/57 tokens | Text: ' hydrogen bonds'
+[DEBUG] trimmed_response length: 276, char_mask length: 276, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 8/56 tokens | Text: ' inspect the nail-bed angle from the side'
+[DEBUG] trimmed_response length: 273, char_mask length: 273, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 7/55 tokens | Text: ' inspect the nail-bed angle from above'
+Written 810/17122 entries to perplexity result file
+Processing batch 55/1142
+[DEBUG] trimmed_response length: 258, char_mask length: 258, input_ids length: 47, token_mask length: 47
+[DEBUG] Masked: 11/47 tokens | Text: ' the use of genetic manipulation techniques to enhance performance in sport'
+[DEBUG] trimmed_response length: 253, char_mask length: 253, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 12/48 tokens | Text: ' the activation or inhibition of genes to mask drug taking by athletes'
+[DEBUG] trimmed_response length: 402, char_mask length: 402, input_ids length: 73, token_mask length: 73
+[DEBUG] Masked: 8/73 tokens | Text: ' a reduction in anxiety and perceived pain intensity'
+[DEBUG] trimmed_response length: 380, char_mask length: 380, input_ids length: 72, token_mask length: 72
+[DEBUG] Masked: 7/72 tokens | Text: ' an increased use of analgesia'
+[DEBUG] trimmed_response length: 289, char_mask length: 289, input_ids length: 58, token_mask length: 58
+[DEBUG] Masked: 4/58 tokens | Text: ' two molecules of ATP'
+[DEBUG] trimmed_response length: 291, char_mask length: 291, input_ids length: 58, token_mask length: 58
+[DEBUG] Masked: 4/58 tokens | Text: ' three molecules of ATP'
+[DEBUG] trimmed_response length: 323, char_mask length: 323, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 9/66 tokens | Text: '2 from glucose and 3 from glycogen'
+[DEBUG] trimmed_response length: 323, char_mask length: 323, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 9/66 tokens | Text: '2 from glucose and 4 from glycogen'
+[DEBUG] trimmed_response length: 294, char_mask length: 294, input_ids length: 58, token_mask length: 58
+[DEBUG] Masked: 8/58 tokens | Text: '20 litres per minute of each other'
+[DEBUG] trimmed_response length: 295, char_mask length: 295, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 9/59 tokens | Text: '100 litres per minute of each other'
+[DEBUG] trimmed_response length: 248, char_mask length: 248, input_ids length: 47, token_mask length: 47
+[DEBUG] Masked: 13/47 tokens | Text: ' the highest rate of air expelled from the lungs through an open mouth'
+[DEBUG] trimmed_response length: 247, char_mask length: 247, input_ids length: 47, token_mask length: 47
+[DEBUG] Masked: 13/47 tokens | Text: ' the lowest rate of air expelled from the lungs through an open mouth'
+[DEBUG] trimmed_response length: 247, char_mask length: 247, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 2/49 tokens | Text: ' amino acid'
+[DEBUG] trimmed_response length: 243, char_mask length: 243, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 2/49 tokens | Text: ' purine'
+[DEBUG] trimmed_response length: 246, char_mask length: 246, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 3/52 tokens | Text: ' Thymine'
+Written 825/17122 entries to perplexity result file
+Processing batch 56/1142
+[DEBUG] trimmed_response length: 246, char_mask length: 246, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 3/52 tokens | Text: ' Adenine'
+[DEBUG] trimmed_response length: 326, char_mask length: 326, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 24/64 tokens | Text: ' an expiratory component that is louder and longer, with a distinct gap between the inspiratory and expiratory phases'
+[DEBUG] trimmed_response length: 327, char_mask length: 327, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 23/63 tokens | Text: ' an inspiratory component that is louder and longer, with a distinct gap between the inspiratory and expiratory phases'
+[DEBUG] trimmed_response length: 297, char_mask length: 297, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 30/76 tokens | Text: ' scaphoid, lunate, triquetral, pisiform, trapezium, trapezoid, capitate, and hamate'
+[DEBUG] trimmed_response length: 282, char_mask length: 282, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 21/67 tokens | Text: ' scaphoid, lunar, triquetrium, pisiform, radius, ulna, and capitates'
+[DEBUG] trimmed_response length: 260, char_mask length: 260, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 8/50 tokens | Text: ' mRNA, tRNA, and ribosomes'
+[DEBUG] trimmed_response length: 270, char_mask length: 270, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 9/51 tokens | Text: ' mRNA, ribosomes, and RNA polymerase'
+[DEBUG] trimmed_response length: 259, char_mask length: 259, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 21/57 tokens | Text: ' fragments of the rubber bung are cut out by the needle as drugs are withdrawn from a sealed vial'
+[DEBUG] trimmed_response length: 180, char_mask length: 180, input_ids length: 42, token_mask length: 42
+[DEBUG] Masked: 7/42 tokens | Text: ' a symptom of phlebitis'
+[DEBUG] trimmed_response length: 256, char_mask length: 256, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 5/51 tokens | Text: ' the cuff is deflated'
+[DEBUG] trimmed_response length: 256, char_mask length: 256, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 4/50 tokens | Text: ' the cuff is inflated'
+[DEBUG] trimmed_response length: 258, char_mask length: 258, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 2/52 tokens | Text: ' ATP stores'
+[DEBUG] trimmed_response length: 258, char_mask length: 258, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 3/53 tokens | Text: ' glycolysis'
+[DEBUG] trimmed_response length: 236, char_mask length: 236, input_ids length: 47, token_mask length: 47
+[DEBUG] Masked: 3/47 tokens | Text: ' baroreceptors'
+[DEBUG] trimmed_response length: 237, char_mask length: 237, input_ids length: 47, token_mask length: 47
+[DEBUG] Masked: 3/47 tokens | Text: ' chemoreceptors'
+Written 840/17122 entries to perplexity result file
+Processing batch 57/1142
+[DEBUG] trimmed_response length: 263, char_mask length: 263, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 3/50 tokens | Text: ' inform medical staff'
+[DEBUG] trimmed_response length: 261, char_mask length: 261, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 3/50 tokens | Text: ' inform the patient'
+[DEBUG] trimmed_response length: 246, char_mask length: 246, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 8/48 tokens | Text: ' proteins formed as dictated by the genetic material'
+[DEBUG] trimmed_response length: 242, char_mask length: 242, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 10/50 tokens | Text: ' amino acid composition of the ribonucleic acids'
+[DEBUG] trimmed_response length: 234, char_mask length: 234, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 6/51 tokens | Text: ' phosphofructokinase'
+[DEBUG] trimmed_response length: 228, char_mask length: 228, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 3/48 tokens | Text: ' phosphorylase'
+[DEBUG] trimmed_response length: 331, char_mask length: 331, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 19/71 tokens | Text: ' non-steroid drugs that act on androgen receptors mimicking the effects of natural steroid hormones'
+[DEBUG] trimmed_response length: 332, char_mask length: 332, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 19/71 tokens | Text: ' non-steroid drugs that act on androgen receptors inhibiting the effects of natural steroid hormones'
+[DEBUG] trimmed_response length: 304, char_mask length: 304, input_ids length: 79, token_mask length: 79
+[DEBUG] Masked: 14/79 tokens | Text: '8 molecules of acetyl-CoA, along with some ATP and water'
+[DEBUG] trimmed_response length: 279, char_mask length: 279, input_ids length: 74, token_mask length: 74
+[DEBUG] Masked: 9/74 tokens | Text: '16 molecules of acetyl-CoA only'
+[DEBUG] trimmed_response length: 361, char_mask length: 361, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 11/67 tokens | Text: ' ammonia, hypoxanthine, and uric acid'
+[DEBUG] trimmed_response length: 353, char_mask length: 353, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 9/65 tokens | Text: ' ammonia, urea, and uric acid'
+[DEBUG] trimmed_response length: 284, char_mask length: 284, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 5/53 tokens | Text: ' flat on a firm surface'
+[DEBUG] trimmed_response length: 298, char_mask length: 298, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 7/55 tokens | Text: ' on the floor with the legs raised'
+[DEBUG] trimmed_response length: 198, char_mask length: 198, input_ids length: 42, token_mask length: 42
+[DEBUG] Masked: 5/42 tokens | Text: ' synovial hinge joint'
+Written 855/17122 entries to perplexity result file
+Processing batch 58/1142
+[DEBUG] trimmed_response length: 189, char_mask length: 189, input_ids length: 39, token_mask length: 39
+[DEBUG] Masked: 2/39 tokens | Text: ' plain joint'
+[DEBUG] trimmed_response length: 261, char_mask length: 261, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 15/51 tokens | Text: ' a solution that has a higher concentration of solutes than the normal human cell'
+[DEBUG] trimmed_response length: 228, char_mask length: 228, input_ids length: 45, token_mask length: 45
+[DEBUG] Masked: 9/45 tokens | Text: ' a solution that blocks off enteral tubes easily'
+[DEBUG] trimmed_response length: 229, char_mask length: 229, input_ids length: 41, token_mask length: 41
+[DEBUG] Masked: 7/41 tokens | Text: ' declines with the distance of the race'
+[DEBUG] trimmed_response length: 221, char_mask length: 221, input_ids length: 41, token_mask length: 41
+[DEBUG] Masked: 7/41 tokens | Text: ' is improved by a high fat diet'
+[DEBUG] trimmed_response length: 251, char_mask length: 251, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 12/49 tokens | Text: ' a relatively small number of mitochondria and high ATPase activity'
+[DEBUG] trimmed_response length: 251, char_mask length: 251, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 12/49 tokens | Text: ' a relatively large number of mitochondria and high ATPase activity'
+[DEBUG] trimmed_response length: 330, char_mask length: 330, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 16/62 tokens | Text: ' the difference between the rate of lactate appearance and the rate of lactate clearance'
+[DEBUG] trimmed_response length: 318, char_mask length: 318, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 16/62 tokens | Text: ' the rate of muscle lactate production and the rate of muscle lactate efflux'
+[DEBUG] trimmed_response length: 230, char_mask length: 230, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 3/49 tokens | Text: ' cytoplasm'
+[DEBUG] trimmed_response length: 230, char_mask length: 230, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 2/48 tokens | Text: ' lysosomes'
+[DEBUG] trimmed_response length: 419, char_mask length: 419, input_ids length: 86, token_mask length: 86
+[DEBUG] Masked: 5/86 tokens | Text: '5-10 seconds'
+[DEBUG] trimmed_response length: 420, char_mask length: 420, input_ids length: 87, token_mask length: 87
+[DEBUG] Masked: 6/87 tokens | Text: '30-40 seconds'
+[DEBUG] trimmed_response length: 235, char_mask length: 235, input_ids length: 46, token_mask length: 46
+[DEBUG] Masked: 10/46 tokens | Text: ' tightly bound to enzymes and are required for their activity'
+[DEBUG] trimmed_response length: 210, char_mask length: 210, input_ids length: 43, token_mask length: 43
+[DEBUG] Masked: 7/43 tokens | Text: ' required by all enzymes in the cell'
+Written 870/17122 entries to perplexity result file
+Processing batch 59/1142
+[DEBUG] trimmed_response length: 367, char_mask length: 367, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 21/71 tokens | Text: " administer analgesic drugs on a regular schedule, with additional 'as needed' doses available for breakthrough pain"
+[DEBUG] trimmed_response length: 308, char_mask length: 308, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 11/61 tokens | Text: ' use long-acting analgesic drugs administered twice daily'
+[DEBUG] trimmed_response length: 312, char_mask length: 312, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 7/55 tokens | Text: ' ensure the emergency team/services are called'
+[DEBUG] trimmed_response length: 290, char_mask length: 290, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 5/53 tokens | Text: ' give two rescue breaths'
+[DEBUG] trimmed_response length: 255, char_mask length: 255, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 3/50 tokens | Text: ' acute urinary retention'
+[DEBUG] trimmed_response length: 255, char_mask length: 255, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 3/50 tokens | Text: ' urinary tract infection'
+[DEBUG] trimmed_response length: 264, char_mask length: 264, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 4/48 tokens | Text: ' burn fat and carbohydrate'
+[DEBUG] trimmed_response length: 268, char_mask length: 268, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 6/50 tokens | Text: ' generate energy anaerobically'
+[DEBUG] trimmed_response length: 282, char_mask length: 282, input_ids length: 55, token_mask length: 55
+[DEBUG] Masked: 13/55 tokens | Text: ' acetylcholine which traverses the neuromuscular junction'
+[DEBUG] trimmed_response length: 291, char_mask length: 291, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 11/53 tokens | Text: ' sodium ions which bind to sodium receptors on the muscle membrane'
+[DEBUG] trimmed_response length: 257, char_mask length: 257, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 9/51 tokens | Text: ' movement without resistance, stopping at end of range'
+[DEBUG] trimmed_response length: 256, char_mask length: 256, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 9/51 tokens | Text: ' movement with resistance, stretching at end of range'
+[DEBUG] trimmed_response length: 246, char_mask length: 246, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 18/57 tokens | Text: ' an opening in the anterior wall of the trachea below the cricoid cartilage'
+[DEBUG] trimmed_response length: 209, char_mask length: 209, input_ids length: 46, token_mask length: 46
+[DEBUG] Masked: 7/46 tokens | Text: ' an opening in the anterior chest wall'
+[DEBUG] trimmed_response length: 357, char_mask length: 357, input_ids length: 87, token_mask length: 87
+[DEBUG] Masked: 9/87 tokens | Text: '2 CO₂ molecules and 1 ATP molecule'
+Written 885/17122 entries to perplexity result file
+Processing batch 60/1142
+[DEBUG] trimmed_response length: 358, char_mask length: 358, input_ids length: 87, token_mask length: 87
+[DEBUG] Masked: 9/87 tokens | Text: '2 CO₂ molecules and 2 ATP molecules'
+[DEBUG] trimmed_response length: 337, char_mask length: 337, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 3/67 tokens | Text: ' extravasation'
+[DEBUG] trimmed_response length: 333, char_mask length: 333, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 4/68 tokens | Text: ' phlebitis'
+[DEBUG] trimmed_response length: 276, char_mask length: 276, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 4/54 tokens | Text: ' lysozyme'
+[DEBUG] trimmed_response length: 275, char_mask length: 275, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 3/53 tokens | Text: ' amylase'
+[DEBUG] trimmed_response length: 197, char_mask length: 197, input_ids length: 39, token_mask length: 39
+[DEBUG] Masked: 7/39 tokens | Text: ' the entire DNA sequence of an organism'
+[DEBUG] trimmed_response length: 227, char_mask length: 227, input_ids length: 44, token_mask length: 44
+[DEBUG] Masked: 12/44 tokens | Text: ' the entire list of proteins that an organism is capable of producing'
+[DEBUG] trimmed_response length: 303, char_mask length: 303, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 4/61 tokens | Text: ' Type IIX fibers'
+[DEBUG] trimmed_response length: 301, char_mask length: 301, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 3/60 tokens | Text: ' Type I fibers'
+[DEBUG] trimmed_response length: 261, char_mask length: 261, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 8/53 tokens | Text: ' taken up and oxidized by other tissues'
+[DEBUG] trimmed_response length: 253, char_mask length: 253, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 7/52 tokens | Text: ' converted to urea in the liver'
+[DEBUG] trimmed_response length: 294, char_mask length: 294, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 5/57 tokens | Text: ' phosphocreatine breakdown'
+[DEBUG] trimmed_response length: 308, char_mask length: 308, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 15/66 tokens | Text: " tricarboxylic acid cycle (Krebs' cycle)."
+[DEBUG] trimmed_response length: 342, char_mask length: 342, input_ids length: 70, token_mask length: 70
+[DEBUG] Masked: 9/70 tokens | Text: ' frequently rises by 1 - 3 mM'
+[DEBUG] trimmed_response length: 342, char_mask length: 342, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 3/64 tokens | Text: ' remains relatively unchanged'
+Written 900/17122 entries to perplexity result file
+Processing batch 61/1142
+[DEBUG] trimmed_response length: 248, char_mask length: 248, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 1/49 tokens | Text: ' carcinoma'
+[DEBUG] trimmed_response length: 258, char_mask length: 258, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 2/50 tokens | Text: ' bladder instability'
+[DEBUG] trimmed_response length: 228, char_mask length: 228, input_ids length: 46, token_mask length: 46
+[DEBUG] Masked: 6/46 tokens | Text: ' herniation around the stoma'
+[DEBUG] trimmed_response length: 224, char_mask length: 224, input_ids length: 46, token_mask length: 46
+[DEBUG] Masked: 6/46 tokens | Text: ' retraction of the stoma'
+[DEBUG] trimmed_response length: 262, char_mask length: 262, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 5/51 tokens | Text: ' without the use of oxygen'
+[DEBUG] trimmed_response length: 271, char_mask length: 271, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 6/52 tokens | Text: ' in the absence of available oxygen'
+[DEBUG] trimmed_response length: 307, char_mask length: 307, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 3/63 tokens | Text: '72 hours'
+[DEBUG] trimmed_response length: 307, char_mask length: 307, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 3/63 tokens | Text: '24 hours'
+[DEBUG] trimmed_response length: 235, char_mask length: 235, input_ids length: 50, token_mask length: 50
+[DEBUG] Masked: 2/50 tokens | Text: ' sweat glands'
+[DEBUG] trimmed_response length: 238, char_mask length: 238, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 4/52 tokens | Text: ' salivary glands'
+[DEBUG] trimmed_response length: 372, char_mask length: 372, input_ids length: 85, token_mask length: 85
+[DEBUG] Masked: 8/85 tokens | Text: ' Stage 2 re-site the cannula'
+[DEBUG] trimmed_response length: 395, char_mask length: 395, input_ids length: 88, token_mask length: 88
+[DEBUG] Masked: 11/88 tokens | Text: ' Stage 3 re-site the cannula and consider treatment'
+[DEBUG] trimmed_response length: 294, char_mask length: 294, input_ids length: 58, token_mask length: 58
+[DEBUG] Masked: 4/58 tokens | Text: ' a lack of oxygen'
+[DEBUG] trimmed_response length: 299, char_mask length: 299, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 5/59 tokens | Text: ' an excess of creatine'
+[DEBUG] trimmed_response length: 271, char_mask length: 271, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 3/51 tokens | Text: ' in the nucleus'
+Written 915/17122 entries to perplexity result file
+Processing batch 62/1142
+[DEBUG] trimmed_response length: 282, char_mask length: 282, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 4/52 tokens | Text: ' only during cell division'
+[DEBUG] trimmed_response length: 212, char_mask length: 212, input_ids length: 44, token_mask length: 44
+[DEBUG] Masked: 4/44 tokens | Text: ' excessive extravascular fluid'
+[DEBUG] trimmed_response length: 211, char_mask length: 211, input_ids length: 46, token_mask length: 46
+[DEBUG] Masked: 6/46 tokens | Text: ' excessive intracranial fluid'
+[DEBUG] trimmed_response length: 350, char_mask length: 350, input_ids length: 69, token_mask length: 69
+[DEBUG] Masked: 17/69 tokens | Text: ' it works rapidly to dilate the airways, which enhances the deposition of subsequent medications'
+[DEBUG] trimmed_response length: 276, char_mask length: 276, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 4/56 tokens | Text: ' they are colour-coded'
+[DEBUG] trimmed_response length: 256, char_mask length: 256, input_ids length: 49, token_mask length: 49
+[DEBUG] Masked: 7/49 tokens | Text: ' via protein transporters called GLUT4'
+[DEBUG] trimmed_response length: 250, char_mask length: 250, input_ids length: 48, token_mask length: 48
+[DEBUG] Masked: 6/48 tokens | Text: ' only in the presence of insulin'
+[DEBUG] trimmed_response length: 325, char_mask length: 325, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 4/64 tokens | Text: ' underestimate the blood pressure'
+[DEBUG] trimmed_response length: 331, char_mask length: 331, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 5/65 tokens | Text: ' accurately estimate the blood pressure'
+[DEBUG] trimmed_response length: 330, char_mask length: 330, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 8/62 tokens | Text: ' to minimize the risk of cross-infection'
+[DEBUG] trimmed_response length: 333, char_mask length: 333, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 9/61 tokens | Text: ' to allow shaving at a time convenient to themselves'
+[DEBUG] trimmed_response length: 207, char_mask length: 207, input_ids length: 41, token_mask length: 41
+[DEBUG] Masked: 3/41 tokens | Text: ' the pancreas'
+[DEBUG] trimmed_response length: 227, char_mask length: 227, input_ids length: 44, token_mask length: 44
+[DEBUG] Masked: 6/44 tokens | Text: ' the walls of the large intestine'
+[DEBUG] trimmed_response length: 346, char_mask length: 346, input_ids length: 69, token_mask length: 69
+[DEBUG] Masked: 14/69 tokens | Text: ' hold their breath at the end of inhalation after using the inhaler'
+[DEBUG] trimmed_response length: 342, char_mask length: 342, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 13/68 tokens | Text: ' take multiple small, quick breaths in before using the inhaler'
+Written 930/17122 entries to perplexity result file
+Processing batch 63/1142
+[DEBUG] trimmed_response length: 351, char_mask length: 351, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 13/63 tokens | Text: ' ensure optimal lung expansion and to provide accurate and consistent peak flow readings'
+[DEBUG] trimmed_response length: 338, char_mask length: 338, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 11/61 tokens | Text: ' it is the most comfortable position for performing any breathing test'
+[DEBUG] trimmed_response length: 336, char_mask length: 336, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 5/60 tokens | Text: ' anaerobic energy production'
+[DEBUG] trimmed_response length: 362, char_mask length: 362, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 16/71 tokens | Text: " the TCA cycle (Krebs' cycle) to the production of ATP"
+[DEBUG] trimmed_response length: 238, char_mask length: 238, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 3/54 tokens | Text: ' cytoplasm'
+[DEBUG] trimmed_response length: 241, char_mask length: 241, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 2/53 tokens | Text: ' mitochondria'
+[DEBUG] trimmed_response length: 326, char_mask length: 326, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 9/61 tokens | Text: ' do not possess an objective way of assessing pain'
+[DEBUG] trimmed_response length: 369, char_mask length: 369, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 15/67 tokens | Text: ' can use the information to prescribe and administer the least possible amount of pain relief'
+[DEBUG] trimmed_response length: 436, char_mask length: 436, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 12/76 tokens | Text: ' reduce the carrying capacity of the environment to lower the K value'
+[DEBUG] trimmed_response length: 395, char_mask length: 395, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 4/68 tokens | Text: ' increase the mortality rate'
+[DEBUG] trimmed_response length: 257, char_mask length: 257, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 11/51 tokens | Text: ' a base pair is either inserted or deleted in a gene'
+[DEBUG] trimmed_response length: 328, char_mask length: 328, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 24/64 tokens | Text: " a codon's nucleotide sequence is changed so that instead of coding for a given amino acid it acts to terminate translation"
+[DEBUG] trimmed_response length: 335, char_mask length: 335, input_ids length: 69, token_mask length: 69
+[DEBUG] Masked: 3/69 tokens | Text: ' amnion'
+[DEBUG] trimmed_response length: 336, char_mask length: 336, input_ids length: 68, token_mask length: 68
+[DEBUG] Masked: 2/68 tokens | Text: ' chorion'
+[DEBUG] trimmed_response length: 343, char_mask length: 343, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 6/67 tokens | Text: ' inositol triphosphate'
+Written 945/17122 entries to perplexity result file
+Processing batch 64/1142
+[DEBUG] trimmed_response length: 332, char_mask length: 332, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 2/63 tokens | Text: ' cyclic AMP'
+[DEBUG] trimmed_response length: 331, char_mask length: 331, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 9/67 tokens | Text: ' a DNA or RNA primer and reverse transcriptase'
+[DEBUG] trimmed_response length: 324, char_mask length: 324, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 9/67 tokens | Text: ' a DNA or RNA primer and DNA polymerase'
+[DEBUG] trimmed_response length: 349, char_mask length: 349, input_ids length: 69, token_mask length: 69
+[DEBUG] Masked: 6/69 tokens | Text: ' genes are exchanged with other populations'
+[DEBUG] trimmed_response length: 331, char_mask length: 331, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 4/67 tokens | Text: ' population size is large'
+[DEBUG] trimmed_response length: 293, char_mask length: 293, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 4/59 tokens | Text: ' heterochromatin'
+[DEBUG] trimmed_response length: 287, char_mask length: 287, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 4/59 tokens | Text: ' a cistron'
+[DEBUG] trimmed_response length: 274, char_mask length: 274, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 11/51 tokens | Text: ' bursts of speciation followed by relatively unchanging lineages'
+[DEBUG] trimmed_response length: 253, char_mask length: 253, input_ids length: 46, token_mask length: 46
+[DEBUG] Masked: 6/46 tokens | Text: ' oscillating ecological successional stages'
+[DEBUG] trimmed_response length: 345, char_mask length: 345, input_ids length: 64, token_mask length: 64
+[DEBUG] Masked: 9/64 tokens | Text: ' replicate its genetic material and synthesize viral proteins'
+[DEBUG] trimmed_response length: 351, char_mask length: 351, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 12/67 tokens | Text: ' use a viral copy of reverse transcriptase to manufacture viral DNA'
+[DEBUG] trimmed_response length: 292, char_mask length: 292, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 3/59 tokens | Text: ' spiral cleavage'
+[DEBUG] trimmed_response length: 297, char_mask length: 297, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 3/59 tokens | Text: ' superficial cleavage'
+[DEBUG] trimmed_response length: 298, char_mask length: 298, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 2/53 tokens | Text: ' chloroplast'
+[DEBUG] trimmed_response length: 302, char_mask length: 302, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 2/53 tokens | Text: ' plasma membrane'
+Written 960/17122 entries to perplexity result file
+Processing batch 65/1142
+[DEBUG] trimmed_response length: 610, char_mask length: 610, input_ids length: 126, token_mask length: 126
+[DEBUG] Masked: 9/126 tokens | Text: ' fox populations will decrease and hare populations will increase'
+[DEBUG] trimmed_response length: 610, char_mask length: 610, input_ids length: 126, token_mask length: 126
+[DEBUG] Masked: 9/126 tokens | Text: ' fox populations will increase and hare populations will decrease'
+[DEBUG] trimmed_response length: 246, char_mask length: 246, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 6/56 tokens | Text: ' I, II, and III'
+[DEBUG] trimmed_response length: 238, char_mask length: 238, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 2/52 tokens | Text: ' I only'
+[DEBUG] trimmed_response length: 650, char_mask length: 650, input_ids length: 138, token_mask length: 138
+[DEBUG] Masked: 17/138 tokens | Text: ' Archaea and Eukarya diverged after their common ancestor diverged from Bacteria'
+[DEBUG] trimmed_response length: 650, char_mask length: 650, input_ids length: 138, token_mask length: 138
+[DEBUG] Masked: 17/138 tokens | Text: ' Archaea and Bacteria diverged after their common ancestor diverged from Eukarya'
+[DEBUG] trimmed_response length: 358, char_mask length: 358, input_ids length: 71, token_mask length: 71
+[DEBUG] Masked: 2/71 tokens | Text: ' cortical reaction'
+[DEBUG] trimmed_response length: 363, char_mask length: 363, input_ids length: 72, token_mask length: 72
+[DEBUG] Masked: 3/72 tokens | Text: ' fertilization reaction'
+[DEBUG] trimmed_response length: 507, char_mask length: 507, input_ids length: 96, token_mask length: 96
+[DEBUG] Masked: 5/96 tokens | Text: ' both instinctive and learned'
+[DEBUG] trimmed_response length: 525, char_mask length: 525, input_ids length: 97, token_mask length: 97
+[DEBUG] Masked: 6/97 tokens | Text: ' dependent upon hormones for proper development'
+[DEBUG] trimmed_response length: 273, char_mask length: 273, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 10/54 tokens | Text: ' a DNA sequence that replicates via an RNA intermediate'
+[DEBUG] trimmed_response length: 276, char_mask length: 276, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 10/54 tokens | Text: ' a DNA sequence that replicates via a protein intermediate'
+[DEBUG] trimmed_response length: 324, char_mask length: 324, input_ids length: 63, token_mask length: 63
+[DEBUG] Masked: 3/63 tokens | Text: ' tropical rain forest'
+[DEBUG] trimmed_response length: 310, char_mask length: 310, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 2/62 tokens | Text: ' tundra'
+[DEBUG] trimmed_response length: 352, char_mask length: 352, input_ids length: 62, token_mask length: 62
+[DEBUG] Masked: 16/62 tokens | Text: ' they lower the activation energy, thereby speeding up the conversion of reactants to products'
+Written 975/17122 entries to perplexity result file
+Processing batch 66/1142
+[DEBUG] trimmed_response length: 370, char_mask length: 370, input_ids length: 65, token_mask length: 65
+[DEBUG] Masked: 19/65 tokens | Text: ' they raise the temperature of the reaction mixture, thereby speeding up the conversion of reactants to products'
+[DEBUG] trimmed_response length: 342, char_mask length: 342, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 3/67 tokens | Text: ' zero population growth'
+[DEBUG] trimmed_response length: 338, char_mask length: 338, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 2/66 tokens | Text: ' exponential growth'
+[DEBUG] trimmed_response length: 254, char_mask length: 254, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 2/52 tokens | Text: ' analogous structures'
+[DEBUG] trimmed_response length: 254, char_mask length: 254, input_ids length: 54, token_mask length: 54
+[DEBUG] Masked: 4/54 tokens | Text: ' vestigial structures'
+[DEBUG] trimmed_response length: 300, char_mask length: 300, input_ids length: 66, token_mask length: 66
+[DEBUG] Masked: 4/66 tokens | Text: ' parenchyma'
+[DEBUG] trimmed_response length: 302, char_mask length: 302, input_ids length: 67, token_mask length: 67
+[DEBUG] Masked: 5/67 tokens | Text: ' sclerenchyma'
+[DEBUG] trimmed_response length: 316, char_mask length: 316, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 3/57 tokens | Text: ' transposons'
+[DEBUG] trimmed_response length: 311, char_mask length: 311, input_ids length: 56, token_mask length: 56
+[DEBUG] Masked: 2/56 tokens | Text: ' prions'
+[DEBUG] trimmed_response length: 283, char_mask length: 283, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 2/57 tokens | Text: ' primary succession'
+[DEBUG] trimmed_response length: 275, char_mask length: 275, input_ids length: 57, token_mask length: 57
+[DEBUG] Masked: 2/57 tokens | Text: ' weathering'
+[DEBUG] trimmed_response length: 694, char_mask length: 694, input_ids length: 135, token_mask length: 135
+[DEBUG] Masked: 24/135 tokens | Text: " on average, the host birds' instinctive response ensures that they rear their own offspring efficiently by feeding those who signal hunger"
+[DEBUG] trimmed_response length: 691, char_mask length: 691, input_ids length: 136, token_mask length: 136
+[DEBUG] Masked: 25/136 tokens | Text: ' the overall fitness of the host bird is not significantly reduced when it occasionally rears a parasitic fledgling from another species'
+[DEBUG] trimmed_response length: 419, char_mask length: 419, input_ids length: 87, token_mask length: 87
+[DEBUG] Masked: 4/87 tokens | Text: ' coefficient of relatedness'
+[DEBUG] trimmed_response length: 427, char_mask length: 427, input_ids length: 89, token_mask length: 89
+[DEBUG] Masked: 6/89 tokens | Text: ' frequency of the altruistic allele'
+Written 990/17122 entries to perplexity result file
+Processing batch 67/1142
+[DEBUG] trimmed_response length: 266, char_mask length: 266, input_ids length: 52, token_mask length: 52
+[DEBUG] Masked: 5/52 tokens | Text: ' an inactivated X chromosome'
+[DEBUG] trimmed_response length: 259, char_mask length: 259, input_ids length: 51, token_mask length: 51
+[DEBUG] Masked: 4/51 tokens | Text: ' forty-four autosomes'
+[DEBUG] trimmed_response length: 296, char_mask length: 296, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 13/61 tokens | Text: ' dominant sporophyte alternates with an independent gametophyte'
+[DEBUG] trimmed_response length: 293, char_mask length: 293, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 13/61 tokens | Text: ' dominant gametophyte alternates with a dependent sporophyte'
+[DEBUG] trimmed_response length: 507, char_mask length: 507, input_ids length: 97, token_mask length: 97
+[DEBUG] Masked: 9/97 tokens | Text: ' remove the ants and measure the resulting leaf damage'
+[DEBUG] trimmed_response length: 518, char_mask length: 518, input_ids length: 99, token_mask length: 99
+[DEBUG] Masked: 11/99 tokens | Text: ' remove the oil-rich bodies and measure the resulting ant density'
+[DEBUG] trimmed_response length: 366, char_mask length: 366, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 2/76 tokens | Text: ' compound eye'
+[DEBUG] trimmed_response length: 367, char_mask length: 367, input_ids length: 77, token_mask length: 77
+[DEBUG] Masked: 3/77 tokens | Text: ' binocular eye'
+[DEBUG] trimmed_response length: 665, char_mask length: 665, input_ids length: 144, token_mask length: 144
+[DEBUG] Masked: 28/144 tokens | Text: ' pith; primary xylem; secondary xylem; vascular cambium; secondary phloem; primary phloem; cortex'
+[DEBUG] trimmed_response length: 665, char_mask length: 665, input_ids length: 144, token_mask length: 144
+[DEBUG] Masked: 28/144 tokens | Text: ' pith; primary xylem; secondary xylem; vascular cambium; primary phloem; secondary phloem; cortex'
+[DEBUG] trimmed_response length: 281, char_mask length: 281, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 3/60 tokens | Text: ' lenticels'
+[DEBUG] trimmed_response length: 285, char_mask length: 285, input_ids length: 59, token_mask length: 59
+[DEBUG] Masked: 2/59 tokens | Text: ' terminal buds'
+[DEBUG] trimmed_response length: 448, char_mask length: 448, input_ids length: 86, token_mask length: 86
+[DEBUG] Masked: 18/86 tokens | Text: ' a decrease in the partial pressure of carbon dioxide and a decrease in the concentration of hydrogen ions'
+[DEBUG] trimmed_response length: 450, char_mask length: 450, input_ids length: 86, token_mask length: 86
+[DEBUG] Masked: 18/86 tokens | Text: ' an increase in the partial pressure of carbon dioxide and an increase in the concentration of hydrogen ions'
+[DEBUG] trimmed_response length: 305, char_mask length: 305, input_ids length: 61, token_mask length: 61
+[DEBUG] Masked: 10/61 tokens | Text: ' ovary, oviduct, uterus, vagina'
+Written 1005/17122 entries to perplexity result file
+Processing batch 68/1142
+[DEBUG] trimmed_response length: 302, char_mask length: 302, input_ids length: 60, token_mask length: 60
+[DEBUG] Masked: 9/60 tokens | Text: ' ovary, uterus, vagina, rete'
+[DEBUG] trimmed_response length: 275, char_mask length: 275, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 3/53 tokens | Text: ' neritic zone'
+[DEBUG] trimmed_response length: 275, char_mask length: 275, input_ids length: 53, token_mask length: 53
+[DEBUG] Masked: 3/53 tokens | Text: ' pelagic zone'
+[DEBUG] trimmed_response length: 439, char_mask length: 439, input_ids length: 90, token_mask length: 90
+[DEBUG] Masked: 5/90 tokens | Text: ' thymine dimers'
+[DEBUG] trimmed_response length: 448, char_mask length: 448, input_ids length: 91, token_mask length: 91
+[DEBUG] Masked: 6/91 tokens | Text: ' deamination of cytosine'
+[DEBUG] trimmed_response length: 389, char_mask length: 389, input_ids length: 77, token_mask length: 77
+[DEBUG] Masked: 13/77 tokens | Text: ' oxidizing inorganic substances such as ammonia, sulfur, or hydrogen'
+[DEBUG] trimmed_response length: 388, char_mask length: 388, input_ids length: 76, token_mask length: 76
+[DEBUG] Masked: 12/76 tokens | Text: ' reducing inorganic substances such as ammonia, sulfur, or hydrogen'
+[DEBUG] trimmed_response length: 496, char_mask length: 496, input_ids length: 107, token_mask length: 107
+[DEBUG] Masked: 7/107 tokens | Text: ' a complete, but small, embryo'
+[DEBUG] trimmed_response length: 499, char_mask length: 499, input_ids length: 107, token_mask length: 107
+[DEBUG] Masked: 7/107 tokens | Text: ' a complete, but small, embryo'
+[DEBUG] trimmed_response length: 537, char_mask length: 537, input_ids length: 115, token_mask length: 115
+[DEBUG] Masked: 15/115 tokens | Text: ' microfilaments in the microspike to undergo reversible depolymerization'
+[DEBUG] trimmed_response length: 539, char_mask length: 539, input_ids length: 115, token_mask length: 115
+[DEBUG] Masked: 15/115 tokens | Text: ' microfilaments in the microspike to undergo irreversible depolymerization'
+[DEBUG] trimmed_response length: 431, char_mask length: 431, input_ids length: 87, token_mask length: 87
+[DEBUG] Masked: 0/87 tokens | Text: ''

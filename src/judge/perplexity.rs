@@ -80,7 +80,7 @@ pub struct PerplexityEntry {
     pub perplexity: f64,
     pub question: String,
     pub styled_response: String,
-    pub original_answer: String,
+    // pub original_answer: String,
     pub is_correct: bool,
     pub lang: String,
     pub subject: String,
