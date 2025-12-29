@@ -2,12 +2,12 @@
 #SBATCH --job-name=tool8       # Job name
 #SBATCH --output=z_tool8_%j.out        # Standard output log (%j = job ID)
 #SBATCH --error=z_tool8_%j.err         # Error log
-#SBATCH --time=00:30:00                 # Max runtime (HH:MM:SS)
+#SBATCH --time=01:00:00                 # Max runtime (HH:MM:SS)
 # #SBATCH --partition=gpu                  # Partition/queue with GPU
 # #SBATCH --mail-type=BEGIN,END,FAIL
 # #SBATCH --mail-user=luozheng@usc.edu
-# #SBATCH --partition=gpuH200x8
-#SBATCH --gres=gpu:1                     # Request 1 GPU
+#SBATCH --partition=gpuH200x8
+#SBATCH --gres=gpu:8                     # Request 8 GPUs
 #SBATCH --cpus-per-task=4                # CPU cores
 #SBATCH --mem=32G                        # RAM
 #SBATCH --account=bfdz-delta-gpu    # Your Slurm account/project
@@ -26,4 +26,4 @@ export HF_HOME=/work/nvme/bfdz/zluo8/huggingface
 
 # Run the training script
 
-python tool.py --config tool_config_slurm8.py --num-gpus 1
+python tool.py --config tool_config_slurm8.py --num-gpus 8

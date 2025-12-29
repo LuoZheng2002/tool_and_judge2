@@ -15,6 +15,11 @@ for noise in [AddNoiseMode.NoNoise, AddNoiseMode.Synonym, AddNoiseMode.Paraphras
         TranslateMode.Translated(language=Language.Hindi, option=TranslateOption.FullyTranslatedPromptTranslate),
         TranslateMode.Translated(language=Language.Hindi, option=TranslateOption.FullyTranslatedPreTranslate),
         TranslateMode.Translated(language=Language.Hindi, option=TranslateOption.FullyTranslatedPostTranslate),
+        TranslateMode.Translated(language=Language.Hindi, option=TranslateOption.FullyTranslated),
+        TranslateMode.Translated(language=Language.Hindi, option=TranslateOption.PartiallyTranslated),
+        TranslateMode.Translated(language=Language.Hindi, option=TranslateOption.FullyTranslatedPromptTranslate),
+        TranslateMode.Translated(language=Language.Hindi, option=TranslateOption.FullyTranslatedPreTranslate),
+        TranslateMode.Translated(language=Language.Hindi, option=TranslateOption.FullyTranslatedPostTranslate),
     ]:
         experiments.append(ToolExperiment(translate, noise))
 
@@ -28,6 +33,6 @@ for translate in [
     experiments.append(ToolExperiment(translate, AddNoiseMode.NoNoise))
 
 config = ToolConfig(
-    Model.Local(LocalModel.Qwen3_30bA3b),
+    Model.Local(LocalModel.Qwen3Next80bA3b),
     experiments
 )
