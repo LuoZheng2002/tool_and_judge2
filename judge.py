@@ -167,7 +167,8 @@ async def main_async():
                         result = await coro
                         f.write(json.dumps(result, ensure_ascii=False) + '\n')
                         f.flush()
-                        print(f"Written {i}/{len(combined_entries)} entries to file")
+                        if i % 20 == 0:
+                            print(f"Written {i}/{len(combined_entries)} entries to file")
             await collect_all_preference_entries()
             preference_dispatch_preference_results(config)
             print("Preference experiment finished.")
