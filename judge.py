@@ -326,7 +326,7 @@ async def main_async():
             print(f"Total entries to calculate perplexity: {len(input_entries)}")
 
             # Define batch size for processing
-            batch_size =  int(120 * args.num_gpus / config.model.size_in_billion_parameters())
+            batch_size =  int(240 * args.num_gpus / config.model.size_in_billion_parameters())
             print(f"Using batch size: {batch_size} based on model size and number of GPUs")
             total_processed = 0
 

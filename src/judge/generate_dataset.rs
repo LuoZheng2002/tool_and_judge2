@@ -186,10 +186,6 @@ pub fn generate_one_answer_dataset(lang: &str) {
 }
 
 pub fn generate_two_answers_dataset(lang1: &str, lang2: &str) {
-    assert!(
-        lang1 <= lang2,
-        "lang1 should be less than or equal to lang2 to avoid duplicate generation"
-    );
     let lang1_correct_lang2_incorrect_path = format!(
         "judge/datasets/two_answers/{}_correct_{}_incorrect.jsonl",
         lang1, lang2

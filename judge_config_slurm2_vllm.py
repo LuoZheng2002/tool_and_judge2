@@ -1,0 +1,55 @@
+from codebase_rs import *
+
+config = JudgeConfig(LocalModel.Qwen3_235bA22b, JudgeExperiments.Vllm(
+    preference_experiments=[        
+        PreferenceExperiment("en", "zh_cn"), 
+        PreferenceExperiment("en", "fr_fr"), 
+        PreferenceExperiment("en", "de_de"), 
+        PreferenceExperiment("en", "ja_jp"), 
+        PreferenceExperiment("en", "ko_kr"), 
+        PreferenceExperiment("en", "ar_xy"), 
+        PreferenceExperiment("en", "bn_bd"), 
+        PreferenceExperiment("en", "hi_in"), 
+        PreferenceExperiment("en", "id_id"), 
+        PreferenceExperiment("en", "it_it"), 
+        PreferenceExperiment("en", "pt_br"), 
+        PreferenceExperiment("en", "es_la"), 
+        PreferenceExperiment("en", "sw_ke"),
+        PreferenceExperiment("en", "yo_ng"), 
+        PreferenceExperiment("en", "en"),
+        PreferenceExperiment("zh_cn", "zh_cn"),
+        PreferenceExperiment("fr_fr", "fr_fr"),
+        PreferenceExperiment("de_de", "de_de"),
+        PreferenceExperiment("ja_jp", "ja_jp"),
+        PreferenceExperiment("ko_kr", "ko_kr"),
+        PreferenceExperiment("ar_xy", "ar_xy"),
+        PreferenceExperiment("bn_bd", "bn_bd"),
+        PreferenceExperiment("hi_in", "hi_in"),
+        PreferenceExperiment("id_id", "id_id"),
+        PreferenceExperiment("it_it", "it_it"),
+        PreferenceExperiment("pt_br", "pt_br"),
+        PreferenceExperiment("es_la", "es_la"),
+        PreferenceExperiment("sw_ke", "sw_ke"),
+        PreferenceExperiment("yo_ng", "yo_ng"),
+        ],
+    perplexity_experiments=[
+        PerplexityExperiment("en"), 
+        PerplexityExperiment("zh_cn"),
+        PerplexityExperiment("fr_fr"), 
+        PerplexityExperiment("de_de"), 
+        PerplexityExperiment("ja_jp"), 
+        PerplexityExperiment("ko_kr"), 
+        PerplexityExperiment("ar_xy"), 
+        PerplexityExperiment("bn_bd"), 
+        PerplexityExperiment("hi_in"), 
+        PerplexityExperiment("id_id"), 
+        PerplexityExperiment("it_it"), 
+        PerplexityExperiment("pt_br"), 
+        PerplexityExperiment("es_la"), 
+        PerplexityExperiment("sw_ke"), 
+        PerplexityExperiment("yo_ng"),
+    ]
+))
+
+
+
