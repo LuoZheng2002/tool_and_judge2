@@ -18,13 +18,6 @@ use crate::{
     utils::{get_model_safe_name, load_json_lines, write_json_lines_to_file},
 };
 
-// first convert two_answers_same_lang dataset to GenerateResponseInputEntry by selecting indices that haven't been processed
-// then collect ResponseEntry and write it to result file (in folder response)
-// then convert ResponseEntry and TwoAnswersSameLangEntry to GenerateStyledAnswersInputEntry, also selecting unprocessed indices
-// then collect StyledAnswersEntry and write it to result file (in folder styled_answers)
-// finally convert StyledAnswersEntry to GeneratePerplexityAggregatedInputEntry, selecting unprocessed indices
-// then collect PerplexityEntry and write it to result file (in folder perplexity)
-
 #[derive(Clone, Deserialize, Serialize)]
 pub struct GenerateResponseInputEntry {
     pub index: usize,
@@ -586,10 +579,6 @@ pub fn perplexity_prepare_generate_perplexity_aggregated_input(
 #[pyfunction]
 pub fn perplexity_dispatch_response_results(config: &JudgeConfig) {
     let model_safe_name = get_model_safe_name(Model::Local(config.model));
-    // let lang = match &config.experiment {
-    //     JudgeExperiment::Perplexity { lang, .. } => lang,
-    //     _ => panic!("Invalid experiment type for dispatch_response_results"),
-    // };
     let languages = match &config.experiments {
         JudgeExperiments::Vllm {
             perplexity_experiments,
@@ -636,12 +625,12 @@ pub fn perplexity_dispatch_response_results(config: &JudgeConfig) {
                 return;
             }
         };
-        let aggregated_entries_parsed: HashMap<usize, ResponseEntry> = aggregated_entries
+        let aggregated_entries_parsed: HashMap<(String, usize), ResponseEntry> = aggregated_entries
             .into_iter()
             .map(|entry| {
                 let parsed = serde_json::from_value::<ResponseEntry>(entry)
                     .expect("Failed to parse combined response entry");
-                (parsed.index, parsed)
+                ((parsed.lang.clone(), parsed.index), parsed)
             })
             .collect();
         let mut remaining_indices: HashSet<usize> = get_valid_perplexity_indices();
@@ -655,7 +644,7 @@ pub fn perplexity_dispatch_response_results(config: &JudgeConfig) {
         }
         let mut missing_index_count = 0;
         for index in remaining_indices {
-            if let Some(entry) = aggregated_entries_parsed.get(&index) {
+            if let Some(entry) = aggregated_entries_parsed.get(&(lang.clone(), index)) {
                 result_entries.push(entry.clone());
             } else {
                 missing_index_count += 1;
@@ -690,10 +679,6 @@ pub fn perplexity_dispatch_response_results(config: &JudgeConfig) {
 #[pyfunction]
 pub fn perplexity_dispatch_styled_answers_results(config: &JudgeConfig) {
     let model_safe_name = get_model_safe_name(Model::Local(config.model));
-    // let lang = match &config.experiment {
-    //     JudgeExperiment::Perplexity { lang, .. } => lang,
-    //     _ => panic!("Invalid experiment type for dispatch_styled_answers_results"),
-    // };
     let languages = match &config.experiments {
         JudgeExperiments::Vllm {
             perplexity_experiments,
@@ -742,14 +727,15 @@ pub fn perplexity_dispatch_styled_answers_results(config: &JudgeConfig) {
                 return;
             }
         };
-        let aggregated_entries_parsed: HashMap<usize, StyledAnswersEntry> = aggregated_entries
-            .into_iter()
-            .map(|entry| {
-                let parsed = serde_json::from_value::<StyledAnswersEntry>(entry)
-                    .expect("Failed to parse combined styled answers entry");
-                (parsed.index, parsed)
-            })
-            .collect();
+        let aggregated_entries_parsed: HashMap<(String, usize), StyledAnswersEntry> =
+            aggregated_entries
+                .into_iter()
+                .map(|entry| {
+                    let parsed = serde_json::from_value::<StyledAnswersEntry>(entry)
+                        .expect("Failed to parse combined styled answers entry");
+                    ((parsed.lang.clone(), parsed.index), parsed)
+                })
+                .collect();
         let mut remaining_indices: HashSet<usize> = get_valid_perplexity_indices();
         for entry in result_entries.iter() {
             let result = remaining_indices.remove(&entry.index);
@@ -761,7 +747,7 @@ pub fn perplexity_dispatch_styled_answers_results(config: &JudgeConfig) {
         }
         let mut missing_index_count = 0;
         for index in remaining_indices {
-            if let Some(entry) = aggregated_entries_parsed.get(&index) {
+            if let Some(entry) = aggregated_entries_parsed.get(&(lang.clone(), index)) {
                 result_entries.push(entry.clone());
             } else {
                 missing_index_count += 1;
@@ -796,10 +782,6 @@ pub fn perplexity_dispatch_styled_answers_results(config: &JudgeConfig) {
 #[pyfunction]
 pub fn perplexity_dispatch_generate_perplexity_results(config: &JudgeConfig) {
     let model_safe_name = get_model_safe_name(Model::Local(config.model));
-    // let lang = match &config.experiment {
-    //     JudgeExperiment::Perplexity { lang, .. } => lang,
-    //     _ => panic!("Invalid experiment type for dispatch_perplexity_results"),
-    // };
     let languages = match &config.experiments {
         JudgeExperiments::HuggingFace {
             perplexity_experiments,
@@ -865,14 +847,18 @@ pub fn perplexity_dispatch_generate_perplexity_results(config: &JudgeConfig) {
                 return;
             }
         };
-        let aggregated_entries_parsed: HashMap<(usize, bool), PerplexityEntry> = combined_entries
-            .into_iter()
-            .map(|entry| {
-                let parsed = serde_json::from_value::<PerplexityEntry>(entry)
-                    .expect("Failed to parse combined perplexity entry");
-                ((parsed.index, parsed.is_correct), parsed)
-            })
-            .collect();
+        let aggregated_entries_parsed: HashMap<(String, usize, bool), PerplexityEntry> =
+            combined_entries
+                .into_iter()
+                .map(|entry| {
+                    let parsed = serde_json::from_value::<PerplexityEntry>(entry)
+                        .expect("Failed to parse combined perplexity entry");
+                    (
+                        (parsed.lang.clone(), parsed.index, parsed.is_correct),
+                        parsed,
+                    )
+                })
+                .collect();
         let mut remaining_correct_indices: HashSet<usize> = get_valid_perplexity_indices();
         let mut remainint_incorrect_indices: HashSet<usize> = remaining_correct_indices.clone();
         for entry in correct_result_entries.iter() {
@@ -894,7 +880,7 @@ pub fn perplexity_dispatch_generate_perplexity_results(config: &JudgeConfig) {
         let mut missing_correct_index_count = 0;
         let mut missing_incorrect_index_count = 0;
         for index in remaining_correct_indices {
-            let key = (index, true);
+            let key = (lang.clone(), index, true);
             if let Some(entry) = aggregated_entries_parsed.get(&key) {
                 correct_result_entries.push(entry.clone());
             } else {
@@ -902,7 +888,7 @@ pub fn perplexity_dispatch_generate_perplexity_results(config: &JudgeConfig) {
             }
         }
         for index in remainint_incorrect_indices {
-            let key = (index, false);
+            let key = (lang.clone(), index, false);
             if let Some(entry) = aggregated_entries_parsed.get(&key) {
                 incorrect_result_entries.push(entry.clone());
             } else {

@@ -178,7 +178,8 @@ pub fn preference_dispatch_preference_results(config: &JudgeConfig) {
     };
     let input_file_path = preference_aggregated_output_file_path(config);
     let combined_entries = load_json_lines(&input_file_path).expect("Failed to load input file");
-    let combined_entries_parsed: HashMap<(usize, bool, bool), PreferenceResultEntry> =
+    // key: (lang1, lang2, index, is_correct1, is_correct2)
+    let combined_entries_parsed: HashMap<(String, String, usize, bool, bool), PreferenceResultEntry> =
         combined_entries
             .into_iter()
             .map(|entry| {
@@ -186,7 +187,7 @@ pub fn preference_dispatch_preference_results(config: &JudgeConfig) {
                     .expect("Failed to parse combined preference entry");
                 let is_correct1 = parsed.is_correct1;
                 let is_correct2 = parsed.is_correct2;
-                ((parsed.index, is_correct1, is_correct2), parsed)
+                ((parsed.lang1.clone(), parsed.lang2.clone(), parsed.index, is_correct1, is_correct2), parsed)
             })
             .collect();
     if !Path::new(&input_file_path).exists() {
@@ -249,7 +250,13 @@ pub fn preference_dispatch_preference_results(config: &JudgeConfig) {
             }
             let mut missing_count = 0;
             for index in remaining_indices {
-                let key = (index, true, false);
+                let key = (
+                    lang1.clone(),
+                    lang2.clone(),
+                    index,
+                    *lang1_correct,
+                    *lang2_correct,
+                );
                 if let Some(entry) = combined_entries_parsed.get(&key) {
                     result_entries.push(entry.clone());
                 } else {

@@ -21,3 +21,4582 @@ Total entries to calculate perplexity: 34244
 Using batch size: 15 based on model size and number of GPUs
 Processing batch 1/2283
 Creating HuggingFace backend for model Qwen/Qwen3-8B using 1 GPUs and batch size 15...
+Creating HuggingFace backend for model Qwen/Qwen3-8B with batch size 15...
+Loading model from HuggingFace...
+Found 1 GPUs
+GPU 0: 39.49 GB available, using 35 GB
+Model loaded, setting to eval mode...
+Model in eval mode
+Model device map: {'': 0}
+HuggingFace backend created successfully for Qwen/Qwen3-8B
+HuggingFace backend created for model Qwen/Qwen3-8B
+Written 15/34244 entries to perplexity result file
+Processing batch 2/2283
+Written 30/34244 entries to perplexity result file
+Processing batch 3/2283
+Written 45/34244 entries to perplexity result file
+Processing batch 4/2283
+Written 60/34244 entries to perplexity result file
+Processing batch 5/2283
+Written 75/34244 entries to perplexity result file
+Processing batch 6/2283
+Written 90/34244 entries to perplexity result file
+Processing batch 7/2283
+Written 105/34244 entries to perplexity result file
+Processing batch 8/2283
+Written 120/34244 entries to perplexity result file
+Processing batch 9/2283
+Written 135/34244 entries to perplexity result file
+Processing batch 10/2283
+Written 150/34244 entries to perplexity result file
+Processing batch 11/2283
+Written 165/34244 entries to perplexity result file
+Processing batch 12/2283
+Written 180/34244 entries to perplexity result file
+Processing batch 13/2283
+Written 195/34244 entries to perplexity result file
+Processing batch 14/2283
+Written 210/34244 entries to perplexity result file
+Processing batch 15/2283
+Written 225/34244 entries to perplexity result file
+Processing batch 16/2283
+Written 240/34244 entries to perplexity result file
+Processing batch 17/2283
+Written 255/34244 entries to perplexity result file
+Processing batch 18/2283
+Written 270/34244 entries to perplexity result file
+Processing batch 19/2283
+Written 285/34244 entries to perplexity result file
+Processing batch 20/2283
+Written 300/34244 entries to perplexity result file
+Processing batch 21/2283
+Written 315/34244 entries to perplexity result file
+Processing batch 22/2283
+Written 330/34244 entries to perplexity result file
+Processing batch 23/2283
+Written 345/34244 entries to perplexity result file
+Processing batch 24/2283
+Written 360/34244 entries to perplexity result file
+Processing batch 25/2283
+Written 375/34244 entries to perplexity result file
+Processing batch 26/2283
+Written 390/34244 entries to perplexity result file
+Processing batch 27/2283
+Written 405/34244 entries to perplexity result file
+Processing batch 28/2283
+Written 420/34244 entries to perplexity result file
+Processing batch 29/2283
+Written 435/34244 entries to perplexity result file
+Processing batch 30/2283
+Written 450/34244 entries to perplexity result file
+Processing batch 31/2283
+Written 465/34244 entries to perplexity result file
+Processing batch 32/2283
+Written 480/34244 entries to perplexity result file
+Processing batch 33/2283
+Written 495/34244 entries to perplexity result file
+Processing batch 34/2283
+Written 510/34244 entries to perplexity result file
+Processing batch 35/2283
+Written 525/34244 entries to perplexity result file
+Processing batch 36/2283
+Written 540/34244 entries to perplexity result file
+Processing batch 37/2283
+Written 555/34244 entries to perplexity result file
+Processing batch 38/2283
+Written 570/34244 entries to perplexity result file
+Processing batch 39/2283
+Written 585/34244 entries to perplexity result file
+Processing batch 40/2283
+Written 600/34244 entries to perplexity result file
+Processing batch 41/2283
+Written 615/34244 entries to perplexity result file
+Processing batch 42/2283
+Written 630/34244 entries to perplexity result file
+Processing batch 43/2283
+Written 645/34244 entries to perplexity result file
+Processing batch 44/2283
+Written 660/34244 entries to perplexity result file
+Processing batch 45/2283
+Written 675/34244 entries to perplexity result file
+Processing batch 46/2283
+Written 690/34244 entries to perplexity result file
+Processing batch 47/2283
+Written 705/34244 entries to perplexity result file
+Processing batch 48/2283
+Written 720/34244 entries to perplexity result file
+Processing batch 49/2283
+Written 735/34244 entries to perplexity result file
+Processing batch 50/2283
+Written 750/34244 entries to perplexity result file
+Processing batch 51/2283
+Written 765/34244 entries to perplexity result file
+Processing batch 52/2283
+Written 780/34244 entries to perplexity result file
+Processing batch 53/2283
+Written 795/34244 entries to perplexity result file
+Processing batch 54/2283
+Written 810/34244 entries to perplexity result file
+Processing batch 55/2283
+Written 825/34244 entries to perplexity result file
+Processing batch 56/2283
+Written 840/34244 entries to perplexity result file
+Processing batch 57/2283
+Written 855/34244 entries to perplexity result file
+Processing batch 58/2283
+Written 870/34244 entries to perplexity result file
+Processing batch 59/2283
+Written 885/34244 entries to perplexity result file
+Processing batch 60/2283
+Written 900/34244 entries to perplexity result file
+Processing batch 61/2283
+Written 915/34244 entries to perplexity result file
+Processing batch 62/2283
+Written 930/34244 entries to perplexity result file
+Processing batch 63/2283
+Written 945/34244 entries to perplexity result file
+Processing batch 64/2283
+Written 960/34244 entries to perplexity result file
+Processing batch 65/2283
+Written 975/34244 entries to perplexity result file
+Processing batch 66/2283
+Written 990/34244 entries to perplexity result file
+Processing batch 67/2283
+Written 1005/34244 entries to perplexity result file
+Processing batch 68/2283
+Written 1020/34244 entries to perplexity result file
+Processing batch 69/2283
+Written 1035/34244 entries to perplexity result file
+Processing batch 70/2283
+Written 1050/34244 entries to perplexity result file
+Processing batch 71/2283
+Written 1065/34244 entries to perplexity result file
+Processing batch 72/2283
+Written 1080/34244 entries to perplexity result file
+Processing batch 73/2283
+Written 1095/34244 entries to perplexity result file
+Processing batch 74/2283
+Written 1110/34244 entries to perplexity result file
+Processing batch 75/2283
+Written 1125/34244 entries to perplexity result file
+Processing batch 76/2283
+Written 1140/34244 entries to perplexity result file
+Processing batch 77/2283
+Written 1155/34244 entries to perplexity result file
+Processing batch 78/2283
+Written 1170/34244 entries to perplexity result file
+Processing batch 79/2283
+Written 1185/34244 entries to perplexity result file
+Processing batch 80/2283
+Written 1200/34244 entries to perplexity result file
+Processing batch 81/2283
+Written 1215/34244 entries to perplexity result file
+Processing batch 82/2283
+Written 1230/34244 entries to perplexity result file
+Processing batch 83/2283
+Written 1245/34244 entries to perplexity result file
+Processing batch 84/2283
+Written 1260/34244 entries to perplexity result file
+Processing batch 85/2283
+Written 1275/34244 entries to perplexity result file
+Processing batch 86/2283
+Written 1290/34244 entries to perplexity result file
+Processing batch 87/2283
+Written 1305/34244 entries to perplexity result file
+Processing batch 88/2283
+Written 1320/34244 entries to perplexity result file
+Processing batch 89/2283
+Written 1335/34244 entries to perplexity result file
+Processing batch 90/2283
+Written 1350/34244 entries to perplexity result file
+Processing batch 91/2283
+Written 1365/34244 entries to perplexity result file
+Processing batch 92/2283
+Written 1380/34244 entries to perplexity result file
+Processing batch 93/2283
+Written 1395/34244 entries to perplexity result file
+Processing batch 94/2283
+Written 1410/34244 entries to perplexity result file
+Processing batch 95/2283
+Written 1425/34244 entries to perplexity result file
+Processing batch 96/2283
+Written 1440/34244 entries to perplexity result file
+Processing batch 97/2283
+Written 1455/34244 entries to perplexity result file
+Processing batch 98/2283
+Written 1470/34244 entries to perplexity result file
+Processing batch 99/2283
+Written 1485/34244 entries to perplexity result file
+Processing batch 100/2283
+Written 1500/34244 entries to perplexity result file
+Processing batch 101/2283
+Written 1515/34244 entries to perplexity result file
+Processing batch 102/2283
+Written 1530/34244 entries to perplexity result file
+Processing batch 103/2283
+Written 1545/34244 entries to perplexity result file
+Processing batch 104/2283
+Written 1560/34244 entries to perplexity result file
+Processing batch 105/2283
+Written 1575/34244 entries to perplexity result file
+Processing batch 106/2283
+Written 1590/34244 entries to perplexity result file
+Processing batch 107/2283
+Written 1605/34244 entries to perplexity result file
+Processing batch 108/2283
+Written 1620/34244 entries to perplexity result file
+Processing batch 109/2283
+Written 1635/34244 entries to perplexity result file
+Processing batch 110/2283
+Written 1650/34244 entries to perplexity result file
+Processing batch 111/2283
+Written 1665/34244 entries to perplexity result file
+Processing batch 112/2283
+Written 1680/34244 entries to perplexity result file
+Processing batch 113/2283
+Written 1695/34244 entries to perplexity result file
+Processing batch 114/2283
+Written 1710/34244 entries to perplexity result file
+Processing batch 115/2283
+Written 1725/34244 entries to perplexity result file
+Processing batch 116/2283
+Written 1740/34244 entries to perplexity result file
+Processing batch 117/2283
+Written 1755/34244 entries to perplexity result file
+Processing batch 118/2283
+Written 1770/34244 entries to perplexity result file
+Processing batch 119/2283
+Written 1785/34244 entries to perplexity result file
+Processing batch 120/2283
+Written 1800/34244 entries to perplexity result file
+Processing batch 121/2283
+Written 1815/34244 entries to perplexity result file
+Processing batch 122/2283
+Written 1830/34244 entries to perplexity result file
+Processing batch 123/2283
+Written 1845/34244 entries to perplexity result file
+Processing batch 124/2283
+Written 1860/34244 entries to perplexity result file
+Processing batch 125/2283
+Written 1875/34244 entries to perplexity result file
+Processing batch 126/2283
+Written 1890/34244 entries to perplexity result file
+Processing batch 127/2283
+Written 1905/34244 entries to perplexity result file
+Processing batch 128/2283
+Written 1920/34244 entries to perplexity result file
+Processing batch 129/2283
+Written 1935/34244 entries to perplexity result file
+Processing batch 130/2283
+Written 1950/34244 entries to perplexity result file
+Processing batch 131/2283
+Written 1965/34244 entries to perplexity result file
+Processing batch 132/2283
+Written 1980/34244 entries to perplexity result file
+Processing batch 133/2283
+Written 1995/34244 entries to perplexity result file
+Processing batch 134/2283
+Written 2010/34244 entries to perplexity result file
+Processing batch 135/2283
+Written 2025/34244 entries to perplexity result file
+Processing batch 136/2283
+Written 2040/34244 entries to perplexity result file
+Processing batch 137/2283
+Written 2055/34244 entries to perplexity result file
+Processing batch 138/2283
+Written 2070/34244 entries to perplexity result file
+Processing batch 139/2283
+Written 2085/34244 entries to perplexity result file
+Processing batch 140/2283
+Written 2100/34244 entries to perplexity result file
+Processing batch 141/2283
+Written 2115/34244 entries to perplexity result file
+Processing batch 142/2283
+Written 2130/34244 entries to perplexity result file
+Processing batch 143/2283
+Written 2145/34244 entries to perplexity result file
+Processing batch 144/2283
+Written 2160/34244 entries to perplexity result file
+Processing batch 145/2283
+Written 2175/34244 entries to perplexity result file
+Processing batch 146/2283
+Written 2190/34244 entries to perplexity result file
+Processing batch 147/2283
+Written 2205/34244 entries to perplexity result file
+Processing batch 148/2283
+Written 2220/34244 entries to perplexity result file
+Processing batch 149/2283
+Written 2235/34244 entries to perplexity result file
+Processing batch 150/2283
+Written 2250/34244 entries to perplexity result file
+Processing batch 151/2283
+Written 2265/34244 entries to perplexity result file
+Processing batch 152/2283
+Written 2280/34244 entries to perplexity result file
+Processing batch 153/2283
+Written 2295/34244 entries to perplexity result file
+Processing batch 154/2283
+Written 2310/34244 entries to perplexity result file
+Processing batch 155/2283
+Written 2325/34244 entries to perplexity result file
+Processing batch 156/2283
+Written 2340/34244 entries to perplexity result file
+Processing batch 157/2283
+Written 2355/34244 entries to perplexity result file
+Processing batch 158/2283
+Written 2370/34244 entries to perplexity result file
+Processing batch 159/2283
+Written 2385/34244 entries to perplexity result file
+Processing batch 160/2283
+Written 2400/34244 entries to perplexity result file
+Processing batch 161/2283
+Written 2415/34244 entries to perplexity result file
+Processing batch 162/2283
+Written 2430/34244 entries to perplexity result file
+Processing batch 163/2283
+Written 2445/34244 entries to perplexity result file
+Processing batch 164/2283
+Written 2460/34244 entries to perplexity result file
+Processing batch 165/2283
+Written 2475/34244 entries to perplexity result file
+Processing batch 166/2283
+Written 2490/34244 entries to perplexity result file
+Processing batch 167/2283
+Written 2505/34244 entries to perplexity result file
+Processing batch 168/2283
+Written 2520/34244 entries to perplexity result file
+Processing batch 169/2283
+Written 2535/34244 entries to perplexity result file
+Processing batch 170/2283
+Written 2550/34244 entries to perplexity result file
+Processing batch 171/2283
+Written 2565/34244 entries to perplexity result file
+Processing batch 172/2283
+Written 2580/34244 entries to perplexity result file
+Processing batch 173/2283
+Written 2595/34244 entries to perplexity result file
+Processing batch 174/2283
+Written 2610/34244 entries to perplexity result file
+Processing batch 175/2283
+Written 2625/34244 entries to perplexity result file
+Processing batch 176/2283
+Written 2640/34244 entries to perplexity result file
+Processing batch 177/2283
+Written 2655/34244 entries to perplexity result file
+Processing batch 178/2283
+Written 2670/34244 entries to perplexity result file
+Processing batch 179/2283
+Written 2685/34244 entries to perplexity result file
+Processing batch 180/2283
+Written 2700/34244 entries to perplexity result file
+Processing batch 181/2283
+Written 2715/34244 entries to perplexity result file
+Processing batch 182/2283
+Written 2730/34244 entries to perplexity result file
+Processing batch 183/2283
+Written 2745/34244 entries to perplexity result file
+Processing batch 184/2283
+Written 2760/34244 entries to perplexity result file
+Processing batch 185/2283
+Written 2775/34244 entries to perplexity result file
+Processing batch 186/2283
+Written 2790/34244 entries to perplexity result file
+Processing batch 187/2283
+Written 2805/34244 entries to perplexity result file
+Processing batch 188/2283
+Written 2820/34244 entries to perplexity result file
+Processing batch 189/2283
+Written 2835/34244 entries to perplexity result file
+Processing batch 190/2283
+Written 2850/34244 entries to perplexity result file
+Processing batch 191/2283
+Written 2865/34244 entries to perplexity result file
+Processing batch 192/2283
+Written 2880/34244 entries to perplexity result file
+Processing batch 193/2283
+Written 2895/34244 entries to perplexity result file
+Processing batch 194/2283
+Written 2910/34244 entries to perplexity result file
+Processing batch 195/2283
+Written 2925/34244 entries to perplexity result file
+Processing batch 196/2283
+Written 2940/34244 entries to perplexity result file
+Processing batch 197/2283
+Written 2955/34244 entries to perplexity result file
+Processing batch 198/2283
+Written 2970/34244 entries to perplexity result file
+Processing batch 199/2283
+Written 2985/34244 entries to perplexity result file
+Processing batch 200/2283
+Written 3000/34244 entries to perplexity result file
+Processing batch 201/2283
+Written 3015/34244 entries to perplexity result file
+Processing batch 202/2283
+Written 3030/34244 entries to perplexity result file
+Processing batch 203/2283
+Written 3045/34244 entries to perplexity result file
+Processing batch 204/2283
+Written 3060/34244 entries to perplexity result file
+Processing batch 205/2283
+Written 3075/34244 entries to perplexity result file
+Processing batch 206/2283
+Written 3090/34244 entries to perplexity result file
+Processing batch 207/2283
+Written 3105/34244 entries to perplexity result file
+Processing batch 208/2283
+Written 3120/34244 entries to perplexity result file
+Processing batch 209/2283
+Written 3135/34244 entries to perplexity result file
+Processing batch 210/2283
+Written 3150/34244 entries to perplexity result file
+Processing batch 211/2283
+Written 3165/34244 entries to perplexity result file
+Processing batch 212/2283
+Written 3180/34244 entries to perplexity result file
+Processing batch 213/2283
+Written 3195/34244 entries to perplexity result file
+Processing batch 214/2283
+Written 3210/34244 entries to perplexity result file
+Processing batch 215/2283
+Written 3225/34244 entries to perplexity result file
+Processing batch 216/2283
+Written 3240/34244 entries to perplexity result file
+Processing batch 217/2283
+Written 3255/34244 entries to perplexity result file
+Processing batch 218/2283
+Written 3270/34244 entries to perplexity result file
+Processing batch 219/2283
+Written 3285/34244 entries to perplexity result file
+Processing batch 220/2283
+Written 3300/34244 entries to perplexity result file
+Processing batch 221/2283
+Written 3315/34244 entries to perplexity result file
+Processing batch 222/2283
+Written 3330/34244 entries to perplexity result file
+Processing batch 223/2283
+Written 3345/34244 entries to perplexity result file
+Processing batch 224/2283
+Written 3360/34244 entries to perplexity result file
+Processing batch 225/2283
+Written 3375/34244 entries to perplexity result file
+Processing batch 226/2283
+Written 3390/34244 entries to perplexity result file
+Processing batch 227/2283
+Written 3405/34244 entries to perplexity result file
+Processing batch 228/2283
+Written 3420/34244 entries to perplexity result file
+Processing batch 229/2283
+Written 3435/34244 entries to perplexity result file
+Processing batch 230/2283
+Written 3450/34244 entries to perplexity result file
+Processing batch 231/2283
+Written 3465/34244 entries to perplexity result file
+Processing batch 232/2283
+Written 3480/34244 entries to perplexity result file
+Processing batch 233/2283
+Written 3495/34244 entries to perplexity result file
+Processing batch 234/2283
+Written 3510/34244 entries to perplexity result file
+Processing batch 235/2283
+Written 3525/34244 entries to perplexity result file
+Processing batch 236/2283
+Written 3540/34244 entries to perplexity result file
+Processing batch 237/2283
+Written 3555/34244 entries to perplexity result file
+Processing batch 238/2283
+Written 3570/34244 entries to perplexity result file
+Processing batch 239/2283
+Written 3585/34244 entries to perplexity result file
+Processing batch 240/2283
+Written 3600/34244 entries to perplexity result file
+Processing batch 241/2283
+Written 3615/34244 entries to perplexity result file
+Processing batch 242/2283
+Written 3630/34244 entries to perplexity result file
+Processing batch 243/2283
+Written 3645/34244 entries to perplexity result file
+Processing batch 244/2283
+Written 3660/34244 entries to perplexity result file
+Processing batch 245/2283
+Written 3675/34244 entries to perplexity result file
+Processing batch 246/2283
+Written 3690/34244 entries to perplexity result file
+Processing batch 247/2283
+Written 3705/34244 entries to perplexity result file
+Processing batch 248/2283
+Written 3720/34244 entries to perplexity result file
+Processing batch 249/2283
+Written 3735/34244 entries to perplexity result file
+Processing batch 250/2283
+Written 3750/34244 entries to perplexity result file
+Processing batch 251/2283
+Written 3765/34244 entries to perplexity result file
+Processing batch 252/2283
+Written 3780/34244 entries to perplexity result file
+Processing batch 253/2283
+Written 3795/34244 entries to perplexity result file
+Processing batch 254/2283
+Written 3810/34244 entries to perplexity result file
+Processing batch 255/2283
+Written 3825/34244 entries to perplexity result file
+Processing batch 256/2283
+Written 3840/34244 entries to perplexity result file
+Processing batch 257/2283
+Written 3855/34244 entries to perplexity result file
+Processing batch 258/2283
+Written 3870/34244 entries to perplexity result file
+Processing batch 259/2283
+Written 3885/34244 entries to perplexity result file
+Processing batch 260/2283
+Written 3900/34244 entries to perplexity result file
+Processing batch 261/2283
+Written 3915/34244 entries to perplexity result file
+Processing batch 262/2283
+Written 3930/34244 entries to perplexity result file
+Processing batch 263/2283
+Written 3945/34244 entries to perplexity result file
+Processing batch 264/2283
+Written 3960/34244 entries to perplexity result file
+Processing batch 265/2283
+Written 3975/34244 entries to perplexity result file
+Processing batch 266/2283
+Written 3990/34244 entries to perplexity result file
+Processing batch 267/2283
+Written 4005/34244 entries to perplexity result file
+Processing batch 268/2283
+Written 4020/34244 entries to perplexity result file
+Processing batch 269/2283
+Written 4035/34244 entries to perplexity result file
+Processing batch 270/2283
+Written 4050/34244 entries to perplexity result file
+Processing batch 271/2283
+Written 4065/34244 entries to perplexity result file
+Processing batch 272/2283
+Written 4080/34244 entries to perplexity result file
+Processing batch 273/2283
+Written 4095/34244 entries to perplexity result file
+Processing batch 274/2283
+Written 4110/34244 entries to perplexity result file
+Processing batch 275/2283
+Written 4125/34244 entries to perplexity result file
+Processing batch 276/2283
+Written 4140/34244 entries to perplexity result file
+Processing batch 277/2283
+Written 4155/34244 entries to perplexity result file
+Processing batch 278/2283
+Written 4170/34244 entries to perplexity result file
+Processing batch 279/2283
+Written 4185/34244 entries to perplexity result file
+Processing batch 280/2283
+Written 4200/34244 entries to perplexity result file
+Processing batch 281/2283
+Written 4215/34244 entries to perplexity result file
+Processing batch 282/2283
+Written 4230/34244 entries to perplexity result file
+Processing batch 283/2283
+Written 4245/34244 entries to perplexity result file
+Processing batch 284/2283
+Written 4260/34244 entries to perplexity result file
+Processing batch 285/2283
+Written 4275/34244 entries to perplexity result file
+Processing batch 286/2283
+Written 4290/34244 entries to perplexity result file
+Processing batch 287/2283
+Written 4305/34244 entries to perplexity result file
+Processing batch 288/2283
+Written 4320/34244 entries to perplexity result file
+Processing batch 289/2283
+Written 4335/34244 entries to perplexity result file
+Processing batch 290/2283
+Written 4350/34244 entries to perplexity result file
+Processing batch 291/2283
+Written 4365/34244 entries to perplexity result file
+Processing batch 292/2283
+Written 4380/34244 entries to perplexity result file
+Processing batch 293/2283
+Written 4395/34244 entries to perplexity result file
+Processing batch 294/2283
+Written 4410/34244 entries to perplexity result file
+Processing batch 295/2283
+Written 4425/34244 entries to perplexity result file
+Processing batch 296/2283
+Written 4440/34244 entries to perplexity result file
+Processing batch 297/2283
+Written 4455/34244 entries to perplexity result file
+Processing batch 298/2283
+Written 4470/34244 entries to perplexity result file
+Processing batch 299/2283
+Written 4485/34244 entries to perplexity result file
+Processing batch 300/2283
+Written 4500/34244 entries to perplexity result file
+Processing batch 301/2283
+Written 4515/34244 entries to perplexity result file
+Processing batch 302/2283
+Written 4530/34244 entries to perplexity result file
+Processing batch 303/2283
+Written 4545/34244 entries to perplexity result file
+Processing batch 304/2283
+Written 4560/34244 entries to perplexity result file
+Processing batch 305/2283
+Written 4575/34244 entries to perplexity result file
+Processing batch 306/2283
+Written 4590/34244 entries to perplexity result file
+Processing batch 307/2283
+Written 4605/34244 entries to perplexity result file
+Processing batch 308/2283
+Written 4620/34244 entries to perplexity result file
+Processing batch 309/2283
+Written 4635/34244 entries to perplexity result file
+Processing batch 310/2283
+Written 4650/34244 entries to perplexity result file
+Processing batch 311/2283
+Written 4665/34244 entries to perplexity result file
+Processing batch 312/2283
+Written 4680/34244 entries to perplexity result file
+Processing batch 313/2283
+Written 4695/34244 entries to perplexity result file
+Processing batch 314/2283
+Written 4710/34244 entries to perplexity result file
+Processing batch 315/2283
+Written 4725/34244 entries to perplexity result file
+Processing batch 316/2283
+Written 4740/34244 entries to perplexity result file
+Processing batch 317/2283
+Written 4755/34244 entries to perplexity result file
+Processing batch 318/2283
+Written 4770/34244 entries to perplexity result file
+Processing batch 319/2283
+Written 4785/34244 entries to perplexity result file
+Processing batch 320/2283
+Written 4800/34244 entries to perplexity result file
+Processing batch 321/2283
+Written 4815/34244 entries to perplexity result file
+Processing batch 322/2283
+Written 4830/34244 entries to perplexity result file
+Processing batch 323/2283
+Written 4845/34244 entries to perplexity result file
+Processing batch 324/2283
+Written 4860/34244 entries to perplexity result file
+Processing batch 325/2283
+Written 4875/34244 entries to perplexity result file
+Processing batch 326/2283
+Written 4890/34244 entries to perplexity result file
+Processing batch 327/2283
+Written 4905/34244 entries to perplexity result file
+Processing batch 328/2283
+Written 4920/34244 entries to perplexity result file
+Processing batch 329/2283
+Written 4935/34244 entries to perplexity result file
+Processing batch 330/2283
+Written 4950/34244 entries to perplexity result file
+Processing batch 331/2283
+Written 4965/34244 entries to perplexity result file
+Processing batch 332/2283
+Written 4980/34244 entries to perplexity result file
+Processing batch 333/2283
+Written 4995/34244 entries to perplexity result file
+Processing batch 334/2283
+Written 5010/34244 entries to perplexity result file
+Processing batch 335/2283
+Written 5025/34244 entries to perplexity result file
+Processing batch 336/2283
+Written 5040/34244 entries to perplexity result file
+Processing batch 337/2283
+Written 5055/34244 entries to perplexity result file
+Processing batch 338/2283
+Written 5070/34244 entries to perplexity result file
+Processing batch 339/2283
+Written 5085/34244 entries to perplexity result file
+Processing batch 340/2283
+Written 5100/34244 entries to perplexity result file
+Processing batch 341/2283
+Written 5115/34244 entries to perplexity result file
+Processing batch 342/2283
+Written 5130/34244 entries to perplexity result file
+Processing batch 343/2283
+Written 5145/34244 entries to perplexity result file
+Processing batch 344/2283
+Written 5160/34244 entries to perplexity result file
+Processing batch 345/2283
+Written 5175/34244 entries to perplexity result file
+Processing batch 346/2283
+Written 5190/34244 entries to perplexity result file
+Processing batch 347/2283
+Written 5205/34244 entries to perplexity result file
+Processing batch 348/2283
+Written 5220/34244 entries to perplexity result file
+Processing batch 349/2283
+Written 5235/34244 entries to perplexity result file
+Processing batch 350/2283
+Written 5250/34244 entries to perplexity result file
+Processing batch 351/2283
+Written 5265/34244 entries to perplexity result file
+Processing batch 352/2283
+Written 5280/34244 entries to perplexity result file
+Processing batch 353/2283
+Written 5295/34244 entries to perplexity result file
+Processing batch 354/2283
+Written 5310/34244 entries to perplexity result file
+Processing batch 355/2283
+Written 5325/34244 entries to perplexity result file
+Processing batch 356/2283
+Written 5340/34244 entries to perplexity result file
+Processing batch 357/2283
+Written 5355/34244 entries to perplexity result file
+Processing batch 358/2283
+Written 5370/34244 entries to perplexity result file
+Processing batch 359/2283
+Written 5385/34244 entries to perplexity result file
+Processing batch 360/2283
+Written 5400/34244 entries to perplexity result file
+Processing batch 361/2283
+Written 5415/34244 entries to perplexity result file
+Processing batch 362/2283
+Written 5430/34244 entries to perplexity result file
+Processing batch 363/2283
+Written 5445/34244 entries to perplexity result file
+Processing batch 364/2283
+Written 5460/34244 entries to perplexity result file
+Processing batch 365/2283
+Written 5475/34244 entries to perplexity result file
+Processing batch 366/2283
+Written 5490/34244 entries to perplexity result file
+Processing batch 367/2283
+Written 5505/34244 entries to perplexity result file
+Processing batch 368/2283
+Written 5520/34244 entries to perplexity result file
+Processing batch 369/2283
+Written 5535/34244 entries to perplexity result file
+Processing batch 370/2283
+Written 5550/34244 entries to perplexity result file
+Processing batch 371/2283
+Written 5565/34244 entries to perplexity result file
+Processing batch 372/2283
+Written 5580/34244 entries to perplexity result file
+Processing batch 373/2283
+Written 5595/34244 entries to perplexity result file
+Processing batch 374/2283
+Written 5610/34244 entries to perplexity result file
+Processing batch 375/2283
+Written 5625/34244 entries to perplexity result file
+Processing batch 376/2283
+Written 5640/34244 entries to perplexity result file
+Processing batch 377/2283
+Written 5655/34244 entries to perplexity result file
+Processing batch 378/2283
+Written 5670/34244 entries to perplexity result file
+Processing batch 379/2283
+Written 5685/34244 entries to perplexity result file
+Processing batch 380/2283
+Written 5700/34244 entries to perplexity result file
+Processing batch 381/2283
+Written 5715/34244 entries to perplexity result file
+Processing batch 382/2283
+Written 5730/34244 entries to perplexity result file
+Processing batch 383/2283
+Written 5745/34244 entries to perplexity result file
+Processing batch 384/2283
+Written 5760/34244 entries to perplexity result file
+Processing batch 385/2283
+Written 5775/34244 entries to perplexity result file
+Processing batch 386/2283
+Written 5790/34244 entries to perplexity result file
+Processing batch 387/2283
+Written 5805/34244 entries to perplexity result file
+Processing batch 388/2283
+Written 5820/34244 entries to perplexity result file
+Processing batch 389/2283
+Written 5835/34244 entries to perplexity result file
+Processing batch 390/2283
+Written 5850/34244 entries to perplexity result file
+Processing batch 391/2283
+Written 5865/34244 entries to perplexity result file
+Processing batch 392/2283
+Written 5880/34244 entries to perplexity result file
+Processing batch 393/2283
+Written 5895/34244 entries to perplexity result file
+Processing batch 394/2283
+Written 5910/34244 entries to perplexity result file
+Processing batch 395/2283
+Written 5925/34244 entries to perplexity result file
+Processing batch 396/2283
+Written 5940/34244 entries to perplexity result file
+Processing batch 397/2283
+Written 5955/34244 entries to perplexity result file
+Processing batch 398/2283
+Written 5970/34244 entries to perplexity result file
+Processing batch 399/2283
+Written 5985/34244 entries to perplexity result file
+Processing batch 400/2283
+Written 6000/34244 entries to perplexity result file
+Processing batch 401/2283
+Written 6015/34244 entries to perplexity result file
+Processing batch 402/2283
+Written 6030/34244 entries to perplexity result file
+Processing batch 403/2283
+Written 6045/34244 entries to perplexity result file
+Processing batch 404/2283
+Written 6060/34244 entries to perplexity result file
+Processing batch 405/2283
+Written 6075/34244 entries to perplexity result file
+Processing batch 406/2283
+Written 6090/34244 entries to perplexity result file
+Processing batch 407/2283
+Written 6105/34244 entries to perplexity result file
+Processing batch 408/2283
+Written 6120/34244 entries to perplexity result file
+Processing batch 409/2283
+Written 6135/34244 entries to perplexity result file
+Processing batch 410/2283
+Written 6150/34244 entries to perplexity result file
+Processing batch 411/2283
+Written 6165/34244 entries to perplexity result file
+Processing batch 412/2283
+Written 6180/34244 entries to perplexity result file
+Processing batch 413/2283
+Written 6195/34244 entries to perplexity result file
+Processing batch 414/2283
+Written 6210/34244 entries to perplexity result file
+Processing batch 415/2283
+Written 6225/34244 entries to perplexity result file
+Processing batch 416/2283
+Written 6240/34244 entries to perplexity result file
+Processing batch 417/2283
+Written 6255/34244 entries to perplexity result file
+Processing batch 418/2283
+Written 6270/34244 entries to perplexity result file
+Processing batch 419/2283
+Written 6285/34244 entries to perplexity result file
+Processing batch 420/2283
+Written 6300/34244 entries to perplexity result file
+Processing batch 421/2283
+Written 6315/34244 entries to perplexity result file
+Processing batch 422/2283
+Written 6330/34244 entries to perplexity result file
+Processing batch 423/2283
+Written 6345/34244 entries to perplexity result file
+Processing batch 424/2283
+Written 6360/34244 entries to perplexity result file
+Processing batch 425/2283
+Written 6375/34244 entries to perplexity result file
+Processing batch 426/2283
+Written 6390/34244 entries to perplexity result file
+Processing batch 427/2283
+Written 6405/34244 entries to perplexity result file
+Processing batch 428/2283
+Written 6420/34244 entries to perplexity result file
+Processing batch 429/2283
+Written 6435/34244 entries to perplexity result file
+Processing batch 430/2283
+Written 6450/34244 entries to perplexity result file
+Processing batch 431/2283
+Written 6465/34244 entries to perplexity result file
+Processing batch 432/2283
+Written 6480/34244 entries to perplexity result file
+Processing batch 433/2283
+Written 6495/34244 entries to perplexity result file
+Processing batch 434/2283
+Written 6510/34244 entries to perplexity result file
+Processing batch 435/2283
+Written 6525/34244 entries to perplexity result file
+Processing batch 436/2283
+Written 6540/34244 entries to perplexity result file
+Processing batch 437/2283
+Written 6555/34244 entries to perplexity result file
+Processing batch 438/2283
+Written 6570/34244 entries to perplexity result file
+Processing batch 439/2283
+Written 6585/34244 entries to perplexity result file
+Processing batch 440/2283
+Written 6600/34244 entries to perplexity result file
+Processing batch 441/2283
+Written 6615/34244 entries to perplexity result file
+Processing batch 442/2283
+Written 6630/34244 entries to perplexity result file
+Processing batch 443/2283
+Written 6645/34244 entries to perplexity result file
+Processing batch 444/2283
+Written 6660/34244 entries to perplexity result file
+Processing batch 445/2283
+Written 6675/34244 entries to perplexity result file
+Processing batch 446/2283
+Written 6690/34244 entries to perplexity result file
+Processing batch 447/2283
+Written 6705/34244 entries to perplexity result file
+Processing batch 448/2283
+Written 6720/34244 entries to perplexity result file
+Processing batch 449/2283
+Written 6735/34244 entries to perplexity result file
+Processing batch 450/2283
+Written 6750/34244 entries to perplexity result file
+Processing batch 451/2283
+Written 6765/34244 entries to perplexity result file
+Processing batch 452/2283
+Written 6780/34244 entries to perplexity result file
+Processing batch 453/2283
+Written 6795/34244 entries to perplexity result file
+Processing batch 454/2283
+Written 6810/34244 entries to perplexity result file
+Processing batch 455/2283
+Written 6825/34244 entries to perplexity result file
+Processing batch 456/2283
+Written 6840/34244 entries to perplexity result file
+Processing batch 457/2283
+Written 6855/34244 entries to perplexity result file
+Processing batch 458/2283
+Written 6870/34244 entries to perplexity result file
+Processing batch 459/2283
+Written 6885/34244 entries to perplexity result file
+Processing batch 460/2283
+Written 6900/34244 entries to perplexity result file
+Processing batch 461/2283
+Written 6915/34244 entries to perplexity result file
+Processing batch 462/2283
+Written 6930/34244 entries to perplexity result file
+Processing batch 463/2283
+Written 6945/34244 entries to perplexity result file
+Processing batch 464/2283
+Written 6960/34244 entries to perplexity result file
+Processing batch 465/2283
+Written 6975/34244 entries to perplexity result file
+Processing batch 466/2283
+Written 6990/34244 entries to perplexity result file
+Processing batch 467/2283
+Written 7005/34244 entries to perplexity result file
+Processing batch 468/2283
+Written 7020/34244 entries to perplexity result file
+Processing batch 469/2283
+Written 7035/34244 entries to perplexity result file
+Processing batch 470/2283
+Written 7050/34244 entries to perplexity result file
+Processing batch 471/2283
+Written 7065/34244 entries to perplexity result file
+Processing batch 472/2283
+Written 7080/34244 entries to perplexity result file
+Processing batch 473/2283
+Written 7095/34244 entries to perplexity result file
+Processing batch 474/2283
+Written 7110/34244 entries to perplexity result file
+Processing batch 475/2283
+Written 7125/34244 entries to perplexity result file
+Processing batch 476/2283
+Written 7140/34244 entries to perplexity result file
+Processing batch 477/2283
+Written 7155/34244 entries to perplexity result file
+Processing batch 478/2283
+Written 7170/34244 entries to perplexity result file
+Processing batch 479/2283
+Written 7185/34244 entries to perplexity result file
+Processing batch 480/2283
+Written 7200/34244 entries to perplexity result file
+Processing batch 481/2283
+Written 7215/34244 entries to perplexity result file
+Processing batch 482/2283
+Written 7230/34244 entries to perplexity result file
+Processing batch 483/2283
+Written 7245/34244 entries to perplexity result file
+Processing batch 484/2283
+Written 7260/34244 entries to perplexity result file
+Processing batch 485/2283
+Written 7275/34244 entries to perplexity result file
+Processing batch 486/2283
+Written 7290/34244 entries to perplexity result file
+Processing batch 487/2283
+Written 7305/34244 entries to perplexity result file
+Processing batch 488/2283
+Written 7320/34244 entries to perplexity result file
+Processing batch 489/2283
+Written 7335/34244 entries to perplexity result file
+Processing batch 490/2283
+Written 7350/34244 entries to perplexity result file
+Processing batch 491/2283
+Written 7365/34244 entries to perplexity result file
+Processing batch 492/2283
+Written 7380/34244 entries to perplexity result file
+Processing batch 493/2283
+Written 7395/34244 entries to perplexity result file
+Processing batch 494/2283
+Written 7410/34244 entries to perplexity result file
+Processing batch 495/2283
+Written 7425/34244 entries to perplexity result file
+Processing batch 496/2283
+Written 7440/34244 entries to perplexity result file
+Processing batch 497/2283
+Written 7455/34244 entries to perplexity result file
+Processing batch 498/2283
+Written 7470/34244 entries to perplexity result file
+Processing batch 499/2283
+Written 7485/34244 entries to perplexity result file
+Processing batch 500/2283
+Written 7500/34244 entries to perplexity result file
+Processing batch 501/2283
+Written 7515/34244 entries to perplexity result file
+Processing batch 502/2283
+Written 7530/34244 entries to perplexity result file
+Processing batch 503/2283
+Written 7545/34244 entries to perplexity result file
+Processing batch 504/2283
+Written 7560/34244 entries to perplexity result file
+Processing batch 505/2283
+Written 7575/34244 entries to perplexity result file
+Processing batch 506/2283
+Written 7590/34244 entries to perplexity result file
+Processing batch 507/2283
+Written 7605/34244 entries to perplexity result file
+Processing batch 508/2283
+Written 7620/34244 entries to perplexity result file
+Processing batch 509/2283
+Written 7635/34244 entries to perplexity result file
+Processing batch 510/2283
+Written 7650/34244 entries to perplexity result file
+Processing batch 511/2283
+Written 7665/34244 entries to perplexity result file
+Processing batch 512/2283
+Written 7680/34244 entries to perplexity result file
+Processing batch 513/2283
+Written 7695/34244 entries to perplexity result file
+Processing batch 514/2283
+Written 7710/34244 entries to perplexity result file
+Processing batch 515/2283
+Written 7725/34244 entries to perplexity result file
+Processing batch 516/2283
+Written 7740/34244 entries to perplexity result file
+Processing batch 517/2283
+Written 7755/34244 entries to perplexity result file
+Processing batch 518/2283
+Written 7770/34244 entries to perplexity result file
+Processing batch 519/2283
+Written 7785/34244 entries to perplexity result file
+Processing batch 520/2283
+Written 7800/34244 entries to perplexity result file
+Processing batch 521/2283
+Written 7815/34244 entries to perplexity result file
+Processing batch 522/2283
+Written 7830/34244 entries to perplexity result file
+Processing batch 523/2283
+Written 7845/34244 entries to perplexity result file
+Processing batch 524/2283
+Written 7860/34244 entries to perplexity result file
+Processing batch 525/2283
+Written 7875/34244 entries to perplexity result file
+Processing batch 526/2283
+Written 7890/34244 entries to perplexity result file
+Processing batch 527/2283
+Written 7905/34244 entries to perplexity result file
+Processing batch 528/2283
+Written 7920/34244 entries to perplexity result file
+Processing batch 529/2283
+Written 7935/34244 entries to perplexity result file
+Processing batch 530/2283
+Written 7950/34244 entries to perplexity result file
+Processing batch 531/2283
+Written 7965/34244 entries to perplexity result file
+Processing batch 532/2283
+Written 7980/34244 entries to perplexity result file
+Processing batch 533/2283
+Written 7995/34244 entries to perplexity result file
+Processing batch 534/2283
+Written 8010/34244 entries to perplexity result file
+Processing batch 535/2283
+Written 8025/34244 entries to perplexity result file
+Processing batch 536/2283
+Written 8040/34244 entries to perplexity result file
+Processing batch 537/2283
+Written 8055/34244 entries to perplexity result file
+Processing batch 538/2283
+Written 8070/34244 entries to perplexity result file
+Processing batch 539/2283
+Written 8085/34244 entries to perplexity result file
+Processing batch 540/2283
+Written 8100/34244 entries to perplexity result file
+Processing batch 541/2283
+Written 8115/34244 entries to perplexity result file
+Processing batch 542/2283
+Written 8130/34244 entries to perplexity result file
+Processing batch 543/2283
+Written 8145/34244 entries to perplexity result file
+Processing batch 544/2283
+Written 8160/34244 entries to perplexity result file
+Processing batch 545/2283
+Written 8175/34244 entries to perplexity result file
+Processing batch 546/2283
+Written 8190/34244 entries to perplexity result file
+Processing batch 547/2283
+Written 8205/34244 entries to perplexity result file
+Processing batch 548/2283
+Written 8220/34244 entries to perplexity result file
+Processing batch 549/2283
+Written 8235/34244 entries to perplexity result file
+Processing batch 550/2283
+Written 8250/34244 entries to perplexity result file
+Processing batch 551/2283
+Written 8265/34244 entries to perplexity result file
+Processing batch 552/2283
+Written 8280/34244 entries to perplexity result file
+Processing batch 553/2283
+Written 8295/34244 entries to perplexity result file
+Processing batch 554/2283
+Written 8310/34244 entries to perplexity result file
+Processing batch 555/2283
+Written 8325/34244 entries to perplexity result file
+Processing batch 556/2283
+Written 8340/34244 entries to perplexity result file
+Processing batch 557/2283
+Written 8355/34244 entries to perplexity result file
+Processing batch 558/2283
+Written 8370/34244 entries to perplexity result file
+Processing batch 559/2283
+Written 8385/34244 entries to perplexity result file
+Processing batch 560/2283
+Written 8400/34244 entries to perplexity result file
+Processing batch 561/2283
+Written 8415/34244 entries to perplexity result file
+Processing batch 562/2283
+Written 8430/34244 entries to perplexity result file
+Processing batch 563/2283
+Written 8445/34244 entries to perplexity result file
+Processing batch 564/2283
+Written 8460/34244 entries to perplexity result file
+Processing batch 565/2283
+Written 8475/34244 entries to perplexity result file
+Processing batch 566/2283
+Written 8490/34244 entries to perplexity result file
+Processing batch 567/2283
+Written 8505/34244 entries to perplexity result file
+Processing batch 568/2283
+Written 8520/34244 entries to perplexity result file
+Processing batch 569/2283
+Written 8535/34244 entries to perplexity result file
+Processing batch 570/2283
+Written 8550/34244 entries to perplexity result file
+Processing batch 571/2283
+Written 8565/34244 entries to perplexity result file
+Processing batch 572/2283
+Written 8580/34244 entries to perplexity result file
+Processing batch 573/2283
+Written 8595/34244 entries to perplexity result file
+Processing batch 574/2283
+Written 8610/34244 entries to perplexity result file
+Processing batch 575/2283
+Written 8625/34244 entries to perplexity result file
+Processing batch 576/2283
+Written 8640/34244 entries to perplexity result file
+Processing batch 577/2283
+Written 8655/34244 entries to perplexity result file
+Processing batch 578/2283
+Written 8670/34244 entries to perplexity result file
+Processing batch 579/2283
+Written 8685/34244 entries to perplexity result file
+Processing batch 580/2283
+Written 8700/34244 entries to perplexity result file
+Processing batch 581/2283
+Written 8715/34244 entries to perplexity result file
+Processing batch 582/2283
+Written 8730/34244 entries to perplexity result file
+Processing batch 583/2283
+Written 8745/34244 entries to perplexity result file
+Processing batch 584/2283
+Written 8760/34244 entries to perplexity result file
+Processing batch 585/2283
+Written 8775/34244 entries to perplexity result file
+Processing batch 586/2283
+Written 8790/34244 entries to perplexity result file
+Processing batch 587/2283
+Written 8805/34244 entries to perplexity result file
+Processing batch 588/2283
+Written 8820/34244 entries to perplexity result file
+Processing batch 589/2283
+Written 8835/34244 entries to perplexity result file
+Processing batch 590/2283
+Written 8850/34244 entries to perplexity result file
+Processing batch 591/2283
+Written 8865/34244 entries to perplexity result file
+Processing batch 592/2283
+Written 8880/34244 entries to perplexity result file
+Processing batch 593/2283
+Written 8895/34244 entries to perplexity result file
+Processing batch 594/2283
+Written 8910/34244 entries to perplexity result file
+Processing batch 595/2283
+Written 8925/34244 entries to perplexity result file
+Processing batch 596/2283
+Written 8940/34244 entries to perplexity result file
+Processing batch 597/2283
+Written 8955/34244 entries to perplexity result file
+Processing batch 598/2283
+Written 8970/34244 entries to perplexity result file
+Processing batch 599/2283
+Written 8985/34244 entries to perplexity result file
+Processing batch 600/2283
+Written 9000/34244 entries to perplexity result file
+Processing batch 601/2283
+Written 9015/34244 entries to perplexity result file
+Processing batch 602/2283
+Written 9030/34244 entries to perplexity result file
+Processing batch 603/2283
+Written 9045/34244 entries to perplexity result file
+Processing batch 604/2283
+Written 9060/34244 entries to perplexity result file
+Processing batch 605/2283
+Written 9075/34244 entries to perplexity result file
+Processing batch 606/2283
+Written 9090/34244 entries to perplexity result file
+Processing batch 607/2283
+Written 9105/34244 entries to perplexity result file
+Processing batch 608/2283
+Written 9120/34244 entries to perplexity result file
+Processing batch 609/2283
+Written 9135/34244 entries to perplexity result file
+Processing batch 610/2283
+Written 9150/34244 entries to perplexity result file
+Processing batch 611/2283
+Written 9165/34244 entries to perplexity result file
+Processing batch 612/2283
+Written 9180/34244 entries to perplexity result file
+Processing batch 613/2283
+Written 9195/34244 entries to perplexity result file
+Processing batch 614/2283
+Written 9210/34244 entries to perplexity result file
+Processing batch 615/2283
+Written 9225/34244 entries to perplexity result file
+Processing batch 616/2283
+Written 9240/34244 entries to perplexity result file
+Processing batch 617/2283
+Written 9255/34244 entries to perplexity result file
+Processing batch 618/2283
+Written 9270/34244 entries to perplexity result file
+Processing batch 619/2283
+Written 9285/34244 entries to perplexity result file
+Processing batch 620/2283
+Written 9300/34244 entries to perplexity result file
+Processing batch 621/2283
+Written 9315/34244 entries to perplexity result file
+Processing batch 622/2283
+Written 9330/34244 entries to perplexity result file
+Processing batch 623/2283
+Written 9345/34244 entries to perplexity result file
+Processing batch 624/2283
+Written 9360/34244 entries to perplexity result file
+Processing batch 625/2283
+Written 9375/34244 entries to perplexity result file
+Processing batch 626/2283
+Written 9390/34244 entries to perplexity result file
+Processing batch 627/2283
+Written 9405/34244 entries to perplexity result file
+Processing batch 628/2283
+Written 9420/34244 entries to perplexity result file
+Processing batch 629/2283
+Written 9435/34244 entries to perplexity result file
+Processing batch 630/2283
+Written 9450/34244 entries to perplexity result file
+Processing batch 631/2283
+Written 9465/34244 entries to perplexity result file
+Processing batch 632/2283
+Written 9480/34244 entries to perplexity result file
+Processing batch 633/2283
+Written 9495/34244 entries to perplexity result file
+Processing batch 634/2283
+Written 9510/34244 entries to perplexity result file
+Processing batch 635/2283
+Written 9525/34244 entries to perplexity result file
+Processing batch 636/2283
+Written 9540/34244 entries to perplexity result file
+Processing batch 637/2283
+Written 9555/34244 entries to perplexity result file
+Processing batch 638/2283
+Written 9570/34244 entries to perplexity result file
+Processing batch 639/2283
+Written 9585/34244 entries to perplexity result file
+Processing batch 640/2283
+Written 9600/34244 entries to perplexity result file
+Processing batch 641/2283
+Written 9615/34244 entries to perplexity result file
+Processing batch 642/2283
+Written 9630/34244 entries to perplexity result file
+Processing batch 643/2283
+Written 9645/34244 entries to perplexity result file
+Processing batch 644/2283
+Written 9660/34244 entries to perplexity result file
+Processing batch 645/2283
+Written 9675/34244 entries to perplexity result file
+Processing batch 646/2283
+Written 9690/34244 entries to perplexity result file
+Processing batch 647/2283
+Written 9705/34244 entries to perplexity result file
+Processing batch 648/2283
+Written 9720/34244 entries to perplexity result file
+Processing batch 649/2283
+Written 9735/34244 entries to perplexity result file
+Processing batch 650/2283
+Written 9750/34244 entries to perplexity result file
+Processing batch 651/2283
+Written 9765/34244 entries to perplexity result file
+Processing batch 652/2283
+Written 9780/34244 entries to perplexity result file
+Processing batch 653/2283
+Written 9795/34244 entries to perplexity result file
+Processing batch 654/2283
+Written 9810/34244 entries to perplexity result file
+Processing batch 655/2283
+Written 9825/34244 entries to perplexity result file
+Processing batch 656/2283
+Written 9840/34244 entries to perplexity result file
+Processing batch 657/2283
+Written 9855/34244 entries to perplexity result file
+Processing batch 658/2283
+Written 9870/34244 entries to perplexity result file
+Processing batch 659/2283
+Written 9885/34244 entries to perplexity result file
+Processing batch 660/2283
+Written 9900/34244 entries to perplexity result file
+Processing batch 661/2283
+Written 9915/34244 entries to perplexity result file
+Processing batch 662/2283
+Written 9930/34244 entries to perplexity result file
+Processing batch 663/2283
+Written 9945/34244 entries to perplexity result file
+Processing batch 664/2283
+Written 9960/34244 entries to perplexity result file
+Processing batch 665/2283
+Written 9975/34244 entries to perplexity result file
+Processing batch 666/2283
+Written 9990/34244 entries to perplexity result file
+Processing batch 667/2283
+Written 10005/34244 entries to perplexity result file
+Processing batch 668/2283
+Written 10020/34244 entries to perplexity result file
+Processing batch 669/2283
+Written 10035/34244 entries to perplexity result file
+Processing batch 670/2283
+Written 10050/34244 entries to perplexity result file
+Processing batch 671/2283
+Written 10065/34244 entries to perplexity result file
+Processing batch 672/2283
+Written 10080/34244 entries to perplexity result file
+Processing batch 673/2283
+Written 10095/34244 entries to perplexity result file
+Processing batch 674/2283
+Written 10110/34244 entries to perplexity result file
+Processing batch 675/2283
+Written 10125/34244 entries to perplexity result file
+Processing batch 676/2283
+Written 10140/34244 entries to perplexity result file
+Processing batch 677/2283
+Written 10155/34244 entries to perplexity result file
+Processing batch 678/2283
+Written 10170/34244 entries to perplexity result file
+Processing batch 679/2283
+Written 10185/34244 entries to perplexity result file
+Processing batch 680/2283
+Written 10200/34244 entries to perplexity result file
+Processing batch 681/2283
+Written 10215/34244 entries to perplexity result file
+Processing batch 682/2283
+Written 10230/34244 entries to perplexity result file
+Processing batch 683/2283
+Written 10245/34244 entries to perplexity result file
+Processing batch 684/2283
+Written 10260/34244 entries to perplexity result file
+Processing batch 685/2283
+Written 10275/34244 entries to perplexity result file
+Processing batch 686/2283
+Written 10290/34244 entries to perplexity result file
+Processing batch 687/2283
+Written 10305/34244 entries to perplexity result file
+Processing batch 688/2283
+Written 10320/34244 entries to perplexity result file
+Processing batch 689/2283
+Written 10335/34244 entries to perplexity result file
+Processing batch 690/2283
+Written 10350/34244 entries to perplexity result file
+Processing batch 691/2283
+Written 10365/34244 entries to perplexity result file
+Processing batch 692/2283
+Written 10380/34244 entries to perplexity result file
+Processing batch 693/2283
+Written 10395/34244 entries to perplexity result file
+Processing batch 694/2283
+Written 10410/34244 entries to perplexity result file
+Processing batch 695/2283
+Written 10425/34244 entries to perplexity result file
+Processing batch 696/2283
+Written 10440/34244 entries to perplexity result file
+Processing batch 697/2283
+Written 10455/34244 entries to perplexity result file
+Processing batch 698/2283
+Written 10470/34244 entries to perplexity result file
+Processing batch 699/2283
+Written 10485/34244 entries to perplexity result file
+Processing batch 700/2283
+Written 10500/34244 entries to perplexity result file
+Processing batch 701/2283
+Written 10515/34244 entries to perplexity result file
+Processing batch 702/2283
+Written 10530/34244 entries to perplexity result file
+Processing batch 703/2283
+Written 10545/34244 entries to perplexity result file
+Processing batch 704/2283
+Written 10560/34244 entries to perplexity result file
+Processing batch 705/2283
+Written 10575/34244 entries to perplexity result file
+Processing batch 706/2283
+Written 10590/34244 entries to perplexity result file
+Processing batch 707/2283
+Written 10605/34244 entries to perplexity result file
+Processing batch 708/2283
+Written 10620/34244 entries to perplexity result file
+Processing batch 709/2283
+Written 10635/34244 entries to perplexity result file
+Processing batch 710/2283
+Written 10650/34244 entries to perplexity result file
+Processing batch 711/2283
+Written 10665/34244 entries to perplexity result file
+Processing batch 712/2283
+Written 10680/34244 entries to perplexity result file
+Processing batch 713/2283
+Written 10695/34244 entries to perplexity result file
+Processing batch 714/2283
+Written 10710/34244 entries to perplexity result file
+Processing batch 715/2283
+Written 10725/34244 entries to perplexity result file
+Processing batch 716/2283
+Written 10740/34244 entries to perplexity result file
+Processing batch 717/2283
+Written 10755/34244 entries to perplexity result file
+Processing batch 718/2283
+Written 10770/34244 entries to perplexity result file
+Processing batch 719/2283
+Written 10785/34244 entries to perplexity result file
+Processing batch 720/2283
+Written 10800/34244 entries to perplexity result file
+Processing batch 721/2283
+Written 10815/34244 entries to perplexity result file
+Processing batch 722/2283
+Written 10830/34244 entries to perplexity result file
+Processing batch 723/2283
+Written 10845/34244 entries to perplexity result file
+Processing batch 724/2283
+Written 10860/34244 entries to perplexity result file
+Processing batch 725/2283
+Written 10875/34244 entries to perplexity result file
+Processing batch 726/2283
+Written 10890/34244 entries to perplexity result file
+Processing batch 727/2283
+Written 10905/34244 entries to perplexity result file
+Processing batch 728/2283
+Written 10920/34244 entries to perplexity result file
+Processing batch 729/2283
+Written 10935/34244 entries to perplexity result file
+Processing batch 730/2283
+Written 10950/34244 entries to perplexity result file
+Processing batch 731/2283
+Written 10965/34244 entries to perplexity result file
+Processing batch 732/2283
+Written 10980/34244 entries to perplexity result file
+Processing batch 733/2283
+Written 10995/34244 entries to perplexity result file
+Processing batch 734/2283
+Written 11010/34244 entries to perplexity result file
+Processing batch 735/2283
+Written 11025/34244 entries to perplexity result file
+Processing batch 736/2283
+Written 11040/34244 entries to perplexity result file
+Processing batch 737/2283
+Written 11055/34244 entries to perplexity result file
+Processing batch 738/2283
+Written 11070/34244 entries to perplexity result file
+Processing batch 739/2283
+Written 11085/34244 entries to perplexity result file
+Processing batch 740/2283
+Written 11100/34244 entries to perplexity result file
+Processing batch 741/2283
+Written 11115/34244 entries to perplexity result file
+Processing batch 742/2283
+Written 11130/34244 entries to perplexity result file
+Processing batch 743/2283
+Written 11145/34244 entries to perplexity result file
+Processing batch 744/2283
+Written 11160/34244 entries to perplexity result file
+Processing batch 745/2283
+Written 11175/34244 entries to perplexity result file
+Processing batch 746/2283
+Written 11190/34244 entries to perplexity result file
+Processing batch 747/2283
+Written 11205/34244 entries to perplexity result file
+Processing batch 748/2283
+Written 11220/34244 entries to perplexity result file
+Processing batch 749/2283
+Written 11235/34244 entries to perplexity result file
+Processing batch 750/2283
+Written 11250/34244 entries to perplexity result file
+Processing batch 751/2283
+Written 11265/34244 entries to perplexity result file
+Processing batch 752/2283
+Written 11280/34244 entries to perplexity result file
+Processing batch 753/2283
+Written 11295/34244 entries to perplexity result file
+Processing batch 754/2283
+Written 11310/34244 entries to perplexity result file
+Processing batch 755/2283
+Written 11325/34244 entries to perplexity result file
+Processing batch 756/2283
+Written 11340/34244 entries to perplexity result file
+Processing batch 757/2283
+Written 11355/34244 entries to perplexity result file
+Processing batch 758/2283
+Written 11370/34244 entries to perplexity result file
+Processing batch 759/2283
+Written 11385/34244 entries to perplexity result file
+Processing batch 760/2283
+Written 11400/34244 entries to perplexity result file
+Processing batch 761/2283
+Written 11415/34244 entries to perplexity result file
+Processing batch 762/2283
+Written 11430/34244 entries to perplexity result file
+Processing batch 763/2283
+Written 11445/34244 entries to perplexity result file
+Processing batch 764/2283
+Written 11460/34244 entries to perplexity result file
+Processing batch 765/2283
+Written 11475/34244 entries to perplexity result file
+Processing batch 766/2283
+Written 11490/34244 entries to perplexity result file
+Processing batch 767/2283
+Written 11505/34244 entries to perplexity result file
+Processing batch 768/2283
+Written 11520/34244 entries to perplexity result file
+Processing batch 769/2283
+Written 11535/34244 entries to perplexity result file
+Processing batch 770/2283
+Written 11550/34244 entries to perplexity result file
+Processing batch 771/2283
+Written 11565/34244 entries to perplexity result file
+Processing batch 772/2283
+Written 11580/34244 entries to perplexity result file
+Processing batch 773/2283
+Written 11595/34244 entries to perplexity result file
+Processing batch 774/2283
+Written 11610/34244 entries to perplexity result file
+Processing batch 775/2283
+Written 11625/34244 entries to perplexity result file
+Processing batch 776/2283
+Written 11640/34244 entries to perplexity result file
+Processing batch 777/2283
+Written 11655/34244 entries to perplexity result file
+Processing batch 778/2283
+Written 11670/34244 entries to perplexity result file
+Processing batch 779/2283
+Written 11685/34244 entries to perplexity result file
+Processing batch 780/2283
+Written 11700/34244 entries to perplexity result file
+Processing batch 781/2283
+Written 11715/34244 entries to perplexity result file
+Processing batch 782/2283
+Written 11730/34244 entries to perplexity result file
+Processing batch 783/2283
+Written 11745/34244 entries to perplexity result file
+Processing batch 784/2283
+Written 11760/34244 entries to perplexity result file
+Processing batch 785/2283
+Written 11775/34244 entries to perplexity result file
+Processing batch 786/2283
+Written 11790/34244 entries to perplexity result file
+Processing batch 787/2283
+Written 11805/34244 entries to perplexity result file
+Processing batch 788/2283
+Written 11820/34244 entries to perplexity result file
+Processing batch 789/2283
+Written 11835/34244 entries to perplexity result file
+Processing batch 790/2283
+Written 11850/34244 entries to perplexity result file
+Processing batch 791/2283
+Written 11865/34244 entries to perplexity result file
+Processing batch 792/2283
+Written 11880/34244 entries to perplexity result file
+Processing batch 793/2283
+Written 11895/34244 entries to perplexity result file
+Processing batch 794/2283
+Written 11910/34244 entries to perplexity result file
+Processing batch 795/2283
+Written 11925/34244 entries to perplexity result file
+Processing batch 796/2283
+Written 11940/34244 entries to perplexity result file
+Processing batch 797/2283
+Written 11955/34244 entries to perplexity result file
+Processing batch 798/2283
+Written 11970/34244 entries to perplexity result file
+Processing batch 799/2283
+Written 11985/34244 entries to perplexity result file
+Processing batch 800/2283
+Written 12000/34244 entries to perplexity result file
+Processing batch 801/2283
+Written 12015/34244 entries to perplexity result file
+Processing batch 802/2283
+Written 12030/34244 entries to perplexity result file
+Processing batch 803/2283
+Written 12045/34244 entries to perplexity result file
+Processing batch 804/2283
+Written 12060/34244 entries to perplexity result file
+Processing batch 805/2283
+Written 12075/34244 entries to perplexity result file
+Processing batch 806/2283
+Written 12090/34244 entries to perplexity result file
+Processing batch 807/2283
+Written 12105/34244 entries to perplexity result file
+Processing batch 808/2283
+Written 12120/34244 entries to perplexity result file
+Processing batch 809/2283
+Written 12135/34244 entries to perplexity result file
+Processing batch 810/2283
+Written 12150/34244 entries to perplexity result file
+Processing batch 811/2283
+Written 12165/34244 entries to perplexity result file
+Processing batch 812/2283
+Written 12180/34244 entries to perplexity result file
+Processing batch 813/2283
+Written 12195/34244 entries to perplexity result file
+Processing batch 814/2283
+Written 12210/34244 entries to perplexity result file
+Processing batch 815/2283
+Written 12225/34244 entries to perplexity result file
+Processing batch 816/2283
+Written 12240/34244 entries to perplexity result file
+Processing batch 817/2283
+Written 12255/34244 entries to perplexity result file
+Processing batch 818/2283
+Written 12270/34244 entries to perplexity result file
+Processing batch 819/2283
+Written 12285/34244 entries to perplexity result file
+Processing batch 820/2283
+Written 12300/34244 entries to perplexity result file
+Processing batch 821/2283
+Written 12315/34244 entries to perplexity result file
+Processing batch 822/2283
+Written 12330/34244 entries to perplexity result file
+Processing batch 823/2283
+Written 12345/34244 entries to perplexity result file
+Processing batch 824/2283
+Written 12360/34244 entries to perplexity result file
+Processing batch 825/2283
+Written 12375/34244 entries to perplexity result file
+Processing batch 826/2283
+Written 12390/34244 entries to perplexity result file
+Processing batch 827/2283
+Written 12405/34244 entries to perplexity result file
+Processing batch 828/2283
+Written 12420/34244 entries to perplexity result file
+Processing batch 829/2283
+Written 12435/34244 entries to perplexity result file
+Processing batch 830/2283
+Written 12450/34244 entries to perplexity result file
+Processing batch 831/2283
+Written 12465/34244 entries to perplexity result file
+Processing batch 832/2283
+Written 12480/34244 entries to perplexity result file
+Processing batch 833/2283
+Written 12495/34244 entries to perplexity result file
+Processing batch 834/2283
+Written 12510/34244 entries to perplexity result file
+Processing batch 835/2283
+Written 12525/34244 entries to perplexity result file
+Processing batch 836/2283
+Written 12540/34244 entries to perplexity result file
+Processing batch 837/2283
+Written 12555/34244 entries to perplexity result file
+Processing batch 838/2283
+Written 12570/34244 entries to perplexity result file
+Processing batch 839/2283
+Written 12585/34244 entries to perplexity result file
+Processing batch 840/2283
+Written 12600/34244 entries to perplexity result file
+Processing batch 841/2283
+Written 12615/34244 entries to perplexity result file
+Processing batch 842/2283
+Written 12630/34244 entries to perplexity result file
+Processing batch 843/2283
+Written 12645/34244 entries to perplexity result file
+Processing batch 844/2283
+Written 12660/34244 entries to perplexity result file
+Processing batch 845/2283
+Written 12675/34244 entries to perplexity result file
+Processing batch 846/2283
+Written 12690/34244 entries to perplexity result file
+Processing batch 847/2283
+Written 12705/34244 entries to perplexity result file
+Processing batch 848/2283
+Written 12720/34244 entries to perplexity result file
+Processing batch 849/2283
+Written 12735/34244 entries to perplexity result file
+Processing batch 850/2283
+Written 12750/34244 entries to perplexity result file
+Processing batch 851/2283
+Written 12765/34244 entries to perplexity result file
+Processing batch 852/2283
+Written 12780/34244 entries to perplexity result file
+Processing batch 853/2283
+Written 12795/34244 entries to perplexity result file
+Processing batch 854/2283
+Written 12810/34244 entries to perplexity result file
+Processing batch 855/2283
+Written 12825/34244 entries to perplexity result file
+Processing batch 856/2283
+Written 12840/34244 entries to perplexity result file
+Processing batch 857/2283
+Written 12855/34244 entries to perplexity result file
+Processing batch 858/2283
+Written 12870/34244 entries to perplexity result file
+Processing batch 859/2283
+Written 12885/34244 entries to perplexity result file
+Processing batch 860/2283
+Written 12900/34244 entries to perplexity result file
+Processing batch 861/2283
+Written 12915/34244 entries to perplexity result file
+Processing batch 862/2283
+Written 12930/34244 entries to perplexity result file
+Processing batch 863/2283
+Written 12945/34244 entries to perplexity result file
+Processing batch 864/2283
+Written 12960/34244 entries to perplexity result file
+Processing batch 865/2283
+Written 12975/34244 entries to perplexity result file
+Processing batch 866/2283
+Written 12990/34244 entries to perplexity result file
+Processing batch 867/2283
+Written 13005/34244 entries to perplexity result file
+Processing batch 868/2283
+Written 13020/34244 entries to perplexity result file
+Processing batch 869/2283
+Written 13035/34244 entries to perplexity result file
+Processing batch 870/2283
+Written 13050/34244 entries to perplexity result file
+Processing batch 871/2283
+Written 13065/34244 entries to perplexity result file
+Processing batch 872/2283
+Written 13080/34244 entries to perplexity result file
+Processing batch 873/2283
+Written 13095/34244 entries to perplexity result file
+Processing batch 874/2283
+Written 13110/34244 entries to perplexity result file
+Processing batch 875/2283
+Written 13125/34244 entries to perplexity result file
+Processing batch 876/2283
+Written 13140/34244 entries to perplexity result file
+Processing batch 877/2283
+Written 13155/34244 entries to perplexity result file
+Processing batch 878/2283
+Written 13170/34244 entries to perplexity result file
+Processing batch 879/2283
+Written 13185/34244 entries to perplexity result file
+Processing batch 880/2283
+Written 13200/34244 entries to perplexity result file
+Processing batch 881/2283
+Written 13215/34244 entries to perplexity result file
+Processing batch 882/2283
+Written 13230/34244 entries to perplexity result file
+Processing batch 883/2283
+Written 13245/34244 entries to perplexity result file
+Processing batch 884/2283
+Written 13260/34244 entries to perplexity result file
+Processing batch 885/2283
+Written 13275/34244 entries to perplexity result file
+Processing batch 886/2283
+Written 13290/34244 entries to perplexity result file
+Processing batch 887/2283
+Written 13305/34244 entries to perplexity result file
+Processing batch 888/2283
+Written 13320/34244 entries to perplexity result file
+Processing batch 889/2283
+Written 13335/34244 entries to perplexity result file
+Processing batch 890/2283
+Written 13350/34244 entries to perplexity result file
+Processing batch 891/2283
+Written 13365/34244 entries to perplexity result file
+Processing batch 892/2283
+Written 13380/34244 entries to perplexity result file
+Processing batch 893/2283
+Written 13395/34244 entries to perplexity result file
+Processing batch 894/2283
+Written 13410/34244 entries to perplexity result file
+Processing batch 895/2283
+Written 13425/34244 entries to perplexity result file
+Processing batch 896/2283
+Written 13440/34244 entries to perplexity result file
+Processing batch 897/2283
+Written 13455/34244 entries to perplexity result file
+Processing batch 898/2283
+Written 13470/34244 entries to perplexity result file
+Processing batch 899/2283
+Written 13485/34244 entries to perplexity result file
+Processing batch 900/2283
+Written 13500/34244 entries to perplexity result file
+Processing batch 901/2283
+Written 13515/34244 entries to perplexity result file
+Processing batch 902/2283
+Written 13530/34244 entries to perplexity result file
+Processing batch 903/2283
+Written 13545/34244 entries to perplexity result file
+Processing batch 904/2283
+Written 13560/34244 entries to perplexity result file
+Processing batch 905/2283
+Written 13575/34244 entries to perplexity result file
+Processing batch 906/2283
+Written 13590/34244 entries to perplexity result file
+Processing batch 907/2283
+Written 13605/34244 entries to perplexity result file
+Processing batch 908/2283
+Written 13620/34244 entries to perplexity result file
+Processing batch 909/2283
+Written 13635/34244 entries to perplexity result file
+Processing batch 910/2283
+Written 13650/34244 entries to perplexity result file
+Processing batch 911/2283
+Written 13665/34244 entries to perplexity result file
+Processing batch 912/2283
+Written 13680/34244 entries to perplexity result file
+Processing batch 913/2283
+Written 13695/34244 entries to perplexity result file
+Processing batch 914/2283
+Written 13710/34244 entries to perplexity result file
+Processing batch 915/2283
+Written 13725/34244 entries to perplexity result file
+Processing batch 916/2283
+Written 13740/34244 entries to perplexity result file
+Processing batch 917/2283
+Written 13755/34244 entries to perplexity result file
+Processing batch 918/2283
+Written 13770/34244 entries to perplexity result file
+Processing batch 919/2283
+Written 13785/34244 entries to perplexity result file
+Processing batch 920/2283
+Written 13800/34244 entries to perplexity result file
+Processing batch 921/2283
+Written 13815/34244 entries to perplexity result file
+Processing batch 922/2283
+Written 13830/34244 entries to perplexity result file
+Processing batch 923/2283
+Written 13845/34244 entries to perplexity result file
+Processing batch 924/2283
+Written 13860/34244 entries to perplexity result file
+Processing batch 925/2283
+Written 13875/34244 entries to perplexity result file
+Processing batch 926/2283
+Written 13890/34244 entries to perplexity result file
+Processing batch 927/2283
+Written 13905/34244 entries to perplexity result file
+Processing batch 928/2283
+Written 13920/34244 entries to perplexity result file
+Processing batch 929/2283
+Written 13935/34244 entries to perplexity result file
+Processing batch 930/2283
+Written 13950/34244 entries to perplexity result file
+Processing batch 931/2283
+Written 13965/34244 entries to perplexity result file
+Processing batch 932/2283
+Written 13980/34244 entries to perplexity result file
+Processing batch 933/2283
+Written 13995/34244 entries to perplexity result file
+Processing batch 934/2283
+Written 14010/34244 entries to perplexity result file
+Processing batch 935/2283
+Written 14025/34244 entries to perplexity result file
+Processing batch 936/2283
+Written 14040/34244 entries to perplexity result file
+Processing batch 937/2283
+Written 14055/34244 entries to perplexity result file
+Processing batch 938/2283
+Written 14070/34244 entries to perplexity result file
+Processing batch 939/2283
+Written 14085/34244 entries to perplexity result file
+Processing batch 940/2283
+Written 14100/34244 entries to perplexity result file
+Processing batch 941/2283
+Written 14115/34244 entries to perplexity result file
+Processing batch 942/2283
+Written 14130/34244 entries to perplexity result file
+Processing batch 943/2283
+Written 14145/34244 entries to perplexity result file
+Processing batch 944/2283
+Written 14160/34244 entries to perplexity result file
+Processing batch 945/2283
+Written 14175/34244 entries to perplexity result file
+Processing batch 946/2283
+Written 14190/34244 entries to perplexity result file
+Processing batch 947/2283
+Written 14205/34244 entries to perplexity result file
+Processing batch 948/2283
+Written 14220/34244 entries to perplexity result file
+Processing batch 949/2283
+Written 14235/34244 entries to perplexity result file
+Processing batch 950/2283
+Written 14250/34244 entries to perplexity result file
+Processing batch 951/2283
+Written 14265/34244 entries to perplexity result file
+Processing batch 952/2283
+Written 14280/34244 entries to perplexity result file
+Processing batch 953/2283
+Written 14295/34244 entries to perplexity result file
+Processing batch 954/2283
+Written 14310/34244 entries to perplexity result file
+Processing batch 955/2283
+Written 14325/34244 entries to perplexity result file
+Processing batch 956/2283
+Written 14340/34244 entries to perplexity result file
+Processing batch 957/2283
+Written 14355/34244 entries to perplexity result file
+Processing batch 958/2283
+Written 14370/34244 entries to perplexity result file
+Processing batch 959/2283
+Written 14385/34244 entries to perplexity result file
+Processing batch 960/2283
+Written 14400/34244 entries to perplexity result file
+Processing batch 961/2283
+Written 14415/34244 entries to perplexity result file
+Processing batch 962/2283
+Written 14430/34244 entries to perplexity result file
+Processing batch 963/2283
+Written 14445/34244 entries to perplexity result file
+Processing batch 964/2283
+Written 14460/34244 entries to perplexity result file
+Processing batch 965/2283
+Written 14475/34244 entries to perplexity result file
+Processing batch 966/2283
+Written 14490/34244 entries to perplexity result file
+Processing batch 967/2283
+Written 14505/34244 entries to perplexity result file
+Processing batch 968/2283
+Written 14520/34244 entries to perplexity result file
+Processing batch 969/2283
+Written 14535/34244 entries to perplexity result file
+Processing batch 970/2283
+Written 14550/34244 entries to perplexity result file
+Processing batch 971/2283
+Written 14565/34244 entries to perplexity result file
+Processing batch 972/2283
+Written 14580/34244 entries to perplexity result file
+Processing batch 973/2283
+Written 14595/34244 entries to perplexity result file
+Processing batch 974/2283
+Written 14610/34244 entries to perplexity result file
+Processing batch 975/2283
+Written 14625/34244 entries to perplexity result file
+Processing batch 976/2283
+Written 14640/34244 entries to perplexity result file
+Processing batch 977/2283
+Written 14655/34244 entries to perplexity result file
+Processing batch 978/2283
+Written 14670/34244 entries to perplexity result file
+Processing batch 979/2283
+Written 14685/34244 entries to perplexity result file
+Processing batch 980/2283
+Written 14700/34244 entries to perplexity result file
+Processing batch 981/2283
+Written 14715/34244 entries to perplexity result file
+Processing batch 982/2283
+Written 14730/34244 entries to perplexity result file
+Processing batch 983/2283
+Written 14745/34244 entries to perplexity result file
+Processing batch 984/2283
+Written 14760/34244 entries to perplexity result file
+Processing batch 985/2283
+Written 14775/34244 entries to perplexity result file
+Processing batch 986/2283
+Written 14790/34244 entries to perplexity result file
+Processing batch 987/2283
+Written 14805/34244 entries to perplexity result file
+Processing batch 988/2283
+Written 14820/34244 entries to perplexity result file
+Processing batch 989/2283
+Written 14835/34244 entries to perplexity result file
+Processing batch 990/2283
+Written 14850/34244 entries to perplexity result file
+Processing batch 991/2283
+Written 14865/34244 entries to perplexity result file
+Processing batch 992/2283
+Written 14880/34244 entries to perplexity result file
+Processing batch 993/2283
+Written 14895/34244 entries to perplexity result file
+Processing batch 994/2283
+Written 14910/34244 entries to perplexity result file
+Processing batch 995/2283
+Written 14925/34244 entries to perplexity result file
+Processing batch 996/2283
+Written 14940/34244 entries to perplexity result file
+Processing batch 997/2283
+Written 14955/34244 entries to perplexity result file
+Processing batch 998/2283
+Written 14970/34244 entries to perplexity result file
+Processing batch 999/2283
+Written 14985/34244 entries to perplexity result file
+Processing batch 1000/2283
+Written 15000/34244 entries to perplexity result file
+Processing batch 1001/2283
+Written 15015/34244 entries to perplexity result file
+Processing batch 1002/2283
+Written 15030/34244 entries to perplexity result file
+Processing batch 1003/2283
+Written 15045/34244 entries to perplexity result file
+Processing batch 1004/2283
+Written 15060/34244 entries to perplexity result file
+Processing batch 1005/2283
+Written 15075/34244 entries to perplexity result file
+Processing batch 1006/2283
+Written 15090/34244 entries to perplexity result file
+Processing batch 1007/2283
+Written 15105/34244 entries to perplexity result file
+Processing batch 1008/2283
+Written 15120/34244 entries to perplexity result file
+Processing batch 1009/2283
+Written 15135/34244 entries to perplexity result file
+Processing batch 1010/2283
+Written 15150/34244 entries to perplexity result file
+Processing batch 1011/2283
+Written 15165/34244 entries to perplexity result file
+Processing batch 1012/2283
+Written 15180/34244 entries to perplexity result file
+Processing batch 1013/2283
+Written 15195/34244 entries to perplexity result file
+Processing batch 1014/2283
+Written 15210/34244 entries to perplexity result file
+Processing batch 1015/2283
+Written 15225/34244 entries to perplexity result file
+Processing batch 1016/2283
+Written 15240/34244 entries to perplexity result file
+Processing batch 1017/2283
+Written 15255/34244 entries to perplexity result file
+Processing batch 1018/2283
+Written 15270/34244 entries to perplexity result file
+Processing batch 1019/2283
+Written 15285/34244 entries to perplexity result file
+Processing batch 1020/2283
+Written 15300/34244 entries to perplexity result file
+Processing batch 1021/2283
+Written 15315/34244 entries to perplexity result file
+Processing batch 1022/2283
+Written 15330/34244 entries to perplexity result file
+Processing batch 1023/2283
+Written 15345/34244 entries to perplexity result file
+Processing batch 1024/2283
+Written 15360/34244 entries to perplexity result file
+Processing batch 1025/2283
+Written 15375/34244 entries to perplexity result file
+Processing batch 1026/2283
+Written 15390/34244 entries to perplexity result file
+Processing batch 1027/2283
+Written 15405/34244 entries to perplexity result file
+Processing batch 1028/2283
+Written 15420/34244 entries to perplexity result file
+Processing batch 1029/2283
+Written 15435/34244 entries to perplexity result file
+Processing batch 1030/2283
+Written 15450/34244 entries to perplexity result file
+Processing batch 1031/2283
+Written 15465/34244 entries to perplexity result file
+Processing batch 1032/2283
+Written 15480/34244 entries to perplexity result file
+Processing batch 1033/2283
+Written 15495/34244 entries to perplexity result file
+Processing batch 1034/2283
+Written 15510/34244 entries to perplexity result file
+Processing batch 1035/2283
+Written 15525/34244 entries to perplexity result file
+Processing batch 1036/2283
+Written 15540/34244 entries to perplexity result file
+Processing batch 1037/2283
+Written 15555/34244 entries to perplexity result file
+Processing batch 1038/2283
+Written 15570/34244 entries to perplexity result file
+Processing batch 1039/2283
+Written 15585/34244 entries to perplexity result file
+Processing batch 1040/2283
+Written 15600/34244 entries to perplexity result file
+Processing batch 1041/2283
+Written 15615/34244 entries to perplexity result file
+Processing batch 1042/2283
+Written 15630/34244 entries to perplexity result file
+Processing batch 1043/2283
+Written 15645/34244 entries to perplexity result file
+Processing batch 1044/2283
+Written 15660/34244 entries to perplexity result file
+Processing batch 1045/2283
+Written 15675/34244 entries to perplexity result file
+Processing batch 1046/2283
+Written 15690/34244 entries to perplexity result file
+Processing batch 1047/2283
+Written 15705/34244 entries to perplexity result file
+Processing batch 1048/2283
+Written 15720/34244 entries to perplexity result file
+Processing batch 1049/2283
+Written 15735/34244 entries to perplexity result file
+Processing batch 1050/2283
+Written 15750/34244 entries to perplexity result file
+Processing batch 1051/2283
+Written 15765/34244 entries to perplexity result file
+Processing batch 1052/2283
+Written 15780/34244 entries to perplexity result file
+Processing batch 1053/2283
+Written 15795/34244 entries to perplexity result file
+Processing batch 1054/2283
+Written 15810/34244 entries to perplexity result file
+Processing batch 1055/2283
+Written 15825/34244 entries to perplexity result file
+Processing batch 1056/2283
+Written 15840/34244 entries to perplexity result file
+Processing batch 1057/2283
+Written 15855/34244 entries to perplexity result file
+Processing batch 1058/2283
+Written 15870/34244 entries to perplexity result file
+Processing batch 1059/2283
+Written 15885/34244 entries to perplexity result file
+Processing batch 1060/2283
+Written 15900/34244 entries to perplexity result file
+Processing batch 1061/2283
+Written 15915/34244 entries to perplexity result file
+Processing batch 1062/2283
+Written 15930/34244 entries to perplexity result file
+Processing batch 1063/2283
+Written 15945/34244 entries to perplexity result file
+Processing batch 1064/2283
+Written 15960/34244 entries to perplexity result file
+Processing batch 1065/2283
+Written 15975/34244 entries to perplexity result file
+Processing batch 1066/2283
+Written 15990/34244 entries to perplexity result file
+Processing batch 1067/2283
+Written 16005/34244 entries to perplexity result file
+Processing batch 1068/2283
+Written 16020/34244 entries to perplexity result file
+Processing batch 1069/2283
+Written 16035/34244 entries to perplexity result file
+Processing batch 1070/2283
+Written 16050/34244 entries to perplexity result file
+Processing batch 1071/2283
+Written 16065/34244 entries to perplexity result file
+Processing batch 1072/2283
+Written 16080/34244 entries to perplexity result file
+Processing batch 1073/2283
+Written 16095/34244 entries to perplexity result file
+Processing batch 1074/2283
+Written 16110/34244 entries to perplexity result file
+Processing batch 1075/2283
+Written 16125/34244 entries to perplexity result file
+Processing batch 1076/2283
+Written 16140/34244 entries to perplexity result file
+Processing batch 1077/2283
+Written 16155/34244 entries to perplexity result file
+Processing batch 1078/2283
+Written 16170/34244 entries to perplexity result file
+Processing batch 1079/2283
+Written 16185/34244 entries to perplexity result file
+Processing batch 1080/2283
+Written 16200/34244 entries to perplexity result file
+Processing batch 1081/2283
+Written 16215/34244 entries to perplexity result file
+Processing batch 1082/2283
+Written 16230/34244 entries to perplexity result file
+Processing batch 1083/2283
+Written 16245/34244 entries to perplexity result file
+Processing batch 1084/2283
+Written 16260/34244 entries to perplexity result file
+Processing batch 1085/2283
+Written 16275/34244 entries to perplexity result file
+Processing batch 1086/2283
+Written 16290/34244 entries to perplexity result file
+Processing batch 1087/2283
+Written 16305/34244 entries to perplexity result file
+Processing batch 1088/2283
+Written 16320/34244 entries to perplexity result file
+Processing batch 1089/2283
+Written 16335/34244 entries to perplexity result file
+Processing batch 1090/2283
+Written 16350/34244 entries to perplexity result file
+Processing batch 1091/2283
+Written 16365/34244 entries to perplexity result file
+Processing batch 1092/2283
+Written 16380/34244 entries to perplexity result file
+Processing batch 1093/2283
+Written 16395/34244 entries to perplexity result file
+Processing batch 1094/2283
+Written 16410/34244 entries to perplexity result file
+Processing batch 1095/2283
+Written 16425/34244 entries to perplexity result file
+Processing batch 1096/2283
+Written 16440/34244 entries to perplexity result file
+Processing batch 1097/2283
+Written 16455/34244 entries to perplexity result file
+Processing batch 1098/2283
+Written 16470/34244 entries to perplexity result file
+Processing batch 1099/2283
+Written 16485/34244 entries to perplexity result file
+Processing batch 1100/2283
+Written 16500/34244 entries to perplexity result file
+Processing batch 1101/2283
+Written 16515/34244 entries to perplexity result file
+Processing batch 1102/2283
+Written 16530/34244 entries to perplexity result file
+Processing batch 1103/2283
+Written 16545/34244 entries to perplexity result file
+Processing batch 1104/2283
+Written 16560/34244 entries to perplexity result file
+Processing batch 1105/2283
+Written 16575/34244 entries to perplexity result file
+Processing batch 1106/2283
+Written 16590/34244 entries to perplexity result file
+Processing batch 1107/2283
+Written 16605/34244 entries to perplexity result file
+Processing batch 1108/2283
+Written 16620/34244 entries to perplexity result file
+Processing batch 1109/2283
+Written 16635/34244 entries to perplexity result file
+Processing batch 1110/2283
+Written 16650/34244 entries to perplexity result file
+Processing batch 1111/2283
+Written 16665/34244 entries to perplexity result file
+Processing batch 1112/2283
+Written 16680/34244 entries to perplexity result file
+Processing batch 1113/2283
+Written 16695/34244 entries to perplexity result file
+Processing batch 1114/2283
+Written 16710/34244 entries to perplexity result file
+Processing batch 1115/2283
+Written 16725/34244 entries to perplexity result file
+Processing batch 1116/2283
+Written 16740/34244 entries to perplexity result file
+Processing batch 1117/2283
+Written 16755/34244 entries to perplexity result file
+Processing batch 1118/2283
+Written 16770/34244 entries to perplexity result file
+Processing batch 1119/2283
+Written 16785/34244 entries to perplexity result file
+Processing batch 1120/2283
+Written 16800/34244 entries to perplexity result file
+Processing batch 1121/2283
+Written 16815/34244 entries to perplexity result file
+Processing batch 1122/2283
+Written 16830/34244 entries to perplexity result file
+Processing batch 1123/2283
+Written 16845/34244 entries to perplexity result file
+Processing batch 1124/2283
+Written 16860/34244 entries to perplexity result file
+Processing batch 1125/2283
+Written 16875/34244 entries to perplexity result file
+Processing batch 1126/2283
+Written 16890/34244 entries to perplexity result file
+Processing batch 1127/2283
+Written 16905/34244 entries to perplexity result file
+Processing batch 1128/2283
+Written 16920/34244 entries to perplexity result file
+Processing batch 1129/2283
+Written 16935/34244 entries to perplexity result file
+Processing batch 1130/2283
+Written 16950/34244 entries to perplexity result file
+Processing batch 1131/2283
+Written 16965/34244 entries to perplexity result file
+Processing batch 1132/2283
+Written 16980/34244 entries to perplexity result file
+Processing batch 1133/2283
+Written 16995/34244 entries to perplexity result file
+Processing batch 1134/2283
+Written 17010/34244 entries to perplexity result file
+Processing batch 1135/2283
+Written 17025/34244 entries to perplexity result file
+Processing batch 1136/2283
+Written 17040/34244 entries to perplexity result file
+Processing batch 1137/2283
+Written 17055/34244 entries to perplexity result file
+Processing batch 1138/2283
+Written 17070/34244 entries to perplexity result file
+Processing batch 1139/2283
+Written 17085/34244 entries to perplexity result file
+Processing batch 1140/2283
+Written 17100/34244 entries to perplexity result file
+Processing batch 1141/2283
+Written 17115/34244 entries to perplexity result file
+Processing batch 1142/2283
+Written 17130/34244 entries to perplexity result file
+Processing batch 1143/2283
+Written 17145/34244 entries to perplexity result file
+Processing batch 1144/2283
+Written 17160/34244 entries to perplexity result file
+Processing batch 1145/2283
+Written 17175/34244 entries to perplexity result file
+Processing batch 1146/2283
+Written 17190/34244 entries to perplexity result file
+Processing batch 1147/2283
+Written 17205/34244 entries to perplexity result file
+Processing batch 1148/2283
+Written 17220/34244 entries to perplexity result file
+Processing batch 1149/2283
+Written 17235/34244 entries to perplexity result file
+Processing batch 1150/2283
+Written 17250/34244 entries to perplexity result file
+Processing batch 1151/2283
+Written 17265/34244 entries to perplexity result file
+Processing batch 1152/2283
+Written 17280/34244 entries to perplexity result file
+Processing batch 1153/2283
+Written 17295/34244 entries to perplexity result file
+Processing batch 1154/2283
+Written 17310/34244 entries to perplexity result file
+Processing batch 1155/2283
+Written 17325/34244 entries to perplexity result file
+Processing batch 1156/2283
+Written 17340/34244 entries to perplexity result file
+Processing batch 1157/2283
+Written 17355/34244 entries to perplexity result file
+Processing batch 1158/2283
+Written 17370/34244 entries to perplexity result file
+Processing batch 1159/2283
+Written 17385/34244 entries to perplexity result file
+Processing batch 1160/2283
+Written 17400/34244 entries to perplexity result file
+Processing batch 1161/2283
+Written 17415/34244 entries to perplexity result file
+Processing batch 1162/2283
+Written 17430/34244 entries to perplexity result file
+Processing batch 1163/2283
+Written 17445/34244 entries to perplexity result file
+Processing batch 1164/2283
+Written 17460/34244 entries to perplexity result file
+Processing batch 1165/2283
+Written 17475/34244 entries to perplexity result file
+Processing batch 1166/2283
+Written 17490/34244 entries to perplexity result file
+Processing batch 1167/2283
+Written 17505/34244 entries to perplexity result file
+Processing batch 1168/2283
+Written 17520/34244 entries to perplexity result file
+Processing batch 1169/2283
+Written 17535/34244 entries to perplexity result file
+Processing batch 1170/2283
+Written 17550/34244 entries to perplexity result file
+Processing batch 1171/2283
+Written 17565/34244 entries to perplexity result file
+Processing batch 1172/2283
+Written 17580/34244 entries to perplexity result file
+Processing batch 1173/2283
+Written 17595/34244 entries to perplexity result file
+Processing batch 1174/2283
+Written 17610/34244 entries to perplexity result file
+Processing batch 1175/2283
+Written 17625/34244 entries to perplexity result file
+Processing batch 1176/2283
+Written 17640/34244 entries to perplexity result file
+Processing batch 1177/2283
+Written 17655/34244 entries to perplexity result file
+Processing batch 1178/2283
+Written 17670/34244 entries to perplexity result file
+Processing batch 1179/2283
+Written 17685/34244 entries to perplexity result file
+Processing batch 1180/2283
+Written 17700/34244 entries to perplexity result file
+Processing batch 1181/2283
+Written 17715/34244 entries to perplexity result file
+Processing batch 1182/2283
+Written 17730/34244 entries to perplexity result file
+Processing batch 1183/2283
+Written 17745/34244 entries to perplexity result file
+Processing batch 1184/2283
+Written 17760/34244 entries to perplexity result file
+Processing batch 1185/2283
+Written 17775/34244 entries to perplexity result file
+Processing batch 1186/2283
+Written 17790/34244 entries to perplexity result file
+Processing batch 1187/2283
+Written 17805/34244 entries to perplexity result file
+Processing batch 1188/2283
+Written 17820/34244 entries to perplexity result file
+Processing batch 1189/2283
+Written 17835/34244 entries to perplexity result file
+Processing batch 1190/2283
+Written 17850/34244 entries to perplexity result file
+Processing batch 1191/2283
+Written 17865/34244 entries to perplexity result file
+Processing batch 1192/2283
+Written 17880/34244 entries to perplexity result file
+Processing batch 1193/2283
+Written 17895/34244 entries to perplexity result file
+Processing batch 1194/2283
+Written 17910/34244 entries to perplexity result file
+Processing batch 1195/2283
+Written 17925/34244 entries to perplexity result file
+Processing batch 1196/2283
+Written 17940/34244 entries to perplexity result file
+Processing batch 1197/2283
+Written 17955/34244 entries to perplexity result file
+Processing batch 1198/2283
+Written 17970/34244 entries to perplexity result file
+Processing batch 1199/2283
+Written 17985/34244 entries to perplexity result file
+Processing batch 1200/2283
+Written 18000/34244 entries to perplexity result file
+Processing batch 1201/2283
+Written 18015/34244 entries to perplexity result file
+Processing batch 1202/2283
+Written 18030/34244 entries to perplexity result file
+Processing batch 1203/2283
+Written 18045/34244 entries to perplexity result file
+Processing batch 1204/2283
+Written 18060/34244 entries to perplexity result file
+Processing batch 1205/2283
+Written 18075/34244 entries to perplexity result file
+Processing batch 1206/2283
+Written 18090/34244 entries to perplexity result file
+Processing batch 1207/2283
+Written 18105/34244 entries to perplexity result file
+Processing batch 1208/2283
+Written 18120/34244 entries to perplexity result file
+Processing batch 1209/2283
+Written 18135/34244 entries to perplexity result file
+Processing batch 1210/2283
+Written 18150/34244 entries to perplexity result file
+Processing batch 1211/2283
+Written 18165/34244 entries to perplexity result file
+Processing batch 1212/2283
+Written 18180/34244 entries to perplexity result file
+Processing batch 1213/2283
+Written 18195/34244 entries to perplexity result file
+Processing batch 1214/2283
+Written 18210/34244 entries to perplexity result file
+Processing batch 1215/2283
+Written 18225/34244 entries to perplexity result file
+Processing batch 1216/2283
+Written 18240/34244 entries to perplexity result file
+Processing batch 1217/2283
+Written 18255/34244 entries to perplexity result file
+Processing batch 1218/2283
+Written 18270/34244 entries to perplexity result file
+Processing batch 1219/2283
+Written 18285/34244 entries to perplexity result file
+Processing batch 1220/2283
+Written 18300/34244 entries to perplexity result file
+Processing batch 1221/2283
+Written 18315/34244 entries to perplexity result file
+Processing batch 1222/2283
+Written 18330/34244 entries to perplexity result file
+Processing batch 1223/2283
+Written 18345/34244 entries to perplexity result file
+Processing batch 1224/2283
+Written 18360/34244 entries to perplexity result file
+Processing batch 1225/2283
+Written 18375/34244 entries to perplexity result file
+Processing batch 1226/2283
+Written 18390/34244 entries to perplexity result file
+Processing batch 1227/2283
+Written 18405/34244 entries to perplexity result file
+Processing batch 1228/2283
+Written 18420/34244 entries to perplexity result file
+Processing batch 1229/2283
+Written 18435/34244 entries to perplexity result file
+Processing batch 1230/2283
+Written 18450/34244 entries to perplexity result file
+Processing batch 1231/2283
+Written 18465/34244 entries to perplexity result file
+Processing batch 1232/2283
+Written 18480/34244 entries to perplexity result file
+Processing batch 1233/2283
+Written 18495/34244 entries to perplexity result file
+Processing batch 1234/2283
+Written 18510/34244 entries to perplexity result file
+Processing batch 1235/2283
+Written 18525/34244 entries to perplexity result file
+Processing batch 1236/2283
+Written 18540/34244 entries to perplexity result file
+Processing batch 1237/2283
+Written 18555/34244 entries to perplexity result file
+Processing batch 1238/2283
+Written 18570/34244 entries to perplexity result file
+Processing batch 1239/2283
+Written 18585/34244 entries to perplexity result file
+Processing batch 1240/2283
+Written 18600/34244 entries to perplexity result file
+Processing batch 1241/2283
+Written 18615/34244 entries to perplexity result file
+Processing batch 1242/2283
+Written 18630/34244 entries to perplexity result file
+Processing batch 1243/2283
+Written 18645/34244 entries to perplexity result file
+Processing batch 1244/2283
+Written 18660/34244 entries to perplexity result file
+Processing batch 1245/2283
+Written 18675/34244 entries to perplexity result file
+Processing batch 1246/2283
+Written 18690/34244 entries to perplexity result file
+Processing batch 1247/2283
+Written 18705/34244 entries to perplexity result file
+Processing batch 1248/2283
+Written 18720/34244 entries to perplexity result file
+Processing batch 1249/2283
+Written 18735/34244 entries to perplexity result file
+Processing batch 1250/2283
+Written 18750/34244 entries to perplexity result file
+Processing batch 1251/2283
+Written 18765/34244 entries to perplexity result file
+Processing batch 1252/2283
+Written 18780/34244 entries to perplexity result file
+Processing batch 1253/2283
+Written 18795/34244 entries to perplexity result file
+Processing batch 1254/2283
+Written 18810/34244 entries to perplexity result file
+Processing batch 1255/2283
+Written 18825/34244 entries to perplexity result file
+Processing batch 1256/2283
+Written 18840/34244 entries to perplexity result file
+Processing batch 1257/2283
+Written 18855/34244 entries to perplexity result file
+Processing batch 1258/2283
+Written 18870/34244 entries to perplexity result file
+Processing batch 1259/2283
+Written 18885/34244 entries to perplexity result file
+Processing batch 1260/2283
+Written 18900/34244 entries to perplexity result file
+Processing batch 1261/2283
+Written 18915/34244 entries to perplexity result file
+Processing batch 1262/2283
+Written 18930/34244 entries to perplexity result file
+Processing batch 1263/2283
+Written 18945/34244 entries to perplexity result file
+Processing batch 1264/2283
+Written 18960/34244 entries to perplexity result file
+Processing batch 1265/2283
+Written 18975/34244 entries to perplexity result file
+Processing batch 1266/2283
+Written 18990/34244 entries to perplexity result file
+Processing batch 1267/2283
+Written 19005/34244 entries to perplexity result file
+Processing batch 1268/2283
+Written 19020/34244 entries to perplexity result file
+Processing batch 1269/2283
+Written 19035/34244 entries to perplexity result file
+Processing batch 1270/2283
+Written 19050/34244 entries to perplexity result file
+Processing batch 1271/2283
+Written 19065/34244 entries to perplexity result file
+Processing batch 1272/2283
+Written 19080/34244 entries to perplexity result file
+Processing batch 1273/2283
+Written 19095/34244 entries to perplexity result file
+Processing batch 1274/2283
+Written 19110/34244 entries to perplexity result file
+Processing batch 1275/2283
+Written 19125/34244 entries to perplexity result file
+Processing batch 1276/2283
+Written 19140/34244 entries to perplexity result file
+Processing batch 1277/2283
+Written 19155/34244 entries to perplexity result file
+Processing batch 1278/2283
+Written 19170/34244 entries to perplexity result file
+Processing batch 1279/2283
+Written 19185/34244 entries to perplexity result file
+Processing batch 1280/2283
+Written 19200/34244 entries to perplexity result file
+Processing batch 1281/2283
+Written 19215/34244 entries to perplexity result file
+Processing batch 1282/2283
+Written 19230/34244 entries to perplexity result file
+Processing batch 1283/2283
+Written 19245/34244 entries to perplexity result file
+Processing batch 1284/2283
+Written 19260/34244 entries to perplexity result file
+Processing batch 1285/2283
+Written 19275/34244 entries to perplexity result file
+Processing batch 1286/2283
+Written 19290/34244 entries to perplexity result file
+Processing batch 1287/2283
+Written 19305/34244 entries to perplexity result file
+Processing batch 1288/2283
+Written 19320/34244 entries to perplexity result file
+Processing batch 1289/2283
+Written 19335/34244 entries to perplexity result file
+Processing batch 1290/2283
+Written 19350/34244 entries to perplexity result file
+Processing batch 1291/2283
+Written 19365/34244 entries to perplexity result file
+Processing batch 1292/2283
+Written 19380/34244 entries to perplexity result file
+Processing batch 1293/2283
+Written 19395/34244 entries to perplexity result file
+Processing batch 1294/2283
+Written 19410/34244 entries to perplexity result file
+Processing batch 1295/2283
+Written 19425/34244 entries to perplexity result file
+Processing batch 1296/2283
+Written 19440/34244 entries to perplexity result file
+Processing batch 1297/2283
+Written 19455/34244 entries to perplexity result file
+Processing batch 1298/2283
+Written 19470/34244 entries to perplexity result file
+Processing batch 1299/2283
+Written 19485/34244 entries to perplexity result file
+Processing batch 1300/2283
+Written 19500/34244 entries to perplexity result file
+Processing batch 1301/2283
+Written 19515/34244 entries to perplexity result file
+Processing batch 1302/2283
+Written 19530/34244 entries to perplexity result file
+Processing batch 1303/2283
+Written 19545/34244 entries to perplexity result file
+Processing batch 1304/2283
+Written 19560/34244 entries to perplexity result file
+Processing batch 1305/2283
+Written 19575/34244 entries to perplexity result file
+Processing batch 1306/2283
+Written 19590/34244 entries to perplexity result file
+Processing batch 1307/2283
+Written 19605/34244 entries to perplexity result file
+Processing batch 1308/2283
+Written 19620/34244 entries to perplexity result file
+Processing batch 1309/2283
+Written 19635/34244 entries to perplexity result file
+Processing batch 1310/2283
+Written 19650/34244 entries to perplexity result file
+Processing batch 1311/2283
+Written 19665/34244 entries to perplexity result file
+Processing batch 1312/2283
+Written 19680/34244 entries to perplexity result file
+Processing batch 1313/2283
+Written 19695/34244 entries to perplexity result file
+Processing batch 1314/2283
+Written 19710/34244 entries to perplexity result file
+Processing batch 1315/2283
+Written 19725/34244 entries to perplexity result file
+Processing batch 1316/2283
+Written 19740/34244 entries to perplexity result file
+Processing batch 1317/2283
+Written 19755/34244 entries to perplexity result file
+Processing batch 1318/2283
+Written 19770/34244 entries to perplexity result file
+Processing batch 1319/2283
+Written 19785/34244 entries to perplexity result file
+Processing batch 1320/2283
+Written 19800/34244 entries to perplexity result file
+Processing batch 1321/2283
+Written 19815/34244 entries to perplexity result file
+Processing batch 1322/2283
+Written 19830/34244 entries to perplexity result file
+Processing batch 1323/2283
+Written 19845/34244 entries to perplexity result file
+Processing batch 1324/2283
+Written 19860/34244 entries to perplexity result file
+Processing batch 1325/2283
+Written 19875/34244 entries to perplexity result file
+Processing batch 1326/2283
+Written 19890/34244 entries to perplexity result file
+Processing batch 1327/2283
+Written 19905/34244 entries to perplexity result file
+Processing batch 1328/2283
+Written 19920/34244 entries to perplexity result file
+Processing batch 1329/2283
+Written 19935/34244 entries to perplexity result file
+Processing batch 1330/2283
+Written 19950/34244 entries to perplexity result file
+Processing batch 1331/2283
+Written 19965/34244 entries to perplexity result file
+Processing batch 1332/2283
+Written 19980/34244 entries to perplexity result file
+Processing batch 1333/2283
+Written 19995/34244 entries to perplexity result file
+Processing batch 1334/2283
+Written 20010/34244 entries to perplexity result file
+Processing batch 1335/2283
+Written 20025/34244 entries to perplexity result file
+Processing batch 1336/2283
+Written 20040/34244 entries to perplexity result file
+Processing batch 1337/2283
+Written 20055/34244 entries to perplexity result file
+Processing batch 1338/2283
+Written 20070/34244 entries to perplexity result file
+Processing batch 1339/2283
+Written 20085/34244 entries to perplexity result file
+Processing batch 1340/2283
+Written 20100/34244 entries to perplexity result file
+Processing batch 1341/2283
+Written 20115/34244 entries to perplexity result file
+Processing batch 1342/2283
+Written 20130/34244 entries to perplexity result file
+Processing batch 1343/2283
+Written 20145/34244 entries to perplexity result file
+Processing batch 1344/2283
+Written 20160/34244 entries to perplexity result file
+Processing batch 1345/2283
+Written 20175/34244 entries to perplexity result file
+Processing batch 1346/2283
+Written 20190/34244 entries to perplexity result file
+Processing batch 1347/2283
+Written 20205/34244 entries to perplexity result file
+Processing batch 1348/2283
+Written 20220/34244 entries to perplexity result file
+Processing batch 1349/2283
+Written 20235/34244 entries to perplexity result file
+Processing batch 1350/2283
+Written 20250/34244 entries to perplexity result file
+Processing batch 1351/2283
+Written 20265/34244 entries to perplexity result file
+Processing batch 1352/2283
+Written 20280/34244 entries to perplexity result file
+Processing batch 1353/2283
+Written 20295/34244 entries to perplexity result file
+Processing batch 1354/2283
+Written 20310/34244 entries to perplexity result file
+Processing batch 1355/2283
+Written 20325/34244 entries to perplexity result file
+Processing batch 1356/2283
+Written 20340/34244 entries to perplexity result file
+Processing batch 1357/2283
+Written 20355/34244 entries to perplexity result file
+Processing batch 1358/2283
+Written 20370/34244 entries to perplexity result file
+Processing batch 1359/2283
+Written 20385/34244 entries to perplexity result file
+Processing batch 1360/2283
+Written 20400/34244 entries to perplexity result file
+Processing batch 1361/2283
+Written 20415/34244 entries to perplexity result file
+Processing batch 1362/2283
+Written 20430/34244 entries to perplexity result file
+Processing batch 1363/2283
+Written 20445/34244 entries to perplexity result file
+Processing batch 1364/2283
+Written 20460/34244 entries to perplexity result file
+Processing batch 1365/2283
+Written 20475/34244 entries to perplexity result file
+Processing batch 1366/2283
+Written 20490/34244 entries to perplexity result file
+Processing batch 1367/2283
+Written 20505/34244 entries to perplexity result file
+Processing batch 1368/2283
+Written 20520/34244 entries to perplexity result file
+Processing batch 1369/2283
+Written 20535/34244 entries to perplexity result file
+Processing batch 1370/2283
+Written 20550/34244 entries to perplexity result file
+Processing batch 1371/2283
+Written 20565/34244 entries to perplexity result file
+Processing batch 1372/2283
+Written 20580/34244 entries to perplexity result file
+Processing batch 1373/2283
+Written 20595/34244 entries to perplexity result file
+Processing batch 1374/2283
+Written 20610/34244 entries to perplexity result file
+Processing batch 1375/2283
+Written 20625/34244 entries to perplexity result file
+Processing batch 1376/2283
+Written 20640/34244 entries to perplexity result file
+Processing batch 1377/2283
+Written 20655/34244 entries to perplexity result file
+Processing batch 1378/2283
+Written 20670/34244 entries to perplexity result file
+Processing batch 1379/2283
+Written 20685/34244 entries to perplexity result file
+Processing batch 1380/2283
+Written 20700/34244 entries to perplexity result file
+Processing batch 1381/2283
+Written 20715/34244 entries to perplexity result file
+Processing batch 1382/2283
+Written 20730/34244 entries to perplexity result file
+Processing batch 1383/2283
+Written 20745/34244 entries to perplexity result file
+Processing batch 1384/2283
+Written 20760/34244 entries to perplexity result file
+Processing batch 1385/2283
+Written 20775/34244 entries to perplexity result file
+Processing batch 1386/2283
+Written 20790/34244 entries to perplexity result file
+Processing batch 1387/2283
+Written 20805/34244 entries to perplexity result file
+Processing batch 1388/2283
+Written 20820/34244 entries to perplexity result file
+Processing batch 1389/2283
+Written 20835/34244 entries to perplexity result file
+Processing batch 1390/2283
+Written 20850/34244 entries to perplexity result file
+Processing batch 1391/2283
+Written 20865/34244 entries to perplexity result file
+Processing batch 1392/2283
+Written 20880/34244 entries to perplexity result file
+Processing batch 1393/2283
+Written 20895/34244 entries to perplexity result file
+Processing batch 1394/2283
+Written 20910/34244 entries to perplexity result file
+Processing batch 1395/2283
+Written 20925/34244 entries to perplexity result file
+Processing batch 1396/2283
+Written 20940/34244 entries to perplexity result file
+Processing batch 1397/2283
+Written 20955/34244 entries to perplexity result file
+Processing batch 1398/2283
+Written 20970/34244 entries to perplexity result file
+Processing batch 1399/2283
+Written 20985/34244 entries to perplexity result file
+Processing batch 1400/2283
+Written 21000/34244 entries to perplexity result file
+Processing batch 1401/2283
+Written 21015/34244 entries to perplexity result file
+Processing batch 1402/2283
+Written 21030/34244 entries to perplexity result file
+Processing batch 1403/2283
+Written 21045/34244 entries to perplexity result file
+Processing batch 1404/2283
+Written 21060/34244 entries to perplexity result file
+Processing batch 1405/2283
+Written 21075/34244 entries to perplexity result file
+Processing batch 1406/2283
+Written 21090/34244 entries to perplexity result file
+Processing batch 1407/2283
+Written 21105/34244 entries to perplexity result file
+Processing batch 1408/2283
+Written 21120/34244 entries to perplexity result file
+Processing batch 1409/2283
+Written 21135/34244 entries to perplexity result file
+Processing batch 1410/2283
+Written 21150/34244 entries to perplexity result file
+Processing batch 1411/2283
+Written 21165/34244 entries to perplexity result file
+Processing batch 1412/2283
+Written 21180/34244 entries to perplexity result file
+Processing batch 1413/2283
+Written 21195/34244 entries to perplexity result file
+Processing batch 1414/2283
+Written 21210/34244 entries to perplexity result file
+Processing batch 1415/2283
+Written 21225/34244 entries to perplexity result file
+Processing batch 1416/2283
+Written 21240/34244 entries to perplexity result file
+Processing batch 1417/2283
+Written 21255/34244 entries to perplexity result file
+Processing batch 1418/2283
+Written 21270/34244 entries to perplexity result file
+Processing batch 1419/2283
+Written 21285/34244 entries to perplexity result file
+Processing batch 1420/2283
+Written 21300/34244 entries to perplexity result file
+Processing batch 1421/2283
+Written 21315/34244 entries to perplexity result file
+Processing batch 1422/2283
+Written 21330/34244 entries to perplexity result file
+Processing batch 1423/2283
+Written 21345/34244 entries to perplexity result file
+Processing batch 1424/2283
+Written 21360/34244 entries to perplexity result file
+Processing batch 1425/2283
+Written 21375/34244 entries to perplexity result file
+Processing batch 1426/2283
+Written 21390/34244 entries to perplexity result file
+Processing batch 1427/2283
+Written 21405/34244 entries to perplexity result file
+Processing batch 1428/2283
+Written 21420/34244 entries to perplexity result file
+Processing batch 1429/2283
+Written 21435/34244 entries to perplexity result file
+Processing batch 1430/2283
+Written 21450/34244 entries to perplexity result file
+Processing batch 1431/2283
+Written 21465/34244 entries to perplexity result file
+Processing batch 1432/2283
+Written 21480/34244 entries to perplexity result file
+Processing batch 1433/2283
+Written 21495/34244 entries to perplexity result file
+Processing batch 1434/2283
+Written 21510/34244 entries to perplexity result file
+Processing batch 1435/2283
+Written 21525/34244 entries to perplexity result file
+Processing batch 1436/2283
+Written 21540/34244 entries to perplexity result file
+Processing batch 1437/2283
+Written 21555/34244 entries to perplexity result file
+Processing batch 1438/2283
+Written 21570/34244 entries to perplexity result file
+Processing batch 1439/2283
+Written 21585/34244 entries to perplexity result file
+Processing batch 1440/2283
+Written 21600/34244 entries to perplexity result file
+Processing batch 1441/2283
+Written 21615/34244 entries to perplexity result file
+Processing batch 1442/2283
+Written 21630/34244 entries to perplexity result file
+Processing batch 1443/2283
+Written 21645/34244 entries to perplexity result file
+Processing batch 1444/2283
+Written 21660/34244 entries to perplexity result file
+Processing batch 1445/2283
+Written 21675/34244 entries to perplexity result file
+Processing batch 1446/2283
+Written 21690/34244 entries to perplexity result file
+Processing batch 1447/2283
+Written 21705/34244 entries to perplexity result file
+Processing batch 1448/2283
+Written 21720/34244 entries to perplexity result file
+Processing batch 1449/2283
+Written 21735/34244 entries to perplexity result file
+Processing batch 1450/2283
+Written 21750/34244 entries to perplexity result file
+Processing batch 1451/2283
+Written 21765/34244 entries to perplexity result file
+Processing batch 1452/2283
+Written 21780/34244 entries to perplexity result file
+Processing batch 1453/2283
+Written 21795/34244 entries to perplexity result file
+Processing batch 1454/2283
+Written 21810/34244 entries to perplexity result file
+Processing batch 1455/2283
+Written 21825/34244 entries to perplexity result file
+Processing batch 1456/2283
+Written 21840/34244 entries to perplexity result file
+Processing batch 1457/2283
+Written 21855/34244 entries to perplexity result file
+Processing batch 1458/2283
+Written 21870/34244 entries to perplexity result file
+Processing batch 1459/2283
+Written 21885/34244 entries to perplexity result file
+Processing batch 1460/2283
+Written 21900/34244 entries to perplexity result file
+Processing batch 1461/2283
+Written 21915/34244 entries to perplexity result file
+Processing batch 1462/2283
+Written 21930/34244 entries to perplexity result file
+Processing batch 1463/2283
+Written 21945/34244 entries to perplexity result file
+Processing batch 1464/2283
+Written 21960/34244 entries to perplexity result file
+Processing batch 1465/2283
+Written 21975/34244 entries to perplexity result file
+Processing batch 1466/2283
+Written 21990/34244 entries to perplexity result file
+Processing batch 1467/2283
+Written 22005/34244 entries to perplexity result file
+Processing batch 1468/2283
+Written 22020/34244 entries to perplexity result file
+Processing batch 1469/2283
+Written 22035/34244 entries to perplexity result file
+Processing batch 1470/2283
+Written 22050/34244 entries to perplexity result file
+Processing batch 1471/2283
+Written 22065/34244 entries to perplexity result file
+Processing batch 1472/2283
+Written 22080/34244 entries to perplexity result file
+Processing batch 1473/2283
+Written 22095/34244 entries to perplexity result file
+Processing batch 1474/2283
+Written 22110/34244 entries to perplexity result file
+Processing batch 1475/2283
+Written 22125/34244 entries to perplexity result file
+Processing batch 1476/2283
+Written 22140/34244 entries to perplexity result file
+Processing batch 1477/2283
+Written 22155/34244 entries to perplexity result file
+Processing batch 1478/2283
+Written 22170/34244 entries to perplexity result file
+Processing batch 1479/2283
+Written 22185/34244 entries to perplexity result file
+Processing batch 1480/2283
+Written 22200/34244 entries to perplexity result file
+Processing batch 1481/2283
+Written 22215/34244 entries to perplexity result file
+Processing batch 1482/2283
+Written 22230/34244 entries to perplexity result file
+Processing batch 1483/2283
+Written 22245/34244 entries to perplexity result file
+Processing batch 1484/2283
+Written 22260/34244 entries to perplexity result file
+Processing batch 1485/2283
+Written 22275/34244 entries to perplexity result file
+Processing batch 1486/2283
+Written 22290/34244 entries to perplexity result file
+Processing batch 1487/2283
+Written 22305/34244 entries to perplexity result file
+Processing batch 1488/2283
+Written 22320/34244 entries to perplexity result file
+Processing batch 1489/2283
+Written 22335/34244 entries to perplexity result file
+Processing batch 1490/2283
+Written 22350/34244 entries to perplexity result file
+Processing batch 1491/2283
+Written 22365/34244 entries to perplexity result file
+Processing batch 1492/2283
+Written 22380/34244 entries to perplexity result file
+Processing batch 1493/2283
+Written 22395/34244 entries to perplexity result file
+Processing batch 1494/2283
+Written 22410/34244 entries to perplexity result file
+Processing batch 1495/2283
+Written 22425/34244 entries to perplexity result file
+Processing batch 1496/2283
+Written 22440/34244 entries to perplexity result file
+Processing batch 1497/2283
+Written 22455/34244 entries to perplexity result file
+Processing batch 1498/2283
+Written 22470/34244 entries to perplexity result file
+Processing batch 1499/2283
+Written 22485/34244 entries to perplexity result file
+Processing batch 1500/2283
+Written 22500/34244 entries to perplexity result file
+Processing batch 1501/2283
+Written 22515/34244 entries to perplexity result file
+Processing batch 1502/2283
+Written 22530/34244 entries to perplexity result file
+Processing batch 1503/2283
+Written 22545/34244 entries to perplexity result file
+Processing batch 1504/2283
+Written 22560/34244 entries to perplexity result file
+Processing batch 1505/2283
+Written 22575/34244 entries to perplexity result file
+Processing batch 1506/2283
+Written 22590/34244 entries to perplexity result file
+Processing batch 1507/2283
+Written 22605/34244 entries to perplexity result file
+Processing batch 1508/2283
+Written 22620/34244 entries to perplexity result file
+Processing batch 1509/2283
+Written 22635/34244 entries to perplexity result file
+Processing batch 1510/2283
+Written 22650/34244 entries to perplexity result file
+Processing batch 1511/2283
+Written 22665/34244 entries to perplexity result file
+Processing batch 1512/2283
+Written 22680/34244 entries to perplexity result file
+Processing batch 1513/2283
+Written 22695/34244 entries to perplexity result file
+Processing batch 1514/2283
+Written 22710/34244 entries to perplexity result file
+Processing batch 1515/2283
+Written 22725/34244 entries to perplexity result file
+Processing batch 1516/2283
+Written 22740/34244 entries to perplexity result file
+Processing batch 1517/2283
+Written 22755/34244 entries to perplexity result file
+Processing batch 1518/2283
+Written 22770/34244 entries to perplexity result file
+Processing batch 1519/2283
+Written 22785/34244 entries to perplexity result file
+Processing batch 1520/2283
+Written 22800/34244 entries to perplexity result file
+Processing batch 1521/2283
+Written 22815/34244 entries to perplexity result file
+Processing batch 1522/2283
+Written 22830/34244 entries to perplexity result file
+Processing batch 1523/2283
+Written 22845/34244 entries to perplexity result file
+Processing batch 1524/2283
+Written 22860/34244 entries to perplexity result file
+Processing batch 1525/2283
+Written 22875/34244 entries to perplexity result file
+Processing batch 1526/2283
+Written 22890/34244 entries to perplexity result file
+Processing batch 1527/2283
+Written 22905/34244 entries to perplexity result file
+Processing batch 1528/2283
+Written 22920/34244 entries to perplexity result file
+Processing batch 1529/2283
+Written 22935/34244 entries to perplexity result file
+Processing batch 1530/2283
+Written 22950/34244 entries to perplexity result file
+Processing batch 1531/2283
+Written 22965/34244 entries to perplexity result file
+Processing batch 1532/2283
+Written 22980/34244 entries to perplexity result file
+Processing batch 1533/2283
+Written 22995/34244 entries to perplexity result file
+Processing batch 1534/2283
+Written 23010/34244 entries to perplexity result file
+Processing batch 1535/2283
+Written 23025/34244 entries to perplexity result file
+Processing batch 1536/2283
+Written 23040/34244 entries to perplexity result file
+Processing batch 1537/2283
+Written 23055/34244 entries to perplexity result file
+Processing batch 1538/2283
+Written 23070/34244 entries to perplexity result file
+Processing batch 1539/2283
+Written 23085/34244 entries to perplexity result file
+Processing batch 1540/2283
+Written 23100/34244 entries to perplexity result file
+Processing batch 1541/2283
+Written 23115/34244 entries to perplexity result file
+Processing batch 1542/2283
+Written 23130/34244 entries to perplexity result file
+Processing batch 1543/2283
+Written 23145/34244 entries to perplexity result file
+Processing batch 1544/2283
+Written 23160/34244 entries to perplexity result file
+Processing batch 1545/2283
+Written 23175/34244 entries to perplexity result file
+Processing batch 1546/2283
+Written 23190/34244 entries to perplexity result file
+Processing batch 1547/2283
+Written 23205/34244 entries to perplexity result file
+Processing batch 1548/2283
+Written 23220/34244 entries to perplexity result file
+Processing batch 1549/2283
+Written 23235/34244 entries to perplexity result file
+Processing batch 1550/2283
+Written 23250/34244 entries to perplexity result file
+Processing batch 1551/2283
+Written 23265/34244 entries to perplexity result file
+Processing batch 1552/2283
+Written 23280/34244 entries to perplexity result file
+Processing batch 1553/2283
+Written 23295/34244 entries to perplexity result file
+Processing batch 1554/2283
+Written 23310/34244 entries to perplexity result file
+Processing batch 1555/2283
+Written 23325/34244 entries to perplexity result file
+Processing batch 1556/2283
+Written 23340/34244 entries to perplexity result file
+Processing batch 1557/2283
+Written 23355/34244 entries to perplexity result file
+Processing batch 1558/2283
+Written 23370/34244 entries to perplexity result file
+Processing batch 1559/2283
+Written 23385/34244 entries to perplexity result file
+Processing batch 1560/2283
+Written 23400/34244 entries to perplexity result file
+Processing batch 1561/2283
+Written 23415/34244 entries to perplexity result file
+Processing batch 1562/2283
+Written 23430/34244 entries to perplexity result file
+Processing batch 1563/2283
+Written 23445/34244 entries to perplexity result file
+Processing batch 1564/2283
+Written 23460/34244 entries to perplexity result file
+Processing batch 1565/2283
+Written 23475/34244 entries to perplexity result file
+Processing batch 1566/2283
+Written 23490/34244 entries to perplexity result file
+Processing batch 1567/2283
+Written 23505/34244 entries to perplexity result file
+Processing batch 1568/2283
+Written 23520/34244 entries to perplexity result file
+Processing batch 1569/2283
+Written 23535/34244 entries to perplexity result file
+Processing batch 1570/2283
+Written 23550/34244 entries to perplexity result file
+Processing batch 1571/2283
+Written 23565/34244 entries to perplexity result file
+Processing batch 1572/2283
+Written 23580/34244 entries to perplexity result file
+Processing batch 1573/2283
+Written 23595/34244 entries to perplexity result file
+Processing batch 1574/2283
+Written 23610/34244 entries to perplexity result file
+Processing batch 1575/2283
+Written 23625/34244 entries to perplexity result file
+Processing batch 1576/2283
+Written 23640/34244 entries to perplexity result file
+Processing batch 1577/2283
+Written 23655/34244 entries to perplexity result file
+Processing batch 1578/2283
+Written 23670/34244 entries to perplexity result file
+Processing batch 1579/2283
+Written 23685/34244 entries to perplexity result file
+Processing batch 1580/2283
+Written 23700/34244 entries to perplexity result file
+Processing batch 1581/2283
+Written 23715/34244 entries to perplexity result file
+Processing batch 1582/2283
+Written 23730/34244 entries to perplexity result file
+Processing batch 1583/2283
+Written 23745/34244 entries to perplexity result file
+Processing batch 1584/2283
+Written 23760/34244 entries to perplexity result file
+Processing batch 1585/2283
+Written 23775/34244 entries to perplexity result file
+Processing batch 1586/2283
+Written 23790/34244 entries to perplexity result file
+Processing batch 1587/2283
+Written 23805/34244 entries to perplexity result file
+Processing batch 1588/2283
+Written 23820/34244 entries to perplexity result file
+Processing batch 1589/2283
+Written 23835/34244 entries to perplexity result file
+Processing batch 1590/2283
+Written 23850/34244 entries to perplexity result file
+Processing batch 1591/2283
+Written 23865/34244 entries to perplexity result file
+Processing batch 1592/2283
+Written 23880/34244 entries to perplexity result file
+Processing batch 1593/2283
+Written 23895/34244 entries to perplexity result file
+Processing batch 1594/2283
+Written 23910/34244 entries to perplexity result file
+Processing batch 1595/2283
+Written 23925/34244 entries to perplexity result file
+Processing batch 1596/2283
+Written 23940/34244 entries to perplexity result file
+Processing batch 1597/2283
+Written 23955/34244 entries to perplexity result file
+Processing batch 1598/2283
+Written 23970/34244 entries to perplexity result file
+Processing batch 1599/2283
+Written 23985/34244 entries to perplexity result file
+Processing batch 1600/2283
+Written 24000/34244 entries to perplexity result file
+Processing batch 1601/2283
+Written 24015/34244 entries to perplexity result file
+Processing batch 1602/2283
+Written 24030/34244 entries to perplexity result file
+Processing batch 1603/2283
+Written 24045/34244 entries to perplexity result file
+Processing batch 1604/2283
+Written 24060/34244 entries to perplexity result file
+Processing batch 1605/2283
+Written 24075/34244 entries to perplexity result file
+Processing batch 1606/2283
+Written 24090/34244 entries to perplexity result file
+Processing batch 1607/2283
+Written 24105/34244 entries to perplexity result file
+Processing batch 1608/2283
+Written 24120/34244 entries to perplexity result file
+Processing batch 1609/2283
+Written 24135/34244 entries to perplexity result file
+Processing batch 1610/2283
+Written 24150/34244 entries to perplexity result file
+Processing batch 1611/2283
+Written 24165/34244 entries to perplexity result file
+Processing batch 1612/2283
+Written 24180/34244 entries to perplexity result file
+Processing batch 1613/2283
+Written 24195/34244 entries to perplexity result file
+Processing batch 1614/2283
+Written 24210/34244 entries to perplexity result file
+Processing batch 1615/2283
+Written 24225/34244 entries to perplexity result file
+Processing batch 1616/2283
+Written 24240/34244 entries to perplexity result file
+Processing batch 1617/2283
+Written 24255/34244 entries to perplexity result file
+Processing batch 1618/2283
+Written 24270/34244 entries to perplexity result file
+Processing batch 1619/2283
+Written 24285/34244 entries to perplexity result file
+Processing batch 1620/2283
+Written 24300/34244 entries to perplexity result file
+Processing batch 1621/2283
+Written 24315/34244 entries to perplexity result file
+Processing batch 1622/2283
+Written 24330/34244 entries to perplexity result file
+Processing batch 1623/2283
+Written 24345/34244 entries to perplexity result file
+Processing batch 1624/2283
+Written 24360/34244 entries to perplexity result file
+Processing batch 1625/2283
+Written 24375/34244 entries to perplexity result file
+Processing batch 1626/2283
+Written 24390/34244 entries to perplexity result file
+Processing batch 1627/2283
+Written 24405/34244 entries to perplexity result file
+Processing batch 1628/2283
+Written 24420/34244 entries to perplexity result file
+Processing batch 1629/2283
+Written 24435/34244 entries to perplexity result file
+Processing batch 1630/2283
+Written 24450/34244 entries to perplexity result file
+Processing batch 1631/2283
+Written 24465/34244 entries to perplexity result file
+Processing batch 1632/2283
+Written 24480/34244 entries to perplexity result file
+Processing batch 1633/2283
+Written 24495/34244 entries to perplexity result file
+Processing batch 1634/2283
+Written 24510/34244 entries to perplexity result file
+Processing batch 1635/2283
+Written 24525/34244 entries to perplexity result file
+Processing batch 1636/2283
+Written 24540/34244 entries to perplexity result file
+Processing batch 1637/2283
+Written 24555/34244 entries to perplexity result file
+Processing batch 1638/2283
+Written 24570/34244 entries to perplexity result file
+Processing batch 1639/2283
+Written 24585/34244 entries to perplexity result file
+Processing batch 1640/2283
+Written 24600/34244 entries to perplexity result file
+Processing batch 1641/2283
+Written 24615/34244 entries to perplexity result file
+Processing batch 1642/2283
+Written 24630/34244 entries to perplexity result file
+Processing batch 1643/2283
+Written 24645/34244 entries to perplexity result file
+Processing batch 1644/2283
+Written 24660/34244 entries to perplexity result file
+Processing batch 1645/2283
+Written 24675/34244 entries to perplexity result file
+Processing batch 1646/2283
+Written 24690/34244 entries to perplexity result file
+Processing batch 1647/2283
+Written 24705/34244 entries to perplexity result file
+Processing batch 1648/2283
+Written 24720/34244 entries to perplexity result file
+Processing batch 1649/2283
+Written 24735/34244 entries to perplexity result file
+Processing batch 1650/2283
+Written 24750/34244 entries to perplexity result file
+Processing batch 1651/2283
+Written 24765/34244 entries to perplexity result file
+Processing batch 1652/2283
+Written 24780/34244 entries to perplexity result file
+Processing batch 1653/2283
+Written 24795/34244 entries to perplexity result file
+Processing batch 1654/2283
+Written 24810/34244 entries to perplexity result file
+Processing batch 1655/2283
+Written 24825/34244 entries to perplexity result file
+Processing batch 1656/2283
+Written 24840/34244 entries to perplexity result file
+Processing batch 1657/2283
+Written 24855/34244 entries to perplexity result file
+Processing batch 1658/2283
+Written 24870/34244 entries to perplexity result file
+Processing batch 1659/2283
+Written 24885/34244 entries to perplexity result file
+Processing batch 1660/2283
+Written 24900/34244 entries to perplexity result file
+Processing batch 1661/2283
+Written 24915/34244 entries to perplexity result file
+Processing batch 1662/2283
+Written 24930/34244 entries to perplexity result file
+Processing batch 1663/2283
+Written 24945/34244 entries to perplexity result file
+Processing batch 1664/2283
+Written 24960/34244 entries to perplexity result file
+Processing batch 1665/2283
+Written 24975/34244 entries to perplexity result file
+Processing batch 1666/2283
+Written 24990/34244 entries to perplexity result file
+Processing batch 1667/2283
+Written 25005/34244 entries to perplexity result file
+Processing batch 1668/2283
+Written 25020/34244 entries to perplexity result file
+Processing batch 1669/2283
+Written 25035/34244 entries to perplexity result file
+Processing batch 1670/2283
+Written 25050/34244 entries to perplexity result file
+Processing batch 1671/2283
+Written 25065/34244 entries to perplexity result file
+Processing batch 1672/2283
+Written 25080/34244 entries to perplexity result file
+Processing batch 1673/2283
+Written 25095/34244 entries to perplexity result file
+Processing batch 1674/2283
+Written 25110/34244 entries to perplexity result file
+Processing batch 1675/2283
+Written 25125/34244 entries to perplexity result file
+Processing batch 1676/2283
+Written 25140/34244 entries to perplexity result file
+Processing batch 1677/2283
+Written 25155/34244 entries to perplexity result file
+Processing batch 1678/2283
+Written 25170/34244 entries to perplexity result file
+Processing batch 1679/2283
+Written 25185/34244 entries to perplexity result file
+Processing batch 1680/2283
+Written 25200/34244 entries to perplexity result file
+Processing batch 1681/2283
+Written 25215/34244 entries to perplexity result file
+Processing batch 1682/2283
+Written 25230/34244 entries to perplexity result file
+Processing batch 1683/2283
+Written 25245/34244 entries to perplexity result file
+Processing batch 1684/2283
+Written 25260/34244 entries to perplexity result file
+Processing batch 1685/2283
+Written 25275/34244 entries to perplexity result file
+Processing batch 1686/2283
+Written 25290/34244 entries to perplexity result file
+Processing batch 1687/2283
+Written 25305/34244 entries to perplexity result file
+Processing batch 1688/2283
+Written 25320/34244 entries to perplexity result file
+Processing batch 1689/2283
+Written 25335/34244 entries to perplexity result file
+Processing batch 1690/2283
+Written 25350/34244 entries to perplexity result file
+Processing batch 1691/2283
+Written 25365/34244 entries to perplexity result file
+Processing batch 1692/2283
+Written 25380/34244 entries to perplexity result file
+Processing batch 1693/2283
+Written 25395/34244 entries to perplexity result file
+Processing batch 1694/2283
+Written 25410/34244 entries to perplexity result file
+Processing batch 1695/2283
+Written 25425/34244 entries to perplexity result file
+Processing batch 1696/2283
+Written 25440/34244 entries to perplexity result file
+Processing batch 1697/2283
+Written 25455/34244 entries to perplexity result file
+Processing batch 1698/2283
+Written 25470/34244 entries to perplexity result file
+Processing batch 1699/2283
+Written 25485/34244 entries to perplexity result file
+Processing batch 1700/2283
+Written 25500/34244 entries to perplexity result file
+Processing batch 1701/2283
+Written 25515/34244 entries to perplexity result file
+Processing batch 1702/2283
+Written 25530/34244 entries to perplexity result file
+Processing batch 1703/2283
+Written 25545/34244 entries to perplexity result file
+Processing batch 1704/2283
+Written 25560/34244 entries to perplexity result file
+Processing batch 1705/2283
+Written 25575/34244 entries to perplexity result file
+Processing batch 1706/2283
+Written 25590/34244 entries to perplexity result file
+Processing batch 1707/2283
+Written 25605/34244 entries to perplexity result file
+Processing batch 1708/2283
+Written 25620/34244 entries to perplexity result file
+Processing batch 1709/2283
+Written 25635/34244 entries to perplexity result file
+Processing batch 1710/2283
+Written 25650/34244 entries to perplexity result file
+Processing batch 1711/2283
+Written 25665/34244 entries to perplexity result file
+Processing batch 1712/2283
+Written 25680/34244 entries to perplexity result file
+Processing batch 1713/2283
+Written 25695/34244 entries to perplexity result file
+Processing batch 1714/2283
+Written 25710/34244 entries to perplexity result file
+Processing batch 1715/2283
+Written 25725/34244 entries to perplexity result file
+Processing batch 1716/2283
+Written 25740/34244 entries to perplexity result file
+Processing batch 1717/2283
+Written 25755/34244 entries to perplexity result file
+Processing batch 1718/2283
+Written 25770/34244 entries to perplexity result file
+Processing batch 1719/2283
+Written 25785/34244 entries to perplexity result file
+Processing batch 1720/2283
+Written 25800/34244 entries to perplexity result file
+Processing batch 1721/2283
+Written 25815/34244 entries to perplexity result file
+Processing batch 1722/2283
+Written 25830/34244 entries to perplexity result file
+Processing batch 1723/2283
+Written 25845/34244 entries to perplexity result file
+Processing batch 1724/2283
+Written 25860/34244 entries to perplexity result file
+Processing batch 1725/2283
+Written 25875/34244 entries to perplexity result file
+Processing batch 1726/2283
+Written 25890/34244 entries to perplexity result file
+Processing batch 1727/2283
+Written 25905/34244 entries to perplexity result file
+Processing batch 1728/2283
+Written 25920/34244 entries to perplexity result file
+Processing batch 1729/2283
+Written 25935/34244 entries to perplexity result file
+Processing batch 1730/2283
+Written 25950/34244 entries to perplexity result file
+Processing batch 1731/2283
+Written 25965/34244 entries to perplexity result file
+Processing batch 1732/2283
+Written 25980/34244 entries to perplexity result file
+Processing batch 1733/2283
+Written 25995/34244 entries to perplexity result file
+Processing batch 1734/2283
+Written 26010/34244 entries to perplexity result file
+Processing batch 1735/2283
+Written 26025/34244 entries to perplexity result file
+Processing batch 1736/2283
+Written 26040/34244 entries to perplexity result file
+Processing batch 1737/2283
+Written 26055/34244 entries to perplexity result file
+Processing batch 1738/2283
+Written 26070/34244 entries to perplexity result file
+Processing batch 1739/2283
+Written 26085/34244 entries to perplexity result file
+Processing batch 1740/2283
+Written 26100/34244 entries to perplexity result file
+Processing batch 1741/2283
+Written 26115/34244 entries to perplexity result file
+Processing batch 1742/2283
+Written 26130/34244 entries to perplexity result file
+Processing batch 1743/2283
+Written 26145/34244 entries to perplexity result file
+Processing batch 1744/2283
+Written 26160/34244 entries to perplexity result file
+Processing batch 1745/2283
+Written 26175/34244 entries to perplexity result file
+Processing batch 1746/2283
+Written 26190/34244 entries to perplexity result file
+Processing batch 1747/2283
+Written 26205/34244 entries to perplexity result file
+Processing batch 1748/2283
+Written 26220/34244 entries to perplexity result file
+Processing batch 1749/2283
+Written 26235/34244 entries to perplexity result file
+Processing batch 1750/2283
+Written 26250/34244 entries to perplexity result file
+Processing batch 1751/2283
+Written 26265/34244 entries to perplexity result file
+Processing batch 1752/2283
+Written 26280/34244 entries to perplexity result file
+Processing batch 1753/2283
+Written 26295/34244 entries to perplexity result file
+Processing batch 1754/2283
+Written 26310/34244 entries to perplexity result file
+Processing batch 1755/2283
+Written 26325/34244 entries to perplexity result file
+Processing batch 1756/2283
+Written 26340/34244 entries to perplexity result file
+Processing batch 1757/2283
+Written 26355/34244 entries to perplexity result file
+Processing batch 1758/2283
+Written 26370/34244 entries to perplexity result file
+Processing batch 1759/2283
+Written 26385/34244 entries to perplexity result file
+Processing batch 1760/2283
+Written 26400/34244 entries to perplexity result file
+Processing batch 1761/2283
+Written 26415/34244 entries to perplexity result file
+Processing batch 1762/2283
+Written 26430/34244 entries to perplexity result file
+Processing batch 1763/2283
+Written 26445/34244 entries to perplexity result file
+Processing batch 1764/2283
+Written 26460/34244 entries to perplexity result file
+Processing batch 1765/2283
+Written 26475/34244 entries to perplexity result file
+Processing batch 1766/2283
+Written 26490/34244 entries to perplexity result file
+Processing batch 1767/2283
+Written 26505/34244 entries to perplexity result file
+Processing batch 1768/2283
+Written 26520/34244 entries to perplexity result file
+Processing batch 1769/2283
+Written 26535/34244 entries to perplexity result file
+Processing batch 1770/2283
+Written 26550/34244 entries to perplexity result file
+Processing batch 1771/2283
+Written 26565/34244 entries to perplexity result file
+Processing batch 1772/2283
+Written 26580/34244 entries to perplexity result file
+Processing batch 1773/2283
+Written 26595/34244 entries to perplexity result file
+Processing batch 1774/2283
+Written 26610/34244 entries to perplexity result file
+Processing batch 1775/2283
+Written 26625/34244 entries to perplexity result file
+Processing batch 1776/2283
+Written 26640/34244 entries to perplexity result file
+Processing batch 1777/2283
+Written 26655/34244 entries to perplexity result file
+Processing batch 1778/2283
+Written 26670/34244 entries to perplexity result file
+Processing batch 1779/2283
+Written 26685/34244 entries to perplexity result file
+Processing batch 1780/2283
+Written 26700/34244 entries to perplexity result file
+Processing batch 1781/2283
+Written 26715/34244 entries to perplexity result file
+Processing batch 1782/2283
+Written 26730/34244 entries to perplexity result file
+Processing batch 1783/2283
+Written 26745/34244 entries to perplexity result file
+Processing batch 1784/2283
+Written 26760/34244 entries to perplexity result file
+Processing batch 1785/2283
+Written 26775/34244 entries to perplexity result file
+Processing batch 1786/2283
+Written 26790/34244 entries to perplexity result file
+Processing batch 1787/2283
+Written 26805/34244 entries to perplexity result file
+Processing batch 1788/2283
+Written 26820/34244 entries to perplexity result file
+Processing batch 1789/2283
+Written 26835/34244 entries to perplexity result file
+Processing batch 1790/2283
+Written 26850/34244 entries to perplexity result file
+Processing batch 1791/2283
+Written 26865/34244 entries to perplexity result file
+Processing batch 1792/2283
+Written 26880/34244 entries to perplexity result file
+Processing batch 1793/2283
+Written 26895/34244 entries to perplexity result file
+Processing batch 1794/2283
+Written 26910/34244 entries to perplexity result file
+Processing batch 1795/2283
+Written 26925/34244 entries to perplexity result file
+Processing batch 1796/2283
+Written 26940/34244 entries to perplexity result file
+Processing batch 1797/2283
+Written 26955/34244 entries to perplexity result file
+Processing batch 1798/2283
+Written 26970/34244 entries to perplexity result file
+Processing batch 1799/2283
+Written 26985/34244 entries to perplexity result file
+Processing batch 1800/2283
+Written 27000/34244 entries to perplexity result file
+Processing batch 1801/2283
+Written 27015/34244 entries to perplexity result file
+Processing batch 1802/2283
+Written 27030/34244 entries to perplexity result file
+Processing batch 1803/2283
+Written 27045/34244 entries to perplexity result file
+Processing batch 1804/2283
+Written 27060/34244 entries to perplexity result file
+Processing batch 1805/2283
+Written 27075/34244 entries to perplexity result file
+Processing batch 1806/2283
+Written 27090/34244 entries to perplexity result file
+Processing batch 1807/2283
+Written 27105/34244 entries to perplexity result file
+Processing batch 1808/2283
+Written 27120/34244 entries to perplexity result file
+Processing batch 1809/2283
+Written 27135/34244 entries to perplexity result file
+Processing batch 1810/2283
+Written 27150/34244 entries to perplexity result file
+Processing batch 1811/2283
+Written 27165/34244 entries to perplexity result file
+Processing batch 1812/2283
+Written 27180/34244 entries to perplexity result file
+Processing batch 1813/2283
+Written 27195/34244 entries to perplexity result file
+Processing batch 1814/2283
+Written 27210/34244 entries to perplexity result file
+Processing batch 1815/2283
+Written 27225/34244 entries to perplexity result file
+Processing batch 1816/2283
+Written 27240/34244 entries to perplexity result file
+Processing batch 1817/2283
+Written 27255/34244 entries to perplexity result file
+Processing batch 1818/2283
+Written 27270/34244 entries to perplexity result file
+Processing batch 1819/2283
+Written 27285/34244 entries to perplexity result file
+Processing batch 1820/2283
+Written 27300/34244 entries to perplexity result file
+Processing batch 1821/2283
+Written 27315/34244 entries to perplexity result file
+Processing batch 1822/2283
+Written 27330/34244 entries to perplexity result file
+Processing batch 1823/2283
+Written 27345/34244 entries to perplexity result file
+Processing batch 1824/2283
+Written 27360/34244 entries to perplexity result file
+Processing batch 1825/2283
+Written 27375/34244 entries to perplexity result file
+Processing batch 1826/2283
+Written 27390/34244 entries to perplexity result file
+Processing batch 1827/2283
+Written 27405/34244 entries to perplexity result file
+Processing batch 1828/2283
+Written 27420/34244 entries to perplexity result file
+Processing batch 1829/2283
+Written 27435/34244 entries to perplexity result file
+Processing batch 1830/2283
+Written 27450/34244 entries to perplexity result file
+Processing batch 1831/2283
+Written 27465/34244 entries to perplexity result file
+Processing batch 1832/2283
+Written 27480/34244 entries to perplexity result file
+Processing batch 1833/2283
+Written 27495/34244 entries to perplexity result file
+Processing batch 1834/2283
+Written 27510/34244 entries to perplexity result file
+Processing batch 1835/2283
+Written 27525/34244 entries to perplexity result file
+Processing batch 1836/2283
+Written 27540/34244 entries to perplexity result file
+Processing batch 1837/2283
+Written 27555/34244 entries to perplexity result file
+Processing batch 1838/2283
+Written 27570/34244 entries to perplexity result file
+Processing batch 1839/2283
+Written 27585/34244 entries to perplexity result file
+Processing batch 1840/2283
+Written 27600/34244 entries to perplexity result file
+Processing batch 1841/2283
+Written 27615/34244 entries to perplexity result file
+Processing batch 1842/2283
+Written 27630/34244 entries to perplexity result file
+Processing batch 1843/2283
+Written 27645/34244 entries to perplexity result file
+Processing batch 1844/2283
+Written 27660/34244 entries to perplexity result file
+Processing batch 1845/2283
+Written 27675/34244 entries to perplexity result file
+Processing batch 1846/2283
+Written 27690/34244 entries to perplexity result file
+Processing batch 1847/2283
+Written 27705/34244 entries to perplexity result file
+Processing batch 1848/2283
+Written 27720/34244 entries to perplexity result file
+Processing batch 1849/2283
+Written 27735/34244 entries to perplexity result file
+Processing batch 1850/2283
+Written 27750/34244 entries to perplexity result file
+Processing batch 1851/2283
+Written 27765/34244 entries to perplexity result file
+Processing batch 1852/2283
+Written 27780/34244 entries to perplexity result file
+Processing batch 1853/2283
+Written 27795/34244 entries to perplexity result file
+Processing batch 1854/2283
+Written 27810/34244 entries to perplexity result file
+Processing batch 1855/2283
+Written 27825/34244 entries to perplexity result file
+Processing batch 1856/2283
+Written 27840/34244 entries to perplexity result file
+Processing batch 1857/2283
+Written 27855/34244 entries to perplexity result file
+Processing batch 1858/2283
+Written 27870/34244 entries to perplexity result file
+Processing batch 1859/2283
+Written 27885/34244 entries to perplexity result file
+Processing batch 1860/2283
+Written 27900/34244 entries to perplexity result file
+Processing batch 1861/2283
+Written 27915/34244 entries to perplexity result file
+Processing batch 1862/2283
+Written 27930/34244 entries to perplexity result file
+Processing batch 1863/2283
+Written 27945/34244 entries to perplexity result file
+Processing batch 1864/2283
+Written 27960/34244 entries to perplexity result file
+Processing batch 1865/2283
+Written 27975/34244 entries to perplexity result file
+Processing batch 1866/2283
+Written 27990/34244 entries to perplexity result file
+Processing batch 1867/2283
+Written 28005/34244 entries to perplexity result file
+Processing batch 1868/2283
+Written 28020/34244 entries to perplexity result file
+Processing batch 1869/2283
+Written 28035/34244 entries to perplexity result file
+Processing batch 1870/2283
+Written 28050/34244 entries to perplexity result file
+Processing batch 1871/2283
+Written 28065/34244 entries to perplexity result file
+Processing batch 1872/2283
+Written 28080/34244 entries to perplexity result file
+Processing batch 1873/2283
+Written 28095/34244 entries to perplexity result file
+Processing batch 1874/2283
+Written 28110/34244 entries to perplexity result file
+Processing batch 1875/2283
+Written 28125/34244 entries to perplexity result file
+Processing batch 1876/2283
+Written 28140/34244 entries to perplexity result file
+Processing batch 1877/2283
+Written 28155/34244 entries to perplexity result file
+Processing batch 1878/2283
+Written 28170/34244 entries to perplexity result file
+Processing batch 1879/2283
+Written 28185/34244 entries to perplexity result file
+Processing batch 1880/2283
+Written 28200/34244 entries to perplexity result file
+Processing batch 1881/2283
+Written 28215/34244 entries to perplexity result file
+Processing batch 1882/2283
+Written 28230/34244 entries to perplexity result file
+Processing batch 1883/2283
+Written 28245/34244 entries to perplexity result file
+Processing batch 1884/2283
+Written 28260/34244 entries to perplexity result file
+Processing batch 1885/2283
+Written 28275/34244 entries to perplexity result file
+Processing batch 1886/2283
+Written 28290/34244 entries to perplexity result file
+Processing batch 1887/2283
+Written 28305/34244 entries to perplexity result file
+Processing batch 1888/2283
+Written 28320/34244 entries to perplexity result file
+Processing batch 1889/2283
+Written 28335/34244 entries to perplexity result file
+Processing batch 1890/2283
+Written 28350/34244 entries to perplexity result file
+Processing batch 1891/2283
+Written 28365/34244 entries to perplexity result file
+Processing batch 1892/2283
+Written 28380/34244 entries to perplexity result file
+Processing batch 1893/2283
+Written 28395/34244 entries to perplexity result file
+Processing batch 1894/2283
+Written 28410/34244 entries to perplexity result file
+Processing batch 1895/2283
+Written 28425/34244 entries to perplexity result file
+Processing batch 1896/2283
+Written 28440/34244 entries to perplexity result file
+Processing batch 1897/2283
+Written 28455/34244 entries to perplexity result file
+Processing batch 1898/2283
+Written 28470/34244 entries to perplexity result file
+Processing batch 1899/2283
+Written 28485/34244 entries to perplexity result file
+Processing batch 1900/2283
+Written 28500/34244 entries to perplexity result file
+Processing batch 1901/2283
+Written 28515/34244 entries to perplexity result file
+Processing batch 1902/2283
+Written 28530/34244 entries to perplexity result file
+Processing batch 1903/2283
+Written 28545/34244 entries to perplexity result file
+Processing batch 1904/2283
+Written 28560/34244 entries to perplexity result file
+Processing batch 1905/2283
+Written 28575/34244 entries to perplexity result file
+Processing batch 1906/2283
+Written 28590/34244 entries to perplexity result file
+Processing batch 1907/2283
+Written 28605/34244 entries to perplexity result file
+Processing batch 1908/2283
+Written 28620/34244 entries to perplexity result file
+Processing batch 1909/2283
+Written 28635/34244 entries to perplexity result file
+Processing batch 1910/2283
+Written 28650/34244 entries to perplexity result file
+Processing batch 1911/2283
+Written 28665/34244 entries to perplexity result file
+Processing batch 1912/2283
+Written 28680/34244 entries to perplexity result file
+Processing batch 1913/2283
+Written 28695/34244 entries to perplexity result file
+Processing batch 1914/2283
+Written 28710/34244 entries to perplexity result file
+Processing batch 1915/2283
+Written 28725/34244 entries to perplexity result file
+Processing batch 1916/2283
+Written 28740/34244 entries to perplexity result file
+Processing batch 1917/2283
+Written 28755/34244 entries to perplexity result file
+Processing batch 1918/2283
+Written 28770/34244 entries to perplexity result file
+Processing batch 1919/2283
+Written 28785/34244 entries to perplexity result file
+Processing batch 1920/2283
+Written 28800/34244 entries to perplexity result file
+Processing batch 1921/2283
+Written 28815/34244 entries to perplexity result file
+Processing batch 1922/2283
+Written 28830/34244 entries to perplexity result file
+Processing batch 1923/2283
+Written 28845/34244 entries to perplexity result file
+Processing batch 1924/2283
+Written 28860/34244 entries to perplexity result file
+Processing batch 1925/2283
+Written 28875/34244 entries to perplexity result file
+Processing batch 1926/2283
+Written 28890/34244 entries to perplexity result file
+Processing batch 1927/2283
+Written 28905/34244 entries to perplexity result file
+Processing batch 1928/2283
+Written 28920/34244 entries to perplexity result file
+Processing batch 1929/2283
+Written 28935/34244 entries to perplexity result file
+Processing batch 1930/2283
+Written 28950/34244 entries to perplexity result file
+Processing batch 1931/2283
+Written 28965/34244 entries to perplexity result file
+Processing batch 1932/2283
+Written 28980/34244 entries to perplexity result file
+Processing batch 1933/2283
+Written 28995/34244 entries to perplexity result file
+Processing batch 1934/2283
+Written 29010/34244 entries to perplexity result file
+Processing batch 1935/2283
+Written 29025/34244 entries to perplexity result file
+Processing batch 1936/2283
+Written 29040/34244 entries to perplexity result file
+Processing batch 1937/2283
+Written 29055/34244 entries to perplexity result file
+Processing batch 1938/2283
+Written 29070/34244 entries to perplexity result file
+Processing batch 1939/2283
+Written 29085/34244 entries to perplexity result file
+Processing batch 1940/2283
+Written 29100/34244 entries to perplexity result file
+Processing batch 1941/2283
+Written 29115/34244 entries to perplexity result file
+Processing batch 1942/2283
+Written 29130/34244 entries to perplexity result file
+Processing batch 1943/2283
+Written 29145/34244 entries to perplexity result file
+Processing batch 1944/2283
+Written 29160/34244 entries to perplexity result file
+Processing batch 1945/2283
+Written 29175/34244 entries to perplexity result file
+Processing batch 1946/2283
+Written 29190/34244 entries to perplexity result file
+Processing batch 1947/2283
+Written 29205/34244 entries to perplexity result file
+Processing batch 1948/2283
+Written 29220/34244 entries to perplexity result file
+Processing batch 1949/2283
+Written 29235/34244 entries to perplexity result file
+Processing batch 1950/2283
+Written 29250/34244 entries to perplexity result file
+Processing batch 1951/2283
+Written 29265/34244 entries to perplexity result file
+Processing batch 1952/2283
+Written 29280/34244 entries to perplexity result file
+Processing batch 1953/2283
+Written 29295/34244 entries to perplexity result file
+Processing batch 1954/2283
+Written 29310/34244 entries to perplexity result file
+Processing batch 1955/2283
+Written 29325/34244 entries to perplexity result file
+Processing batch 1956/2283
+Written 29340/34244 entries to perplexity result file
+Processing batch 1957/2283
+Written 29355/34244 entries to perplexity result file
+Processing batch 1958/2283
+Written 29370/34244 entries to perplexity result file
+Processing batch 1959/2283
+Written 29385/34244 entries to perplexity result file
+Processing batch 1960/2283
+Written 29400/34244 entries to perplexity result file
+Processing batch 1961/2283
+Written 29415/34244 entries to perplexity result file
+Processing batch 1962/2283
+Written 29430/34244 entries to perplexity result file
+Processing batch 1963/2283
+Written 29445/34244 entries to perplexity result file
+Processing batch 1964/2283
+Written 29460/34244 entries to perplexity result file
+Processing batch 1965/2283
+Written 29475/34244 entries to perplexity result file
+Processing batch 1966/2283
+Written 29490/34244 entries to perplexity result file
+Processing batch 1967/2283
+Written 29505/34244 entries to perplexity result file
+Processing batch 1968/2283
+Written 29520/34244 entries to perplexity result file
+Processing batch 1969/2283
+Written 29535/34244 entries to perplexity result file
+Processing batch 1970/2283
+Written 29550/34244 entries to perplexity result file
+Processing batch 1971/2283
+Written 29565/34244 entries to perplexity result file
+Processing batch 1972/2283
+Written 29580/34244 entries to perplexity result file
+Processing batch 1973/2283
+Written 29595/34244 entries to perplexity result file
+Processing batch 1974/2283
+Written 29610/34244 entries to perplexity result file
+Processing batch 1975/2283
+Written 29625/34244 entries to perplexity result file
+Processing batch 1976/2283
+Written 29640/34244 entries to perplexity result file
+Processing batch 1977/2283
+Written 29655/34244 entries to perplexity result file
+Processing batch 1978/2283
+Written 29670/34244 entries to perplexity result file
+Processing batch 1979/2283
+Written 29685/34244 entries to perplexity result file
+Processing batch 1980/2283
+Written 29700/34244 entries to perplexity result file
+Processing batch 1981/2283
+Written 29715/34244 entries to perplexity result file
+Processing batch 1982/2283
+Written 29730/34244 entries to perplexity result file
+Processing batch 1983/2283
+Written 29745/34244 entries to perplexity result file
+Processing batch 1984/2283
+Written 29760/34244 entries to perplexity result file
+Processing batch 1985/2283
+Written 29775/34244 entries to perplexity result file
+Processing batch 1986/2283
+Written 29790/34244 entries to perplexity result file
+Processing batch 1987/2283
+Written 29805/34244 entries to perplexity result file
+Processing batch 1988/2283
+Written 29820/34244 entries to perplexity result file
+Processing batch 1989/2283
+Written 29835/34244 entries to perplexity result file
+Processing batch 1990/2283
+Written 29850/34244 entries to perplexity result file
+Processing batch 1991/2283
+Written 29865/34244 entries to perplexity result file
+Processing batch 1992/2283
+Written 29880/34244 entries to perplexity result file
+Processing batch 1993/2283
+Written 29895/34244 entries to perplexity result file
+Processing batch 1994/2283
+Written 29910/34244 entries to perplexity result file
+Processing batch 1995/2283
+Written 29925/34244 entries to perplexity result file
+Processing batch 1996/2283
+Written 29940/34244 entries to perplexity result file
+Processing batch 1997/2283
+Written 29955/34244 entries to perplexity result file
+Processing batch 1998/2283
+Written 29970/34244 entries to perplexity result file
+Processing batch 1999/2283
+Written 29985/34244 entries to perplexity result file
+Processing batch 2000/2283
+Written 30000/34244 entries to perplexity result file
+Processing batch 2001/2283
+Written 30015/34244 entries to perplexity result file
+Processing batch 2002/2283
+Written 30030/34244 entries to perplexity result file
+Processing batch 2003/2283
+Written 30045/34244 entries to perplexity result file
+Processing batch 2004/2283
+Written 30060/34244 entries to perplexity result file
+Processing batch 2005/2283
+Written 30075/34244 entries to perplexity result file
+Processing batch 2006/2283
+Written 30090/34244 entries to perplexity result file
+Processing batch 2007/2283
+Written 30105/34244 entries to perplexity result file
+Processing batch 2008/2283
+Written 30120/34244 entries to perplexity result file
+Processing batch 2009/2283
+Written 30135/34244 entries to perplexity result file
+Processing batch 2010/2283
+Written 30150/34244 entries to perplexity result file
+Processing batch 2011/2283
+Written 30165/34244 entries to perplexity result file
+Processing batch 2012/2283
+Written 30180/34244 entries to perplexity result file
+Processing batch 2013/2283
+Written 30195/34244 entries to perplexity result file
+Processing batch 2014/2283
+Written 30210/34244 entries to perplexity result file
+Processing batch 2015/2283
+Written 30225/34244 entries to perplexity result file
+Processing batch 2016/2283
+Written 30240/34244 entries to perplexity result file
+Processing batch 2017/2283
+Written 30255/34244 entries to perplexity result file
+Processing batch 2018/2283
+Written 30270/34244 entries to perplexity result file
+Processing batch 2019/2283
+Written 30285/34244 entries to perplexity result file
+Processing batch 2020/2283
+Written 30300/34244 entries to perplexity result file
+Processing batch 2021/2283
+Written 30315/34244 entries to perplexity result file
+Processing batch 2022/2283
+Written 30330/34244 entries to perplexity result file
+Processing batch 2023/2283
+Written 30345/34244 entries to perplexity result file
+Processing batch 2024/2283
+Written 30360/34244 entries to perplexity result file
+Processing batch 2025/2283
+Written 30375/34244 entries to perplexity result file
+Processing batch 2026/2283
+Written 30390/34244 entries to perplexity result file
+Processing batch 2027/2283
+Written 30405/34244 entries to perplexity result file
+Processing batch 2028/2283
+Written 30420/34244 entries to perplexity result file
+Processing batch 2029/2283
+Written 30435/34244 entries to perplexity result file
+Processing batch 2030/2283
+Written 30450/34244 entries to perplexity result file
+Processing batch 2031/2283
+Written 30465/34244 entries to perplexity result file
+Processing batch 2032/2283
+Written 30480/34244 entries to perplexity result file
+Processing batch 2033/2283
+Written 30495/34244 entries to perplexity result file
+Processing batch 2034/2283
+Written 30510/34244 entries to perplexity result file
+Processing batch 2035/2283
+Written 30525/34244 entries to perplexity result file
+Processing batch 2036/2283
+Written 30540/34244 entries to perplexity result file
+Processing batch 2037/2283
+Written 30555/34244 entries to perplexity result file
+Processing batch 2038/2283
+Written 30570/34244 entries to perplexity result file
+Processing batch 2039/2283
+Written 30585/34244 entries to perplexity result file
+Processing batch 2040/2283
+Written 30600/34244 entries to perplexity result file
+Processing batch 2041/2283
+Written 30615/34244 entries to perplexity result file
+Processing batch 2042/2283
+Written 30630/34244 entries to perplexity result file
+Processing batch 2043/2283
+Written 30645/34244 entries to perplexity result file
+Processing batch 2044/2283
+Written 30660/34244 entries to perplexity result file
+Processing batch 2045/2283
+Written 30675/34244 entries to perplexity result file
+Processing batch 2046/2283
+Written 30690/34244 entries to perplexity result file
+Processing batch 2047/2283
+Written 30705/34244 entries to perplexity result file
+Processing batch 2048/2283
+Written 30720/34244 entries to perplexity result file
+Processing batch 2049/2283
+Written 30735/34244 entries to perplexity result file
+Processing batch 2050/2283
+Written 30750/34244 entries to perplexity result file
+Processing batch 2051/2283
+Written 30765/34244 entries to perplexity result file
+Processing batch 2052/2283
+Written 30780/34244 entries to perplexity result file
+Processing batch 2053/2283
+Written 30795/34244 entries to perplexity result file
+Processing batch 2054/2283
+Written 30810/34244 entries to perplexity result file
+Processing batch 2055/2283
+Written 30825/34244 entries to perplexity result file
+Processing batch 2056/2283
+Written 30840/34244 entries to perplexity result file
+Processing batch 2057/2283
+Written 30855/34244 entries to perplexity result file
+Processing batch 2058/2283
+Written 30870/34244 entries to perplexity result file
+Processing batch 2059/2283
+Written 30885/34244 entries to perplexity result file
+Processing batch 2060/2283
+Written 30900/34244 entries to perplexity result file
+Processing batch 2061/2283
+Written 30915/34244 entries to perplexity result file
+Processing batch 2062/2283
+Written 30930/34244 entries to perplexity result file
+Processing batch 2063/2283
+Written 30945/34244 entries to perplexity result file
+Processing batch 2064/2283
+Written 30960/34244 entries to perplexity result file
+Processing batch 2065/2283
+Written 30975/34244 entries to perplexity result file
+Processing batch 2066/2283
+Written 30990/34244 entries to perplexity result file
+Processing batch 2067/2283
+Written 31005/34244 entries to perplexity result file
+Processing batch 2068/2283
+Written 31020/34244 entries to perplexity result file
+Processing batch 2069/2283
+Written 31035/34244 entries to perplexity result file
+Processing batch 2070/2283
+Written 31050/34244 entries to perplexity result file
+Processing batch 2071/2283
+Written 31065/34244 entries to perplexity result file
+Processing batch 2072/2283
+Written 31080/34244 entries to perplexity result file
+Processing batch 2073/2283
+Written 31095/34244 entries to perplexity result file
+Processing batch 2074/2283
+Written 31110/34244 entries to perplexity result file
+Processing batch 2075/2283
+Written 31125/34244 entries to perplexity result file
+Processing batch 2076/2283
+Written 31140/34244 entries to perplexity result file
+Processing batch 2077/2283
+Written 31155/34244 entries to perplexity result file
+Processing batch 2078/2283
+Written 31170/34244 entries to perplexity result file
+Processing batch 2079/2283
+Written 31185/34244 entries to perplexity result file
+Processing batch 2080/2283
+Written 31200/34244 entries to perplexity result file
+Processing batch 2081/2283
+Written 31215/34244 entries to perplexity result file
+Processing batch 2082/2283
+Written 31230/34244 entries to perplexity result file
+Processing batch 2083/2283
+Written 31245/34244 entries to perplexity result file
+Processing batch 2084/2283
+Written 31260/34244 entries to perplexity result file
+Processing batch 2085/2283
+Written 31275/34244 entries to perplexity result file
+Processing batch 2086/2283
+Written 31290/34244 entries to perplexity result file
+Processing batch 2087/2283
+Written 31305/34244 entries to perplexity result file
+Processing batch 2088/2283
+Written 31320/34244 entries to perplexity result file
+Processing batch 2089/2283
+Written 31335/34244 entries to perplexity result file
+Processing batch 2090/2283
+Written 31350/34244 entries to perplexity result file
+Processing batch 2091/2283
+Written 31365/34244 entries to perplexity result file
+Processing batch 2092/2283
+Written 31380/34244 entries to perplexity result file
+Processing batch 2093/2283
+Written 31395/34244 entries to perplexity result file
+Processing batch 2094/2283
+Written 31410/34244 entries to perplexity result file
+Processing batch 2095/2283
+Written 31425/34244 entries to perplexity result file
+Processing batch 2096/2283
+Written 31440/34244 entries to perplexity result file
+Processing batch 2097/2283
+Written 31455/34244 entries to perplexity result file
+Processing batch 2098/2283
+Written 31470/34244 entries to perplexity result file
+Processing batch 2099/2283
+Written 31485/34244 entries to perplexity result file
+Processing batch 2100/2283
+Written 31500/34244 entries to perplexity result file
+Processing batch 2101/2283
+Written 31515/34244 entries to perplexity result file
+Processing batch 2102/2283
+Written 31530/34244 entries to perplexity result file
+Processing batch 2103/2283
+Written 31545/34244 entries to perplexity result file
+Processing batch 2104/2283
+Written 31560/34244 entries to perplexity result file
+Processing batch 2105/2283
+Written 31575/34244 entries to perplexity result file
+Processing batch 2106/2283
+Written 31590/34244 entries to perplexity result file
+Processing batch 2107/2283
+Written 31605/34244 entries to perplexity result file
+Processing batch 2108/2283
+Written 31620/34244 entries to perplexity result file
+Processing batch 2109/2283
+Written 31635/34244 entries to perplexity result file
+Processing batch 2110/2283
+Written 31650/34244 entries to perplexity result file
+Processing batch 2111/2283
+Written 31665/34244 entries to perplexity result file
+Processing batch 2112/2283
+Written 31680/34244 entries to perplexity result file
+Processing batch 2113/2283
+Written 31695/34244 entries to perplexity result file
+Processing batch 2114/2283
+Written 31710/34244 entries to perplexity result file
+Processing batch 2115/2283
+Written 31725/34244 entries to perplexity result file
+Processing batch 2116/2283
+Written 31740/34244 entries to perplexity result file
+Processing batch 2117/2283
+Written 31755/34244 entries to perplexity result file
+Processing batch 2118/2283
+Written 31770/34244 entries to perplexity result file
+Processing batch 2119/2283
+Written 31785/34244 entries to perplexity result file
+Processing batch 2120/2283
+Written 31800/34244 entries to perplexity result file
+Processing batch 2121/2283
+Written 31815/34244 entries to perplexity result file
+Processing batch 2122/2283
+Written 31830/34244 entries to perplexity result file
+Processing batch 2123/2283
+Written 31845/34244 entries to perplexity result file
+Processing batch 2124/2283
+Written 31860/34244 entries to perplexity result file
+Processing batch 2125/2283
+Written 31875/34244 entries to perplexity result file
+Processing batch 2126/2283
+Written 31890/34244 entries to perplexity result file
+Processing batch 2127/2283
+Written 31905/34244 entries to perplexity result file
+Processing batch 2128/2283
+Written 31920/34244 entries to perplexity result file
+Processing batch 2129/2283
+Written 31935/34244 entries to perplexity result file
+Processing batch 2130/2283
+Written 31950/34244 entries to perplexity result file
+Processing batch 2131/2283
+Written 31965/34244 entries to perplexity result file
+Processing batch 2132/2283
+Written 31980/34244 entries to perplexity result file
+Processing batch 2133/2283
+Written 31995/34244 entries to perplexity result file
+Processing batch 2134/2283
+Written 32010/34244 entries to perplexity result file
+Processing batch 2135/2283
+Written 32025/34244 entries to perplexity result file
+Processing batch 2136/2283
+Written 32040/34244 entries to perplexity result file
+Processing batch 2137/2283
+Written 32055/34244 entries to perplexity result file
+Processing batch 2138/2283
+Written 32070/34244 entries to perplexity result file
+Processing batch 2139/2283
+Written 32085/34244 entries to perplexity result file
+Processing batch 2140/2283
+Written 32100/34244 entries to perplexity result file
+Processing batch 2141/2283
+Written 32115/34244 entries to perplexity result file
+Processing batch 2142/2283
+Written 32130/34244 entries to perplexity result file
+Processing batch 2143/2283
+Written 32145/34244 entries to perplexity result file
+Processing batch 2144/2283
+Written 32160/34244 entries to perplexity result file
+Processing batch 2145/2283
+Written 32175/34244 entries to perplexity result file
+Processing batch 2146/2283
+Written 32190/34244 entries to perplexity result file
+Processing batch 2147/2283
+Written 32205/34244 entries to perplexity result file
+Processing batch 2148/2283
+Written 32220/34244 entries to perplexity result file
+Processing batch 2149/2283
+Written 32235/34244 entries to perplexity result file
+Processing batch 2150/2283
+Written 32250/34244 entries to perplexity result file
+Processing batch 2151/2283
+Written 32265/34244 entries to perplexity result file
+Processing batch 2152/2283
+Written 32280/34244 entries to perplexity result file
+Processing batch 2153/2283
+Written 32295/34244 entries to perplexity result file
+Processing batch 2154/2283
+Written 32310/34244 entries to perplexity result file
+Processing batch 2155/2283
+Written 32325/34244 entries to perplexity result file
+Processing batch 2156/2283
+Written 32340/34244 entries to perplexity result file
+Processing batch 2157/2283
+Written 32355/34244 entries to perplexity result file
+Processing batch 2158/2283
+Written 32370/34244 entries to perplexity result file
+Processing batch 2159/2283
+Written 32385/34244 entries to perplexity result file
+Processing batch 2160/2283
+Written 32400/34244 entries to perplexity result file
+Processing batch 2161/2283
+Written 32415/34244 entries to perplexity result file
+Processing batch 2162/2283
+Written 32430/34244 entries to perplexity result file
+Processing batch 2163/2283
+Written 32445/34244 entries to perplexity result file
+Processing batch 2164/2283
+Written 32460/34244 entries to perplexity result file
+Processing batch 2165/2283
+Written 32475/34244 entries to perplexity result file
+Processing batch 2166/2283
+Written 32490/34244 entries to perplexity result file
+Processing batch 2167/2283
+Written 32505/34244 entries to perplexity result file
+Processing batch 2168/2283
+Written 32520/34244 entries to perplexity result file
+Processing batch 2169/2283
+Written 32535/34244 entries to perplexity result file
+Processing batch 2170/2283
+Written 32550/34244 entries to perplexity result file
+Processing batch 2171/2283
+Written 32565/34244 entries to perplexity result file
+Processing batch 2172/2283
+Written 32580/34244 entries to perplexity result file
+Processing batch 2173/2283
+Written 32595/34244 entries to perplexity result file
+Processing batch 2174/2283
+Written 32610/34244 entries to perplexity result file
+Processing batch 2175/2283
+Written 32625/34244 entries to perplexity result file
+Processing batch 2176/2283
+Written 32640/34244 entries to perplexity result file
+Processing batch 2177/2283
+Written 32655/34244 entries to perplexity result file
+Processing batch 2178/2283
+Written 32670/34244 entries to perplexity result file
+Processing batch 2179/2283
+Written 32685/34244 entries to perplexity result file
+Processing batch 2180/2283
+Written 32700/34244 entries to perplexity result file
+Processing batch 2181/2283
+Written 32715/34244 entries to perplexity result file
+Processing batch 2182/2283
+Written 32730/34244 entries to perplexity result file
+Processing batch 2183/2283
+Written 32745/34244 entries to perplexity result file
+Processing batch 2184/2283
+Written 32760/34244 entries to perplexity result file
+Processing batch 2185/2283
+Written 32775/34244 entries to perplexity result file
+Processing batch 2186/2283
+Written 32790/34244 entries to perplexity result file
+Processing batch 2187/2283
+Written 32805/34244 entries to perplexity result file
+Processing batch 2188/2283
+Written 32820/34244 entries to perplexity result file
+Processing batch 2189/2283
+Written 32835/34244 entries to perplexity result file
+Processing batch 2190/2283
+Written 32850/34244 entries to perplexity result file
+Processing batch 2191/2283
+Written 32865/34244 entries to perplexity result file
+Processing batch 2192/2283
+Written 32880/34244 entries to perplexity result file
+Processing batch 2193/2283
+Written 32895/34244 entries to perplexity result file
+Processing batch 2194/2283
+Written 32910/34244 entries to perplexity result file
+Processing batch 2195/2283
+Written 32925/34244 entries to perplexity result file
+Processing batch 2196/2283
+Written 32940/34244 entries to perplexity result file
+Processing batch 2197/2283
+Written 32955/34244 entries to perplexity result file
+Processing batch 2198/2283
+Written 32970/34244 entries to perplexity result file
+Processing batch 2199/2283
+Written 32985/34244 entries to perplexity result file
+Processing batch 2200/2283
+Written 33000/34244 entries to perplexity result file
+Processing batch 2201/2283
+Written 33015/34244 entries to perplexity result file
+Processing batch 2202/2283
+Written 33030/34244 entries to perplexity result file
+Processing batch 2203/2283
+Written 33045/34244 entries to perplexity result file
+Processing batch 2204/2283
+Written 33060/34244 entries to perplexity result file
+Processing batch 2205/2283
+Written 33075/34244 entries to perplexity result file
+Processing batch 2206/2283
+Written 33090/34244 entries to perplexity result file
+Processing batch 2207/2283
+Written 33105/34244 entries to perplexity result file
+Processing batch 2208/2283
+Written 33120/34244 entries to perplexity result file
+Processing batch 2209/2283
+Written 33135/34244 entries to perplexity result file
+Processing batch 2210/2283
+Written 33150/34244 entries to perplexity result file
+Processing batch 2211/2283
+Written 33165/34244 entries to perplexity result file
+Processing batch 2212/2283
+Written 33180/34244 entries to perplexity result file
+Processing batch 2213/2283
+Written 33195/34244 entries to perplexity result file
+Processing batch 2214/2283
+Written 33210/34244 entries to perplexity result file
+Processing batch 2215/2283
+Written 33225/34244 entries to perplexity result file
+Processing batch 2216/2283
+Written 33240/34244 entries to perplexity result file
+Processing batch 2217/2283
+Written 33255/34244 entries to perplexity result file
+Processing batch 2218/2283
+Written 33270/34244 entries to perplexity result file
+Processing batch 2219/2283
+Written 33285/34244 entries to perplexity result file
+Processing batch 2220/2283
+Written 33300/34244 entries to perplexity result file
+Processing batch 2221/2283
+Written 33315/34244 entries to perplexity result file
+Processing batch 2222/2283
+Written 33330/34244 entries to perplexity result file
+Processing batch 2223/2283
+Written 33345/34244 entries to perplexity result file
+Processing batch 2224/2283
+Written 33360/34244 entries to perplexity result file
+Processing batch 2225/2283
+Written 33375/34244 entries to perplexity result file
+Processing batch 2226/2283
+Written 33390/34244 entries to perplexity result file
+Processing batch 2227/2283
+Written 33405/34244 entries to perplexity result file
+Processing batch 2228/2283
+Written 33420/34244 entries to perplexity result file
+Processing batch 2229/2283
+Written 33435/34244 entries to perplexity result file
+Processing batch 2230/2283
+Written 33450/34244 entries to perplexity result file
+Processing batch 2231/2283
+Written 33465/34244 entries to perplexity result file
+Processing batch 2232/2283
+Written 33480/34244 entries to perplexity result file
+Processing batch 2233/2283
+Written 33495/34244 entries to perplexity result file
+Processing batch 2234/2283
+Written 33510/34244 entries to perplexity result file
+Processing batch 2235/2283
+Written 33525/34244 entries to perplexity result file
+Processing batch 2236/2283
+Written 33540/34244 entries to perplexity result file
+Processing batch 2237/2283
+Written 33555/34244 entries to perplexity result file
+Processing batch 2238/2283
+Written 33570/34244 entries to perplexity result file
+Processing batch 2239/2283
+Written 33585/34244 entries to perplexity result file
+Processing batch 2240/2283
+Written 33600/34244 entries to perplexity result file
+Processing batch 2241/2283
+Written 33615/34244 entries to perplexity result file
+Processing batch 2242/2283
+Written 33630/34244 entries to perplexity result file
+Processing batch 2243/2283
+Written 33645/34244 entries to perplexity result file
+Processing batch 2244/2283
+Written 33660/34244 entries to perplexity result file
+Processing batch 2245/2283
+Written 33675/34244 entries to perplexity result file
+Processing batch 2246/2283
+Written 33690/34244 entries to perplexity result file
+Processing batch 2247/2283
+Written 33705/34244 entries to perplexity result file
+Processing batch 2248/2283
+Written 33720/34244 entries to perplexity result file
+Processing batch 2249/2283
+Written 33735/34244 entries to perplexity result file
+Processing batch 2250/2283
+Written 33750/34244 entries to perplexity result file
+Processing batch 2251/2283
+Written 33765/34244 entries to perplexity result file
+Processing batch 2252/2283
+Written 33780/34244 entries to perplexity result file
+Processing batch 2253/2283
+Written 33795/34244 entries to perplexity result file
+Processing batch 2254/2283
+Written 33810/34244 entries to perplexity result file
+Processing batch 2255/2283
+Written 33825/34244 entries to perplexity result file
+Processing batch 2256/2283
+Written 33840/34244 entries to perplexity result file
+Processing batch 2257/2283
+Written 33855/34244 entries to perplexity result file
+Processing batch 2258/2283
+Written 33870/34244 entries to perplexity result file
+Processing batch 2259/2283
+Written 33885/34244 entries to perplexity result file
+Processing batch 2260/2283
+Written 33900/34244 entries to perplexity result file
+Processing batch 2261/2283
+Written 33915/34244 entries to perplexity result file
+Processing batch 2262/2283
+Written 33930/34244 entries to perplexity result file
+Processing batch 2263/2283
+Written 33945/34244 entries to perplexity result file
+Processing batch 2264/2283
+Written 33960/34244 entries to perplexity result file
+Processing batch 2265/2283
+Written 33975/34244 entries to perplexity result file
+Processing batch 2266/2283
+Written 33990/34244 entries to perplexity result file
+Processing batch 2267/2283
+Written 34005/34244 entries to perplexity result file
+Processing batch 2268/2283
+Written 34020/34244 entries to perplexity result file
+Processing batch 2269/2283
+Written 34035/34244 entries to perplexity result file
+Processing batch 2270/2283
+Written 34050/34244 entries to perplexity result file
+Processing batch 2271/2283
+Written 34065/34244 entries to perplexity result file
+Processing batch 2272/2283
+Written 34080/34244 entries to perplexity result file
+Processing batch 2273/2283
+Written 34095/34244 entries to perplexity result file
+Processing batch 2274/2283
+Written 34110/34244 entries to perplexity result file
+Processing batch 2275/2283
+Written 34125/34244 entries to perplexity result file
+Processing batch 2276/2283
+Written 34140/34244 entries to perplexity result file
+Processing batch 2277/2283
+Written 34155/34244 entries to perplexity result file
+Processing batch 2278/2283
+Written 34170/34244 entries to perplexity result file
+Processing batch 2279/2283
+Written 34185/34244 entries to perplexity result file
+Processing batch 2280/2283
+Written 34200/34244 entries to perplexity result file
+Processing batch 2281/2283
+Written 34215/34244 entries to perplexity result file
+Processing batch 2282/2283
+Written 34230/34244 entries to perplexity result file
+Processing batch 2283/2283
+Written 34244/34244 entries to perplexity result file
+Dispatching perplexity results for model: Qwen-Qwen3-8B, languages: ["en", "zh_cn"], input file: judge/result/Qwen-Qwen3-8B/perplexity_aggregated_output.jsonl
+Dispatched perplexity results for model: Qwen-Qwen3-8B, lang: en
+Dispatched perplexity results for model: Qwen-Qwen3-8B, lang: zh_cn
+Removed aggregated perplexity output file: judge/result/Qwen-Qwen3-8B/perplexity_aggregated_output.jsonl
+Completed writing all 34244 perplexity results to judge/result/Qwen-Qwen3-8B/perplexity_aggregated_output.jsonl

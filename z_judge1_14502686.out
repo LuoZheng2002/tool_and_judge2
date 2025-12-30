@@ -1,0 +1,18 @@
+✏️ Setting installed package as editable
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm1.py
+This run uses VLLM backend.
+Starting preference experiment...
+File "judge/result/Qwen-Qwen3-8B/preference/en_correct_zh_cn_incorrect.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Qwen-Qwen3-8B/preference/en_incorrect_zh_cn_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Qwen-Qwen3-8B/preference/en_correct_zh_cn_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Qwen-Qwen3-8B/preference/en_incorrect_zh_cn_incorrect.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Qwen-Qwen3-8B/preference/en_correct_en_incorrect.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Qwen-Qwen3-8B/preference/en_incorrect_en_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Qwen-Qwen3-8B/preference/en_correct_en_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Qwen-Qwen3-8B/preference/en_incorrect_en_incorrect.jsonl" does not exist, assuming no completed entries.
+Concatenated two answers dataset for language pairs[("en", "zh_cn"), ("en", "en")] written to "judge/result/Qwen-Qwen3-8B/preference_aggregated_input.jsonl"
+Creating VLLM backend for model Qwen/Qwen3-8B using 1 GPUs...
