@@ -43,6 +43,12 @@ parser.add_argument(
     default=None,
     help="Limit the number of entries to process for debugging (default: None)"
 )
+parser.add_argument(
+    "--single-gpu-memory",
+    type=int,
+    default=40,
+    help="Memory of a single GPU in GB (default: 40)"
+)
 
 args = parser.parse_args()
 
@@ -326,8 +332,10 @@ async def main_async():
             print(f"Total entries to calculate perplexity: {len(input_entries)}")
 
             # Define batch size for processing
-            batch_size =  int(240 * args.num_gpus / config.model.size_in_billion_parameters())
-            print(f"Using batch size: {batch_size} based on model size and number of GPUs")
+            # Scale batch size based on GPU memory: 240 was the constant for 40GB GPUs
+            # batch_size = (base_constant) * num_gpus * (gpu_memory / 40GB) / model_size_in_billions
+            batch_size =  int(240 * args.num_gpus * args.single_gpu_memory / 40 / config.model.size_in_billion_parameters())
+            print(f"Using batch size: {batch_size} based on model size, number of GPUs ({args.num_gpus}), and single GPU memory ({args.single_gpu_memory}GB)")
             total_processed = 0
 
             with open(generate_perplexity_aggregated_output_file_path, 'w') as f:

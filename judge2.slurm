@@ -21,5 +21,5 @@ export HF_HOME=/work/nvme/bfdz/zluo8/huggingface
 
 # Run the training script
 
-python judge.py --config judge_config_slurm2_vllm.py --num-gpus 8
-python judge.py --config judge_config_slurm2_hf.py --num-gpus 8
+python judge.py --config judge_config_slurm2_vllm.py --num-gpus 8 --single-gpu-memory 141
+python judge.py --config judge_config_slurm2_hf.py --num-gpus 8 --single-gpu-memory 141
