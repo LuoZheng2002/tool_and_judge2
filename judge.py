@@ -333,7 +333,7 @@ async def main_async():
             # Define batch size for processing
             # Scale batch size based on GPU memory: 240 was the constant for 40GB GPUs
             # batch_size = (base_constant) * num_gpus * (gpu_memory / 40GB) / model_size_in_billions
-            batch_size =  int(240 * args.num_gpus * args.single_gpu_memory / 40 / config.model.size_in_billion_parameters())
+            batch_size =  int(18 * args.num_gpus * args.single_gpu_memory / config.model.size_in_billion_parameters())
             print(f"Using batch size: {batch_size} based on model size, number of GPUs ({args.num_gpus}), and single GPU memory ({args.single_gpu_memory}GB)")
             total_processed = 0
 

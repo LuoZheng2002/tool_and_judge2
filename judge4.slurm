@@ -2,13 +2,13 @@
 #SBATCH --job-name=judge4       # Job name
 #SBATCH --output=z_judge4_%j.out        # Standard output log (%j = job ID)
 #SBATCH --error=z_judge4_%j.err         # Error log
-#SBATCH --time=01:00:00                 # Max runtime (HH:MM:SS)
+#SBATCH --time=06:00:00                 # Max runtime (HH:MM:SS)
 # #SBATCH --partition=gpu                  # Partition/queue with GPU
 # #SBATCH --mail-type=BEGIN,END,FAIL
 # #SBATCH --mail-user=luozheng@usc.edu
 # #SBATCH --partition=gpuH200x8
 #SBATCH --gres=gpu:4                     # Request 4 GPUs (was 4)
-#SBATCH --cpus-per-task=4                # CPU cores (increased from 4)
+#SBATCH --cpus-per-task=8                # CPU cores (increased from 4)
 #SBATCH --mem=64G                        # RAM (increased from 32G)
 #SBATCH --account=bfdz-delta-gpu    # Your Slurm account/project
 
