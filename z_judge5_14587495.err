@@ -1,0 +1,7 @@
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+    Finished `release` profile [optimized] target(s) in 0.92s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmpvGz7Tg/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+[2025-12-30T01:16:18.314] error: *** JOB 14587495 ON gpua019 CANCELLED AT 2025-12-30T01:16:18 DUE to SIGNAL Terminated ***

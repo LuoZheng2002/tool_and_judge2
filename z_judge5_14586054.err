@@ -1,0 +1,9 @@
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+[2025-12-30T01:05:18.849] error: *** JOB 14586054 ON gpua029 CANCELLED AT 2025-12-30T01:05:18 DUE to SIGNAL Terminated ***
+[2025-12-30T01:07:19.001] error: namespace_p_join: open failed for /local/slurmjobs/14586054/.ns: No such file or directory
+[2025-12-30T01:07:19.001] error: namespace_g_join(14586054): No such file or directory
+s-nail: Cannot find a usable character set to encode message: No such entry, file or directory
+s-nail: ... message not sent
+[2025-12-30T01:07:21.001] error: *** JOB 14586054 STEPD TERMINATED ON gpua029 AT 2025-12-30T01:07:18 DUE TO JOB NOT ENDING WITH SIGNALS ***
+[2025-12-30T01:07:25.878] error: Container 2929558 in cgroup plugin has 2 processes, giving up after 127 sec

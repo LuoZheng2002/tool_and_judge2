@@ -1,0 +1,21 @@
+✏️ Setting installed package as editable
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm5_vllm.py
+This run uses VLLM backend.
+Starting preference experiment...
+Dispatching preference results for model: Unbabel-M-Prometheus-14B, language pairs: [("en", "zh_cn"), ("en", "fr_fr")], input file: judge/result/Unbabel-M-Prometheus-14B/preference_aggregated_output.jsonl
+Warning: Missing entries for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: zh_cn: missing entries count: 11478
+Warning: Missing entries for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: zh_cn: missing entries count: 11478
+Warning: Missing entries for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: zh_cn: missing entries count: 11478
+Warning: Missing entries for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: zh_cn: missing entries count: 11478
+Dispatched preference results for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: zh_cn
+Warning: Missing entries for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: fr_fr: missing entries count: 11478
+Warning: Missing entries for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: fr_fr: missing entries count: 11478
+Warning: Missing entries for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: fr_fr: missing entries count: 11478
+Warning: Missing entries for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: fr_fr: missing entries count: 11478
+Dispatched preference results for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: fr_fr
+Removed aggregated output file: judge/result/Unbabel-M-Prometheus-14B/preference_aggregated_output.jsonl
+Concatenated two answers dataset for language pairs[("en", "zh_cn"), ("en", "fr_fr")] written to "judge/result/Unbabel-M-Prometheus-14B/preference_aggregated_input.jsonl"

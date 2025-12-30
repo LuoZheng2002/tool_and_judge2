@@ -2,12 +2,12 @@
 #SBATCH --job-name=judge5       # Job name
 #SBATCH --output=z_judge5_%j.out        # Standard output log (%j = job ID)
 #SBATCH --error=z_judge5_%j.err         # Error log
-#SBATCH --time=00:30:00                 # Max runtime (HH:MM:SS)
+#SBATCH --time=01:00:00                 # Max runtime (HH:MM:SS)
 # #SBATCH --partition=gpu                  # Partition/queue with GPU
 # #SBATCH --mail-type=BEGIN,END,FAIL
 # #SBATCH --mail-user=luozheng@usc.edu
 # #SBATCH --partition=gpuH200x8
-#SBATCH --gres=gpu:4                     # Request 4 GPUs (was 4)
+#SBATCH --gres=gpu:1                     # Request 1 GPU (was 4)
 #SBATCH --cpus-per-task=4                # CPU cores (increased from 4)
 #SBATCH --mem=64G                        # RAM (increased from 32G)
 #SBATCH --account=bfdz-delta-gpu    # Your Slurm account/project
@@ -21,5 +21,5 @@ export HF_HOME=/work/nvme/bfdz/zluo8/huggingface
 
 # Run the training script
 
-python judge.py --config judge_config_slurm5_vllm.py --num-gpus 4 --single-gpu-memory 40
-python judge.py --config judge_config_slurm5_hf.py --num-gpus 4 --single-gpu-memory 40
+python judge.py --config judge_config_slurm5_vllm.py --num-gpus 1 --single-gpu-memory 40 --debug-limit 20
+python judge.py --config judge_config_slurm5_hf.py --num-gpus 1 --single-gpu-memory 40 --debug-limit 20

@@ -285,7 +285,7 @@ def generate_response_batch(
         language_name = language_abbreviation_to_name(lang)
 
         # Build language-specific instructions (following qwen3_interface.py format)
-        instruction = f"Please concisely answer the question in {language_name}."
+        instruction = f"Please CONCISELY answer the question in {language_name} WITHOUT reasoning or explanation."
 
         # Combine question with instruction
         user_content = f"{question}\n\n{instruction}"
@@ -368,7 +368,7 @@ async def generate_response_async(
     language_name = language_abbreviation_to_name(lang)
 
     # Build language-specific instructions
-    instruction = f"Please concisely answer the question in {language_name}."
+    instruction = f"Please CONCISELY answer the question in {language_name} WITHOUT reasoning or explanation."
 
     # Combine question with instruction
     user_content = f"{question}\n\n{instruction}"
