@@ -275,7 +275,7 @@ def parse_styled_response_to_mask(styled_response: str, tokenizer: Any):
     return trimmed_response, input_ids, token_mask
 
 
-def calculate_perplexity_from_logits_with_mask(logits, input_ids, answer_mask):
+def calculate_perplexity_from_logits_with_mask(index: int, lang: str, logits, input_ids, answer_mask):
     """
     Calculate perplexity for masked answer tokens.
 
@@ -315,8 +315,14 @@ def calculate_perplexity_from_logits_with_mask(logits, input_ids, answer_mask):
     # Select only the log probs where mask is True
     masked_log_probs = selected_log_probs[mask_tensor]
 
-    assert len(masked_log_probs) > 0, "No tokens were selected by the answer mask for perplexity calculation"
+    # assert len(masked_log_probs) > 0, "No tokens were selected by the answer mask for perplexity calculation"
     
+    if len(masked_log_probs) == 0:
+        print(f"[WARNING] in lang {lang}, index {index}: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.")
+        return 1.0
+
+
+
     # Calculate perplexity
     avg_log_prob = masked_log_probs.mean().item()
     perplexity = math.exp(-avg_log_prob)

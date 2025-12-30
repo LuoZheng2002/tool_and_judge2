@@ -169,8 +169,8 @@ async def main_async():
                         result = await coro
                         f.write(json.dumps(result, ensure_ascii=False) + '\n')
                         f.flush()
-                        if i % 20 == 0:
-                            print(f"Written {i}/{len(combined_entries)} entries to file")
+                        if i % 200 == 0:
+                            print(f"Written {i}/{len(combined_entries)} entries to file", flush=True)
             await collect_all_preference_entries()
             preference_dispatch_preference_results(config)
             print("Preference experiment finished.")
@@ -233,8 +233,8 @@ async def main_async():
                         result = await coro
                         f.write(json.dumps(result, ensure_ascii=False) + '\n')
                         f.flush()
-                        if i % 20 == 0:
-                            print(f"Written {i}/{len(input_entries)} entries to file")
+                        if i % 200 == 0:
+                            print(f"Written {i}/{len(input_entries)} entries to file", flush=True)
 
             await collect_all_response_entries()
             perplexity_dispatch_response_results(config)
@@ -300,8 +300,8 @@ async def main_async():
                         result = await coro
                         f.write(json.dumps(result, ensure_ascii=False) + '\n')
                         f.flush()
-                        if i % 20 == 0:
-                            print(f"Written {i}/{len(input_entries)} entries to styled answers file")
+                        if i % 200 == 0:
+                            print(f"Written {i}/{len(input_entries)} entries to styled answers file", flush=True)
             await collect_all_styled_responses_entries()
             perplexity_dispatch_styled_answers_results(config)
             print(f"Completed writing all styled answers to {generate_styled_answers_output_file_path}")
@@ -422,6 +422,8 @@ async def main_async():
 
                         # Calculate perplexity using the mask
                         perplexity = calculate_perplexity_from_logits_with_mask(
+                            entry['index'],
+                            entry['lang'],
                             forward_result['logits'],
                             forward_result['input_ids'],
                             token_mask
