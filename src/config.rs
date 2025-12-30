@@ -80,6 +80,8 @@ pub enum LocalModel {
     Qwen3_32B,
     #[strum(serialize = "Qwen/Qwen3-Next-80B-A3B-Instruct")]
     Qwen3Next80bA3b,
+    #[strum(serialize = "Qwen/Qwen3-235B")]
+    Qwen3_235bA22b,
     #[strum(serialize = "meta-llama/Llama-3.1-8B-Instruct")]
     Llama3_1_8B,
     #[strum(serialize = "meta-llama/Llama-3.1-70B-Instruct")]
@@ -87,7 +89,11 @@ pub enum LocalModel {
     #[strum(serialize = "meta-llama/Llama-3.3-70B-Instruct")]
     Llama3_3_70B,
     #[strum(serialize = "CohereLabs/aya-expanse-32b")]
-    AyaExpanse32b,
+    AyaExpanse32B,
+    #[strum(serialize = "Unbabel/M-Prometheus-14B")]
+    UnbabelMPrometheus14B,
+    #[strum(serialize = "prometheus-eval/prometheus-8x7b-v2.0")]
+    Prometheus8x7bV2,
 }
 #[pymethods]
 impl LocalModel {
@@ -103,10 +109,13 @@ impl LocalModel {
             LocalModel::Qwen3_30bA3b => 30.0,
             LocalModel::Qwen3_32B => 32.0,
             LocalModel::Qwen3Next80bA3b => 80.0,
+            LocalModel::Qwen3_235bA22b => 235.0,
             LocalModel::Llama3_1_8B => 8.0,
             LocalModel::Llama3_1_70B => 70.0,
             LocalModel::Llama3_3_70B => 70.0,
-            LocalModel::AyaExpanse32b => 32.0,
+            LocalModel::AyaExpanse32B => 32.0,
+            LocalModel::UnbabelMPrometheus14B => 14.0,
+            LocalModel::Prometheus8x7bV2 => 47.0,
         }
     }
     fn __richcmp__(&self, other: PyRef<LocalModel>, op: CompareOp) -> PyResult<bool> {

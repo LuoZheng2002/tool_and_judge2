@@ -123,9 +123,13 @@ async def main_async():
                 async with semaphore:
                     if config.model == LocalModel.Llama3_3_70B:
                         from src_py.llama3_1_backend import collect_preference_local_async
-                    elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b]:
+                    elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b, LocalModel.Qwen3_235bA22b]:
                         from src_py.qwen3_backend import collect_preference_local_async
-                    elif config.model == LocalModel.AyaExpanse32b:
+                    elif config.model == LocalModel.UnbabelMPrometheus14B:
+                        from src_py.qwen2_5_backend import collect_preference_local_async
+                    elif config.model == LocalModel.Prometheus8x7bV2:
+                        from src_py.mistral_backend import collect_preference_local_async
+                    elif config.model == LocalModel.AyaExpanse32B:
                         from src_py.aya_expanse_backend import collect_preference_local_async
                     else:
                         raise ValueError(f"Unsupported model for preference collection: {config.model}")
@@ -205,9 +209,13 @@ async def main_async():
                 async with semaphore:
                     if config.model == LocalModel.Llama3_3_70B:
                         from src_py.llama3_1_backend import generate_response_async
-                    elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b]:
+                    elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b, LocalModel.Qwen3_235bA22b]:
                         from src_py.qwen3_backend import generate_response_async
-                    elif config.model == LocalModel.AyaExpanse32b:
+                    elif config.model == LocalModel.UnbabelMPrometheus14B:
+                        from src_py.qwen2_5_backend import generate_response_async
+                    elif config.model == LocalModel.Prometheus8x7bV2:
+                        from src_py.mistral_backend import generate_response_async
+                    elif config.model == LocalModel.AyaExpanse32B:
                         from src_py.aya_expanse_backend import generate_response_async
                     else:
                         raise ValueError(f"Unsupported model for response collection: {config.model}")
@@ -340,9 +348,13 @@ async def main_async():
                     # Import model-specific forward function
                     if config.model == LocalModel.Llama3_3_70B:
                         from src_py.llama3_1_backend import forward_for_perplexity
-                    elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b]:
+                    elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b, LocalModel.Qwen3_235bA22b]:
                         from src_py.qwen3_backend import forward_for_perplexity
-                    elif config.model == LocalModel.AyaExpanse32b:
+                    elif config.model == LocalModel.UnbabelMPrometheus14B:
+                        from src_py.qwen2_5_backend import forward_for_perplexity
+                    elif config.model == LocalModel.Prometheus8x7bV2:
+                        from src_py.mistral_backend import forward_for_perplexity
+                    elif config.model == LocalModel.AyaExpanse32B:
                         from src_py.aya_expanse_backend import forward_for_perplexity
                     else:
                         raise ValueError(f"Unsupported model for perplexity collection: {config.model}")
@@ -388,14 +400,23 @@ async def main_async():
 
                         # Apply chat template to get the formatted prompt with <answer> tags
                         # Handle model-specific tokenization parameters
-                        if config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b]:
+                        if config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b, LocalModel.Qwen3_235bA22b]:
+                            # Qwen 3 models support enable_thinking parameter
                             formatted_prompt_with_tags = hf_tokenizer.apply_chat_template(
                                 messages,
                                 tokenize=False,
                                 add_generation_prompt=False,
                                 enable_thinking=False,
                             )
+                        elif config.model in [LocalModel.UnbabelMPrometheus14B, LocalModel.Prometheus8x7bV2]:
+                            # M-Prometheus (Qwen 2.5 base) and Prometheus-8x7b (Mistral base) don't support enable_thinking
+                            formatted_prompt_with_tags = hf_tokenizer.apply_chat_template(
+                                messages,
+                                tokenize=False,
+                                add_generation_prompt=False,
+                            )
                         else:
+                            # Other models (Llama, AyaExpanse, etc.)
                             formatted_prompt_with_tags = hf_tokenizer.apply_chat_template(
                                 messages,
                                 tokenize=False,
