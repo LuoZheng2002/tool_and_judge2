@@ -126,7 +126,8 @@ def create_winrate_plot(
     is_correct1: bool,
     is_correct2: bool,
     output_path: str,
-    num_bins: int = 12
+    num_bins: int = 12,
+    test_order: bool = False
 ):
     """Create and save a win rate vs perplexity difference plot."""
     if len(perplexity_diffs) == 0:
@@ -168,13 +169,24 @@ def create_winrate_plot(
     plt.axhline(y=0.5, color='gray', linestyle='--', alpha=0.5, linewidth=1)
 
     # Labels and title
-    plt.xlabel(f'Difference in Log10(Perplexity) ({lang1} - {lang2})', fontsize=12)
+    if test_order:
+        plt.xlabel(f'Log10(Perplexity Difference) (log10({lang1} - {lang2}))', fontsize=12)
+    else:
+        plt.xlabel(f'Difference in Log10(Perplexity) ({lang1} - {lang2})', fontsize=12)
     plt.ylabel('Winning rate (preference == 1)', fontsize=12)
 
     correct1_str = "correct" if is_correct1 else "incorrect"
     correct2_str = "correct" if is_correct2 else "incorrect"
     title = f'{lang1} {correct1_str} vs {lang2} {correct2_str}\n(n={len(perplexity_diffs)} points, {num_bins} bins)'
     plt.title(title, fontsize=14)
+
+    # Set y-axis limits based on data with margin
+    if len(win_rates) > 0:
+        y_min = min(win_rates)
+        y_max = max(win_rates)
+        y_range = y_max - y_min
+        margin = 0.1 * y_range if y_range > 0 else 0.1  # 10% margin, or 0.1 if all values are same
+        plt.ylim(y_min - margin, y_max + margin)
 
     # Add grid
     plt.grid(True, alpha=0.3)
@@ -206,10 +218,12 @@ def main():
                        help='First language code (e.g., en)')
     parser.add_argument('lang2', type=str,
                        help='Second language code (e.g., zh_cn)')
-    parser.add_argument('--output-dir', type=str, default='judge/plots',
+    parser.add_argument('--output-dir', type=str, default='judge/plots/line',
                        help='Output directory for plots (default: judge/plots)')
     parser.add_argument('--num-bins', type=int, default=12,
                        help='Number of bins for win rate calculation (default: 12)')
+    parser.add_argument('--test-order', action='store_true',
+                       help='Use log10(perplexity1 - perplexity2) instead of log10(perplexity1) - log10(perplexity2)')
 
     args = parser.parse_args()
 
@@ -266,12 +280,20 @@ def main():
             perp2 = perplexity_lang2[idx][is_correct2]
 
             # Calculate log10 perplexity difference
-            # Skip if either perplexity is non-positive (can't take log)
-            if perp1 <= 0 or perp2 <= 0:
-                error_count += 1
-                continue
-
-            perp_diff = math.log10(perp1) - math.log10(perp2)
+            if args.test_order:
+                # Use log10(perp1 - perp2) when test_order is enabled
+                # Skip if the difference is non-positive (can't take log)
+                if perp1 - perp2 <= 0:
+                    error_count += 1
+                    continue
+                perp_diff = math.log10(perp1 - perp2)
+            else:
+                # Use log10(perp1) - log10(perp2) by default
+                # Skip if either perplexity is non-positive (can't take log)
+                if perp1 <= 0 or perp2 <= 0:
+                    error_count += 1
+                    continue
+                perp_diff = math.log10(perp1) - math.log10(perp2)
 
             perplexity_diffs.append(perp_diff)
             preferences.append(pref_val)
@@ -284,7 +306,8 @@ def main():
             # Create output filename
             correct1_str = "correct" if is_correct1 else "incorrect"
             correct2_str = "correct" if is_correct2 else "incorrect"
-            output_filename = f"{args.model_name}_{args.lang1}_{correct1_str}_vs_{args.lang2}_{correct2_str}_winrate.png"
+            suffix = "_test_order" if args.test_order else ""
+            output_filename = f"{args.model_name}_{args.lang1}_{correct1_str}_vs_{args.lang2}_{correct2_str}_winrate{suffix}.png"
             output_path = output_dir / output_filename
 
             # Create plot
@@ -296,7 +319,8 @@ def main():
                 is_correct1,
                 is_correct2,
                 str(output_path),
-                num_bins=args.num_bins
+                num_bins=args.num_bins,
+                test_order=args.test_order
             )
         else:
             print(f"  Warning: No valid data points found for this category")

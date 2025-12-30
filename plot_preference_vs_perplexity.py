@@ -9,7 +9,7 @@ For each model and pair of languages, creates 4 plots corresponding to:
 - lang1 incorrect, lang2 incorrect
 
 Each point plots:
-- X-axis: log perplexity difference (log(perplexity_lang1) - log(perplexity_lang2))
+- X-axis: log10 perplexity difference (log10(perplexity_lang1) - log10(perplexity_lang2))
 - Y-axis: preference logprob_signed_difference
 """
 
@@ -179,13 +179,14 @@ def create_scatter_plot(
     num_filtered_out: int = 0,
     total_points: int = None,
     x_range: Optional[Tuple[float, float]] = None,
-    y_range: Optional[Tuple[float, float]] = None
+    y_range: Optional[Tuple[float, float]] = None,
+    test_order: bool = False
 ):
     """Create and save a scatter plot."""
     plt.figure(figsize=(10, 8))
 
     # Create scatter plot
-    plt.scatter(perplexity_diffs, preference_values, alpha=0.5, s=20)
+    plt.scatter(perplexity_diffs, preference_values, alpha=0.3, s=10, edgecolors='none')
 
     # Add reference lines
     plt.axhline(y=0, color='r', linestyle='--', alpha=0.3, linewidth=1)
@@ -198,7 +199,10 @@ def create_scatter_plot(
         plt.ylim(y_range[0], y_range[1])
 
     # Labels and title
-    plt.xlabel(f'Log Perplexity Difference (log({lang1}) - log({lang2}))', fontsize=12)
+    if test_order:
+        plt.xlabel(f'Log10(Perplexity Difference) (log10({lang1} - {lang2}))', fontsize=12)
+    else:
+        plt.xlabel(f'Difference in Log10(Perplexity) ({lang1} - {lang2})', fontsize=12)
     plt.ylabel('Preference Log-Prob Signed Difference', fontsize=12)
 
     correct1_str = "correct" if is_correct1 else "incorrect"
@@ -237,16 +241,18 @@ def main():
                        help='First language code (e.g., en)')
     parser.add_argument('lang2', type=str,
                        help='Second language code (e.g., zh_cn)')
-    parser.add_argument('--output-dir', type=str, default='judge/plots',
+    parser.add_argument('--output-dir', type=str, default='judge/plots/scatter',
                        help='Output directory for plots (default: judge/plots)')
     parser.add_argument('--x-min', type=float, default=None,
-                       help='Minimum value for x-axis (log perplexity difference)')
+                       help='Minimum value for x-axis (log10 perplexity difference)')
     parser.add_argument('--x-max', type=float, default=None,
-                       help='Maximum value for x-axis (log perplexity difference)')
+                       help='Maximum value for x-axis (log10 perplexity difference)')
     parser.add_argument('--y-min', type=float, default=None,
                        help='Minimum value for y-axis (preference values)')
     parser.add_argument('--y-max', type=float, default=None,
                        help='Maximum value for y-axis (preference values)')
+    parser.add_argument('--test-order', action='store_true',
+                       help='Use log10(perplexity1 - perplexity2) instead of log10(perplexity1) - log10(perplexity2)')
 
     args = parser.parse_args()
 
@@ -313,12 +319,19 @@ def main():
             perp1 = perplexity_lang1[idx][is_correct1]
             perp2 = perplexity_lang2[idx][is_correct2]
 
-            # Calculate log perplexity difference
-            # Skip if either perplexity is non-positive (can't take log)
-            if perp1 <= 0 or perp2 <= 0:
-                continue
-
-            perp_diff = np.log(perp1) - np.log(perp2)
+            # Calculate log10 perplexity difference
+            if args.test_order:
+                # Use log10(perp1 - perp2) when test_order is enabled
+                # Skip if the difference is non-positive (can't take log)
+                if perp1 - perp2 <= 0:
+                    continue
+                perp_diff = np.log10(perp1 - perp2)
+            else:
+                # Use log10(perp1) - log10(perp2) by default
+                # Skip if either perplexity is non-positive (can't take log)
+                if perp1 <= 0 or perp2 <= 0:
+                    continue
+                perp_diff = np.log10(perp1) - np.log10(perp2)
 
             perplexity_diffs.append(perp_diff)
             preference_values.append(pref_val)
@@ -345,7 +358,11 @@ def main():
             # Create output filename
             correct1_str = "correct" if is_correct1 else "incorrect"
             correct2_str = "correct" if is_correct2 else "incorrect"
-            filename_suffix = "_filtered" if (x_range is not None or y_range is not None) else ""
+            filename_suffix = ""
+            if x_range is not None or y_range is not None:
+                filename_suffix += "_filtered"
+            if args.test_order:
+                filename_suffix += "_test_order"
             output_filename = f"{args.model_name}_{args.lang1}_{correct1_str}_vs_{args.lang2}_{correct2_str}{filename_suffix}.png"
             output_path = output_dir / output_filename
 
@@ -361,7 +378,8 @@ def main():
                 num_filtered_out=num_filtered_out,
                 total_points=total_points if (x_range is not None or y_range is not None) else None,
                 x_range=x_range,
-                y_range=y_range
+                y_range=y_range,
+                test_order=args.test_order
             )
         else:
             print(f"  Warning: No valid data points found for this category")
