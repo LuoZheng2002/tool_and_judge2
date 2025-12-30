@@ -3,7 +3,6 @@ import json
 import os
 import uuid
 
-os.environ['HF_HOME'] = "/work/nvme/bfdz/zluo8/huggingface"
 from dotenv import load_dotenv
 from src_py.utils import load_config_from_file
 from src_py.utils import load_json_lines_from_file

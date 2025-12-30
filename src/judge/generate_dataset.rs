@@ -5,7 +5,8 @@ use pyo3::{Python, pyfunction, types::PyAnyMethods};
 use serde::{Deserialize, Serialize};
 
 use crate::{
-    judge::base_paths::JUDGE_BASE_DATASET_PATH, utils::{load_json_lines, write_json_lines_to_file}
+    judge::base_paths::JUDGE_BASE_DATASET_PATH,
+    utils::{load_json_lines, write_json_lines_to_file},
 };
 
 #[derive(Serialize, Deserialize)]
@@ -17,7 +18,7 @@ pub struct MmmluDatasetEntryNormalized {
     pub subject: String,
 }
 #[derive(Deserialize)]
-pub struct MmmluDatasetEntryChinese {
+pub struct MmmluDatasetEntryForeign {
     pub original_index: usize,
     #[serde(rename = "Question")]
     pub question: String,
@@ -59,7 +60,7 @@ pub struct TwoAnswersEntry {
 }
 
 #[derive(Deserialize, Serialize)]
-pub struct TwoAnswersSameLangEntry{
+pub struct TwoAnswersSameLangEntry {
     pub index: usize,
     pub question: String,
     pub answer_correct: String,
@@ -405,12 +406,9 @@ pub fn generate_two_answers_same_lang_dataset(lang: &str) {
     let input_path_incorrect = JUDGE_BASE_DATASET_PATH
         .join("one_answer")
         .join(format!("{}_incorrect.jsonl", lang));
-    let input_paths_exist = [
-        &input_path_correct,
-        &input_path_incorrect,
-    ]
-    .iter()
-    .all(|path| Path::new(path).exists());
+    let input_paths_exist = [&input_path_correct, &input_path_incorrect]
+        .iter()
+        .all(|path| Path::new(path).exists());
     if !input_paths_exist {
         println!(
             "One answer datasets for language {} not found. Generating...",
@@ -418,10 +416,10 @@ pub fn generate_two_answers_same_lang_dataset(lang: &str) {
         );
         generate_one_answer_dataset(lang);
     }
-    let correct_entries = 
+    let correct_entries =
         load_json_lines(&input_path_correct).expect("Failed to load correct dataset");
-    let incorrect_entries = load_json_lines(&input_path_incorrect)
-        .expect("Failed to load incorrect dataset");
+    let incorrect_entries =
+        load_json_lines(&input_path_incorrect).expect("Failed to load incorrect dataset");
     let correct_entries: IndexMap<usize, OneAnswerEntry> = correct_entries
         .into_iter()
         .map(|entry| {
@@ -443,9 +441,7 @@ pub fn generate_two_answers_same_lang_dataset(lang: &str) {
     let indices = correct_entries.keys();
     let mut two_answers_entries: Vec<TwoAnswersSameLangEntry> = Vec::new();
     for index in indices {
-        let entry_correct = correct_entries
-            .get(index)
-            .expect("Missing correct entry");
+        let entry_correct = correct_entries.get(index).expect("Missing correct entry");
         let entry_incorrect = incorrect_entries
             .get(index)
             .expect("Missing incorrect entry");
@@ -470,35 +466,32 @@ pub fn generate_two_answers_same_lang_dataset(lang: &str) {
     );
 }
 
-
-
-
-
 fn parse_and_normalize(raw_entry: &serde_json::Value, lang: &str) -> MmmluDatasetEntryNormalized {
     match lang {
         "en" => serde_json::from_value(raw_entry.clone())
             .expect("Failed to parse MMMLU dataset entry in English"),
-        "zh_cn" => {
-            let entry_chinese: MmmluDatasetEntryChinese = serde_json::from_value(raw_entry.clone())
+        "zh_cn" | "fr_fr" | "de_de" | "ja_jp" | "ko_kr" | "ar_xy" | "bn_bd" | "hi_in" | "id_id"
+        | "it_it" | "pt_br" | "es_la" | "sw_ke" | "yo_ng" => {
+            let entry_foreign: MmmluDatasetEntryForeign = serde_json::from_value(raw_entry.clone())
                 .expect("Failed to parse MMMLU dataset entry in Chinese");
-            let answer = match entry_chinese.answer.as_str() {
+            let answer = match entry_foreign.answer.as_str() {
                 "A" => 0,
                 "B" => 1,
                 "C" => 2,
                 "D" => 3,
-                _ => panic!("Invalid answer choice: {}", entry_chinese.answer),
+                _ => panic!("Invalid answer choice: {}", entry_foreign.answer),
             };
             MmmluDatasetEntryNormalized {
-                original_index: entry_chinese.original_index,
-                question: entry_chinese.question,
+                original_index: entry_foreign.original_index,
+                question: entry_foreign.question,
                 choices: [
-                    entry_chinese.choice_a,
-                    entry_chinese.choice_b,
-                    entry_chinese.choice_c,
-                    entry_chinese.choice_d,
+                    entry_foreign.choice_a,
+                    entry_foreign.choice_b,
+                    entry_foreign.choice_c,
+                    entry_foreign.choice_d,
                 ],
                 answer,
-                subject: entry_chinese.subject,
+                subject: entry_foreign.subject,
             }
         }
         _ => panic!("Unsupported language: {}", lang),
