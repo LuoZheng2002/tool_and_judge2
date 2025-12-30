@@ -176,10 +176,10 @@ async def main_async():
                 with open(preference_aggregated_output_path, 'w', encoding='utf-8') as f:
                     for i, coro in enumerate(asyncio.as_completed(tasks), 1):
                         result = await coro
-                        f.write(json.dumps(result, ensure_ascii=False) + '\n')
-                        f.flush()
+                        f.write(json.dumps(result, ensure_ascii=False) + '\n')                        
                         if i % 200 == 0:
                             print(f"Written {i}/{len(combined_entries)} entries to file", flush=True)
+                            f.flush()
             await collect_all_preference_entries()
             preference_dispatch_preference_results(config)
             print("Preference experiment finished.")
@@ -244,10 +244,10 @@ async def main_async():
                 with open(generate_response_output_file_path, 'w', encoding='utf-8') as f:
                     for i, coro in enumerate(asyncio.as_completed(tasks), 1):
                         result = await coro
-                        f.write(json.dumps(result, ensure_ascii=False) + '\n')
-                        f.flush()
+                        f.write(json.dumps(result, ensure_ascii=False) + '\n')                        
                         if i % 200 == 0:
                             print(f"Written {i}/{len(input_entries)} entries to file", flush=True)
+                            f.flush()
 
             await collect_all_response_entries()
             perplexity_dispatch_response_results(config)
@@ -311,10 +311,10 @@ async def main_async():
                 with open(generate_styled_answers_output_file_path, 'a', encoding='utf-8') as f:
                     for i, coro in enumerate(asyncio.as_completed(tasks), 1):
                         result = await coro
-                        f.write(json.dumps(result, ensure_ascii=False) + '\n')
-                        f.flush()
+                        f.write(json.dumps(result, ensure_ascii=False) + '\n')                        
                         if i % 200 == 0:
                             print(f"Written {i}/{len(input_entries)} entries to styled answers file", flush=True)
+                            f.flush()
             await collect_all_styled_responses_entries()
             perplexity_dispatch_styled_answers_results(config)
             print(f"Completed writing all styled answers to {generate_styled_answers_output_file_path}")
@@ -339,8 +339,9 @@ async def main_async():
 
             with open(generate_perplexity_aggregated_output_file_path, 'w') as f:
                 for i in range(0, len(input_entries), batch_size):
+                    batch_idx = i // batch_size + 1
                     batch_entries = input_entries[i:i+batch_size]
-                    print(f"Processing batch {i//batch_size + 1}/{(len(input_entries) + batch_size - 1)//batch_size}", flush=True)
+                    print(f"Processing batch {batch_idx}/{(len(input_entries) + batch_size - 1)//batch_size}", flush=True)
 
                     if not main_hf_backend_created:
                         print(f"Creating HuggingFace backend for model {model_name} using {args.num_gpus} GPUs and batch size {batch_size}...", flush=True)
@@ -470,12 +471,12 @@ async def main_async():
                         }
                         # Write result immediately
                         f.write(json.dumps(result_entry, ensure_ascii=False) + '\n')
-                        f.flush()
                         total_processed += 1
 
                     # Flush after each batch to ensure results are written
                     f.flush()
-                    print(f"Written {total_processed}/{len(input_entries)} entries to perplexity result file", flush=True)
+                    if batch_idx % 20 == 0:
+                        print(f"Written {total_processed}/{len(input_entries)} entries to perplexity result file", flush=True)
             perplexity_dispatch_generate_perplexity_results(config)
             print(f"Completed writing all {total_processed} perplexity results to {generate_perplexity_aggregated_output_file_path}")
 
