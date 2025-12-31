@@ -178,7 +178,7 @@ async def main_async():
                         result = await coro
                         f.write(json.dumps(result, ensure_ascii=False) + '\n')                        
                         if i % 200 == 0:
-                            print(f"Written {i}/{len(combined_entries)} entries to file", flush=True)
+                            print(f"Preference: Written {i}/{len(combined_entries)} entries to file", flush=True)
                             f.flush()
             await collect_all_preference_entries()
             preference_dispatch_preference_results(config)
@@ -246,7 +246,7 @@ async def main_async():
                         result = await coro
                         f.write(json.dumps(result, ensure_ascii=False) + '\n')                        
                         if i % 200 == 0:
-                            print(f"Written {i}/{len(input_entries)} entries to file", flush=True)
+                            print(f"Response: Written {i}/{len(input_entries)} entries to file", flush=True)
                             f.flush()
 
             await collect_all_response_entries()
@@ -313,7 +313,7 @@ async def main_async():
                         result = await coro
                         f.write(json.dumps(result, ensure_ascii=False) + '\n')                        
                         if i % 200 == 0:
-                            print(f"Written {i}/{len(input_entries)} entries to styled answers file", flush=True)
+                            print(f"Styled Response: Written {i}/{len(input_entries)} entries to styled answers file", flush=True)
                             f.flush()
             await collect_all_styled_responses_entries()
             perplexity_dispatch_styled_answers_results(config)
@@ -333,7 +333,7 @@ async def main_async():
             # Define batch size for processing
             # Scale batch size based on GPU memory: 240 was the constant for 40GB GPUs
             # batch_size = (base_constant) * num_gpus * (gpu_memory / 40GB) / model_size_in_billions
-            batch_size =  int(18 * args.num_gpus * args.single_gpu_memory / config.model.size_in_billion_parameters())
+            batch_size =  int(4 * args.num_gpus * args.single_gpu_memory / config.model.size_in_billion_parameters())
             print(f"Using batch size: {batch_size} based on model size, number of GPUs ({args.num_gpus}), and single GPU memory ({args.single_gpu_memory}GB)")
             total_processed = 0
 
@@ -476,7 +476,7 @@ async def main_async():
                     # Flush after each batch to ensure results are written
                     f.flush()
                     if batch_idx % 20 == 0:
-                        print(f"Written {total_processed}/{len(input_entries)} entries to perplexity result file", flush=True)
+                        print(f"Perplexity: Written {total_processed}/{len(input_entries)} entries to perplexity result file", flush=True)
             perplexity_dispatch_generate_perplexity_results(config)
             print(f"Completed writing all {total_processed} perplexity results to {generate_perplexity_aggregated_output_file_path}")
 
