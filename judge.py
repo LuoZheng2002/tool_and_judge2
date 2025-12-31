@@ -119,10 +119,14 @@ async def main_async():
                 """
                 global main_vllm_backend_created, main_vllm_engine, main_tokenizer
                 if not main_vllm_backend_created:
-                    print(f"Creating VLLM backend for model {model_name} using {args.num_gpus} GPUs...", flush=True)
-                    main_vllm_engine, main_tokenizer = create_vllm_backend(config.model, args.num_gpus)
-                    print(f"VLLM backend created for model {model_name}", flush=True)
-                    main_vllm_backend_created = True
+                    try:
+                        print(f"Creating VLLM backend for model {model_name} using {args.num_gpus} GPUs...", flush=True)
+                        main_vllm_engine, main_tokenizer = create_vllm_backend(config.model, args.num_gpus)
+                        print(f"VLLM backend created for model {model_name}", flush=True)
+                        main_vllm_backend_created = True
+                    except Exception as e:
+                        print(f"Error creating VLLM backend for model {model_name}: {str(e)}", flush=True)
+                        exit(1)
                 engine = main_vllm_engine
                 tokenizer = main_tokenizer
                 async with semaphore:

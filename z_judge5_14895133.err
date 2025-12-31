@@ -1,0 +1,13 @@
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+    Finished `release` profile [optimized] target(s) in 2.58s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmpXjpUcB/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+    Finished `release` profile [optimized] target(s) in 1.49s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmpvE9P3y/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+[2025-12-31T04:53:30.554] error: *** JOB 14895133 ON gpua067 CANCELLED AT 2025-12-31T04:53:30 DUE TO TIME LIMIT ***
