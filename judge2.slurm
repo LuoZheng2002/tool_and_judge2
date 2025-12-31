@@ -7,7 +7,7 @@
 # #SBATCH --mail-type=BEGIN,END,FAIL
 # #SBATCH --mail-user=luozheng@usc.edu
 #SBATCH --partition=gpuH200x8
-#SBATCH --gres=gpu:8                     # Request 8 GPU
+#SBATCH --gres=gpu:4                     # Request 4 GPU
 #SBATCH --cpus-per-task=8                # CPU cores
 #SBATCH --mem=32G                        # RAM
 #SBATCH --account=bfdz-delta-gpu    # Your Slurm account/project
@@ -21,5 +21,5 @@ cd /projects/bfdz/zluo8/tool_and_judge2
 export HF_HOME=/work/hdd/bfdz/zluo8/huggingface
 # Run the training script
 
-python judge.py --config judge_config_slurm2_vllm.py --num-gpus 8 --single-gpu-memory 141
-python judge.py --config judge_config_slurm2_hf.py --num-gpus 8 --single-gpu-memory 141
+python judge.py --config judge_config_slurm2_vllm.py --num-gpus 4 --single-gpu-memory 141
+python judge.py --config judge_config_slurm2_hf.py --num-gpus 4 --single-gpu-memory 141
