@@ -1,0 +1,6 @@
+5: running
+1: running
+2: pending (canceled)
+3: /sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/resource_tracker.py:301: UserWarning: resource_tracker: There appear to be 2 leaked shared_memory objects to clean up at shutdown: {'/psm_739e71dc', '/psm_0263af06'}
+4: quota exceeded
+6: quota exceeded

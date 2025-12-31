@@ -1,0 +1,51 @@
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+    Finished `release` profile [optimized] target(s) in 1.22s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmpe58o1w/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+💥 maturin failed
+  Caused by: pip install in /projects/bfdz/zluo8/tool_and_judge2/.venv failed running ["-m", "pip", "--disable-pip-version-check", "install", "--no-deps", "--force-reinstall", "/tmp/.tmpe58o1w/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl"]: exit status: 1
+--- Stdout:
+Processing /tmp/.tmpe58o1w/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+Installing collected packages: codebase-rs
+  Attempting uninstall: codebase-rs
+    Found existing installation: codebase_rs 0.1.0
+    Uninstalling codebase_rs-None:
+--- Stderr:
+ERROR: Could not install packages due to an OSError: [Errno 2] No such file or directory: '/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/codebase_rs-0.1.0.dist-info/INSTALLER'
+---
+
+Traceback (most recent call last):
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 69, in <module>
+    result = subprocess.run(["maturin", "develop", "--release"], check=True)
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['maturin', 'develop', '--release']' returned non-zero exit status 1.
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+    Finished `release` profile [optimized] target(s) in 0.44s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmpHoKwiL/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+
+thread '<unnamed>' panicked at src/judge/perplexity.rs:450:51:
+Failed to load styled answers dataset: "Unable to open file judge/result/CohereLabs-aya-expanse-32b/styled_answers/en.jsonl: No such file or directory (os error 2)"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+Traceback (most recent call last):
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 484, in <module>
+    asyncio.run(main_async())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 328, in main_async
+    perplexity_prepare_generate_perplexity_aggregated_input(config, debug_limit=args.debug_limit)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pyo3_runtime.PanicException: Failed to load styled answers dataset: "Unable to open file judge/result/CohereLabs-aya-expanse-32b/styled_answers/en.jsonl: No such file or directory (os error 2)"

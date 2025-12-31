@@ -2,7 +2,7 @@
 #SBATCH --job-name=judge6       # Job name
 #SBATCH --output=z_judge6_%j.out        # Standard output log (%j = job ID)
 #SBATCH --error=z_judge6_%j.err         # Error log
-#SBATCH --time=06:00:00                 # Max runtime (HH:MM:SS)
+#SBATCH --time=03:00:00                 # Max runtime (HH:MM:SS)
 # #SBATCH --partition=gpu                  # Partition/queue with GPU
 # #SBATCH --mail-type=BEGIN,END,FAIL
 # #SBATCH --mail-user=luozheng@usc.edu
@@ -17,7 +17,8 @@ cd /projects/bfdz/zluo8/tool_and_judge2
 source activate_environment.sh
 cd /projects/bfdz/zluo8/tool_and_judge2
 # Set HF_HOME environment variable
-export HF_HOME=/work/nvme/bfdz/zluo8/huggingface
+# export HF_HOME=/work/nvme/bfdz/zluo8/huggingface
+export HF_HOME=/work/hdd/bfdz/zluo8/huggingface
 
 # Run the training script
 
