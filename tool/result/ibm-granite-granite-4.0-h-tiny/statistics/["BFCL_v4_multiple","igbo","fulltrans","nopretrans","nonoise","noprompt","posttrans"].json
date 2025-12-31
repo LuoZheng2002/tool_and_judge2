@@ -1,13 +1,13 @@
 {
-  "accuracy": 0.75,
+  "accuracy": 0.7,
   "total_cases": 200,
-  "correct_cases": 150,
-  "incorrect_cases": 50,
+  "correct_cases": 140,
+  "incorrect_cases": 60,
   "category_counts": {
     "SYNTAX_ERROR": 2,
-    "MISC_ERROR": 13,
-    "WRONG_VALUE": 8,
-    "RELEVANT_BUT_INCORRECT": 20,
+    "MISC_ERROR": 15,
+    "WRONG_VALUE": 13,
+    "RELEVANT_BUT_INCORRECT": 23,
     "EXACTLY_SAME_MEANING": 7,
     "LANGUAGE_MISMATCH_WRONG_VALUE": 0,
     "LANGUAGE_MISMATCH_RELEVANT_BUT_INCORRECT": 0,
@@ -16,14 +16,14 @@
   },
   "category_samples": {
     "SYNTAX_ERROR": [
-      "multiple_138",
+      "multiple_123",
       "multiple_193"
     ],
     "MISC_ERROR": [
       "multiple_7",
-      "multiple_10",
       "multiple_11",
       "multiple_18",
+      "multiple_20",
       "multiple_22",
       "multiple_24",
       "multiple_35",
@@ -31,26 +31,36 @@
       "multiple_49",
       "multiple_71",
       "multiple_73",
-      "multiple_77",
+      "multiple_83",
+      "multiple_85",
+      "multiple_86",
       "multiple_89"
     ],
     "WRONG_VALUE": [
+      "multiple_0",
+      "multiple_10",
+      "multiple_16",
+      "multiple_32",
       "multiple_38",
       "multiple_42",
+      "multiple_50",
       "multiple_51",
       "multiple_56",
-      "multiple_86",
+      "multiple_70",
       "multiple_133",
-      "multiple_176",
+      "multiple_142",
       "multiple_190"
     ],
     "RELEVANT_BUT_INCORRECT": [
+      "multiple_9",
       "multiple_52",
+      "multiple_53",
       "multiple_58",
       "multiple_60",
       "multiple_61",
       "multiple_67",
       "multiple_68",
+      "multiple_69",
       "multiple_75",
       "multiple_78",
       "multiple_81",
@@ -59,12 +69,12 @@
       "multiple_109",
       "multiple_113",
       "multiple_119",
-      "multiple_146",
+      "multiple_135",
       "multiple_149",
       "multiple_151",
-      "multiple_157",
+      "multiple_166",
       "multiple_188",
-      "multiple_192"
+      "multiple_196"
     ],
     "EXACTLY_SAME_MEANING": [
       "multiple_26",
@@ -72,7 +82,7 @@
       "multiple_33",
       "multiple_94",
       "multiple_99",
-      "multiple_104",
+      "multiple_138",
       "multiple_191"
     ]
   }
