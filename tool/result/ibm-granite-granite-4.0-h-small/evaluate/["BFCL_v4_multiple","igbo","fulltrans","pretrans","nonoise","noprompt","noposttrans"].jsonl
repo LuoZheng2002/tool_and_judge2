@@ -1,0 +1,200 @@
+{"id":"multiple_0","valid":false,"error":{"InvalidParamValue":{"param":"get_area","actual_value":false,"expected_values":["",true],"decoded_output":"[{\"triangle_properties.get\":{\"side1\":5,\"side2\":4,\"side3\":3,\"get_area\":false,\"get_perimeter\":false,\"get_angles\":true}}]"}}}
+{"id":"multiple_1","valid":true,"error":null}
+{"id":"multiple_2","valid":true,"error":null}
+{"id":"multiple_3","valid":true,"error":null}
+{"id":"multiple_4","valid":false,"error":{"WrongFuncName":{"expected_name":"kinematics.calculate_displacement","actual_name":"kinematics.calculate_final_speed","decoded_output":"[{\"kinematics.calculate_final_speed\":{\"initial_speed\":20,\"acceleration\":10,\"time\":5}}]"}}}
+{"id":"multiple_5","valid":true,"error":null}
+{"id":"multiple_6","valid":true,"error":null}
+{"id":"multiple_7","valid":false,"error":{"InvalidEntryCount":{"expected_count":1,"actual_count":2,"decoded_output":"[{\"wildlife_population.assess_growth\":{\"species\":\"deer\",\"location\":\"Washington\",\"duration\":10}},{\"ecological_impact.analyze\":{\"species\":\"deer\",\"ecosystem\":\"Woodland\",\"location\":\"Washington\",\"timeframe\":10}}]"}}}
+{"id":"multiple_8","valid":true,"error":null}
+{"id":"multiple_9","valid":false,"error":{"InvalidParamValue":{"param":"gradeDict","actual_value":{"math":90,"science":75,"History":82,"Music":89},"expected_values":[{"math":[90],"science":[75],"history":[82],"music":[89]}],"decoded_output":"[{\"calculate_average\":{\"gradeDict\":{\"math\":90,\"science\":75,\"History\":82,\"Music\":89}}}]"}}}
+{"id":"multiple_10","valid":false,"error":{"InvalidParamValue":{"param":"db_name","actual_value":"user","expected_values":["employees"],"decoded_output":"[{\"database.modify_columns\":{\"db_name\":\"user\",\"table\":\"personal_data\",\"operation\":\"delete\",\"columns\":[\"email\",\"public_security_number\"]}}]"}}}
+{"id":"multiple_11","valid":false,"error":{"JsonDecodeError":{"error_message":"expected value at line 1 column 1","raw_output":"Translate the following question to English. Only output the translated question, nothing else:"}}}
+{"id":"multiple_12","valid":true,"error":null}
+{"id":"multiple_13","valid":true,"error":null}
+{"id":"multiple_14","valid":true,"error":null}
+{"id":"multiple_15","valid":true,"error":null}
+{"id":"multiple_16","valid":false,"error":{"JsonDecodeError":{"error_message":"expected value at line 1 column 1","raw_output":"The given question lacks the parameters required by the function. The function `population_genetics_calculate_ne` requires the species of wild animal, the number of generations, and the probability of maintaining genetic diversity. Please provide the species name to proceed."}}}
+{"id":"multiple_17","valid":true,"error":null}
+{"id":"multiple_18","valid":true,"error":null}
+{"id":"multiple_19","valid":true,"error":null}
+{"id":"multiple_20","valid":false,"error":{"JsonDecodeError":{"error_message":"expected value at line 1 column 1","raw_output":"I'm sorry, but none of the available tools can directly determine the appropriate material for making a three-legged stool. The provided functions don't include any that specifically address material selection for furniture or stools. To provide a recommendation, I would need additional context about the desired style, durability, or aesthetic preferences, which aren't covered by the current tools. Please provide more details about the specific requirements for the stool, and I'll do my best to assist further."}}}
+{"id":"multiple_21","valid":true,"error":null}
+{"id":"multiple_22","valid":true,"error":null}
+{"id":"multiple_23","valid":true,"error":null}
+{"id":"multiple_24","valid":true,"error":null}
+{"id":"multiple_25","valid":true,"error":null}
+{"id":"multiple_26","valid":true,"error":null}
+{"id":"multiple_27","valid":true,"error":null}
+{"id":"multiple_28","valid":true,"error":null}
+{"id":"multiple_29","valid":false,"error":{"InvalidParamValue":{"param":"function1","actual_value":"3x+2","expected_values":["3x + 2","lambda x: 3x + 2"],"decoded_output":"[{\"functions.intersect\":{\"function1\":\"3x+2\",\"function2\":\"2x+3\"}}]"}}}
+{"id":"multiple_30","valid":true,"error":null}
+{"id":"multiple_31","valid":true,"error":null}
+{"id":"multiple_32","valid":true,"error":null}
+{"id":"multiple_33","valid":false,"error":{"InvalidParamValue":{"param":"func","actual_value":"3*x**2","expected_values":["3x**2","lambda x: 3x**2"],"decoded_output":"[{\"calculate_integral\":{\"func\":\"3*x**2\",\"a\":1,\"b\":2}}]"}}}
+{"id":"multiple_34","valid":true,"error":null}
+{"id":"multiple_35","valid":true,"error":null}
+{"id":"multiple_36","valid":true,"error":null}
+{"id":"multiple_37","valid":true,"error":null}
+{"id":"multiple_38","valid":true,"error":null}
+{"id":"multiple_39","valid":false,"error":{"JsonDecodeError":{"error_message":"expected value at line 1 column 1","raw_output":"I'm sorry, but none of the available tools can assist with finding flights. The provided functions are for grocery delivery and ride-hailing, which don't include flight booking capabilities. Could you please provide more context or clarify your request? If you're looking for alternative services, I might be able to help with other options."}}}
+{"id":"multiple_40","valid":true,"error":null}
+{"id":"multiple_41","valid":true,"error":null}
+{"id":"multiple_42","valid":true,"error":null}
+{"id":"multiple_43","valid":true,"error":null}
+{"id":"multiple_44","valid":true,"error":null}
+{"id":"multiple_45","valid":true,"error":null}
+{"id":"multiple_46","valid":true,"error":null}
+{"id":"multiple_47","valid":true,"error":null}
+{"id":"multiple_48","valid":true,"error":null}
+{"id":"multiple_49","valid":true,"error":null}
+{"id":"multiple_50","valid":true,"error":null}
+{"id":"multiple_51","valid":true,"error":null}
+{"id":"multiple_52","valid":true,"error":null}
+{"id":"multiple_53","valid":false,"error":{"JsonDecodeError":{"error_message":"expected value at line 1 column 1","raw_output":"Predict the housing prices for the next five years based on birth rate and unemployment rate."}}}
+{"id":"multiple_54","valid":true,"error":null}
+{"id":"multiple_55","valid":false,"error":{"JsonDecodeError":{"error_message":"expected value at line 1 column 1","raw_output":"What is the product price forecast for the next three days from Google?"}}}
+{"id":"multiple_56","valid":true,"error":null}
+{"id":"multiple_57","valid":true,"error":null}
+{"id":"multiple_58","valid":true,"error":null}
+{"id":"multiple_59","valid":false,"error":{"InvalidParamValue":{"param":"specialization","actual_value":["criminal"],"expected_values":[["Criminal Law"],["criminal law"]],"decoded_output":"[{\"lawyer_finder\":{\"location\":\"New York\",\"specialization\":[\"criminal\"]}}]"}}}
+{"id":"multiple_60","valid":true,"error":null}
+{"id":"multiple_61","valid":false,"error":{"InvalidParamValue":{"param":"specialization","actual_value":"small urban gardens","expected_values":["small space garden design"],"decoded_output":"[{\"landscape_architect.find_specialty\":{\"location\":\"Portland, OR\",\"specialization\":\"small urban gardens\",\"years_experience\":5}}]"}}}
+{"id":"multiple_62","valid":true,"error":null}
+{"id":"multiple_63","valid":true,"error":null}
+{"id":"multiple_64","valid":true,"error":null}
+{"id":"multiple_65","valid":true,"error":null}
+{"id":"multiple_66","valid":true,"error":null}
+{"id":"multiple_67","valid":true,"error":null}
+{"id":"multiple_68","valid":false,"error":{"InvalidParamValue":{"param":"title","actual_value":"history of a house","expected_values":[""],"decoded_output":"[{\"library.search_books\":{\"location\":\"New York\",\"genre\":\"historical fiction\",\"title\":\"history of a house\"}}]"}}}
+{"id":"multiple_69","valid":false,"error":{"InvalidParamValue":{"param":"nervous","actual_value":false,"expected_values":[true],"decoded_output":"[{\"five_factor_model.analyse\":{\"talkative\":true,\"nervous\":false,\"artistic_interests\":false,\"lazy\":false,\"forgiving\":true}}]"}}}
+{"id":"multiple_70","valid":true,"error":null}
+{"id":"multiple_71","valid":true,"error":null}
+{"id":"multiple_72","valid":true,"error":null}
+{"id":"multiple_73","valid":true,"error":null}
+{"id":"multiple_74","valid":true,"error":null}
+{"id":"multiple_75","valid":false,"error":{"JsonDecodeError":{"error_message":"expected value at line 1 column 1","raw_output":"I'm sorry, but the available tools don't provide a direct way to determine the most popular color used for interior decoration in general. The `paint_color_trends` function can give trends for specific rooms, but it requires specifying a room type (e.g., \"Living room\", \"Bathroom\"). Without a specific room, I can't use the provided tools to answer the question as asked. Please provide a room type to get a more targeted answer."}}}
+{"id":"multiple_76","valid":false,"error":{"JsonDecodeError":{"error_message":"expected value at line 1 column 1","raw_output":"I'm sorry, but none of the available tools can assist with your request for a copper horse skeleton. The provided functions, `painting_create_custom` and `sculpture_create_custom`, do not support ordering a copper horse skeleton. The `sculpture_create_custom` function allows for materials like Bronze, Marble, Terracotta, Wood, or Stone, but not copper. Additionally, there's no tool available to provide information about material options beyond what's listed in the function parameters. Please check if there are any other specific requirements or if you need assistance with a different type of custom order."}}}
+{"id":"multiple_77","valid":false,"error":{"InvalidParamValue":{"param":"era","actual_value":"modern","expected_values":["contemporary",""],"decoded_output":"[{\"artwork_search.find\":{\"type\":\"sculpture\",\"location\":\"New York\",\"era\":\"modern\"}}]"}}}
+{"id":"multiple_78","valid":true,"error":null}
+{"id":"multiple_79","valid":true,"error":null}
+{"id":"multiple_80","valid":true,"error":null}
+{"id":"multiple_81","valid":true,"error":null}
+{"id":"multiple_82","valid":true,"error":null}
+{"id":"multiple_83","valid":false,"error":{"JsonDecodeError":{"error_message":"expected value at line 1 column 1","raw_output":"I'm sorry, but none of the available tools can determine whether Lionel Messi is currently playing for Barcelona. The provided functions are designed to fetch statistics like top scorers or all-time goals, but they don't include real-time information about a player's current team status. To answer this question, I would need access to a tool that provides up-to-date player team information, which isn't available in the current set of functions. Please let me know if you have any other questions!"}}}
+{"id":"multiple_84","valid":true,"error":null}
+{"id":"multiple_85","valid":true,"error":null}
+{"id":"multiple_86","valid":false,"error":{"InvalidParamValue":{"param":"category","actual_value":"popular","expected_values":["strategy"],"decoded_output":"[{\"BoardGameGeek.recommend\":{\"numPlayers\":2,\"category\":\"popular\"}}]"}}}
+{"id":"multiple_87","valid":true,"error":null}
+{"id":"multiple_88","valid":true,"error":null}
+{"id":"multiple_89","valid":false,"error":{"InvalidParamValue":{"param":"meal","actual_value":"dinner","expected_values":["lunch",""],"decoded_output":"[{\"recipe_search\":{\"ingredients\":[\"chicken\",\"mushrooms\"],\"calories\":500,\"meal\":\"dinner\"}}]"}}}
+{"id":"multiple_90","valid":true,"error":null}
+{"id":"multiple_91","valid":false,"error":{"InvalidParamValue":{"param":"ingredientLimit","actual_value":5,"expected_values":[4],"decoded_output":"[{\"recipe.find\":{\"mainIngredient\":\"apple\",\"ingredientLimit\":5}}]"}}}
+{"id":"multiple_92","valid":false,"error":{"InvalidParamValue":{"param":"categories","actual_value":["gluten-free"],"expected_values":[["vegan","gluten-free"],["gluten-free","vegan"]],"decoded_output":"[{\"walmart.vegan_products\":{\"location\":\"Denver, CO\",\"categories\":[\"gluten-free\"]}}]"}}}
+{"id":"multiple_93","valid":true,"error":null}
+{"id":"multiple_94","valid":false,"error":{"InvalidParamValue":{"param":"roomType","actual_value":"suite with a Queen size bed","expected_values":["suite with queen size bed"],"decoded_output":"[{\"hotel_room_pricing.get\":{\"hotelName\":\"Hilton New York\",\"roomType\":\"suite with a Queen size bed\",\"nights\":3}}]"}}}
+{"id":"multiple_95","valid":true,"error":null}
+{"id":"multiple_96","valid":true,"error":null}
+{"id":"multiple_97","valid":true,"error":null}
+{"id":"multiple_98","valid":true,"error":null}
+{"id":"multiple_99","valid":false,"error":{"JsonDecodeError":{"error_message":"expected value at line 1 column 1","raw_output":"Translate the derivative of the function 2x^2 when x equals 1."}}}
+{"id":"multiple_100","valid":true,"error":null}
+{"id":"multiple_101","valid":true,"error":null}
+{"id":"multiple_102","valid":true,"error":null}
+{"id":"multiple_103","valid":true,"error":null}
+{"id":"multiple_104","valid":false,"error":{"JsonDecodeError":{"error_message":"expected value at line 1 column 1","raw_output":"I'm sorry, but the available tools do not include a function to find the nearest parking location between two cities. The provided tools are for retrieving instrument prices, calculating driving distances, looking up cell biology functions, and identifying scientists for discoveries. None of these directly address finding parking locations. Could you please provide more context or clarify your request?"}}}
+{"id":"multiple_105","valid":true,"error":null}
+{"id":"multiple_106","valid":true,"error":null}
+{"id":"multiple_107","valid":true,"error":null}
+{"id":"multiple_108","valid":true,"error":null}
+{"id":"multiple_109","valid":false,"error":{"InvalidParamValue":{"param":"cell_compartment","actual_value":"plasma skin","expected_values":["plasma membrane"],"decoded_output":"[{\"cellbio.get_proteins\":{\"cell_compartment\":\"plasma skin\",\"include_description\":false}}]"}}}
+{"id":"multiple_110","valid":true,"error":null}
+{"id":"multiple_111","valid":true,"error":null}
+{"id":"multiple_112","valid":true,"error":null}
+{"id":"multiple_113","valid":true,"error":null}
+{"id":"multiple_114","valid":true,"error":null}
+{"id":"multiple_115","valid":false,"error":{"InvalidParamValue":{"param":"dietary_requirements","actual_value":["vegetarian"],"expected_values":[["vegan"]],"decoded_output":"[{\"find_restaurants\":{\"location\":\"Manhattan\",\"food_type\":\"Thai\",\"number\":5,\"dietary_requirements\":[\"vegetarian\"]}}]"}}}
+{"id":"multiple_116","valid":true,"error":null}
+{"id":"multiple_117","valid":true,"error":null}
+{"id":"multiple_118","valid":true,"error":null}
+{"id":"multiple_119","valid":true,"error":null}
+{"id":"multiple_120","valid":true,"error":null}
+{"id":"multiple_121","valid":true,"error":null}
+{"id":"multiple_122","valid":true,"error":null}
+{"id":"multiple_123","valid":false,"error":{"JsonDecodeError":{"error_message":"expected value at line 1 column 1","raw_output":"I'm sorry, but none of the available tools can assist with the question \"How to attract bees from the hive using card tricks.\" The provided functions are designed for calculating probabilities, searching lawsuits, and predicting house prices, none of which are relevant to beekeeping or card tricks. If you have a different question or need assistance with a topic covered by the available tools, please let me know!"}}}
+{"id":"multiple_124","valid":true,"error":null}
+{"id":"multiple_125","valid":true,"error":null}
+{"id":"multiple_126","valid":true,"error":null}
+{"id":"multiple_127","valid":true,"error":null}
+{"id":"multiple_128","valid":true,"error":null}
+{"id":"multiple_129","valid":true,"error":null}
+{"id":"multiple_130","valid":true,"error":null}
+{"id":"multiple_131","valid":true,"error":null}
+{"id":"multiple_132","valid":true,"error":null}
+{"id":"multiple_133","valid":true,"error":null}
+{"id":"multiple_134","valid":true,"error":null}
+{"id":"multiple_135","valid":true,"error":null}
+{"id":"multiple_136","valid":true,"error":null}
+{"id":"multiple_137","valid":false,"error":{"JsonDecodeError":{"error_message":"expected value at line 1 column 1","raw_output":"Translate the following question to English. Only output the translated question, nothing else:"}}}
+{"id":"multiple_138","valid":false,"error":{"InvalidParamValue":{"param":"case_id","actual_value":"R v Adams","expected_values":["R vs Adams","R_vs_Adams"],"decoded_output":"[{\"legal_case.fetch\":{\"case_id\":\"R v Adams\",\"details\":true}}]"}}}
+{"id":"multiple_139","valid":true,"error":null}
+{"id":"multiple_140","valid":true,"error":null}
+{"id":"multiple_141","valid":true,"error":null}
+{"id":"multiple_142","valid":false,"error":{"JsonDecodeError":{"error_message":"expected value at line 1 column 1","raw_output":"I'm sorry, but the available tools do not include any functions that can provide water level information. The provided tools are for weather humidity forecasts and sports team scores, which do not cover water level data. Could you please clarify if you're looking for a different type of information?"}}}
+{"id":"multiple_143","valid":true,"error":null}
+{"id":"multiple_144","valid":true,"error":null}
+{"id":"multiple_145","valid":false,"error":{"JsonDecodeError":{"error_message":"expected value at line 1 column 1","raw_output":"I'm sorry, but the available tools do not include a function to calculate CO2 emissions based on the provided parameters. The `calculate_emissions` function requires the fuel type, which is missing in your query. Please provide the type of fuel used by the vehicle to proceed with the calculation."}}}
+{"id":"multiple_146","valid":true,"error":null}
+{"id":"multiple_147","valid":true,"error":null}
+{"id":"multiple_148","valid":false,"error":{"InvalidParamValue":{"param":"detail_level","actual_value":"summary","expected_values":["detailed"],"decoded_output":"[{\"get_stock_info\":{\"company_name\":\"Apple Inc.\",\"detail_level\":\"summary\"}}]"}}}
+{"id":"multiple_149","valid":false,"error":{"InvalidParamValue":{"param":"text","actual_value":"I found the food here delicious! It's always fresh and tasty.","expected_values":["I love the food here! It's always fresh and delicious."],"decoded_output":"[{\"sentiment_analysis\":{\"text\":\"I found the food here delicious! It's always fresh and tasty.\",\"language\":\"English\"}}]"}}}
+{"id":"multiple_150","valid":true,"error":null}
+{"id":"multiple_151","valid":false,"error":{"InvalidParamValue":{"param":"topic","actual_value":"behavioral psychology","expected_values":["psychology","Psychology"],"decoded_output":"[{\"social_media_analytics.most_followed\":{\"topic\":\"behavioral psychology\",\"sub_topics\":[\"group dynamics\"]}}]"}}}
+{"id":"multiple_152","valid":true,"error":null}
+{"id":"multiple_153","valid":false,"error":{"InvalidParamValue":{"param":"event","actual_value":"Lisbon Agreement","expected_values":["Treaty of Lisbon","Signing of the Treaty of Lisbon"],"decoded_output":"[{\"get_event_date\":{\"event\":\"Lisbon Agreement\"}}]"}}}
+{"id":"multiple_154","valid":true,"error":null}
+{"id":"multiple_155","valid":true,"error":null}
+{"id":"multiple_156","valid":true,"error":null}
+{"id":"multiple_157","valid":true,"error":null}
+{"id":"multiple_158","valid":true,"error":null}
+{"id":"multiple_159","valid":false,"error":{"InvalidParamValue":{"param":"length","actual_value":12,"expected_values":[30],"decoded_output":"[{\"calculate_paint_needed\":{\"coverage_rate\":400,\"length\":12,\"height\":30}}]"}}}
+{"id":"multiple_160","valid":true,"error":null}
+{"id":"multiple_161","valid":true,"error":null}
+{"id":"multiple_162","valid":false,"error":{"JsonDecodeError":{"error_message":"expected value at line 1 column 1","raw_output":"I'm sorry, but the available tools do not include any functions that can provide research and design standards for buildings based on their ID and number of stories. The provided tools are focused on player statistics and building analysis, which do not align with the request for architectural standards. \n\nTo answer this question, additional tools or data sources specific to building codes, design standards, or architectural guidelines would be needed. Please provide more context or clarify the type of information you're seeking, and I'll do my best to assist further."}}}
+{"id":"multiple_163","valid":true,"error":null}
+{"id":"multiple_164","valid":true,"error":null}
+{"id":"multiple_165","valid":false,"error":{"InvalidParamValue":{"param":"condition","actual_value":"Good","expected_values":["Excellent"],"decoded_output":"[{\"guitar_price.find\":{\"model\":\"Gibson Les Paul\",\"condition\":\"Good\",\"location\":\"Chicago\"}}]"}}}
+{"id":"multiple_166","valid":false,"error":{"JsonDecodeError":{"error_message":"expected value at line 1 column 1","raw_output":"I'm sorry, but the available tools don't seem to support finding general weekend events in Los Angeles. The `concert_search` tool is specifically for concerts, and it requires a genre, location, and date. However, the user's request is for a \"fun weekend event\" without specifying a genre or date. Additionally, there's no tool provided for general event searches. \n\nTo assist further, I would need more details about the type of event (e.g., music, sports, theater) and a specific date or time frame. Could you please clarify the event type and provide a date or time range?"}}}
+{"id":"multiple_167","valid":true,"error":null}
+{"id":"multiple_168","valid":true,"error":null}
+{"id":"multiple_169","valid":true,"error":null}
+{"id":"multiple_170","valid":true,"error":null}
+{"id":"multiple_171","valid":true,"error":null}
+{"id":"multiple_172","valid":false,"error":{"InvalidParamValue":{"param":"name","actual_value":"LeBron James","expected_values":["Lebron James"],"decoded_output":"[{\"sports_db.find_athlete\":{\"name\":\"LeBron James\",\"sport\":\"Basketball\"}}]"}}}
+{"id":"multiple_173","valid":false,"error":{"JsonDecodeError":{"error_message":"expected value at line 1 column 1","raw_output":"What is the best NBA team and defense in 2021?"}}}
+{"id":"multiple_174","valid":true,"error":null}
+{"id":"multiple_175","valid":true,"error":null}
+{"id":"multiple_176","valid":true,"error":null}
+{"id":"multiple_177","valid":true,"error":null}
+{"id":"multiple_178","valid":true,"error":null}
+{"id":"multiple_179","valid":true,"error":null}
+{"id":"multiple_180","valid":true,"error":null}
+{"id":"multiple_181","valid":false,"error":{"InvalidParamValue":{"param":"team_name","actual_value":"Liverpool F.C","expected_values":["Liverpool F.C.","Liverpool"],"decoded_output":"[{\"soccer.get_last_match\":{\"team_name\":\"Liverpool F.C\",\"include_stats\":true}}]"}}}
+{"id":"multiple_182","valid":true,"error":null}
+{"id":"multiple_183","valid":true,"error":null}
+{"id":"multiple_184","valid":true,"error":null}
+{"id":"multiple_185","valid":true,"error":null}
+{"id":"multiple_186","valid":false,"error":{"InvalidParamValue":{"param":"recipe_type","actual_value":"brownie","expected_values":["dessert"],"decoded_output":"[{\"find_recipe\":{\"dietary_restrictions\":\"vegan\",\"recipe_type\":\"brownie\",\"time\":30}}]"}}}
+{"id":"multiple_187","valid":true,"error":null}
+{"id":"multiple_188","valid":false,"error":{"InvalidParamValue":{"param":"products","actual_value":["tomatoes","poultry"],"expected_values":[["tomatoes","pet food"],["pet food","tomatoes"],["Tomatoes","Pet food"],["Pet food","Tomatoes"]],"decoded_output":"[{\"grocery_store.find_best\":{\"my_location\":\"Berkeley\",\"rating\":4.5,\"products\":[\"tomatoes\",\"poultry\"]}}]"}}}
+{"id":"multiple_189","valid":false,"error":{"InvalidParamValue":{"param":"time","actual_value":"3 PM","expected_values":["3pm"],"decoded_output":"[{\"timezone.convert\":{\"time\":\"3 PM\",\"from_timezone\":\"America/New_York\",\"to_timezone\":\"Europe/London\"}}]"}}}
+{"id":"multiple_190","valid":false,"error":{"InvalidParamValue":{"param":"room_type","actual_value":"standard","expected_values":["single","Single"],"decoded_output":"[{\"book_hotel\":{\"hotel_name\":\"Hilton Hotel\",\"location\":\"Chicago\",\"room_type\":\"standard\",\"start_date\":\"2022-12-10\",\"nights\":2}}]"}}}
+{"id":"multiple_191","valid":false,"error":{"InvalidParamValue":{"param":"room_type","actual_value":"high-end suite","expected_values":["luxury","Luxury"],"decoded_output":"[{\"book_hotel\":{\"hotel_name\":\"Hotel Paradise\",\"location\":\"Las Vegas\",\"room_type\":\"high-end suite\",\"start_date\":\"05-12-2022\",\"stay_duration\":3,\"view\":\"city\"}}]"}}}
+{"id":"multiple_192","valid":true,"error":null}
+{"id":"multiple_193","valid":true,"error":null}
+{"id":"multiple_194","valid":true,"error":null}
+{"id":"multiple_195","valid":true,"error":null}
+{"id":"multiple_196","valid":false,"error":{"InvalidParamValue":{"param":"cell_compartment","actual_value":"plasma skin","expected_values":["plasma membrane"],"decoded_output":"[{\"cellbio.get_proteins\":{\"cell_compartment\":\"plasma skin\",\"include_description\":true}}]"}}}
+{"id":"multiple_197","valid":true,"error":null}
+{"id":"multiple_198","valid":true,"error":null}
+{"id":"multiple_199","valid":true,"error":null}
