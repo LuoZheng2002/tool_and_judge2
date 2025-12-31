@@ -2,9 +2,6 @@ from codebase_rs import *
 
 experiments = []
 
-# experiments.append(ToolExperiment(TranslateMode.NotTranslated(), AddNoiseMode.NoNoise))
-
-
 # Igbo - only NoNoise available
 for translate in [
     TranslateMode.Translated(language=Language.Igbo, option=TranslateOption.FullyTranslated),
@@ -15,8 +12,8 @@ for translate in [
 ]:
     experiments.append(ToolExperiment(translate, AddNoiseMode.NoNoise))
 
-
 config = ToolConfig(
-    Model.Local(LocalModel.Qwen3_8B),
+    Model.Local(LocalModel.Granite4_0HSmall),  # 0.3B parameters - very fast
     experiments
 )
+
