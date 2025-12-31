@@ -6,3 +6,202 @@ Released build lock.
 Loading config from: judge_config_slurm1_vllm.py
 This run uses VLLM backend.
 Starting preference experiment...
+Concatenated two answers dataset for language pairs[("en", "zh_cn"), ("en", "fr_fr"), ("en", "ar_xy"), ("en", "sw_ke")] written to "judge/result/Qwen-Qwen3-30B-A3B/preference_aggregated_input.jsonl"
+Dispatching preference results for model: Qwen-Qwen3-30B-A3B, language pairs: [("en", "zh_cn"), ("en", "fr_fr"), ("en", "ar_xy"), ("en", "sw_ke")], input file: judge/result/Qwen-Qwen3-30B-A3B/preference_aggregated_output.jsonl
+Dispatched preference results for model: Qwen-Qwen3-30B-A3B, lang1: en, lang2: zh_cn
+Dispatched preference results for model: Qwen-Qwen3-30B-A3B, lang1: en, lang2: fr_fr
+Dispatched preference results for model: Qwen-Qwen3-30B-A3B, lang1: en, lang2: ar_xy
+Dispatched preference results for model: Qwen-Qwen3-30B-A3B, lang1: en, lang2: sw_ke
+Removed aggregated output file: judge/result/Qwen-Qwen3-30B-A3B/preference_aggregated_output.jsonl
+Preference experiment finished.
+Starting perplexity experiment...
+Response input dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/Qwen-Qwen3-30B-A3B/perplexity_response_input.jsonl
+Dispatching response results for model: Qwen-Qwen3-30B-A3B, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/Qwen-Qwen3-30B-A3B/perplexity_response_output.jsonl
+Dispatched response results for model: Qwen-Qwen3-30B-A3B, lang: en
+Dispatched response results for model: Qwen-Qwen3-30B-A3B, lang: zh_cn
+Dispatched response results for model: Qwen-Qwen3-30B-A3B, lang: fr_fr
+Dispatched response results for model: Qwen-Qwen3-30B-A3B, lang: ar_xy
+Dispatched response results for model: Qwen-Qwen3-30B-A3B, lang: sw_ke
+Removed aggregated response output file: judge/result/Qwen-Qwen3-30B-A3B/perplexity_response_output.jsonl
+Styled answers input dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/Qwen-Qwen3-30B-A3B/perplexity_styled_answers_input.jsonl
+Dispatching styled answers results for model: Qwen-Qwen3-30B-A3B, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/Qwen-Qwen3-30B-A3B/perplexity_styled_answers_output.jsonl
+Dispatched styled answers results for model: Qwen-Qwen3-30B-A3B, lang: en
+Dispatched styled answers results for model: Qwen-Qwen3-30B-A3B, lang: zh_cn
+Dispatched styled answers results for model: Qwen-Qwen3-30B-A3B, lang: fr_fr
+Dispatched styled answers results for model: Qwen-Qwen3-30B-A3B, lang: ar_xy
+Dispatched styled answers results for model: Qwen-Qwen3-30B-A3B, lang: sw_ke
+Removed aggregated styled answers output file: judge/result/Qwen-Qwen3-30B-A3B/perplexity_styled_answers_output.jsonl
+Total entries to generate responses: 0
+Completed writing all responses to judge/result/Qwen-Qwen3-30B-A3B/perplexity_response_output.jsonl
+Total entries to generate styled answers: 0
+Completed writing all styled answers to judge/result/Qwen-Qwen3-30B-A3B/perplexity_styled_answers_output.jsonl
+Perplexity experiment finished.
+✏️ Setting installed package as editable
+File "judge/result/Qwen-Qwen3-30B-A3B/perplexity/en_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Qwen-Qwen3-30B-A3B/perplexity/en_incorrect.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Qwen-Qwen3-30B-A3B/perplexity/zh_cn_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Qwen-Qwen3-30B-A3B/perplexity/zh_cn_incorrect.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Qwen-Qwen3-30B-A3B/perplexity/fr_fr_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Qwen-Qwen3-30B-A3B/perplexity/fr_fr_incorrect.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Qwen-Qwen3-30B-A3B/perplexity/ar_xy_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Qwen-Qwen3-30B-A3B/perplexity/ar_xy_incorrect.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Qwen-Qwen3-30B-A3B/perplexity/sw_ke_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Qwen-Qwen3-30B-A3B/perplexity/sw_ke_incorrect.jsonl" does not exist, assuming no completed entries.
+Concatenated perplexity dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/Qwen-Qwen3-30B-A3B/perplexity_aggregated_input.jsonl
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm1_hf.py
+Total entries to calculate perplexity: 85610
+Using batch size: 21 based on model size, number of GPUs (4), and single GPU memory (40GB)
+Processing batch 1/4077
+Creating HuggingFace backend for model Qwen/Qwen3-30B-A3B using 4 GPUs and batch size 21...
+Creating HuggingFace backend for model Qwen/Qwen3-30B-A3B with batch size 21...
+Loading model from HuggingFace...
+Found 4 GPUs
+GPU 0: 39.49 GB available, using 35 GB
+GPU 1: 39.49 GB available, using 35 GB
+GPU 2: 39.49 GB available, using 35 GB
+GPU 3: 39.49 GB available, using 35 GB
+Model loaded, setting to eval mode...
+Model in eval mode
+Model device map: {'model.embed_tokens': 0, 'model.layers.0': 0, 'model.layers.1': 0, 'model.layers.2': 0, 'model.layers.3': 0, 'model.layers.4': 0, 'model.layers.5': 0, 'model.layers.6': 0, 'model.layers.7': 0, 'model.layers.8': 0, 'model.layers.9': 0, 'model.layers.10': 0, 'model.layers.11': 0, 'model.layers.12': 1, 'model.layers.13': 1, 'model.layers.14': 1, 'model.layers.15': 1, 'model.layers.16': 1, 'model.layers.17': 1, 'model.layers.18': 1, 'model.layers.19': 1, 'model.layers.20': 1, 'model.layers.21': 1, 'model.layers.22': 1, 'model.layers.23': 1, 'model.layers.24': 1, 'model.layers.25': 2, 'model.layers.26': 2, 'model.layers.27': 2, 'model.layers.28': 2, 'model.layers.29': 2, 'model.layers.30': 2, 'model.layers.31': 2, 'model.layers.32': 2, 'model.layers.33': 2, 'model.layers.34': 2, 'model.layers.35': 2, 'model.layers.36': 2, 'model.layers.37': 2, 'model.layers.38': 3, 'model.layers.39': 3, 'model.layers.40': 3, 'model.layers.41': 3, 'model.layers.42': 3, 'model.layers.43': 3, 'model.layers.44': 3, 'model.layers.45': 3, 'model.layers.46': 3, 'model.layers.47': 3, 'model.norm': 3, 'model.rotary_emb': 3, 'lm_head': 3}
+HuggingFace backend created successfully for Qwen/Qwen3-30B-A3B
+HuggingFace backend created for model Qwen/Qwen3-30B-A3B
+Processing batch 2/4077
+Processing batch 3/4077
+Processing batch 4/4077
+Processing batch 5/4077
+Processing batch 6/4077
+Processing batch 7/4077
+Processing batch 8/4077
+Processing batch 9/4077
+Processing batch 10/4077
+Processing batch 11/4077
+Processing batch 12/4077
+Processing batch 13/4077
+Processing batch 14/4077
+Processing batch 15/4077
+Processing batch 16/4077
+Processing batch 17/4077
+Processing batch 18/4077
+Processing batch 19/4077
+Processing batch 20/4077
+Perplexity: Written 420/85610 entries to perplexity result file
+Processing batch 21/4077
+Processing batch 22/4077
+Processing batch 23/4077
+Processing batch 24/4077
+Processing batch 25/4077
+Processing batch 26/4077
+Processing batch 27/4077
+Processing batch 28/4077
+Processing batch 29/4077
+Processing batch 30/4077
+Processing batch 31/4077
+Processing batch 32/4077
+Processing batch 33/4077
+Processing batch 34/4077
+Processing batch 35/4077
+[WARNING] in lang en, index 563: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang en, index 563: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Processing batch 36/4077
+Processing batch 37/4077
+Processing batch 38/4077
+Processing batch 39/4077
+Processing batch 40/4077
+Perplexity: Written 840/85610 entries to perplexity result file
+Processing batch 41/4077
+Processing batch 42/4077
+Processing batch 43/4077
+Processing batch 44/4077
+Processing batch 45/4077
+Processing batch 46/4077
+Processing batch 47/4077
+Processing batch 48/4077
+Processing batch 49/4077
+Processing batch 50/4077
+Processing batch 51/4077
+Processing batch 52/4077
+Processing batch 53/4077
+Processing batch 54/4077
+Processing batch 55/4077
+Processing batch 56/4077
+Processing batch 57/4077
+Processing batch 58/4077
+Processing batch 59/4077
+Processing batch 60/4077
+Perplexity: Written 1260/85610 entries to perplexity result file
+Processing batch 61/4077
+Processing batch 62/4077
+Processing batch 63/4077
+Processing batch 64/4077
+Processing batch 65/4077
+Processing batch 66/4077
+Processing batch 67/4077
+Processing batch 68/4077
+Processing batch 69/4077
+Processing batch 70/4077
+Processing batch 71/4077
+Processing batch 72/4077
+Processing batch 73/4077
+Processing batch 74/4077
+Processing batch 75/4077
+Processing batch 76/4077
+Processing batch 77/4077
+Processing batch 78/4077
+Processing batch 79/4077
+Processing batch 80/4077
+Perplexity: Written 1680/85610 entries to perplexity result file
+Processing batch 81/4077
+Processing batch 82/4077
+Processing batch 83/4077
+Processing batch 84/4077
+Processing batch 85/4077
+Processing batch 86/4077
+Processing batch 87/4077
+Processing batch 88/4077
+Processing batch 89/4077
+Processing batch 90/4077
+Processing batch 91/4077
+Processing batch 92/4077
+Processing batch 93/4077
+Processing batch 94/4077
+Processing batch 95/4077
+Processing batch 96/4077
+Processing batch 97/4077
+Processing batch 98/4077
+Processing batch 99/4077
+Processing batch 100/4077
+Perplexity: Written 2100/85610 entries to perplexity result file
+Processing batch 101/4077
+Processing batch 102/4077
+Processing batch 103/4077
+Processing batch 104/4077
+Processing batch 105/4077
+Processing batch 106/4077
+Processing batch 107/4077
+Processing batch 108/4077
+Processing batch 109/4077
+Processing batch 110/4077
+Processing batch 111/4077
+Processing batch 112/4077
+Processing batch 113/4077
+Processing batch 114/4077
+Processing batch 115/4077
+Processing batch 116/4077
+Processing batch 117/4077
+Processing batch 118/4077
+Processing batch 119/4077
+Processing batch 120/4077
+Perplexity: Written 2520/85610 entries to perplexity result file
+Processing batch 121/4077
+Processing batch 122/4077
+Processing batch 123/4077
+Processing batch 124/4077
+Processing batch 125/4077
+Processing batch 126/4077
+Processing batch 127/4077
+Processing batch 128/4077
+Processing batch 129/4077

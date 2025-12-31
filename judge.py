@@ -337,7 +337,7 @@ async def main_async():
             print(f"Using batch size: {batch_size} based on model size, number of GPUs ({args.num_gpus}), and single GPU memory ({args.single_gpu_memory}GB)")
             total_processed = 0
 
-            with open(generate_perplexity_aggregated_output_file_path, 'w') as f:
+            with open(generate_perplexity_aggregated_output_file_path, 'w', encoding='utf-8') as f:
                 for i in range(0, len(input_entries), batch_size):
                     batch_idx = i // batch_size + 1
                     batch_entries = input_entries[i:i+batch_size]
@@ -475,8 +475,7 @@ async def main_async():
 
                     # Flush after each batch to ensure results are written
                     f.flush()
-                    if batch_idx % 20 == 0:
-                        print(f"Perplexity: Written {total_processed}/{len(input_entries)} entries to perplexity result file", flush=True)
+                    print(f"Perplexity: Written {total_processed}/{len(input_entries)} entries to perplexity result file (batch {batch_idx}/{(len(input_entries) + batch_size - 1)//batch_size})", flush=True)
             perplexity_dispatch_generate_perplexity_results(config)
             print(f"Completed writing all {total_processed} perplexity results to {generate_perplexity_aggregated_output_file_path}")
 
