@@ -1,18 +1,21 @@
 from codebase_rs import *
 
-
-config = JudgeConfig(LocalModel.Qwen3_8B, JudgeExperiment.Perplexity(lang="en"))
-
-
-
-# for model in [Model.Api(ApiModel.Gpt5Nano), Model.Api(ApiModel.Gpt5Mini), Model.Api(ApiModel.Gpt5)]:
-#     for noise in [AddNoiseMode.NoNoise, AddNoiseMode.Synonym, AddNoiseMode.Paraphrase]:
-#         for translate in [
-#             TranslateMode.NotTranslated(),
-#             TranslateMode.Translated(language=Language.Chinese, option=TranslateOption.FullyTranslated),
-#             TranslateMode.Translated(language=Language.Chinese, option=TranslateOption.PartiallyTranslated),
-#             TranslateMode.Translated(language=Language.Chinese, option=TranslateOption.FullyTranslatedPromptTranslate),
-#             TranslateMode.Translated(language=Language.Chinese, option=TranslateOption.FullyTranslatedPreTranslate),
-#             TranslateMode.Translated(language=Language.Chinese, option=TranslateOption.FullyTranslatedPostTranslate),
-#         ]:
-#             configs.append(ToolConfig(model, translate, noise))
+config = JudgeConfig(LocalModel.Qwen3_30bA3b, JudgeExperiments.HuggingFace(
+    perplexity_experiments=[
+        PerplexityExperiment("en"), 
+        PerplexityExperiment("zh_cn"),
+        PerplexityExperiment("fr_fr"), 
+        # PerplexityExperiment("de_de"), 
+        # PerplexityExperiment("ja_jp"), 
+        # PerplexityExperiment("ko_kr"), 
+        PerplexityExperiment("ar_xy"), 
+        # PerplexityExperiment("bn_bd"), 
+        # PerplexityExperiment("hi_in"), 
+        # PerplexityExperiment("id_id"), 
+        # PerplexityExperiment("it_it"), 
+        # PerplexityExperiment("pt_br"), 
+        # PerplexityExperiment("es_la"), 
+        PerplexityExperiment("sw_ke"), 
+        # PerplexityExperiment("yo_ng"),
+    ]
+))

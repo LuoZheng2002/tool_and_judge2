@@ -3,12 +3,9 @@ use std::sync::Arc;
 use crate::{
     config::{ApiModel, LocalModel, Model},
     models::{
-        deepseek_interface::DeepSeekInterface,
-        function_name_mapper::{FunctionNameMapper},
-        gpt5_interface::Gpt5Interface,
-        llama3_1_interface::Llama3_1Interface,
-        qwen3_interface::Qwen3Interface,
-        granite4_interface::Granite4Interface,
+        deepseek_interface::DeepSeekInterface, function_name_mapper::FunctionNameMapper,
+        gpt5_interface::Gpt5Interface, granite4_interface::Granite4Interface,
+        llama3_1_interface::Llama3_1Interface, qwen3_interface::Qwen3Interface,
     },
     tool::{
         bfcl_formats::{BfclFunctionDef, BfclOutputFunctionCall},
@@ -65,8 +62,14 @@ pub fn get_model_interface(model: Model) -> Arc<dyn ModelInterface> {
         },
         Model::Local(local_model) => match local_model {
             LocalModel::Llama3_1_8B | LocalModel::Llama3_1_70B => Arc::new(Llama3_1Interface),
-            LocalModel::Qwen3_8B | LocalModel::Qwen3_14B | LocalModel::Qwen3_30bA3b | LocalModel::Qwen3_32B | LocalModel::Qwen3Next80bA3b => Arc::new(Qwen3Interface),
-            LocalModel::Granite4_0HTiny | LocalModel::Granite4_0HSmall => Arc::new(Granite4Interface),
+            LocalModel::Qwen3_8B
+            | LocalModel::Qwen3_14B
+            | LocalModel::Qwen3_30bA3b
+            | LocalModel::Qwen3_32B
+            | LocalModel::Qwen3Next80bA3b => Arc::new(Qwen3Interface),
+            LocalModel::Granite4_0HTiny | LocalModel::Granite4_0HSmall => {
+                Arc::new(Granite4Interface)
+            }
             _ => {
                 unimplemented!(
                     "Local model interfaces other than Llama 3.1, Qwen3, and Granite 4.0 are not implemented yet."

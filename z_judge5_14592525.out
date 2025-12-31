@@ -1,0 +1,137 @@
+✏️ Setting installed package as editable
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm5_vllm.py
+This run uses VLLM backend.
+Starting preference experiment...
+Concatenated two answers dataset for language pairs[("en", "zh_cn"), ("en", "fr_fr")] written to "judge/result/Unbabel-M-Prometheus-14B/preference_aggregated_input.jsonl"
+Dispatching preference results for model: Unbabel-M-Prometheus-14B, language pairs: [("en", "zh_cn"), ("en", "fr_fr")], input file: judge/result/Unbabel-M-Prometheus-14B/preference_aggregated_output.jsonl
+Warning: Missing entries for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: zh_cn: missing entries count: 11458
+Warning: Missing entries for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: zh_cn: missing entries count: 11458
+Warning: Missing entries for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: zh_cn: missing entries count: 11458
+Warning: Missing entries for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: zh_cn: missing entries count: 11458
+Dispatched preference results for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: zh_cn
+Warning: Missing entries for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: fr_fr: missing entries count: 11458
+Warning: Missing entries for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: fr_fr: missing entries count: 11458
+Warning: Missing entries for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: fr_fr: missing entries count: 11458
+Warning: Missing entries for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: fr_fr: missing entries count: 11458
+Dispatched preference results for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: fr_fr
+Removed aggregated output file: judge/result/Unbabel-M-Prometheus-14B/preference_aggregated_output.jsonl
+Preference experiment finished.
+Starting perplexity experiment...
+Dispatching response results for model: Unbabel-M-Prometheus-14B, languages: ["en", "zh_cn", "fr_fr"], input file: judge/result/Unbabel-M-Prometheus-14B/perplexity_response_output.jsonl
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/response/en.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 8561 entries for model: Unbabel-M-Prometheus-14B, lang: en
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: en
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/response/zh_cn.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 8561 entries for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/response/fr_fr.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 8561 entries for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Removed aggregated response output file: judge/result/Unbabel-M-Prometheus-14B/perplexity_response_output.jsonl
+Response input dataset for languages ["en", "zh_cn", "fr_fr"] written to judge/result/Unbabel-M-Prometheus-14B/perplexity_response_input.jsonl
+Total entries to generate responses: 60
+Creating VLLM backend for model Unbabel/M-Prometheus-14B using 1 GPUs...
+Creating vLLM backend for model Unbabel/M-Prometheus-14B with 1 GPUs...
+INFO 12-30 02:12:48 [model.py:637] Resolved architecture: Qwen2ForCausalLM
+INFO 12-30 02:12:48 [model.py:1750] Using max model len 5000
+INFO 12-30 02:12:54 [scheduler.py:228] Chunked prefill is enabled with max_num_batched_tokens=2048.
+[0;36m(EngineCore_DP0 pid=2845801)[0;0m INFO 12-30 02:12:55 [core.py:93] Initializing a V1 LLM engine (v0.12.0) with config: model='Unbabel/M-Prometheus-14B', speculative_config=None, tokenizer='Unbabel/M-Prometheus-14B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=5000, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01), seed=0, served_model_name=Unbabel/M-Prometheus-14B, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer'], 'compile_mm_encoder': False, 'compile_sizes': [], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'eliminate_noops': True, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 256, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>}, 'local_cache_dir': None}
+[0;36m(EngineCore_DP0 pid=2845801)[0;0m INFO 12-30 02:13:16 [parallel_state.py:1200] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://141.142.254.14:33731 backend=nccl
+[0;36m(EngineCore_DP0 pid=2845801)[0;0m INFO 12-30 02:13:17 [parallel_state.py:1408] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank 0
+[0;36m(EngineCore_DP0 pid=2845801)[0;0m INFO 12-30 02:13:18 [gpu_model_runner.py:3467] Starting to load model Unbabel/M-Prometheus-14B...
+[0;36m(EngineCore_DP0 pid=2845801)[0;0m INFO 12-30 02:13:21 [cuda.py:411] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION']
+[0;36m(EngineCore_DP0 pid=2845801)[0;0m INFO 12-30 02:13:41 [default_loader.py:308] Loading weights took 19.60 seconds
+[0;36m(EngineCore_DP0 pid=2845801)[0;0m INFO 12-30 02:13:42 [gpu_model_runner.py:3549] Model loading took 27.5681 GiB memory and 23.641914 seconds
+[0;36m(EngineCore_DP0 pid=2845801)[0;0m INFO 12-30 02:24:16 [backends.py:655] Using cache directory: /u/zluo8/.cache/vllm/torch_compile_cache/bb2e686a37/rank_0_0/backbone for vLLM's torch.compile
+[0;36m(EngineCore_DP0 pid=2845801)[0;0m INFO 12-30 02:24:16 [backends.py:715] Dynamo bytecode transform time: 633.69 s
+[0;36m(EngineCore_DP0 pid=2845801)[0;0m INFO 12-30 02:24:22 [backends.py:216] Directly load the compiled graph(s) for dynamic shape from the cache, took 4.978 s
+[0;36m(EngineCore_DP0 pid=2845801)[0;0m INFO 12-30 02:24:32 [monitor.py:34] torch.compile takes 638.67 s in total
+[0;36m(EngineCore_DP0 pid=2845801)[0;0m INFO 12-30 02:24:37 [gpu_worker.py:359] Available KV cache memory: 7.22 GiB
+[0;36m(EngineCore_DP0 pid=2845801)[0;0m INFO 12-30 02:24:37 [kv_cache_utils.py:1286] GPU KV cache size: 39,408 tokens
+[0;36m(EngineCore_DP0 pid=2845801)[0;0m INFO 12-30 02:24:37 [kv_cache_utils.py:1291] Maximum concurrency for 5,000 tokens per request: 7.87x
+[0;36m(EngineCore_DP0 pid=2845801)[0;0m INFO 12-30 02:24:44 [gpu_model_runner.py:4466] Graph capturing finished in 7 secs, took 0.50 GiB
+[0;36m(EngineCore_DP0 pid=2845801)[0;0m INFO 12-30 02:24:44 [core.py:254] init engine (profile, create kv cache, warmup model) took 661.90 seconds
+vLLM backend created successfully for Unbabel/M-Prometheus-14B
+VLLM backend created for model Unbabel/M-Prometheus-14B
+Dispatching response results for model: Unbabel-M-Prometheus-14B, languages: ["en", "zh_cn", "fr_fr"], input file: judge/result/Unbabel-M-Prometheus-14B/perplexity_response_output.jsonl
+Warning: Missing 8541 entries for model: Unbabel-M-Prometheus-14B, lang: en
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: en
+Warning: Missing 8541 entries for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Warning: Missing 8541 entries for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Removed aggregated response output file: judge/result/Unbabel-M-Prometheus-14B/perplexity_response_output.jsonl
+File judge/result/Unbabel-M-Prometheus-14B/styled_answers/en.jsonl does not exist, assuming no completed entries.
+File judge/result/Unbabel-M-Prometheus-14B/styled_answers/zh_cn.jsonl does not exist, assuming no completed entries.
+File judge/result/Unbabel-M-Prometheus-14B/styled_answers/fr_fr.jsonl does not exist, assuming no completed entries.
+Styled answers input dataset for languages ["en", "zh_cn", "fr_fr"] written to judge/result/Unbabel-M-Prometheus-14B/perplexity_styled_answers_input.jsonl
+Completed writing all responses to judge/result/Unbabel-M-Prometheus-14B/perplexity_response_output.jsonl
+Total entries to generate styled answers: 60
+Creating Assistant API client for model gpt-4.1...
+Created API backend for model gpt-4.1 with auto-retry on rate limits
+Assistant API client created for model gpt-4.1
+Dispatching styled answers results for model: Unbabel-M-Prometheus-14B, languages: ["en", "zh_cn", "fr_fr"], input file: judge/result/Unbabel-M-Prometheus-14B/perplexity_styled_answers_output.jsonl
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/styled_answers/en.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 8541 entries for model: Unbabel-M-Prometheus-14B, lang: en
+Dispatched styled answers results for model: Unbabel-M-Prometheus-14B, lang: en
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/styled_answers/zh_cn.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 8541 entries for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Dispatched styled answers results for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/styled_answers/fr_fr.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 8541 entries for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Dispatched styled answers results for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Removed aggregated styled answers output file: judge/result/Unbabel-M-Prometheus-14B/perplexity_styled_answers_output.jsonl
+Completed writing all styled answers to judge/result/Unbabel-M-Prometheus-14B/perplexity_styled_answers_output.jsonl
+Perplexity experiment finished.
+ERROR 12-30 02:25:12 [core_client.py:600] Engine core proc EngineCore_DP0 died unexpectedly, shutting down client.
+✏️ Setting installed package as editable
+File "judge/result/Unbabel-M-Prometheus-14B/perplexity/en_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Unbabel-M-Prometheus-14B/perplexity/en_incorrect.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Unbabel-M-Prometheus-14B/perplexity/zh_cn_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Unbabel-M-Prometheus-14B/perplexity/zh_cn_incorrect.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Unbabel-M-Prometheus-14B/perplexity/fr_fr_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Unbabel-M-Prometheus-14B/perplexity/fr_fr_incorrect.jsonl" does not exist, assuming no completed entries.
+Concatenated perplexity dataset for languages ["en", "zh_cn", "fr_fr"] written to judge/result/Unbabel-M-Prometheus-14B/perplexity_aggregated_input.jsonl
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm5_hf.py
+Total entries to calculate perplexity: 120
+Using batch size: 34 based on model size, number of GPUs (1), and single GPU memory (40GB)
+Processing batch 1/4
+Creating HuggingFace backend for model Unbabel/M-Prometheus-14B using 1 GPUs and batch size 34...
+Creating HuggingFace backend for model Unbabel/M-Prometheus-14B with batch size 34...
+Loading model from HuggingFace...
+Found 1 GPUs
+GPU 0: 39.49 GB available, using 35 GB
+Model loaded, setting to eval mode...
+Model in eval mode
+Model device map: {'': 0}
+HuggingFace backend created successfully for Unbabel/M-Prometheus-14B
+HuggingFace backend created for model Unbabel/M-Prometheus-14B
+Processing batch 2/4
+Processing batch 3/4
+Processing batch 4/4
+Dispatching perplexity results for model: Unbabel-M-Prometheus-14B, languages: ["en", "zh_cn", "fr_fr"], input file: judge/result/Unbabel-M-Prometheus-14B/perplexity_aggregated_output.jsonl
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/perplexity/en_correct.jsonl: No such file or directory (os error 2), assuming empty result file
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/perplexity/en_incorrect.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 8541 correct entries for model: Unbabel-M-Prometheus-14B, lang: en
+Warning: Missing 8541 incorrect entries for model: Unbabel-M-Prometheus-14B, lang: en
+Dispatched perplexity results for model: Unbabel-M-Prometheus-14B, lang: en
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/perplexity/zh_cn_correct.jsonl: No such file or directory (os error 2), assuming empty result file
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/perplexity/zh_cn_incorrect.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 8541 correct entries for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Warning: Missing 8541 incorrect entries for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Dispatched perplexity results for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/perplexity/fr_fr_correct.jsonl: No such file or directory (os error 2), assuming empty result file
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/perplexity/fr_fr_incorrect.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 8541 correct entries for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Warning: Missing 8541 incorrect entries for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Dispatched perplexity results for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Removed aggregated perplexity output file: judge/result/Unbabel-M-Prometheus-14B/perplexity_aggregated_output.jsonl
+Completed writing all 120 perplexity results to judge/result/Unbabel-M-Prometheus-14B/perplexity_aggregated_output.jsonl

@@ -3,7 +3,6 @@ import json
 import os
 import uuid
 
-os.environ['HF_HOME'] = "/work/nvme/bfdz/zluo8/huggingface"
 from dotenv import load_dotenv
 from src_py.utils import load_config_from_file
 from src_py.utils import load_json_lines_from_file
@@ -42,6 +41,12 @@ parser.add_argument(
     type=int,
     default=None,
     help="Limit the number of entries to process for debugging (default: None)"
+)
+parser.add_argument(
+    "--single-gpu-memory",
+    type=int,
+    default=40,
+    help="Memory of a single GPU in GB (default: 40)"
 )
 
 args = parser.parse_args()
@@ -123,9 +128,13 @@ async def main_async():
                 async with semaphore:
                     if config.model == LocalModel.Llama3_3_70B:
                         from src_py.llama3_1_backend import collect_preference_local_async
-                    elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b]:
+                    elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b, LocalModel.Qwen3_235bA22b]:
                         from src_py.qwen3_backend import collect_preference_local_async
-                    elif config.model == LocalModel.AyaExpanse32b:
+                    elif config.model == LocalModel.UnbabelMPrometheus14B:
+                        from src_py.qwen2_5_backend import collect_preference_local_async
+                    elif config.model == LocalModel.Prometheus8x7bV2:
+                        from src_py.mistral_backend import collect_preference_local_async
+                    elif config.model == LocalModel.AyaExpanse32B:
                         from src_py.aya_expanse_backend import collect_preference_local_async
                     else:
                         raise ValueError(f"Unsupported model for preference collection: {config.model}")
@@ -167,10 +176,10 @@ async def main_async():
                 with open(preference_aggregated_output_path, 'w', encoding='utf-8') as f:
                     for i, coro in enumerate(asyncio.as_completed(tasks), 1):
                         result = await coro
-                        f.write(json.dumps(result, ensure_ascii=False) + '\n')
-                        f.flush()
+                        f.write(json.dumps(result, ensure_ascii=False) + '\n')                        
                         if i % 200 == 0:
                             print(f"Written {i}/{len(combined_entries)} entries to file", flush=True)
+                            f.flush()
             await collect_all_preference_entries()
             preference_dispatch_preference_results(config)
             print("Preference experiment finished.")
@@ -205,9 +214,13 @@ async def main_async():
                 async with semaphore:
                     if config.model == LocalModel.Llama3_3_70B:
                         from src_py.llama3_1_backend import generate_response_async
-                    elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b]:
+                    elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b, LocalModel.Qwen3_235bA22b]:
                         from src_py.qwen3_backend import generate_response_async
-                    elif config.model == LocalModel.AyaExpanse32b:
+                    elif config.model == LocalModel.UnbabelMPrometheus14B:
+                        from src_py.qwen2_5_backend import generate_response_async
+                    elif config.model == LocalModel.Prometheus8x7bV2:
+                        from src_py.mistral_backend import generate_response_async
+                    elif config.model == LocalModel.AyaExpanse32B:
                         from src_py.aya_expanse_backend import generate_response_async
                     else:
                         raise ValueError(f"Unsupported model for response collection: {config.model}")
@@ -231,10 +244,10 @@ async def main_async():
                 with open(generate_response_output_file_path, 'w', encoding='utf-8') as f:
                     for i, coro in enumerate(asyncio.as_completed(tasks), 1):
                         result = await coro
-                        f.write(json.dumps(result, ensure_ascii=False) + '\n')
-                        f.flush()
+                        f.write(json.dumps(result, ensure_ascii=False) + '\n')                        
                         if i % 200 == 0:
                             print(f"Written {i}/{len(input_entries)} entries to file", flush=True)
+                            f.flush()
 
             await collect_all_response_entries()
             perplexity_dispatch_response_results(config)
@@ -298,10 +311,10 @@ async def main_async():
                 with open(generate_styled_answers_output_file_path, 'a', encoding='utf-8') as f:
                     for i, coro in enumerate(asyncio.as_completed(tasks), 1):
                         result = await coro
-                        f.write(json.dumps(result, ensure_ascii=False) + '\n')
-                        f.flush()
+                        f.write(json.dumps(result, ensure_ascii=False) + '\n')                        
                         if i % 200 == 0:
                             print(f"Written {i}/{len(input_entries)} entries to styled answers file", flush=True)
+                            f.flush()
             await collect_all_styled_responses_entries()
             perplexity_dispatch_styled_answers_results(config)
             print(f"Completed writing all styled answers to {generate_styled_answers_output_file_path}")
@@ -318,14 +331,17 @@ async def main_async():
             print(f"Total entries to calculate perplexity: {len(input_entries)}")
 
             # Define batch size for processing
-            batch_size =  int(120 * args.num_gpus / config.model.size_in_billion_parameters())
-            print(f"Using batch size: {batch_size} based on model size and number of GPUs")
+            # Scale batch size based on GPU memory: 240 was the constant for 40GB GPUs
+            # batch_size = (base_constant) * num_gpus * (gpu_memory / 40GB) / model_size_in_billions
+            batch_size =  int(18 * args.num_gpus * args.single_gpu_memory / config.model.size_in_billion_parameters())
+            print(f"Using batch size: {batch_size} based on model size, number of GPUs ({args.num_gpus}), and single GPU memory ({args.single_gpu_memory}GB)")
             total_processed = 0
 
             with open(generate_perplexity_aggregated_output_file_path, 'w') as f:
                 for i in range(0, len(input_entries), batch_size):
+                    batch_idx = i // batch_size + 1
                     batch_entries = input_entries[i:i+batch_size]
-                    print(f"Processing batch {i//batch_size + 1}/{(len(input_entries) + batch_size - 1)//batch_size}", flush=True)
+                    print(f"Processing batch {batch_idx}/{(len(input_entries) + batch_size - 1)//batch_size}", flush=True)
 
                     if not main_hf_backend_created:
                         print(f"Creating HuggingFace backend for model {model_name} using {args.num_gpus} GPUs and batch size {batch_size}...", flush=True)
@@ -340,9 +356,13 @@ async def main_async():
                     # Import model-specific forward function
                     if config.model == LocalModel.Llama3_3_70B:
                         from src_py.llama3_1_backend import forward_for_perplexity
-                    elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b]:
+                    elif config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b, LocalModel.Qwen3_235bA22b]:
                         from src_py.qwen3_backend import forward_for_perplexity
-                    elif config.model == LocalModel.AyaExpanse32b:
+                    elif config.model == LocalModel.UnbabelMPrometheus14B:
+                        from src_py.qwen2_5_backend import forward_for_perplexity
+                    elif config.model == LocalModel.Prometheus8x7bV2:
+                        from src_py.mistral_backend import forward_for_perplexity
+                    elif config.model == LocalModel.AyaExpanse32B:
                         from src_py.aya_expanse_backend import forward_for_perplexity
                     else:
                         raise ValueError(f"Unsupported model for perplexity collection: {config.model}")
@@ -369,7 +389,7 @@ async def main_async():
                         language_name = language_abbreviation_to_name(lang)
 
                         # Build language-specific instructions
-                        instruction = f"Please concisely answer the question in {language_name}."
+                        instruction = f"Please CONCISELY answer the question in {language_name} WITHOUT reasoning or explanation."
 
                         # Combine question with instruction
                         user_content = f"{question}\n\n{instruction}"
@@ -388,14 +408,23 @@ async def main_async():
 
                         # Apply chat template to get the formatted prompt with <answer> tags
                         # Handle model-specific tokenization parameters
-                        if config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b]:
+                        if config.model in [LocalModel.Qwen3_8B, LocalModel.Qwen3_14B, LocalModel.Qwen3_30bA3b, LocalModel.Qwen3Next80bA3b, LocalModel.Qwen3_235bA22b]:
+                            # Qwen 3 models support enable_thinking parameter
                             formatted_prompt_with_tags = hf_tokenizer.apply_chat_template(
                                 messages,
                                 tokenize=False,
                                 add_generation_prompt=False,
                                 enable_thinking=False,
                             )
+                        elif config.model in [LocalModel.UnbabelMPrometheus14B, LocalModel.Prometheus8x7bV2]:
+                            # M-Prometheus (Qwen 2.5 base) and Prometheus-8x7b (Mistral base) don't support enable_thinking
+                            formatted_prompt_with_tags = hf_tokenizer.apply_chat_template(
+                                messages,
+                                tokenize=False,
+                                add_generation_prompt=False,
+                            )
                         else:
+                            # Other models (Llama, AyaExpanse, etc.)
                             formatted_prompt_with_tags = hf_tokenizer.apply_chat_template(
                                 messages,
                                 tokenize=False,
@@ -442,12 +471,12 @@ async def main_async():
                         }
                         # Write result immediately
                         f.write(json.dumps(result_entry, ensure_ascii=False) + '\n')
-                        f.flush()
                         total_processed += 1
 
                     # Flush after each batch to ensure results are written
                     f.flush()
-                    print(f"Written {total_processed}/{len(input_entries)} entries to perplexity result file", flush=True)
+                    if batch_idx % 20 == 0:
+                        print(f"Written {total_processed}/{len(input_entries)} entries to perplexity result file", flush=True)
             perplexity_dispatch_generate_perplexity_results(config)
             print(f"Completed writing all {total_processed} perplexity results to {generate_perplexity_aggregated_output_file_path}")
 
