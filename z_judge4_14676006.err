@@ -1,0 +1,1279 @@
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+    Finished `release` profile [optimized] target(s) in 1.72s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmpU4GTbp/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+⚠️ Warning: failed to set package as editable: failed to create file `/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/codebase_rs-0.1.0.dist-info/direct_url.json`: No such file or directory (os error 2)
+🛠 Installed codebase_rs-0.1.0
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[0;36m(EngineCore_DP0 pid=90145)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=90145)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=90145)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+[0;36m(EngineCore_DP0 pid=90145)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=90145)[0;0m     ~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=90145)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=90145)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=90145)[0;0m     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=90145)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 847, in run_engine_core
+[0;36m(EngineCore_DP0 pid=90145)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=90145)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 834, in run_engine_core
+[0;36m(EngineCore_DP0 pid=90145)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
+[0;36m(EngineCore_DP0 pid=90145)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 610, in __init__
+[0;36m(EngineCore_DP0 pid=90145)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=90145)[0;0m     ~~~~~~~~~~~~~~~~^
+[0;36m(EngineCore_DP0 pid=90145)[0;0m         vllm_config, executor_class, log_stats, executor_fail_callback
+[0;36m(EngineCore_DP0 pid=90145)[0;0m         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=90145)[0;0m     )
+[0;36m(EngineCore_DP0 pid=90145)[0;0m     ^
+[0;36m(EngineCore_DP0 pid=90145)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 102, in __init__
+[0;36m(EngineCore_DP0 pid=90145)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=90145)[0;0m                           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=90145)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 97, in __init__
+[0;36m(EngineCore_DP0 pid=90145)[0;0m     super().__init__(vllm_config)
+[0;36m(EngineCore_DP0 pid=90145)[0;0m     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=90145)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=90145)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=90145)[0;0m     ~~~~~~~~~~~~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=90145)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 174, in _init_executor
+[0;36m(EngineCore_DP0 pid=90145)[0;0m     self.workers = WorkerProc.wait_for_ready(unready_workers)
+[0;36m(EngineCore_DP0 pid=90145)[0;0m                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=90145)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 660, in wait_for_ready
+[0;36m(EngineCore_DP0 pid=90145)[0;0m     raise e from None
+[0;36m(EngineCore_DP0 pid=90145)[0;0m Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/resource_tracker.py:301: UserWarning: resource_tracker: There appear to be 2 leaked shared_memory objects to clean up at shutdown: {'/psm_739e71dc', '/psm_0263af06'}
+  warnings.warn(
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[rank2]:[W1230 14:43:01.918939039 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=135, addr=[localhost]:34682, remote=[localhost]:53399): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe92d (0x7f557ba3292d in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f557ba334da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f557ba2e1fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank1]:[W1230 14:43:01.918947505 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=131, addr=[localhost]:43134, remote=[localhost]:53399): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe92d (0x7f557ba3292d in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f557ba334da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f557ba2e1fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank3]:[W1230 14:43:01.918941273 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=139, addr=[localhost]:34696, remote=[localhost]:53399): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe92d (0x7f557ba3292d in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f557ba334da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f557ba2e1fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank1]:[W1230 14:43:01.025236970 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank3]:[W1230 14:43:01.025376551 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 3] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank2]:[W1230 14:43:01.025462192 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 2] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]:[W1230 14:43:02.025520746 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=131, addr=[localhost]:43134, remote=[localhost]:53399): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank1]:[W1230 14:43:02.028932616 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank3]:[W1230 14:43:02.029037542 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=139, addr=[localhost]:34696, remote=[localhost]:53399): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank3]:[W1230 14:43:02.032285906 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 3] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank2]:[W1230 14:43:02.029942744 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=135, addr=[localhost]:34682, remote=[localhost]:53399): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank2]:[W1230 14:43:02.033197741 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 2] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank1]:[W1230 14:43:03.029102718 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=131, addr=[localhost]:43134, remote=[localhost]:53399): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank1]:[W1230 14:43:03.032175284 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank3]:[W1230 14:43:03.032415603 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=139, addr=[localhost]:34696, remote=[localhost]:53399): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank3]:[W1230 14:43:03.035582385 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 3] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank2]:[W1230 14:43:03.033408449 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=135, addr=[localhost]:34682, remote=[localhost]:53399): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank2]:[W1230 14:43:03.036945543 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 2] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank2]:[W1230 14:43:04.037172563 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=135, addr=[localhost]:34682, remote=[localhost]:53399): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank2]:[W1230 14:43:04.041691883 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 2] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[0;36m(EngineCore_DP0 pid=90829)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=90829)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=90829)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+[0;36m(EngineCore_DP0 pid=90829)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=90829)[0;0m     ~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=90829)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=90829)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=90829)[0;0m     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=90829)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 847, in run_engine_core
+[0;36m(EngineCore_DP0 pid=90829)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=90829)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 834, in run_engine_core
+[0;36m(EngineCore_DP0 pid=90829)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
+[0;36m(EngineCore_DP0 pid=90829)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 610, in __init__
+[0;36m(EngineCore_DP0 pid=90829)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=90829)[0;0m     ~~~~~~~~~~~~~~~~^
+[0;36m(EngineCore_DP0 pid=90829)[0;0m         vllm_config, executor_class, log_stats, executor_fail_callback
+[0;36m(EngineCore_DP0 pid=90829)[0;0m         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=90829)[0;0m     )
+[0;36m(EngineCore_DP0 pid=90829)[0;0m     ^
+[0;36m(EngineCore_DP0 pid=90829)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 102, in __init__
+[0;36m(EngineCore_DP0 pid=90829)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=90829)[0;0m                           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=90829)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 97, in __init__
+[0;36m(EngineCore_DP0 pid=90829)[0;0m     super().__init__(vllm_config)
+[0;36m(EngineCore_DP0 pid=90829)[0;0m     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=90829)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=90829)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=90829)[0;0m     ~~~~~~~~~~~~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=90829)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 174, in _init_executor
+[0;36m(EngineCore_DP0 pid=90829)[0;0m     self.workers = WorkerProc.wait_for_ready(unready_workers)
+[0;36m(EngineCore_DP0 pid=90829)[0;0m                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=90829)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 660, in wait_for_ready
+[0;36m(EngineCore_DP0 pid=90829)[0;0m     raise e from None
+[0;36m(EngineCore_DP0 pid=90829)[0;0m Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/resource_tracker.py:301: UserWarning: resource_tracker: There appear to be 3 leaked shared_memory objects to clean up at shutdown: {'/psm_474fbba8', '/psm_2e058ecc', '/psm_dff01937'}
+  warnings.warn(
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[rank1]:[W1230 14:43:23.025563937 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=133, addr=[localhost]:37158, remote=[localhost]:34021): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe92d (0x7f557ba3292d in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f557ba334da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f557ba2e1fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank1]:[W1230 14:43:23.031755715 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank2]:[W1230 14:43:23.026397316 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=137, addr=[localhost]:37152, remote=[localhost]:34021): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe92d (0x7f557ba3292d in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f557ba334da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f557ba2e1fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank2]:[W1230 14:43:23.032235743 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 2] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank3]:[W1230 14:43:23.310380293 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=142, addr=[localhost]:37176, remote=[localhost]:34021): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe92d (0x7f557ba3292d in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f557ba334da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f557ba2e1fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank3]:[W1230 14:43:23.320939116 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 3] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]:[W1230 14:43:24.031988605 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=133, addr=[localhost]:37158, remote=[localhost]:34021): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank1]:[W1230 14:43:24.035182949 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank2]:[W1230 14:43:24.032426474 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=137, addr=[localhost]:37152, remote=[localhost]:34021): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank2]:[W1230 14:43:24.037549283 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 2] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank3]:[W1230 14:43:24.321248129 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=142, addr=[localhost]:37176, remote=[localhost]:34021): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank3]:[W1230 14:43:24.325439376 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 3] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank1]:[W1230 14:43:25.035471272 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=133, addr=[localhost]:37158, remote=[localhost]:34021): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank1]:[W1230 14:43:25.038560328 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank2]:[W1230 14:43:25.037780080 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=137, addr=[localhost]:37152, remote=[localhost]:34021): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank2]:[W1230 14:43:25.041172793 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 2] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank3]:[W1230 14:43:25.325648452 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=142, addr=[localhost]:37176, remote=[localhost]:34021): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank3]:[W1230 14:43:25.328808090 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 3] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank3]:[W1230 14:43:26.329034648 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=142, addr=[localhost]:37176, remote=[localhost]:34021): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank3]:[W1230 14:43:26.332545292 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 3] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[0;36m(EngineCore_DP0 pid=91501)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=91501)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=91501)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+[0;36m(EngineCore_DP0 pid=91501)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=91501)[0;0m     ~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=91501)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=91501)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=91501)[0;0m     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=91501)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 847, in run_engine_core
+[0;36m(EngineCore_DP0 pid=91501)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=91501)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 834, in run_engine_core
+[0;36m(EngineCore_DP0 pid=91501)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
+[0;36m(EngineCore_DP0 pid=91501)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 610, in __init__
+[0;36m(EngineCore_DP0 pid=91501)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=91501)[0;0m     ~~~~~~~~~~~~~~~~^
+[0;36m(EngineCore_DP0 pid=91501)[0;0m         vllm_config, executor_class, log_stats, executor_fail_callback
+[0;36m(EngineCore_DP0 pid=91501)[0;0m         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=91501)[0;0m     )
+[0;36m(EngineCore_DP0 pid=91501)[0;0m     ^
+[0;36m(EngineCore_DP0 pid=91501)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 102, in __init__
+[0;36m(EngineCore_DP0 pid=91501)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=91501)[0;0m                           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=91501)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 97, in __init__
+[0;36m(EngineCore_DP0 pid=91501)[0;0m     super().__init__(vllm_config)
+[0;36m(EngineCore_DP0 pid=91501)[0;0m     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=91501)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=91501)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=91501)[0;0m     ~~~~~~~~~~~~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=91501)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 174, in _init_executor
+[0;36m(EngineCore_DP0 pid=91501)[0;0m     self.workers = WorkerProc.wait_for_ready(unready_workers)
+[0;36m(EngineCore_DP0 pid=91501)[0;0m                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=91501)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 660, in wait_for_ready
+[0;36m(EngineCore_DP0 pid=91501)[0;0m     raise e from None
+[0;36m(EngineCore_DP0 pid=91501)[0;0m Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/resource_tracker.py:301: UserWarning: resource_tracker: There appear to be 2 leaked shared_memory objects to clean up at shutdown: {'/psm_e31e44ca', '/psm_bd16f53c'}
+  warnings.warn(
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[0;36m(EngineCore_DP0 pid=91837)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=91837)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=91837)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+[0;36m(EngineCore_DP0 pid=91837)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=91837)[0;0m     ~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=91837)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=91837)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=91837)[0;0m     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=91837)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 847, in run_engine_core
+[0;36m(EngineCore_DP0 pid=91837)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=91837)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 834, in run_engine_core
+[0;36m(EngineCore_DP0 pid=91837)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
+[0;36m(EngineCore_DP0 pid=91837)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 610, in __init__
+[0;36m(EngineCore_DP0 pid=91837)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=91837)[0;0m     ~~~~~~~~~~~~~~~~^
+[0;36m(EngineCore_DP0 pid=91837)[0;0m         vllm_config, executor_class, log_stats, executor_fail_callback
+[0;36m(EngineCore_DP0 pid=91837)[0;0m         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=91837)[0;0m     )
+[0;36m(EngineCore_DP0 pid=91837)[0;0m     ^
+[0;36m(EngineCore_DP0 pid=91837)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 102, in __init__
+[0;36m(EngineCore_DP0 pid=91837)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=91837)[0;0m                           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=91837)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 97, in __init__
+[0;36m(EngineCore_DP0 pid=91837)[0;0m     super().__init__(vllm_config)
+[0;36m(EngineCore_DP0 pid=91837)[0;0m     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=91837)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=91837)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=91837)[0;0m     ~~~~~~~~~~~~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=91837)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 174, in _init_executor
+[0;36m(EngineCore_DP0 pid=91837)[0;0m     self.workers = WorkerProc.wait_for_ready(unready_workers)
+[0;36m(EngineCore_DP0 pid=91837)[0;0m                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=91837)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 660, in wait_for_ready
+[0;36m(EngineCore_DP0 pid=91837)[0;0m     raise e from None
+[0;36m(EngineCore_DP0 pid=91837)[0;0m Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/resource_tracker.py:301: UserWarning: resource_tracker: There appear to be 3 leaked shared_memory objects to clean up at shutdown: {'/psm_7ba5454f', '/psm_c35f8d1f', '/psm_48bdd71f'}
+  warnings.warn(
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[0;36m(EngineCore_DP0 pid=92175)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=92175)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=92175)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+[0;36m(EngineCore_DP0 pid=92175)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=92175)[0;0m     ~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=92175)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=92175)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=92175)[0;0m     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=92175)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 847, in run_engine_core
+[0;36m(EngineCore_DP0 pid=92175)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=92175)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 834, in run_engine_core
+[0;36m(EngineCore_DP0 pid=92175)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
+[0;36m(EngineCore_DP0 pid=92175)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 610, in __init__
+[0;36m(EngineCore_DP0 pid=92175)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=92175)[0;0m     ~~~~~~~~~~~~~~~~^
+[0;36m(EngineCore_DP0 pid=92175)[0;0m         vllm_config, executor_class, log_stats, executor_fail_callback
+[0;36m(EngineCore_DP0 pid=92175)[0;0m         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=92175)[0;0m     )
+[0;36m(EngineCore_DP0 pid=92175)[0;0m     ^
+[0;36m(EngineCore_DP0 pid=92175)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 102, in __init__
+[0;36m(EngineCore_DP0 pid=92175)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=92175)[0;0m                           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=92175)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 97, in __init__
+[0;36m(EngineCore_DP0 pid=92175)[0;0m     super().__init__(vllm_config)
+[0;36m(EngineCore_DP0 pid=92175)[0;0m     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=92175)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=92175)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=92175)[0;0m     ~~~~~~~~~~~~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=92175)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 174, in _init_executor
+[0;36m(EngineCore_DP0 pid=92175)[0;0m     self.workers = WorkerProc.wait_for_ready(unready_workers)
+[0;36m(EngineCore_DP0 pid=92175)[0;0m                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=92175)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 660, in wait_for_ready
+[0;36m(EngineCore_DP0 pid=92175)[0;0m     raise e from None
+[0;36m(EngineCore_DP0 pid=92175)[0;0m Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/resource_tracker.py:301: UserWarning: resource_tracker: There appear to be 3 leaked shared_memory objects to clean up at shutdown: {'/psm_f0f76b6c', '/psm_4c6ff28d', '/psm_39b3ae28'}
+  warnings.warn(
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[rank3]:[W1230 14:44:33.556058122 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=149, addr=[localhost]:42536, remote=[localhost]:38127): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe92d (0x7f557ba3292d in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f557ba334da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f557ba2e1fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank3]:[W1230 14:44:33.566336972 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 3] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[0;36m(EngineCore_DP0 pid=92847)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=92847)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=92847)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+[0;36m(EngineCore_DP0 pid=92847)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=92847)[0;0m     ~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=92847)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=92847)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=92847)[0;0m     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=92847)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 847, in run_engine_core
+[0;36m(EngineCore_DP0 pid=92847)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=92847)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 834, in run_engine_core
+[0;36m(EngineCore_DP0 pid=92847)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
+[0;36m(EngineCore_DP0 pid=92847)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 610, in __init__
+[0;36m(EngineCore_DP0 pid=92847)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=92847)[0;0m     ~~~~~~~~~~~~~~~~^
+[0;36m(EngineCore_DP0 pid=92847)[0;0m         vllm_config, executor_class, log_stats, executor_fail_callback
+[0;36m(EngineCore_DP0 pid=92847)[0;0m         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=92847)[0;0m     )
+[0;36m(EngineCore_DP0 pid=92847)[0;0m     ^
+[0;36m(EngineCore_DP0 pid=92847)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 102, in __init__
+[0;36m(EngineCore_DP0 pid=92847)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=92847)[0;0m                           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=92847)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 97, in __init__
+[0;36m(EngineCore_DP0 pid=92847)[0;0m     super().__init__(vllm_config)
+[0;36m(EngineCore_DP0 pid=92847)[0;0m     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=92847)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=92847)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=92847)[0;0m     ~~~~~~~~~~~~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=92847)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 174, in _init_executor
+[0;36m(EngineCore_DP0 pid=92847)[0;0m     self.workers = WorkerProc.wait_for_ready(unready_workers)
+[0;36m(EngineCore_DP0 pid=92847)[0;0m                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=92847)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 660, in wait_for_ready
+[0;36m(EngineCore_DP0 pid=92847)[0;0m     raise e from None
+[0;36m(EngineCore_DP0 pid=92847)[0;0m Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/resource_tracker.py:301: UserWarning: resource_tracker: There appear to be 3 leaked shared_memory objects to clean up at shutdown: {'/psm_a2a52855', '/psm_dfb67c92', '/psm_4b512d6b'}
+  warnings.warn(
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[0;36m(EngineCore_DP0 pid=93174)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=93174)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=93174)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+[0;36m(EngineCore_DP0 pid=93174)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=93174)[0;0m     ~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=93174)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=93174)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=93174)[0;0m     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=93174)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 847, in run_engine_core
+[0;36m(EngineCore_DP0 pid=93174)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=93174)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 834, in run_engine_core
+[0;36m(EngineCore_DP0 pid=93174)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
+[0;36m(EngineCore_DP0 pid=93174)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 610, in __init__
+[0;36m(EngineCore_DP0 pid=93174)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=93174)[0;0m     ~~~~~~~~~~~~~~~~^
+[0;36m(EngineCore_DP0 pid=93174)[0;0m         vllm_config, executor_class, log_stats, executor_fail_callback
+[0;36m(EngineCore_DP0 pid=93174)[0;0m         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=93174)[0;0m     )
+[0;36m(EngineCore_DP0 pid=93174)[0;0m     ^
+[0;36m(EngineCore_DP0 pid=93174)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 102, in __init__
+[0;36m(EngineCore_DP0 pid=93174)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=93174)[0;0m                           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=93174)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 97, in __init__
+[0;36m(EngineCore_DP0 pid=93174)[0;0m     super().__init__(vllm_config)
+[0;36m(EngineCore_DP0 pid=93174)[0;0m     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=93174)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=93174)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=93174)[0;0m     ~~~~~~~~~~~~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=93174)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 174, in _init_executor
+[0;36m(EngineCore_DP0 pid=93174)[0;0m     self.workers = WorkerProc.wait_for_ready(unready_workers)
+[0;36m(EngineCore_DP0 pid=93174)[0;0m                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=93174)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 660, in wait_for_ready
+[0;36m(EngineCore_DP0 pid=93174)[0;0m     raise e from None
+[0;36m(EngineCore_DP0 pid=93174)[0;0m Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/resource_tracker.py:301: UserWarning: resource_tracker: There appear to be 3 leaked shared_memory objects to clean up at shutdown: {'/psm_80d69ace', '/psm_c69a72f4', '/psm_81bb7e3a'}
+  warnings.warn(
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[rank1]:[W1230 14:45:16.574663599 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=147, addr=[localhost]:34122, remote=[localhost]:41333): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe92d (0x7f557ba3292d in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f557ba334da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f557ba2e1fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank1]:[W1230 14:45:16.585665841 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank2]:[W1230 14:45:17.028037162 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=152, addr=[localhost]:34134, remote=[localhost]:41333): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe92d (0x7f557ba3292d in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f557ba334da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f557ba2e1fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank2]:[W1230 14:45:17.033532377 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 2] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank3]:[W1230 14:45:17.222627868 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=156, addr=[localhost]:34142, remote=[localhost]:41333): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe92d (0x7f557ba3292d in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f557ba334da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f557ba2e1fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank3]:[W1230 14:45:17.228305905 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 3] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]:[W1230 14:45:17.586015590 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=147, addr=[localhost]:34122, remote=[localhost]:41333): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank1]:[W1230 14:45:17.591038142 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank2]:[W1230 14:45:18.033956946 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=152, addr=[localhost]:34134, remote=[localhost]:41333): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank2]:[W1230 14:45:18.038062643 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 2] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank3]:[W1230 14:45:18.228718251 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=156, addr=[localhost]:34142, remote=[localhost]:41333): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank3]:[W1230 14:45:18.232558692 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 3] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank1]:[W1230 14:45:18.591243551 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=147, addr=[localhost]:34122, remote=[localhost]:41333): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank1]:[W1230 14:45:18.594831540 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank2]:[W1230 14:45:19.038288420 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=152, addr=[localhost]:34134, remote=[localhost]:41333): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank2]:[W1230 14:45:19.041693236 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 2] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank3]:[W1230 14:45:19.232885418 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=156, addr=[localhost]:34142, remote=[localhost]:41333): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank3]:[W1230 14:45:19.236174318 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 3] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank1]:[W1230 14:45:19.595070461 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=147, addr=[localhost]:34122, remote=[localhost]:41333): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank1]:[W1230 14:45:19.598590884 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[0;36m(EngineCore_DP0 pid=93860)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=93860)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=93860)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+[0;36m(EngineCore_DP0 pid=93860)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=93860)[0;0m     ~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=93860)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=93860)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=93860)[0;0m     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=93860)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 847, in run_engine_core
+[0;36m(EngineCore_DP0 pid=93860)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=93860)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 834, in run_engine_core
+[0;36m(EngineCore_DP0 pid=93860)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
+[0;36m(EngineCore_DP0 pid=93860)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 610, in __init__
+[0;36m(EngineCore_DP0 pid=93860)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=93860)[0;0m     ~~~~~~~~~~~~~~~~^
+[0;36m(EngineCore_DP0 pid=93860)[0;0m         vllm_config, executor_class, log_stats, executor_fail_callback
+[0;36m(EngineCore_DP0 pid=93860)[0;0m         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=93860)[0;0m     )
+[0;36m(EngineCore_DP0 pid=93860)[0;0m     ^
+[0;36m(EngineCore_DP0 pid=93860)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 102, in __init__
+[0;36m(EngineCore_DP0 pid=93860)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=93860)[0;0m                           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=93860)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 97, in __init__
+[0;36m(EngineCore_DP0 pid=93860)[0;0m     super().__init__(vllm_config)
+[0;36m(EngineCore_DP0 pid=93860)[0;0m     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=93860)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=93860)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=93860)[0;0m     ~~~~~~~~~~~~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=93860)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 174, in _init_executor
+[0;36m(EngineCore_DP0 pid=93860)[0;0m     self.workers = WorkerProc.wait_for_ready(unready_workers)
+[0;36m(EngineCore_DP0 pid=93860)[0;0m                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=93860)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 660, in wait_for_ready
+[0;36m(EngineCore_DP0 pid=93860)[0;0m     raise e from None
+[0;36m(EngineCore_DP0 pid=93860)[0;0m Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/resource_tracker.py:301: UserWarning: resource_tracker: There appear to be 3 leaked shared_memory objects to clean up at shutdown: {'/psm_a6b5b701', '/psm_5857dda0', '/psm_d04e3f0a'}
+  warnings.warn(
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[rank3]:[W1230 14:45:42.323072054 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=158, addr=[localhost]:58558, remote=[localhost]:55603): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe92d (0x7f557ba3292d in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f557ba334da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f557ba2e1fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank3]:[W1230 14:45:42.330955826 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 3] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[0;36m(EngineCore_DP0 pid=94191)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=94191)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=94191)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+[0;36m(EngineCore_DP0 pid=94191)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=94191)[0;0m     ~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=94191)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=94191)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=94191)[0;0m     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=94191)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 847, in run_engine_core
+[0;36m(EngineCore_DP0 pid=94191)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=94191)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 834, in run_engine_core
+[0;36m(EngineCore_DP0 pid=94191)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
+[0;36m(EngineCore_DP0 pid=94191)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 610, in __init__
+[0;36m(EngineCore_DP0 pid=94191)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=94191)[0;0m     ~~~~~~~~~~~~~~~~^
+[0;36m(EngineCore_DP0 pid=94191)[0;0m         vllm_config, executor_class, log_stats, executor_fail_callback
+[0;36m(EngineCore_DP0 pid=94191)[0;0m         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=94191)[0;0m     )
+[0;36m(EngineCore_DP0 pid=94191)[0;0m     ^
+[0;36m(EngineCore_DP0 pid=94191)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 102, in __init__
+[0;36m(EngineCore_DP0 pid=94191)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=94191)[0;0m                           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=94191)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 97, in __init__
+[0;36m(EngineCore_DP0 pid=94191)[0;0m     super().__init__(vllm_config)
+[0;36m(EngineCore_DP0 pid=94191)[0;0m     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=94191)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=94191)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=94191)[0;0m     ~~~~~~~~~~~~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=94191)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 174, in _init_executor
+[0;36m(EngineCore_DP0 pid=94191)[0;0m     self.workers = WorkerProc.wait_for_ready(unready_workers)
+[0;36m(EngineCore_DP0 pid=94191)[0;0m                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=94191)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 660, in wait_for_ready
+[0;36m(EngineCore_DP0 pid=94191)[0;0m     raise e from None
+[0;36m(EngineCore_DP0 pid=94191)[0;0m Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/resource_tracker.py:301: UserWarning: resource_tracker: There appear to be 3 leaked shared_memory objects to clean up at shutdown: {'/psm_3b7e209b', '/psm_8e2dcbe1', '/psm_61ba3119'}
+  warnings.warn(
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[rank3]:[W1230 14:46:02.658652495 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=162, addr=[localhost]:47216, remote=[localhost]:34075): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe92d (0x7f557ba3292d in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f557ba334da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f557ba2e1fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank3]:[W1230 14:46:02.664250062 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 3] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank2]:[W1230 14:46:03.820903792 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=158, addr=[localhost]:47226, remote=[localhost]:34075): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe92d (0x7f557ba3292d in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f557ba334da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f557ba2e1fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank2]:[W1230 14:46:03.826352220 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 2] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]:[W1230 14:46:03.861821161 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=154, addr=[localhost]:47228, remote=[localhost]:34075): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe92d (0x7f557ba3292d in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f557ba334da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f557ba2e1fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank1]:[W1230 14:46:03.867085294 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank3]:[W1230 14:46:03.664671936 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=162, addr=[localhost]:47216, remote=[localhost]:34075): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank3]:[W1230 14:46:03.668278880 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 3] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank2]:[W1230 14:46:04.826665140 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=158, addr=[localhost]:47226, remote=[localhost]:34075): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank2]:[W1230 14:46:04.830793880 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 2] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank1]:[W1230 14:46:04.867299891 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=154, addr=[localhost]:47228, remote=[localhost]:34075): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank1]:[W1230 14:46:04.871091010 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank3]:[W1230 14:46:04.668457629 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=162, addr=[localhost]:47216, remote=[localhost]:34075): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank3]:[W1230 14:46:04.671897281 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 3] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank2]:[W1230 14:46:05.838437757 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=158, addr=[localhost]:47226, remote=[localhost]:34075): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank2]:[W1230 14:46:05.842168263 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 2] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank1]:[W1230 14:46:05.871614513 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=154, addr=[localhost]:47228, remote=[localhost]:34075): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank1]:[W1230 14:46:05.877082397 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank2]:[W1230 14:46:06.842473489 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=158, addr=[localhost]:47226, remote=[localhost]:34075): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank2]:[W1230 14:46:06.849012145 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 2] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[0;36m(EngineCore_DP0 pid=94530)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=94530)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=94530)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+[0;36m(EngineCore_DP0 pid=94530)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=94530)[0;0m     ~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=94530)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=94530)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=94530)[0;0m     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=94530)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 847, in run_engine_core
+[0;36m(EngineCore_DP0 pid=94530)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=94530)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 834, in run_engine_core
+[0;36m(EngineCore_DP0 pid=94530)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
+[0;36m(EngineCore_DP0 pid=94530)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 610, in __init__
+[0;36m(EngineCore_DP0 pid=94530)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=94530)[0;0m     ~~~~~~~~~~~~~~~~^
+[0;36m(EngineCore_DP0 pid=94530)[0;0m         vllm_config, executor_class, log_stats, executor_fail_callback
+[0;36m(EngineCore_DP0 pid=94530)[0;0m         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=94530)[0;0m     )
+[0;36m(EngineCore_DP0 pid=94530)[0;0m     ^
+[0;36m(EngineCore_DP0 pid=94530)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 102, in __init__
+[0;36m(EngineCore_DP0 pid=94530)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=94530)[0;0m                           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=94530)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 97, in __init__
+[0;36m(EngineCore_DP0 pid=94530)[0;0m     super().__init__(vllm_config)
+[0;36m(EngineCore_DP0 pid=94530)[0;0m     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=94530)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=94530)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=94530)[0;0m     ~~~~~~~~~~~~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=94530)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 174, in _init_executor
+[0;36m(EngineCore_DP0 pid=94530)[0;0m     self.workers = WorkerProc.wait_for_ready(unready_workers)
+[0;36m(EngineCore_DP0 pid=94530)[0;0m                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=94530)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 660, in wait_for_ready
+[0;36m(EngineCore_DP0 pid=94530)[0;0m     raise e from None
+[0;36m(EngineCore_DP0 pid=94530)[0;0m Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/resource_tracker.py:301: UserWarning: resource_tracker: There appear to be 3 leaked shared_memory objects to clean up at shutdown: {'/psm_a3204f07', '/psm_a224c24c', '/psm_e0596849'}
+  warnings.warn(
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[rank2]:[W1230 14:46:29.007113939 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=161, addr=[localhost]:38648, remote=[localhost]:51099): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe92d (0x7f557ba3292d in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f557ba334da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f557ba2e1fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank2]:[W1230 14:46:29.014838773 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 2] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[0;36m(EngineCore_DP0 pid=95204)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=95204)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=95204)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+[0;36m(EngineCore_DP0 pid=95204)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=95204)[0;0m     ~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=95204)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=95204)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=95204)[0;0m     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=95204)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 847, in run_engine_core
+[0;36m(EngineCore_DP0 pid=95204)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=95204)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 834, in run_engine_core
+[0;36m(EngineCore_DP0 pid=95204)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
+[0;36m(EngineCore_DP0 pid=95204)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 610, in __init__
+[0;36m(EngineCore_DP0 pid=95204)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=95204)[0;0m     ~~~~~~~~~~~~~~~~^
+[0;36m(EngineCore_DP0 pid=95204)[0;0m         vllm_config, executor_class, log_stats, executor_fail_callback
+[0;36m(EngineCore_DP0 pid=95204)[0;0m         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=95204)[0;0m     )
+[0;36m(EngineCore_DP0 pid=95204)[0;0m     ^
+[0;36m(EngineCore_DP0 pid=95204)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 102, in __init__
+[0;36m(EngineCore_DP0 pid=95204)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=95204)[0;0m                           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=95204)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 97, in __init__
+[0;36m(EngineCore_DP0 pid=95204)[0;0m     super().__init__(vllm_config)
+[0;36m(EngineCore_DP0 pid=95204)[0;0m     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=95204)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=95204)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=95204)[0;0m     ~~~~~~~~~~~~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=95204)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 174, in _init_executor
+[0;36m(EngineCore_DP0 pid=95204)[0;0m     self.workers = WorkerProc.wait_for_ready(unready_workers)
+[0;36m(EngineCore_DP0 pid=95204)[0;0m                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=95204)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 660, in wait_for_ready
+[0;36m(EngineCore_DP0 pid=95204)[0;0m     raise e from None
+[0;36m(EngineCore_DP0 pid=95204)[0;0m Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/resource_tracker.py:301: UserWarning: resource_tracker: There appear to be 2 leaked shared_memory objects to clean up at shutdown: {'/psm_6f303dd1', '/psm_068a4135'}
+  warnings.warn(
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[0;36m(EngineCore_DP0 pid=95541)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=95541)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=95541)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+[0;36m(EngineCore_DP0 pid=95541)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=95541)[0;0m     ~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=95541)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=95541)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=95541)[0;0m     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=95541)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 847, in run_engine_core
+[0;36m(EngineCore_DP0 pid=95541)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=95541)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 834, in run_engine_core
+[0;36m(EngineCore_DP0 pid=95541)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
+[0;36m(EngineCore_DP0 pid=95541)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 610, in __init__
+[0;36m(EngineCore_DP0 pid=95541)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=95541)[0;0m     ~~~~~~~~~~~~~~~~^
+[0;36m(EngineCore_DP0 pid=95541)[0;0m         vllm_config, executor_class, log_stats, executor_fail_callback
+[0;36m(EngineCore_DP0 pid=95541)[0;0m         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=95541)[0;0m     )
+[0;36m(EngineCore_DP0 pid=95541)[0;0m     ^
+[0;36m(EngineCore_DP0 pid=95541)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 102, in __init__
+[0;36m(EngineCore_DP0 pid=95541)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=95541)[0;0m                           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=95541)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 97, in __init__
+[0;36m(EngineCore_DP0 pid=95541)[0;0m     super().__init__(vllm_config)
+[0;36m(EngineCore_DP0 pid=95541)[0;0m     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=95541)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=95541)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=95541)[0;0m     ~~~~~~~~~~~~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=95541)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 174, in _init_executor
+[0;36m(EngineCore_DP0 pid=95541)[0;0m     self.workers = WorkerProc.wait_for_ready(unready_workers)
+[0;36m(EngineCore_DP0 pid=95541)[0;0m                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=95541)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 660, in wait_for_ready
+[0;36m(EngineCore_DP0 pid=95541)[0;0m     raise e from None
+[0;36m(EngineCore_DP0 pid=95541)[0;0m Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/resource_tracker.py:301: UserWarning: resource_tracker: There appear to be 2 leaked shared_memory objects to clean up at shutdown: {'/psm_63b09d05', '/psm_f36585a2'}
+  warnings.warn(
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[rank3]:[W1230 14:47:16.522319787 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=171, addr=[localhost]:37276, remote=[localhost]:56193): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe92d (0x7f557ba3292d in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f557ba334da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f557ba2e1fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank3]:[W1230 14:47:16.529203230 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 3] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[0;36m(EngineCore_DP0 pid=95874)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=95874)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=95874)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+[0;36m(EngineCore_DP0 pid=95874)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=95874)[0;0m     ~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=95874)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=95874)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=95874)[0;0m     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=95874)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 847, in run_engine_core
+[0;36m(EngineCore_DP0 pid=95874)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=95874)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 834, in run_engine_core
+[0;36m(EngineCore_DP0 pid=95874)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
+[0;36m(EngineCore_DP0 pid=95874)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 610, in __init__
+[0;36m(EngineCore_DP0 pid=95874)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=95874)[0;0m     ~~~~~~~~~~~~~~~~^
+[0;36m(EngineCore_DP0 pid=95874)[0;0m         vllm_config, executor_class, log_stats, executor_fail_callback
+[0;36m(EngineCore_DP0 pid=95874)[0;0m         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=95874)[0;0m     )
+[0;36m(EngineCore_DP0 pid=95874)[0;0m     ^
+[0;36m(EngineCore_DP0 pid=95874)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 102, in __init__
+[0;36m(EngineCore_DP0 pid=95874)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=95874)[0;0m                           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=95874)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 97, in __init__
+[0;36m(EngineCore_DP0 pid=95874)[0;0m     super().__init__(vllm_config)
+[0;36m(EngineCore_DP0 pid=95874)[0;0m     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=95874)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=95874)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=95874)[0;0m     ~~~~~~~~~~~~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=95874)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 174, in _init_executor
+[0;36m(EngineCore_DP0 pid=95874)[0;0m     self.workers = WorkerProc.wait_for_ready(unready_workers)
+[0;36m(EngineCore_DP0 pid=95874)[0;0m                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=95874)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 660, in wait_for_ready
+[0;36m(EngineCore_DP0 pid=95874)[0;0m     raise e from None
+[0;36m(EngineCore_DP0 pid=95874)[0;0m Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/resource_tracker.py:301: UserWarning: resource_tracker: There appear to be 3 leaked shared_memory objects to clean up at shutdown: {'/psm_3f9a3420', '/psm_c809899f', '/psm_a1484b55'}
+  warnings.warn(
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[rank1]:[W1230 14:47:40.981078685 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=166, addr=[localhost]:49976, remote=[localhost]:44625): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe92d (0x7f557ba3292d in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f557ba334da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f557ba2e1fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank1]:[W1230 14:47:40.992374740 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[0;36m(EngineCore_DP0 pid=96551)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=96551)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=96551)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+[0;36m(EngineCore_DP0 pid=96551)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=96551)[0;0m     ~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=96551)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=96551)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=96551)[0;0m     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=96551)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 847, in run_engine_core
+[0;36m(EngineCore_DP0 pid=96551)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=96551)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 834, in run_engine_core
+[0;36m(EngineCore_DP0 pid=96551)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
+[0;36m(EngineCore_DP0 pid=96551)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 610, in __init__
+[0;36m(EngineCore_DP0 pid=96551)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=96551)[0;0m     ~~~~~~~~~~~~~~~~^
+[0;36m(EngineCore_DP0 pid=96551)[0;0m         vllm_config, executor_class, log_stats, executor_fail_callback
+[0;36m(EngineCore_DP0 pid=96551)[0;0m         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=96551)[0;0m     )
+[0;36m(EngineCore_DP0 pid=96551)[0;0m     ^
+[0;36m(EngineCore_DP0 pid=96551)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 102, in __init__
+[0;36m(EngineCore_DP0 pid=96551)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=96551)[0;0m                           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=96551)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 97, in __init__
+[0;36m(EngineCore_DP0 pid=96551)[0;0m     super().__init__(vllm_config)
+[0;36m(EngineCore_DP0 pid=96551)[0;0m     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=96551)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=96551)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=96551)[0;0m     ~~~~~~~~~~~~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=96551)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 174, in _init_executor
+[0;36m(EngineCore_DP0 pid=96551)[0;0m     self.workers = WorkerProc.wait_for_ready(unready_workers)
+[0;36m(EngineCore_DP0 pid=96551)[0;0m                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=96551)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 660, in wait_for_ready
+[0;36m(EngineCore_DP0 pid=96551)[0;0m     raise e from None
+[0;36m(EngineCore_DP0 pid=96551)[0;0m Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/resource_tracker.py:301: UserWarning: resource_tracker: There appear to be 3 leaked shared_memory objects to clean up at shutdown: {'/psm_f4179ab0', '/psm_116f9730', '/psm_ccf42e08'}
+  warnings.warn(
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[rank1]:[W1230 14:48:00.262174511 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=169, addr=[localhost]:44006, remote=[localhost]:48783): Connection reset by peer
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:694 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe993 (0x7f557ba32993 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f557ba334da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f557ba2e1fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank1]:[W1230 14:48:00.269067441 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Connection reset by peer
+[rank3]:[W1230 14:48:00.270902714 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=177, addr=[localhost]:43998, remote=[localhost]:48783): Connection reset by peer
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:694 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe993 (0x7f557ba32993 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f557ba334da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f557ba2e1fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank3]:[W1230 14:48:00.276314645 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 3] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Connection reset by peer
+[rank2]:[W1230 14:48:00.530817001 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=172, addr=[localhost]:43984, remote=[localhost]:48783): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe92d (0x7f557ba3292d in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f557ba334da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f557ba2e1fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank2]:[W1230 14:48:00.536655139 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 2] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]:[W1230 14:48:01.269331483 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=169, addr=[localhost]:44006, remote=[localhost]:48783): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank1]:[W1230 14:48:01.273576382 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank3]:[W1230 14:48:01.276502434 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=177, addr=[localhost]:43998, remote=[localhost]:48783): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank3]:[W1230 14:48:01.280299885 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 3] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank2]:[W1230 14:48:01.536894715 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=172, addr=[localhost]:43984, remote=[localhost]:48783): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank2]:[W1230 14:48:01.540149963 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 2] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank1]:[W1230 14:48:02.273848508 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=169, addr=[localhost]:44006, remote=[localhost]:48783): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank1]:[W1230 14:48:02.276956801 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank3]:[W1230 14:48:02.280456135 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=177, addr=[localhost]:43998, remote=[localhost]:48783): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank3]:[W1230 14:48:02.283655037 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 3] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank2]:[W1230 14:48:02.540626933 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=172, addr=[localhost]:43984, remote=[localhost]:48783): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank2]:[W1230 14:48:02.545294732 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 2] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank3]:[W1230 14:48:03.283891818 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=177, addr=[localhost]:43998, remote=[localhost]:48783): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f5539628b80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f557ba31531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f557ba31dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f557ba338ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f557ba2e1ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f553a5ab6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f55b1f77ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f55c5d60c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f55c5de5c60 in /lib64/libc.so.6)
+
+[rank3]:[W1230 14:48:03.287572551 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 3] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[0;36m(EngineCore_DP0 pid=96889)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=96889)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=96889)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+[0;36m(EngineCore_DP0 pid=96889)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=96889)[0;0m     ~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=96889)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=96889)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=96889)[0;0m     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=96889)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 847, in run_engine_core
+[0;36m(EngineCore_DP0 pid=96889)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=96889)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 834, in run_engine_core
+[0;36m(EngineCore_DP0 pid=96889)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
+[0;36m(EngineCore_DP0 pid=96889)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 610, in __init__
+[0;36m(EngineCore_DP0 pid=96889)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=96889)[0;0m     ~~~~~~~~~~~~~~~~^
+[0;36m(EngineCore_DP0 pid=96889)[0;0m         vllm_config, executor_class, log_stats, executor_fail_callback
+[0;36m(EngineCore_DP0 pid=96889)[0;0m         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=96889)[0;0m     )
+[0;36m(EngineCore_DP0 pid=96889)[0;0m     ^
+[0;36m(EngineCore_DP0 pid=96889)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 102, in __init__
+[0;36m(EngineCore_DP0 pid=96889)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=96889)[0;0m                           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=96889)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 97, in __init__
+[0;36m(EngineCore_DP0 pid=96889)[0;0m     super().__init__(vllm_config)
+[0;36m(EngineCore_DP0 pid=96889)[0;0m     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=96889)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=96889)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=96889)[0;0m     ~~~~~~~~~~~~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=96889)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 174, in _init_executor
+[0;36m(EngineCore_DP0 pid=96889)[0;0m     self.workers = WorkerProc.wait_for_ready(unready_workers)
+[0;36m(EngineCore_DP0 pid=96889)[0;0m                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=96889)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 660, in wait_for_ready
+[0;36m(EngineCore_DP0 pid=96889)[0;0m     raise e from None
+[0;36m(EngineCore_DP0 pid=96889)[0;0m Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/resource_tracker.py:301: UserWarning: resource_tracker: There appear to be 2 leaked shared_memory objects to clean up at shutdown: {'/psm_4ad017ca', '/psm_d7f3faf2'}
+  warnings.warn(
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[2025-12-30T14:48:17.070] error: *** JOB 14676006 ON gpua061 CANCELLED AT 2025-12-30T14:48:17 DUE to SIGNAL Terminated ***

@@ -1,0 +1,82 @@
+✏️ Setting installed package as editable
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm5_vllm.py
+This run uses VLLM backend.
+Starting preference experiment...
+Concatenated two answers dataset for language pairs[("en", "zh_cn"), ("en", "fr_fr"), ("en", "ar_xy"), ("en", "sw_ke")] written to "judge/result/Unbabel-M-Prometheus-14B/preference_aggregated_input.jsonl"
+Dispatching preference results for model: Unbabel-M-Prometheus-14B, language pairs: [("en", "zh_cn"), ("en", "fr_fr"), ("en", "ar_xy"), ("en", "sw_ke")], input file: judge/result/Unbabel-M-Prometheus-14B/preference_aggregated_output.jsonl
+Dispatched preference results for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: zh_cn
+Dispatched preference results for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: fr_fr
+Dispatched preference results for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: ar_xy
+Dispatched preference results for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: sw_ke
+Removed aggregated output file: judge/result/Unbabel-M-Prometheus-14B/preference_aggregated_output.jsonl
+Preference experiment finished.
+Starting perplexity experiment...
+Response input dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/Unbabel-M-Prometheus-14B/perplexity_response_input.jsonl
+Dispatching response results for model: Unbabel-M-Prometheus-14B, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/Unbabel-M-Prometheus-14B/perplexity_response_output.jsonl
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: en
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: ar_xy
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: sw_ke
+Removed aggregated response output file: judge/result/Unbabel-M-Prometheus-14B/perplexity_response_output.jsonl
+Styled answers input dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/Unbabel-M-Prometheus-14B/perplexity_styled_answers_input.jsonl
+Dispatching styled answers results for model: Unbabel-M-Prometheus-14B, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/Unbabel-M-Prometheus-14B/perplexity_styled_answers_output.jsonl
+Dispatched styled answers results for model: Unbabel-M-Prometheus-14B, lang: en
+Dispatched styled answers results for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Dispatched styled answers results for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Dispatched styled answers results for model: Unbabel-M-Prometheus-14B, lang: ar_xy
+Dispatched styled answers results for model: Unbabel-M-Prometheus-14B, lang: sw_ke
+Removed aggregated styled answers output file: judge/result/Unbabel-M-Prometheus-14B/perplexity_styled_answers_output.jsonl
+Total entries to generate responses: 0
+Completed writing all responses to judge/result/Unbabel-M-Prometheus-14B/perplexity_response_output.jsonl
+Total entries to generate styled answers: 0
+Completed writing all styled answers to judge/result/Unbabel-M-Prometheus-14B/perplexity_styled_answers_output.jsonl
+Perplexity experiment finished.
+✏️ Setting installed package as editable
+Dispatching perplexity results for model: Unbabel-M-Prometheus-14B, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/Unbabel-M-Prometheus-14B/perplexity_aggregated_output.jsonl
+Warning: Missing 8501 correct entries for model: Unbabel-M-Prometheus-14B, lang: en
+Warning: Missing 8501 incorrect entries for model: Unbabel-M-Prometheus-14B, lang: en
+Dispatched perplexity results for model: Unbabel-M-Prometheus-14B, lang: en
+Warning: Missing 8501 correct entries for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Warning: Missing 8501 incorrect entries for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Dispatched perplexity results for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Warning: Missing 8501 correct entries for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Warning: Missing 8501 incorrect entries for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Dispatched perplexity results for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/perplexity/ar_xy_correct.jsonl: No such file or directory (os error 2), assuming empty result file
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/perplexity/ar_xy_incorrect.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 8561 correct entries for model: Unbabel-M-Prometheus-14B, lang: ar_xy
+Warning: Missing 8561 incorrect entries for model: Unbabel-M-Prometheus-14B, lang: ar_xy
+Dispatched perplexity results for model: Unbabel-M-Prometheus-14B, lang: ar_xy
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/perplexity/sw_ke_correct.jsonl: No such file or directory (os error 2), assuming empty result file
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/perplexity/sw_ke_incorrect.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 8561 correct entries for model: Unbabel-M-Prometheus-14B, lang: sw_ke
+Warning: Missing 8561 incorrect entries for model: Unbabel-M-Prometheus-14B, lang: sw_ke
+Dispatched perplexity results for model: Unbabel-M-Prometheus-14B, lang: sw_ke
+Removed aggregated perplexity output file: judge/result/Unbabel-M-Prometheus-14B/perplexity_aggregated_output.jsonl
+Concatenated perplexity dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/Unbabel-M-Prometheus-14B/perplexity_aggregated_input.jsonl
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm5_hf.py
+Total entries to calculate perplexity: 85250
+Using batch size: 205 based on model size, number of GPUs (4), and single GPU memory (40GB)
+Processing batch 1/416
+Creating HuggingFace backend for model Unbabel/M-Prometheus-14B using 4 GPUs and batch size 205...
+Creating HuggingFace backend for model Unbabel/M-Prometheus-14B with batch size 205...
+Loading model from HuggingFace...
+Found 4 GPUs
+GPU 0: 39.49 GB available, using 35 GB
+GPU 1: 39.49 GB available, using 35 GB
+GPU 2: 39.49 GB available, using 35 GB
+GPU 3: 39.49 GB available, using 35 GB
+Model loaded, setting to eval mode...
+Model in eval mode
+Model device map: {'model.embed_tokens': 0, 'model.layers.0': 0, 'model.layers.1': 0, 'model.layers.2': 0, 'model.layers.3': 0, 'model.layers.4': 0, 'model.layers.5': 0, 'model.layers.6': 0, 'model.layers.7': 0, 'model.layers.8': 0, 'model.layers.9': 1, 'model.layers.10': 1, 'model.layers.11': 1, 'model.layers.12': 1, 'model.layers.13': 1, 'model.layers.14': 1, 'model.layers.15': 1, 'model.layers.16': 1, 'model.layers.17': 1, 'model.layers.18': 1, 'model.layers.19': 1, 'model.layers.20': 1, 'model.layers.21': 1, 'model.layers.22': 1, 'model.layers.23': 2, 'model.layers.24': 2, 'model.layers.25': 2, 'model.layers.26': 2, 'model.layers.27': 2, 'model.layers.28': 2, 'model.layers.29': 2, 'model.layers.30': 2, 'model.layers.31': 2, 'model.layers.32': 2, 'model.layers.33': 2, 'model.layers.34': 2, 'model.layers.35': 2, 'model.layers.36': 2, 'model.layers.37': 3, 'model.layers.38': 3, 'model.layers.39': 3, 'model.layers.40': 3, 'model.layers.41': 3, 'model.layers.42': 3, 'model.layers.43': 3, 'model.layers.44': 3, 'model.layers.45': 3, 'model.layers.46': 3, 'model.layers.47': 3, 'model.norm': 3, 'model.rotary_emb': 3, 'lm_head': 3}
+HuggingFace backend created successfully for Unbabel/M-Prometheus-14B
+HuggingFace backend created for model Unbabel/M-Prometheus-14B

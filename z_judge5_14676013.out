@@ -1,0 +1,1466 @@
+✏️ Setting installed package as editable
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm5_vllm.py
+This run uses VLLM backend.
+Starting preference experiment...
+File "judge/result/Unbabel-M-Prometheus-14B/preference/en_correct_ar_xy_incorrect.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Unbabel-M-Prometheus-14B/preference/en_incorrect_ar_xy_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Unbabel-M-Prometheus-14B/preference/en_correct_ar_xy_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Unbabel-M-Prometheus-14B/preference/en_incorrect_ar_xy_incorrect.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Unbabel-M-Prometheus-14B/preference/en_correct_sw_ke_incorrect.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Unbabel-M-Prometheus-14B/preference/en_incorrect_sw_ke_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Unbabel-M-Prometheus-14B/preference/en_correct_sw_ke_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Unbabel-M-Prometheus-14B/preference/en_incorrect_sw_ke_incorrect.jsonl" does not exist, assuming no completed entries.
+Concatenated two answers dataset for language pairs[("en", "zh_cn"), ("en", "fr_fr"), ("en", "ar_xy"), ("en", "sw_ke")] written to "judge/result/Unbabel-M-Prometheus-14B/preference_aggregated_input.jsonl"
+Creating VLLM backend for model Unbabel/M-Prometheus-14B using 4 GPUs...
+Creating vLLM backend for model Unbabel/M-Prometheus-14B with 4 GPUs...
+INFO 12-30 14:41:26 [model.py:637] Resolved architecture: Qwen2ForCausalLM
+INFO 12-30 14:41:26 [model.py:1750] Using max model len 5000
+INFO 12-30 14:41:28 [scheduler.py:228] Chunked prefill is enabled with max_num_batched_tokens=2048.
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m INFO 12-30 14:41:29 [core.py:93] Initializing a V1 LLM engine (v0.12.0) with config: model='Unbabel/M-Prometheus-14B', speculative_config=None, tokenizer='Unbabel/M-Prometheus-14B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=5000, download_dir=None, load_format=auto, tensor_parallel_size=4, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01), seed=0, served_model_name=Unbabel/M-Prometheus-14B, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer'], 'compile_mm_encoder': False, 'compile_sizes': [], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'eliminate_noops': True, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 256, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>}, 'local_cache_dir': None}
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m WARNING 12-30 14:41:29 [multiproc_executor.py:880] Reducing Torch parallelism from 8 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m INFO 12-30 14:41:36 [parallel_state.py:1200] world_size=4 rank=0 local_rank=0 distributed_init_method=tcp://127.0.0.1:51209 backend=nccl
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m INFO 12-30 14:41:36 [parallel_state.py:1200] world_size=4 rank=1 local_rank=1 distributed_init_method=tcp://127.0.0.1:51209 backend=nccl
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m INFO 12-30 14:41:36 [parallel_state.py:1200] world_size=4 rank=2 local_rank=2 distributed_init_method=tcp://127.0.0.1:51209 backend=nccl
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m INFO 12-30 14:41:36 [parallel_state.py:1200] world_size=4 rank=3 local_rank=3 distributed_init_method=tcp://127.0.0.1:51209 backend=nccl
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m INFO 12-30 14:41:37 [pynccl.py:111] vLLM is using nccl==2.27.5
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m WARNING 12-30 14:41:38 [symm_mem.py:67] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m WARNING 12-30 14:41:38 [symm_mem.py:67] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m WARNING 12-30 14:41:38 [symm_mem.py:67] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m WARNING 12-30 14:41:38 [symm_mem.py:67] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m INFO 12-30 14:41:38 [parallel_state.py:1408] rank 2 in world size 4 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 2, EP rank 2
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m INFO 12-30 14:41:38 [parallel_state.py:1408] rank 1 in world size 4 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 1, EP rank 1
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m INFO 12-30 14:41:38 [parallel_state.py:1408] rank 3 in world size 4 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 3, EP rank 3
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m INFO 12-30 14:41:38 [parallel_state.py:1408] rank 0 in world size 4 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank 0
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m [0;36m(Worker_TP0 pid=2581747)[0;0m INFO 12-30 14:41:39 [gpu_model_runner.py:3467] Starting to load model Unbabel/M-Prometheus-14B...
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m [0;36m(Worker_TP0 pid=2581747)[0;0m INFO 12-30 14:41:42 [cuda.py:411] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION']
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m [0;36m(Worker_TP2 pid=2581751)[0;0m INFO 12-30 14:41:42 [cuda.py:411] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION']
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m [0;36m(Worker_TP3 pid=2581753)[0;0m INFO 12-30 14:41:42 [cuda.py:411] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION']
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m [0;36m(Worker_TP1 pid=2581749)[0;0m INFO 12-30 14:41:42 [cuda.py:411] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION']
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m [0;36m(Worker_TP0 pid=2581747)[0;0m INFO 12-30 14:42:02 [default_loader.py:308] Loading weights took 19.60 seconds
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m [0;36m(Worker_TP0 pid=2581747)[0;0m INFO 12-30 14:42:03 [gpu_model_runner.py:3549] Model loading took 6.9461 GiB memory and 22.739861 seconds
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m [0;36m(Worker_TP0 pid=2581747)[0;0m INFO 12-30 14:42:50 [backends.py:655] Using cache directory: /u/zluo8/.cache/vllm/torch_compile_cache/e9c124eb90/rank_0_0/backbone for vLLM's torch.compile
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m [0;36m(Worker_TP0 pid=2581747)[0;0m INFO 12-30 14:42:50 [backends.py:715] Dynamo bytecode transform time: 45.82 s
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m [0;36m(Worker_TP2 pid=2581751)[0;0m INFO 12-30 14:42:55 [backends.py:216] Directly load the compiled graph(s) for dynamic shape from the cache, took 4.833 s
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m [0;36m(Worker_TP1 pid=2581749)[0;0m INFO 12-30 14:42:55 [backends.py:216] Directly load the compiled graph(s) for dynamic shape from the cache, took 4.885 s
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m [0;36m(Worker_TP3 pid=2581753)[0;0m INFO 12-30 14:42:55 [backends.py:216] Directly load the compiled graph(s) for dynamic shape from the cache, took 4.894 s
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m [0;36m(Worker_TP0 pid=2581747)[0;0m INFO 12-30 14:42:55 [backends.py:216] Directly load the compiled graph(s) for dynamic shape from the cache, took 4.953 s
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m INFO 12-30 14:43:03 [shm_broadcast.py:501] No available shared memory broadcast block found in 60 seconds. This typically happens when some processes are hanging or doing some time-consuming work (e.g. compilation, weight/kv cache quantization).
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m [0;36m(Worker_TP0 pid=2581747)[0;0m INFO 12-30 14:43:05 [monitor.py:34] torch.compile takes 50.78 s in total
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m [0;36m(Worker_TP0 pid=2581747)[0;0m INFO 12-30 14:43:09 [gpu_worker.py:359] Available KV cache memory: 27.36 GiB
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m INFO 12-30 14:43:10 [kv_cache_utils.py:1286] GPU KV cache size: 597,728 tokens
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m INFO 12-30 14:43:10 [kv_cache_utils.py:1291] Maximum concurrency for 5,000 tokens per request: 119.35x
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m [0;36m(Worker_TP1 pid=2581749)[0;0m INFO 12-30 14:43:17 [custom_all_reduce.py:216] Registering 5238 cuda graph addresses
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m [0;36m(Worker_TP2 pid=2581751)[0;0m INFO 12-30 14:43:17 [custom_all_reduce.py:216] Registering 5238 cuda graph addresses
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m [0;36m(Worker_TP0 pid=2581747)[0;0m INFO 12-30 14:43:17 [custom_all_reduce.py:216] Registering 5238 cuda graph addresses
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m [0;36m(Worker_TP3 pid=2581753)[0;0m INFO 12-30 14:43:17 [custom_all_reduce.py:216] Registering 5238 cuda graph addresses
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m [0;36m(Worker_TP0 pid=2581747)[0;0m INFO 12-30 14:43:18 [gpu_model_runner.py:4466] Graph capturing finished in 7 secs, took 0.52 GiB
+[0;36m(EngineCore_DP0 pid=2581741)[0;0m INFO 12-30 14:43:18 [core.py:254] init engine (profile, create kv cache, warmup model) took 74.19 seconds
+vLLM backend created successfully for Unbabel/M-Prometheus-14B
+VLLM backend created for model Unbabel/M-Prometheus-14B
+Written 200/179648 entries to file
+Written 400/179648 entries to file
+Written 600/179648 entries to file
+Written 800/179648 entries to file
+Written 1000/179648 entries to file
+Written 1200/179648 entries to file
+Written 1400/179648 entries to file
+Written 1600/179648 entries to file
+Written 1800/179648 entries to file
+Written 2000/179648 entries to file
+Written 2200/179648 entries to file
+Written 2400/179648 entries to file
+Written 2600/179648 entries to file
+Written 2800/179648 entries to file
+Written 3000/179648 entries to file
+Written 3200/179648 entries to file
+Written 3400/179648 entries to file
+Written 3600/179648 entries to file
+Written 3800/179648 entries to file
+Written 4000/179648 entries to file
+Written 4200/179648 entries to file
+Written 4400/179648 entries to file
+Written 4600/179648 entries to file
+Written 4800/179648 entries to file
+Written 5000/179648 entries to file
+Written 5200/179648 entries to file
+Written 5400/179648 entries to file
+Written 5600/179648 entries to file
+Written 5800/179648 entries to file
+Written 6000/179648 entries to file
+Written 6200/179648 entries to file
+Written 6400/179648 entries to file
+Written 6600/179648 entries to file
+Written 6800/179648 entries to file
+Written 7000/179648 entries to file
+Written 7200/179648 entries to file
+Written 7400/179648 entries to file
+Written 7600/179648 entries to file
+Written 7800/179648 entries to file
+Written 8000/179648 entries to file
+Written 8200/179648 entries to file
+Written 8400/179648 entries to file
+Written 8600/179648 entries to file
+Written 8800/179648 entries to file
+Written 9000/179648 entries to file
+Written 9200/179648 entries to file
+Written 9400/179648 entries to file
+Written 9600/179648 entries to file
+Written 9800/179648 entries to file
+Written 10000/179648 entries to file
+Written 10200/179648 entries to file
+Written 10400/179648 entries to file
+Written 10600/179648 entries to file
+Written 10800/179648 entries to file
+Written 11000/179648 entries to file
+Written 11200/179648 entries to file
+Written 11400/179648 entries to file
+Written 11600/179648 entries to file
+Written 11800/179648 entries to file
+Written 12000/179648 entries to file
+Written 12200/179648 entries to file
+Written 12400/179648 entries to file
+Written 12600/179648 entries to file
+Written 12800/179648 entries to file
+Written 13000/179648 entries to file
+Written 13200/179648 entries to file
+Written 13400/179648 entries to file
+Written 13600/179648 entries to file
+Written 13800/179648 entries to file
+Written 14000/179648 entries to file
+Written 14200/179648 entries to file
+Written 14400/179648 entries to file
+Written 14600/179648 entries to file
+Written 14800/179648 entries to file
+Written 15000/179648 entries to file
+Written 15200/179648 entries to file
+Written 15400/179648 entries to file
+Written 15600/179648 entries to file
+Written 15800/179648 entries to file
+Written 16000/179648 entries to file
+Written 16200/179648 entries to file
+Written 16400/179648 entries to file
+Written 16600/179648 entries to file
+Written 16800/179648 entries to file
+Written 17000/179648 entries to file
+Written 17200/179648 entries to file
+Written 17400/179648 entries to file
+Written 17600/179648 entries to file
+Written 17800/179648 entries to file
+Written 18000/179648 entries to file
+Written 18200/179648 entries to file
+Written 18400/179648 entries to file
+Written 18600/179648 entries to file
+Written 18800/179648 entries to file
+Written 19000/179648 entries to file
+Written 19200/179648 entries to file
+Written 19400/179648 entries to file
+Written 19600/179648 entries to file
+Written 19800/179648 entries to file
+Written 20000/179648 entries to file
+Written 20200/179648 entries to file
+Written 20400/179648 entries to file
+Written 20600/179648 entries to file
+Written 20800/179648 entries to file
+Written 21000/179648 entries to file
+Written 21200/179648 entries to file
+Written 21400/179648 entries to file
+Written 21600/179648 entries to file
+Written 21800/179648 entries to file
+Written 22000/179648 entries to file
+Written 22200/179648 entries to file
+Written 22400/179648 entries to file
+Written 22600/179648 entries to file
+Written 22800/179648 entries to file
+Written 23000/179648 entries to file
+Written 23200/179648 entries to file
+Written 23400/179648 entries to file
+Written 23600/179648 entries to file
+Written 23800/179648 entries to file
+Written 24000/179648 entries to file
+Written 24200/179648 entries to file
+Written 24400/179648 entries to file
+Written 24600/179648 entries to file
+Written 24800/179648 entries to file
+Written 25000/179648 entries to file
+Written 25200/179648 entries to file
+Written 25400/179648 entries to file
+Written 25600/179648 entries to file
+Written 25800/179648 entries to file
+Written 26000/179648 entries to file
+Written 26200/179648 entries to file
+Written 26400/179648 entries to file
+Written 26600/179648 entries to file
+Written 26800/179648 entries to file
+Written 27000/179648 entries to file
+Written 27200/179648 entries to file
+Written 27400/179648 entries to file
+Written 27600/179648 entries to file
+Written 27800/179648 entries to file
+Written 28000/179648 entries to file
+Written 28200/179648 entries to file
+Written 28400/179648 entries to file
+Written 28600/179648 entries to file
+Written 28800/179648 entries to file
+Written 29000/179648 entries to file
+Written 29200/179648 entries to file
+Written 29400/179648 entries to file
+Written 29600/179648 entries to file
+Written 29800/179648 entries to file
+Written 30000/179648 entries to file
+Written 30200/179648 entries to file
+Written 30400/179648 entries to file
+Written 30600/179648 entries to file
+Written 30800/179648 entries to file
+Written 31000/179648 entries to file
+Written 31200/179648 entries to file
+Written 31400/179648 entries to file
+Written 31600/179648 entries to file
+Written 31800/179648 entries to file
+Written 32000/179648 entries to file
+Written 32200/179648 entries to file
+Written 32400/179648 entries to file
+Written 32600/179648 entries to file
+Written 32800/179648 entries to file
+Written 33000/179648 entries to file
+Written 33200/179648 entries to file
+Written 33400/179648 entries to file
+Written 33600/179648 entries to file
+Written 33800/179648 entries to file
+Written 34000/179648 entries to file
+Written 34200/179648 entries to file
+Written 34400/179648 entries to file
+Written 34600/179648 entries to file
+Written 34800/179648 entries to file
+Written 35000/179648 entries to file
+Written 35200/179648 entries to file
+Written 35400/179648 entries to file
+Written 35600/179648 entries to file
+Written 35800/179648 entries to file
+Written 36000/179648 entries to file
+Written 36200/179648 entries to file
+Written 36400/179648 entries to file
+Written 36600/179648 entries to file
+Written 36800/179648 entries to file
+Written 37000/179648 entries to file
+Written 37200/179648 entries to file
+Written 37400/179648 entries to file
+Written 37600/179648 entries to file
+Written 37800/179648 entries to file
+Written 38000/179648 entries to file
+Written 38200/179648 entries to file
+Written 38400/179648 entries to file
+Written 38600/179648 entries to file
+Written 38800/179648 entries to file
+Written 39000/179648 entries to file
+Written 39200/179648 entries to file
+Written 39400/179648 entries to file
+Written 39600/179648 entries to file
+Written 39800/179648 entries to file
+Written 40000/179648 entries to file
+Written 40200/179648 entries to file
+Written 40400/179648 entries to file
+Written 40600/179648 entries to file
+Written 40800/179648 entries to file
+Written 41000/179648 entries to file
+Written 41200/179648 entries to file
+Written 41400/179648 entries to file
+Written 41600/179648 entries to file
+Written 41800/179648 entries to file
+Written 42000/179648 entries to file
+Written 42200/179648 entries to file
+Written 42400/179648 entries to file
+Written 42600/179648 entries to file
+Written 42800/179648 entries to file
+Written 43000/179648 entries to file
+Written 43200/179648 entries to file
+Written 43400/179648 entries to file
+Written 43600/179648 entries to file
+Written 43800/179648 entries to file
+Written 44000/179648 entries to file
+Written 44200/179648 entries to file
+Written 44400/179648 entries to file
+Written 44600/179648 entries to file
+Written 44800/179648 entries to file
+Written 45000/179648 entries to file
+Written 45200/179648 entries to file
+Written 45400/179648 entries to file
+Written 45600/179648 entries to file
+Written 45800/179648 entries to file
+Written 46000/179648 entries to file
+Written 46200/179648 entries to file
+Written 46400/179648 entries to file
+Written 46600/179648 entries to file
+Written 46800/179648 entries to file
+Written 47000/179648 entries to file
+Written 47200/179648 entries to file
+Written 47400/179648 entries to file
+Written 47600/179648 entries to file
+Written 47800/179648 entries to file
+Written 48000/179648 entries to file
+Written 48200/179648 entries to file
+Written 48400/179648 entries to file
+Written 48600/179648 entries to file
+Written 48800/179648 entries to file
+Written 49000/179648 entries to file
+Written 49200/179648 entries to file
+Written 49400/179648 entries to file
+Written 49600/179648 entries to file
+Written 49800/179648 entries to file
+Written 50000/179648 entries to file
+Written 50200/179648 entries to file
+Written 50400/179648 entries to file
+Written 50600/179648 entries to file
+Written 50800/179648 entries to file
+Written 51000/179648 entries to file
+Written 51200/179648 entries to file
+Written 51400/179648 entries to file
+Written 51600/179648 entries to file
+Written 51800/179648 entries to file
+Written 52000/179648 entries to file
+Written 52200/179648 entries to file
+Written 52400/179648 entries to file
+Written 52600/179648 entries to file
+Written 52800/179648 entries to file
+Written 53000/179648 entries to file
+Written 53200/179648 entries to file
+Written 53400/179648 entries to file
+Written 53600/179648 entries to file
+Written 53800/179648 entries to file
+Written 54000/179648 entries to file
+Written 54200/179648 entries to file
+Written 54400/179648 entries to file
+Written 54600/179648 entries to file
+Written 54800/179648 entries to file
+Written 55000/179648 entries to file
+Written 55200/179648 entries to file
+Written 55400/179648 entries to file
+Written 55600/179648 entries to file
+Written 55800/179648 entries to file
+Written 56000/179648 entries to file
+Written 56200/179648 entries to file
+Written 56400/179648 entries to file
+Written 56600/179648 entries to file
+Written 56800/179648 entries to file
+Written 57000/179648 entries to file
+Written 57200/179648 entries to file
+Written 57400/179648 entries to file
+Written 57600/179648 entries to file
+Written 57800/179648 entries to file
+Written 58000/179648 entries to file
+Written 58200/179648 entries to file
+Written 58400/179648 entries to file
+Written 58600/179648 entries to file
+Written 58800/179648 entries to file
+Written 59000/179648 entries to file
+Written 59200/179648 entries to file
+Written 59400/179648 entries to file
+Written 59600/179648 entries to file
+Written 59800/179648 entries to file
+Written 60000/179648 entries to file
+Written 60200/179648 entries to file
+Written 60400/179648 entries to file
+Written 60600/179648 entries to file
+Written 60800/179648 entries to file
+Written 61000/179648 entries to file
+Written 61200/179648 entries to file
+Written 61400/179648 entries to file
+Written 61600/179648 entries to file
+Written 61800/179648 entries to file
+Written 62000/179648 entries to file
+Written 62200/179648 entries to file
+Written 62400/179648 entries to file
+Written 62600/179648 entries to file
+Written 62800/179648 entries to file
+Written 63000/179648 entries to file
+Written 63200/179648 entries to file
+Written 63400/179648 entries to file
+Written 63600/179648 entries to file
+Written 63800/179648 entries to file
+Written 64000/179648 entries to file
+Written 64200/179648 entries to file
+Written 64400/179648 entries to file
+Written 64600/179648 entries to file
+Written 64800/179648 entries to file
+Written 65000/179648 entries to file
+Written 65200/179648 entries to file
+Written 65400/179648 entries to file
+Written 65600/179648 entries to file
+Written 65800/179648 entries to file
+Written 66000/179648 entries to file
+Written 66200/179648 entries to file
+Written 66400/179648 entries to file
+Written 66600/179648 entries to file
+Written 66800/179648 entries to file
+Written 67000/179648 entries to file
+Written 67200/179648 entries to file
+Written 67400/179648 entries to file
+Written 67600/179648 entries to file
+Written 67800/179648 entries to file
+Written 68000/179648 entries to file
+Written 68200/179648 entries to file
+Written 68400/179648 entries to file
+Written 68600/179648 entries to file
+Written 68800/179648 entries to file
+Written 69000/179648 entries to file
+Written 69200/179648 entries to file
+Written 69400/179648 entries to file
+Written 69600/179648 entries to file
+Written 69800/179648 entries to file
+Written 70000/179648 entries to file
+Written 70200/179648 entries to file
+Written 70400/179648 entries to file
+Written 70600/179648 entries to file
+Written 70800/179648 entries to file
+Written 71000/179648 entries to file
+Written 71200/179648 entries to file
+Written 71400/179648 entries to file
+Written 71600/179648 entries to file
+Written 71800/179648 entries to file
+Written 72000/179648 entries to file
+Written 72200/179648 entries to file
+Written 72400/179648 entries to file
+Written 72600/179648 entries to file
+Written 72800/179648 entries to file
+Written 73000/179648 entries to file
+Written 73200/179648 entries to file
+Written 73400/179648 entries to file
+Written 73600/179648 entries to file
+Written 73800/179648 entries to file
+Written 74000/179648 entries to file
+Written 74200/179648 entries to file
+Written 74400/179648 entries to file
+Written 74600/179648 entries to file
+Written 74800/179648 entries to file
+Written 75000/179648 entries to file
+Written 75200/179648 entries to file
+Written 75400/179648 entries to file
+Written 75600/179648 entries to file
+Written 75800/179648 entries to file
+Written 76000/179648 entries to file
+Written 76200/179648 entries to file
+Written 76400/179648 entries to file
+Written 76600/179648 entries to file
+Written 76800/179648 entries to file
+Written 77000/179648 entries to file
+Written 77200/179648 entries to file
+Written 77400/179648 entries to file
+Written 77600/179648 entries to file
+Written 77800/179648 entries to file
+Written 78000/179648 entries to file
+Written 78200/179648 entries to file
+Written 78400/179648 entries to file
+Written 78600/179648 entries to file
+Written 78800/179648 entries to file
+Written 79000/179648 entries to file
+Written 79200/179648 entries to file
+Written 79400/179648 entries to file
+Written 79600/179648 entries to file
+Written 79800/179648 entries to file
+Written 80000/179648 entries to file
+Written 80200/179648 entries to file
+Written 80400/179648 entries to file
+Written 80600/179648 entries to file
+Written 80800/179648 entries to file
+Written 81000/179648 entries to file
+Written 81200/179648 entries to file
+Written 81400/179648 entries to file
+Written 81600/179648 entries to file
+Written 81800/179648 entries to file
+Written 82000/179648 entries to file
+Written 82200/179648 entries to file
+Written 82400/179648 entries to file
+Written 82600/179648 entries to file
+Written 82800/179648 entries to file
+Written 83000/179648 entries to file
+Written 83200/179648 entries to file
+Written 83400/179648 entries to file
+Written 83600/179648 entries to file
+Written 83800/179648 entries to file
+Written 84000/179648 entries to file
+Written 84200/179648 entries to file
+Written 84400/179648 entries to file
+Written 84600/179648 entries to file
+Written 84800/179648 entries to file
+Written 85000/179648 entries to file
+Written 85200/179648 entries to file
+Written 85400/179648 entries to file
+Written 85600/179648 entries to file
+Written 85800/179648 entries to file
+Written 86000/179648 entries to file
+Written 86200/179648 entries to file
+Written 86400/179648 entries to file
+Written 86600/179648 entries to file
+Written 86800/179648 entries to file
+Written 87000/179648 entries to file
+Written 87200/179648 entries to file
+Written 87400/179648 entries to file
+Written 87600/179648 entries to file
+Written 87800/179648 entries to file
+Written 88000/179648 entries to file
+Written 88200/179648 entries to file
+Written 88400/179648 entries to file
+Written 88600/179648 entries to file
+Written 88800/179648 entries to file
+Written 89000/179648 entries to file
+Written 89200/179648 entries to file
+Written 89400/179648 entries to file
+Written 89600/179648 entries to file
+Written 89800/179648 entries to file
+Written 90000/179648 entries to file
+Written 90200/179648 entries to file
+Written 90400/179648 entries to file
+Written 90600/179648 entries to file
+Written 90800/179648 entries to file
+Written 91000/179648 entries to file
+Written 91200/179648 entries to file
+Written 91400/179648 entries to file
+Written 91600/179648 entries to file
+Written 91800/179648 entries to file
+Written 92000/179648 entries to file
+Written 92200/179648 entries to file
+Written 92400/179648 entries to file
+Written 92600/179648 entries to file
+Written 92800/179648 entries to file
+Written 93000/179648 entries to file
+Written 93200/179648 entries to file
+Written 93400/179648 entries to file
+Written 93600/179648 entries to file
+Written 93800/179648 entries to file
+Written 94000/179648 entries to file
+Written 94200/179648 entries to file
+Written 94400/179648 entries to file
+Written 94600/179648 entries to file
+Written 94800/179648 entries to file
+Written 95000/179648 entries to file
+Written 95200/179648 entries to file
+Written 95400/179648 entries to file
+Written 95600/179648 entries to file
+Written 95800/179648 entries to file
+Written 96000/179648 entries to file
+Written 96200/179648 entries to file
+Written 96400/179648 entries to file
+Written 96600/179648 entries to file
+Written 96800/179648 entries to file
+Written 97000/179648 entries to file
+Written 97200/179648 entries to file
+Written 97400/179648 entries to file
+Written 97600/179648 entries to file
+Written 97800/179648 entries to file
+Written 98000/179648 entries to file
+Written 98200/179648 entries to file
+Written 98400/179648 entries to file
+Written 98600/179648 entries to file
+Written 98800/179648 entries to file
+Written 99000/179648 entries to file
+Written 99200/179648 entries to file
+Written 99400/179648 entries to file
+Written 99600/179648 entries to file
+Written 99800/179648 entries to file
+Written 100000/179648 entries to file
+Written 100200/179648 entries to file
+Written 100400/179648 entries to file
+Written 100600/179648 entries to file
+Written 100800/179648 entries to file
+Written 101000/179648 entries to file
+Written 101200/179648 entries to file
+Written 101400/179648 entries to file
+Written 101600/179648 entries to file
+Written 101800/179648 entries to file
+Written 102000/179648 entries to file
+Written 102200/179648 entries to file
+Written 102400/179648 entries to file
+Written 102600/179648 entries to file
+Written 102800/179648 entries to file
+Written 103000/179648 entries to file
+Written 103200/179648 entries to file
+Written 103400/179648 entries to file
+Written 103600/179648 entries to file
+Written 103800/179648 entries to file
+Written 104000/179648 entries to file
+Written 104200/179648 entries to file
+Written 104400/179648 entries to file
+Written 104600/179648 entries to file
+Written 104800/179648 entries to file
+Written 105000/179648 entries to file
+Written 105200/179648 entries to file
+Written 105400/179648 entries to file
+Written 105600/179648 entries to file
+Written 105800/179648 entries to file
+Written 106000/179648 entries to file
+Written 106200/179648 entries to file
+Written 106400/179648 entries to file
+Written 106600/179648 entries to file
+Written 106800/179648 entries to file
+Written 107000/179648 entries to file
+Written 107200/179648 entries to file
+Written 107400/179648 entries to file
+Written 107600/179648 entries to file
+Written 107800/179648 entries to file
+Written 108000/179648 entries to file
+Written 108200/179648 entries to file
+Written 108400/179648 entries to file
+Written 108600/179648 entries to file
+Written 108800/179648 entries to file
+Written 109000/179648 entries to file
+Written 109200/179648 entries to file
+Written 109400/179648 entries to file
+Written 109600/179648 entries to file
+Written 109800/179648 entries to file
+Written 110000/179648 entries to file
+Written 110200/179648 entries to file
+Written 110400/179648 entries to file
+Written 110600/179648 entries to file
+Written 110800/179648 entries to file
+Written 111000/179648 entries to file
+Written 111200/179648 entries to file
+Written 111400/179648 entries to file
+Written 111600/179648 entries to file
+Written 111800/179648 entries to file
+Written 112000/179648 entries to file
+Written 112200/179648 entries to file
+Written 112400/179648 entries to file
+Written 112600/179648 entries to file
+Written 112800/179648 entries to file
+Written 113000/179648 entries to file
+Written 113200/179648 entries to file
+Written 113400/179648 entries to file
+Written 113600/179648 entries to file
+Written 113800/179648 entries to file
+Written 114000/179648 entries to file
+Written 114200/179648 entries to file
+Written 114400/179648 entries to file
+Written 114600/179648 entries to file
+Written 114800/179648 entries to file
+Written 115000/179648 entries to file
+Written 115200/179648 entries to file
+Written 115400/179648 entries to file
+Written 115600/179648 entries to file
+Written 115800/179648 entries to file
+Written 116000/179648 entries to file
+Written 116200/179648 entries to file
+Written 116400/179648 entries to file
+Written 116600/179648 entries to file
+Written 116800/179648 entries to file
+Written 117000/179648 entries to file
+Written 117200/179648 entries to file
+Written 117400/179648 entries to file
+Written 117600/179648 entries to file
+Written 117800/179648 entries to file
+Written 118000/179648 entries to file
+Written 118200/179648 entries to file
+Written 118400/179648 entries to file
+Written 118600/179648 entries to file
+Written 118800/179648 entries to file
+Written 119000/179648 entries to file
+Written 119200/179648 entries to file
+Written 119400/179648 entries to file
+Written 119600/179648 entries to file
+Written 119800/179648 entries to file
+Written 120000/179648 entries to file
+Written 120200/179648 entries to file
+Written 120400/179648 entries to file
+Written 120600/179648 entries to file
+Written 120800/179648 entries to file
+Written 121000/179648 entries to file
+Written 121200/179648 entries to file
+Written 121400/179648 entries to file
+Written 121600/179648 entries to file
+Written 121800/179648 entries to file
+Written 122000/179648 entries to file
+Written 122200/179648 entries to file
+Written 122400/179648 entries to file
+Written 122600/179648 entries to file
+Written 122800/179648 entries to file
+Written 123000/179648 entries to file
+Written 123200/179648 entries to file
+Written 123400/179648 entries to file
+Written 123600/179648 entries to file
+Written 123800/179648 entries to file
+Written 124000/179648 entries to file
+Written 124200/179648 entries to file
+Written 124400/179648 entries to file
+Written 124600/179648 entries to file
+Written 124800/179648 entries to file
+Written 125000/179648 entries to file
+Written 125200/179648 entries to file
+Written 125400/179648 entries to file
+Written 125600/179648 entries to file
+Written 125800/179648 entries to file
+Written 126000/179648 entries to file
+Written 126200/179648 entries to file
+Written 126400/179648 entries to file
+Written 126600/179648 entries to file
+Written 126800/179648 entries to file
+Written 127000/179648 entries to file
+Written 127200/179648 entries to file
+Written 127400/179648 entries to file
+Written 127600/179648 entries to file
+Written 127800/179648 entries to file
+Written 128000/179648 entries to file
+Written 128200/179648 entries to file
+Written 128400/179648 entries to file
+Written 128600/179648 entries to file
+Written 128800/179648 entries to file
+Written 129000/179648 entries to file
+Written 129200/179648 entries to file
+Written 129400/179648 entries to file
+Written 129600/179648 entries to file
+Written 129800/179648 entries to file
+Written 130000/179648 entries to file
+Written 130200/179648 entries to file
+Written 130400/179648 entries to file
+Written 130600/179648 entries to file
+Written 130800/179648 entries to file
+Written 131000/179648 entries to file
+Written 131200/179648 entries to file
+Written 131400/179648 entries to file
+Written 131600/179648 entries to file
+Written 131800/179648 entries to file
+Written 132000/179648 entries to file
+Written 132200/179648 entries to file
+Written 132400/179648 entries to file
+Written 132600/179648 entries to file
+Written 132800/179648 entries to file
+Written 133000/179648 entries to file
+Written 133200/179648 entries to file
+Written 133400/179648 entries to file
+Written 133600/179648 entries to file
+Written 133800/179648 entries to file
+Written 134000/179648 entries to file
+Written 134200/179648 entries to file
+Written 134400/179648 entries to file
+Written 134600/179648 entries to file
+Written 134800/179648 entries to file
+Written 135000/179648 entries to file
+Written 135200/179648 entries to file
+Written 135400/179648 entries to file
+Written 135600/179648 entries to file
+Written 135800/179648 entries to file
+Written 136000/179648 entries to file
+Written 136200/179648 entries to file
+Written 136400/179648 entries to file
+Written 136600/179648 entries to file
+Written 136800/179648 entries to file
+Written 137000/179648 entries to file
+Written 137200/179648 entries to file
+Written 137400/179648 entries to file
+Written 137600/179648 entries to file
+Written 137800/179648 entries to file
+Written 138000/179648 entries to file
+Written 138200/179648 entries to file
+Written 138400/179648 entries to file
+Written 138600/179648 entries to file
+Written 138800/179648 entries to file
+Written 139000/179648 entries to file
+Written 139200/179648 entries to file
+Written 139400/179648 entries to file
+Written 139600/179648 entries to file
+Written 139800/179648 entries to file
+Written 140000/179648 entries to file
+Written 140200/179648 entries to file
+Written 140400/179648 entries to file
+Written 140600/179648 entries to file
+Written 140800/179648 entries to file
+Written 141000/179648 entries to file
+Written 141200/179648 entries to file
+Written 141400/179648 entries to file
+Written 141600/179648 entries to file
+Written 141800/179648 entries to file
+Written 142000/179648 entries to file
+Written 142200/179648 entries to file
+Written 142400/179648 entries to file
+Written 142600/179648 entries to file
+Written 142800/179648 entries to file
+Written 143000/179648 entries to file
+Written 143200/179648 entries to file
+Written 143400/179648 entries to file
+Written 143600/179648 entries to file
+Written 143800/179648 entries to file
+Written 144000/179648 entries to file
+Written 144200/179648 entries to file
+Written 144400/179648 entries to file
+Written 144600/179648 entries to file
+Written 144800/179648 entries to file
+Written 145000/179648 entries to file
+Written 145200/179648 entries to file
+Written 145400/179648 entries to file
+Written 145600/179648 entries to file
+Written 145800/179648 entries to file
+Written 146000/179648 entries to file
+Written 146200/179648 entries to file
+Written 146400/179648 entries to file
+Written 146600/179648 entries to file
+Written 146800/179648 entries to file
+Written 147000/179648 entries to file
+Written 147200/179648 entries to file
+Written 147400/179648 entries to file
+Written 147600/179648 entries to file
+Written 147800/179648 entries to file
+Written 148000/179648 entries to file
+Written 148200/179648 entries to file
+Written 148400/179648 entries to file
+Written 148600/179648 entries to file
+Written 148800/179648 entries to file
+Written 149000/179648 entries to file
+Written 149200/179648 entries to file
+Written 149400/179648 entries to file
+Written 149600/179648 entries to file
+Written 149800/179648 entries to file
+Written 150000/179648 entries to file
+Written 150200/179648 entries to file
+Written 150400/179648 entries to file
+Written 150600/179648 entries to file
+Written 150800/179648 entries to file
+Written 151000/179648 entries to file
+Written 151200/179648 entries to file
+Written 151400/179648 entries to file
+Written 151600/179648 entries to file
+Written 151800/179648 entries to file
+Written 152000/179648 entries to file
+Written 152200/179648 entries to file
+Written 152400/179648 entries to file
+Written 152600/179648 entries to file
+Written 152800/179648 entries to file
+Written 153000/179648 entries to file
+Written 153200/179648 entries to file
+Written 153400/179648 entries to file
+Written 153600/179648 entries to file
+Written 153800/179648 entries to file
+Written 154000/179648 entries to file
+Written 154200/179648 entries to file
+Written 154400/179648 entries to file
+Written 154600/179648 entries to file
+Written 154800/179648 entries to file
+Written 155000/179648 entries to file
+Written 155200/179648 entries to file
+Written 155400/179648 entries to file
+Written 155600/179648 entries to file
+Written 155800/179648 entries to file
+Written 156000/179648 entries to file
+Written 156200/179648 entries to file
+Written 156400/179648 entries to file
+Written 156600/179648 entries to file
+Written 156800/179648 entries to file
+Written 157000/179648 entries to file
+Written 157200/179648 entries to file
+Written 157400/179648 entries to file
+Written 157600/179648 entries to file
+Written 157800/179648 entries to file
+Written 158000/179648 entries to file
+Written 158200/179648 entries to file
+Written 158400/179648 entries to file
+Written 158600/179648 entries to file
+Written 158800/179648 entries to file
+Written 159000/179648 entries to file
+Written 159200/179648 entries to file
+Written 159400/179648 entries to file
+Written 159600/179648 entries to file
+Written 159800/179648 entries to file
+Written 160000/179648 entries to file
+Written 160200/179648 entries to file
+Written 160400/179648 entries to file
+Written 160600/179648 entries to file
+Written 160800/179648 entries to file
+Written 161000/179648 entries to file
+Written 161200/179648 entries to file
+Written 161400/179648 entries to file
+Written 161600/179648 entries to file
+Written 161800/179648 entries to file
+Written 162000/179648 entries to file
+Written 162200/179648 entries to file
+Written 162400/179648 entries to file
+Written 162600/179648 entries to file
+Written 162800/179648 entries to file
+Written 163000/179648 entries to file
+Written 163200/179648 entries to file
+Written 163400/179648 entries to file
+Written 163600/179648 entries to file
+Written 163800/179648 entries to file
+Written 164000/179648 entries to file
+Written 164200/179648 entries to file
+Written 164400/179648 entries to file
+Written 164600/179648 entries to file
+Written 164800/179648 entries to file
+Written 165000/179648 entries to file
+Written 165200/179648 entries to file
+Written 165400/179648 entries to file
+Written 165600/179648 entries to file
+Written 165800/179648 entries to file
+Written 166000/179648 entries to file
+Written 166200/179648 entries to file
+Written 166400/179648 entries to file
+Written 166600/179648 entries to file
+Written 166800/179648 entries to file
+Written 167000/179648 entries to file
+Written 167200/179648 entries to file
+Written 167400/179648 entries to file
+Written 167600/179648 entries to file
+Written 167800/179648 entries to file
+Written 168000/179648 entries to file
+Written 168200/179648 entries to file
+Written 168400/179648 entries to file
+Written 168600/179648 entries to file
+Written 168800/179648 entries to file
+Written 169000/179648 entries to file
+Written 169200/179648 entries to file
+Written 169400/179648 entries to file
+Written 169600/179648 entries to file
+Written 169800/179648 entries to file
+Written 170000/179648 entries to file
+Written 170200/179648 entries to file
+Written 170400/179648 entries to file
+Written 170600/179648 entries to file
+Written 170800/179648 entries to file
+Written 171000/179648 entries to file
+Written 171200/179648 entries to file
+Written 171400/179648 entries to file
+Written 171600/179648 entries to file
+Written 171800/179648 entries to file
+Written 172000/179648 entries to file
+Written 172200/179648 entries to file
+Written 172400/179648 entries to file
+Written 172600/179648 entries to file
+Written 172800/179648 entries to file
+Written 173000/179648 entries to file
+Written 173200/179648 entries to file
+Written 173400/179648 entries to file
+Written 173600/179648 entries to file
+Written 173800/179648 entries to file
+Written 174000/179648 entries to file
+Written 174200/179648 entries to file
+Written 174400/179648 entries to file
+Written 174600/179648 entries to file
+Written 174800/179648 entries to file
+Written 175000/179648 entries to file
+Written 175200/179648 entries to file
+Written 175400/179648 entries to file
+Written 175600/179648 entries to file
+Written 175800/179648 entries to file
+Written 176000/179648 entries to file
+Written 176200/179648 entries to file
+Written 176400/179648 entries to file
+Written 176600/179648 entries to file
+Written 176800/179648 entries to file
+Written 177000/179648 entries to file
+Written 177200/179648 entries to file
+Written 177400/179648 entries to file
+Written 177600/179648 entries to file
+Written 177800/179648 entries to file
+Written 178000/179648 entries to file
+Written 178200/179648 entries to file
+Written 178400/179648 entries to file
+Written 178600/179648 entries to file
+Written 178800/179648 entries to file
+Written 179000/179648 entries to file
+Written 179200/179648 entries to file
+Written 179400/179648 entries to file
+Written 179600/179648 entries to file
+Dispatching preference results for model: Unbabel-M-Prometheus-14B, language pairs: [("en", "zh_cn"), ("en", "fr_fr"), ("en", "ar_xy"), ("en", "sw_ke")], input file: judge/result/Unbabel-M-Prometheus-14B/preference_aggregated_output.jsonl
+Dispatched preference results for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: zh_cn
+Dispatched preference results for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: fr_fr
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/preference/en_correct_ar_xy_incorrect.jsonl: No such file or directory (os error 2), assuming empty result file
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/preference/en_incorrect_ar_xy_correct.jsonl: No such file or directory (os error 2), assuming empty result file
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/preference/en_correct_ar_xy_correct.jsonl: No such file or directory (os error 2), assuming empty result file
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/preference/en_incorrect_ar_xy_incorrect.jsonl: No such file or directory (os error 2), assuming empty result file
+Dispatched preference results for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: ar_xy
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/preference/en_correct_sw_ke_incorrect.jsonl: No such file or directory (os error 2), assuming empty result file
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/preference/en_incorrect_sw_ke_correct.jsonl: No such file or directory (os error 2), assuming empty result file
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/preference/en_correct_sw_ke_correct.jsonl: No such file or directory (os error 2), assuming empty result file
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/preference/en_incorrect_sw_ke_incorrect.jsonl: No such file or directory (os error 2), assuming empty result file
+Dispatched preference results for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: sw_ke
+Removed aggregated output file: judge/result/Unbabel-M-Prometheus-14B/preference_aggregated_output.jsonl
+Preference experiment finished.
+Starting perplexity experiment...
+Two answers same language dataset for language ar_xy not found. Generating...
+Generated two answers same language dataset for language ar_xy.
+File judge/result/Unbabel-M-Prometheus-14B/response/ar_xy.jsonl does not exist, assuming no completed entries.
+Two answers same language dataset for language sw_ke not found. Generating...
+Generated two answers same language dataset for language sw_ke.
+File judge/result/Unbabel-M-Prometheus-14B/response/sw_ke.jsonl does not exist, assuming no completed entries.
+Response input dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/Unbabel-M-Prometheus-14B/perplexity_response_input.jsonl
+Total entries to generate responses: 41683
+Written 200/41683 entries to file
+Written 400/41683 entries to file
+Written 600/41683 entries to file
+Written 800/41683 entries to file
+Written 1000/41683 entries to file
+Written 1200/41683 entries to file
+Written 1400/41683 entries to file
+Written 1600/41683 entries to file
+Written 1800/41683 entries to file
+Written 2000/41683 entries to file
+Written 2200/41683 entries to file
+Written 2400/41683 entries to file
+Written 2600/41683 entries to file
+Written 2800/41683 entries to file
+Written 3000/41683 entries to file
+Written 3200/41683 entries to file
+Written 3400/41683 entries to file
+Written 3600/41683 entries to file
+Written 3800/41683 entries to file
+Written 4000/41683 entries to file
+Written 4200/41683 entries to file
+Written 4400/41683 entries to file
+Written 4600/41683 entries to file
+Written 4800/41683 entries to file
+Written 5000/41683 entries to file
+Written 5200/41683 entries to file
+Written 5400/41683 entries to file
+Written 5600/41683 entries to file
+Written 5800/41683 entries to file
+Written 6000/41683 entries to file
+Written 6200/41683 entries to file
+Written 6400/41683 entries to file
+Written 6600/41683 entries to file
+Written 6800/41683 entries to file
+Written 7000/41683 entries to file
+Written 7200/41683 entries to file
+Written 7400/41683 entries to file
+Written 7600/41683 entries to file
+Written 7800/41683 entries to file
+Written 8000/41683 entries to file
+Written 8200/41683 entries to file
+Written 8400/41683 entries to file
+Written 8600/41683 entries to file
+Written 8800/41683 entries to file
+Written 9000/41683 entries to file
+Written 9200/41683 entries to file
+Written 9400/41683 entries to file
+Written 9600/41683 entries to file
+Written 9800/41683 entries to file
+Written 10000/41683 entries to file
+Written 10200/41683 entries to file
+Written 10400/41683 entries to file
+Written 10600/41683 entries to file
+Written 10800/41683 entries to file
+Written 11000/41683 entries to file
+Written 11200/41683 entries to file
+Written 11400/41683 entries to file
+Written 11600/41683 entries to file
+Written 11800/41683 entries to file
+Written 12000/41683 entries to file
+Written 12200/41683 entries to file
+Written 12400/41683 entries to file
+Written 12600/41683 entries to file
+Written 12800/41683 entries to file
+Written 13000/41683 entries to file
+Written 13200/41683 entries to file
+Written 13400/41683 entries to file
+Written 13600/41683 entries to file
+Written 13800/41683 entries to file
+Written 14000/41683 entries to file
+Written 14200/41683 entries to file
+Written 14400/41683 entries to file
+Written 14600/41683 entries to file
+Written 14800/41683 entries to file
+Written 15000/41683 entries to file
+Written 15200/41683 entries to file
+Written 15400/41683 entries to file
+Written 15600/41683 entries to file
+Written 15800/41683 entries to file
+Written 16000/41683 entries to file
+Written 16200/41683 entries to file
+Written 16400/41683 entries to file
+Written 16600/41683 entries to file
+Written 16800/41683 entries to file
+Written 17000/41683 entries to file
+Written 17200/41683 entries to file
+Written 17400/41683 entries to file
+Written 17600/41683 entries to file
+Written 17800/41683 entries to file
+Written 18000/41683 entries to file
+Written 18200/41683 entries to file
+Written 18400/41683 entries to file
+Written 18600/41683 entries to file
+Written 18800/41683 entries to file
+Written 19000/41683 entries to file
+Written 19200/41683 entries to file
+Written 19400/41683 entries to file
+Written 19600/41683 entries to file
+Written 19800/41683 entries to file
+Written 20000/41683 entries to file
+Written 20200/41683 entries to file
+Written 20400/41683 entries to file
+Written 20600/41683 entries to file
+Written 20800/41683 entries to file
+Written 21000/41683 entries to file
+Written 21200/41683 entries to file
+Written 21400/41683 entries to file
+Written 21600/41683 entries to file
+Written 21800/41683 entries to file
+Written 22000/41683 entries to file
+Written 22200/41683 entries to file
+Written 22400/41683 entries to file
+Written 22600/41683 entries to file
+Written 22800/41683 entries to file
+Written 23000/41683 entries to file
+Written 23200/41683 entries to file
+Written 23400/41683 entries to file
+Written 23600/41683 entries to file
+Written 23800/41683 entries to file
+Written 24000/41683 entries to file
+Written 24200/41683 entries to file
+Written 24400/41683 entries to file
+Written 24600/41683 entries to file
+Written 24800/41683 entries to file
+Written 25000/41683 entries to file
+Written 25200/41683 entries to file
+Written 25400/41683 entries to file
+Written 25600/41683 entries to file
+Written 25800/41683 entries to file
+Written 26000/41683 entries to file
+Written 26200/41683 entries to file
+Written 26400/41683 entries to file
+Written 26600/41683 entries to file
+Written 26800/41683 entries to file
+Written 27000/41683 entries to file
+Written 27200/41683 entries to file
+Written 27400/41683 entries to file
+Written 27600/41683 entries to file
+Written 27800/41683 entries to file
+Written 28000/41683 entries to file
+Written 28200/41683 entries to file
+Written 28400/41683 entries to file
+Written 28600/41683 entries to file
+Written 28800/41683 entries to file
+Written 29000/41683 entries to file
+Written 29200/41683 entries to file
+Written 29400/41683 entries to file
+Written 29600/41683 entries to file
+Written 29800/41683 entries to file
+Written 30000/41683 entries to file
+Written 30200/41683 entries to file
+Written 30400/41683 entries to file
+Written 30600/41683 entries to file
+Written 30800/41683 entries to file
+Written 31000/41683 entries to file
+Written 31200/41683 entries to file
+Written 31400/41683 entries to file
+Written 31600/41683 entries to file
+Written 31800/41683 entries to file
+Written 32000/41683 entries to file
+Written 32200/41683 entries to file
+Written 32400/41683 entries to file
+Written 32600/41683 entries to file
+Written 32800/41683 entries to file
+Written 33000/41683 entries to file
+Written 33200/41683 entries to file
+Written 33400/41683 entries to file
+Written 33600/41683 entries to file
+Written 33800/41683 entries to file
+Written 34000/41683 entries to file
+Written 34200/41683 entries to file
+Written 34400/41683 entries to file
+Written 34600/41683 entries to file
+Written 34800/41683 entries to file
+Written 35000/41683 entries to file
+Written 35200/41683 entries to file
+Written 35400/41683 entries to file
+Written 35600/41683 entries to file
+Written 35800/41683 entries to file
+Written 36000/41683 entries to file
+Written 36200/41683 entries to file
+Written 36400/41683 entries to file
+Written 36600/41683 entries to file
+Written 36800/41683 entries to file
+Written 37000/41683 entries to file
+Written 37200/41683 entries to file
+Written 37400/41683 entries to file
+Written 37600/41683 entries to file
+Written 37800/41683 entries to file
+Written 38000/41683 entries to file
+Written 38200/41683 entries to file
+Written 38400/41683 entries to file
+Written 38600/41683 entries to file
+Written 38800/41683 entries to file
+Written 39000/41683 entries to file
+Written 39200/41683 entries to file
+Written 39400/41683 entries to file
+Written 39600/41683 entries to file
+Written 39800/41683 entries to file
+Written 40000/41683 entries to file
+Written 40200/41683 entries to file
+Written 40400/41683 entries to file
+Written 40600/41683 entries to file
+Written 40800/41683 entries to file
+Written 41000/41683 entries to file
+Written 41200/41683 entries to file
+Written 41400/41683 entries to file
+Written 41600/41683 entries to file
+Dispatching response results for model: Unbabel-M-Prometheus-14B, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/Unbabel-M-Prometheus-14B/perplexity_response_output.jsonl
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: en
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/response/ar_xy.jsonl: No such file or directory (os error 2), assuming empty result file
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: ar_xy
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/response/sw_ke.jsonl: No such file or directory (os error 2), assuming empty result file
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: sw_ke
+Removed aggregated response output file: judge/result/Unbabel-M-Prometheus-14B/perplexity_response_output.jsonl
+File judge/result/Unbabel-M-Prometheus-14B/styled_answers/ar_xy.jsonl does not exist, assuming no completed entries.
+File judge/result/Unbabel-M-Prometheus-14B/styled_answers/sw_ke.jsonl does not exist, assuming no completed entries.
+Styled answers input dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/Unbabel-M-Prometheus-14B/perplexity_styled_answers_input.jsonl
+Completed writing all responses to judge/result/Unbabel-M-Prometheus-14B/perplexity_response_output.jsonl
+Total entries to generate styled answers: 41683
+Creating Assistant API client for model gpt-4.1...
+Created API backend for model gpt-4.1 with auto-retry on rate limits
+Assistant API client created for model gpt-4.1
+Written 200/41683 entries to styled answers file
+Written 400/41683 entries to styled answers file
+Written 600/41683 entries to styled answers file
+Written 800/41683 entries to styled answers file
+Written 1000/41683 entries to styled answers file
+Written 1200/41683 entries to styled answers file
+When generating for lang en, question index 3431, question: This question refers to the following information., exceeded maximum trials for generating styled answers, use fallback
+Written 1400/41683 entries to styled answers file
+Written 1600/41683 entries to styled answers file
+Written 1800/41683 entries to styled answers file
+Written 2000/41683 entries to styled answers file
+Written 2200/41683 entries to styled answers file
+Written 2400/41683 entries to styled answers file
+Written 2600/41683 entries to styled answers file
+Written 2800/41683 entries to styled answers file
+Written 3000/41683 entries to styled answers file
+Written 3200/41683 entries to styled answers file
+Written 3400/41683 entries to styled answers file
+Written 3600/41683 entries to styled answers file
+Written 3800/41683 entries to styled answers file
+Written 4000/41683 entries to styled answers file
+Written 4200/41683 entries to styled answers file
+When generating for lang fr_fr, question index 5692, question: Cette question fait référence aux informations ci-, exceeded maximum trials for generating styled answers, use fallback
+Written 4400/41683 entries to styled answers file
+Written 4600/41683 entries to styled answers file
+Written 4800/41683 entries to styled answers file
+Written 5000/41683 entries to styled answers file
+Written 5200/41683 entries to styled answers file
+Written 5400/41683 entries to styled answers file
+Written 5600/41683 entries to styled answers file
+Written 5800/41683 entries to styled answers file
+Written 6000/41683 entries to styled answers file
+Written 6200/41683 entries to styled answers file
+Written 6400/41683 entries to styled answers file
+Written 6600/41683 entries to styled answers file
+When generating for lang ar_xy, question index 3411, question: يشير هذا السؤال إلى المعلومات التالية.
+المقطع المُ, exceeded maximum trials for generating styled answers, use fallback
+Written 6800/41683 entries to styled answers file
+Written 7000/41683 entries to styled answers file
+Written 7200/41683 entries to styled answers file
+Written 7400/41683 entries to styled answers file
+When generating for lang fr_fr, question index 6942, question: Lequel des énoncés suivants est-il vrai à propos d, exceeded maximum trials for generating styled answers, use fallback
+Written 7600/41683 entries to styled answers file
+Written 7800/41683 entries to styled answers file
+Written 8000/41683 entries to styled answers file
+Written 8200/41683 entries to styled answers file
+Written 8400/41683 entries to styled answers file
+Written 8600/41683 entries to styled answers file
+Written 8800/41683 entries to styled answers file
+Written 9000/41683 entries to styled answers file
+When generating for lang en, question index 1482, question: Let HH be a Merkle-Damgard hash function is H:X^{\, exceeded maximum trials for generating styled answers, use fallback
+Written 9200/41683 entries to styled answers file
+Written 9400/41683 entries to styled answers file
+Written 9600/41683 entries to styled answers file
+Written 9800/41683 entries to styled answers file
+Written 10000/41683 entries to styled answers file
+Written 10200/41683 entries to styled answers file
+When generating for lang ar_xy, question index 6942, question: أي مما يلي صحيح بشأن نواة تلافيفية؟, exceeded maximum trials for generating styled answers, use fallback
+Written 10400/41683 entries to styled answers file
+Written 10600/41683 entries to styled answers file
+When generating for lang fr_fr, question index 1482, question: Étant donné HH une fonction de hachage Merkle-Damg, exceeded maximum trials for generating styled answers, use fallback
+Written 10800/41683 entries to styled answers file
+Written 11000/41683 entries to styled answers file
+When generating for lang sw_ke, question index 11111, question: Mjenzi mmoja ni mmiliki wa kipande cha ardhi kwa u, exceeded maximum trials for generating styled answers, use fallback
+Written 11200/41683 entries to styled answers file
+Written 11400/41683 entries to styled answers file
+When generating for lang zh_cn, question index 10751, question: A farmer owned a 40-acre tract of farmland located, exceeded maximum trials for generating styled answers, use fallback
+Written 11600/41683 entries to styled answers file
+Written 11800/41683 entries to styled answers file
+Written 12000/41683 entries to styled answers file
+Written 12200/41683 entries to styled answers file
+Written 12400/41683 entries to styled answers file
+Written 12600/41683 entries to styled answers file
+Written 12800/41683 entries to styled answers file
+Written 13000/41683 entries to styled answers file
+Written 13200/41683 entries to styled answers file
+Written 13400/41683 entries to styled answers file
+Written 13600/41683 entries to styled answers file
+Written 13800/41683 entries to styled answers file
+Written 14000/41683 entries to styled answers file
+Written 14200/41683 entries to styled answers file
+Written 14400/41683 entries to styled answers file
+Written 14600/41683 entries to styled answers file
+Written 14800/41683 entries to styled answers file
+Written 15000/41683 entries to styled answers file
+Written 15200/41683 entries to styled answers file
+Written 15400/41683 entries to styled answers file
+Written 15600/41683 entries to styled answers file
+Written 15800/41683 entries to styled answers file
+Written 16000/41683 entries to styled answers file
+Written 16200/41683 entries to styled answers file
+Written 16400/41683 entries to styled answers file
+Written 16600/41683 entries to styled answers file
+Written 16800/41683 entries to styled answers file
+Written 17000/41683 entries to styled answers file
+Written 17200/41683 entries to styled answers file
+Written 17400/41683 entries to styled answers file
+Written 17600/41683 entries to styled answers file
+Written 17800/41683 entries to styled answers file
+Written 18000/41683 entries to styled answers file
+Written 18200/41683 entries to styled answers file
+Written 18400/41683 entries to styled answers file
+Written 18600/41683 entries to styled answers file
+Written 18800/41683 entries to styled answers file
+Written 19000/41683 entries to styled answers file
+Written 19200/41683 entries to styled answers file
+Written 19400/41683 entries to styled answers file
+When generating for lang sw_ke, question index 8647, question: Mhusika mkuu anafanya jambo ambalo ni makosa dhahi, exceeded maximum trials for generating styled answers, use fallback
+Written 19600/41683 entries to styled answers file
+Written 19800/41683 entries to styled answers file
+Written 20000/41683 entries to styled answers file
+Written 20200/41683 entries to styled answers file
+Written 20400/41683 entries to styled answers file
+Written 20600/41683 entries to styled answers file
+Written 20800/41683 entries to styled answers file
+Written 21000/41683 entries to styled answers file
+Written 21200/41683 entries to styled answers file
+Written 21400/41683 entries to styled answers file
+Written 21600/41683 entries to styled answers file
+Written 21800/41683 entries to styled answers file
+Written 22000/41683 entries to styled answers file
+Written 22200/41683 entries to styled answers file
+Written 22400/41683 entries to styled answers file
+Written 22600/41683 entries to styled answers file
+Written 22800/41683 entries to styled answers file
+When generating for lang zh_cn, question index 6942, question: Which of the following is true of a convolution ke, exceeded maximum trials for generating styled answers, use fallback
+Written 23000/41683 entries to styled answers file
+Written 23200/41683 entries to styled answers file
+Written 23400/41683 entries to styled answers file
+Written 23600/41683 entries to styled answers file
+Written 23800/41683 entries to styled answers file
+Written 24000/41683 entries to styled answers file
+Written 24200/41683 entries to styled answers file
+Written 24400/41683 entries to styled answers file
+When generating for lang en, question index 6942, question: Which of the following is true of a convolution ke, exceeded maximum trials for generating styled answers, use fallback
+Written 24600/41683 entries to styled answers file
+Written 24800/41683 entries to styled answers file
+Written 25000/41683 entries to styled answers file
+Written 25200/41683 entries to styled answers file
+Written 25400/41683 entries to styled answers file
+Written 25600/41683 entries to styled answers file
+Written 25800/41683 entries to styled answers file
+Written 26000/41683 entries to styled answers file
+Written 26200/41683 entries to styled answers file
+Written 26400/41683 entries to styled answers file
+Written 26600/41683 entries to styled answers file
+Written 26800/41683 entries to styled answers file
+Written 27000/41683 entries to styled answers file
+Written 27200/41683 entries to styled answers file
+Written 27400/41683 entries to styled answers file
+Written 27600/41683 entries to styled answers file
+Written 27800/41683 entries to styled answers file
+Written 28000/41683 entries to styled answers file
+Written 28200/41683 entries to styled answers file
+Written 28400/41683 entries to styled answers file
+Written 28600/41683 entries to styled answers file
+Written 28800/41683 entries to styled answers file
+Written 29000/41683 entries to styled answers file
+Written 29200/41683 entries to styled answers file
+Written 29400/41683 entries to styled answers file
+Written 29600/41683 entries to styled answers file
+Written 29800/41683 entries to styled answers file
+When generating for lang zh_cn, question index 1482, question: Let HH be a Merkle-Damgard hash function is H:X^{\, exceeded maximum trials for generating styled answers, use fallback
+Written 30000/41683 entries to styled answers file
+Written 30200/41683 entries to styled answers file
+Written 30400/41683 entries to styled answers file
+Written 30600/41683 entries to styled answers file
+Written 30800/41683 entries to styled answers file
+Written 31000/41683 entries to styled answers file
+Written 31200/41683 entries to styled answers file
+Written 31400/41683 entries to styled answers file
+Written 31600/41683 entries to styled answers file
+Written 31800/41683 entries to styled answers file
+Written 32000/41683 entries to styled answers file
+Written 32200/41683 entries to styled answers file
+When generating for lang sw_ke, question index 1482, question: Hebu HH iwe kazi ya kuhesabu hash ya Merkle-Damgar, exceeded maximum trials for generating styled answers, use fallback
+Written 32400/41683 entries to styled answers file
+Written 32600/41683 entries to styled answers file
+When generating for lang sw_ke, question index 6942, question: Ni ipi kati ya zifuatazo ni kweli kuhusu msingi wa, exceeded maximum trials for generating styled answers, use fallback
+Written 32800/41683 entries to styled answers file
+Written 33000/41683 entries to styled answers file
+Written 33200/41683 entries to styled answers file
+Written 33400/41683 entries to styled answers file
+Written 33600/41683 entries to styled answers file
+Written 33800/41683 entries to styled answers file
+Written 34000/41683 entries to styled answers file
+Written 34200/41683 entries to styled answers file
+Written 34400/41683 entries to styled answers file
+Written 34600/41683 entries to styled answers file
+Written 34800/41683 entries to styled answers file
+Written 35000/41683 entries to styled answers file
+Written 35200/41683 entries to styled answers file
+Written 35400/41683 entries to styled answers file
+Written 35600/41683 entries to styled answers file
+Written 35800/41683 entries to styled answers file
+Written 36000/41683 entries to styled answers file
+Written 36200/41683 entries to styled answers file
+Written 36400/41683 entries to styled answers file
+Written 36600/41683 entries to styled answers file
+When generating for lang zh_cn, question index 10764, question: A buyer contracted in writing to purchase 1,000 gi, exceeded maximum trials for generating styled answers, use fallback
+Written 36800/41683 entries to styled answers file
+Written 37000/41683 entries to styled answers file
+Written 37200/41683 entries to styled answers file
+Written 37400/41683 entries to styled answers file
+Written 37600/41683 entries to styled answers file
+Written 37800/41683 entries to styled answers file
+Written 38000/41683 entries to styled answers file
+When generating for lang sw_ke, question index 10058, question: Teknolojia ya Aurignacian inatofautiana na teknolo, exceeded maximum trials for generating styled answers, use fallback
+Written 38200/41683 entries to styled answers file
+Written 38400/41683 entries to styled answers file
+Written 38600/41683 entries to styled answers file
+Written 38800/41683 entries to styled answers file
+Written 39000/41683 entries to styled answers file
+Written 39200/41683 entries to styled answers file
+When generating for lang ar_xy, question index 1013, question: تعد اللغة {ww | w in (0 + 1)*}, exceeded maximum trials for generating styled answers, use fallback
+Written 39400/41683 entries to styled answers file
+Written 39600/41683 entries to styled answers file
+Written 39800/41683 entries to styled answers file
+Written 40000/41683 entries to styled answers file
+Written 40200/41683 entries to styled answers file
+Written 40400/41683 entries to styled answers file
+Written 40600/41683 entries to styled answers file
+When generating for lang ar_xy, question index 1482, question: باعتبار أن HH دالة تجزئة ميركل - دامجارد H:X^{\leq, exceeded maximum trials for generating styled answers, use fallback
+Written 40800/41683 entries to styled answers file
+Written 41000/41683 entries to styled answers file
+Written 41200/41683 entries to styled answers file
+When generating for lang zh_cn, question index 11492, question: A defendant worked as a patent attorney in a law f, exceeded maximum trials for generating styled answers, use fallback
+Written 41400/41683 entries to styled answers file
+Written 41600/41683 entries to styled answers file
+Dispatching styled answers results for model: Unbabel-M-Prometheus-14B, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/Unbabel-M-Prometheus-14B/perplexity_styled_answers_output.jsonl
+Dispatched styled answers results for model: Unbabel-M-Prometheus-14B, lang: en
+Dispatched styled answers results for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Dispatched styled answers results for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/styled_answers/ar_xy.jsonl: No such file or directory (os error 2), assuming empty result file
+Dispatched styled answers results for model: Unbabel-M-Prometheus-14B, lang: ar_xy
+Cannot open file: Unable to open file judge/result/Unbabel-M-Prometheus-14B/styled_answers/sw_ke.jsonl: No such file or directory (os error 2), assuming empty result file
+Dispatched styled answers results for model: Unbabel-M-Prometheus-14B, lang: sw_ke
+Removed aggregated styled answers output file: judge/result/Unbabel-M-Prometheus-14B/perplexity_styled_answers_output.jsonl
+Completed writing all styled answers to judge/result/Unbabel-M-Prometheus-14B/perplexity_styled_answers_output.jsonl
+Perplexity experiment finished.
+ERROR 12-30 15:21:24 [core_client.py:600] Engine core proc EngineCore_DP0 died unexpectedly, shutting down client.
+✏️ Setting installed package as editable
+File "judge/result/Unbabel-M-Prometheus-14B/perplexity/ar_xy_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Unbabel-M-Prometheus-14B/perplexity/ar_xy_incorrect.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Unbabel-M-Prometheus-14B/perplexity/sw_ke_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/Unbabel-M-Prometheus-14B/perplexity/sw_ke_incorrect.jsonl" does not exist, assuming no completed entries.
+Concatenated perplexity dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/Unbabel-M-Prometheus-14B/perplexity_aggregated_input.jsonl
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm5_hf.py
+Total entries to calculate perplexity: 85250
+Using batch size: 205 based on model size, number of GPUs (4), and single GPU memory (40GB)
+Processing batch 1/416
+Creating HuggingFace backend for model Unbabel/M-Prometheus-14B using 4 GPUs and batch size 205...
