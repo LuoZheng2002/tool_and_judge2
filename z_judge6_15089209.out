@@ -187,3 +187,39 @@ Warning: input_ids mismatch for lang en entry 46: tokenized 76 tokens, forward p
 [WARNING] in lang en, index 48: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
 Perplexity: Written 60/85610 entries to perplexity result file (batch 10/14269)
 Processing batch 11/14269
+Warning: input_ids mismatch for lang en entry 50: tokenized 66 tokens, forward pass has 66 tokens
+[WARNING] in lang en, index 50: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 50: tokenized 66 tokens, forward pass has 66 tokens
+[WARNING] in lang en, index 50: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang en, index 53: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang en, index 53: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 55: tokenized 80 tokens, forward pass has 80 tokens
+[WARNING] in lang en, index 55: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 55: tokenized 80 tokens, forward pass has 80 tokens
+[WARNING] in lang en, index 55: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Perplexity: Written 66/85610 entries to perplexity result file (batch 11/14269)
+Processing batch 12/14269
+Warning: input_ids mismatch for lang en entry 56: tokenized 72 tokens, forward pass has 72 tokens
+[WARNING] in lang en, index 56: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 56: tokenized 72 tokens, forward pass has 72 tokens
+[WARNING] in lang en, index 56: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 58: tokenized 77 tokens, forward pass has 77 tokens
+[WARNING] in lang en, index 58: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 58: tokenized 77 tokens, forward pass has 77 tokens
+[WARNING] in lang en, index 58: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang en, index 59: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang en, index 59: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Perplexity: Written 72/85610 entries to perplexity result file (batch 12/14269)
+Processing batch 13/14269
+Warning: input_ids mismatch for lang en entry 60: tokenized 71 tokens, forward pass has 71 tokens
+[WARNING] in lang en, index 60: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 60: tokenized 71 tokens, forward pass has 71 tokens
+[WARNING] in lang en, index 60: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang en, index 61: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang en, index 61: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 62: tokenized 87 tokens, forward pass has 87 tokens
+[WARNING] in lang en, index 62: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 62: tokenized 87 tokens, forward pass has 87 tokens
+[WARNING] in lang en, index 62: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Perplexity: Written 78/85610 entries to perplexity result file (batch 13/14269)
+Processing batch 14/14269
