@@ -17,7 +17,8 @@ from tool_stacked_bar_common import (
 
 def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str,
                                 language: str,
-                                max_height: float = None) -> None:
+                                max_height: float = None,
+                                output_format: str = "png") -> None:
     """
     Generate a stacked bar chart for a given model showing error type distributions.
     Shows all 18 combinations (6 translate modes × 3 noise modes) grouped by translate mode.
@@ -28,6 +29,7 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
         result_dir: Directory containing the result files (default: "tool/result")
         language: The language name for the plot title (e.g., "Chinese", "Hindi", "Igbo")
         max_height: Maximum height of the vertical axis (default: None, auto-calculated from data)
+        output_format: Output format, "png" or "pdf" (default: "png")
     """
 
     # Load data using common module
@@ -80,7 +82,7 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
         pos += group_spacing  # Add extra space after each translate mode group
 
     title = f"Tool Calling Errors of {model_name} Under {language} Queries"
-    output_name = f"stacked_bar_{model_name}_{language}.png"
+    output_name = f"stacked_bar_{model_name}_{language}.{output_format}"
 
     # Create DataFrame for easier plotting
     df_data = []
@@ -173,7 +175,7 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
     os.makedirs(output_dir, exist_ok=True)
 
     output_path = os.path.join(output_dir, output_name)
-    plt.savefig(output_path, dpi=300, bbox_inches='tight')
+    plt.savefig(output_path, format=output_format, dpi=300, bbox_inches='tight')
     print(f"\nSaved stacked bar chart to {output_path}")
     plt.close()
 
@@ -208,6 +210,12 @@ if __name__ == "__main__":
         default=None,
         help="Maximum height of the vertical axis (default: auto-calculated from data, rounded up to nearest 0.1)"
     )
+    parser.add_argument(
+        "--format",
+        default="png",
+        choices=["png", "pdf"],
+        help="Output format (default: png)"
+    )
 
     args = parser.parse_args()
 
@@ -226,5 +234,6 @@ if __name__ == "__main__":
                 args.output_dir,
                 args.result_dir,
                 language,
-                max_height=args.max_height
+                max_height=args.max_height,
+                output_format=args.format
             )
