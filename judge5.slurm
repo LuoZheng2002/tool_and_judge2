@@ -2,7 +2,7 @@
 #SBATCH --job-name=judge5       # Job name
 #SBATCH --output=z_judge5_%j.out        # Standard output log (%j = job ID)
 #SBATCH --error=z_judge5_%j.err         # Error log
-#SBATCH --time=2:00:00                 # Max runtime (HH:MM:SS)
+#SBATCH --time=1:00:00                 # Max runtime (HH:MM:SS)
 # #SBATCH --partition=gpu                  # Partition/queue with GPU
 # #SBATCH --mail-type=BEGIN,END,FAIL
 # #SBATCH --mail-user=luozheng@usc.edu
