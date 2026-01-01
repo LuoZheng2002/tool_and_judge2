@@ -220,7 +220,7 @@ def convert_char_mask_to_token_mask(trimmed_prompt: str, char_mask: list, input_
         for i, (c1, c2) in enumerate(zip(trimmed_prompt, decoded_text)):
             if c1 != c2:
                 print(f"[DEBUG] First difference at position {i}: prompt={repr(c1)}, decoded={repr(c2)}")
-                print(f"[DEBUG] Context: prompt={repr(trimmed_prompt[max(0,i-20):i+20])}, decoded={repr(decoded_text[max(0,i-20):i+20])}")
+                print(f"[DEBUG] Context: prompt={repr(trimmed_prompt[max(0,i-200):i+200])}, decoded={repr(decoded_text[max(0,i-200):i+200])}")
                 break
 
     # Create token mask by checking which tokens correspond to masked characters
