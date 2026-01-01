@@ -1,0 +1,41 @@
+✏️ Setting installed package as editable
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm2_vllm.py
+This run uses VLLM backend.
+Starting preference experiment...
+Dispatching preference results for model: Qwen-Qwen3-235B, language pairs: [("en", "zh_cn"), ("en", "fr_fr"), ("en", "ar_xy"), ("en", "sw_ke")], input file: judge/result/Qwen-Qwen3-235B/preference_aggregated_output.jsonl
+Cannot open file: Unable to open file judge/result/Qwen-Qwen3-235B/preference/en_correct_zh_cn_incorrect.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing entries for model: Qwen-Qwen3-235B, lang1: en, lang2: zh_cn: missing entries count: 11478
+Cannot open file: Unable to open file judge/result/Qwen-Qwen3-235B/preference/en_incorrect_zh_cn_correct.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing entries for model: Qwen-Qwen3-235B, lang1: en, lang2: zh_cn: missing entries count: 11478
+Dispatched preference results for model: Qwen-Qwen3-235B, lang1: en, lang2: zh_cn
+Cannot open file: Unable to open file judge/result/Qwen-Qwen3-235B/preference/en_correct_fr_fr_incorrect.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing entries for model: Qwen-Qwen3-235B, lang1: en, lang2: fr_fr: missing entries count: 11478
+Cannot open file: Unable to open file judge/result/Qwen-Qwen3-235B/preference/en_incorrect_fr_fr_correct.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing entries for model: Qwen-Qwen3-235B, lang1: en, lang2: fr_fr: missing entries count: 11478
+Dispatched preference results for model: Qwen-Qwen3-235B, lang1: en, lang2: fr_fr
+Cannot open file: Unable to open file judge/result/Qwen-Qwen3-235B/preference/en_correct_ar_xy_incorrect.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing entries for model: Qwen-Qwen3-235B, lang1: en, lang2: ar_xy: missing entries count: 11478
+Cannot open file: Unable to open file judge/result/Qwen-Qwen3-235B/preference/en_incorrect_ar_xy_correct.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing entries for model: Qwen-Qwen3-235B, lang1: en, lang2: ar_xy: missing entries count: 11478
+Dispatched preference results for model: Qwen-Qwen3-235B, lang1: en, lang2: ar_xy
+Cannot open file: Unable to open file judge/result/Qwen-Qwen3-235B/preference/en_correct_sw_ke_incorrect.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing entries for model: Qwen-Qwen3-235B, lang1: en, lang2: sw_ke: missing entries count: 11478
+Cannot open file: Unable to open file judge/result/Qwen-Qwen3-235B/preference/en_incorrect_sw_ke_correct.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing entries for model: Qwen-Qwen3-235B, lang1: en, lang2: sw_ke: missing entries count: 11478
+Dispatched preference results for model: Qwen-Qwen3-235B, lang1: en, lang2: sw_ke
+Removed aggregated output file: judge/result/Qwen-Qwen3-235B/preference_aggregated_output.jsonl
+Concatenated two answers dataset for language pairs[("en", "zh_cn"), ("en", "fr_fr"), ("en", "ar_xy"), ("en", "sw_ke")] written to "judge/result/Qwen-Qwen3-235B/preference_aggregated_input.jsonl"
+Creating VLLM backend for model Qwen/Qwen3-235B using 4 GPUs...
+Creating vLLM backend for model Qwen/Qwen3-235B with 4 GPUs...
+Error creating VLLM backend for model Qwen/Qwen3-235B: Qwen/Qwen3-235B is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `hf auth login` or by passing `token=<your_token>`
+✏️ Setting installed package as editable
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm2_hf.py

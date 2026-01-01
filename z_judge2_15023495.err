@@ -1,0 +1,152 @@
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+    Finished `release` profile [optimized] target(s) in 5.09s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmpqyvrMz/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+[2025-12-31 23:12:21] ERROR base_events.py:1871: Task exception was never retrieved
+future: <Task finished name='Task-2' coro=<main_async.<locals>.collect_single_preference_async() done, defined at /projects/bfdz/zluo8/tool_and_judge2/judge.py:116> exception=SystemExit(1)>
+Traceback (most recent call last):
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 402, in hf_raise_for_status
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/Qwen/Qwen3-235B/resolve/main/tokenizer_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 479, in cached_files
+    hf_hub_download(
+    ~~~~~~~~~~~~~~~^
+        path_or_repo_id,
+        ^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+        local_files_only=local_files_only,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1007, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+        # Destination
+    ...<14 lines>...
+        force_download=force_download,
+    )
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1114, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1655, in _raise_on_head_call_error
+    raise head_call_error
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1543, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+        url=url, proxies=proxies, timeout=etag_timeout, headers=headers, token=token, endpoint=endpoint
+    )
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1460, in get_hf_file_metadata
+    r = _request_wrapper(
+        method="HEAD",
+    ...<5 lines>...
+        timeout=timeout,
+    )
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 283, in _request_wrapper
+    response = _request_wrapper(
+        method=method,
+    ...<2 lines>...
+        **params,
+    )
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 307, in _request_wrapper
+    hf_raise_for_status(response)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 452, in hf_raise_for_status
+    raise _format(RepositoryNotFoundError, message, response) from e
+huggingface_hub.errors.RepositoryNotFoundError: 404 Client Error. (Request ID: Root=1-69560233-549289227673c778538966bd;567d01f6-3392-4977-8e41-00b58c1cc3f8)
+
+Repository Not Found for url: https://huggingface.co/Qwen/Qwen3-235B/resolve/main/tokenizer_config.json.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated. For more details, see https://huggingface.co/docs/huggingface_hub/authentication
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 124, in collect_single_preference_async
+    main_vllm_engine, main_tokenizer = create_vllm_backend(config.model, args.num_gpus)
+                                       ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/bfdz/zluo8/tool_and_judge2/src_py/vllm_backend.py", line 24, in create_vllm_backend
+    tokenizer = AutoTokenizer.from_pretrained(model_name, token=hf_token)
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/transformers/models/auto/tokenization_auto.py", line 1089, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/transformers/models/auto/tokenization_auto.py", line 921, in get_tokenizer_config
+    resolved_config_file = cached_file(
+        pretrained_model_name_or_path,
+    ...<12 lines>...
+        _commit_hash=commit_hash,
+    )
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 322, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 511, in cached_files
+    raise OSError(
+    ...<4 lines>...
+    ) from e
+OSError: Qwen/Qwen3-235B is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `hf auth login` or by passing `token=<your_token>`
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 495, in <module>
+    asyncio.run(main_async())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    ~~~~~~~~~~~~~~~~^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    ~~~~~~~~~~~~~~^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/base_events.py", line 2042, in _run_once
+    handle._run()
+    ~~~~~~~~~~~^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 129, in collect_single_preference_async
+    exit(1)
+    ~~~~^^^
+  File "<frozen _sitebuiltins>", line 26, in __call__
+SystemExit: 1
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+    Finished `release` profile [optimized] target(s) in 0.77s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmp6xnBzk/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+
+thread '<unnamed>' panicked at src/judge/perplexity.rs:450:51:
+Failed to load styled answers dataset: "Unable to open file judge/result/Qwen-Qwen3-235B/styled_answers/en.jsonl: No such file or directory (os error 2)"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+Traceback (most recent call last):
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 495, in <module>
+    asyncio.run(main_async())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 332, in main_async
+    perplexity_prepare_generate_perplexity_aggregated_input(config, debug_limit=args.debug_limit)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pyo3_runtime.PanicException: Failed to load styled answers dataset: "Unable to open file judge/result/Qwen-Qwen3-235B/styled_answers/en.jsonl: No such file or directory (os error 2)"

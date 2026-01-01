@@ -1,0 +1,14 @@
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+    Finished `release` profile [optimized] target(s) in 3.79s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmpKY4NyR/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+    Finished `release` profile [optimized] target(s) in 0.52s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmpMQUvQt/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [57:05<12:22:12, 3425.59s/it]Loading checkpoint shards:  14%|█▍        | 2/14 [1:02:01<5:16:54, 1584.53s/it]Loading checkpoint shards:  21%|██▏       | 3/14 [1:11:13<3:24:02, 1112.92s/it][2026-01-01T03:50:11.012] error: *** JOB 15091034 ON gpua082 CANCELLED AT 2026-01-01T03:50:11 DUE TO TIME LIMIT ***

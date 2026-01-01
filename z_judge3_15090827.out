@@ -1,0 +1,44 @@
+✏️ Setting installed package as editable
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm3_vllm.py
+This run uses VLLM backend.
+Starting preference experiment...
+Concatenated two answers dataset for language pairs[("en", "zh_cn"), ("en", "fr_fr"), ("en", "ar_xy"), ("en", "sw_ke")] written to "judge/result/meta-llama-Llama-3.3-70B-Instruct/preference_aggregated_input.jsonl"
+Dispatching preference results for model: meta-llama-Llama-3.3-70B-Instruct, language pairs: [("en", "zh_cn"), ("en", "fr_fr"), ("en", "ar_xy"), ("en", "sw_ke")], input file: judge/result/meta-llama-Llama-3.3-70B-Instruct/preference_aggregated_output.jsonl
+Dispatched preference results for model: meta-llama-Llama-3.3-70B-Instruct, lang1: en, lang2: zh_cn
+Dispatched preference results for model: meta-llama-Llama-3.3-70B-Instruct, lang1: en, lang2: fr_fr
+Dispatched preference results for model: meta-llama-Llama-3.3-70B-Instruct, lang1: en, lang2: ar_xy
+Dispatched preference results for model: meta-llama-Llama-3.3-70B-Instruct, lang1: en, lang2: sw_ke
+Removed aggregated output file: judge/result/meta-llama-Llama-3.3-70B-Instruct/preference_aggregated_output.jsonl
+Preference experiment finished.
+Starting perplexity experiment...
+Response input dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/meta-llama-Llama-3.3-70B-Instruct/perplexity_response_input.jsonl
+Dispatching response results for model: meta-llama-Llama-3.3-70B-Instruct, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/meta-llama-Llama-3.3-70B-Instruct/perplexity_response_output.jsonl
+Dispatched response results for model: meta-llama-Llama-3.3-70B-Instruct, lang: en
+Dispatched response results for model: meta-llama-Llama-3.3-70B-Instruct, lang: zh_cn
+Dispatched response results for model: meta-llama-Llama-3.3-70B-Instruct, lang: fr_fr
+Dispatched response results for model: meta-llama-Llama-3.3-70B-Instruct, lang: ar_xy
+Dispatched response results for model: meta-llama-Llama-3.3-70B-Instruct, lang: sw_ke
+Removed aggregated response output file: judge/result/meta-llama-Llama-3.3-70B-Instruct/perplexity_response_output.jsonl
+Styled answers input dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/meta-llama-Llama-3.3-70B-Instruct/perplexity_styled_answers_input.jsonl
+Dispatching styled answers results for model: meta-llama-Llama-3.3-70B-Instruct, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/meta-llama-Llama-3.3-70B-Instruct/perplexity_styled_answers_output.jsonl
+Dispatched styled answers results for model: meta-llama-Llama-3.3-70B-Instruct, lang: en
+Dispatched styled answers results for model: meta-llama-Llama-3.3-70B-Instruct, lang: zh_cn
+Dispatched styled answers results for model: meta-llama-Llama-3.3-70B-Instruct, lang: fr_fr
+Dispatched styled answers results for model: meta-llama-Llama-3.3-70B-Instruct, lang: ar_xy
+Dispatched styled answers results for model: meta-llama-Llama-3.3-70B-Instruct, lang: sw_ke
+Removed aggregated styled answers output file: judge/result/meta-llama-Llama-3.3-70B-Instruct/perplexity_styled_answers_output.jsonl
+Total entries to generate responses: 0
+Completed writing all responses to judge/result/meta-llama-Llama-3.3-70B-Instruct/perplexity_response_output.jsonl
+Total entries to generate styled answers: 0
+Completed writing all styled answers to judge/result/meta-llama-Llama-3.3-70B-Instruct/perplexity_styled_answers_output.jsonl
+Perplexity experiment finished.
+✏️ Setting installed package as editable
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm3_hf.py

@@ -80,7 +80,7 @@ pub enum LocalModel {
     Qwen3_32B,
     #[strum(serialize = "Qwen/Qwen3-Next-80B-A3B-Instruct")]
     Qwen3Next80bA3b,
-    #[strum(serialize = "Qwen/Qwen3-235B")]
+    #[strum(serialize = "Qwen/Qwen3-235B-A22B")]
     Qwen3_235bA22b,
     #[strum(serialize = "meta-llama/Llama-3.1-8B-Instruct")]
     Llama3_1_8B,

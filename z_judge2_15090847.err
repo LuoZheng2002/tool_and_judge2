@@ -1,0 +1,219 @@
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+   Compiling codebase_rs v0.1.0 (/projects/bfdz/zluo8/tool_and_judge2)
+    Finished `release` profile [optimized] target(s) in 25.84s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmpF1X8a7/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[0;36m(EngineCore_DP0 pid=426090)[0;0m [0;36m(Worker_TP2 pid=426100)[0;0m /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py:798: UserWarning: Not enough free disk space to download the file. The expected file size is: 3994.08 MB. The target location /work/hdd/bfdz/zluo8/huggingface/hub/models--Qwen--Qwen3-235B-A22B/blobs only has 3778.92 MB free disk space.
+[0;36m(EngineCore_DP0 pid=426090)[0;0m [0;36m(Worker_TP2 pid=426100)[0;0m   warnings.warn(
+[0;36m(EngineCore_DP0 pid=426090)[0;0m [0;36m(Worker_TP2 pid=426100)[0;0m /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py:798: UserWarning: Not enough free disk space to download the file. The expected file size is: 3994.08 MB. The target location /work/hdd/bfdz/zluo8/huggingface/hub/models--Qwen--Qwen3-235B-A22B/blobs only has 2246.48 MB free disk space.
+[0;36m(EngineCore_DP0 pid=426090)[0;0m [0;36m(Worker_TP2 pid=426100)[0;0m   warnings.warn(
+[0;36m(EngineCore_DP0 pid=426090)[0;0m [0;36m(Worker_TP2 pid=426100)[0;0m /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py:798: UserWarning: Not enough free disk space to download the file. The expected file size is: 3994.08 MB. The target location /work/hdd/bfdz/zluo8/huggingface/hub/models--Qwen--Qwen3-235B-A22B/blobs only has 0.00 MB free disk space.
+[0;36m(EngineCore_DP0 pid=426090)[0;0m [0;36m(Worker_TP2 pid=426100)[0;0m   warnings.warn(
+[0;36m(EngineCore_DP0 pid=426090)[0;0m [0;36m(Worker_TP2 pid=426100)[0;0m /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py:798: UserWarning: Not enough free disk space to download the file. The expected file size is: 3988.82 MB. The target location /work/hdd/bfdz/zluo8/huggingface/hub/models--Qwen--Qwen3-235B-A22B/blobs only has 0.00 MB free disk space.
+[0;36m(EngineCore_DP0 pid=426090)[0;0m [0;36m(Worker_TP2 pid=426100)[0;0m   warnings.warn(
+[0;36m(EngineCore_DP0 pid=426090)[0;0m [0;36m(Worker_TP2 pid=426100)[0;0m /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py:798: UserWarning: Not enough free disk space to download the file. The expected file size is: 3951.09 MB. The target location /work/hdd/bfdz/zluo8/huggingface/hub/models--Qwen--Qwen3-235B-A22B/blobs only has 0.00 MB free disk space.
+[0;36m(EngineCore_DP0 pid=426090)[0;0m [0;36m(Worker_TP2 pid=426100)[0;0m   warnings.warn(
+[0;36m(EngineCore_DP0 pid=426090)[0;0m [0;36m(Worker_TP2 pid=426100)[0;0m /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py:798: UserWarning: Not enough free disk space to download the file. The expected file size is: 3994.07 MB. The target location /work/hdd/bfdz/zluo8/huggingface/hub/models--Qwen--Qwen3-235B-A22B/blobs only has 0.00 MB free disk space.
+[0;36m(EngineCore_DP0 pid=426090)[0;0m [0;36m(Worker_TP2 pid=426100)[0;0m   warnings.warn(
+[0;36m(EngineCore_DP0 pid=426090)[0;0m [0;36m(Worker_TP2 pid=426100)[0;0m /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py:798: UserWarning: Not enough free disk space to download the file. The expected file size is: 3997.23 MB. The target location /work/hdd/bfdz/zluo8/huggingface/hub/models--Qwen--Qwen3-235B-A22B/blobs only has 0.00 MB free disk space.
+[0;36m(EngineCore_DP0 pid=426090)[0;0m [0;36m(Worker_TP2 pid=426100)[0;0m   warnings.warn(
+[0;36m(EngineCore_DP0 pid=426090)[0;0m [0;36m(Worker_TP2 pid=426100)[0;0m /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py:798: UserWarning: Not enough free disk space to download the file. The expected file size is: 3998.26 MB. The target location /work/hdd/bfdz/zluo8/huggingface/hub/models--Qwen--Qwen3-235B-A22B/blobs only has 0.00 MB free disk space.
+[0;36m(EngineCore_DP0 pid=426090)[0;0m [0;36m(Worker_TP2 pid=426100)[0;0m   warnings.warn(
+[0;36m(EngineCore_DP0 pid=426090)[0;0m [0;36m(Worker_TP1 pid=426098)[0;0m /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py:798: UserWarning: Not enough free disk space to download the file. The expected file size is: 3998.26 MB. The target location /work/hdd/bfdz/zluo8/huggingface/hub/models--Qwen--Qwen3-235B-A22B/blobs only has 0.00 MB free disk space.
+/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py:798: UserWarning: Not enough free disk space to download the file. The expected file size is: 3997.23 MB. The target location /work/hdd/bfdz/zluo8/huggingface/hub/models--Qwen--Qwen3-235B-A22B/blobs only has 0.00 MB free disk space.
+[0;36m(EngineCore_DP0 pid=426090)[0;0m [0;36m(Worker_TP1 pid=426098)[0;0m   warnings.warn(
+[0;36m(EngineCore_DP0 pid=426090)[0;0m [0;36m(Worker_TP1 pid=426098)[0;0m   warnings.warn(
+/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py:798: UserWarning: Not enough free disk space to download the file. The expected file size is: 3994.08 MB. The target location /work/hdd/bfdz/zluo8/huggingface/hub/models--Qwen--Qwen3-235B-A22B/blobs only has 0.00 MB free disk space.
+[0;36m(EngineCore_DP0 pid=426090)[0;0m [0;36m(Worker_TP1 pid=426098)[0;0m   warnings.warn(
+[rank1]:[W1231 23:34:02.190269003 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=123, addr=[localhost]:54504, remote=[localhost]:34147): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f4b6328ab80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f4ba5693531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffe92d (0x7f4ba569492d in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff4da (0x7f4ba56954da in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f4ba56901fe in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f4b6420d6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f4bcf2d9ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f4be30c1c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f4be3146c60 in /lib64/libc.so.6)
+
+[rank1]:[W1231 23:34:03.568647548 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]:[W1231 23:34:04.592302852 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=123, addr=[localhost]:54504, remote=[localhost]:34147): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f4b6328ab80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f4ba5693531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f4ba5693dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f4ba56958ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f4ba56901ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f4b6420d6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f4bcf2d9ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f4be30c1c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f4be3146c60 in /lib64/libc.so.6)
+
+[rank1]:[W1231 23:34:04.595554110 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank1]:[W1231 23:34:05.595758027 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=123, addr=[localhost]:54504, remote=[localhost]:34147): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:668 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f4b6328ab80 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffd531 (0x7f4ba5693531 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffddc2 (0x7f4ba5693dc2 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5fff8ce (0x7f4ba56958ce in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7f4ba56901ee in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f4b6420d6b8 in /projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbad4 (0x7f4bcf2d9ad4 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x89c0a (0x7f4be30c1c0a in /lib64/libc.so.6)
+frame #8: <unknown function> + 0x10ec60 (0x7f4be3146c60 in /lib64/libc.so.6)
+
+[rank1]:[W1231 23:34:05.599299958 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0 Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[0;36m(EngineCore_DP0 pid=426090)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=426090)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=426090)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+[0;36m(EngineCore_DP0 pid=426090)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=426090)[0;0m     ~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=426090)[0;0m   File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=426090)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=426090)[0;0m     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=426090)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 847, in run_engine_core
+[0;36m(EngineCore_DP0 pid=426090)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=426090)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 834, in run_engine_core
+[0;36m(EngineCore_DP0 pid=426090)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
+[0;36m(EngineCore_DP0 pid=426090)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 610, in __init__
+[0;36m(EngineCore_DP0 pid=426090)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=426090)[0;0m     ~~~~~~~~~~~~~~~~^
+[0;36m(EngineCore_DP0 pid=426090)[0;0m         vllm_config, executor_class, log_stats, executor_fail_callback
+[0;36m(EngineCore_DP0 pid=426090)[0;0m         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=426090)[0;0m     )
+[0;36m(EngineCore_DP0 pid=426090)[0;0m     ^
+[0;36m(EngineCore_DP0 pid=426090)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core.py", line 102, in __init__
+[0;36m(EngineCore_DP0 pid=426090)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=426090)[0;0m                           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=426090)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 97, in __init__
+[0;36m(EngineCore_DP0 pid=426090)[0;0m     super().__init__(vllm_config)
+[0;36m(EngineCore_DP0 pid=426090)[0;0m     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=426090)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=426090)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=426090)[0;0m     ~~~~~~~~~~~~~~~~~~~^^
+[0;36m(EngineCore_DP0 pid=426090)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 174, in _init_executor
+[0;36m(EngineCore_DP0 pid=426090)[0;0m     self.workers = WorkerProc.wait_for_ready(unready_workers)
+[0;36m(EngineCore_DP0 pid=426090)[0;0m                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=426090)[0;0m   File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/executor/multiproc_executor.py", line 660, in wait_for_ready
+[0;36m(EngineCore_DP0 pid=426090)[0;0m     raise e from None
+[0;36m(EngineCore_DP0 pid=426090)[0;0m Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/multiprocessing/resource_tracker.py:301: UserWarning: resource_tracker: There appear to be 3 leaked shared_memory objects to clean up at shutdown: {'/psm_b04bde52', '/psm_a3d34a30', '/psm_b802dd04'}
+  warnings.warn(
+[2025-12-31 23:34:08] ERROR base_events.py:1871: Task exception was never retrieved
+future: <Task finished name='Task-2' coro=<main_async.<locals>.collect_single_preference_async() done, defined at /projects/bfdz/zluo8/tool_and_judge2/judge.py:116> exception=SystemExit(1)>
+Traceback (most recent call last):
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 124, in collect_single_preference_async
+    main_vllm_engine, main_tokenizer = create_vllm_backend(config.model, args.num_gpus)
+                                       ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/bfdz/zluo8/tool_and_judge2/src_py/vllm_backend.py", line 37, in create_vllm_backend
+    engine = AsyncLLMEngine.from_engine_args(engine_args)
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/async_llm.py", line 252, in from_engine_args
+    return cls(
+        vllm_config=vllm_config,
+    ...<5 lines>...
+        stat_loggers=stat_loggers,
+    )
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/async_llm.py", line 134, in __init__
+    self.engine_core = EngineCoreClient.make_async_mp_client(
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        vllm_config=vllm_config,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        client_index=client_index,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core_client.py", line 121, in make_async_mp_client
+    return AsyncMPClient(*client_args)
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core_client.py", line 810, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        asyncio_mode=True,
+        ^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        client_addresses=client_addresses,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/core_client.py", line 471, in __init__
+    with launch_core_engines(vllm_config, executor_class, log_stats) as (
+         ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/contextlib.py", line 148, in __exit__
+    next(self.gen)
+    ~~~~^^^^^^^^^^
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/utils.py", line 903, in launch_core_engines
+    wait_for_engine_startup(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        handshake_socket,
+        ^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        coordinator.proc if coordinator else None,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/vllm/v1/engine/utils.py", line 960, in wait_for_engine_startup
+    raise RuntimeError(
+    ...<3 lines>...
+    )
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 495, in <module>
+    asyncio.run(main_async())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    ~~~~~~~~~~~~~~~~^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    ~~~~~~~~~~~~~~^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/base_events.py", line 2042, in _run_once
+    handle._run()
+    ~~~~~~~~~~~^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 129, in collect_single_preference_async
+    exit(1)
+    ~~~~^^^
+  File "<frozen _sitebuiltins>", line 26, in __call__
+SystemExit: 1
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+    Finished `release` profile [optimized] target(s) in 1.66s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmpvwYUWS/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+
+thread '<unnamed>' panicked at src/judge/perplexity.rs:450:51:
+Failed to load styled answers dataset: "Unable to open file judge/result/Qwen-Qwen3-235B-A22B/styled_answers/en.jsonl: No such file or directory (os error 2)"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+Traceback (most recent call last):
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 495, in <module>
+    asyncio.run(main_async())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 332, in main_async
+    perplexity_prepare_generate_perplexity_aggregated_input(config, debug_limit=args.debug_limit)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pyo3_runtime.PanicException: Failed to load styled answers dataset: "Unable to open file judge/result/Qwen-Qwen3-235B-A22B/styled_answers/en.jsonl: No such file or directory (os error 2)"

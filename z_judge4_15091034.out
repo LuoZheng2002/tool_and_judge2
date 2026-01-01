@@ -1,0 +1,81 @@
+✏️ Setting installed package as editable
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm4_vllm.py
+This run uses VLLM backend.
+Starting preference experiment...
+Concatenated two answers dataset for language pairs[("en", "zh_cn"), ("en", "fr_fr"), ("en", "ar_xy"), ("en", "sw_ke")] written to "judge/result/CohereLabs-aya-expanse-32b/preference_aggregated_input.jsonl"
+Dispatching preference results for model: CohereLabs-aya-expanse-32b, language pairs: [("en", "zh_cn"), ("en", "fr_fr"), ("en", "ar_xy"), ("en", "sw_ke")], input file: judge/result/CohereLabs-aya-expanse-32b/preference_aggregated_output.jsonl
+Dispatched preference results for model: CohereLabs-aya-expanse-32b, lang1: en, lang2: zh_cn
+Dispatched preference results for model: CohereLabs-aya-expanse-32b, lang1: en, lang2: fr_fr
+Dispatched preference results for model: CohereLabs-aya-expanse-32b, lang1: en, lang2: ar_xy
+Dispatched preference results for model: CohereLabs-aya-expanse-32b, lang1: en, lang2: sw_ke
+Removed aggregated output file: judge/result/CohereLabs-aya-expanse-32b/preference_aggregated_output.jsonl
+Preference experiment finished.
+Starting perplexity experiment...
+Response input dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/CohereLabs-aya-expanse-32b/perplexity_response_input.jsonl
+Dispatching response results for model: CohereLabs-aya-expanse-32b, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/CohereLabs-aya-expanse-32b/perplexity_response_output.jsonl
+Dispatched response results for model: CohereLabs-aya-expanse-32b, lang: en
+Dispatched response results for model: CohereLabs-aya-expanse-32b, lang: zh_cn
+Dispatched response results for model: CohereLabs-aya-expanse-32b, lang: fr_fr
+Dispatched response results for model: CohereLabs-aya-expanse-32b, lang: ar_xy
+Dispatched response results for model: CohereLabs-aya-expanse-32b, lang: sw_ke
+Removed aggregated response output file: judge/result/CohereLabs-aya-expanse-32b/perplexity_response_output.jsonl
+Styled answers input dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/CohereLabs-aya-expanse-32b/perplexity_styled_answers_input.jsonl
+Dispatching styled answers results for model: CohereLabs-aya-expanse-32b, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/CohereLabs-aya-expanse-32b/perplexity_styled_answers_output.jsonl
+Dispatched styled answers results for model: CohereLabs-aya-expanse-32b, lang: en
+Dispatched styled answers results for model: CohereLabs-aya-expanse-32b, lang: zh_cn
+Dispatched styled answers results for model: CohereLabs-aya-expanse-32b, lang: fr_fr
+Dispatched styled answers results for model: CohereLabs-aya-expanse-32b, lang: ar_xy
+Dispatched styled answers results for model: CohereLabs-aya-expanse-32b, lang: sw_ke
+Removed aggregated styled answers output file: judge/result/CohereLabs-aya-expanse-32b/perplexity_styled_answers_output.jsonl
+Total entries to generate responses: 0
+Completed writing all responses to judge/result/CohereLabs-aya-expanse-32b/perplexity_response_output.jsonl
+Total entries to generate styled answers: 0
+Completed writing all styled answers to judge/result/CohereLabs-aya-expanse-32b/perplexity_styled_answers_output.jsonl
+Perplexity experiment finished.
+✏️ Setting installed package as editable
+Dispatching perplexity results for model: CohereLabs-aya-expanse-32b, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/CohereLabs-aya-expanse-32b/perplexity_aggregated_output.jsonl
+Cannot open file: Unable to open file judge/result/CohereLabs-aya-expanse-32b/perplexity/en_correct.jsonl: No such file or directory (os error 2), assuming empty result file
+Cannot open file: Unable to open file judge/result/CohereLabs-aya-expanse-32b/perplexity/en_incorrect.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 8561 correct entries for model: CohereLabs-aya-expanse-32b, lang: en
+Warning: Missing 8561 incorrect entries for model: CohereLabs-aya-expanse-32b, lang: en
+Dispatched perplexity results for model: CohereLabs-aya-expanse-32b, lang: en
+Cannot open file: Unable to open file judge/result/CohereLabs-aya-expanse-32b/perplexity/zh_cn_correct.jsonl: No such file or directory (os error 2), assuming empty result file
+Cannot open file: Unable to open file judge/result/CohereLabs-aya-expanse-32b/perplexity/zh_cn_incorrect.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 8561 correct entries for model: CohereLabs-aya-expanse-32b, lang: zh_cn
+Warning: Missing 8561 incorrect entries for model: CohereLabs-aya-expanse-32b, lang: zh_cn
+Dispatched perplexity results for model: CohereLabs-aya-expanse-32b, lang: zh_cn
+Cannot open file: Unable to open file judge/result/CohereLabs-aya-expanse-32b/perplexity/fr_fr_correct.jsonl: No such file or directory (os error 2), assuming empty result file
+Cannot open file: Unable to open file judge/result/CohereLabs-aya-expanse-32b/perplexity/fr_fr_incorrect.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 8561 correct entries for model: CohereLabs-aya-expanse-32b, lang: fr_fr
+Warning: Missing 8561 incorrect entries for model: CohereLabs-aya-expanse-32b, lang: fr_fr
+Dispatched perplexity results for model: CohereLabs-aya-expanse-32b, lang: fr_fr
+Cannot open file: Unable to open file judge/result/CohereLabs-aya-expanse-32b/perplexity/ar_xy_correct.jsonl: No such file or directory (os error 2), assuming empty result file
+Cannot open file: Unable to open file judge/result/CohereLabs-aya-expanse-32b/perplexity/ar_xy_incorrect.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 8561 correct entries for model: CohereLabs-aya-expanse-32b, lang: ar_xy
+Warning: Missing 8561 incorrect entries for model: CohereLabs-aya-expanse-32b, lang: ar_xy
+Dispatched perplexity results for model: CohereLabs-aya-expanse-32b, lang: ar_xy
+Cannot open file: Unable to open file judge/result/CohereLabs-aya-expanse-32b/perplexity/sw_ke_correct.jsonl: No such file or directory (os error 2), assuming empty result file
+Cannot open file: Unable to open file judge/result/CohereLabs-aya-expanse-32b/perplexity/sw_ke_incorrect.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 8561 correct entries for model: CohereLabs-aya-expanse-32b, lang: sw_ke
+Warning: Missing 8561 incorrect entries for model: CohereLabs-aya-expanse-32b, lang: sw_ke
+Dispatched perplexity results for model: CohereLabs-aya-expanse-32b, lang: sw_ke
+Removed aggregated perplexity output file: judge/result/CohereLabs-aya-expanse-32b/perplexity_aggregated_output.jsonl
+Concatenated perplexity dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/CohereLabs-aya-expanse-32b/perplexity_aggregated_input.jsonl
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm4_hf.py
+Total entries to calculate perplexity: 85610
+Using batch size: 10 based on model size, number of GPUs (2), and single GPU memory (40GB)
+Processing batch 1/8561
+Creating HuggingFace backend for model CohereLabs/aya-expanse-32b using 2 GPUs and batch size 10...
+Creating HuggingFace backend for model CohereLabs/aya-expanse-32b with batch size 10...
+Loading model from HuggingFace...
+Found 2 GPUs
+GPU 0: 39.49 GB available, using 35 GB
+GPU 1: 39.49 GB available, using 35 GB

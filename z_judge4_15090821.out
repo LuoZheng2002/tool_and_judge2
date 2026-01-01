@@ -1,0 +1,402 @@
+✏️ Setting installed package as editable
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm4_vllm.py
+This run uses VLLM backend.
+Starting preference experiment...
+Dispatching preference results for model: CohereLabs-aya-expanse-32b, language pairs: [("en", "zh_cn"), ("en", "fr_fr"), ("en", "ar_xy"), ("en", "sw_ke")], input file: judge/result/CohereLabs-aya-expanse-32b/preference_aggregated_output.jsonl
+Dispatched preference results for model: CohereLabs-aya-expanse-32b, lang1: en, lang2: zh_cn
+Dispatched preference results for model: CohereLabs-aya-expanse-32b, lang1: en, lang2: fr_fr
+Dispatched preference results for model: CohereLabs-aya-expanse-32b, lang1: en, lang2: ar_xy
+Dispatched preference results for model: CohereLabs-aya-expanse-32b, lang1: en, lang2: sw_ke
+Removed aggregated output file: judge/result/CohereLabs-aya-expanse-32b/preference_aggregated_output.jsonl
+Concatenated two answers dataset for language pairs[("en", "zh_cn"), ("en", "fr_fr"), ("en", "ar_xy"), ("en", "sw_ke")] written to "judge/result/CohereLabs-aya-expanse-32b/preference_aggregated_input.jsonl"
+Dispatching preference results for model: CohereLabs-aya-expanse-32b, language pairs: [("en", "zh_cn"), ("en", "fr_fr"), ("en", "ar_xy"), ("en", "sw_ke")], input file: judge/result/CohereLabs-aya-expanse-32b/preference_aggregated_output.jsonl
+Dispatched preference results for model: CohereLabs-aya-expanse-32b, lang1: en, lang2: zh_cn
+Dispatched preference results for model: CohereLabs-aya-expanse-32b, lang1: en, lang2: fr_fr
+Dispatched preference results for model: CohereLabs-aya-expanse-32b, lang1: en, lang2: ar_xy
+Dispatched preference results for model: CohereLabs-aya-expanse-32b, lang1: en, lang2: sw_ke
+Removed aggregated output file: judge/result/CohereLabs-aya-expanse-32b/preference_aggregated_output.jsonl
+Preference experiment finished.
+Starting perplexity experiment...
+Dispatching response results for model: CohereLabs-aya-expanse-32b, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/CohereLabs-aya-expanse-32b/perplexity_response_output.jsonl
+Cannot open file: Unable to open file judge/result/CohereLabs-aya-expanse-32b/response/en.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 583 entries for model: CohereLabs-aya-expanse-32b, lang: en
+Dispatched response results for model: CohereLabs-aya-expanse-32b, lang: en
+Cannot open file: Unable to open file judge/result/CohereLabs-aya-expanse-32b/response/zh_cn.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 212 entries for model: CohereLabs-aya-expanse-32b, lang: zh_cn
+Dispatched response results for model: CohereLabs-aya-expanse-32b, lang: zh_cn
+Cannot open file: Unable to open file judge/result/CohereLabs-aya-expanse-32b/response/fr_fr.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 1195 entries for model: CohereLabs-aya-expanse-32b, lang: fr_fr
+Dispatched response results for model: CohereLabs-aya-expanse-32b, lang: fr_fr
+Cannot open file: Unable to open file judge/result/CohereLabs-aya-expanse-32b/response/ar_xy.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 265 entries for model: CohereLabs-aya-expanse-32b, lang: ar_xy
+Dispatched response results for model: CohereLabs-aya-expanse-32b, lang: ar_xy
+Cannot open file: Unable to open file judge/result/CohereLabs-aya-expanse-32b/response/sw_ke.jsonl: No such file or directory (os error 2), assuming empty result file
+Warning: Missing 1750 entries for model: CohereLabs-aya-expanse-32b, lang: sw_ke
+Dispatched response results for model: CohereLabs-aya-expanse-32b, lang: sw_ke
+Removed aggregated response output file: judge/result/CohereLabs-aya-expanse-32b/perplexity_response_output.jsonl
+Response input dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/CohereLabs-aya-expanse-32b/perplexity_response_input.jsonl
+Total entries to generate responses: 4005
+Creating VLLM backend for model CohereLabs/aya-expanse-32b using 2 GPUs...
+Creating vLLM backend for model CohereLabs/aya-expanse-32b with 2 GPUs...
+INFO 12-31 23:32:27 [model.py:637] Resolved architecture: CohereForCausalLM
+INFO 12-31 23:32:27 [model.py:1750] Using max model len 5000
+INFO 12-31 23:32:29 [scheduler.py:228] Chunked prefill is enabled with max_num_batched_tokens=2048.
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m INFO 12-31 23:32:30 [core.py:93] Initializing a V1 LLM engine (v0.12.0) with config: model='CohereLabs/aya-expanse-32b', speculative_config=None, tokenizer='CohereLabs/aya-expanse-32b', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.float16, max_seq_len=5000, download_dir=None, load_format=auto, tensor_parallel_size=2, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01), seed=0, served_model_name=CohereLabs/aya-expanse-32b, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer'], 'compile_mm_encoder': False, 'compile_sizes': [], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'eliminate_noops': True, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 256, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>}, 'local_cache_dir': None}
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m WARNING 12-31 23:32:30 [multiproc_executor.py:880] Reducing Torch parallelism from 4 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m INFO 12-31 23:32:40 [parallel_state.py:1200] world_size=2 rank=1 local_rank=1 distributed_init_method=tcp://127.0.0.1:42341 backend=nccl
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m INFO 12-31 23:32:40 [parallel_state.py:1200] world_size=2 rank=0 local_rank=0 distributed_init_method=tcp://127.0.0.1:42341 backend=nccl
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m INFO 12-31 23:32:40 [pynccl.py:111] vLLM is using nccl==2.27.5
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m WARNING 12-31 23:32:41 [symm_mem.py:67] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m WARNING 12-31 23:32:41 [symm_mem.py:67] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m INFO 12-31 23:32:41 [parallel_state.py:1408] rank 0 in world size 2 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank 0
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m INFO 12-31 23:32:41 [parallel_state.py:1408] rank 1 in world size 2 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 1, EP rank 1
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m [0;36m(Worker_TP0 pid=1669334)[0;0m INFO 12-31 23:32:42 [gpu_model_runner.py:3467] Starting to load model CohereLabs/aya-expanse-32b...
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m [0;36m(Worker_TP0 pid=1669334)[0;0m INFO 12-31 23:32:44 [cuda.py:411] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION']
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m [0;36m(Worker_TP1 pid=1669336)[0;0m INFO 12-31 23:32:44 [cuda.py:411] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION']
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m [0;36m(Worker_TP1 pid=1669336)[0;0m INFO 12-31 23:32:46 [weight_utils.py:487] Time spent downloading weights for CohereLabs/aya-expanse-32b: 0.873879 seconds
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m [0;36m(Worker_TP0 pid=1669334)[0;0m INFO 12-31 23:39:36 [default_loader.py:308] Loading weights took 409.66 seconds
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m [0;36m(Worker_TP0 pid=1669334)[0;0m INFO 12-31 23:39:37 [gpu_model_runner.py:3549] Model loading took 30.0808 GiB memory and 413.950831 seconds
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m INFO 12-31 23:40:37 [shm_broadcast.py:501] No available shared memory broadcast block found in 60 seconds. This typically happens when some processes are hanging or doing some time-consuming work (e.g. compilation, weight/kv cache quantization).
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m [0;36m(Worker_TP0 pid=1669334)[0;0m INFO 12-31 23:40:47 [backends.py:655] Using cache directory: /u/zluo8/.cache/vllm/torch_compile_cache/e6ff447a6e/rank_0_0/backbone for vLLM's torch.compile
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m [0;36m(Worker_TP0 pid=1669334)[0;0m INFO 12-31 23:40:47 [backends.py:715] Dynamo bytecode transform time: 69.18 s
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m [0;36m(Worker_TP0 pid=1669334)[0;0m INFO 12-31 23:40:56 [backends.py:257] Cache the graph for dynamic shape for later use
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m [0;36m(Worker_TP0 pid=1669334)[0;0m INFO 12-31 23:41:03 [backends.py:288] Compiling a graph for dynamic shape takes 15.49 s
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m [0;36m(Worker_TP0 pid=1669334)[0;0m INFO 12-31 23:41:07 [monitor.py:34] torch.compile takes 84.67 s in total
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m [0;36m(Worker_TP0 pid=1669334)[0;0m INFO 12-31 23:41:10 [gpu_worker.py:359] Available KV cache memory: 3.26 GiB
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m INFO 12-31 23:41:10 [kv_cache_utils.py:1286] GPU KV cache size: 42,688 tokens
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m INFO 12-31 23:41:10 [kv_cache_utils.py:1291] Maximum concurrency for 5,000 tokens per request: 8.52x
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m [0;36m(Worker_TP1 pid=1669336)[0;0m INFO 12-31 23:41:16 [custom_all_reduce.py:216] Registering 4374 cuda graph addresses
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m [0;36m(Worker_TP0 pid=1669334)[0;0m INFO 12-31 23:41:16 [custom_all_reduce.py:216] Registering 4374 cuda graph addresses
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m [0;36m(Worker_TP0 pid=1669334)[0;0m INFO 12-31 23:41:16 [gpu_model_runner.py:4466] Graph capturing finished in 6 secs, took 0.45 GiB
+[0;36m(EngineCore_DP0 pid=1669328)[0;0m INFO 12-31 23:41:16 [core.py:254] init engine (profile, create kv cache, warmup model) took 99.23 seconds
+vLLM backend created successfully for CohereLabs/aya-expanse-32b
+VLLM backend created for model CohereLabs/aya-expanse-32b
+Response: Written 200/4005 entries to file
+Response: Written 400/4005 entries to file
+Response: Written 600/4005 entries to file
+Response: Written 800/4005 entries to file
+Response: Written 1000/4005 entries to file
+Response: Written 1200/4005 entries to file
+Response: Written 1400/4005 entries to file
+Response: Written 1600/4005 entries to file
+Response: Written 1800/4005 entries to file
+Response: Written 2000/4005 entries to file
+Response: Written 2200/4005 entries to file
+Response: Written 2400/4005 entries to file
+Response: Written 2600/4005 entries to file
+Response: Written 2800/4005 entries to file
+Response: Written 3000/4005 entries to file
+Response: Written 3200/4005 entries to file
+Response: Written 3400/4005 entries to file
+Response: Written 3600/4005 entries to file
+Response: Written 3800/4005 entries to file
+Response: Written 4000/4005 entries to file
+Dispatching response results for model: CohereLabs-aya-expanse-32b, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/CohereLabs-aya-expanse-32b/perplexity_response_output.jsonl
+Dispatched response results for model: CohereLabs-aya-expanse-32b, lang: en
+Dispatched response results for model: CohereLabs-aya-expanse-32b, lang: zh_cn
+Dispatched response results for model: CohereLabs-aya-expanse-32b, lang: fr_fr
+Dispatched response results for model: CohereLabs-aya-expanse-32b, lang: ar_xy
+Dispatched response results for model: CohereLabs-aya-expanse-32b, lang: sw_ke
+Removed aggregated response output file: judge/result/CohereLabs-aya-expanse-32b/perplexity_response_output.jsonl
+File judge/result/CohereLabs-aya-expanse-32b/styled_answers/en.jsonl does not exist, assuming no completed entries.
+File judge/result/CohereLabs-aya-expanse-32b/styled_answers/zh_cn.jsonl does not exist, assuming no completed entries.
+File judge/result/CohereLabs-aya-expanse-32b/styled_answers/fr_fr.jsonl does not exist, assuming no completed entries.
+File judge/result/CohereLabs-aya-expanse-32b/styled_answers/ar_xy.jsonl does not exist, assuming no completed entries.
+File judge/result/CohereLabs-aya-expanse-32b/styled_answers/sw_ke.jsonl does not exist, assuming no completed entries.
+Styled answers input dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/CohereLabs-aya-expanse-32b/perplexity_styled_answers_input.jsonl
+Completed writing all responses to judge/result/CohereLabs-aya-expanse-32b/perplexity_response_output.jsonl
+Total entries to generate styled answers: 42805
+Creating Assistant API client for model gpt-4.1...
+Created API backend for model gpt-4.1 with auto-retry on rate limits
+Assistant API client created for model gpt-4.1
+Styled Response: Written 200/42805 entries to styled answers file
+Styled Response: Written 400/42805 entries to styled answers file
+Styled Response: Written 600/42805 entries to styled answers file
+Styled Response: Written 800/42805 entries to styled answers file
+When generating for lang ar_xy, question index 1482, question: باعتبار أن HH دالة تجزئة ميركل - دامجارد H:X^{\leq, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 1000/42805 entries to styled answers file
+Styled Response: Written 1200/42805 entries to styled answers file
+When generating for lang en, question index 1013, question: The language {ww | w in (0 + 1)*} is, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 1400/42805 entries to styled answers file
+Styled Response: Written 1600/42805 entries to styled answers file
+Styled Response: Written 1800/42805 entries to styled answers file
+Styled Response: Written 2000/42805 entries to styled answers file
+Styled Response: Written 2200/42805 entries to styled answers file
+When generating for lang en, question index 1482, question: Let HH be a Merkle-Damgard hash function is H:X^{\, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 2400/42805 entries to styled answers file
+When generating for lang zh_cn, question index 5559, question: Two dice are rolled simultaneously. If both dice s, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 2600/42805 entries to styled answers file
+Styled Response: Written 2800/42805 entries to styled answers file
+Styled Response: Written 3000/42805 entries to styled answers file
+Styled Response: Written 3200/42805 entries to styled answers file
+Styled Response: Written 3400/42805 entries to styled answers file
+When generating for lang fr_fr, question index 1482, question: Étant donné HH une fonction de hachage Merkle-Damg, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 3600/42805 entries to styled answers file
+Styled Response: Written 3800/42805 entries to styled answers file
+Styled Response: Written 4000/42805 entries to styled answers file
+Styled Response: Written 4200/42805 entries to styled answers file
+Styled Response: Written 4400/42805 entries to styled answers file
+Styled Response: Written 4600/42805 entries to styled answers file
+Styled Response: Written 4800/42805 entries to styled answers file
+Styled Response: Written 5000/42805 entries to styled answers file
+Styled Response: Written 5200/42805 entries to styled answers file
+Styled Response: Written 5400/42805 entries to styled answers file
+When generating for lang ar_xy, question index 13031, question: في دراسة مقطعية مصممة لتقييم تأثيرات العمر على وقت, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 5600/42805 entries to styled answers file
+Styled Response: Written 5800/42805 entries to styled answers file
+Styled Response: Written 6000/42805 entries to styled answers file
+When generating for lang en, question index 6942, question: Which of the following is true of a convolution ke, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 6200/42805 entries to styled answers file
+When generating for lang en, question index 6946, question: Statement 1| The derivative of the sigmoid $\sigma, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 6400/42805 entries to styled answers file
+Styled Response: Written 6600/42805 entries to styled answers file
+Styled Response: Written 6800/42805 entries to styled answers file
+Styled Response: Written 7000/42805 entries to styled answers file
+Styled Response: Written 7200/42805 entries to styled answers file
+When generating for lang en, question index 3431, question: This question refers to the following information., exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 7400/42805 entries to styled answers file
+When generating for lang zh_cn, question index 6942, question: Which of the following is true of a convolution ke, exceeded maximum trials for generating styled answers, use fallback
+When generating for lang zh_cn, question index 6946, question: Statement 1| The derivative of the sigmoid $\sigma, exceeded maximum trials for generating styled answers, use fallback
+When generating for lang zh_cn, question index 6939, question: Statement 1| The ReLU's gradient is zero for $x<0$, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 7600/42805 entries to styled answers file
+Styled Response: Written 7800/42805 entries to styled answers file
+When generating for lang fr_fr, question index 3037, question: En solution acide, l’ion bromate, BrO3-, peut réag, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 8000/42805 entries to styled answers file
+Styled Response: Written 8200/42805 entries to styled answers file
+When generating for lang sw_ke, question index 10876, question: Kampuni ya maendeleo ya ardhi lilikuwa mmiliki wa , exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 8400/42805 entries to styled answers file
+Styled Response: Written 8600/42805 entries to styled answers file
+Styled Response: Written 8800/42805 entries to styled answers file
+Styled Response: Written 9000/42805 entries to styled answers file
+Styled Response: Written 9200/42805 entries to styled answers file
+Styled Response: Written 9400/42805 entries to styled answers file
+When generating for lang sw_ke, question index 75, question: Kauli ya 1 | Katika kikundi (ab)^{-2} = b^{-2}a^{-, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 9600/42805 entries to styled answers file
+When generating for lang sw_ke, question index 78, question: Kauli ya 1 | Kwa n > 1, seti {1,2, ..., n-1} ni ki, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 9800/42805 entries to styled answers file
+Styled Response: Written 10000/42805 entries to styled answers file
+Styled Response: Written 10200/42805 entries to styled answers file
+Styled Response: Written 10400/42805 entries to styled answers file
+Styled Response: Written 10600/42805 entries to styled answers file
+Styled Response: Written 10800/42805 entries to styled answers file
+Styled Response: Written 11000/42805 entries to styled answers file
+Styled Response: Written 11200/42805 entries to styled answers file
+Styled Response: Written 11400/42805 entries to styled answers file
+Styled Response: Written 11600/42805 entries to styled answers file
+Styled Response: Written 11800/42805 entries to styled answers file
+Styled Response: Written 12000/42805 entries to styled answers file
+When generating for lang sw_ke, question index 11579, question: Shule ya sheria iliyotangazwa katika majarida mbal, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 12200/42805 entries to styled answers file
+Styled Response: Written 12400/42805 entries to styled answers file
+Styled Response: Written 12600/42805 entries to styled answers file
+Styled Response: Written 12800/42805 entries to styled answers file
+Styled Response: Written 13000/42805 entries to styled answers file
+Styled Response: Written 13200/42805 entries to styled answers file
+Styled Response: Written 13400/42805 entries to styled answers file
+Styled Response: Written 13600/42805 entries to styled answers file
+Styled Response: Written 13800/42805 entries to styled answers file
+Styled Response: Written 14000/42805 entries to styled answers file
+When generating for lang sw_ke, question index 12013, question: Mamlaka ya eneo ina athari ya kuinganisha ya uzemb, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 14200/42805 entries to styled answers file
+When generating for lang sw_ke, question index 1482, question: Hebu HH iwe kazi ya kuhesabu hash ya Merkle-Damgar, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 14400/42805 entries to styled answers file
+When generating for lang sw_ke, question index 12030, question: Chama ya Amerika Kusini kilianzishwa na kukodishwa, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 14600/42805 entries to styled answers file
+Styled Response: Written 14800/42805 entries to styled answers file
+Styled Response: Written 15000/42805 entries to styled answers file
+Styled Response: Written 15200/42805 entries to styled answers file
+Styled Response: Written 15400/42805 entries to styled answers file
+Styled Response: Written 15600/42805 entries to styled answers file
+When generating for lang sw_ke, question index 1825, question: Vipeo vumishi cha mchakato wa
+
+$y_t = -3u_{t-1} + , exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 15800/42805 entries to styled answers file
+Styled Response: Written 16000/42805 entries to styled answers file
+Styled Response: Written 16200/42805 entries to styled answers file
+Styled Response: Written 16400/42805 entries to styled answers file
+Styled Response: Written 16600/42805 entries to styled answers file
+Styled Response: Written 16800/42805 entries to styled answers file
+Styled Response: Written 17000/42805 entries to styled answers file
+Styled Response: Written 17200/42805 entries to styled answers file
+Styled Response: Written 17400/42805 entries to styled answers file
+Styled Response: Written 17600/42805 entries to styled answers file
+Styled Response: Written 17800/42805 entries to styled answers file
+Styled Response: Written 18000/42805 entries to styled answers file
+Styled Response: Written 18200/42805 entries to styled answers file
+When generating for lang ar_xy, question index 6942, question: أي مما يلي صحيح بشأن نواة تلافيفية؟, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 18400/42805 entries to styled answers file
+Styled Response: Written 18600/42805 entries to styled answers file
+Styled Response: Written 18800/42805 entries to styled answers file
+Styled Response: Written 19000/42805 entries to styled answers file
+Styled Response: Written 19200/42805 entries to styled answers file
+Styled Response: Written 19400/42805 entries to styled answers file
+Styled Response: Written 19600/42805 entries to styled answers file
+Styled Response: Written 19800/42805 entries to styled answers file
+Styled Response: Written 20000/42805 entries to styled answers file
+Styled Response: Written 20200/42805 entries to styled answers file
+Styled Response: Written 20400/42805 entries to styled answers file
+Styled Response: Written 20600/42805 entries to styled answers file
+Styled Response: Written 20800/42805 entries to styled answers file
+Styled Response: Written 21000/42805 entries to styled answers file
+Styled Response: Written 21200/42805 entries to styled answers file
+Styled Response: Written 21400/42805 entries to styled answers file
+Styled Response: Written 21600/42805 entries to styled answers file
+When generating for lang fr_fr, question index 6942, question: Lequel des énoncés suivants est-il vrai à propos d, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 21800/42805 entries to styled answers file
+Styled Response: Written 22000/42805 entries to styled answers file
+Styled Response: Written 22200/42805 entries to styled answers file
+Styled Response: Written 22400/42805 entries to styled answers file
+Styled Response: Written 22600/42805 entries to styled answers file
+Styled Response: Written 22800/42805 entries to styled answers file
+Styled Response: Written 23000/42805 entries to styled answers file
+Styled Response: Written 23200/42805 entries to styled answers file
+Styled Response: Written 23400/42805 entries to styled answers file
+Styled Response: Written 23600/42805 entries to styled answers file
+Styled Response: Written 23800/42805 entries to styled answers file
+Styled Response: Written 24000/42805 entries to styled answers file
+Styled Response: Written 24200/42805 entries to styled answers file
+Styled Response: Written 24400/42805 entries to styled answers file
+Styled Response: Written 24600/42805 entries to styled answers file
+Styled Response: Written 24800/42805 entries to styled answers file
+Styled Response: Written 25000/42805 entries to styled answers file
+Styled Response: Written 25200/42805 entries to styled answers file
+Styled Response: Written 25400/42805 entries to styled answers file
+Styled Response: Written 25600/42805 entries to styled answers file
+Styled Response: Written 25800/42805 entries to styled answers file
+Styled Response: Written 26000/42805 entries to styled answers file
+Styled Response: Written 26200/42805 entries to styled answers file
+Styled Response: Written 26400/42805 entries to styled answers file
+Styled Response: Written 26600/42805 entries to styled answers file
+Styled Response: Written 26800/42805 entries to styled answers file
+Styled Response: Written 27000/42805 entries to styled answers file
+Styled Response: Written 27200/42805 entries to styled answers file
+Styled Response: Written 27400/42805 entries to styled answers file
+Styled Response: Written 27600/42805 entries to styled answers file
+Styled Response: Written 27800/42805 entries to styled answers file
+When generating for lang en, question index 11141, question: A woman was employed as a sales clerk at a departm, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 28000/42805 entries to styled answers file
+Styled Response: Written 28200/42805 entries to styled answers file
+Styled Response: Written 28400/42805 entries to styled answers file
+Styled Response: Written 28600/42805 entries to styled answers file
+Styled Response: Written 28800/42805 entries to styled answers file
+Styled Response: Written 29000/42805 entries to styled answers file
+Styled Response: Written 29200/42805 entries to styled answers file
+Styled Response: Written 29400/42805 entries to styled answers file
+Styled Response: Written 29600/42805 entries to styled answers file
+Styled Response: Written 29800/42805 entries to styled answers file
+Styled Response: Written 30000/42805 entries to styled answers file
+Styled Response: Written 30200/42805 entries to styled answers file
+Styled Response: Written 30400/42805 entries to styled answers file
+Styled Response: Written 30600/42805 entries to styled answers file
+Styled Response: Written 30800/42805 entries to styled answers file
+Styled Response: Written 31000/42805 entries to styled answers file
+Styled Response: Written 31200/42805 entries to styled answers file
+Styled Response: Written 31400/42805 entries to styled answers file
+When generating for lang zh_cn, question index 1313, question: New York City is home to over 7 million inhabitant, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 31600/42805 entries to styled answers file
+Styled Response: Written 31800/42805 entries to styled answers file
+Styled Response: Written 32000/42805 entries to styled answers file
+Styled Response: Written 32200/42805 entries to styled answers file
+Styled Response: Written 32400/42805 entries to styled answers file
+Styled Response: Written 32600/42805 entries to styled answers file
+When generating for lang sw_ke, question index 6942, question: Ni ipi kati ya zifuatazo ni kweli kuhusu msingi wa, exceeded maximum trials for generating styled answers, use fallback
+When generating for lang zh_cn, question index 1482, question: Let HH be a Merkle-Damgard hash function is H:X^{\, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 32800/42805 entries to styled answers file
+Styled Response: Written 33000/42805 entries to styled answers file
+Styled Response: Written 33200/42805 entries to styled answers file
+Styled Response: Written 33400/42805 entries to styled answers file
+Styled Response: Written 33600/42805 entries to styled answers file
+Styled Response: Written 33800/42805 entries to styled answers file
+Styled Response: Written 34000/42805 entries to styled answers file
+Styled Response: Written 34200/42805 entries to styled answers file
+Styled Response: Written 34400/42805 entries to styled answers file
+Styled Response: Written 34600/42805 entries to styled answers file
+Styled Response: Written 34800/42805 entries to styled answers file
+Styled Response: Written 35000/42805 entries to styled answers file
+Styled Response: Written 35200/42805 entries to styled answers file
+Styled Response: Written 35400/42805 entries to styled answers file
+Styled Response: Written 35600/42805 entries to styled answers file
+Styled Response: Written 35800/42805 entries to styled answers file
+Styled Response: Written 36000/42805 entries to styled answers file
+Styled Response: Written 36200/42805 entries to styled answers file
+Styled Response: Written 36400/42805 entries to styled answers file
+Styled Response: Written 36600/42805 entries to styled answers file
+Styled Response: Written 36800/42805 entries to styled answers file
+Styled Response: Written 37000/42805 entries to styled answers file
+When generating for lang ar_xy, question index 10833, question: قام أحد الأشخاص في عطلة تزلج شتوية، بزيارة مصعد ال, exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 37200/42805 entries to styled answers file
+Styled Response: Written 37400/42805 entries to styled answers file
+Styled Response: Written 37600/42805 entries to styled answers file
+Styled Response: Written 37800/42805 entries to styled answers file
+Styled Response: Written 38000/42805 entries to styled answers file
+Styled Response: Written 38200/42805 entries to styled answers file
+Styled Response: Written 38400/42805 entries to styled answers file
+Styled Response: Written 38600/42805 entries to styled answers file
+Styled Response: Written 38800/42805 entries to styled answers file
+Styled Response: Written 39000/42805 entries to styled answers file
+Styled Response: Written 39200/42805 entries to styled answers file
+Styled Response: Written 39400/42805 entries to styled answers file
+Styled Response: Written 39600/42805 entries to styled answers file
+Styled Response: Written 39800/42805 entries to styled answers file
+Styled Response: Written 40000/42805 entries to styled answers file
+Styled Response: Written 40200/42805 entries to styled answers file
+Styled Response: Written 40400/42805 entries to styled answers file
+Styled Response: Written 40600/42805 entries to styled answers file
+Styled Response: Written 40800/42805 entries to styled answers file
+Styled Response: Written 41000/42805 entries to styled answers file
+Styled Response: Written 41200/42805 entries to styled answers file
+Styled Response: Written 41400/42805 entries to styled answers file
+Styled Response: Written 41600/42805 entries to styled answers file
+Styled Response: Written 41800/42805 entries to styled answers file
+When generating for lang fr_fr, question index 37, question: Trouvez si le polynôme dans Z[x] satisfait un  cri, exceeded maximum trials for generating styled answers, use fallback
+When generating for lang fr_fr, question index 78, question: Énoncé 1 | Pour n > 1, l'ensemble {1,2, ..., n-1} , exceeded maximum trials for generating styled answers, use fallback
+Styled Response: Written 42000/42805 entries to styled answers file
+Styled Response: Written 42200/42805 entries to styled answers file
+Styled Response: Written 42400/42805 entries to styled answers file
+Styled Response: Written 42600/42805 entries to styled answers file
+Styled Response: Written 42800/42805 entries to styled answers file
+Dispatching styled answers results for model: CohereLabs-aya-expanse-32b, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/CohereLabs-aya-expanse-32b/perplexity_styled_answers_output.jsonl
+Cannot open file: Unable to open file judge/result/CohereLabs-aya-expanse-32b/styled_answers/en.jsonl: No such file or directory (os error 2), assuming empty result file
+Dispatched styled answers results for model: CohereLabs-aya-expanse-32b, lang: en
+Cannot open file: Unable to open file judge/result/CohereLabs-aya-expanse-32b/styled_answers/zh_cn.jsonl: No such file or directory (os error 2), assuming empty result file
+Dispatched styled answers results for model: CohereLabs-aya-expanse-32b, lang: zh_cn
+Cannot open file: Unable to open file judge/result/CohereLabs-aya-expanse-32b/styled_answers/fr_fr.jsonl: No such file or directory (os error 2), assuming empty result file
+Dispatched styled answers results for model: CohereLabs-aya-expanse-32b, lang: fr_fr
+Cannot open file: Unable to open file judge/result/CohereLabs-aya-expanse-32b/styled_answers/ar_xy.jsonl: No such file or directory (os error 2), assuming empty result file
+Dispatched styled answers results for model: CohereLabs-aya-expanse-32b, lang: ar_xy
+Cannot open file: Unable to open file judge/result/CohereLabs-aya-expanse-32b/styled_answers/sw_ke.jsonl: No such file or directory (os error 2), assuming empty result file
+Dispatched styled answers results for model: CohereLabs-aya-expanse-32b, lang: sw_ke
+Removed aggregated styled answers output file: judge/result/CohereLabs-aya-expanse-32b/perplexity_styled_answers_output.jsonl
+Completed writing all styled answers to judge/result/CohereLabs-aya-expanse-32b/perplexity_styled_answers_output.jsonl
+Perplexity experiment finished.
+ERROR 12-31 23:53:08 [core_client.py:600] Engine core proc EngineCore_DP0 died unexpectedly, shutting down client.
+✏️ Setting installed package as editable
+File "judge/result/CohereLabs-aya-expanse-32b/perplexity/en_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/CohereLabs-aya-expanse-32b/perplexity/en_incorrect.jsonl" does not exist, assuming no completed entries.
+File "judge/result/CohereLabs-aya-expanse-32b/perplexity/zh_cn_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/CohereLabs-aya-expanse-32b/perplexity/zh_cn_incorrect.jsonl" does not exist, assuming no completed entries.
+File "judge/result/CohereLabs-aya-expanse-32b/perplexity/fr_fr_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/CohereLabs-aya-expanse-32b/perplexity/fr_fr_incorrect.jsonl" does not exist, assuming no completed entries.
+File "judge/result/CohereLabs-aya-expanse-32b/perplexity/ar_xy_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/CohereLabs-aya-expanse-32b/perplexity/ar_xy_incorrect.jsonl" does not exist, assuming no completed entries.
+File "judge/result/CohereLabs-aya-expanse-32b/perplexity/sw_ke_correct.jsonl" does not exist, assuming no completed entries.
+File "judge/result/CohereLabs-aya-expanse-32b/perplexity/sw_ke_incorrect.jsonl" does not exist, assuming no completed entries.
+Concatenated perplexity dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/CohereLabs-aya-expanse-32b/perplexity_aggregated_input.jsonl
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm4_hf.py
+Total entries to calculate perplexity: 85610
+Using batch size: 10 based on model size, number of GPUs (2), and single GPU memory (40GB)
+Processing batch 1/8561
+Creating HuggingFace backend for model CohereLabs/aya-expanse-32b using 2 GPUs and batch size 10...
+Creating HuggingFace backend for model CohereLabs/aya-expanse-32b with batch size 10...
+Loading model from HuggingFace...
+Found 2 GPUs
+GPU 0: 39.49 GB available, using 35 GB
+GPU 1: 39.49 GB available, using 35 GB
