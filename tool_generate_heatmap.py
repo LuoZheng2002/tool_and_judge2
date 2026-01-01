@@ -23,7 +23,7 @@ translate_modes = [
 noise_modes = ["NO", "PARA", "SYNO"]
 
 
-def generate_heatmap(model_name: str, output_dir: str, result_dir: str, language: str) -> None:
+def generate_heatmap(model_name: str, output_dir: str, result_dir: str, language: str, output_format: str = "png") -> None:
     """
     Generate a heatmap for a given model showing accuracy across translate and noise modes.
 
@@ -32,6 +32,7 @@ def generate_heatmap(model_name: str, output_dir: str, result_dir: str, language
         output_dir: Directory to save the heatmap image (default: current directory)
         result_dir: Directory containing the score files (default: "result/score")
         language: The language name for the plot title (e.g., "Chinese", "Hindi", "Igbo")
+        output_format: Output format, "png" or "pdf" (default: "png")
     """
 
     # Map language names to language tags
@@ -223,8 +224,8 @@ def generate_heatmap(model_name: str, output_dir: str, result_dir: str, language
     # Create output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
 
-    output_path = os.path.join(output_dir, f"heatmap_{model_name}_{language}.png")
-    plt.savefig(output_path)
+    output_path = os.path.join(output_dir, f"heatmap_{model_name}_{language}.{output_format}")
+    plt.savefig(output_path, format=output_format, dpi=300, bbox_inches='tight')
     print(f"\nSaved heatmap to {output_path}")
     plt.close()
 
@@ -255,6 +256,12 @@ if __name__ == "__main__":
         default="tool/result",
         help="Directory containing the result files (default: tool/result)"
     )
+    parser.add_argument(
+        "--format",
+        default="png",
+        choices=["png", "pdf"],
+        help="Output format (default: png)"
+    )
 
     args = parser.parse_args()
 
@@ -262,4 +269,4 @@ if __name__ == "__main__":
         print(f"\n{'='*60}")
         print(f"Generating heatmap for {model}")
         print(f"{'='*60}")
-        generate_heatmap(model, args.output_dir, args.result_dir, args.language)
+        generate_heatmap(model, args.output_dir, args.result_dir, args.language, args.format)
