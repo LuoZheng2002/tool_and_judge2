@@ -67,7 +67,7 @@ def generate_stacked_bar_chart_by_model(model_names: list, output_dir: str, resu
         title = "Tool Calling Error - NT"
     else:
         title = f"Tool Calling Errors Under {language} Queries - {translate_mode}"
-    output_name = f"stacked_bar_by_model_{language}_{translate_mode}_all_combined.png"
+    output_name = f"stacked_bar_by_model_{language}_{translate_mode}.png"
 
     # Create DataFrame for easier plotting
     df_data = []
@@ -128,8 +128,8 @@ def generate_stacked_bar_chart_by_model(model_names: list, output_dir: str, resu
     ax.set_ylabel('Error Rate', fontsize=12)
     ax.set_title(title, fontsize=14, fontweight='bold')
 
-    # Place legend outside plot area on the right
-    ax.legend(loc='center left', bbox_to_anchor=(1.02, 0.5), fontsize=11)
+    # Place legend on top of the inner plot
+    ax.legend(loc='upper center', fontsize=11, ncol=3)
 
     # Handle x-axis labels and ticks
     # Set x-tick positions and labels
