@@ -192,34 +192,36 @@ def trim_styled_response_and_get_char_mask(styled_response: str):
     return trim_forward_prompt_and_get_char_mask(styled_response)
 
 
-def convert_char_mask_to_token_mask(trimmed_response: str, char_mask: list, tokenizer: Any, debug: bool = False):
+def convert_char_mask_to_token_mask(trimmed_prompt: str, char_mask: list, input_ids: list, tokenizer: Any, debug: bool = False):
     """
     Convert a character-level mask to a token-level mask.
 
     Args:
-        trimmed_response: str, the response text (without tags)
+        trimmed_prompt: str, the complete prompt text (without tags)
         char_mask: list of bool, True for character positions that should be masked
+        input_ids: list of token IDs from the forward pass
         tokenizer: Tokenizer instance
         debug: bool, if True, print debug information about masked tokens
 
     Returns:
-        tuple: (input_ids, token_mask) where:
-            - input_ids: list of token IDs
-            - token_mask: list of bool, True for tokens that were inside masked characters
+        token_mask: list of bool, True for tokens that were inside masked characters
     """
-    # Tokenize the trimmed response
-    # Note: add_special_tokens=False because trimmed_response already contains special tokens
-    # as text from apply_chat_template(tokenize=False)
-    # IMPORTANT: Must match tokenization parameters in forward_for_perplexity to ensure
-    # identical token IDs are generated
-    tokens = tokenizer(
-        trimmed_response,
-        add_special_tokens=False,
-        padding=False,         # Explicitly disable padding for single item
-        truncation=True,       # Match forward_for_perplexity
-        max_length=2048        # Match forward_for_perplexity
-    )
-    input_ids = tokens.input_ids
+    # Decode input_ids to get the text representation
+    decoded_text = tokenizer.decode(input_ids, skip_special_tokens=False)
+
+    # Verify that the decoded text matches the trimmed prompt
+    # Note: There might be minor differences in whitespace/formatting, so we'll just warn if they don't match exactly
+    if decoded_text != trimmed_prompt:
+        # Always warn about mismatch
+        print(f"Warning: Decoded text differs from trimmed prompt")
+        print(f"  Trimmed prompt length: {len(trimmed_prompt)}, Decoded text length: {len(decoded_text)}")
+
+        # Find first difference
+        for i, (c1, c2) in enumerate(zip(trimmed_prompt, decoded_text)):
+            if c1 != c2:
+                print(f"[DEBUG] First difference at position {i}: prompt={repr(c1)}, decoded={repr(c2)}")
+                print(f"[DEBUG] Context: prompt={repr(trimmed_prompt[max(0,i-20):i+20])}, decoded={repr(decoded_text[max(0,i-20):i+20])}")
+                break
 
     # Create token mask by checking which tokens correspond to masked characters
     # We'll mark a token as "masked" if any of its characters were masked
@@ -251,36 +253,30 @@ def convert_char_mask_to_token_mask(trimmed_response: str, char_mask: list, toke
     if debug:
         # Decode the masked tokens together to get the correct text
         masked_text = tokenizer.decode(masked_token_ids, skip_special_tokens=True)
-        print(f"[DEBUG] trimmed_response length: {len(trimmed_response)}, char_mask length: {len(char_mask)}, input_ids length: {len(input_ids)}, token_mask length: {len(token_mask)}")
+        print(f"[DEBUG] trimmed_prompt length: {len(trimmed_prompt)}, char_mask length: {len(char_mask)}, input_ids length: {len(input_ids)}, token_mask length: {len(token_mask)}")
         print(f"[DEBUG] Masked: {sum(token_mask)}/{len(token_mask)} tokens | Text: {repr(masked_text)}")
         if sum(token_mask) <=0:
-            print(f"trimmed_response: {repr(trimmed_response)}\n char_mask: {char_mask}\n input_ids: {input_ids}\n token_mask: {token_mask}\n")
+            print(f"trimmed_prompt: {repr(trimmed_prompt)}\n char_mask: {char_mask}\n input_ids: {input_ids}\n token_mask: {token_mask}\n")
             print(f"[DEBUG] ERROR: No tokens were masked!")
             exit(1)
 
-    return input_ids, token_mask
+    return token_mask
 
 
 def parse_styled_response_to_mask(styled_response: str, tokenizer: Any):
     """
-    Parse a styled response with <answer> tags and create a mask for highlighted tokens.
+    DEPRECATED: This function is deprecated and should not be used.
 
-    This is a convenience function that combines trim_styled_response_and_get_char_mask
-    and convert_char_mask_to_token_mask.
-
-    Args:
-        styled_response: str, the response with <answer> tags (e.g., "The answer is <answer>42</answer>.")
-        tokenizer: Tokenizer instance
-
-    Returns:
-        tuple: (trimmed_response, input_ids, answer_mask) where:
-            - trimmed_response: str, response with <answer> tags removed
-            - input_ids: list of token IDs
-            - answer_mask: list of bool, True for tokens that were inside <answer> tags
+    The new workflow requires input_ids to come from the forward pass to ensure consistency.
+    Use trim_styled_response_and_get_char_mask followed by convert_char_mask_to_token_mask
+    with input_ids from forward_for_perplexity instead.
     """
-    trimmed_response, char_mask = trim_styled_response_and_get_char_mask(styled_response)
-    input_ids, token_mask = convert_char_mask_to_token_mask(trimmed_response, char_mask, tokenizer)
-    return trimmed_response, input_ids, token_mask
+    raise NotImplementedError(
+        "parse_styled_response_to_mask is deprecated. "
+        "Use trim_forward_prompt_and_get_char_mask to get char_mask, "
+        "then forward_for_perplexity to get input_ids, "
+        "then convert_char_mask_to_token_mask with the input_ids from forward pass."
+    )
 
 
 def calculate_perplexity_from_logits_with_mask(index: int, lang: str, logits, input_ids, answer_mask):

@@ -446,14 +446,14 @@ async def main_async():
 
                     # Part 3: Calculate perplexity for each entry and write immediately
                     for entry, forward_result, char_mask, trimmed_prompt in zip(batch_entries, forward_results, char_masks, trimmed_prompts):
-                        # Convert character mask to token mask
-                        input_ids, token_mask = convert_char_mask_to_token_mask(trimmed_prompt, char_mask, hf_tokenizer, debug=False)
-
-                        # Verify input_ids match between tokenization and forward pass
-                        # assert input_ids == forward_result['input_ids'], \
-                        #     f"input_ids mismatch: tokenized {len(input_ids)} tokens, forward pass has {len(forward_result['input_ids'])} tokens"
-                        if input_ids != forward_result['input_ids']:
-                            print(f"Warning: input_ids mismatch for lang {entry['lang']} entry {entry['index']}: tokenized {len(input_ids)} tokens, forward pass has {len(forward_result['input_ids'])} tokens")
+                        # Convert character mask to token mask using input_ids from forward pass
+                        token_mask = convert_char_mask_to_token_mask(
+                            trimmed_prompt,
+                            char_mask,
+                            forward_result['input_ids'],
+                            hf_tokenizer,
+                            debug=False
+                        )
 
                         # Calculate perplexity using the mask
                         try:
