@@ -101,7 +101,7 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
     print(df)
 
     # Plot stacked bar chart
-    fig, ax = plt.subplots(figsize=(12, 8))
+    fig, ax = plt.subplots(figsize=(10, 10))
 
     # Convert counts to rates by dividing by 200
     df_rate = df / 200.0
@@ -140,10 +140,10 @@ def generate_stacked_bar_chart(model_name: str, output_dir: str, result_dir: str
 
     # Customize plot
     ax.set_ylabel('Error Rate', fontsize=12)
-    ax.set_title(title, fontsize=14, fontweight='bold')
+    ax.set_title(title, fontsize=14, fontweight='bold', pad=25)
 
-    # Place legend outside plot area on the right
-    ax.legend(loc='center left', bbox_to_anchor=(1.02, 0.5), fontsize=11)
+    # Place legend at the bottom with full width
+    ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.15), fontsize=10, ncol=3, frameon=True)
 
     # Set x-tick positions and labels
     ax.set_xticks(x_positions)
@@ -212,9 +212,9 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--format",
-        default="png",
+        default="pdf",
         choices=["png", "pdf"],
-        help="Output format (default: png)"
+        help="Output format (default: pdf)"
     )
 
     args = parser.parse_args()

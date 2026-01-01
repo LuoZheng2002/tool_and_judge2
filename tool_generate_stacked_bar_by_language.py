@@ -22,34 +22,67 @@ from tool_stacked_bar_common import (
 )
 
 
-def load_multi_language_statistics(model_name: str, result_dir: str, languages: List[str],
-                                     translate_mode: str) -> Dict[str, Dict[str, Dict[str, int]]]:
+def load_multi_model_multi_language_statistics(model_names: List[str], result_dir: str,
+                                                 languages: List[str], translate_modes_dict: Dict[str, str]) -> Dict[str, Dict[str, Dict[str, Dict[str, int]]]]:
     """
-    Load error statistics for multiple languages for a specific model and translate mode.
+    Load error statistics for multiple models and languages.
+
+    Args:
+        model_names: List of model directory names (e.g., ["gpt-5", "gpt-5-mini"])
+        result_dir: Directory containing the result files
+        languages: List of language names (e.g., ["English", "Chinese", "Hindi", "Igbo"])
+        translate_modes_dict: Dictionary mapping language to translate mode (e.g., {"English": "NT", "Chinese": "FT"})
+
+    Returns:
+        Nested dictionary: dict[model][language][noise_mode][category] = count
+    """
+    # Initialize data structure
+    data_dict = {}
+    for model_name in model_names:
+        data_dict[model_name] = {}
+        for language in languages:
+            data_dict[model_name][language] = {}
+            for nm in noise_modes:
+                data_dict[model_name][language][nm] = {cat: 0 for cat in error_categories}
+
+    # Load data for each model
+    for model_name in model_names:
+        print(f"\nLoading data for model: {model_name}")
+        for language in languages:
+            translate_mode = translate_modes_dict.get(language)
+            if translate_mode is None:
+                raise ValueError(f"No translate mode specified for language '{language}'")
+
+            # Load single language statistics
+            lang_data = load_single_language_statistics(model_name, result_dir, language, translate_mode)
+            data_dict[model_name][language] = lang_data
+
+    return data_dict
+
+
+def load_single_language_statistics(model_name: str, result_dir: str, language: str,
+                                      translate_mode: str) -> Dict[str, Dict[str, int]]:
+    """
+    Load error statistics for a single language for a specific model and translate mode.
 
     Args:
         model_name: The model directory name (e.g., "gpt-5", "gpt-5-mini", "gpt-5-nano")
         result_dir: Directory containing the result files
-        languages: List of language names (e.g., ["Chinese", "Hindi", "Igbo"])
-        translate_mode: The translate mode to filter by (e.g., "FT", "PT")
+        language: Language name (e.g., "Chinese", "Hindi", "Igbo", "English")
+        translate_mode: The translate mode to filter by (e.g., "FT", "PT", "NT")
 
     Returns:
-        Nested dictionary: dict[language][noise_mode][category] = count
+        Nested dictionary: dict[noise_mode][category] = count
     """
-    # Get the language tags for filtering
-    language_tags = {}
-    for language in languages:
-        language_tag = language_tag_map.get(language)
-        if language_tag is None:
-            raise ValueError(f"Unknown language '{language}'. Valid options: {', '.join(language_tag_map.keys())}")
-        language_tags[language] = language_tag
+    # Get the language tag for filtering
+    language_tag = language_tag_map.get(language)
+    if language_tag is None:
+        raise ValueError(f"Unknown language '{language}'. Valid options: {', '.join(language_tag_map.keys())}")
 
     # Initialize data structure
     data_dict = {}
-    for language in languages:
-        data_dict[language] = {}
-        for nm in noise_modes:
-            data_dict[language][nm] = {cat: 0 for cat in error_categories}
+    for nm in noise_modes:
+        data_dict[nm] = {cat: 0 for cat in error_categories}
 
     # Path to model's statistics directory
     model_categorize_dir = Path(result_dir) / model_name / "statistics"
@@ -65,7 +98,6 @@ def load_multi_language_statistics(model_name: str, result_dir: str, languages: 
                 category_counts = data.get("category_counts")
 
                 if category_counts is None:
-                    print(f"Warning: No 'category_counts' field in {score_file.name}")
                     continue
 
                 # Extract translate and noise modes from filename
@@ -75,18 +107,10 @@ def load_multi_language_statistics(model_name: str, result_dir: str, languages: 
                     (dataset_name, file_language_tag, translate_level_tag, pre_translate_tag,
                      noise_tag, prompt_translate_tag, post_translate_tag) = parse_filename_tags(filename)
                 except ValueError as e:
-                    print(f"Warning: {e}")
                     continue
 
-                # Find which language this file belongs to
-                matching_language = None
-                for language, lang_tag in language_tags.items():
-                    if file_language_tag == lang_tag:
-                        matching_language = language
-                        break
-
-                # Skip files that don't match any selected language
-                if matching_language is None:
+                # Skip files that don't match the selected language
+                if file_language_tag != language_tag:
                     continue
 
                 # Map tags to modes
@@ -97,7 +121,6 @@ def load_multi_language_statistics(model_name: str, result_dir: str, languages: 
                         pre_translate_tag, prompt_translate_tag, post_translate_tag
                     )
                 except ValueError as e:
-                    print(f"Warning: {e} in {score_file.name}")
                     continue
 
                 # Skip if not the desired translate mode
@@ -108,83 +131,81 @@ def load_multi_language_statistics(model_name: str, result_dir: str, languages: 
                 for stats_category, count in category_counts.items():
                     pascal_category = category_map.get(stats_category)
                     if pascal_category and pascal_category in error_categories:
-                        data_dict[matching_language][noise_mode][pascal_category] = count
+                        data_dict[noise_mode][pascal_category] = count
 
-                print(f"Loaded {score_file.name}: {matching_language} + {noise_mode}")
+                print(f"  Loaded {score_file.name}: {language} + {noise_mode}")
 
         except Exception as e:
-            print(f"Error reading {score_file.name}: {e}")
+            print(f"  Error reading {score_file.name}: {e}")
 
     return data_dict
 
 
-def generate_stacked_bar_chart_by_language(model_name: str, output_dir: str,
+def generate_stacked_bar_chart_multi_model(model_names: List[str], output_dir: str,
                                              result_dir: str, translate_mode: str,
+                                             noise_mode: str = "NO_NOISE",
                                              max_height: float = None) -> None:
     """
-    Generate a stacked bar chart for a single model comparing languages showing error type distributions.
-    Horizontal axis shows language x noise mode combinations grouped by language.
-    Always uses Chinese, Hindi, and Igbo as languages.
+    Generate a stacked bar chart comparing multiple models across languages.
+    Horizontal axis shows model x language combinations grouped by model.
+    Uses English (NT), Chinese, Hindi, and Igbo for the specified translate mode.
 
     Args:
-        model_name: Model directory name (e.g., "gpt-5", "gpt-5-mini", "gpt-5-nano")
+        model_names: List of model directory names (e.g., ["gpt-5", "gpt-5-mini"])
         output_dir: Directory to save the chart image
         result_dir: Directory containing the result files (default: "tool/result")
-        translate_mode: The translate mode to filter by (e.g., "FT", "PT", "PRE", "POST")
+        translate_mode: The translate mode for non-English languages (e.g., "FT", "PT", "PRE", "POST")
+        noise_mode: The noise mode to use (default: "NO_NOISE")
         max_height: Maximum height of the vertical axis (default: None, auto-calculated from data)
     """
 
-    # Fixed languages list
-    languages = ["Chinese", "Hindi", "Igbo"]
+    # Languages: English uses NT, others use the specified translate_mode
+    languages = ["English", "Chinese", "Hindi", "Igbo"]
+    translate_modes_dict = {
+        "English": "NT",
+        "Chinese": translate_mode,
+        "Hindi": translate_mode,
+        "Igbo": translate_mode
+    }
 
-    # Load data using common module
+    # Load data for all models and languages
     try:
-        data_dict = load_multi_language_statistics(model_name, result_dir, languages, translate_mode)
+        data_dict = load_multi_model_multi_language_statistics(
+            model_names, result_dir, languages, translate_modes_dict
+        )
     except ValueError as e:
         print(f"Error: {e}")
         return
 
-    # Prepare data for plotting - show all language x noise mode combinations grouped by language
+    # Prepare data for plotting - grouped by model, with languages as inner categories
     bar_labels = []
     bar_data = []
     bar_positions = []
-    bar_widths = []  # Track custom widths for each bar
+    bar_widths = []
     pos = 0
-    bar_spacing = 0.6  # Spacing between bars within a group
-    group_spacing = 0.3  # Extra space between language groups
+    bar_spacing = 0.6  # Spacing between bars within a model group
+    group_spacing = 0.3  # Extra space between model groups
 
-    # Map noise modes to short abbreviations
-    noise_mode_abbrev = {
-        "NO_NOISE": "NO",
-        "PARAPHRASE": "PARA",
-        "SYNONYM": "SYNO"
+    # Language abbreviations for x-axis labels
+    language_abbrev = {
+        "English": "EN",
+        "Chinese": "ZH",
+        "Hindi": "HI",
+        "Igbo": "IG"
     }
 
-    for language in languages:
-        if language == "Igbo":
-            # For Igbo: single wide bar spanning the width of three bars (only NO_NOISE)
-            bar_labels.append("NO")  # Show "NO" sub-label
-            category_counts = data_dict[language]["NO_NOISE"]
+    for model_name in model_names:
+        for language in languages:
+            bar_labels.append(language_abbrev[language])
+            category_counts = data_dict[model_name][language][noise_mode]
             bar_data.append(category_counts)
-            # Calculate center position for a bar that spans three bar widths
-            bar_center = pos + bar_spacing
-            bar_positions.append(bar_center)
-            # Width spans three bars and two gaps: 3 * 0.4 + 2 * (0.6 - 0.4) = 1.6
-            bar_widths.append(1.6)
-            pos += 3 * bar_spacing  # Move position as if we placed three bars
-        else:
-            # Normal case for Chinese and Hindi: three bars for three noise modes
-            for nm in noise_modes:
-                bar_labels.append(noise_mode_abbrev[nm])  # Use abbreviated noise mode name
-                category_counts = data_dict[language][nm]
-                bar_data.append(category_counts)
-                bar_positions.append(pos)
-                bar_widths.append(0.4)  # Standard bar width
-                pos += bar_spacing  # Use smaller spacing between bars
-        pos += group_spacing  # Add extra space after each language group
+            bar_positions.append(pos)
+            bar_widths.append(0.4)  # Standard bar width
+            pos += bar_spacing
+        pos += group_spacing  # Add extra space after each model group
 
-    title = f"Tool Calling Errors for {model_name} - {translate_mode}"
-    output_name = f"stacked_bar_by_language_{model_name}_{translate_mode}_all_combined.png"
+    title = f"Tool Calling Errors Across Models - {translate_mode} × {noise_mode}"
+    output_name = f"stacked_bar_by_language_multi_model_{translate_mode}_{noise_mode}.pdf"
 
     # Create DataFrame for easier plotting
     df_data = []
@@ -195,15 +216,15 @@ def generate_stacked_bar_chart_by_language(model_name: str, output_dir: str,
 
     # Check if we have any data
     if df.sum().sum() == 0:
-        print(f"Error: No error data found for the specified model and configuration")
+        print(f"Error: No error data found for the specified models and configuration")
         return
 
     # Print summary
-    print(f"\nError distribution for {model_name} - {translate_mode}:")
+    print(f"\nError distribution for models {', '.join(model_names)} - {translate_mode}:")
     print(df)
 
     # Plot stacked bar chart
-    fig, ax = plt.subplots(figsize=(12, 8))
+    fig, ax = plt.subplots(figsize=(14, 8))
 
     # Convert counts to rates by dividing by 200
     df_rate = df / 200.0
@@ -242,36 +263,28 @@ def generate_stacked_bar_chart_by_language(model_name: str, output_dir: str,
 
     # Customize plot
     ax.set_ylabel('Error Rate', fontsize=12)
-    ax.set_title(title, fontsize=14, fontweight='bold')
+    ax.set_title(title, fontsize=14, fontweight='bold', pad=50)
 
-    # Place legend outside plot area on the right
-    ax.legend(loc='center left', bbox_to_anchor=(1.02, 0.5), fontsize=11)
+    # Place legend at the top, below the title and above the plot
+    ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.12), fontsize=10, ncol=4, frameon=True)
 
     # Handle x-axis labels and ticks
     # Set x-tick positions and labels
     ax.set_xticks(x_positions)
-    ax.set_xticklabels(bar_labels, rotation=45, ha='right', fontsize=8)
+    ax.set_xticklabels(bar_labels, rotation=0, ha='center', fontsize=9)
 
-    # Add language group labels as a second row below noise mode labels
-    bar_spacing = 0.6
-    group_spacing = 0.3
+    # Add model group labels as a second row below language labels
     pos_tracker = 0
-    for i, language in enumerate(languages):
-        if language == "Igbo":
-            # For Igbo: center is at the single wide bar
-            group_center = pos_tracker + bar_spacing
-            pos_tracker += 3 * bar_spacing + group_spacing
-        else:
-            # Normal case: center of three bars
-            group_center = pos_tracker + (len(noise_modes) - 1) * bar_spacing / 2
-            pos_tracker += len(noise_modes) * bar_spacing + group_spacing
-        ax.text(group_center, -max_height * 0.08, language,
-               ha='center', va='top', fontsize=12, fontweight='bold')
+    for model_name in model_names:
+        # Calculate center of the model's language bars
+        group_center = pos_tracker + (len(languages) - 1) * bar_spacing / 2
+        ax.text(group_center, -max_height * 0.08, model_name,
+               ha='center', va='top', fontsize=11, fontweight='bold', rotation=5)
+        pos_tracker += len(languages) * bar_spacing + group_spacing
 
-    # Add "Language and Configuration" label below the group names (larger negative offset)
-    # Calculate the center of all bars for proper centering
+    # Add "Model" label below the group names
     overall_center = (x_positions[0] + x_positions[-1]) / 2
-    ax.text(overall_center, -max_height * 0.12, 'Language and Configuration',
+    ax.text(overall_center, -max_height * 0.14, 'Model',
            ha='center', va='top', fontsize=12)
 
     plt.tight_layout()
@@ -290,17 +303,25 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="Generate stacked bar charts for a model comparing languages showing error type distributions. "
-                    "Automatically uses Chinese, Hindi, and Igbo as languages."
+        description="Generate stacked bar charts comparing multiple models across languages. "
+                    "Shows English (NT), Chinese, Hindi, and Igbo for the specified translate mode. "
+                    "Languages are inner categories, models are outer categories."
     )
     parser.add_argument(
-        "model",
-        help="Model name (e.g., gpt-5, gpt-5-mini, gpt-5-nano)"
+        "models",
+        nargs="+",
+        help="Model names to compare (e.g., gpt-5 gpt-5-mini gpt-5-nano)"
     )
     parser.add_argument(
         "translate_mode",
-        choices=translate_modes,
-        help="Translate mode to filter by (e.g., FT, PT, PRE, POST)"
+        choices=[tm for tm in translate_modes if tm != "NT"],
+        help="Translate mode for non-English languages (e.g., FT, PT, PRE, POST). English always uses NT."
+    )
+    parser.add_argument(
+        "--noise-mode",
+        default="NO_NOISE",
+        choices=noise_modes,
+        help="Noise mode to use (default: NO_NOISE)"
     )
     parser.add_argument(
         "--output-dir",
@@ -322,15 +343,17 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     print(f"\n{'='*60}")
-    print(f"Generating stacked bar chart for model: {args.model}")
-    print(f"Languages: Chinese, Hindi, Igbo, Translate Mode: {args.translate_mode}")
+    print(f"Generating stacked bar chart for models: {', '.join(args.models)}")
+    print(f"Languages: English (NT), Chinese ({args.translate_mode}), Hindi ({args.translate_mode}), Igbo ({args.translate_mode})")
+    print(f"Noise Mode: {args.noise_mode}")
     print(f"{'='*60}")
 
-    # Generate single combined chart with all language x noise mode combinations
-    generate_stacked_bar_chart_by_language(
-        args.model,
+    # Generate combined chart with all models and languages
+    generate_stacked_bar_chart_multi_model(
+        args.models,
         args.output_dir,
         args.result_dir,
         args.translate_mode,
+        noise_mode=args.noise_mode,
         max_height=args.max_height
     )
