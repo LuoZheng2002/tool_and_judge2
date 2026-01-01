@@ -1,0 +1,2354 @@
+✏️ Setting installed package as editable
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm5_vllm.py
+This run uses VLLM backend.
+Starting preference experiment...
+Concatenated two answers dataset for language pairs[("en", "zh_cn"), ("en", "fr_fr"), ("en", "ar_xy"), ("en", "sw_ke")] written to "judge/result/Unbabel-M-Prometheus-14B/preference_aggregated_input.jsonl"
+Dispatching preference results for model: Unbabel-M-Prometheus-14B, language pairs: [("en", "zh_cn"), ("en", "fr_fr"), ("en", "ar_xy"), ("en", "sw_ke")], input file: judge/result/Unbabel-M-Prometheus-14B/preference_aggregated_output.jsonl
+Dispatched preference results for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: zh_cn
+Dispatched preference results for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: fr_fr
+Dispatched preference results for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: ar_xy
+Dispatched preference results for model: Unbabel-M-Prometheus-14B, lang1: en, lang2: sw_ke
+Removed aggregated output file: judge/result/Unbabel-M-Prometheus-14B/preference_aggregated_output.jsonl
+Preference experiment finished.
+Starting perplexity experiment...
+Response input dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/Unbabel-M-Prometheus-14B/perplexity_response_input.jsonl
+Dispatching response results for model: Unbabel-M-Prometheus-14B, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/Unbabel-M-Prometheus-14B/perplexity_response_output.jsonl
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: en
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: ar_xy
+Dispatched response results for model: Unbabel-M-Prometheus-14B, lang: sw_ke
+Removed aggregated response output file: judge/result/Unbabel-M-Prometheus-14B/perplexity_response_output.jsonl
+Styled answers input dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/Unbabel-M-Prometheus-14B/perplexity_styled_answers_input.jsonl
+Dispatching styled answers results for model: Unbabel-M-Prometheus-14B, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/Unbabel-M-Prometheus-14B/perplexity_styled_answers_output.jsonl
+Dispatched styled answers results for model: Unbabel-M-Prometheus-14B, lang: en
+Dispatched styled answers results for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Dispatched styled answers results for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Dispatched styled answers results for model: Unbabel-M-Prometheus-14B, lang: ar_xy
+Dispatched styled answers results for model: Unbabel-M-Prometheus-14B, lang: sw_ke
+Removed aggregated styled answers output file: judge/result/Unbabel-M-Prometheus-14B/perplexity_styled_answers_output.jsonl
+Total entries to generate responses: 0
+Completed writing all responses to judge/result/Unbabel-M-Prometheus-14B/perplexity_response_output.jsonl
+Total entries to generate styled answers: 0
+Completed writing all styled answers to judge/result/Unbabel-M-Prometheus-14B/perplexity_styled_answers_output.jsonl
+Perplexity experiment finished.
+✏️ Setting installed package as editable
+Dispatching perplexity results for model: Unbabel-M-Prometheus-14B, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/Unbabel-M-Prometheus-14B/perplexity_aggregated_output.jsonl
+Warning: Missing 7898 correct entries for model: Unbabel-M-Prometheus-14B, lang: en
+Warning: Missing 7899 incorrect entries for model: Unbabel-M-Prometheus-14B, lang: en
+Dispatched perplexity results for model: Unbabel-M-Prometheus-14B, lang: en
+Warning: Missing 8501 correct entries for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Warning: Missing 8501 incorrect entries for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Dispatched perplexity results for model: Unbabel-M-Prometheus-14B, lang: zh_cn
+Warning: Missing 8501 correct entries for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Warning: Missing 8501 incorrect entries for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Dispatched perplexity results for model: Unbabel-M-Prometheus-14B, lang: fr_fr
+Warning: Missing 8561 correct entries for model: Unbabel-M-Prometheus-14B, lang: ar_xy
+Warning: Missing 8561 incorrect entries for model: Unbabel-M-Prometheus-14B, lang: ar_xy
+Dispatched perplexity results for model: Unbabel-M-Prometheus-14B, lang: ar_xy
+Warning: Missing 8561 correct entries for model: Unbabel-M-Prometheus-14B, lang: sw_ke
+Warning: Missing 8561 incorrect entries for model: Unbabel-M-Prometheus-14B, lang: sw_ke
+Dispatched perplexity results for model: Unbabel-M-Prometheus-14B, lang: sw_ke
+Removed aggregated perplexity output file: judge/result/Unbabel-M-Prometheus-14B/perplexity_aggregated_output.jsonl
+Concatenated perplexity dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/Unbabel-M-Prometheus-14B/perplexity_aggregated_input.jsonl
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm5_hf.py
+Total entries to calculate perplexity: 84045
+Using batch size: 45 based on model size, number of GPUs (4), and single GPU memory (40GB)
+Processing batch 1/1868
+Creating HuggingFace backend for model Unbabel/M-Prometheus-14B using 4 GPUs and batch size 45...
+Creating HuggingFace backend for model Unbabel/M-Prometheus-14B with batch size 45...
+Loading model from HuggingFace...
+Found 4 GPUs
+GPU 0: 39.49 GB available, using 35 GB
+GPU 1: 39.49 GB available, using 35 GB
+GPU 2: 39.49 GB available, using 35 GB
+GPU 3: 39.49 GB available, using 35 GB
+Model loaded, setting to eval mode...
+Model in eval mode
+Model device map: {'model.embed_tokens': 0, 'model.layers.0': 0, 'model.layers.1': 0, 'model.layers.2': 0, 'model.layers.3': 0, 'model.layers.4': 0, 'model.layers.5': 0, 'model.layers.6': 0, 'model.layers.7': 0, 'model.layers.8': 0, 'model.layers.9': 1, 'model.layers.10': 1, 'model.layers.11': 1, 'model.layers.12': 1, 'model.layers.13': 1, 'model.layers.14': 1, 'model.layers.15': 1, 'model.layers.16': 1, 'model.layers.17': 1, 'model.layers.18': 1, 'model.layers.19': 1, 'model.layers.20': 1, 'model.layers.21': 1, 'model.layers.22': 1, 'model.layers.23': 2, 'model.layers.24': 2, 'model.layers.25': 2, 'model.layers.26': 2, 'model.layers.27': 2, 'model.layers.28': 2, 'model.layers.29': 2, 'model.layers.30': 2, 'model.layers.31': 2, 'model.layers.32': 2, 'model.layers.33': 2, 'model.layers.34': 2, 'model.layers.35': 2, 'model.layers.36': 2, 'model.layers.37': 3, 'model.layers.38': 3, 'model.layers.39': 3, 'model.layers.40': 3, 'model.layers.41': 3, 'model.layers.42': 3, 'model.layers.43': 3, 'model.layers.44': 3, 'model.layers.45': 3, 'model.layers.46': 3, 'model.layers.47': 3, 'model.norm': 3, 'model.rotary_emb': 3, 'lm_head': 3}
+HuggingFace backend created successfully for Unbabel/M-Prometheus-14B
+HuggingFace backend created for model Unbabel/M-Prometheus-14B
+Perplexity: Written 45/84045 entries to perplexity result file (batch 1/1868)
+Processing batch 2/1868
+Perplexity: Written 90/84045 entries to perplexity result file (batch 2/1868)
+Processing batch 3/1868
+Perplexity: Written 135/84045 entries to perplexity result file (batch 3/1868)
+Processing batch 4/1868
+Perplexity: Written 180/84045 entries to perplexity result file (batch 4/1868)
+Processing batch 5/1868
+Perplexity: Written 225/84045 entries to perplexity result file (batch 5/1868)
+Processing batch 6/1868
+Perplexity: Written 270/84045 entries to perplexity result file (batch 6/1868)
+Processing batch 7/1868
+Perplexity: Written 315/84045 entries to perplexity result file (batch 7/1868)
+Processing batch 8/1868
+Perplexity: Written 360/84045 entries to perplexity result file (batch 8/1868)
+Processing batch 9/1868
+Perplexity: Written 405/84045 entries to perplexity result file (batch 9/1868)
+Processing batch 10/1868
+Perplexity: Written 450/84045 entries to perplexity result file (batch 10/1868)
+Processing batch 11/1868
+Perplexity: Written 495/84045 entries to perplexity result file (batch 11/1868)
+Processing batch 12/1868
+Perplexity: Written 540/84045 entries to perplexity result file (batch 12/1868)
+Processing batch 13/1868
+Perplexity: Written 585/84045 entries to perplexity result file (batch 13/1868)
+Processing batch 14/1868
+Perplexity: Written 630/84045 entries to perplexity result file (batch 14/1868)
+Processing batch 15/1868
+Perplexity: Written 675/84045 entries to perplexity result file (batch 15/1868)
+Processing batch 16/1868
+Perplexity: Written 720/84045 entries to perplexity result file (batch 16/1868)
+Processing batch 17/1868
+Perplexity: Written 765/84045 entries to perplexity result file (batch 17/1868)
+Processing batch 18/1868
+Perplexity: Written 810/84045 entries to perplexity result file (batch 18/1868)
+Processing batch 19/1868
+Perplexity: Written 855/84045 entries to perplexity result file (batch 19/1868)
+Processing batch 20/1868
+Perplexity: Written 900/84045 entries to perplexity result file (batch 20/1868)
+Processing batch 21/1868
+Perplexity: Written 945/84045 entries to perplexity result file (batch 21/1868)
+Processing batch 22/1868
+Perplexity: Written 990/84045 entries to perplexity result file (batch 22/1868)
+Processing batch 23/1868
+Perplexity: Written 1035/84045 entries to perplexity result file (batch 23/1868)
+Processing batch 24/1868
+Perplexity: Written 1080/84045 entries to perplexity result file (batch 24/1868)
+Processing batch 25/1868
+Perplexity: Written 1125/84045 entries to perplexity result file (batch 25/1868)
+Processing batch 26/1868
+Perplexity: Written 1170/84045 entries to perplexity result file (batch 26/1868)
+Processing batch 27/1868
+Perplexity: Written 1215/84045 entries to perplexity result file (batch 27/1868)
+Processing batch 28/1868
+Perplexity: Written 1260/84045 entries to perplexity result file (batch 28/1868)
+Processing batch 29/1868
+Perplexity: Written 1305/84045 entries to perplexity result file (batch 29/1868)
+Processing batch 30/1868
+Perplexity: Written 1350/84045 entries to perplexity result file (batch 30/1868)
+Processing batch 31/1868
+Perplexity: Written 1395/84045 entries to perplexity result file (batch 31/1868)
+Processing batch 32/1868
+Perplexity: Written 1440/84045 entries to perplexity result file (batch 32/1868)
+Processing batch 33/1868
+Perplexity: Written 1485/84045 entries to perplexity result file (batch 33/1868)
+Processing batch 34/1868
+Perplexity: Written 1530/84045 entries to perplexity result file (batch 34/1868)
+Processing batch 35/1868
+Perplexity: Written 1575/84045 entries to perplexity result file (batch 35/1868)
+Processing batch 36/1868
+Perplexity: Written 1620/84045 entries to perplexity result file (batch 36/1868)
+Processing batch 37/1868
+Perplexity: Written 1665/84045 entries to perplexity result file (batch 37/1868)
+Processing batch 38/1868
+Perplexity: Written 1710/84045 entries to perplexity result file (batch 38/1868)
+Processing batch 39/1868
+Perplexity: Written 1755/84045 entries to perplexity result file (batch 39/1868)
+Processing batch 40/1868
+Perplexity: Written 1800/84045 entries to perplexity result file (batch 40/1868)
+Processing batch 41/1868
+Perplexity: Written 1845/84045 entries to perplexity result file (batch 41/1868)
+Processing batch 42/1868
+Perplexity: Written 1890/84045 entries to perplexity result file (batch 42/1868)
+Processing batch 43/1868
+Perplexity: Written 1935/84045 entries to perplexity result file (batch 43/1868)
+Processing batch 44/1868
+Perplexity: Written 1980/84045 entries to perplexity result file (batch 44/1868)
+Processing batch 45/1868
+Perplexity: Written 2025/84045 entries to perplexity result file (batch 45/1868)
+Processing batch 46/1868
+Perplexity: Written 2070/84045 entries to perplexity result file (batch 46/1868)
+Processing batch 47/1868
+Perplexity: Written 2115/84045 entries to perplexity result file (batch 47/1868)
+Processing batch 48/1868
+Perplexity: Written 2160/84045 entries to perplexity result file (batch 48/1868)
+Processing batch 49/1868
+Perplexity: Written 2205/84045 entries to perplexity result file (batch 49/1868)
+Processing batch 50/1868
+Perplexity: Written 2250/84045 entries to perplexity result file (batch 50/1868)
+Processing batch 51/1868
+Perplexity: Written 2295/84045 entries to perplexity result file (batch 51/1868)
+Processing batch 52/1868
+Perplexity: Written 2340/84045 entries to perplexity result file (batch 52/1868)
+Processing batch 53/1868
+Perplexity: Written 2385/84045 entries to perplexity result file (batch 53/1868)
+Processing batch 54/1868
+Perplexity: Written 2430/84045 entries to perplexity result file (batch 54/1868)
+Processing batch 55/1868
+Perplexity: Written 2475/84045 entries to perplexity result file (batch 55/1868)
+Processing batch 56/1868
+Perplexity: Written 2520/84045 entries to perplexity result file (batch 56/1868)
+Processing batch 57/1868
+Perplexity: Written 2565/84045 entries to perplexity result file (batch 57/1868)
+Processing batch 58/1868
+Perplexity: Written 2610/84045 entries to perplexity result file (batch 58/1868)
+Processing batch 59/1868
+Perplexity: Written 2655/84045 entries to perplexity result file (batch 59/1868)
+Processing batch 60/1868
+Perplexity: Written 2700/84045 entries to perplexity result file (batch 60/1868)
+Processing batch 61/1868
+Perplexity: Written 2745/84045 entries to perplexity result file (batch 61/1868)
+Processing batch 62/1868
+Perplexity: Written 2790/84045 entries to perplexity result file (batch 62/1868)
+Processing batch 63/1868
+Perplexity: Written 2835/84045 entries to perplexity result file (batch 63/1868)
+Processing batch 64/1868
+Perplexity: Written 2880/84045 entries to perplexity result file (batch 64/1868)
+Processing batch 65/1868
+Perplexity: Written 2925/84045 entries to perplexity result file (batch 65/1868)
+Processing batch 66/1868
+Perplexity: Written 2970/84045 entries to perplexity result file (batch 66/1868)
+Processing batch 67/1868
+Perplexity: Written 3015/84045 entries to perplexity result file (batch 67/1868)
+Processing batch 68/1868
+Perplexity: Written 3060/84045 entries to perplexity result file (batch 68/1868)
+Processing batch 69/1868
+Perplexity: Written 3105/84045 entries to perplexity result file (batch 69/1868)
+Processing batch 70/1868
+Perplexity: Written 3150/84045 entries to perplexity result file (batch 70/1868)
+Processing batch 71/1868
+Perplexity: Written 3195/84045 entries to perplexity result file (batch 71/1868)
+Processing batch 72/1868
+Perplexity: Written 3240/84045 entries to perplexity result file (batch 72/1868)
+Processing batch 73/1868
+Perplexity: Written 3285/84045 entries to perplexity result file (batch 73/1868)
+Processing batch 74/1868
+Perplexity: Written 3330/84045 entries to perplexity result file (batch 74/1868)
+Processing batch 75/1868
+Perplexity: Written 3375/84045 entries to perplexity result file (batch 75/1868)
+Processing batch 76/1868
+Perplexity: Written 3420/84045 entries to perplexity result file (batch 76/1868)
+Processing batch 77/1868
+Perplexity: Written 3465/84045 entries to perplexity result file (batch 77/1868)
+Processing batch 78/1868
+Perplexity: Written 3510/84045 entries to perplexity result file (batch 78/1868)
+Processing batch 79/1868
+Perplexity: Written 3555/84045 entries to perplexity result file (batch 79/1868)
+Processing batch 80/1868
+Perplexity: Written 3600/84045 entries to perplexity result file (batch 80/1868)
+Processing batch 81/1868
+Perplexity: Written 3645/84045 entries to perplexity result file (batch 81/1868)
+Processing batch 82/1868
+Perplexity: Written 3690/84045 entries to perplexity result file (batch 82/1868)
+Processing batch 83/1868
+Perplexity: Written 3735/84045 entries to perplexity result file (batch 83/1868)
+Processing batch 84/1868
+Perplexity: Written 3780/84045 entries to perplexity result file (batch 84/1868)
+Processing batch 85/1868
+Perplexity: Written 3825/84045 entries to perplexity result file (batch 85/1868)
+Processing batch 86/1868
+Perplexity: Written 3870/84045 entries to perplexity result file (batch 86/1868)
+Processing batch 87/1868
+Perplexity: Written 3915/84045 entries to perplexity result file (batch 87/1868)
+Processing batch 88/1868
+Perplexity: Written 3960/84045 entries to perplexity result file (batch 88/1868)
+Processing batch 89/1868
+Perplexity: Written 4005/84045 entries to perplexity result file (batch 89/1868)
+Processing batch 90/1868
+Perplexity: Written 4050/84045 entries to perplexity result file (batch 90/1868)
+Processing batch 91/1868
+Perplexity: Written 4095/84045 entries to perplexity result file (batch 91/1868)
+Processing batch 92/1868
+Perplexity: Written 4140/84045 entries to perplexity result file (batch 92/1868)
+Processing batch 93/1868
+Perplexity: Written 4185/84045 entries to perplexity result file (batch 93/1868)
+Processing batch 94/1868
+Perplexity: Written 4230/84045 entries to perplexity result file (batch 94/1868)
+Processing batch 95/1868
+Perplexity: Written 4275/84045 entries to perplexity result file (batch 95/1868)
+Processing batch 96/1868
+Perplexity: Written 4320/84045 entries to perplexity result file (batch 96/1868)
+Processing batch 97/1868
+Perplexity: Written 4365/84045 entries to perplexity result file (batch 97/1868)
+Processing batch 98/1868
+Perplexity: Written 4410/84045 entries to perplexity result file (batch 98/1868)
+Processing batch 99/1868
+Perplexity: Written 4455/84045 entries to perplexity result file (batch 99/1868)
+Processing batch 100/1868
+Perplexity: Written 4500/84045 entries to perplexity result file (batch 100/1868)
+Processing batch 101/1868
+Perplexity: Written 4545/84045 entries to perplexity result file (batch 101/1868)
+Processing batch 102/1868
+Perplexity: Written 4590/84045 entries to perplexity result file (batch 102/1868)
+Processing batch 103/1868
+Perplexity: Written 4635/84045 entries to perplexity result file (batch 103/1868)
+Processing batch 104/1868
+Perplexity: Written 4680/84045 entries to perplexity result file (batch 104/1868)
+Processing batch 105/1868
+Perplexity: Written 4725/84045 entries to perplexity result file (batch 105/1868)
+Processing batch 106/1868
+Perplexity: Written 4770/84045 entries to perplexity result file (batch 106/1868)
+Processing batch 107/1868
+Perplexity: Written 4815/84045 entries to perplexity result file (batch 107/1868)
+Processing batch 108/1868
+Perplexity: Written 4860/84045 entries to perplexity result file (batch 108/1868)
+Processing batch 109/1868
+Perplexity: Written 4905/84045 entries to perplexity result file (batch 109/1868)
+Processing batch 110/1868
+Perplexity: Written 4950/84045 entries to perplexity result file (batch 110/1868)
+Processing batch 111/1868
+Perplexity: Written 4995/84045 entries to perplexity result file (batch 111/1868)
+Processing batch 112/1868
+Perplexity: Written 5040/84045 entries to perplexity result file (batch 112/1868)
+Processing batch 113/1868
+Perplexity: Written 5085/84045 entries to perplexity result file (batch 113/1868)
+Processing batch 114/1868
+Perplexity: Written 5130/84045 entries to perplexity result file (batch 114/1868)
+Processing batch 115/1868
+Perplexity: Written 5175/84045 entries to perplexity result file (batch 115/1868)
+Processing batch 116/1868
+Perplexity: Written 5220/84045 entries to perplexity result file (batch 116/1868)
+Processing batch 117/1868
+Perplexity: Written 5265/84045 entries to perplexity result file (batch 117/1868)
+Processing batch 118/1868
+Perplexity: Written 5310/84045 entries to perplexity result file (batch 118/1868)
+Processing batch 119/1868
+Perplexity: Written 5355/84045 entries to perplexity result file (batch 119/1868)
+Processing batch 120/1868
+Perplexity: Written 5400/84045 entries to perplexity result file (batch 120/1868)
+Processing batch 121/1868
+Perplexity: Written 5445/84045 entries to perplexity result file (batch 121/1868)
+Processing batch 122/1868
+Perplexity: Written 5490/84045 entries to perplexity result file (batch 122/1868)
+Processing batch 123/1868
+Perplexity: Written 5535/84045 entries to perplexity result file (batch 123/1868)
+Processing batch 124/1868
+Perplexity: Written 5580/84045 entries to perplexity result file (batch 124/1868)
+Processing batch 125/1868
+Perplexity: Written 5625/84045 entries to perplexity result file (batch 125/1868)
+Processing batch 126/1868
+Perplexity: Written 5670/84045 entries to perplexity result file (batch 126/1868)
+Processing batch 127/1868
+Perplexity: Written 5715/84045 entries to perplexity result file (batch 127/1868)
+Processing batch 128/1868
+Perplexity: Written 5760/84045 entries to perplexity result file (batch 128/1868)
+Processing batch 129/1868
+Perplexity: Written 5805/84045 entries to perplexity result file (batch 129/1868)
+Processing batch 130/1868
+Perplexity: Written 5850/84045 entries to perplexity result file (batch 130/1868)
+Processing batch 131/1868
+Perplexity: Written 5895/84045 entries to perplexity result file (batch 131/1868)
+Processing batch 132/1868
+Perplexity: Written 5940/84045 entries to perplexity result file (batch 132/1868)
+Processing batch 133/1868
+Perplexity: Written 5985/84045 entries to perplexity result file (batch 133/1868)
+Processing batch 134/1868
+Perplexity: Written 6030/84045 entries to perplexity result file (batch 134/1868)
+Processing batch 135/1868
+Perplexity: Written 6075/84045 entries to perplexity result file (batch 135/1868)
+Processing batch 136/1868
+Perplexity: Written 6120/84045 entries to perplexity result file (batch 136/1868)
+Processing batch 137/1868
+Perplexity: Written 6165/84045 entries to perplexity result file (batch 137/1868)
+Processing batch 138/1868
+Perplexity: Written 6210/84045 entries to perplexity result file (batch 138/1868)
+Processing batch 139/1868
+Perplexity: Written 6255/84045 entries to perplexity result file (batch 139/1868)
+Processing batch 140/1868
+Perplexity: Written 6300/84045 entries to perplexity result file (batch 140/1868)
+Processing batch 141/1868
+Perplexity: Written 6345/84045 entries to perplexity result file (batch 141/1868)
+Processing batch 142/1868
+Perplexity: Written 6390/84045 entries to perplexity result file (batch 142/1868)
+Processing batch 143/1868
+Perplexity: Written 6435/84045 entries to perplexity result file (batch 143/1868)
+Processing batch 144/1868
+Perplexity: Written 6480/84045 entries to perplexity result file (batch 144/1868)
+Processing batch 145/1868
+Perplexity: Written 6525/84045 entries to perplexity result file (batch 145/1868)
+Processing batch 146/1868
+Perplexity: Written 6570/84045 entries to perplexity result file (batch 146/1868)
+Processing batch 147/1868
+Perplexity: Written 6615/84045 entries to perplexity result file (batch 147/1868)
+Processing batch 148/1868
+Perplexity: Written 6660/84045 entries to perplexity result file (batch 148/1868)
+Processing batch 149/1868
+Perplexity: Written 6705/84045 entries to perplexity result file (batch 149/1868)
+Processing batch 150/1868
+Perplexity: Written 6750/84045 entries to perplexity result file (batch 150/1868)
+Processing batch 151/1868
+Perplexity: Written 6795/84045 entries to perplexity result file (batch 151/1868)
+Processing batch 152/1868
+Perplexity: Written 6840/84045 entries to perplexity result file (batch 152/1868)
+Processing batch 153/1868
+Perplexity: Written 6885/84045 entries to perplexity result file (batch 153/1868)
+Processing batch 154/1868
+Perplexity: Written 6930/84045 entries to perplexity result file (batch 154/1868)
+Processing batch 155/1868
+Perplexity: Written 6975/84045 entries to perplexity result file (batch 155/1868)
+Processing batch 156/1868
+Perplexity: Written 7020/84045 entries to perplexity result file (batch 156/1868)
+Processing batch 157/1868
+Perplexity: Written 7065/84045 entries to perplexity result file (batch 157/1868)
+Processing batch 158/1868
+Perplexity: Written 7110/84045 entries to perplexity result file (batch 158/1868)
+Processing batch 159/1868
+Perplexity: Written 7155/84045 entries to perplexity result file (batch 159/1868)
+Processing batch 160/1868
+Perplexity: Written 7200/84045 entries to perplexity result file (batch 160/1868)
+Processing batch 161/1868
+Perplexity: Written 7245/84045 entries to perplexity result file (batch 161/1868)
+Processing batch 162/1868
+Perplexity: Written 7290/84045 entries to perplexity result file (batch 162/1868)
+Processing batch 163/1868
+Perplexity: Written 7335/84045 entries to perplexity result file (batch 163/1868)
+Processing batch 164/1868
+Perplexity: Written 7380/84045 entries to perplexity result file (batch 164/1868)
+Processing batch 165/1868
+Perplexity: Written 7425/84045 entries to perplexity result file (batch 165/1868)
+Processing batch 166/1868
+Perplexity: Written 7470/84045 entries to perplexity result file (batch 166/1868)
+Processing batch 167/1868
+Perplexity: Written 7515/84045 entries to perplexity result file (batch 167/1868)
+Processing batch 168/1868
+Perplexity: Written 7560/84045 entries to perplexity result file (batch 168/1868)
+Processing batch 169/1868
+Perplexity: Written 7605/84045 entries to perplexity result file (batch 169/1868)
+Processing batch 170/1868
+Perplexity: Written 7650/84045 entries to perplexity result file (batch 170/1868)
+Processing batch 171/1868
+Perplexity: Written 7695/84045 entries to perplexity result file (batch 171/1868)
+Processing batch 172/1868
+Perplexity: Written 7740/84045 entries to perplexity result file (batch 172/1868)
+Processing batch 173/1868
+Perplexity: Written 7785/84045 entries to perplexity result file (batch 173/1868)
+Processing batch 174/1868
+Perplexity: Written 7830/84045 entries to perplexity result file (batch 174/1868)
+Processing batch 175/1868
+Perplexity: Written 7875/84045 entries to perplexity result file (batch 175/1868)
+Processing batch 176/1868
+Perplexity: Written 7920/84045 entries to perplexity result file (batch 176/1868)
+Processing batch 177/1868
+Perplexity: Written 7965/84045 entries to perplexity result file (batch 177/1868)
+Processing batch 178/1868
+Perplexity: Written 8010/84045 entries to perplexity result file (batch 178/1868)
+Processing batch 179/1868
+Perplexity: Written 8055/84045 entries to perplexity result file (batch 179/1868)
+Processing batch 180/1868
+Perplexity: Written 8100/84045 entries to perplexity result file (batch 180/1868)
+Processing batch 181/1868
+Perplexity: Written 8145/84045 entries to perplexity result file (batch 181/1868)
+Processing batch 182/1868
+Perplexity: Written 8190/84045 entries to perplexity result file (batch 182/1868)
+Processing batch 183/1868
+Perplexity: Written 8235/84045 entries to perplexity result file (batch 183/1868)
+Processing batch 184/1868
+Perplexity: Written 8280/84045 entries to perplexity result file (batch 184/1868)
+Processing batch 185/1868
+Perplexity: Written 8325/84045 entries to perplexity result file (batch 185/1868)
+Processing batch 186/1868
+Perplexity: Written 8370/84045 entries to perplexity result file (batch 186/1868)
+Processing batch 187/1868
+Perplexity: Written 8415/84045 entries to perplexity result file (batch 187/1868)
+Processing batch 188/1868
+Perplexity: Written 8460/84045 entries to perplexity result file (batch 188/1868)
+Processing batch 189/1868
+Perplexity: Written 8505/84045 entries to perplexity result file (batch 189/1868)
+Processing batch 190/1868
+Perplexity: Written 8550/84045 entries to perplexity result file (batch 190/1868)
+Processing batch 191/1868
+Perplexity: Written 8595/84045 entries to perplexity result file (batch 191/1868)
+Processing batch 192/1868
+Perplexity: Written 8640/84045 entries to perplexity result file (batch 192/1868)
+Processing batch 193/1868
+Perplexity: Written 8685/84045 entries to perplexity result file (batch 193/1868)
+Processing batch 194/1868
+Perplexity: Written 8730/84045 entries to perplexity result file (batch 194/1868)
+Processing batch 195/1868
+Perplexity: Written 8775/84045 entries to perplexity result file (batch 195/1868)
+Processing batch 196/1868
+Perplexity: Written 8820/84045 entries to perplexity result file (batch 196/1868)
+Processing batch 197/1868
+Perplexity: Written 8865/84045 entries to perplexity result file (batch 197/1868)
+Processing batch 198/1868
+Perplexity: Written 8910/84045 entries to perplexity result file (batch 198/1868)
+Processing batch 199/1868
+Perplexity: Written 8955/84045 entries to perplexity result file (batch 199/1868)
+Processing batch 200/1868
+Perplexity: Written 9000/84045 entries to perplexity result file (batch 200/1868)
+Processing batch 201/1868
+Perplexity: Written 9045/84045 entries to perplexity result file (batch 201/1868)
+Processing batch 202/1868
+Perplexity: Written 9090/84045 entries to perplexity result file (batch 202/1868)
+Processing batch 203/1868
+Perplexity: Written 9135/84045 entries to perplexity result file (batch 203/1868)
+Processing batch 204/1868
+Perplexity: Written 9180/84045 entries to perplexity result file (batch 204/1868)
+Processing batch 205/1868
+Perplexity: Written 9225/84045 entries to perplexity result file (batch 205/1868)
+Processing batch 206/1868
+Perplexity: Written 9270/84045 entries to perplexity result file (batch 206/1868)
+Processing batch 207/1868
+Perplexity: Written 9315/84045 entries to perplexity result file (batch 207/1868)
+Processing batch 208/1868
+Perplexity: Written 9360/84045 entries to perplexity result file (batch 208/1868)
+Processing batch 209/1868
+Perplexity: Written 9405/84045 entries to perplexity result file (batch 209/1868)
+Processing batch 210/1868
+Perplexity: Written 9450/84045 entries to perplexity result file (batch 210/1868)
+Processing batch 211/1868
+Perplexity: Written 9495/84045 entries to perplexity result file (batch 211/1868)
+Processing batch 212/1868
+Perplexity: Written 9540/84045 entries to perplexity result file (batch 212/1868)
+Processing batch 213/1868
+Perplexity: Written 9585/84045 entries to perplexity result file (batch 213/1868)
+Processing batch 214/1868
+Perplexity: Written 9630/84045 entries to perplexity result file (batch 214/1868)
+Processing batch 215/1868
+Perplexity: Written 9675/84045 entries to perplexity result file (batch 215/1868)
+Processing batch 216/1868
+Perplexity: Written 9720/84045 entries to perplexity result file (batch 216/1868)
+Processing batch 217/1868
+Perplexity: Written 9765/84045 entries to perplexity result file (batch 217/1868)
+Processing batch 218/1868
+Perplexity: Written 9810/84045 entries to perplexity result file (batch 218/1868)
+Processing batch 219/1868
+Perplexity: Written 9855/84045 entries to perplexity result file (batch 219/1868)
+Processing batch 220/1868
+Perplexity: Written 9900/84045 entries to perplexity result file (batch 220/1868)
+Processing batch 221/1868
+Perplexity: Written 9945/84045 entries to perplexity result file (batch 221/1868)
+Processing batch 222/1868
+Perplexity: Written 9990/84045 entries to perplexity result file (batch 222/1868)
+Processing batch 223/1868
+Perplexity: Written 10035/84045 entries to perplexity result file (batch 223/1868)
+Processing batch 224/1868
+Perplexity: Written 10080/84045 entries to perplexity result file (batch 224/1868)
+Processing batch 225/1868
+Perplexity: Written 10125/84045 entries to perplexity result file (batch 225/1868)
+Processing batch 226/1868
+Perplexity: Written 10170/84045 entries to perplexity result file (batch 226/1868)
+Processing batch 227/1868
+Perplexity: Written 10215/84045 entries to perplexity result file (batch 227/1868)
+Processing batch 228/1868
+Perplexity: Written 10260/84045 entries to perplexity result file (batch 228/1868)
+Processing batch 229/1868
+Perplexity: Written 10305/84045 entries to perplexity result file (batch 229/1868)
+Processing batch 230/1868
+Perplexity: Written 10350/84045 entries to perplexity result file (batch 230/1868)
+Processing batch 231/1868
+Perplexity: Written 10395/84045 entries to perplexity result file (batch 231/1868)
+Processing batch 232/1868
+Perplexity: Written 10440/84045 entries to perplexity result file (batch 232/1868)
+Processing batch 233/1868
+Perplexity: Written 10485/84045 entries to perplexity result file (batch 233/1868)
+Processing batch 234/1868
+Perplexity: Written 10530/84045 entries to perplexity result file (batch 234/1868)
+Processing batch 235/1868
+Perplexity: Written 10575/84045 entries to perplexity result file (batch 235/1868)
+Processing batch 236/1868
+Perplexity: Written 10620/84045 entries to perplexity result file (batch 236/1868)
+Processing batch 237/1868
+Perplexity: Written 10665/84045 entries to perplexity result file (batch 237/1868)
+Processing batch 238/1868
+Perplexity: Written 10710/84045 entries to perplexity result file (batch 238/1868)
+Processing batch 239/1868
+Perplexity: Written 10755/84045 entries to perplexity result file (batch 239/1868)
+Processing batch 240/1868
+Perplexity: Written 10800/84045 entries to perplexity result file (batch 240/1868)
+Processing batch 241/1868
+Perplexity: Written 10845/84045 entries to perplexity result file (batch 241/1868)
+Processing batch 242/1868
+Perplexity: Written 10890/84045 entries to perplexity result file (batch 242/1868)
+Processing batch 243/1868
+Perplexity: Written 10935/84045 entries to perplexity result file (batch 243/1868)
+Processing batch 244/1868
+Perplexity: Written 10980/84045 entries to perplexity result file (batch 244/1868)
+Processing batch 245/1868
+Perplexity: Written 11025/84045 entries to perplexity result file (batch 245/1868)
+Processing batch 246/1868
+Perplexity: Written 11070/84045 entries to perplexity result file (batch 246/1868)
+Processing batch 247/1868
+Perplexity: Written 11115/84045 entries to perplexity result file (batch 247/1868)
+Processing batch 248/1868
+Perplexity: Written 11160/84045 entries to perplexity result file (batch 248/1868)
+Processing batch 249/1868
+Perplexity: Written 11205/84045 entries to perplexity result file (batch 249/1868)
+Processing batch 250/1868
+Perplexity: Written 11250/84045 entries to perplexity result file (batch 250/1868)
+Processing batch 251/1868
+Perplexity: Written 11295/84045 entries to perplexity result file (batch 251/1868)
+Processing batch 252/1868
+Perplexity: Written 11340/84045 entries to perplexity result file (batch 252/1868)
+Processing batch 253/1868
+Perplexity: Written 11385/84045 entries to perplexity result file (batch 253/1868)
+Processing batch 254/1868
+Perplexity: Written 11430/84045 entries to perplexity result file (batch 254/1868)
+Processing batch 255/1868
+Perplexity: Written 11475/84045 entries to perplexity result file (batch 255/1868)
+Processing batch 256/1868
+Perplexity: Written 11520/84045 entries to perplexity result file (batch 256/1868)
+Processing batch 257/1868
+Perplexity: Written 11565/84045 entries to perplexity result file (batch 257/1868)
+Processing batch 258/1868
+Perplexity: Written 11610/84045 entries to perplexity result file (batch 258/1868)
+Processing batch 259/1868
+Perplexity: Written 11655/84045 entries to perplexity result file (batch 259/1868)
+Processing batch 260/1868
+Perplexity: Written 11700/84045 entries to perplexity result file (batch 260/1868)
+Processing batch 261/1868
+Perplexity: Written 11745/84045 entries to perplexity result file (batch 261/1868)
+Processing batch 262/1868
+Perplexity: Written 11790/84045 entries to perplexity result file (batch 262/1868)
+Processing batch 263/1868
+Perplexity: Written 11835/84045 entries to perplexity result file (batch 263/1868)
+Processing batch 264/1868
+Perplexity: Written 11880/84045 entries to perplexity result file (batch 264/1868)
+Processing batch 265/1868
+Perplexity: Written 11925/84045 entries to perplexity result file (batch 265/1868)
+Processing batch 266/1868
+Perplexity: Written 11970/84045 entries to perplexity result file (batch 266/1868)
+Processing batch 267/1868
+Perplexity: Written 12015/84045 entries to perplexity result file (batch 267/1868)
+Processing batch 268/1868
+Perplexity: Written 12060/84045 entries to perplexity result file (batch 268/1868)
+Processing batch 269/1868
+Perplexity: Written 12105/84045 entries to perplexity result file (batch 269/1868)
+Processing batch 270/1868
+Perplexity: Written 12150/84045 entries to perplexity result file (batch 270/1868)
+Processing batch 271/1868
+Perplexity: Written 12195/84045 entries to perplexity result file (batch 271/1868)
+Processing batch 272/1868
+Perplexity: Written 12240/84045 entries to perplexity result file (batch 272/1868)
+Processing batch 273/1868
+Perplexity: Written 12285/84045 entries to perplexity result file (batch 273/1868)
+Processing batch 274/1868
+Perplexity: Written 12330/84045 entries to perplexity result file (batch 274/1868)
+Processing batch 275/1868
+Perplexity: Written 12375/84045 entries to perplexity result file (batch 275/1868)
+Processing batch 276/1868
+Perplexity: Written 12420/84045 entries to perplexity result file (batch 276/1868)
+Processing batch 277/1868
+Perplexity: Written 12465/84045 entries to perplexity result file (batch 277/1868)
+Processing batch 278/1868
+Perplexity: Written 12510/84045 entries to perplexity result file (batch 278/1868)
+Processing batch 279/1868
+Perplexity: Written 12555/84045 entries to perplexity result file (batch 279/1868)
+Processing batch 280/1868
+Perplexity: Written 12600/84045 entries to perplexity result file (batch 280/1868)
+Processing batch 281/1868
+Perplexity: Written 12645/84045 entries to perplexity result file (batch 281/1868)
+Processing batch 282/1868
+Perplexity: Written 12690/84045 entries to perplexity result file (batch 282/1868)
+Processing batch 283/1868
+Perplexity: Written 12735/84045 entries to perplexity result file (batch 283/1868)
+Processing batch 284/1868
+Perplexity: Written 12780/84045 entries to perplexity result file (batch 284/1868)
+Processing batch 285/1868
+Perplexity: Written 12825/84045 entries to perplexity result file (batch 285/1868)
+Processing batch 286/1868
+Perplexity: Written 12870/84045 entries to perplexity result file (batch 286/1868)
+Processing batch 287/1868
+Perplexity: Written 12915/84045 entries to perplexity result file (batch 287/1868)
+Processing batch 288/1868
+Perplexity: Written 12960/84045 entries to perplexity result file (batch 288/1868)
+Processing batch 289/1868
+Perplexity: Written 13005/84045 entries to perplexity result file (batch 289/1868)
+Processing batch 290/1868
+Perplexity: Written 13050/84045 entries to perplexity result file (batch 290/1868)
+Processing batch 291/1868
+Perplexity: Written 13095/84045 entries to perplexity result file (batch 291/1868)
+Processing batch 292/1868
+Perplexity: Written 13140/84045 entries to perplexity result file (batch 292/1868)
+Processing batch 293/1868
+Perplexity: Written 13185/84045 entries to perplexity result file (batch 293/1868)
+Processing batch 294/1868
+Perplexity: Written 13230/84045 entries to perplexity result file (batch 294/1868)
+Processing batch 295/1868
+Perplexity: Written 13275/84045 entries to perplexity result file (batch 295/1868)
+Processing batch 296/1868
+Perplexity: Written 13320/84045 entries to perplexity result file (batch 296/1868)
+Processing batch 297/1868
+Perplexity: Written 13365/84045 entries to perplexity result file (batch 297/1868)
+Processing batch 298/1868
+Perplexity: Written 13410/84045 entries to perplexity result file (batch 298/1868)
+Processing batch 299/1868
+Perplexity: Written 13455/84045 entries to perplexity result file (batch 299/1868)
+Processing batch 300/1868
+Perplexity: Written 13500/84045 entries to perplexity result file (batch 300/1868)
+Processing batch 301/1868
+Perplexity: Written 13545/84045 entries to perplexity result file (batch 301/1868)
+Processing batch 302/1868
+Perplexity: Written 13590/84045 entries to perplexity result file (batch 302/1868)
+Processing batch 303/1868
+Perplexity: Written 13635/84045 entries to perplexity result file (batch 303/1868)
+Processing batch 304/1868
+Perplexity: Written 13680/84045 entries to perplexity result file (batch 304/1868)
+Processing batch 305/1868
+Perplexity: Written 13725/84045 entries to perplexity result file (batch 305/1868)
+Processing batch 306/1868
+Perplexity: Written 13770/84045 entries to perplexity result file (batch 306/1868)
+Processing batch 307/1868
+Perplexity: Written 13815/84045 entries to perplexity result file (batch 307/1868)
+Processing batch 308/1868
+Perplexity: Written 13860/84045 entries to perplexity result file (batch 308/1868)
+Processing batch 309/1868
+Perplexity: Written 13905/84045 entries to perplexity result file (batch 309/1868)
+Processing batch 310/1868
+Perplexity: Written 13950/84045 entries to perplexity result file (batch 310/1868)
+Processing batch 311/1868
+Perplexity: Written 13995/84045 entries to perplexity result file (batch 311/1868)
+Processing batch 312/1868
+Perplexity: Written 14040/84045 entries to perplexity result file (batch 312/1868)
+Processing batch 313/1868
+Perplexity: Written 14085/84045 entries to perplexity result file (batch 313/1868)
+Processing batch 314/1868
+Perplexity: Written 14130/84045 entries to perplexity result file (batch 314/1868)
+Processing batch 315/1868
+Perplexity: Written 14175/84045 entries to perplexity result file (batch 315/1868)
+Processing batch 316/1868
+Perplexity: Written 14220/84045 entries to perplexity result file (batch 316/1868)
+Processing batch 317/1868
+Perplexity: Written 14265/84045 entries to perplexity result file (batch 317/1868)
+Processing batch 318/1868
+Perplexity: Written 14310/84045 entries to perplexity result file (batch 318/1868)
+Processing batch 319/1868
+Perplexity: Written 14355/84045 entries to perplexity result file (batch 319/1868)
+Processing batch 320/1868
+Perplexity: Written 14400/84045 entries to perplexity result file (batch 320/1868)
+Processing batch 321/1868
+Perplexity: Written 14445/84045 entries to perplexity result file (batch 321/1868)
+Processing batch 322/1868
+Perplexity: Written 14490/84045 entries to perplexity result file (batch 322/1868)
+Processing batch 323/1868
+Perplexity: Written 14535/84045 entries to perplexity result file (batch 323/1868)
+Processing batch 324/1868
+Perplexity: Written 14580/84045 entries to perplexity result file (batch 324/1868)
+Processing batch 325/1868
+Perplexity: Written 14625/84045 entries to perplexity result file (batch 325/1868)
+Processing batch 326/1868
+Perplexity: Written 14670/84045 entries to perplexity result file (batch 326/1868)
+Processing batch 327/1868
+Perplexity: Written 14715/84045 entries to perplexity result file (batch 327/1868)
+Processing batch 328/1868
+Perplexity: Written 14760/84045 entries to perplexity result file (batch 328/1868)
+Processing batch 329/1868
+Perplexity: Written 14805/84045 entries to perplexity result file (batch 329/1868)
+Processing batch 330/1868
+Perplexity: Written 14850/84045 entries to perplexity result file (batch 330/1868)
+Processing batch 331/1868
+Perplexity: Written 14895/84045 entries to perplexity result file (batch 331/1868)
+Processing batch 332/1868
+Perplexity: Written 14940/84045 entries to perplexity result file (batch 332/1868)
+Processing batch 333/1868
+Perplexity: Written 14985/84045 entries to perplexity result file (batch 333/1868)
+Processing batch 334/1868
+Perplexity: Written 15030/84045 entries to perplexity result file (batch 334/1868)
+Processing batch 335/1868
+Perplexity: Written 15075/84045 entries to perplexity result file (batch 335/1868)
+Processing batch 336/1868
+Perplexity: Written 15120/84045 entries to perplexity result file (batch 336/1868)
+Processing batch 337/1868
+Perplexity: Written 15165/84045 entries to perplexity result file (batch 337/1868)
+Processing batch 338/1868
+Perplexity: Written 15210/84045 entries to perplexity result file (batch 338/1868)
+Processing batch 339/1868
+Perplexity: Written 15255/84045 entries to perplexity result file (batch 339/1868)
+Processing batch 340/1868
+Perplexity: Written 15300/84045 entries to perplexity result file (batch 340/1868)
+Processing batch 341/1868
+Perplexity: Written 15345/84045 entries to perplexity result file (batch 341/1868)
+Processing batch 342/1868
+Perplexity: Written 15390/84045 entries to perplexity result file (batch 342/1868)
+Processing batch 343/1868
+Perplexity: Written 15435/84045 entries to perplexity result file (batch 343/1868)
+Processing batch 344/1868
+Perplexity: Written 15480/84045 entries to perplexity result file (batch 344/1868)
+Processing batch 345/1868
+Perplexity: Written 15525/84045 entries to perplexity result file (batch 345/1868)
+Processing batch 346/1868
+Perplexity: Written 15570/84045 entries to perplexity result file (batch 346/1868)
+Processing batch 347/1868
+Perplexity: Written 15615/84045 entries to perplexity result file (batch 347/1868)
+Processing batch 348/1868
+Perplexity: Written 15660/84045 entries to perplexity result file (batch 348/1868)
+Processing batch 349/1868
+Perplexity: Written 15705/84045 entries to perplexity result file (batch 349/1868)
+Processing batch 350/1868
+Perplexity: Written 15750/84045 entries to perplexity result file (batch 350/1868)
+Processing batch 351/1868
+Perplexity: Written 15795/84045 entries to perplexity result file (batch 351/1868)
+Processing batch 352/1868
+Perplexity: Written 15840/84045 entries to perplexity result file (batch 352/1868)
+Processing batch 353/1868
+Perplexity: Written 15885/84045 entries to perplexity result file (batch 353/1868)
+Processing batch 354/1868
+Perplexity: Written 15930/84045 entries to perplexity result file (batch 354/1868)
+Processing batch 355/1868
+Perplexity: Written 15975/84045 entries to perplexity result file (batch 355/1868)
+Processing batch 356/1868
+Perplexity: Written 16020/84045 entries to perplexity result file (batch 356/1868)
+Processing batch 357/1868
+Perplexity: Written 16065/84045 entries to perplexity result file (batch 357/1868)
+Processing batch 358/1868
+Perplexity: Written 16110/84045 entries to perplexity result file (batch 358/1868)
+Processing batch 359/1868
+Perplexity: Written 16155/84045 entries to perplexity result file (batch 359/1868)
+Processing batch 360/1868
+Perplexity: Written 16200/84045 entries to perplexity result file (batch 360/1868)
+Processing batch 361/1868
+Perplexity: Written 16245/84045 entries to perplexity result file (batch 361/1868)
+Processing batch 362/1868
+Perplexity: Written 16290/84045 entries to perplexity result file (batch 362/1868)
+Processing batch 363/1868
+Perplexity: Written 16335/84045 entries to perplexity result file (batch 363/1868)
+Processing batch 364/1868
+Perplexity: Written 16380/84045 entries to perplexity result file (batch 364/1868)
+Processing batch 365/1868
+Perplexity: Written 16425/84045 entries to perplexity result file (batch 365/1868)
+Processing batch 366/1868
+Perplexity: Written 16470/84045 entries to perplexity result file (batch 366/1868)
+Processing batch 367/1868
+Perplexity: Written 16515/84045 entries to perplexity result file (batch 367/1868)
+Processing batch 368/1868
+Perplexity: Written 16560/84045 entries to perplexity result file (batch 368/1868)
+Processing batch 369/1868
+Perplexity: Written 16605/84045 entries to perplexity result file (batch 369/1868)
+Processing batch 370/1868
+Perplexity: Written 16650/84045 entries to perplexity result file (batch 370/1868)
+Processing batch 371/1868
+Perplexity: Written 16695/84045 entries to perplexity result file (batch 371/1868)
+Processing batch 372/1868
+Perplexity: Written 16740/84045 entries to perplexity result file (batch 372/1868)
+Processing batch 373/1868
+Perplexity: Written 16785/84045 entries to perplexity result file (batch 373/1868)
+Processing batch 374/1868
+Perplexity: Written 16830/84045 entries to perplexity result file (batch 374/1868)
+Processing batch 375/1868
+Perplexity: Written 16875/84045 entries to perplexity result file (batch 375/1868)
+Processing batch 376/1868
+Perplexity: Written 16920/84045 entries to perplexity result file (batch 376/1868)
+Processing batch 377/1868
+Perplexity: Written 16965/84045 entries to perplexity result file (batch 377/1868)
+Processing batch 378/1868
+Perplexity: Written 17010/84045 entries to perplexity result file (batch 378/1868)
+Processing batch 379/1868
+Perplexity: Written 17055/84045 entries to perplexity result file (batch 379/1868)
+Processing batch 380/1868
+Perplexity: Written 17100/84045 entries to perplexity result file (batch 380/1868)
+Processing batch 381/1868
+Perplexity: Written 17145/84045 entries to perplexity result file (batch 381/1868)
+Processing batch 382/1868
+Perplexity: Written 17190/84045 entries to perplexity result file (batch 382/1868)
+Processing batch 383/1868
+Perplexity: Written 17235/84045 entries to perplexity result file (batch 383/1868)
+Processing batch 384/1868
+Perplexity: Written 17280/84045 entries to perplexity result file (batch 384/1868)
+Processing batch 385/1868
+Perplexity: Written 17325/84045 entries to perplexity result file (batch 385/1868)
+Processing batch 386/1868
+Perplexity: Written 17370/84045 entries to perplexity result file (batch 386/1868)
+Processing batch 387/1868
+Perplexity: Written 17415/84045 entries to perplexity result file (batch 387/1868)
+Processing batch 388/1868
+Perplexity: Written 17460/84045 entries to perplexity result file (batch 388/1868)
+Processing batch 389/1868
+Perplexity: Written 17505/84045 entries to perplexity result file (batch 389/1868)
+Processing batch 390/1868
+Perplexity: Written 17550/84045 entries to perplexity result file (batch 390/1868)
+Processing batch 391/1868
+Perplexity: Written 17595/84045 entries to perplexity result file (batch 391/1868)
+Processing batch 392/1868
+Perplexity: Written 17640/84045 entries to perplexity result file (batch 392/1868)
+Processing batch 393/1868
+Perplexity: Written 17685/84045 entries to perplexity result file (batch 393/1868)
+Processing batch 394/1868
+Perplexity: Written 17730/84045 entries to perplexity result file (batch 394/1868)
+Processing batch 395/1868
+Perplexity: Written 17775/84045 entries to perplexity result file (batch 395/1868)
+Processing batch 396/1868
+Perplexity: Written 17820/84045 entries to perplexity result file (batch 396/1868)
+Processing batch 397/1868
+Perplexity: Written 17865/84045 entries to perplexity result file (batch 397/1868)
+Processing batch 398/1868
+Perplexity: Written 17910/84045 entries to perplexity result file (batch 398/1868)
+Processing batch 399/1868
+Perplexity: Written 17955/84045 entries to perplexity result file (batch 399/1868)
+Processing batch 400/1868
+Perplexity: Written 18000/84045 entries to perplexity result file (batch 400/1868)
+Processing batch 401/1868
+Perplexity: Written 18045/84045 entries to perplexity result file (batch 401/1868)
+Processing batch 402/1868
+Perplexity: Written 18090/84045 entries to perplexity result file (batch 402/1868)
+Processing batch 403/1868
+Perplexity: Written 18135/84045 entries to perplexity result file (batch 403/1868)
+Processing batch 404/1868
+Perplexity: Written 18180/84045 entries to perplexity result file (batch 404/1868)
+Processing batch 405/1868
+Perplexity: Written 18225/84045 entries to perplexity result file (batch 405/1868)
+Processing batch 406/1868
+Perplexity: Written 18270/84045 entries to perplexity result file (batch 406/1868)
+Processing batch 407/1868
+Perplexity: Written 18315/84045 entries to perplexity result file (batch 407/1868)
+Processing batch 408/1868
+Perplexity: Written 18360/84045 entries to perplexity result file (batch 408/1868)
+Processing batch 409/1868
+Perplexity: Written 18405/84045 entries to perplexity result file (batch 409/1868)
+Processing batch 410/1868
+Perplexity: Written 18450/84045 entries to perplexity result file (batch 410/1868)
+Processing batch 411/1868
+Perplexity: Written 18495/84045 entries to perplexity result file (batch 411/1868)
+Processing batch 412/1868
+Perplexity: Written 18540/84045 entries to perplexity result file (batch 412/1868)
+Processing batch 413/1868
+Perplexity: Written 18585/84045 entries to perplexity result file (batch 413/1868)
+Processing batch 414/1868
+Perplexity: Written 18630/84045 entries to perplexity result file (batch 414/1868)
+Processing batch 415/1868
+Perplexity: Written 18675/84045 entries to perplexity result file (batch 415/1868)
+Processing batch 416/1868
+Perplexity: Written 18720/84045 entries to perplexity result file (batch 416/1868)
+Processing batch 417/1868
+Perplexity: Written 18765/84045 entries to perplexity result file (batch 417/1868)
+Processing batch 418/1868
+Perplexity: Written 18810/84045 entries to perplexity result file (batch 418/1868)
+Processing batch 419/1868
+Perplexity: Written 18855/84045 entries to perplexity result file (batch 419/1868)
+Processing batch 420/1868
+Perplexity: Written 18900/84045 entries to perplexity result file (batch 420/1868)
+Processing batch 421/1868
+Perplexity: Written 18945/84045 entries to perplexity result file (batch 421/1868)
+Processing batch 422/1868
+Perplexity: Written 18990/84045 entries to perplexity result file (batch 422/1868)
+Processing batch 423/1868
+Perplexity: Written 19035/84045 entries to perplexity result file (batch 423/1868)
+Processing batch 424/1868
+Perplexity: Written 19080/84045 entries to perplexity result file (batch 424/1868)
+Processing batch 425/1868
+Perplexity: Written 19125/84045 entries to perplexity result file (batch 425/1868)
+Processing batch 426/1868
+Perplexity: Written 19170/84045 entries to perplexity result file (batch 426/1868)
+Processing batch 427/1868
+Perplexity: Written 19215/84045 entries to perplexity result file (batch 427/1868)
+Processing batch 428/1868
+Perplexity: Written 19260/84045 entries to perplexity result file (batch 428/1868)
+Processing batch 429/1868
+Perplexity: Written 19305/84045 entries to perplexity result file (batch 429/1868)
+Processing batch 430/1868
+Perplexity: Written 19350/84045 entries to perplexity result file (batch 430/1868)
+Processing batch 431/1868
+Perplexity: Written 19395/84045 entries to perplexity result file (batch 431/1868)
+Processing batch 432/1868
+Perplexity: Written 19440/84045 entries to perplexity result file (batch 432/1868)
+Processing batch 433/1868
+Perplexity: Written 19485/84045 entries to perplexity result file (batch 433/1868)
+Processing batch 434/1868
+Perplexity: Written 19530/84045 entries to perplexity result file (batch 434/1868)
+Processing batch 435/1868
+Perplexity: Written 19575/84045 entries to perplexity result file (batch 435/1868)
+Processing batch 436/1868
+Perplexity: Written 19620/84045 entries to perplexity result file (batch 436/1868)
+Processing batch 437/1868
+Perplexity: Written 19665/84045 entries to perplexity result file (batch 437/1868)
+Processing batch 438/1868
+Perplexity: Written 19710/84045 entries to perplexity result file (batch 438/1868)
+Processing batch 439/1868
+Perplexity: Written 19755/84045 entries to perplexity result file (batch 439/1868)
+Processing batch 440/1868
+Perplexity: Written 19800/84045 entries to perplexity result file (batch 440/1868)
+Processing batch 441/1868
+Perplexity: Written 19845/84045 entries to perplexity result file (batch 441/1868)
+Processing batch 442/1868
+Perplexity: Written 19890/84045 entries to perplexity result file (batch 442/1868)
+Processing batch 443/1868
+Perplexity: Written 19935/84045 entries to perplexity result file (batch 443/1868)
+Processing batch 444/1868
+Perplexity: Written 19980/84045 entries to perplexity result file (batch 444/1868)
+Processing batch 445/1868
+Perplexity: Written 20025/84045 entries to perplexity result file (batch 445/1868)
+Processing batch 446/1868
+Perplexity: Written 20070/84045 entries to perplexity result file (batch 446/1868)
+Processing batch 447/1868
+Perplexity: Written 20115/84045 entries to perplexity result file (batch 447/1868)
+Processing batch 448/1868
+Perplexity: Written 20160/84045 entries to perplexity result file (batch 448/1868)
+Processing batch 449/1868
+Perplexity: Written 20205/84045 entries to perplexity result file (batch 449/1868)
+Processing batch 450/1868
+Perplexity: Written 20250/84045 entries to perplexity result file (batch 450/1868)
+Processing batch 451/1868
+Perplexity: Written 20295/84045 entries to perplexity result file (batch 451/1868)
+Processing batch 452/1868
+Perplexity: Written 20340/84045 entries to perplexity result file (batch 452/1868)
+Processing batch 453/1868
+Perplexity: Written 20385/84045 entries to perplexity result file (batch 453/1868)
+Processing batch 454/1868
+Perplexity: Written 20430/84045 entries to perplexity result file (batch 454/1868)
+Processing batch 455/1868
+Perplexity: Written 20475/84045 entries to perplexity result file (batch 455/1868)
+Processing batch 456/1868
+Perplexity: Written 20520/84045 entries to perplexity result file (batch 456/1868)
+Processing batch 457/1868
+Perplexity: Written 20565/84045 entries to perplexity result file (batch 457/1868)
+Processing batch 458/1868
+Perplexity: Written 20610/84045 entries to perplexity result file (batch 458/1868)
+Processing batch 459/1868
+Perplexity: Written 20655/84045 entries to perplexity result file (batch 459/1868)
+Processing batch 460/1868
+Perplexity: Written 20700/84045 entries to perplexity result file (batch 460/1868)
+Processing batch 461/1868
+Perplexity: Written 20745/84045 entries to perplexity result file (batch 461/1868)
+Processing batch 462/1868
+Perplexity: Written 20790/84045 entries to perplexity result file (batch 462/1868)
+Processing batch 463/1868
+Perplexity: Written 20835/84045 entries to perplexity result file (batch 463/1868)
+Processing batch 464/1868
+Perplexity: Written 20880/84045 entries to perplexity result file (batch 464/1868)
+Processing batch 465/1868
+Perplexity: Written 20925/84045 entries to perplexity result file (batch 465/1868)
+Processing batch 466/1868
+Perplexity: Written 20970/84045 entries to perplexity result file (batch 466/1868)
+Processing batch 467/1868
+Perplexity: Written 21015/84045 entries to perplexity result file (batch 467/1868)
+Processing batch 468/1868
+Perplexity: Written 21060/84045 entries to perplexity result file (batch 468/1868)
+Processing batch 469/1868
+Perplexity: Written 21105/84045 entries to perplexity result file (batch 469/1868)
+Processing batch 470/1868
+Perplexity: Written 21150/84045 entries to perplexity result file (batch 470/1868)
+Processing batch 471/1868
+Perplexity: Written 21195/84045 entries to perplexity result file (batch 471/1868)
+Processing batch 472/1868
+Perplexity: Written 21240/84045 entries to perplexity result file (batch 472/1868)
+Processing batch 473/1868
+Perplexity: Written 21285/84045 entries to perplexity result file (batch 473/1868)
+Processing batch 474/1868
+Perplexity: Written 21330/84045 entries to perplexity result file (batch 474/1868)
+Processing batch 475/1868
+Perplexity: Written 21375/84045 entries to perplexity result file (batch 475/1868)
+Processing batch 476/1868
+Perplexity: Written 21420/84045 entries to perplexity result file (batch 476/1868)
+Processing batch 477/1868
+Perplexity: Written 21465/84045 entries to perplexity result file (batch 477/1868)
+Processing batch 478/1868
+Perplexity: Written 21510/84045 entries to perplexity result file (batch 478/1868)
+Processing batch 479/1868
+Perplexity: Written 21555/84045 entries to perplexity result file (batch 479/1868)
+Processing batch 480/1868
+Perplexity: Written 21600/84045 entries to perplexity result file (batch 480/1868)
+Processing batch 481/1868
+Perplexity: Written 21645/84045 entries to perplexity result file (batch 481/1868)
+Processing batch 482/1868
+Perplexity: Written 21690/84045 entries to perplexity result file (batch 482/1868)
+Processing batch 483/1868
+Perplexity: Written 21735/84045 entries to perplexity result file (batch 483/1868)
+Processing batch 484/1868
+Perplexity: Written 21780/84045 entries to perplexity result file (batch 484/1868)
+Processing batch 485/1868
+Perplexity: Written 21825/84045 entries to perplexity result file (batch 485/1868)
+Processing batch 486/1868
+Perplexity: Written 21870/84045 entries to perplexity result file (batch 486/1868)
+Processing batch 487/1868
+Perplexity: Written 21915/84045 entries to perplexity result file (batch 487/1868)
+Processing batch 488/1868
+Perplexity: Written 21960/84045 entries to perplexity result file (batch 488/1868)
+Processing batch 489/1868
+Perplexity: Written 22005/84045 entries to perplexity result file (batch 489/1868)
+Processing batch 490/1868
+Perplexity: Written 22050/84045 entries to perplexity result file (batch 490/1868)
+Processing batch 491/1868
+Perplexity: Written 22095/84045 entries to perplexity result file (batch 491/1868)
+Processing batch 492/1868
+Perplexity: Written 22140/84045 entries to perplexity result file (batch 492/1868)
+Processing batch 493/1868
+Perplexity: Written 22185/84045 entries to perplexity result file (batch 493/1868)
+Processing batch 494/1868
+Perplexity: Written 22230/84045 entries to perplexity result file (batch 494/1868)
+Processing batch 495/1868
+Perplexity: Written 22275/84045 entries to perplexity result file (batch 495/1868)
+Processing batch 496/1868
+Perplexity: Written 22320/84045 entries to perplexity result file (batch 496/1868)
+Processing batch 497/1868
+Perplexity: Written 22365/84045 entries to perplexity result file (batch 497/1868)
+Processing batch 498/1868
+Perplexity: Written 22410/84045 entries to perplexity result file (batch 498/1868)
+Processing batch 499/1868
+Perplexity: Written 22455/84045 entries to perplexity result file (batch 499/1868)
+Processing batch 500/1868
+Perplexity: Written 22500/84045 entries to perplexity result file (batch 500/1868)
+Processing batch 501/1868
+Perplexity: Written 22545/84045 entries to perplexity result file (batch 501/1868)
+Processing batch 502/1868
+Perplexity: Written 22590/84045 entries to perplexity result file (batch 502/1868)
+Processing batch 503/1868
+Perplexity: Written 22635/84045 entries to perplexity result file (batch 503/1868)
+Processing batch 504/1868
+Perplexity: Written 22680/84045 entries to perplexity result file (batch 504/1868)
+Processing batch 505/1868
+Perplexity: Written 22725/84045 entries to perplexity result file (batch 505/1868)
+Processing batch 506/1868
+Perplexity: Written 22770/84045 entries to perplexity result file (batch 506/1868)
+Processing batch 507/1868
+Perplexity: Written 22815/84045 entries to perplexity result file (batch 507/1868)
+Processing batch 508/1868
+Perplexity: Written 22860/84045 entries to perplexity result file (batch 508/1868)
+Processing batch 509/1868
+Perplexity: Written 22905/84045 entries to perplexity result file (batch 509/1868)
+Processing batch 510/1868
+Perplexity: Written 22950/84045 entries to perplexity result file (batch 510/1868)
+Processing batch 511/1868
+Perplexity: Written 22995/84045 entries to perplexity result file (batch 511/1868)
+Processing batch 512/1868
+Perplexity: Written 23040/84045 entries to perplexity result file (batch 512/1868)
+Processing batch 513/1868
+Perplexity: Written 23085/84045 entries to perplexity result file (batch 513/1868)
+Processing batch 514/1868
+Perplexity: Written 23130/84045 entries to perplexity result file (batch 514/1868)
+Processing batch 515/1868
+Perplexity: Written 23175/84045 entries to perplexity result file (batch 515/1868)
+Processing batch 516/1868
+Perplexity: Written 23220/84045 entries to perplexity result file (batch 516/1868)
+Processing batch 517/1868
+Perplexity: Written 23265/84045 entries to perplexity result file (batch 517/1868)
+Processing batch 518/1868
+Perplexity: Written 23310/84045 entries to perplexity result file (batch 518/1868)
+Processing batch 519/1868
+Perplexity: Written 23355/84045 entries to perplexity result file (batch 519/1868)
+Processing batch 520/1868
+Perplexity: Written 23400/84045 entries to perplexity result file (batch 520/1868)
+Processing batch 521/1868
+Perplexity: Written 23445/84045 entries to perplexity result file (batch 521/1868)
+Processing batch 522/1868
+Perplexity: Written 23490/84045 entries to perplexity result file (batch 522/1868)
+Processing batch 523/1868
+Perplexity: Written 23535/84045 entries to perplexity result file (batch 523/1868)
+Processing batch 524/1868
+Perplexity: Written 23580/84045 entries to perplexity result file (batch 524/1868)
+Processing batch 525/1868
+Perplexity: Written 23625/84045 entries to perplexity result file (batch 525/1868)
+Processing batch 526/1868
+Perplexity: Written 23670/84045 entries to perplexity result file (batch 526/1868)
+Processing batch 527/1868
+Perplexity: Written 23715/84045 entries to perplexity result file (batch 527/1868)
+Processing batch 528/1868
+Perplexity: Written 23760/84045 entries to perplexity result file (batch 528/1868)
+Processing batch 529/1868
+Perplexity: Written 23805/84045 entries to perplexity result file (batch 529/1868)
+Processing batch 530/1868
+Perplexity: Written 23850/84045 entries to perplexity result file (batch 530/1868)
+Processing batch 531/1868
+Perplexity: Written 23895/84045 entries to perplexity result file (batch 531/1868)
+Processing batch 532/1868
+Perplexity: Written 23940/84045 entries to perplexity result file (batch 532/1868)
+Processing batch 533/1868
+Perplexity: Written 23985/84045 entries to perplexity result file (batch 533/1868)
+Processing batch 534/1868
+Perplexity: Written 24030/84045 entries to perplexity result file (batch 534/1868)
+Processing batch 535/1868
+Perplexity: Written 24075/84045 entries to perplexity result file (batch 535/1868)
+Processing batch 536/1868
+Perplexity: Written 24120/84045 entries to perplexity result file (batch 536/1868)
+Processing batch 537/1868
+Perplexity: Written 24165/84045 entries to perplexity result file (batch 537/1868)
+Processing batch 538/1868
+Perplexity: Written 24210/84045 entries to perplexity result file (batch 538/1868)
+Processing batch 539/1868
+Perplexity: Written 24255/84045 entries to perplexity result file (batch 539/1868)
+Processing batch 540/1868
+Perplexity: Written 24300/84045 entries to perplexity result file (batch 540/1868)
+Processing batch 541/1868
+Perplexity: Written 24345/84045 entries to perplexity result file (batch 541/1868)
+Processing batch 542/1868
+Perplexity: Written 24390/84045 entries to perplexity result file (batch 542/1868)
+Processing batch 543/1868
+Perplexity: Written 24435/84045 entries to perplexity result file (batch 543/1868)
+Processing batch 544/1868
+Perplexity: Written 24480/84045 entries to perplexity result file (batch 544/1868)
+Processing batch 545/1868
+Perplexity: Written 24525/84045 entries to perplexity result file (batch 545/1868)
+Processing batch 546/1868
+Perplexity: Written 24570/84045 entries to perplexity result file (batch 546/1868)
+Processing batch 547/1868
+Perplexity: Written 24615/84045 entries to perplexity result file (batch 547/1868)
+Processing batch 548/1868
+Perplexity: Written 24660/84045 entries to perplexity result file (batch 548/1868)
+Processing batch 549/1868
+Perplexity: Written 24705/84045 entries to perplexity result file (batch 549/1868)
+Processing batch 550/1868
+Perplexity: Written 24750/84045 entries to perplexity result file (batch 550/1868)
+Processing batch 551/1868
+Perplexity: Written 24795/84045 entries to perplexity result file (batch 551/1868)
+Processing batch 552/1868
+Perplexity: Written 24840/84045 entries to perplexity result file (batch 552/1868)
+Processing batch 553/1868
+Perplexity: Written 24885/84045 entries to perplexity result file (batch 553/1868)
+Processing batch 554/1868
+Perplexity: Written 24930/84045 entries to perplexity result file (batch 554/1868)
+Processing batch 555/1868
+Perplexity: Written 24975/84045 entries to perplexity result file (batch 555/1868)
+Processing batch 556/1868
+Perplexity: Written 25020/84045 entries to perplexity result file (batch 556/1868)
+Processing batch 557/1868
+Perplexity: Written 25065/84045 entries to perplexity result file (batch 557/1868)
+Processing batch 558/1868
+Perplexity: Written 25110/84045 entries to perplexity result file (batch 558/1868)
+Processing batch 559/1868
+Perplexity: Written 25155/84045 entries to perplexity result file (batch 559/1868)
+Processing batch 560/1868
+Perplexity: Written 25200/84045 entries to perplexity result file (batch 560/1868)
+Processing batch 561/1868
+Perplexity: Written 25245/84045 entries to perplexity result file (batch 561/1868)
+Processing batch 562/1868
+Perplexity: Written 25290/84045 entries to perplexity result file (batch 562/1868)
+Processing batch 563/1868
+Perplexity: Written 25335/84045 entries to perplexity result file (batch 563/1868)
+Processing batch 564/1868
+Perplexity: Written 25380/84045 entries to perplexity result file (batch 564/1868)
+Processing batch 565/1868
+Perplexity: Written 25425/84045 entries to perplexity result file (batch 565/1868)
+Processing batch 566/1868
+Perplexity: Written 25470/84045 entries to perplexity result file (batch 566/1868)
+Processing batch 567/1868
+Perplexity: Written 25515/84045 entries to perplexity result file (batch 567/1868)
+Processing batch 568/1868
+Perplexity: Written 25560/84045 entries to perplexity result file (batch 568/1868)
+Processing batch 569/1868
+Perplexity: Written 25605/84045 entries to perplexity result file (batch 569/1868)
+Processing batch 570/1868
+Perplexity: Written 25650/84045 entries to perplexity result file (batch 570/1868)
+Processing batch 571/1868
+Perplexity: Written 25695/84045 entries to perplexity result file (batch 571/1868)
+Processing batch 572/1868
+Perplexity: Written 25740/84045 entries to perplexity result file (batch 572/1868)
+Processing batch 573/1868
+Perplexity: Written 25785/84045 entries to perplexity result file (batch 573/1868)
+Processing batch 574/1868
+Perplexity: Written 25830/84045 entries to perplexity result file (batch 574/1868)
+Processing batch 575/1868
+Perplexity: Written 25875/84045 entries to perplexity result file (batch 575/1868)
+Processing batch 576/1868
+Perplexity: Written 25920/84045 entries to perplexity result file (batch 576/1868)
+Processing batch 577/1868
+Perplexity: Written 25965/84045 entries to perplexity result file (batch 577/1868)
+Processing batch 578/1868
+Perplexity: Written 26010/84045 entries to perplexity result file (batch 578/1868)
+Processing batch 579/1868
+Perplexity: Written 26055/84045 entries to perplexity result file (batch 579/1868)
+Processing batch 580/1868
+Perplexity: Written 26100/84045 entries to perplexity result file (batch 580/1868)
+Processing batch 581/1868
+Perplexity: Written 26145/84045 entries to perplexity result file (batch 581/1868)
+Processing batch 582/1868
+Perplexity: Written 26190/84045 entries to perplexity result file (batch 582/1868)
+Processing batch 583/1868
+Perplexity: Written 26235/84045 entries to perplexity result file (batch 583/1868)
+Processing batch 584/1868
+Perplexity: Written 26280/84045 entries to perplexity result file (batch 584/1868)
+Processing batch 585/1868
+Perplexity: Written 26325/84045 entries to perplexity result file (batch 585/1868)
+Processing batch 586/1868
+Perplexity: Written 26370/84045 entries to perplexity result file (batch 586/1868)
+Processing batch 587/1868
+Perplexity: Written 26415/84045 entries to perplexity result file (batch 587/1868)
+Processing batch 588/1868
+Perplexity: Written 26460/84045 entries to perplexity result file (batch 588/1868)
+Processing batch 589/1868
+Perplexity: Written 26505/84045 entries to perplexity result file (batch 589/1868)
+Processing batch 590/1868
+Perplexity: Written 26550/84045 entries to perplexity result file (batch 590/1868)
+Processing batch 591/1868
+Perplexity: Written 26595/84045 entries to perplexity result file (batch 591/1868)
+Processing batch 592/1868
+Perplexity: Written 26640/84045 entries to perplexity result file (batch 592/1868)
+Processing batch 593/1868
+Perplexity: Written 26685/84045 entries to perplexity result file (batch 593/1868)
+Processing batch 594/1868
+Perplexity: Written 26730/84045 entries to perplexity result file (batch 594/1868)
+Processing batch 595/1868
+Perplexity: Written 26775/84045 entries to perplexity result file (batch 595/1868)
+Processing batch 596/1868
+Perplexity: Written 26820/84045 entries to perplexity result file (batch 596/1868)
+Processing batch 597/1868
+Perplexity: Written 26865/84045 entries to perplexity result file (batch 597/1868)
+Processing batch 598/1868
+Perplexity: Written 26910/84045 entries to perplexity result file (batch 598/1868)
+Processing batch 599/1868
+Perplexity: Written 26955/84045 entries to perplexity result file (batch 599/1868)
+Processing batch 600/1868
+Perplexity: Written 27000/84045 entries to perplexity result file (batch 600/1868)
+Processing batch 601/1868
+Perplexity: Written 27045/84045 entries to perplexity result file (batch 601/1868)
+Processing batch 602/1868
+Perplexity: Written 27090/84045 entries to perplexity result file (batch 602/1868)
+Processing batch 603/1868
+Perplexity: Written 27135/84045 entries to perplexity result file (batch 603/1868)
+Processing batch 604/1868
+Perplexity: Written 27180/84045 entries to perplexity result file (batch 604/1868)
+Processing batch 605/1868
+Perplexity: Written 27225/84045 entries to perplexity result file (batch 605/1868)
+Processing batch 606/1868
+Perplexity: Written 27270/84045 entries to perplexity result file (batch 606/1868)
+Processing batch 607/1868
+Perplexity: Written 27315/84045 entries to perplexity result file (batch 607/1868)
+Processing batch 608/1868
+Perplexity: Written 27360/84045 entries to perplexity result file (batch 608/1868)
+Processing batch 609/1868
+Perplexity: Written 27405/84045 entries to perplexity result file (batch 609/1868)
+Processing batch 610/1868
+Perplexity: Written 27450/84045 entries to perplexity result file (batch 610/1868)
+Processing batch 611/1868
+Perplexity: Written 27495/84045 entries to perplexity result file (batch 611/1868)
+Processing batch 612/1868
+Perplexity: Written 27540/84045 entries to perplexity result file (batch 612/1868)
+Processing batch 613/1868
+Perplexity: Written 27585/84045 entries to perplexity result file (batch 613/1868)
+Processing batch 614/1868
+Perplexity: Written 27630/84045 entries to perplexity result file (batch 614/1868)
+Processing batch 615/1868
+Perplexity: Written 27675/84045 entries to perplexity result file (batch 615/1868)
+Processing batch 616/1868
+Perplexity: Written 27720/84045 entries to perplexity result file (batch 616/1868)
+Processing batch 617/1868
+Perplexity: Written 27765/84045 entries to perplexity result file (batch 617/1868)
+Processing batch 618/1868
+Perplexity: Written 27810/84045 entries to perplexity result file (batch 618/1868)
+Processing batch 619/1868
+Perplexity: Written 27855/84045 entries to perplexity result file (batch 619/1868)
+Processing batch 620/1868
+Perplexity: Written 27900/84045 entries to perplexity result file (batch 620/1868)
+Processing batch 621/1868
+Perplexity: Written 27945/84045 entries to perplexity result file (batch 621/1868)
+Processing batch 622/1868
+Perplexity: Written 27990/84045 entries to perplexity result file (batch 622/1868)
+Processing batch 623/1868
+Perplexity: Written 28035/84045 entries to perplexity result file (batch 623/1868)
+Processing batch 624/1868
+Perplexity: Written 28080/84045 entries to perplexity result file (batch 624/1868)
+Processing batch 625/1868
+Perplexity: Written 28125/84045 entries to perplexity result file (batch 625/1868)
+Processing batch 626/1868
+Perplexity: Written 28170/84045 entries to perplexity result file (batch 626/1868)
+Processing batch 627/1868
+Perplexity: Written 28215/84045 entries to perplexity result file (batch 627/1868)
+Processing batch 628/1868
+Perplexity: Written 28260/84045 entries to perplexity result file (batch 628/1868)
+Processing batch 629/1868
+Perplexity: Written 28305/84045 entries to perplexity result file (batch 629/1868)
+Processing batch 630/1868
+Perplexity: Written 28350/84045 entries to perplexity result file (batch 630/1868)
+Processing batch 631/1868
+Perplexity: Written 28395/84045 entries to perplexity result file (batch 631/1868)
+Processing batch 632/1868
+Perplexity: Written 28440/84045 entries to perplexity result file (batch 632/1868)
+Processing batch 633/1868
+Perplexity: Written 28485/84045 entries to perplexity result file (batch 633/1868)
+Processing batch 634/1868
+Perplexity: Written 28530/84045 entries to perplexity result file (batch 634/1868)
+Processing batch 635/1868
+Perplexity: Written 28575/84045 entries to perplexity result file (batch 635/1868)
+Processing batch 636/1868
+Perplexity: Written 28620/84045 entries to perplexity result file (batch 636/1868)
+Processing batch 637/1868
+Perplexity: Written 28665/84045 entries to perplexity result file (batch 637/1868)
+Processing batch 638/1868
+Perplexity: Written 28710/84045 entries to perplexity result file (batch 638/1868)
+Processing batch 639/1868
+Perplexity: Written 28755/84045 entries to perplexity result file (batch 639/1868)
+Processing batch 640/1868
+Perplexity: Written 28800/84045 entries to perplexity result file (batch 640/1868)
+Processing batch 641/1868
+Perplexity: Written 28845/84045 entries to perplexity result file (batch 641/1868)
+Processing batch 642/1868
+Perplexity: Written 28890/84045 entries to perplexity result file (batch 642/1868)
+Processing batch 643/1868
+Perplexity: Written 28935/84045 entries to perplexity result file (batch 643/1868)
+Processing batch 644/1868
+Perplexity: Written 28980/84045 entries to perplexity result file (batch 644/1868)
+Processing batch 645/1868
+Perplexity: Written 29025/84045 entries to perplexity result file (batch 645/1868)
+Processing batch 646/1868
+Perplexity: Written 29070/84045 entries to perplexity result file (batch 646/1868)
+Processing batch 647/1868
+Perplexity: Written 29115/84045 entries to perplexity result file (batch 647/1868)
+Processing batch 648/1868
+Perplexity: Written 29160/84045 entries to perplexity result file (batch 648/1868)
+Processing batch 649/1868
+Perplexity: Written 29205/84045 entries to perplexity result file (batch 649/1868)
+Processing batch 650/1868
+Perplexity: Written 29250/84045 entries to perplexity result file (batch 650/1868)
+Processing batch 651/1868
+Perplexity: Written 29295/84045 entries to perplexity result file (batch 651/1868)
+Processing batch 652/1868
+Perplexity: Written 29340/84045 entries to perplexity result file (batch 652/1868)
+Processing batch 653/1868
+Perplexity: Written 29385/84045 entries to perplexity result file (batch 653/1868)
+Processing batch 654/1868
+Perplexity: Written 29430/84045 entries to perplexity result file (batch 654/1868)
+Processing batch 655/1868
+Perplexity: Written 29475/84045 entries to perplexity result file (batch 655/1868)
+Processing batch 656/1868
+Perplexity: Written 29520/84045 entries to perplexity result file (batch 656/1868)
+Processing batch 657/1868
+Perplexity: Written 29565/84045 entries to perplexity result file (batch 657/1868)
+Processing batch 658/1868
+Perplexity: Written 29610/84045 entries to perplexity result file (batch 658/1868)
+Processing batch 659/1868
+Perplexity: Written 29655/84045 entries to perplexity result file (batch 659/1868)
+Processing batch 660/1868
+Perplexity: Written 29700/84045 entries to perplexity result file (batch 660/1868)
+Processing batch 661/1868
+Perplexity: Written 29745/84045 entries to perplexity result file (batch 661/1868)
+Processing batch 662/1868
+Perplexity: Written 29790/84045 entries to perplexity result file (batch 662/1868)
+Processing batch 663/1868
+Perplexity: Written 29835/84045 entries to perplexity result file (batch 663/1868)
+Processing batch 664/1868
+Perplexity: Written 29880/84045 entries to perplexity result file (batch 664/1868)
+Processing batch 665/1868
+Perplexity: Written 29925/84045 entries to perplexity result file (batch 665/1868)
+Processing batch 666/1868
+Perplexity: Written 29970/84045 entries to perplexity result file (batch 666/1868)
+Processing batch 667/1868
+Perplexity: Written 30015/84045 entries to perplexity result file (batch 667/1868)
+Processing batch 668/1868
+Perplexity: Written 30060/84045 entries to perplexity result file (batch 668/1868)
+Processing batch 669/1868
+Perplexity: Written 30105/84045 entries to perplexity result file (batch 669/1868)
+Processing batch 670/1868
+Perplexity: Written 30150/84045 entries to perplexity result file (batch 670/1868)
+Processing batch 671/1868
+Perplexity: Written 30195/84045 entries to perplexity result file (batch 671/1868)
+Processing batch 672/1868
+Perplexity: Written 30240/84045 entries to perplexity result file (batch 672/1868)
+Processing batch 673/1868
+Perplexity: Written 30285/84045 entries to perplexity result file (batch 673/1868)
+Processing batch 674/1868
+Perplexity: Written 30330/84045 entries to perplexity result file (batch 674/1868)
+Processing batch 675/1868
+Perplexity: Written 30375/84045 entries to perplexity result file (batch 675/1868)
+Processing batch 676/1868
+Perplexity: Written 30420/84045 entries to perplexity result file (batch 676/1868)
+Processing batch 677/1868
+Perplexity: Written 30465/84045 entries to perplexity result file (batch 677/1868)
+Processing batch 678/1868
+Perplexity: Written 30510/84045 entries to perplexity result file (batch 678/1868)
+Processing batch 679/1868
+Perplexity: Written 30555/84045 entries to perplexity result file (batch 679/1868)
+Processing batch 680/1868
+Perplexity: Written 30600/84045 entries to perplexity result file (batch 680/1868)
+Processing batch 681/1868
+Perplexity: Written 30645/84045 entries to perplexity result file (batch 681/1868)
+Processing batch 682/1868
+Perplexity: Written 30690/84045 entries to perplexity result file (batch 682/1868)
+Processing batch 683/1868
+Perplexity: Written 30735/84045 entries to perplexity result file (batch 683/1868)
+Processing batch 684/1868
+Perplexity: Written 30780/84045 entries to perplexity result file (batch 684/1868)
+Processing batch 685/1868
+Perplexity: Written 30825/84045 entries to perplexity result file (batch 685/1868)
+Processing batch 686/1868
+Perplexity: Written 30870/84045 entries to perplexity result file (batch 686/1868)
+Processing batch 687/1868
+Perplexity: Written 30915/84045 entries to perplexity result file (batch 687/1868)
+Processing batch 688/1868
+Perplexity: Written 30960/84045 entries to perplexity result file (batch 688/1868)
+Processing batch 689/1868
+Perplexity: Written 31005/84045 entries to perplexity result file (batch 689/1868)
+Processing batch 690/1868
+Perplexity: Written 31050/84045 entries to perplexity result file (batch 690/1868)
+Processing batch 691/1868
+Perplexity: Written 31095/84045 entries to perplexity result file (batch 691/1868)
+Processing batch 692/1868
+Perplexity: Written 31140/84045 entries to perplexity result file (batch 692/1868)
+Processing batch 693/1868
+Perplexity: Written 31185/84045 entries to perplexity result file (batch 693/1868)
+Processing batch 694/1868
+Perplexity: Written 31230/84045 entries to perplexity result file (batch 694/1868)
+Processing batch 695/1868
+Perplexity: Written 31275/84045 entries to perplexity result file (batch 695/1868)
+Processing batch 696/1868
+Perplexity: Written 31320/84045 entries to perplexity result file (batch 696/1868)
+Processing batch 697/1868
+Perplexity: Written 31365/84045 entries to perplexity result file (batch 697/1868)
+Processing batch 698/1868
+Perplexity: Written 31410/84045 entries to perplexity result file (batch 698/1868)
+Processing batch 699/1868
+Perplexity: Written 31455/84045 entries to perplexity result file (batch 699/1868)
+Processing batch 700/1868
+Perplexity: Written 31500/84045 entries to perplexity result file (batch 700/1868)
+Processing batch 701/1868
+Perplexity: Written 31545/84045 entries to perplexity result file (batch 701/1868)
+Processing batch 702/1868
+Perplexity: Written 31590/84045 entries to perplexity result file (batch 702/1868)
+Processing batch 703/1868
+Perplexity: Written 31635/84045 entries to perplexity result file (batch 703/1868)
+Processing batch 704/1868
+Perplexity: Written 31680/84045 entries to perplexity result file (batch 704/1868)
+Processing batch 705/1868
+Perplexity: Written 31725/84045 entries to perplexity result file (batch 705/1868)
+Processing batch 706/1868
+Perplexity: Written 31770/84045 entries to perplexity result file (batch 706/1868)
+Processing batch 707/1868
+Perplexity: Written 31815/84045 entries to perplexity result file (batch 707/1868)
+Processing batch 708/1868
+Perplexity: Written 31860/84045 entries to perplexity result file (batch 708/1868)
+Processing batch 709/1868
+Perplexity: Written 31905/84045 entries to perplexity result file (batch 709/1868)
+Processing batch 710/1868
+Perplexity: Written 31950/84045 entries to perplexity result file (batch 710/1868)
+Processing batch 711/1868
+Perplexity: Written 31995/84045 entries to perplexity result file (batch 711/1868)
+Processing batch 712/1868
+Perplexity: Written 32040/84045 entries to perplexity result file (batch 712/1868)
+Processing batch 713/1868
+Perplexity: Written 32085/84045 entries to perplexity result file (batch 713/1868)
+Processing batch 714/1868
+Perplexity: Written 32130/84045 entries to perplexity result file (batch 714/1868)
+Processing batch 715/1868
+Perplexity: Written 32175/84045 entries to perplexity result file (batch 715/1868)
+Processing batch 716/1868
+Perplexity: Written 32220/84045 entries to perplexity result file (batch 716/1868)
+Processing batch 717/1868
+Perplexity: Written 32265/84045 entries to perplexity result file (batch 717/1868)
+Processing batch 718/1868
+Perplexity: Written 32310/84045 entries to perplexity result file (batch 718/1868)
+Processing batch 719/1868
+Perplexity: Written 32355/84045 entries to perplexity result file (batch 719/1868)
+Processing batch 720/1868
+Perplexity: Written 32400/84045 entries to perplexity result file (batch 720/1868)
+Processing batch 721/1868
+Perplexity: Written 32445/84045 entries to perplexity result file (batch 721/1868)
+Processing batch 722/1868
+Perplexity: Written 32490/84045 entries to perplexity result file (batch 722/1868)
+Processing batch 723/1868
+Perplexity: Written 32535/84045 entries to perplexity result file (batch 723/1868)
+Processing batch 724/1868
+Perplexity: Written 32580/84045 entries to perplexity result file (batch 724/1868)
+Processing batch 725/1868
+Perplexity: Written 32625/84045 entries to perplexity result file (batch 725/1868)
+Processing batch 726/1868
+Perplexity: Written 32670/84045 entries to perplexity result file (batch 726/1868)
+Processing batch 727/1868
+Perplexity: Written 32715/84045 entries to perplexity result file (batch 727/1868)
+Processing batch 728/1868
+Perplexity: Written 32760/84045 entries to perplexity result file (batch 728/1868)
+Processing batch 729/1868
+Perplexity: Written 32805/84045 entries to perplexity result file (batch 729/1868)
+Processing batch 730/1868
+Perplexity: Written 32850/84045 entries to perplexity result file (batch 730/1868)
+Processing batch 731/1868
+Perplexity: Written 32895/84045 entries to perplexity result file (batch 731/1868)
+Processing batch 732/1868
+Perplexity: Written 32940/84045 entries to perplexity result file (batch 732/1868)
+Processing batch 733/1868
+Perplexity: Written 32985/84045 entries to perplexity result file (batch 733/1868)
+Processing batch 734/1868
+Perplexity: Written 33030/84045 entries to perplexity result file (batch 734/1868)
+Processing batch 735/1868
+Perplexity: Written 33075/84045 entries to perplexity result file (batch 735/1868)
+Processing batch 736/1868
+Perplexity: Written 33120/84045 entries to perplexity result file (batch 736/1868)
+Processing batch 737/1868
+Perplexity: Written 33165/84045 entries to perplexity result file (batch 737/1868)
+Processing batch 738/1868
+Perplexity: Written 33210/84045 entries to perplexity result file (batch 738/1868)
+Processing batch 739/1868
+Perplexity: Written 33255/84045 entries to perplexity result file (batch 739/1868)
+Processing batch 740/1868
+Perplexity: Written 33300/84045 entries to perplexity result file (batch 740/1868)
+Processing batch 741/1868
+Perplexity: Written 33345/84045 entries to perplexity result file (batch 741/1868)
+Processing batch 742/1868
+Perplexity: Written 33390/84045 entries to perplexity result file (batch 742/1868)
+Processing batch 743/1868
+Perplexity: Written 33435/84045 entries to perplexity result file (batch 743/1868)
+Processing batch 744/1868
+Perplexity: Written 33480/84045 entries to perplexity result file (batch 744/1868)
+Processing batch 745/1868
+Perplexity: Written 33525/84045 entries to perplexity result file (batch 745/1868)
+Processing batch 746/1868
+Perplexity: Written 33570/84045 entries to perplexity result file (batch 746/1868)
+Processing batch 747/1868
+Perplexity: Written 33615/84045 entries to perplexity result file (batch 747/1868)
+Processing batch 748/1868
+Perplexity: Written 33660/84045 entries to perplexity result file (batch 748/1868)
+Processing batch 749/1868
+Perplexity: Written 33705/84045 entries to perplexity result file (batch 749/1868)
+Processing batch 750/1868
+Perplexity: Written 33750/84045 entries to perplexity result file (batch 750/1868)
+Processing batch 751/1868
+Perplexity: Written 33795/84045 entries to perplexity result file (batch 751/1868)
+Processing batch 752/1868
+Perplexity: Written 33840/84045 entries to perplexity result file (batch 752/1868)
+Processing batch 753/1868
+Perplexity: Written 33885/84045 entries to perplexity result file (batch 753/1868)
+Processing batch 754/1868
+Perplexity: Written 33930/84045 entries to perplexity result file (batch 754/1868)
+Processing batch 755/1868
+Perplexity: Written 33975/84045 entries to perplexity result file (batch 755/1868)
+Processing batch 756/1868
+Perplexity: Written 34020/84045 entries to perplexity result file (batch 756/1868)
+Processing batch 757/1868
+Perplexity: Written 34065/84045 entries to perplexity result file (batch 757/1868)
+Processing batch 758/1868
+Perplexity: Written 34110/84045 entries to perplexity result file (batch 758/1868)
+Processing batch 759/1868
+Perplexity: Written 34155/84045 entries to perplexity result file (batch 759/1868)
+Processing batch 760/1868
+Perplexity: Written 34200/84045 entries to perplexity result file (batch 760/1868)
+Processing batch 761/1868
+Perplexity: Written 34245/84045 entries to perplexity result file (batch 761/1868)
+Processing batch 762/1868
+Perplexity: Written 34290/84045 entries to perplexity result file (batch 762/1868)
+Processing batch 763/1868
+Perplexity: Written 34335/84045 entries to perplexity result file (batch 763/1868)
+Processing batch 764/1868
+Perplexity: Written 34380/84045 entries to perplexity result file (batch 764/1868)
+Processing batch 765/1868
+Perplexity: Written 34425/84045 entries to perplexity result file (batch 765/1868)
+Processing batch 766/1868
+Perplexity: Written 34470/84045 entries to perplexity result file (batch 766/1868)
+Processing batch 767/1868
+Perplexity: Written 34515/84045 entries to perplexity result file (batch 767/1868)
+Processing batch 768/1868
+Perplexity: Written 34560/84045 entries to perplexity result file (batch 768/1868)
+Processing batch 769/1868
+Perplexity: Written 34605/84045 entries to perplexity result file (batch 769/1868)
+Processing batch 770/1868
+Perplexity: Written 34650/84045 entries to perplexity result file (batch 770/1868)
+Processing batch 771/1868
+Perplexity: Written 34695/84045 entries to perplexity result file (batch 771/1868)
+Processing batch 772/1868
+Perplexity: Written 34740/84045 entries to perplexity result file (batch 772/1868)
+Processing batch 773/1868
+Perplexity: Written 34785/84045 entries to perplexity result file (batch 773/1868)
+Processing batch 774/1868
+Perplexity: Written 34830/84045 entries to perplexity result file (batch 774/1868)
+Processing batch 775/1868
+Perplexity: Written 34875/84045 entries to perplexity result file (batch 775/1868)
+Processing batch 776/1868
+Perplexity: Written 34920/84045 entries to perplexity result file (batch 776/1868)
+Processing batch 777/1868
+Perplexity: Written 34965/84045 entries to perplexity result file (batch 777/1868)
+Processing batch 778/1868
+Perplexity: Written 35010/84045 entries to perplexity result file (batch 778/1868)
+Processing batch 779/1868
+Perplexity: Written 35055/84045 entries to perplexity result file (batch 779/1868)
+Processing batch 780/1868
+Perplexity: Written 35100/84045 entries to perplexity result file (batch 780/1868)
+Processing batch 781/1868
+Perplexity: Written 35145/84045 entries to perplexity result file (batch 781/1868)
+Processing batch 782/1868
+Perplexity: Written 35190/84045 entries to perplexity result file (batch 782/1868)
+Processing batch 783/1868
+Perplexity: Written 35235/84045 entries to perplexity result file (batch 783/1868)
+Processing batch 784/1868
+Perplexity: Written 35280/84045 entries to perplexity result file (batch 784/1868)
+Processing batch 785/1868
+Perplexity: Written 35325/84045 entries to perplexity result file (batch 785/1868)
+Processing batch 786/1868
+Perplexity: Written 35370/84045 entries to perplexity result file (batch 786/1868)
+Processing batch 787/1868
+Perplexity: Written 35415/84045 entries to perplexity result file (batch 787/1868)
+Processing batch 788/1868
+Perplexity: Written 35460/84045 entries to perplexity result file (batch 788/1868)
+Processing batch 789/1868
+Perplexity: Written 35505/84045 entries to perplexity result file (batch 789/1868)
+Processing batch 790/1868
+Perplexity: Written 35550/84045 entries to perplexity result file (batch 790/1868)
+Processing batch 791/1868
+Perplexity: Written 35595/84045 entries to perplexity result file (batch 791/1868)
+Processing batch 792/1868
+Perplexity: Written 35640/84045 entries to perplexity result file (batch 792/1868)
+Processing batch 793/1868
+Perplexity: Written 35685/84045 entries to perplexity result file (batch 793/1868)
+Processing batch 794/1868
+Perplexity: Written 35730/84045 entries to perplexity result file (batch 794/1868)
+Processing batch 795/1868
+Perplexity: Written 35775/84045 entries to perplexity result file (batch 795/1868)
+Processing batch 796/1868
+Perplexity: Written 35820/84045 entries to perplexity result file (batch 796/1868)
+Processing batch 797/1868
+Perplexity: Written 35865/84045 entries to perplexity result file (batch 797/1868)
+Processing batch 798/1868
+Perplexity: Written 35910/84045 entries to perplexity result file (batch 798/1868)
+Processing batch 799/1868
+Perplexity: Written 35955/84045 entries to perplexity result file (batch 799/1868)
+Processing batch 800/1868
+Perplexity: Written 36000/84045 entries to perplexity result file (batch 800/1868)
+Processing batch 801/1868
+Perplexity: Written 36045/84045 entries to perplexity result file (batch 801/1868)
+Processing batch 802/1868
+Perplexity: Written 36090/84045 entries to perplexity result file (batch 802/1868)
+Processing batch 803/1868
+Perplexity: Written 36135/84045 entries to perplexity result file (batch 803/1868)
+Processing batch 804/1868
+Perplexity: Written 36180/84045 entries to perplexity result file (batch 804/1868)
+Processing batch 805/1868
+Perplexity: Written 36225/84045 entries to perplexity result file (batch 805/1868)
+Processing batch 806/1868
+Perplexity: Written 36270/84045 entries to perplexity result file (batch 806/1868)
+Processing batch 807/1868
+Perplexity: Written 36315/84045 entries to perplexity result file (batch 807/1868)
+Processing batch 808/1868
+Perplexity: Written 36360/84045 entries to perplexity result file (batch 808/1868)
+Processing batch 809/1868
+Perplexity: Written 36405/84045 entries to perplexity result file (batch 809/1868)
+Processing batch 810/1868
+Perplexity: Written 36450/84045 entries to perplexity result file (batch 810/1868)
+Processing batch 811/1868
+Perplexity: Written 36495/84045 entries to perplexity result file (batch 811/1868)
+Processing batch 812/1868
+Perplexity: Written 36540/84045 entries to perplexity result file (batch 812/1868)
+Processing batch 813/1868
+Perplexity: Written 36585/84045 entries to perplexity result file (batch 813/1868)
+Processing batch 814/1868
+Perplexity: Written 36630/84045 entries to perplexity result file (batch 814/1868)
+Processing batch 815/1868
+Perplexity: Written 36675/84045 entries to perplexity result file (batch 815/1868)
+Processing batch 816/1868
+Perplexity: Written 36720/84045 entries to perplexity result file (batch 816/1868)
+Processing batch 817/1868
+Perplexity: Written 36765/84045 entries to perplexity result file (batch 817/1868)
+Processing batch 818/1868
+Perplexity: Written 36810/84045 entries to perplexity result file (batch 818/1868)
+Processing batch 819/1868
+Perplexity: Written 36855/84045 entries to perplexity result file (batch 819/1868)
+Processing batch 820/1868
+Perplexity: Written 36900/84045 entries to perplexity result file (batch 820/1868)
+Processing batch 821/1868
+Perplexity: Written 36945/84045 entries to perplexity result file (batch 821/1868)
+Processing batch 822/1868
+Perplexity: Written 36990/84045 entries to perplexity result file (batch 822/1868)
+Processing batch 823/1868
+Perplexity: Written 37035/84045 entries to perplexity result file (batch 823/1868)
+Processing batch 824/1868
+[WARNING] in lang fr_fr, index 4674: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang fr_fr, index 4674: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Perplexity: Written 37080/84045 entries to perplexity result file (batch 824/1868)
+Processing batch 825/1868
+Perplexity: Written 37125/84045 entries to perplexity result file (batch 825/1868)
+Processing batch 826/1868
+Perplexity: Written 37170/84045 entries to perplexity result file (batch 826/1868)
+Processing batch 827/1868
+Perplexity: Written 37215/84045 entries to perplexity result file (batch 827/1868)
+Processing batch 828/1868
+Perplexity: Written 37260/84045 entries to perplexity result file (batch 828/1868)
+Processing batch 829/1868
+[WARNING] in lang fr_fr, index 4913: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang fr_fr, index 4913: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Perplexity: Written 37305/84045 entries to perplexity result file (batch 829/1868)
+Processing batch 830/1868
+Perplexity: Written 37350/84045 entries to perplexity result file (batch 830/1868)
+Processing batch 831/1868
+Perplexity: Written 37395/84045 entries to perplexity result file (batch 831/1868)
+Processing batch 832/1868
+Perplexity: Written 37440/84045 entries to perplexity result file (batch 832/1868)
+Processing batch 833/1868
+Perplexity: Written 37485/84045 entries to perplexity result file (batch 833/1868)
+Processing batch 834/1868
+Perplexity: Written 37530/84045 entries to perplexity result file (batch 834/1868)
+Processing batch 835/1868
+Perplexity: Written 37575/84045 entries to perplexity result file (batch 835/1868)
+Processing batch 836/1868
+Perplexity: Written 37620/84045 entries to perplexity result file (batch 836/1868)
+Processing batch 837/1868
+Perplexity: Written 37665/84045 entries to perplexity result file (batch 837/1868)
+Processing batch 838/1868
+Perplexity: Written 37710/84045 entries to perplexity result file (batch 838/1868)
+Processing batch 839/1868
+Perplexity: Written 37755/84045 entries to perplexity result file (batch 839/1868)
+Processing batch 840/1868
+Perplexity: Written 37800/84045 entries to perplexity result file (batch 840/1868)
+Processing batch 841/1868
+Perplexity: Written 37845/84045 entries to perplexity result file (batch 841/1868)
+Processing batch 842/1868
+Perplexity: Written 37890/84045 entries to perplexity result file (batch 842/1868)
+Processing batch 843/1868
+Perplexity: Written 37935/84045 entries to perplexity result file (batch 843/1868)
+Processing batch 844/1868
+Perplexity: Written 37980/84045 entries to perplexity result file (batch 844/1868)
+Processing batch 845/1868
+Perplexity: Written 38025/84045 entries to perplexity result file (batch 845/1868)
+Processing batch 846/1868
+Perplexity: Written 38070/84045 entries to perplexity result file (batch 846/1868)
+Processing batch 847/1868
+Perplexity: Written 38115/84045 entries to perplexity result file (batch 847/1868)
+Processing batch 848/1868
+Perplexity: Written 38160/84045 entries to perplexity result file (batch 848/1868)
+Processing batch 849/1868
+Perplexity: Written 38205/84045 entries to perplexity result file (batch 849/1868)
+Processing batch 850/1868
+Perplexity: Written 38250/84045 entries to perplexity result file (batch 850/1868)
+Processing batch 851/1868
+Perplexity: Written 38295/84045 entries to perplexity result file (batch 851/1868)
+Processing batch 852/1868
+Perplexity: Written 38340/84045 entries to perplexity result file (batch 852/1868)
+Processing batch 853/1868
+Perplexity: Written 38385/84045 entries to perplexity result file (batch 853/1868)
+Processing batch 854/1868
+Perplexity: Written 38430/84045 entries to perplexity result file (batch 854/1868)
+Processing batch 855/1868
+Perplexity: Written 38475/84045 entries to perplexity result file (batch 855/1868)
+Processing batch 856/1868
+Perplexity: Written 38520/84045 entries to perplexity result file (batch 856/1868)
+Processing batch 857/1868
+Perplexity: Written 38565/84045 entries to perplexity result file (batch 857/1868)
+Processing batch 858/1868
+Perplexity: Written 38610/84045 entries to perplexity result file (batch 858/1868)
+Processing batch 859/1868
+Perplexity: Written 38655/84045 entries to perplexity result file (batch 859/1868)
+Processing batch 860/1868
+Perplexity: Written 38700/84045 entries to perplexity result file (batch 860/1868)
+Processing batch 861/1868
+Perplexity: Written 38745/84045 entries to perplexity result file (batch 861/1868)
+Processing batch 862/1868
+Perplexity: Written 38790/84045 entries to perplexity result file (batch 862/1868)
+Processing batch 863/1868
+Perplexity: Written 38835/84045 entries to perplexity result file (batch 863/1868)
+Processing batch 864/1868
+Perplexity: Written 38880/84045 entries to perplexity result file (batch 864/1868)
+Processing batch 865/1868
+Perplexity: Written 38925/84045 entries to perplexity result file (batch 865/1868)
+Processing batch 866/1868
+Perplexity: Written 38970/84045 entries to perplexity result file (batch 866/1868)
+Processing batch 867/1868
+Perplexity: Written 39015/84045 entries to perplexity result file (batch 867/1868)
+Processing batch 868/1868
+Perplexity: Written 39060/84045 entries to perplexity result file (batch 868/1868)
+Processing batch 869/1868
+Perplexity: Written 39105/84045 entries to perplexity result file (batch 869/1868)
+Processing batch 870/1868
+Perplexity: Written 39150/84045 entries to perplexity result file (batch 870/1868)
+Processing batch 871/1868
+Perplexity: Written 39195/84045 entries to perplexity result file (batch 871/1868)
+Processing batch 872/1868
+Perplexity: Written 39240/84045 entries to perplexity result file (batch 872/1868)
+Processing batch 873/1868
+Perplexity: Written 39285/84045 entries to perplexity result file (batch 873/1868)
+Processing batch 874/1868
+Perplexity: Written 39330/84045 entries to perplexity result file (batch 874/1868)
+Processing batch 875/1868
+Perplexity: Written 39375/84045 entries to perplexity result file (batch 875/1868)
+Processing batch 876/1868
+Perplexity: Written 39420/84045 entries to perplexity result file (batch 876/1868)
+Processing batch 877/1868
+Perplexity: Written 39465/84045 entries to perplexity result file (batch 877/1868)
+Processing batch 878/1868
+Perplexity: Written 39510/84045 entries to perplexity result file (batch 878/1868)
+Processing batch 879/1868
+Perplexity: Written 39555/84045 entries to perplexity result file (batch 879/1868)
+Processing batch 880/1868
+Perplexity: Written 39600/84045 entries to perplexity result file (batch 880/1868)
+Processing batch 881/1868
+Perplexity: Written 39645/84045 entries to perplexity result file (batch 881/1868)
+Processing batch 882/1868
+Perplexity: Written 39690/84045 entries to perplexity result file (batch 882/1868)
+Processing batch 883/1868
+Perplexity: Written 39735/84045 entries to perplexity result file (batch 883/1868)
+Processing batch 884/1868
+Perplexity: Written 39780/84045 entries to perplexity result file (batch 884/1868)
+Processing batch 885/1868
+Perplexity: Written 39825/84045 entries to perplexity result file (batch 885/1868)
+Processing batch 886/1868
+Perplexity: Written 39870/84045 entries to perplexity result file (batch 886/1868)
+Processing batch 887/1868
+Perplexity: Written 39915/84045 entries to perplexity result file (batch 887/1868)
+Processing batch 888/1868
+Perplexity: Written 39960/84045 entries to perplexity result file (batch 888/1868)
+Processing batch 889/1868
+Perplexity: Written 40005/84045 entries to perplexity result file (batch 889/1868)
+Processing batch 890/1868
+Perplexity: Written 40050/84045 entries to perplexity result file (batch 890/1868)
+Processing batch 891/1868
+Perplexity: Written 40095/84045 entries to perplexity result file (batch 891/1868)
+Processing batch 892/1868
+Perplexity: Written 40140/84045 entries to perplexity result file (batch 892/1868)
+Processing batch 893/1868
+Perplexity: Written 40185/84045 entries to perplexity result file (batch 893/1868)
+Processing batch 894/1868
+Perplexity: Written 40230/84045 entries to perplexity result file (batch 894/1868)
+Processing batch 895/1868
+Perplexity: Written 40275/84045 entries to perplexity result file (batch 895/1868)
+Processing batch 896/1868
+Perplexity: Written 40320/84045 entries to perplexity result file (batch 896/1868)
+Processing batch 897/1868
+Perplexity: Written 40365/84045 entries to perplexity result file (batch 897/1868)
+Processing batch 898/1868
+Perplexity: Written 40410/84045 entries to perplexity result file (batch 898/1868)
+Processing batch 899/1868
+Perplexity: Written 40455/84045 entries to perplexity result file (batch 899/1868)
+Processing batch 900/1868
+Perplexity: Written 40500/84045 entries to perplexity result file (batch 900/1868)
+Processing batch 901/1868
+Perplexity: Written 40545/84045 entries to perplexity result file (batch 901/1868)
+Processing batch 902/1868
+Perplexity: Written 40590/84045 entries to perplexity result file (batch 902/1868)
+Processing batch 903/1868
+Perplexity: Written 40635/84045 entries to perplexity result file (batch 903/1868)
+Processing batch 904/1868
+Perplexity: Written 40680/84045 entries to perplexity result file (batch 904/1868)
+Processing batch 905/1868
+Perplexity: Written 40725/84045 entries to perplexity result file (batch 905/1868)
+Processing batch 906/1868
+Perplexity: Written 40770/84045 entries to perplexity result file (batch 906/1868)
+Processing batch 907/1868
+Perplexity: Written 40815/84045 entries to perplexity result file (batch 907/1868)
+Processing batch 908/1868
+Perplexity: Written 40860/84045 entries to perplexity result file (batch 908/1868)
+Processing batch 909/1868
+Perplexity: Written 40905/84045 entries to perplexity result file (batch 909/1868)
+Processing batch 910/1868
+Perplexity: Written 40950/84045 entries to perplexity result file (batch 910/1868)
+Processing batch 911/1868
+Perplexity: Written 40995/84045 entries to perplexity result file (batch 911/1868)
+Processing batch 912/1868
+Perplexity: Written 41040/84045 entries to perplexity result file (batch 912/1868)
+Processing batch 913/1868
+Perplexity: Written 41085/84045 entries to perplexity result file (batch 913/1868)
+Processing batch 914/1868
+Perplexity: Written 41130/84045 entries to perplexity result file (batch 914/1868)
+Processing batch 915/1868
+Perplexity: Written 41175/84045 entries to perplexity result file (batch 915/1868)
+Processing batch 916/1868
+Perplexity: Written 41220/84045 entries to perplexity result file (batch 916/1868)
+Processing batch 917/1868
+Perplexity: Written 41265/84045 entries to perplexity result file (batch 917/1868)
+Processing batch 918/1868
+Perplexity: Written 41310/84045 entries to perplexity result file (batch 918/1868)
+Processing batch 919/1868
+Perplexity: Written 41355/84045 entries to perplexity result file (batch 919/1868)
+Processing batch 920/1868
+Perplexity: Written 41400/84045 entries to perplexity result file (batch 920/1868)
+Processing batch 921/1868
+Perplexity: Written 41445/84045 entries to perplexity result file (batch 921/1868)
+Processing batch 922/1868
+Perplexity: Written 41490/84045 entries to perplexity result file (batch 922/1868)
+Processing batch 923/1868
+Perplexity: Written 41535/84045 entries to perplexity result file (batch 923/1868)
+Processing batch 924/1868
+Perplexity: Written 41580/84045 entries to perplexity result file (batch 924/1868)
+Processing batch 925/1868
+Perplexity: Written 41625/84045 entries to perplexity result file (batch 925/1868)
+Processing batch 926/1868
+Perplexity: Written 41670/84045 entries to perplexity result file (batch 926/1868)
+Processing batch 927/1868
+Perplexity: Written 41715/84045 entries to perplexity result file (batch 927/1868)
+Processing batch 928/1868
+Perplexity: Written 41760/84045 entries to perplexity result file (batch 928/1868)
+Processing batch 929/1868
+Perplexity: Written 41805/84045 entries to perplexity result file (batch 929/1868)
+Processing batch 930/1868
+Perplexity: Written 41850/84045 entries to perplexity result file (batch 930/1868)
+Processing batch 931/1868
+Perplexity: Written 41895/84045 entries to perplexity result file (batch 931/1868)
+Processing batch 932/1868
+Perplexity: Written 41940/84045 entries to perplexity result file (batch 932/1868)
+Processing batch 933/1868
+Perplexity: Written 41985/84045 entries to perplexity result file (batch 933/1868)
+Processing batch 934/1868
+Perplexity: Written 42030/84045 entries to perplexity result file (batch 934/1868)
+Processing batch 935/1868
+Perplexity: Written 42075/84045 entries to perplexity result file (batch 935/1868)
+Processing batch 936/1868
+Perplexity: Written 42120/84045 entries to perplexity result file (batch 936/1868)
+Processing batch 937/1868
+Perplexity: Written 42165/84045 entries to perplexity result file (batch 937/1868)
+Processing batch 938/1868
+Perplexity: Written 42210/84045 entries to perplexity result file (batch 938/1868)
+Processing batch 939/1868
+Perplexity: Written 42255/84045 entries to perplexity result file (batch 939/1868)
+Processing batch 940/1868
+Perplexity: Written 42300/84045 entries to perplexity result file (batch 940/1868)
+Processing batch 941/1868
+Perplexity: Written 42345/84045 entries to perplexity result file (batch 941/1868)
+Processing batch 942/1868
+Perplexity: Written 42390/84045 entries to perplexity result file (batch 942/1868)
+Processing batch 943/1868
+Perplexity: Written 42435/84045 entries to perplexity result file (batch 943/1868)
+Processing batch 944/1868
+Perplexity: Written 42480/84045 entries to perplexity result file (batch 944/1868)
+Processing batch 945/1868
+Perplexity: Written 42525/84045 entries to perplexity result file (batch 945/1868)
+Processing batch 946/1868
+Perplexity: Written 42570/84045 entries to perplexity result file (batch 946/1868)
+Processing batch 947/1868
+Perplexity: Written 42615/84045 entries to perplexity result file (batch 947/1868)
+Processing batch 948/1868
+Perplexity: Written 42660/84045 entries to perplexity result file (batch 948/1868)
+Processing batch 949/1868
+Perplexity: Written 42705/84045 entries to perplexity result file (batch 949/1868)
+Processing batch 950/1868
+Perplexity: Written 42750/84045 entries to perplexity result file (batch 950/1868)
+Processing batch 951/1868
+Perplexity: Written 42795/84045 entries to perplexity result file (batch 951/1868)
+Processing batch 952/1868
+Perplexity: Written 42840/84045 entries to perplexity result file (batch 952/1868)
+Processing batch 953/1868
+Perplexity: Written 42885/84045 entries to perplexity result file (batch 953/1868)
+Processing batch 954/1868
+Perplexity: Written 42930/84045 entries to perplexity result file (batch 954/1868)
+Processing batch 955/1868
+Perplexity: Written 42975/84045 entries to perplexity result file (batch 955/1868)
+Processing batch 956/1868
+Perplexity: Written 43020/84045 entries to perplexity result file (batch 956/1868)
+Processing batch 957/1868
+Perplexity: Written 43065/84045 entries to perplexity result file (batch 957/1868)
+Processing batch 958/1868
+Perplexity: Written 43110/84045 entries to perplexity result file (batch 958/1868)
+Processing batch 959/1868
+Perplexity: Written 43155/84045 entries to perplexity result file (batch 959/1868)
+Processing batch 960/1868
+Perplexity: Written 43200/84045 entries to perplexity result file (batch 960/1868)
+Processing batch 961/1868
+Perplexity: Written 43245/84045 entries to perplexity result file (batch 961/1868)
+Processing batch 962/1868
+Perplexity: Written 43290/84045 entries to perplexity result file (batch 962/1868)
+Processing batch 963/1868
+Perplexity: Written 43335/84045 entries to perplexity result file (batch 963/1868)
+Processing batch 964/1868
+Perplexity: Written 43380/84045 entries to perplexity result file (batch 964/1868)
+Processing batch 965/1868
+Perplexity: Written 43425/84045 entries to perplexity result file (batch 965/1868)
+Processing batch 966/1868
+Perplexity: Written 43470/84045 entries to perplexity result file (batch 966/1868)
+Processing batch 967/1868
+Perplexity: Written 43515/84045 entries to perplexity result file (batch 967/1868)
+Processing batch 968/1868
+Perplexity: Written 43560/84045 entries to perplexity result file (batch 968/1868)
+Processing batch 969/1868
+Perplexity: Written 43605/84045 entries to perplexity result file (batch 969/1868)
+Processing batch 970/1868
+Perplexity: Written 43650/84045 entries to perplexity result file (batch 970/1868)
+Processing batch 971/1868
+Perplexity: Written 43695/84045 entries to perplexity result file (batch 971/1868)
+Processing batch 972/1868
+Perplexity: Written 43740/84045 entries to perplexity result file (batch 972/1868)
+Processing batch 973/1868
+Perplexity: Written 43785/84045 entries to perplexity result file (batch 973/1868)
+Processing batch 974/1868
+Perplexity: Written 43830/84045 entries to perplexity result file (batch 974/1868)
+Processing batch 975/1868
+Perplexity: Written 43875/84045 entries to perplexity result file (batch 975/1868)
+Processing batch 976/1868
+Perplexity: Written 43920/84045 entries to perplexity result file (batch 976/1868)
+Processing batch 977/1868
+Perplexity: Written 43965/84045 entries to perplexity result file (batch 977/1868)
+Processing batch 978/1868
+Perplexity: Written 44010/84045 entries to perplexity result file (batch 978/1868)
+Processing batch 979/1868
+Perplexity: Written 44055/84045 entries to perplexity result file (batch 979/1868)
+Processing batch 980/1868
+Perplexity: Written 44100/84045 entries to perplexity result file (batch 980/1868)
+Processing batch 981/1868
+Perplexity: Written 44145/84045 entries to perplexity result file (batch 981/1868)
+Processing batch 982/1868
+Perplexity: Written 44190/84045 entries to perplexity result file (batch 982/1868)
+Processing batch 983/1868
+Perplexity: Written 44235/84045 entries to perplexity result file (batch 983/1868)
+Processing batch 984/1868
+Perplexity: Written 44280/84045 entries to perplexity result file (batch 984/1868)
+Processing batch 985/1868
+Perplexity: Written 44325/84045 entries to perplexity result file (batch 985/1868)
+Processing batch 986/1868
+Perplexity: Written 44370/84045 entries to perplexity result file (batch 986/1868)
+Processing batch 987/1868
+Perplexity: Written 44415/84045 entries to perplexity result file (batch 987/1868)
+Processing batch 988/1868
+Perplexity: Written 44460/84045 entries to perplexity result file (batch 988/1868)
+Processing batch 989/1868
+Perplexity: Written 44505/84045 entries to perplexity result file (batch 989/1868)
+Processing batch 990/1868
+Perplexity: Written 44550/84045 entries to perplexity result file (batch 990/1868)
+Processing batch 991/1868
+Perplexity: Written 44595/84045 entries to perplexity result file (batch 991/1868)
+Processing batch 992/1868
+Perplexity: Written 44640/84045 entries to perplexity result file (batch 992/1868)
+Processing batch 993/1868
+Perplexity: Written 44685/84045 entries to perplexity result file (batch 993/1868)
+Processing batch 994/1868
+Perplexity: Written 44730/84045 entries to perplexity result file (batch 994/1868)
+Processing batch 995/1868
+Perplexity: Written 44775/84045 entries to perplexity result file (batch 995/1868)
+Processing batch 996/1868
+Perplexity: Written 44820/84045 entries to perplexity result file (batch 996/1868)
+Processing batch 997/1868
+Perplexity: Written 44865/84045 entries to perplexity result file (batch 997/1868)
+Processing batch 998/1868
+Perplexity: Written 44910/84045 entries to perplexity result file (batch 998/1868)
+Processing batch 999/1868
+Perplexity: Written 44955/84045 entries to perplexity result file (batch 999/1868)
+Processing batch 1000/1868
+Perplexity: Written 45000/84045 entries to perplexity result file (batch 1000/1868)
+Processing batch 1001/1868
+Perplexity: Written 45045/84045 entries to perplexity result file (batch 1001/1868)
+Processing batch 1002/1868
+Perplexity: Written 45090/84045 entries to perplexity result file (batch 1002/1868)
+Processing batch 1003/1868
+Perplexity: Written 45135/84045 entries to perplexity result file (batch 1003/1868)
+Processing batch 1004/1868
+Perplexity: Written 45180/84045 entries to perplexity result file (batch 1004/1868)
+Processing batch 1005/1868
+Perplexity: Written 45225/84045 entries to perplexity result file (batch 1005/1868)
+Processing batch 1006/1868
+Perplexity: Written 45270/84045 entries to perplexity result file (batch 1006/1868)
+Processing batch 1007/1868
+Perplexity: Written 45315/84045 entries to perplexity result file (batch 1007/1868)
+Processing batch 1008/1868
+Perplexity: Written 45360/84045 entries to perplexity result file (batch 1008/1868)
+Processing batch 1009/1868
+Perplexity: Written 45405/84045 entries to perplexity result file (batch 1009/1868)
+Processing batch 1010/1868
+Perplexity: Written 45450/84045 entries to perplexity result file (batch 1010/1868)
+Processing batch 1011/1868
+Perplexity: Written 45495/84045 entries to perplexity result file (batch 1011/1868)
+Processing batch 1012/1868
+Perplexity: Written 45540/84045 entries to perplexity result file (batch 1012/1868)
+Processing batch 1013/1868
+Perplexity: Written 45585/84045 entries to perplexity result file (batch 1013/1868)
+Processing batch 1014/1868
+Perplexity: Written 45630/84045 entries to perplexity result file (batch 1014/1868)
+Processing batch 1015/1868
+Perplexity: Written 45675/84045 entries to perplexity result file (batch 1015/1868)
+Processing batch 1016/1868
+Perplexity: Written 45720/84045 entries to perplexity result file (batch 1016/1868)
+Processing batch 1017/1868
+Perplexity: Written 45765/84045 entries to perplexity result file (batch 1017/1868)
+Processing batch 1018/1868
+Perplexity: Written 45810/84045 entries to perplexity result file (batch 1018/1868)
+Processing batch 1019/1868
+Perplexity: Written 45855/84045 entries to perplexity result file (batch 1019/1868)
+Processing batch 1020/1868
+Perplexity: Written 45900/84045 entries to perplexity result file (batch 1020/1868)
+Processing batch 1021/1868
+Perplexity: Written 45945/84045 entries to perplexity result file (batch 1021/1868)
+Processing batch 1022/1868
+Perplexity: Written 45990/84045 entries to perplexity result file (batch 1022/1868)
+Processing batch 1023/1868
+Perplexity: Written 46035/84045 entries to perplexity result file (batch 1023/1868)
+Processing batch 1024/1868
+Perplexity: Written 46080/84045 entries to perplexity result file (batch 1024/1868)
+Processing batch 1025/1868
+Perplexity: Written 46125/84045 entries to perplexity result file (batch 1025/1868)
+Processing batch 1026/1868
+Perplexity: Written 46170/84045 entries to perplexity result file (batch 1026/1868)
+Processing batch 1027/1868
+Perplexity: Written 46215/84045 entries to perplexity result file (batch 1027/1868)
+Processing batch 1028/1868
+Perplexity: Written 46260/84045 entries to perplexity result file (batch 1028/1868)
+Processing batch 1029/1868
+Perplexity: Written 46305/84045 entries to perplexity result file (batch 1029/1868)
+Processing batch 1030/1868
+Perplexity: Written 46350/84045 entries to perplexity result file (batch 1030/1868)
+Processing batch 1031/1868
+Perplexity: Written 46395/84045 entries to perplexity result file (batch 1031/1868)
+Processing batch 1032/1868
+Perplexity: Written 46440/84045 entries to perplexity result file (batch 1032/1868)
+Processing batch 1033/1868
+Perplexity: Written 46485/84045 entries to perplexity result file (batch 1033/1868)
+Processing batch 1034/1868
+Perplexity: Written 46530/84045 entries to perplexity result file (batch 1034/1868)
+Processing batch 1035/1868
+Perplexity: Written 46575/84045 entries to perplexity result file (batch 1035/1868)
+Processing batch 1036/1868
+Perplexity: Written 46620/84045 entries to perplexity result file (batch 1036/1868)
+Processing batch 1037/1868
+Perplexity: Written 46665/84045 entries to perplexity result file (batch 1037/1868)
+Processing batch 1038/1868
+Perplexity: Written 46710/84045 entries to perplexity result file (batch 1038/1868)
+Processing batch 1039/1868
+Perplexity: Written 46755/84045 entries to perplexity result file (batch 1039/1868)
+Processing batch 1040/1868
+Perplexity: Written 46800/84045 entries to perplexity result file (batch 1040/1868)
+Processing batch 1041/1868
+Perplexity: Written 46845/84045 entries to perplexity result file (batch 1041/1868)
+Processing batch 1042/1868
+Perplexity: Written 46890/84045 entries to perplexity result file (batch 1042/1868)
+Processing batch 1043/1868
+Perplexity: Written 46935/84045 entries to perplexity result file (batch 1043/1868)
+Processing batch 1044/1868
+Perplexity: Written 46980/84045 entries to perplexity result file (batch 1044/1868)
+Processing batch 1045/1868
+Perplexity: Written 47025/84045 entries to perplexity result file (batch 1045/1868)
+Processing batch 1046/1868
+Perplexity: Written 47070/84045 entries to perplexity result file (batch 1046/1868)
+Processing batch 1047/1868
+Perplexity: Written 47115/84045 entries to perplexity result file (batch 1047/1868)
+Processing batch 1048/1868
+Perplexity: Written 47160/84045 entries to perplexity result file (batch 1048/1868)
+Processing batch 1049/1868
+Perplexity: Written 47205/84045 entries to perplexity result file (batch 1049/1868)
+Processing batch 1050/1868
+Perplexity: Written 47250/84045 entries to perplexity result file (batch 1050/1868)
+Processing batch 1051/1868
+Perplexity: Written 47295/84045 entries to perplexity result file (batch 1051/1868)
+Processing batch 1052/1868
+Perplexity: Written 47340/84045 entries to perplexity result file (batch 1052/1868)
+Processing batch 1053/1868
+Perplexity: Written 47385/84045 entries to perplexity result file (batch 1053/1868)
+Processing batch 1054/1868
+Perplexity: Written 47430/84045 entries to perplexity result file (batch 1054/1868)
+Processing batch 1055/1868
+Perplexity: Written 47475/84045 entries to perplexity result file (batch 1055/1868)
+Processing batch 1056/1868
+Perplexity: Written 47520/84045 entries to perplexity result file (batch 1056/1868)
+Processing batch 1057/1868
+Perplexity: Written 47565/84045 entries to perplexity result file (batch 1057/1868)
+Processing batch 1058/1868
+Perplexity: Written 47610/84045 entries to perplexity result file (batch 1058/1868)
+Processing batch 1059/1868
+Perplexity: Written 47655/84045 entries to perplexity result file (batch 1059/1868)
+Processing batch 1060/1868
+Perplexity: Written 47700/84045 entries to perplexity result file (batch 1060/1868)
+Processing batch 1061/1868
+Perplexity: Written 47745/84045 entries to perplexity result file (batch 1061/1868)
+Processing batch 1062/1868
+Perplexity: Written 47790/84045 entries to perplexity result file (batch 1062/1868)
+Processing batch 1063/1868
+Perplexity: Written 47835/84045 entries to perplexity result file (batch 1063/1868)
+Processing batch 1064/1868
+Perplexity: Written 47880/84045 entries to perplexity result file (batch 1064/1868)
+Processing batch 1065/1868
+Perplexity: Written 47925/84045 entries to perplexity result file (batch 1065/1868)
+Processing batch 1066/1868
+Perplexity: Written 47970/84045 entries to perplexity result file (batch 1066/1868)
+Processing batch 1067/1868
+Perplexity: Written 48015/84045 entries to perplexity result file (batch 1067/1868)
+Processing batch 1068/1868
+Perplexity: Written 48060/84045 entries to perplexity result file (batch 1068/1868)
+Processing batch 1069/1868
+Perplexity: Written 48105/84045 entries to perplexity result file (batch 1069/1868)
+Processing batch 1070/1868
+Perplexity: Written 48150/84045 entries to perplexity result file (batch 1070/1868)
+Processing batch 1071/1868
+Perplexity: Written 48195/84045 entries to perplexity result file (batch 1071/1868)
+Processing batch 1072/1868
+Perplexity: Written 48240/84045 entries to perplexity result file (batch 1072/1868)
+Processing batch 1073/1868
+Perplexity: Written 48285/84045 entries to perplexity result file (batch 1073/1868)
+Processing batch 1074/1868
+Perplexity: Written 48330/84045 entries to perplexity result file (batch 1074/1868)
+Processing batch 1075/1868
+Perplexity: Written 48375/84045 entries to perplexity result file (batch 1075/1868)
+Processing batch 1076/1868
+Perplexity: Written 48420/84045 entries to perplexity result file (batch 1076/1868)
+Processing batch 1077/1868
+Perplexity: Written 48465/84045 entries to perplexity result file (batch 1077/1868)
+Processing batch 1078/1868
+Perplexity: Written 48510/84045 entries to perplexity result file (batch 1078/1868)
+Processing batch 1079/1868
+Perplexity: Written 48555/84045 entries to perplexity result file (batch 1079/1868)
+Processing batch 1080/1868
+Perplexity: Written 48600/84045 entries to perplexity result file (batch 1080/1868)
+Processing batch 1081/1868
+Perplexity: Written 48645/84045 entries to perplexity result file (batch 1081/1868)
+Processing batch 1082/1868
+Perplexity: Written 48690/84045 entries to perplexity result file (batch 1082/1868)
+Processing batch 1083/1868
+Perplexity: Written 48735/84045 entries to perplexity result file (batch 1083/1868)
+Processing batch 1084/1868
+Perplexity: Written 48780/84045 entries to perplexity result file (batch 1084/1868)
+Processing batch 1085/1868
+Perplexity: Written 48825/84045 entries to perplexity result file (batch 1085/1868)
+Processing batch 1086/1868
+Perplexity: Written 48870/84045 entries to perplexity result file (batch 1086/1868)
+Processing batch 1087/1868
+Perplexity: Written 48915/84045 entries to perplexity result file (batch 1087/1868)
+Processing batch 1088/1868
+Perplexity: Written 48960/84045 entries to perplexity result file (batch 1088/1868)
+Processing batch 1089/1868
+Perplexity: Written 49005/84045 entries to perplexity result file (batch 1089/1868)
+Processing batch 1090/1868
+Perplexity: Written 49050/84045 entries to perplexity result file (batch 1090/1868)
+Processing batch 1091/1868
+Perplexity: Written 49095/84045 entries to perplexity result file (batch 1091/1868)
+Processing batch 1092/1868
+Perplexity: Written 49140/84045 entries to perplexity result file (batch 1092/1868)
+Processing batch 1093/1868
+Perplexity: Written 49185/84045 entries to perplexity result file (batch 1093/1868)
+Processing batch 1094/1868
+Perplexity: Written 49230/84045 entries to perplexity result file (batch 1094/1868)
+Processing batch 1095/1868
+Perplexity: Written 49275/84045 entries to perplexity result file (batch 1095/1868)
+Processing batch 1096/1868
+Perplexity: Written 49320/84045 entries to perplexity result file (batch 1096/1868)
+Processing batch 1097/1868
+Perplexity: Written 49365/84045 entries to perplexity result file (batch 1097/1868)
+Processing batch 1098/1868
+Perplexity: Written 49410/84045 entries to perplexity result file (batch 1098/1868)
+Processing batch 1099/1868
+Perplexity: Written 49455/84045 entries to perplexity result file (batch 1099/1868)
+Processing batch 1100/1868
+Perplexity: Written 49500/84045 entries to perplexity result file (batch 1100/1868)
+Processing batch 1101/1868
+Perplexity: Written 49545/84045 entries to perplexity result file (batch 1101/1868)
+Processing batch 1102/1868
+Perplexity: Written 49590/84045 entries to perplexity result file (batch 1102/1868)
+Processing batch 1103/1868
+Perplexity: Written 49635/84045 entries to perplexity result file (batch 1103/1868)
+Processing batch 1104/1868
+Perplexity: Written 49680/84045 entries to perplexity result file (batch 1104/1868)
+Processing batch 1105/1868
+Perplexity: Written 49725/84045 entries to perplexity result file (batch 1105/1868)
+Processing batch 1106/1868
+Perplexity: Written 49770/84045 entries to perplexity result file (batch 1106/1868)
+Processing batch 1107/1868
+Perplexity: Written 49815/84045 entries to perplexity result file (batch 1107/1868)
+Processing batch 1108/1868
+Perplexity: Written 49860/84045 entries to perplexity result file (batch 1108/1868)
+Processing batch 1109/1868
+Perplexity: Written 49905/84045 entries to perplexity result file (batch 1109/1868)
+Processing batch 1110/1868
+Perplexity: Written 49950/84045 entries to perplexity result file (batch 1110/1868)
+Processing batch 1111/1868
+Perplexity: Written 49995/84045 entries to perplexity result file (batch 1111/1868)
+Processing batch 1112/1868
+Perplexity: Written 50040/84045 entries to perplexity result file (batch 1112/1868)
+Processing batch 1113/1868
+Perplexity: Written 50085/84045 entries to perplexity result file (batch 1113/1868)
+Processing batch 1114/1868
+Perplexity: Written 50130/84045 entries to perplexity result file (batch 1114/1868)
+Processing batch 1115/1868
+Perplexity: Written 50175/84045 entries to perplexity result file (batch 1115/1868)
+Processing batch 1116/1868
+Perplexity: Written 50220/84045 entries to perplexity result file (batch 1116/1868)
+Processing batch 1117/1868
+Perplexity: Written 50265/84045 entries to perplexity result file (batch 1117/1868)
+Processing batch 1118/1868
+Perplexity: Written 50310/84045 entries to perplexity result file (batch 1118/1868)
+Processing batch 1119/1868
+Perplexity: Written 50355/84045 entries to perplexity result file (batch 1119/1868)
+Processing batch 1120/1868
+Perplexity: Written 50400/84045 entries to perplexity result file (batch 1120/1868)
+Processing batch 1121/1868
+Perplexity: Written 50445/84045 entries to perplexity result file (batch 1121/1868)
+Processing batch 1122/1868
+Perplexity: Written 50490/84045 entries to perplexity result file (batch 1122/1868)
+Processing batch 1123/1868
+Perplexity: Written 50535/84045 entries to perplexity result file (batch 1123/1868)
+Processing batch 1124/1868
+Perplexity: Written 50580/84045 entries to perplexity result file (batch 1124/1868)
+Processing batch 1125/1868
+Perplexity: Written 50625/84045 entries to perplexity result file (batch 1125/1868)
+Processing batch 1126/1868
+Perplexity: Written 50670/84045 entries to perplexity result file (batch 1126/1868)
+Processing batch 1127/1868
+Perplexity: Written 50715/84045 entries to perplexity result file (batch 1127/1868)
+Processing batch 1128/1868
+Perplexity: Written 50760/84045 entries to perplexity result file (batch 1128/1868)
+Processing batch 1129/1868
+Perplexity: Written 50805/84045 entries to perplexity result file (batch 1129/1868)
+Processing batch 1130/1868
+Perplexity: Written 50850/84045 entries to perplexity result file (batch 1130/1868)
+Processing batch 1131/1868
+Perplexity: Written 50895/84045 entries to perplexity result file (batch 1131/1868)
+Processing batch 1132/1868
+Perplexity: Written 50940/84045 entries to perplexity result file (batch 1132/1868)
+Processing batch 1133/1868
+Perplexity: Written 50985/84045 entries to perplexity result file (batch 1133/1868)
+Processing batch 1134/1868
+Perplexity: Written 51030/84045 entries to perplexity result file (batch 1134/1868)
+Processing batch 1135/1868
+Perplexity: Written 51075/84045 entries to perplexity result file (batch 1135/1868)
+Processing batch 1136/1868
+Perplexity: Written 51120/84045 entries to perplexity result file (batch 1136/1868)
+Processing batch 1137/1868

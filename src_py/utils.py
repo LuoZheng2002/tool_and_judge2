@@ -210,7 +210,15 @@ def convert_char_mask_to_token_mask(trimmed_response: str, char_mask: list, toke
     # Tokenize the trimmed response
     # Note: add_special_tokens=False because trimmed_response already contains special tokens
     # as text from apply_chat_template(tokenize=False)
-    tokens = tokenizer(trimmed_response, add_special_tokens=False)
+    # IMPORTANT: Must match tokenization parameters in forward_for_perplexity to ensure
+    # identical token IDs are generated
+    tokens = tokenizer(
+        trimmed_response,
+        add_special_tokens=False,
+        padding=False,         # Explicitly disable padding for single item
+        truncation=True,       # Match forward_for_perplexity
+        max_length=2048        # Match forward_for_perplexity
+    )
     input_ids = tokens.input_ids
 
     # Create token mask by checking which tokens correspond to masked characters

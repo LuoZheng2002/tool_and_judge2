@@ -1,0 +1,58 @@
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+    Finished `release` profile [optimized] target(s) in 3.93s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmpiRHmoY/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+    Finished `release` profile [optimized] target(s) in 0.43s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmpRY6NOO/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:  17%|█▋        | 1/6 [00:03<00:18,  3.62s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:06<00:13,  3.45s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:10<00:10,  3.40s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:13<00:06,  3.39s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:16<00:03,  3.37s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:20<00:00,  3.31s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:20<00:00,  3.36s/it]
+Traceback (most recent call last):
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 487, in <module>
+    asyncio.run(main_async())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 445, in main_async
+    forward_results = forward_for_perplexity(trimmed_prompts, hf_model, hf_tokenizer)
+  File "/projects/bfdz/zluo8/tool_and_judge2/src_py/qwen2_5_backend.py", line 237, in forward_for_perplexity
+    outputs = model(input_ids_batch, attention_mask=attention_mask)
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/accelerate/hooks.py", line 175, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/transformers/utils/generic.py", line 918, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/transformers/models/qwen2/modeling_qwen2.py", line 463, in forward
+    logits = self.lm_head(hidden_states[:, slice_indices, :])
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/accelerate/hooks.py", line 175, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/projects/bfdz/zluo8/tool_and_judge2/.venv/lib/python3.13/site-packages/torch/nn/modules/linear.py", line 134, in forward
+    return F.linear(input, self.weight, self.bias)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: unspecified launch failure
+Search for `cudaErrorLaunchFailure' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+

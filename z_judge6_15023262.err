@@ -1,0 +1,31 @@
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+    Finished `release` profile [optimized] target(s) in 0.46s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmp7FDAVm/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+    Finished `release` profile [optimized] target(s) in 0.46s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmpHd2xFW/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/19 [00:00<?, ?it/s]Loading checkpoint shards:   5%|▌         | 1/19 [00:13<04:04, 13.61s/it]Loading checkpoint shards:  11%|█         | 2/19 [01:06<10:24, 36.71s/it]Loading checkpoint shards:  16%|█▌        | 3/19 [01:23<07:23, 27.71s/it]Loading checkpoint shards:  21%|██        | 4/19 [02:04<08:14, 32.98s/it]Loading checkpoint shards:  26%|██▋       | 5/19 [02:17<05:59, 25.67s/it]Loading checkpoint shards:  32%|███▏      | 6/19 [02:34<04:57, 22.92s/it]Loading checkpoint shards:  37%|███▋      | 7/19 [03:14<05:40, 28.39s/it]Loading checkpoint shards:  42%|████▏     | 8/19 [03:28<04:23, 23.93s/it]Loading checkpoint shards:  47%|████▋     | 9/19 [03:41<03:23, 20.39s/it]Loading checkpoint shards:  53%|█████▎    | 10/19 [04:27<04:13, 28.20s/it]Loading checkpoint shards:  58%|█████▊    | 11/19 [05:25<04:59, 37.44s/it]Loading checkpoint shards:  63%|██████▎   | 12/19 [05:40<03:33, 30.52s/it]Loading checkpoint shards:  68%|██████▊   | 13/19 [05:54<02:33, 25.54s/it]Loading checkpoint shards:  74%|███████▎  | 14/19 [06:07<01:49, 21.92s/it]Loading checkpoint shards:  79%|███████▉  | 15/19 [06:52<01:55, 28.77s/it]Loading checkpoint shards:  84%|████████▍ | 16/19 [07:03<01:10, 23.55s/it]Loading checkpoint shards:  89%|████████▉ | 17/19 [07:17<00:40, 20.44s/it]Loading checkpoint shards:  95%|█████████▍| 18/19 [07:30<00:18, 18.20s/it]Loading checkpoint shards: 100%|██████████| 19/19 [08:07<00:00, 23.91s/it]Loading checkpoint shards: 100%|██████████| 19/19 [08:07<00:00, 25.65s/it]
+Traceback (most recent call last):
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 487, in <module>
+    asyncio.run(main_async())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 453, in main_async
+    assert input_ids == forward_result['input_ids'], \
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: input_ids mismatch: tokenized 94 tokens, forward pass has 94 tokens

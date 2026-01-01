@@ -1,0 +1,54 @@
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+    Finished `release` profile [optimized] target(s) in 2.53s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmp5Ei867/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[0;36m(EngineCore_DP0 pid=236217)[0;0m [0;36m(Worker_TP0 pid=236223)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/14 [00:00<?, ?it/s]
+[0;36m(EngineCore_DP0 pid=236217)[0;0m [0;36m(Worker_TP0 pid=236223)[0;0m Loading safetensors checkpoint shards:   7% Completed | 1/14 [00:02<00:34,  2.65s/it]
+[0;36m(EngineCore_DP0 pid=236217)[0;0m [0;36m(Worker_TP0 pid=236223)[0;0m Loading safetensors checkpoint shards:  14% Completed | 2/14 [00:05<00:33,  2.80s/it]
+[0;36m(EngineCore_DP0 pid=236217)[0;0m [0;36m(Worker_TP0 pid=236223)[0;0m Loading safetensors checkpoint shards:  21% Completed | 3/14 [00:09<00:35,  3.27s/it]
+[0;36m(EngineCore_DP0 pid=236217)[0;0m [0;36m(Worker_TP0 pid=236223)[0;0m Loading safetensors checkpoint shards:  29% Completed | 4/14 [00:10<00:22,  2.30s/it]
+[0;36m(EngineCore_DP0 pid=236217)[0;0m [0;36m(Worker_TP0 pid=236223)[0;0m Loading safetensors checkpoint shards:  36% Completed | 5/14 [00:12<00:19,  2.19s/it]
+[0;36m(EngineCore_DP0 pid=236217)[0;0m [0;36m(Worker_TP0 pid=236223)[0;0m Loading safetensors checkpoint shards:  43% Completed | 6/14 [00:15<00:19,  2.49s/it]
+[0;36m(EngineCore_DP0 pid=236217)[0;0m [0;36m(Worker_TP0 pid=236223)[0;0m Loading safetensors checkpoint shards:  50% Completed | 7/14 [00:18<00:18,  2.62s/it]
+[0;36m(EngineCore_DP0 pid=236217)[0;0m [0;36m(Worker_TP0 pid=236223)[0;0m Loading safetensors checkpoint shards:  57% Completed | 8/14 [00:19<00:12,  2.15s/it]
+[0;36m(EngineCore_DP0 pid=236217)[0;0m [0;36m(Worker_TP0 pid=236223)[0;0m Loading safetensors checkpoint shards:  64% Completed | 9/14 [00:24<00:16,  3.22s/it]
+[0;36m(EngineCore_DP0 pid=236217)[0;0m [0;36m(Worker_TP0 pid=236223)[0;0m Loading safetensors checkpoint shards:  71% Completed | 10/14 [00:26<00:11,  2.79s/it]
+[0;36m(EngineCore_DP0 pid=236217)[0;0m [0;36m(Worker_TP0 pid=236223)[0;0m Loading safetensors checkpoint shards:  79% Completed | 11/14 [00:28<00:07,  2.61s/it]
+[0;36m(EngineCore_DP0 pid=236217)[0;0m [0;36m(Worker_TP0 pid=236223)[0;0m Loading safetensors checkpoint shards:  86% Completed | 12/14 [00:32<00:05,  2.78s/it]
+[0;36m(EngineCore_DP0 pid=236217)[0;0m [0;36m(Worker_TP0 pid=236223)[0;0m Loading safetensors checkpoint shards:  93% Completed | 13/14 [00:34<00:02,  2.76s/it]
+[0;36m(EngineCore_DP0 pid=236217)[0;0m [0;36m(Worker_TP0 pid=236223)[0;0m Loading safetensors checkpoint shards: 100% Completed | 14/14 [00:37<00:00,  2.67s/it]
+[0;36m(EngineCore_DP0 pid=236217)[0;0m [0;36m(Worker_TP0 pid=236223)[0;0m Loading safetensors checkpoint shards: 100% Completed | 14/14 [00:37<00:00,  2.66s/it]
+[0;36m(EngineCore_DP0 pid=236217)[0;0m [0;36m(Worker_TP0 pid=236223)[0;0m 
+[0;36m(EngineCore_DP0 pid=236217)[0;0m [0;36m(Worker_TP0 pid=236223)[0;0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   3%|▎         | 1/35 [00:00<00:18,  1.89it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   9%|▊         | 3/35 [00:00<00:06,  4.82it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  14%|█▍        | 5/35 [00:00<00:03,  7.69it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  20%|██        | 7/35 [00:00<00:02, 10.14it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  26%|██▌       | 9/35 [00:01<00:02, 12.15it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  31%|███▏      | 11/35 [00:01<00:01, 12.33it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  37%|███▋      | 13/35 [00:01<00:01, 13.95it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  43%|████▎     | 15/35 [00:01<00:01, 11.52it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  49%|████▊     | 17/35 [00:01<00:01, 13.25it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  57%|█████▋    | 20/35 [00:01<00:00, 15.20it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  66%|██████▌   | 23/35 [00:01<00:00, 16.84it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  71%|███████▏  | 25/35 [00:02<00:00, 17.31it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  77%|███████▋  | 27/35 [00:02<00:00, 17.95it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  86%|████████▌ | 30/35 [00:03<00:00,  6.85it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  91%|█████████▏| 32/35 [00:03<00:00,  8.12it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  97%|█████████▋| 34/35 [00:03<00:00,  7.63it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 35/35 [00:03<00:00,  9.80it/s]
+[0;36m(EngineCore_DP0 pid=236217)[0;0m [0;36m(Worker_TP0 pid=236223)[0;0m Capturing CUDA graphs (decode, FULL):   0%|          | 0/19 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   5%|▌         | 1/19 [00:01<00:30,  1.71s/it]Capturing CUDA graphs (decode, FULL):  21%|██        | 4/19 [00:01<00:05,  2.76it/s]Capturing CUDA graphs (decode, FULL):  37%|███▋      | 7/19 [00:02<00:02,  5.12it/s]Capturing CUDA graphs (decode, FULL):  53%|█████▎    | 10/19 [00:02<00:01,  7.60it/s]Capturing CUDA graphs (decode, FULL):  68%|██████▊   | 13/19 [00:02<00:00, 10.06it/s]Capturing CUDA graphs (decode, FULL):  84%|████████▍ | 16/19 [00:02<00:00, 12.29it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 19/19 [00:02<00:00, 14.22it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 19/19 [00:02<00:00,  7.35it/s]
+/var/spool/slurmd/job14895247/slurm_script: line 25: 197117 Bus error               python judge.py --config judge_config_slurm4_vllm.py --num-gpus 4 --single-gpu-memory 40
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+    Finished `release` profile [optimized] target(s) in 3.54s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmprB7oVI/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+
+thread '<unnamed>' panicked at src/judge/perplexity.rs:450:51:
+Failed to load styled answers dataset: "Unable to open file judge/result/CohereLabs-aya-expanse-32b/styled_answers/en.jsonl: No such file or directory (os error 2)"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+Traceback (most recent call last):
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 483, in <module>
+    asyncio.run(main_async())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/sw/rh9.4/spack/v1.0.0/sw/linux-x86_64_v2/python-3.13.5-7bp2p4z/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/projects/bfdz/zluo8/tool_and_judge2/judge.py", line 328, in main_async
+    perplexity_prepare_generate_perplexity_aggregated_input(config, debug_limit=args.debug_limit)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pyo3_runtime.PanicException: Failed to load styled answers dataset: "Unable to open file judge/result/CohereLabs-aya-expanse-32b/styled_answers/en.jsonl: No such file or directory (os error 2)"

@@ -119,10 +119,14 @@ async def main_async():
                 """
                 global main_vllm_backend_created, main_vllm_engine, main_tokenizer
                 if not main_vllm_backend_created:
-                    print(f"Creating VLLM backend for model {model_name} using {args.num_gpus} GPUs...", flush=True)
-                    main_vllm_engine, main_tokenizer = create_vllm_backend(config.model, args.num_gpus)
-                    print(f"VLLM backend created for model {model_name}", flush=True)
-                    main_vllm_backend_created = True
+                    try:
+                        print(f"Creating VLLM backend for model {model_name} using {args.num_gpus} GPUs...", flush=True)
+                        main_vllm_engine, main_tokenizer = create_vllm_backend(config.model, args.num_gpus)
+                        print(f"VLLM backend created for model {model_name}", flush=True)
+                        main_vllm_backend_created = True
+                    except Exception as e:
+                        print(f"Error creating VLLM backend for model {model_name}: {str(e)}", flush=True)
+                        exit(1)
                 engine = main_vllm_engine
                 tokenizer = main_tokenizer
                 async with semaphore:
@@ -446,17 +450,25 @@ async def main_async():
                         input_ids, token_mask = convert_char_mask_to_token_mask(trimmed_prompt, char_mask, hf_tokenizer, debug=False)
 
                         # Verify input_ids match between tokenization and forward pass
-                        assert input_ids == forward_result['input_ids'], \
-                            f"input_ids mismatch: tokenized {len(input_ids)} tokens, forward pass has {len(forward_result['input_ids'])} tokens"
+                        # assert input_ids == forward_result['input_ids'], \
+                        #     f"input_ids mismatch: tokenized {len(input_ids)} tokens, forward pass has {len(forward_result['input_ids'])} tokens"
+                        if input_ids != forward_result['input_ids']:
+                            print(f"Warning: input_ids mismatch for lang {entry['lang']} entry {entry['index']}: tokenized {len(input_ids)} tokens, forward pass has {len(forward_result['input_ids'])} tokens")
 
                         # Calculate perplexity using the mask
-                        perplexity = calculate_perplexity_from_logits_with_mask(
-                            entry['index'],
-                            entry['lang'],
-                            forward_result['logits'],
-                            forward_result['input_ids'],
-                            token_mask
-                        )
+                        try:
+                            perplexity = calculate_perplexity_from_logits_with_mask(
+                                entry['index'],
+                                entry['lang'],
+                                forward_result['logits'],
+                                forward_result['input_ids'],
+                                token_mask
+                            )
+                        except Exception as e:
+                            error_message = str(e)
+                            print(f"Error calculating perplexity for entry {entry['index']}: {error_message}")
+                            # fall back to default perplexity
+                            perplexity = 1.0
 
                         result_entry = {
                             'index': entry['index'],

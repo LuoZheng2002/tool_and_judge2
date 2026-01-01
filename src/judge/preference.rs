@@ -80,7 +80,7 @@ pub fn preference_prepare_aggregated_input(config: &JudgeConfig, debug_limit: Op
     };
     for (lang1, lang2) in language_pairs.iter() {
         for (lang1_correct, lang2_correct) in
-            [(true, false), (false, true), (true, true), (false, false)].iter()
+            [(true, false), (false, true)].iter()
         {
             let lang1_correct_str = if *lang1_correct {
                 "correct"
@@ -203,7 +203,7 @@ pub fn preference_dispatch_preference_results(config: &JudgeConfig) {
     );
     for (lang1, lang2) in language_pairs.iter() {
         for (lang1_correct, lang2_correct) in
-            [(true, false), (false, true), (true, true), (false, false)].iter()
+            [(true, false), (false, true)].iter()
         {
             let lang1_correct_str = if *lang1_correct {
                 "correct"

@@ -23,7 +23,7 @@ noise_modes = ["NO_NOISE", "PARAPHRASE", "SYNONYM"]
 # Error categories (from ToolErrorCategory enum) - PascalCase format
 error_categories = [
     "SyntaxError",
-    "MiscError",
+    "FunctionLevelError",
     "LanguageMismatchWrongValue",
     "LanguageMismatchRelevantButIncorrect",
     "LanguageMismatchExactlySameMeaning",
@@ -36,7 +36,7 @@ error_categories = [
 # Color map for each error category (darker, uniform brightness)
 category_colors = {
     "SyntaxError": "#b30000",  # Dark red
-    "MiscError": "#b35900",  # Dark orange
+    "FunctionLevelError": "#b35900",  # Dark orange
     "LanguageMismatchWrongValue": "#5a1585", # Dark purple
     "LanguageMismatchRelevantButIncorrect": "#7a1aa0",  # Medium purple
     "LanguageMismatchExactlySameMeaning": "#9060b0",  # Light purple
@@ -57,7 +57,7 @@ language_tag_map = {
 # Category mapping from statistics file format to PascalCase
 category_map = {
     "SYNTAX_ERROR": "SyntaxError",
-    "MISC_ERROR": "MiscError",
+    "MISC_ERROR": "FunctionLevelError",
     "LANGUAGE_MISMATCH_WRONG_VALUE": "LanguageMismatchWrongValue",
     "LANGUAGE_MISMATCH_RELEVANT_BUT_INCORRECT": "LanguageMismatchRelevantButIncorrect",
     "LANGUAGE_MISMATCH_EXACTLY_SAME_MEANING": "LanguageMismatchExactlySameMeaning",
@@ -69,14 +69,26 @@ category_map = {
 
 
 def pascal_to_readable(pascal_str: str) -> str:
-    """
-    Convert PascalCase string to lowercase with spaces.
-    E.g., "LanguageMismatchExactlySameMeaning" -> "language mismatch exactly same meaning"
-    """
-    import re
-    # Insert space before uppercase letters (except the first one)
-    spaced = re.sub(r'(?<!^)(?=[A-Z])', ' ', pascal_str)
-    return spaced.lower()
+    # """
+    # Convert PascalCase string to lowercase with spaces.
+    # E.g., "LanguageMismatchExactlySameMeaning" -> "language mismatch exactly same meaning"
+    # """
+    # import re
+    # # Insert space before uppercase letters (except the first one)
+    # spaced = re.sub(r'(?<!^)(?=[A-Z])', ' ', pascal_str)
+    # return spaced.lower()
+    readable_map = {
+        "SyntaxError": "Syntax Error",
+        "FunctionLevelError": "Function-Level Error",
+        "LanguageMismatchWrongValue": "Language Mismatch + Wrong Value",
+        "LanguageMismatchRelevantButIncorrect": "Language Mismatch + Relevant But Incorrect",
+        "LanguageMismatchExactlySameMeaning": "Language Mismatch + Exactly Same Meaning",
+        "WrongValue": "Wrong Value",
+        "RelevantButIncorrect": "Relevant But Incorrect",
+        "ExactlySameMeaning": "Exactly Same Meaning",
+        "OtherError": "Other Error",
+    }
+    return readable_map[pascal_str]
 
 
 def parse_filename_tags(filename: str) -> Tuple[str, str, str, str, str, str, str]:
