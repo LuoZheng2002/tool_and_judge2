@@ -1,0 +1,15 @@
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+    Finished `release` profile [optimized] target(s) in 1.30s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmpX9bBOZ/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+    Finished `release` profile [optimized] target(s) in 0.41s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmpgu6IOy/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/19 [00:00<?, ?it/s]Loading checkpoint shards:   5%|▌         | 1/19 [00:12<03:37, 12.08s/it]Loading checkpoint shards:  11%|█         | 2/19 [00:56<08:46, 30.96s/it]Loading checkpoint shards:  16%|█▌        | 3/19 [01:08<05:58, 22.38s/it]Loading checkpoint shards:  21%|██        | 4/19 [01:59<08:28, 33.88s/it]Loading checkpoint shards:  26%|██▋       | 5/19 [02:11<06:03, 25.97s/it]Loading checkpoint shards:  32%|███▏      | 6/19 [02:23<04:34, 21.12s/it]Loading checkpoint shards:  37%|███▋      | 7/19 [03:03<05:26, 27.22s/it]Loading checkpoint shards:  42%|████▏     | 8/19 [03:17<04:12, 22.94s/it]Loading checkpoint shards:  47%|████▋     | 9/19 [03:29<03:15, 19.58s/it]Loading checkpoint shards:  53%|█████▎    | 10/19 [04:08<03:51, 25.74s/it]Loading checkpoint shards:  58%|█████▊    | 11/19 [05:13<05:01, 37.68s/it]Loading checkpoint shards:  63%|██████▎   | 12/19 [05:25<03:29, 29.94s/it]Loading checkpoint shards:  68%|██████▊   | 13/19 [05:38<02:27, 24.62s/it]Loading checkpoint shards: 100%|██████████| 19/19 [05:38<00:00, 17.80s/it]
+Some parameters are on the meta device because they were offloaded to the disk.

@@ -1,0 +1,189 @@
+✏️ Setting installed package as editable
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm6_vllm.py
+This run uses VLLM backend.
+Starting preference experiment...
+Concatenated two answers dataset for language pairs[("en", "zh_cn"), ("en", "fr_fr"), ("en", "ar_xy"), ("en", "sw_ke")] written to "judge/result/prometheus-eval-prometheus-8x7b-v2.0/preference_aggregated_input.jsonl"
+Dispatching preference results for model: prometheus-eval-prometheus-8x7b-v2.0, language pairs: [("en", "zh_cn"), ("en", "fr_fr"), ("en", "ar_xy"), ("en", "sw_ke")], input file: judge/result/prometheus-eval-prometheus-8x7b-v2.0/preference_aggregated_output.jsonl
+Dispatched preference results for model: prometheus-eval-prometheus-8x7b-v2.0, lang1: en, lang2: zh_cn
+Dispatched preference results for model: prometheus-eval-prometheus-8x7b-v2.0, lang1: en, lang2: fr_fr
+Dispatched preference results for model: prometheus-eval-prometheus-8x7b-v2.0, lang1: en, lang2: ar_xy
+Dispatched preference results for model: prometheus-eval-prometheus-8x7b-v2.0, lang1: en, lang2: sw_ke
+Removed aggregated output file: judge/result/prometheus-eval-prometheus-8x7b-v2.0/preference_aggregated_output.jsonl
+Preference experiment finished.
+Starting perplexity experiment...
+Response input dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/prometheus-eval-prometheus-8x7b-v2.0/perplexity_response_input.jsonl
+Dispatching response results for model: prometheus-eval-prometheus-8x7b-v2.0, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/prometheus-eval-prometheus-8x7b-v2.0/perplexity_response_output.jsonl
+Dispatched response results for model: prometheus-eval-prometheus-8x7b-v2.0, lang: en
+Dispatched response results for model: prometheus-eval-prometheus-8x7b-v2.0, lang: zh_cn
+Dispatched response results for model: prometheus-eval-prometheus-8x7b-v2.0, lang: fr_fr
+Dispatched response results for model: prometheus-eval-prometheus-8x7b-v2.0, lang: ar_xy
+Dispatched response results for model: prometheus-eval-prometheus-8x7b-v2.0, lang: sw_ke
+Removed aggregated response output file: judge/result/prometheus-eval-prometheus-8x7b-v2.0/perplexity_response_output.jsonl
+Styled answers input dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/prometheus-eval-prometheus-8x7b-v2.0/perplexity_styled_answers_input.jsonl
+Dispatching styled answers results for model: prometheus-eval-prometheus-8x7b-v2.0, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/prometheus-eval-prometheus-8x7b-v2.0/perplexity_styled_answers_output.jsonl
+Dispatched styled answers results for model: prometheus-eval-prometheus-8x7b-v2.0, lang: en
+Dispatched styled answers results for model: prometheus-eval-prometheus-8x7b-v2.0, lang: zh_cn
+Dispatched styled answers results for model: prometheus-eval-prometheus-8x7b-v2.0, lang: fr_fr
+Dispatched styled answers results for model: prometheus-eval-prometheus-8x7b-v2.0, lang: ar_xy
+Dispatched styled answers results for model: prometheus-eval-prometheus-8x7b-v2.0, lang: sw_ke
+Removed aggregated styled answers output file: judge/result/prometheus-eval-prometheus-8x7b-v2.0/perplexity_styled_answers_output.jsonl
+Total entries to generate responses: 0
+Completed writing all responses to judge/result/prometheus-eval-prometheus-8x7b-v2.0/perplexity_response_output.jsonl
+Total entries to generate styled answers: 0
+Completed writing all styled answers to judge/result/prometheus-eval-prometheus-8x7b-v2.0/perplexity_styled_answers_output.jsonl
+Perplexity experiment finished.
+✏️ Setting installed package as editable
+Dispatching perplexity results for model: prometheus-eval-prometheus-8x7b-v2.0, languages: ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"], input file: judge/result/prometheus-eval-prometheus-8x7b-v2.0/perplexity_aggregated_output.jsonl
+Warning: Missing 8561 correct entries for model: prometheus-eval-prometheus-8x7b-v2.0, lang: en
+Warning: Missing 8561 incorrect entries for model: prometheus-eval-prometheus-8x7b-v2.0, lang: en
+Dispatched perplexity results for model: prometheus-eval-prometheus-8x7b-v2.0, lang: en
+Warning: Missing 8561 correct entries for model: prometheus-eval-prometheus-8x7b-v2.0, lang: zh_cn
+Warning: Missing 8561 incorrect entries for model: prometheus-eval-prometheus-8x7b-v2.0, lang: zh_cn
+Dispatched perplexity results for model: prometheus-eval-prometheus-8x7b-v2.0, lang: zh_cn
+Warning: Missing 8561 correct entries for model: prometheus-eval-prometheus-8x7b-v2.0, lang: fr_fr
+Warning: Missing 8561 incorrect entries for model: prometheus-eval-prometheus-8x7b-v2.0, lang: fr_fr
+Dispatched perplexity results for model: prometheus-eval-prometheus-8x7b-v2.0, lang: fr_fr
+Warning: Missing 8561 correct entries for model: prometheus-eval-prometheus-8x7b-v2.0, lang: ar_xy
+Warning: Missing 8561 incorrect entries for model: prometheus-eval-prometheus-8x7b-v2.0, lang: ar_xy
+Dispatched perplexity results for model: prometheus-eval-prometheus-8x7b-v2.0, lang: ar_xy
+Warning: Missing 8561 correct entries for model: prometheus-eval-prometheus-8x7b-v2.0, lang: sw_ke
+Warning: Missing 8561 incorrect entries for model: prometheus-eval-prometheus-8x7b-v2.0, lang: sw_ke
+Dispatched perplexity results for model: prometheus-eval-prometheus-8x7b-v2.0, lang: sw_ke
+Removed aggregated perplexity output file: judge/result/prometheus-eval-prometheus-8x7b-v2.0/perplexity_aggregated_output.jsonl
+Concatenated perplexity dataset for languages ["en", "zh_cn", "fr_fr", "ar_xy", "sw_ke"] written to judge/result/prometheus-eval-prometheus-8x7b-v2.0/perplexity_aggregated_input.jsonl
+Acquiring build lock...
+Building Rust extension with maturin develop...
+Installed Rust extension successfully.
+Released build lock.
+Loading config from: judge_config_slurm6_hf.py
+Total entries to calculate perplexity: 85610
+Using batch size: 6 based on model size, number of GPUs (2), and single GPU memory (40GB)
+Processing batch 1/14269
+Creating HuggingFace backend for model prometheus-eval/prometheus-8x7b-v2.0 using 2 GPUs and batch size 6...
+Creating HuggingFace backend for model prometheus-eval/prometheus-8x7b-v2.0 with batch size 6...
+Loading model from HuggingFace...
+Found 2 GPUs
+GPU 0: 39.49 GB available, using 35 GB
+GPU 1: 39.49 GB available, using 35 GB
+Model loaded, setting to eval mode...
+Model in eval mode
+Model device map: {'model.embed_tokens': 0, 'model.layers.0': 0, 'model.layers.1': 0, 'model.layers.2': 0, 'model.layers.3': 0, 'model.layers.4': 0, 'model.layers.5': 0, 'model.layers.6': 0, 'model.layers.7': 0, 'model.layers.8': 0, 'model.layers.9': 0, 'model.layers.10': 1, 'model.layers.11': 1, 'model.layers.12': 1, 'model.layers.13': 1, 'model.layers.14': 1, 'model.layers.15': 1, 'model.layers.16': 1, 'model.layers.17': 1, 'model.layers.18': 1, 'model.layers.19': 1, 'model.layers.20': 1, 'model.layers.21': 1, 'model.layers.22': 'disk', 'model.layers.23': 'disk', 'model.layers.24': 'disk', 'model.layers.25': 'disk', 'model.layers.26': 'disk', 'model.layers.27': 'disk', 'model.layers.28': 'disk', 'model.layers.29': 'disk', 'model.layers.30': 'disk', 'model.layers.31': 'disk', 'model.norm': 'disk', 'model.rotary_emb': 'disk', 'lm_head': 'disk'}
+HuggingFace backend created successfully for prometheus-eval/prometheus-8x7b-v2.0
+HuggingFace backend created for model prometheus-eval/prometheus-8x7b-v2.0
+Warning: input_ids mismatch for lang en entry 3: tokenized 94 tokens, forward pass has 94 tokens
+[WARNING] in lang en, index 3: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 3: tokenized 94 tokens, forward pass has 94 tokens
+[WARNING] in lang en, index 3: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang en, index 5: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang en, index 5: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 6: tokenized 79 tokens, forward pass has 79 tokens
+[WARNING] in lang en, index 6: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 6: tokenized 79 tokens, forward pass has 79 tokens
+[WARNING] in lang en, index 6: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Perplexity: Written 6/85610 entries to perplexity result file (batch 1/14269)
+Processing batch 2/14269
+Warning: input_ids mismatch for lang en entry 7: tokenized 66 tokens, forward pass has 66 tokens
+[WARNING] in lang en, index 7: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 7: tokenized 66 tokens, forward pass has 66 tokens
+[WARNING] in lang en, index 7: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 10: tokenized 97 tokens, forward pass has 97 tokens
+[WARNING] in lang en, index 10: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 10: tokenized 97 tokens, forward pass has 97 tokens
+[WARNING] in lang en, index 10: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang en, index 11: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 11: tokenized 109 tokens, forward pass has 109 tokens
+[WARNING] in lang en, index 11: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Perplexity: Written 12/85610 entries to perplexity result file (batch 2/14269)
+Processing batch 3/14269
+Warning: input_ids mismatch for lang en entry 15: tokenized 58 tokens, forward pass has 58 tokens
+[WARNING] in lang en, index 15: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 15: tokenized 58 tokens, forward pass has 58 tokens
+[WARNING] in lang en, index 15: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 18: tokenized 65 tokens, forward pass has 65 tokens
+[WARNING] in lang en, index 18: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 18: tokenized 68 tokens, forward pass has 68 tokens
+[WARNING] in lang en, index 18: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Perplexity: Written 18/85610 entries to perplexity result file (batch 3/14269)
+Processing batch 4/14269
+[WARNING] in lang en, index 20: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang en, index 20: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 22: tokenized 96 tokens, forward pass has 96 tokens
+[WARNING] in lang en, index 22: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 22: tokenized 96 tokens, forward pass has 96 tokens
+[WARNING] in lang en, index 22: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 23: tokenized 69 tokens, forward pass has 69 tokens
+[WARNING] in lang en, index 23: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 23: tokenized 69 tokens, forward pass has 69 tokens
+[WARNING] in lang en, index 23: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Perplexity: Written 24/85610 entries to perplexity result file (batch 4/14269)
+Processing batch 5/14269
+Warning: input_ids mismatch for lang en entry 25: tokenized 71 tokens, forward pass has 71 tokens
+Warning: input_ids mismatch for lang en entry 25: tokenized 70 tokens, forward pass has 70 tokens
+Warning: input_ids mismatch for lang en entry 26: tokenized 81 tokens, forward pass has 81 tokens
+[WARNING] in lang en, index 26: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 26: tokenized 81 tokens, forward pass has 81 tokens
+[WARNING] in lang en, index 26: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Perplexity: Written 30/85610 entries to perplexity result file (batch 5/14269)
+Processing batch 6/14269
+Warning: input_ids mismatch for lang en entry 27: tokenized 75 tokens, forward pass has 75 tokens
+[WARNING] in lang en, index 27: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 27: tokenized 75 tokens, forward pass has 75 tokens
+[WARNING] in lang en, index 27: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang en, index 28: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang en, index 28: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 29: tokenized 75 tokens, forward pass has 75 tokens
+[WARNING] in lang en, index 29: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 29: tokenized 75 tokens, forward pass has 75 tokens
+[WARNING] in lang en, index 29: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Perplexity: Written 36/85610 entries to perplexity result file (batch 6/14269)
+Processing batch 7/14269
+Warning: input_ids mismatch for lang en entry 30: tokenized 91 tokens, forward pass has 91 tokens
+[WARNING] in lang en, index 30: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 30: tokenized 91 tokens, forward pass has 91 tokens
+[WARNING] in lang en, index 30: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 31: tokenized 67 tokens, forward pass has 67 tokens
+[WARNING] in lang en, index 31: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 31: tokenized 69 tokens, forward pass has 69 tokens
+[WARNING] in lang en, index 31: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang en, index 32: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang en, index 32: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Perplexity: Written 42/85610 entries to perplexity result file (batch 7/14269)
+Processing batch 8/14269
+[WARNING] in lang en, index 34: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang en, index 34: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 37: tokenized 91 tokens, forward pass has 91 tokens
+[WARNING] in lang en, index 37: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 37: tokenized 91 tokens, forward pass has 91 tokens
+[WARNING] in lang en, index 37: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 39: tokenized 62 tokens, forward pass has 62 tokens
+Warning: input_ids mismatch for lang en entry 39: tokenized 62 tokens, forward pass has 62 tokens
+Perplexity: Written 48/85610 entries to perplexity result file (batch 8/14269)
+Processing batch 9/14269
+[WARNING] in lang en, index 42: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang en, index 42: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 43: tokenized 65 tokens, forward pass has 65 tokens
+[WARNING] in lang en, index 43: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 43: tokenized 65 tokens, forward pass has 65 tokens
+[WARNING] in lang en, index 43: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 44: tokenized 103 tokens, forward pass has 103 tokens
+[WARNING] in lang en, index 44: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 44: tokenized 103 tokens, forward pass has 103 tokens
+[WARNING] in lang en, index 44: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Perplexity: Written 54/85610 entries to perplexity result file (batch 9/14269)
+Processing batch 10/14269
+Warning: input_ids mismatch for lang en entry 45: tokenized 77 tokens, forward pass has 77 tokens
+[WARNING] in lang en, index 45: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 45: tokenized 77 tokens, forward pass has 77 tokens
+[WARNING] in lang en, index 45: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 46: tokenized 76 tokens, forward pass has 76 tokens
+[WARNING] in lang en, index 46: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Warning: input_ids mismatch for lang en entry 46: tokenized 76 tokens, forward pass has 76 tokens
+[WARNING] in lang en, index 46: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang en, index 48: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+[WARNING] in lang en, index 48: No tokens were selected by the answer mask for perplexity calculation, setting perplexity to 1.0.
+Perplexity: Written 60/85610 entries to perplexity result file (batch 10/14269)
+Processing batch 11/14269
