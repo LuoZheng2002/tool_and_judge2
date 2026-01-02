@@ -224,7 +224,7 @@ def generate_stacked_bar_chart_multi_model(model_names: List[str], output_dir: s
     print(df)
 
     # Plot stacked bar chart
-    fig, ax = plt.subplots(figsize=(14, 8))
+    fig, ax = plt.subplots(figsize=(14, 14))
 
     # Convert counts to rates by dividing by 200
     df_rate = df / 200.0
@@ -256,36 +256,39 @@ def generate_stacked_bar_chart_multi_model(model_names: List[str], output_dir: s
     for i, total in enumerate(totals):
         if total > 0:  # Only annotate if there's data
             ax.text(x_positions[i], total, f'{total:.3f}',
-                   ha='center', va='bottom', fontsize=7, fontweight='bold')
+                   ha='center', va='bottom', fontsize=15, fontweight='bold', rotation=0)
 
     # Set y-axis range to the calculated max_height
     ax.set_ylim(0, max_height)
 
     # Customize plot
-    ax.set_ylabel('Error Rate', fontsize=12)
-    ax.set_title(title, fontsize=14, fontweight='bold', pad=50)
+    ax.set_ylabel('Error Rate', fontsize=30)
+    ax.set_title(title, fontsize=24, fontweight='bold', pad=170)
+
+    # Set y-axis tick label size
+    ax.tick_params(axis='y', labelsize=20)
 
     # Place legend at the top, below the title and above the plot
-    ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.12), fontsize=10, ncol=4, frameon=True)
+    ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.25), fontsize=20, ncol=2, frameon=True)
 
     # Handle x-axis labels and ticks
     # Set x-tick positions and labels
     ax.set_xticks(x_positions)
-    ax.set_xticklabels(bar_labels, rotation=0, ha='center', fontsize=9)
+    ax.set_xticklabels(bar_labels, rotation=15, ha='center', fontsize=20, fontweight='bold')
 
     # Add model group labels as a second row below language labels
     pos_tracker = 0
     for model_name in model_names:
         # Calculate center of the model's language bars
         group_center = pos_tracker + (len(languages) - 1) * bar_spacing / 2
-        ax.text(group_center, -max_height * 0.08, model_name,
-               ha='center', va='top', fontsize=11, fontweight='bold', rotation=5)
+        ax.text(group_center, -max_height * 0.05, model_name,
+               ha='center', va='top', fontsize=20, fontweight='bold', rotation=6)
         pos_tracker += len(languages) * bar_spacing + group_spacing
 
     # Add "Model" label below the group names
     overall_center = (x_positions[0] + x_positions[-1]) / 2
     ax.text(overall_center, -max_height * 0.14, 'Model',
-           ha='center', va='top', fontsize=12)
+           ha='center', va='top', fontsize=30)
 
     plt.tight_layout()
 

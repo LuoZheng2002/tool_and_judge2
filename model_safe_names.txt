@@ -6,7 +6,8 @@ Qwen-Qwen3-Next-80B-A3B-Instruct
 ibm-granite-granite-4.0-h-small
 ibm-granite-granite-4.0-h-tiny
 meta-llama-Llama-3.1-8B-Instruct
-meta-llama-Llama-3.1-70B-
+meta-llama-Llama-3.1-70B-Instruct
 gpt-5
 gpt-5-mini
 gpt-5-nano
+deepseek-chat
