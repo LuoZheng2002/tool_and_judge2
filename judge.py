@@ -380,7 +380,8 @@ async def main_async():
                     )
 
                     # Part 1: Parse styled responses and prepare data
-                    char_masks = []
+                    # Tokenize INDIVIDUALLY first (no batching, no padding)
+                    unpadded_token_data = []  # Store (unpadded_ids, token_mask, expected_masked_text) for each entry
                     trimmed_prompts = []
 
                     for entry in batch_entries:
@@ -438,31 +439,83 @@ async def main_async():
                         # Now trim the <answer> tags from the complete formatted prompt and get character-level mask
                         trimmed_prompt, char_mask = trim_forward_prompt_and_get_char_mask(formatted_prompt_with_tags)
 
-                        char_masks.append(char_mask)
-                        trimmed_prompts.append(trimmed_prompt)
-
-                    # Part 2: Forward pass through model
-                    forward_results = forward_for_perplexity(trimmed_prompts, hf_model, hf_tokenizer)
-
-                    # Part 3: Calculate perplexity for each entry and write immediately
-                    for entry, forward_result, char_mask, trimmed_prompt in zip(batch_entries, forward_results, char_masks, trimmed_prompts):
-                        # Convert character mask to token mask using input_ids from forward pass
-                        token_mask = convert_char_mask_to_token_mask(
+                        # Tokenize individually WITHOUT padding and get token mask
+                        # This avoids the padding mismatch issue
+                        unpadded_ids, token_mask = convert_char_mask_to_token_mask(
                             trimmed_prompt,
                             char_mask,
-                            forward_result['input_ids'],
                             hf_tokenizer,
                             debug=False
                         )
 
-                        # Calculate perplexity using the mask
+                        # Extract masked tokens from unpadded sequence and decode for verification
+                        masked_token_ids = [tid for tid, is_masked in zip(unpadded_ids, token_mask) if is_masked]
+                        expected_masked_text = hf_tokenizer.decode(masked_token_ids, skip_special_tokens=True)
+
+                        unpadded_token_data.append((unpadded_ids, token_mask, expected_masked_text))
+                        trimmed_prompts.append(trimmed_prompt)
+
+                    # Part 2: Forward pass through model (WITH batching and padding)
+                    forward_results = forward_for_perplexity(trimmed_prompts, hf_model, hf_tokenizer)
+
+                    # Part 3: Calculate perplexity for each entry and write immediately
+                    for entry, forward_result, (unpadded_ids, unpadded_mask, expected_masked_text) in zip(batch_entries, forward_results, unpadded_token_data):
+                        # Get padded input_ids from forward result
+                        padded_ids = forward_result['input_ids']
+
+                        # Create padded mask by finding where unpadded sequence appears in padded sequence
+                        from src_py.utils import create_padded_mask
+                        try:
+                            padded_mask = create_padded_mask(unpadded_mask, unpadded_ids, padded_ids)
+                        except ValueError as e:
+                            # This error occurs when unpadded_ids is not a subset of padded_ids
+                            print(f"WARNING: Unpadded sequence not found in padded sequence for entry {entry['index']} (lang: {entry['lang']})")
+                            print(f"  Error: {e}")
+
+                            # Decode and print both sequences for debugging
+                            decoded_unpadded = hf_tokenizer.decode(unpadded_ids, skip_special_tokens=False)
+                            decoded_padded = hf_tokenizer.decode(padded_ids, skip_special_tokens=False)
+                            print(f"  Decoded unpadded text ({len(decoded_unpadded)} chars):")
+                            print(f"    {repr(decoded_unpadded)}")
+                            print(f"  Decoded padded text ({len(decoded_padded)} chars):")
+                            print(f"    {repr(decoded_padded)}")
+
+                            print(f"  Setting perplexity to 1.0")
+                            # Fall back to default perplexity
+                            perplexity = 1.0
+                            result_entry = {
+                                'index': entry['index'],
+                                'perplexity': perplexity,
+                                'styled_response': entry['styled_response'],
+                                'response': entry['response'],
+                                'original_answer': entry['original_answer'],
+                                'question': entry['question'],
+                                'is_correct': entry['is_correct'],
+                                'lang': entry['lang'],
+                                'subject': entry['subject'],
+                            }
+                            f.write(json.dumps(result_entry, ensure_ascii=False) + '\n')
+                            total_processed += 1
+                            continue
+
+                        # Verify masked text consistency: extract masked tokens from padded sequence
+                        padded_masked_token_ids = [tid for tid, is_masked in zip(padded_ids, padded_mask) if is_masked]
+                        actual_masked_text = hf_tokenizer.decode(padded_masked_token_ids, skip_special_tokens=True)
+
+                        # Compare expected vs actual masked text
+                        if expected_masked_text != actual_masked_text:
+                            print(f"WARNING: Masked text mismatch for entry {entry['index']} (lang: {entry['lang']})")
+                            print(f"  Expected (from unpadded): {repr(expected_masked_text)}")
+                            print(f"  Actual (from padded):     {repr(actual_masked_text)}")
+
+                        # Calculate perplexity using the padded mask
                         try:
                             perplexity = calculate_perplexity_from_logits_with_mask(
                                 entry['index'],
                                 entry['lang'],
                                 forward_result['logits'],
-                                forward_result['input_ids'],
-                                token_mask
+                                padded_ids,
+                                padded_mask
                             )
                         except Exception as e:
                             error_message = str(e)

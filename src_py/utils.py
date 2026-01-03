@@ -192,59 +192,49 @@ def trim_styled_response_and_get_char_mask(styled_response: str):
     return trim_forward_prompt_and_get_char_mask(styled_response)
 
 
-def convert_char_mask_to_token_mask(trimmed_prompt: str, char_mask: list, input_ids: list, tokenizer: Any, debug: bool = False):
+def convert_char_mask_to_token_mask(trimmed_prompt: str, char_mask: list, tokenizer: Any, debug: bool = False):
     """
     Convert a character-level mask to a token-level mask.
+    Tokenizes the trimmed_prompt internally WITHOUT padding.
 
     Args:
         trimmed_prompt: str, the complete prompt text (without tags)
         char_mask: list of bool, True for character positions that should be masked
-        input_ids: list of token IDs from the forward pass
         tokenizer: Tokenizer instance
         debug: bool, if True, print debug information about masked tokens
 
     Returns:
-        token_mask: list of bool, True for tokens that were inside masked characters
+        tuple: (input_ids, token_mask) where:
+            - input_ids: list of token IDs (without padding)
+            - token_mask: list of bool, True for tokens that were inside masked characters
     """
-    # Decode input_ids to get the text representation
-    decoded_text = tokenizer.decode(input_ids, skip_special_tokens=False)
-
-    # Verify that the decoded text matches the trimmed prompt
-    # Note: There might be minor differences in whitespace/formatting, so we'll just warn if they don't match exactly
-    if decoded_text != trimmed_prompt:
-        # Always warn about mismatch
-        print(f"Warning: Decoded text differs from trimmed prompt")
-        print(f"  Trimmed prompt length: {len(trimmed_prompt)}, Decoded text length: {len(decoded_text)}")
-
-        # Find first difference
-        for i, (c1, c2) in enumerate(zip(trimmed_prompt, decoded_text)):
-            if c1 != c2:
-                print(f"[DEBUG] First difference at position {i}: prompt={repr(c1)}, decoded={repr(c2)}")
-                print(f"[DEBUG] Context: prompt={repr(trimmed_prompt[max(0,i-200):i+200])}, decoded={repr(decoded_text[max(0,i-200):i+200])}")
-                break
+    # Tokenize WITHOUT padding, WITHOUT batching, WITH offset mapping
+    encoded = tokenizer(
+        trimmed_prompt,
+        add_special_tokens=False,
+        return_tensors=None,  # Return list, not tensor
+        return_offsets_mapping=True  # Get character offsets for each token
+    )
+    input_ids = encoded['input_ids']
+    offset_mapping = encoded['offset_mapping']
 
     # Create token mask by checking which tokens correspond to masked characters
     # We'll mark a token as "masked" if any of its characters were masked
     token_mask = []
     masked_token_ids = []  # Store token IDs of masked tokens for debugging
 
-    # Get character spans for each token
-    char_idx = 0
-    for token_id in input_ids:
-        token_text = tokenizer.decode([token_id], skip_special_tokens=False)
-        token_len = len(token_text)
-
+    # Use offset mapping to determine which tokens correspond to masked characters
+    for token_id, (start, end) in zip(input_ids, offset_mapping):
         # Check if any character in this token's span is masked
         is_masked_token = False
-        for i in range(char_idx, min(char_idx + token_len, len(char_mask))):
-            if i < len(char_mask) and char_mask[i]:
+        for char_pos in range(start, end):
+            if char_pos < len(char_mask) and char_mask[char_pos]:
                 is_masked_token = True
                 break
 
         token_mask.append(is_masked_token)
         if is_masked_token:
             masked_token_ids.append(token_id)
-        char_idx += token_len
 
     # Assert consistency
     assert len(input_ids) == len(token_mask), f"input_ids length {len(input_ids)} should equal token_mask length {len(token_mask)}"
@@ -260,7 +250,7 @@ def convert_char_mask_to_token_mask(trimmed_prompt: str, char_mask: list, input_
             print(f"[DEBUG] ERROR: No tokens were masked!")
             exit(1)
 
-    return token_mask
+    return input_ids, token_mask
 
 
 def parse_styled_response_to_mask(styled_response: str, tokenizer: Any):
@@ -388,3 +378,77 @@ def calculate_perplexity_from_logits(logits, input_ids, answer, tokenizer):
         perplexity = float('inf')
 
     return perplexity
+
+
+def find_unpadded_sequence_in_padded(
+    unpadded_ids: list[int],
+    padded_ids: list[int]
+) -> int:
+    """
+    Find the offset where the unpadded sequence appears in the padded sequence.
+    Searches for unpadded_ids as a contiguous subsequence in padded_ids.
+
+    Args:
+        unpadded_ids: Original token IDs without padding
+        padded_ids: Token IDs from batch encoding (may have padding)
+
+    Returns:
+        int: The starting offset of unpadded_ids in padded_ids
+
+    Raises:
+        ValueError: If unpadded_ids is not a contiguous subsequence of padded_ids
+    """
+    unpadded_len = len(unpadded_ids)
+    padded_len = len(padded_ids)
+
+    # Search for unpadded_ids as a subsequence in padded_ids
+    for i in range(padded_len - unpadded_len + 1):
+        if padded_ids[i:i + unpadded_len] == unpadded_ids:
+            return i
+
+    # Not found as a contiguous subsequence
+    raise ValueError(
+        f"Unpadded sequence (len={unpadded_len}) not found as contiguous subsequence "
+        f"in padded sequence (len={padded_len}). "
+        f"First 10 unpadded: {unpadded_ids[:10]}, "
+        f"padded: {padded_ids}"
+    )
+
+
+def create_padded_mask(
+    unpadded_mask: list[bool],
+    unpadded_ids: list[int],
+    padded_ids: list[int]
+) -> list[bool]:
+    """
+    Create a padded version of the mask that aligns with padded token IDs.
+
+    Args:
+        unpadded_mask: Original mask without padding
+        unpadded_ids: Original token IDs without padding
+        padded_ids: Token IDs from batch encoding (with padding)
+
+    Returns:
+        list[bool]: Padded mask with False for padding positions
+    """
+    # Find the offset where unpadded sequence starts
+    offset = find_unpadded_sequence_in_padded(unpadded_ids, padded_ids)
+
+    # Create padded mask
+    padded_mask = []
+
+    # Add False for leading padding
+    for i in range(offset):
+        padded_mask.append(False)
+
+    # Add the original mask
+    padded_mask.extend(unpadded_mask)
+
+    # Add False for trailing padding
+    while len(padded_mask) < len(padded_ids):
+        padded_mask.append(False)
+
+    assert len(padded_mask) == len(padded_ids), \
+        f"Padded mask length {len(padded_mask)} != padded_ids length {len(padded_ids)}"
+
+    return padded_mask
