@@ -1,0 +1,17 @@
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+   Compiling codebase_rs v0.1.0 (/projects/bfdz/zluo8/tool_and_judge2)
+    Finished `release` profile [optimized] target(s) in 24.62s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmpXK3qNO/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /projects/bfdz/zluo8/tool_and_judge2/.venv/bin/python
+    Finished `release` profile [optimized] target(s) in 0.63s
+📖 Found type stub file at codebase_rs.pyi
+📦 Built wheel for CPython 3.13 to /tmp/.tmpDhuEhz/codebase_rs-0.1.0-cp313-cp313-linux_x86_64.whl
+🛠 Installed codebase_rs-0.1.0
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/19 [00:00<?, ?it/s]Loading checkpoint shards:   5%|▌         | 1/19 [00:04<01:17,  4.33s/it]Loading checkpoint shards:  11%|█         | 2/19 [00:41<06:39, 23.51s/it]Loading checkpoint shards:  16%|█▌        | 3/19 [00:47<04:11, 15.74s/it]Loading checkpoint shards:  21%|██        | 4/19 [01:15<05:09, 20.63s/it]Loading checkpoint shards:  26%|██▋       | 5/19 [01:22<03:38, 15.62s/it]Loading checkpoint shards:  32%|███▏      | 6/19 [01:28<02:42, 12.47s/it]Loading checkpoint shards:  37%|███▋      | 7/19 [02:02<03:54, 19.51s/it]Loading checkpoint shards:  42%|████▏     | 8/19 [02:09<02:50, 15.46s/it]Loading checkpoint shards:  47%|████▋     | 9/19 [02:15<02:04, 12.45s/it]Loading checkpoint shards:  53%|█████▎    | 10/19 [02:50<02:53, 19.31s/it]Loading checkpoint shards:  58%|█████▊    | 11/19 [03:33<03:32, 26.61s/it]Loading checkpoint shards:  63%|██████▎   | 12/19 [03:41<02:26, 20.86s/it]Loading checkpoint shards:  68%|██████▊   | 13/19 [03:45<01:35, 15.98s/it]Loading checkpoint shards: 100%|██████████| 19/19 [03:45<00:00, 11.89s/it]
+Some parameters are on the meta device because they were offloaded to the disk.
+[2026-01-03T00:55:34.200] error: *** JOB 15260229 ON gpua006 CANCELLED AT 2026-01-03T00:55:34 DUE to SIGNAL Terminated ***

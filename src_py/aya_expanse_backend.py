@@ -226,12 +226,10 @@ def forward_for_perplexity(
     # Process each item in the batch
     results = []
     for i in range(len(formatted_prompts)):
-        # Get the actual sequence length (excluding padding)
-        seq_len = attention_mask[i].sum().item()
-
-        # Extract logits and input_ids for this sequence (excluding padding)
-        logits = logits_batch[i, :seq_len, :]  # [seq_len, vocab_size]
-        input_ids = input_ids_batch[i, :seq_len].cpu().tolist()
+        # Return full padded sequences (don't trim based on attention_mask)
+        # The create_padded_mask function will handle finding the unpadded sequence within padding
+        logits = logits_batch[i, :, :]  # [seq_len, vocab_size]
+        input_ids = input_ids_batch[i, :].cpu().tolist()
 
         results.append({
             'logits': logits,
