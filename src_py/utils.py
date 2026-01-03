@@ -109,16 +109,22 @@ def language_abbreviation_to_name(abbreviation: str) -> str:
     """
     lang_map = {
         'en': 'English',
-        'fr': 'French',
-        'de': 'German',
-        'es': 'Spanish',
-        'it': 'Italian',
-        'pt': 'Portuguese',
         'zh_cn': 'Chinese',
-        'ja': 'Japanese',
-        'ko': 'Korean',
+        'fr_fr': 'French',
+        'de_de': 'German',
+        'ja_jp': 'Japanese',
+        'ko_kr': 'Korean',
+        'ar_xy': 'Arabic',
+        'bn_bd': 'Bengali',
+        'hi_in': 'Hindi',
+        'id_id': 'Indonesian',
+        'it_it': 'Italian',
+        'pt_br': 'Portuguese',
+        'es_la': 'Spanish',
+        'sw_ke': 'Swahili',
+        'yo_ng': 'Yoruba',
     }
-    return lang_map.get(abbreviation.lower(), abbreviation)
+    return lang_map[abbreviation]
 
 
 

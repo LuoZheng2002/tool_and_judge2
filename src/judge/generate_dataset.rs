@@ -132,6 +132,24 @@ pub fn generate_one_answer_dataset(lang: &str) {
         );
         return;
     }
+
+    // Load English dataset for questions
+    let english_dataset_path = "judge/datasets/mmmlu_normalized/en.jsonl";
+    if !Path::new(&english_dataset_path).exists() {
+        println!("Normalized MMMLU dataset for English not found. Generating...");
+        generate_normalized_datasets("en");
+    }
+    let english_entries =
+        load_json_lines(&english_dataset_path).expect("Failed to load English normalized MMMLU dataset");
+    let english_parsed_entries: IndexMap<usize, MmmluDatasetEntryNormalized> = english_entries
+        .into_iter()
+        .map(|entry| {
+            let parsed: MmmluDatasetEntryNormalized =
+                serde_json::from_value(entry).expect("Failed to parse English normalized MMMLU entry");
+            (parsed.original_index, parsed)
+        })
+        .collect();
+
     let input_dataset_path = format!("judge/datasets/mmmlu_normalized/{}.jsonl", lang);
     if !Path::new(&input_dataset_path).exists() {
         println!(
@@ -151,9 +169,15 @@ pub fn generate_one_answer_dataset(lang: &str) {
     for entry in parsed_entries {
         let correct_answer_index = entry.answer;
         let incorrect_answer_index = (correct_answer_index + 1) % 4; // Just pick the next answer as incorrect
+
+        // Get English question for this index
+        let english_entry = english_parsed_entries
+            .get(&entry.original_index)
+            .expect(&format!("Missing English entry for index {}", entry.original_index));
+
         correct_one_answer_entries.push(OneAnswerEntry {
             index: entry.original_index,
-            question: entry.question.clone(),
+            question: english_entry.question.clone(),
             answer: entry.choices[correct_answer_index].clone(),
             lang: lang.to_string(),
             is_correct: true,
@@ -161,7 +185,7 @@ pub fn generate_one_answer_dataset(lang: &str) {
         });
         incorrect_one_answer_entries.push(OneAnswerEntry {
             index: entry.original_index,
-            question: entry.question.clone(),
+            question: english_entry.question.clone(),
             answer: entry.choices[incorrect_answer_index].clone(),
             lang: lang.to_string(),
             is_correct: false,
@@ -218,6 +242,23 @@ pub fn generate_two_answers_dataset(lang1: &str, lang2: &str) {
         );
         return;
     }
+
+    // Load English dataset for questions
+    let english_path = "judge/datasets/one_answer/en_correct.jsonl";
+    if !Path::new(&english_path).exists() {
+        println!("English one answer dataset not found. Generating...");
+        generate_one_answer_dataset("en");
+    }
+    let english_entries = load_json_lines(&english_path).expect("Failed to load English dataset");
+    let english_entries: IndexMap<usize, OneAnswerEntry> = english_entries
+        .into_iter()
+        .map(|entry| {
+            let parsed: OneAnswerEntry =
+                serde_json::from_value(entry).expect("Failed to parse English entry");
+            (parsed.index, parsed)
+        })
+        .collect();
+
     let input_path_lang1_correct = format!("judge/datasets/one_answer/{}_correct.jsonl", lang1);
     let input_path_lang1_incorrect = format!("judge/datasets/one_answer/{}_incorrect.jsonl", lang1);
     let input_path_lang2_correct = format!("judge/datasets/one_answer/{}_correct.jsonl", lang2);
@@ -285,8 +326,8 @@ pub fn generate_two_answers_dataset(lang1: &str, lang2: &str) {
     let indices = lang1_correct_entries.keys();
     let mut lang1_correct_lang2_incorrect: Vec<TwoAnswersEntry> = Vec::new();
     let mut lang1_incorrect_lang2_correct: Vec<TwoAnswersEntry> = Vec::new();
-    let mut both_correct: Vec<TwoAnswersEntry> = Vec::new();
-    let mut both_incorrect: Vec<TwoAnswersEntry> = Vec::new();
+    // let mut both_correct: Vec<TwoAnswersEntry> = Vec::new();
+    // let mut both_incorrect: Vec<TwoAnswersEntry> = Vec::new();
     for index in indices {
         let entry_lang1_correct = lang1_correct_entries
             .get(index)
@@ -300,9 +341,15 @@ pub fn generate_two_answers_dataset(lang1: &str, lang2: &str) {
         let entry_lang2_incorrect = lang2_incorrect_entries
             .get(index)
             .expect("Missing lang2 incorrect entry");
+
+        // Get English question for this index
+        let english_entry = english_entries
+            .get(index)
+            .expect(&format!("Missing English entry for index {}", index));
+
         lang1_correct_lang2_incorrect.push(TwoAnswersEntry {
             index: *index,
-            question: entry_lang1_correct.question.clone(),
+            question: english_entry.question.clone(),
             answer1: entry_lang1_correct.answer.clone(),
             answer2: entry_lang2_incorrect.answer.clone(),
             lang1: lang1.to_string(),
@@ -313,7 +360,7 @@ pub fn generate_two_answers_dataset(lang1: &str, lang2: &str) {
         });
         lang1_incorrect_lang2_correct.push(TwoAnswersEntry {
             index: *index,
-            question: entry_lang1_incorrect.question.clone(),
+            question: english_entry.question.clone(),
             answer1: entry_lang1_incorrect.answer.clone(),
             answer2: entry_lang2_correct.answer.clone(),
             lang1: lang1.to_string(),
@@ -322,28 +369,28 @@ pub fn generate_two_answers_dataset(lang1: &str, lang2: &str) {
             is_correct2: true,
             subject: entry_lang1_incorrect.subject.clone(),
         });
-        both_correct.push(TwoAnswersEntry {
-            index: *index,
-            question: entry_lang1_correct.question.clone(),
-            answer1: entry_lang1_correct.answer.clone(),
-            answer2: entry_lang2_correct.answer.clone(),
-            lang1: lang1.to_string(),
-            lang2: lang2.to_string(),
-            is_correct1: true,
-            is_correct2: true,
-            subject: entry_lang1_correct.subject.clone(),
-        });
-        both_incorrect.push(TwoAnswersEntry {
-            index: *index,
-            question: entry_lang1_incorrect.question.clone(),
-            answer1: entry_lang1_incorrect.answer.clone(),
-            answer2: entry_lang2_incorrect.answer.clone(),
-            lang1: lang1.to_string(),
-            lang2: lang2.to_string(),
-            is_correct1: false,
-            is_correct2: false,
-            subject: entry_lang1_incorrect.subject.clone(),
-        });
+        // both_correct.push(TwoAnswersEntry {
+        //     index: *index,
+        //     question: english_entry.question.clone(),
+        //     answer1: entry_lang1_correct.answer.clone(),
+        //     answer2: entry_lang2_correct.answer.clone(),
+        //     lang1: lang1.to_string(),
+        //     lang2: lang2.to_string(),
+        //     is_correct1: true,
+        //     is_correct2: true,
+        //     subject: entry_lang1_correct.subject.clone(),
+        // });
+        // both_incorrect.push(TwoAnswersEntry {
+        //     index: *index,
+        //     question: english_entry.question.clone(),
+        //     answer1: entry_lang1_incorrect.answer.clone(),
+        //     answer2: entry_lang2_incorrect.answer.clone(),
+        //     lang1: lang1.to_string(),
+        //     lang2: lang2.to_string(),
+        //     is_correct1: false,
+        //     is_correct2: false,
+        //     subject: entry_lang1_incorrect.subject.clone(),
+        // });
     }
     let lang1_correct_lang2_incorrect_serialized: Vec<serde_json::Value> =
         lang1_correct_lang2_incorrect
@@ -361,14 +408,14 @@ pub fn generate_two_answers_dataset(lang1: &str, lang2: &str) {
                     .expect("Failed to serialize lang1 incorrect lang2 correct entry")
             })
             .collect();
-    let both_correct_serialized: Vec<serde_json::Value> = both_correct
-        .into_iter()
-        .map(|entry| serde_json::to_value(entry).expect("Failed to serialize both correct entry"))
-        .collect();
-    let both_incorrect_serialized: Vec<serde_json::Value> = both_incorrect
-        .into_iter()
-        .map(|entry| serde_json::to_value(entry).expect("Failed to serialize both incorrect entry"))
-        .collect();
+    // let both_correct_serialized: Vec<serde_json::Value> = both_correct
+    //     .into_iter()
+    //     .map(|entry| serde_json::to_value(entry).expect("Failed to serialize both correct entry"))
+    //     .collect();
+    // let both_incorrect_serialized: Vec<serde_json::Value> = both_incorrect
+    //     .into_iter()
+    //     .map(|entry| serde_json::to_value(entry).expect("Failed to serialize both incorrect entry"))
+    //     .collect();
     write_json_lines_to_file(
         &lang1_correct_lang2_incorrect_path,
         &lang1_correct_lang2_incorrect_serialized,
@@ -379,10 +426,10 @@ pub fn generate_two_answers_dataset(lang1: &str, lang2: &str) {
         &lang1_incorrect_lang2_correct_serialized,
     )
     .expect("Failed to write lang1 incorrect lang2 correct dataset");
-    write_json_lines_to_file(&both_correct_path, &both_correct_serialized)
-        .expect("Failed to write both correct dataset");
-    write_json_lines_to_file(&both_incorrect_path, &both_incorrect_serialized)
-        .expect("Failed to write both incorrect dataset");
+    // write_json_lines_to_file(&both_correct_path, &both_correct_serialized)
+    //     .expect("Failed to write both correct dataset");
+    // write_json_lines_to_file(&both_incorrect_path, &both_incorrect_serialized)
+    //     .expect("Failed to write both incorrect dataset");
 }
 
 #[pyfunction]
@@ -615,7 +662,53 @@ pub fn generate_preference_indices() {
 }
 
 #[test]
-fn test_generate_normalized_dataset() {
-    generate_normalized_datasets("en");
-    generate_normalized_datasets("zh_cn");
+fn test_generate_one_answer_dataset() {
+    generate_one_answer_dataset("en");
+    generate_one_answer_dataset("zh_cn");
+    generate_one_answer_dataset("fr_fr");
+    generate_one_answer_dataset("de_de");
+    generate_one_answer_dataset("ja_jp");
+    generate_one_answer_dataset("ko_kr");
+    generate_one_answer_dataset("ar_xy");
+    generate_one_answer_dataset("bn_bd");
+    generate_one_answer_dataset("hi_in");
+    generate_one_answer_dataset("id_id");
+    generate_one_answer_dataset("it_it");
+    generate_one_answer_dataset("pt_br");
+    generate_one_answer_dataset("es_la");
+    generate_one_answer_dataset("sw_ke");
+    generate_one_answer_dataset("yo_ng");    
+}
+
+#[test]
+fn test_generate_two_answers_dataset() {
+    generate_two_answers_dataset("en", "zh_cn");
+    generate_two_answers_dataset("en", "fr_fr");
+    generate_two_answers_dataset("en", "de_de");
+    generate_two_answers_dataset("en", "ja_jp");
+    generate_two_answers_dataset("en", "ko_kr");
+    generate_two_answers_dataset("en", "ar_xy");
+    generate_two_answers_dataset("en", "bn_bd");
+    generate_two_answers_dataset("en", "hi_in");
+    generate_two_answers_dataset("en", "id_id");
+    generate_two_answers_dataset("en", "it_it");
+    generate_two_answers_dataset("en", "pt_br");
+    generate_two_answers_dataset("en", "es_la");
+    generate_two_answers_dataset("en", "sw_ke");
+    generate_two_answers_dataset("en", "yo_ng");    
+    generate_two_answers_dataset("en", "en");
+    generate_two_answers_dataset("zh_cn", "zh_cn");
+    generate_two_answers_dataset("fr_fr", "fr_fr");
+    generate_two_answers_dataset("de_de", "de_de");
+    generate_two_answers_dataset("ja_jp", "ja_jp");
+    generate_two_answers_dataset("ko_kr", "ko_kr");
+    generate_two_answers_dataset("ar_xy", "ar_xy");
+    generate_two_answers_dataset("bn_bd", "bn_bd");
+    generate_two_answers_dataset("hi_in", "hi_in");
+    generate_two_answers_dataset("id_id", "id_id");
+    generate_two_answers_dataset("it_it", "it_it");
+    generate_two_answers_dataset("pt_br", "pt_br");
+    generate_two_answers_dataset("es_la", "es_la");
+    generate_two_answers_dataset("sw_ke", "sw_ke");
+    generate_two_answers_dataset("yo_ng", "yo_ng");
 }
