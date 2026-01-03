@@ -1,0 +1,24 @@
+Raw formatted prompt
+
+Then we have the trimmed prompt
+
+
+trimmed prompts to be batched and tokenized
+
+and then we can decode the input_ids, this does not involve the answer tags
+
+then compare with the 
+
+
+
+
+
+tokenize the whole trimmed prompt, appears as a part of the output IDs
+also has mask
+
+get the new mask by padding in the same way
+
+and then calculate the perplexity
+
+Input ids is a subset of ...
+
