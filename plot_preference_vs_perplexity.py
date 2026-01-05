@@ -16,18 +16,29 @@ Each point plots:
 import argparse
 import json
 import os
+import sys
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 import matplotlib.pyplot as plt
 import numpy as np
+
+# Add src_py to path to import utils
+sys.path.insert(0, str(Path(__file__).parent / 'src_py'))
+from utils import language_abbreviation_to_name
 
 
 def load_jsonl(file_path: str) -> List[dict]:
     """Load JSON lines file."""
     data = []
     with open(file_path, 'r', encoding='utf-8') as f:
-        for line in f:
-            data.append(json.loads(line))
+            for line in f:
+                try:
+                    data.append(json.loads(line))
+                except json.JSONDecodeError as e:
+                    print(f"Error decoding JSON in file {file_path}: {e}")
+                    print(f"Line: {line}")
+                    raise e
+
     return data
 
 
@@ -198,24 +209,30 @@ def create_scatter_plot(
     if y_range is not None:
         plt.ylim(y_range[0], y_range[1])
 
+    # Get language names
+    lang1_name = language_abbreviation_to_name(lang1)
+    lang2_name = language_abbreviation_to_name(lang2)
+
     # Labels and title
     if test_order:
-        plt.xlabel(f'Log10(Perplexity Difference) (log10({lang1} - {lang2}))', fontsize=12)
+        plt.xlabel(f'Log10(Perplexity Difference) ({lang1_name} - {lang2_name})', fontsize=20)
     else:
-        plt.xlabel(f'Difference in Log10(Perplexity) ({lang1} - {lang2})', fontsize=12)
-    plt.ylabel('Preference Log-Prob Signed Difference', fontsize=12)
-
+        plt.xlabel(f'Log10(Perplexity) Difference ({lang1_name} - {lang2_name})', fontsize=20)
+    plt.ylabel(f'Preference Log-Prob Difference ({lang1_name} - {lang2_name})', fontsize=20)
     correct1_str = "correct" if is_correct1 else "incorrect"
     correct2_str = "correct" if is_correct2 else "incorrect"
 
     if total_points is not None and num_filtered_out > 0:
-        title = f'{lang1} {correct1_str} vs {lang2} {correct2_str}\n(n={len(perplexity_diffs)} after filtering, {num_filtered_out} points filtered out from {total_points})'
+        title = f'Preference Log-Prob Difference vs. Perplexity Difference\n{lang1_name} {correct1_str} answer vs. {lang2_name} {correct2_str} answer\n(n={len(perplexity_diffs)} after filtering, {num_filtered_out} points filtered out from {total_points})'
     else:
-        title = f'{lang1} {correct1_str} vs {lang2} {correct2_str}\n(n={len(perplexity_diffs)})'
-    plt.title(title, fontsize=14)
+        title = f'Preference Log-Prob Difference vs. Perplexity Difference\n{lang1_name} {correct1_str} answer vs. {lang2_name} {correct2_str} answer\n(n={len(perplexity_diffs)})'
+    plt.title(title, fontsize=20)
 
     # Add grid
     plt.grid(True, alpha=0.3)
+
+    # Increase tick label font size
+    plt.tick_params(axis='both', which='major', labelsize=16)
 
     # Add correlation coefficient
     if len(perplexity_diffs) > 0:
@@ -223,7 +240,8 @@ def create_scatter_plot(
         plt.text(0.05, 0.95, f'Correlation: {corr:.3f}',
                 transform=plt.gca().transAxes,
                 verticalalignment='top',
-                bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+                bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5),
+                fontsize=18)
 
     plt.tight_layout()
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
@@ -363,7 +381,7 @@ def main():
                 filename_suffix += "_filtered"
             if args.test_order:
                 filename_suffix += "_test_order"
-            output_filename = f"{args.model_name}_{args.lang1}_{correct1_str}_vs_{args.lang2}_{correct2_str}{filename_suffix}.png"
+            output_filename = f"{args.model_name}_{args.lang1}_{correct1_str}_vs_{args.lang2}_{correct2_str}{filename_suffix}.pdf"
             output_path = output_dir / output_filename
 
             # Create plot

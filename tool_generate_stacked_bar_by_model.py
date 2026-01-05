@@ -16,7 +16,7 @@ from tool_stacked_bar_common import (
 
 
 def generate_stacked_bar_chart_by_model(model_names: list, output_dir: str, result_dir: str,
-                                         noise_mode: str,
+                                         family_name: str,
                                          translate_mode: str,
                                          max_height: float = None) -> None:
     """
@@ -27,10 +27,13 @@ def generate_stacked_bar_chart_by_model(model_names: list, output_dir: str, resu
         model_names: List of model directory names (e.g., ["gpt-5", "gpt-5-mini", "gpt-5-nano"])
         output_dir: Directory to save the chart image
         result_dir: Directory containing the result files (default: "tool/result")
-        noise_mode: The noise mode to filter by (e.g., "NO_NOISE", "PARAPHRASE", "SYNONYM")
+        family_name: The model family name (e.g., "GPT-5", "Qwen3")
         translate_mode: The translate mode to filter by (e.g., "FT", "PT", "PRE", "POST")
         max_height: Maximum height of the vertical axis (default: None, auto-calculated from data)
     """
+
+    # Always use NO_NOISE mode
+    noise_mode = "NO_NOISE"
 
     # Load data using common module - load data for all languages
     languages = ["English", "Chinese", "Hindi", "Igbo"]
@@ -75,18 +78,9 @@ def generate_stacked_bar_chart_by_model(model_names: list, output_dir: str, resu
             pos += bar_spacing  # Use smaller spacing between bars
         pos += group_spacing  # Add extra space after each model group
 
-    # Map noise mode to readable name
-    noise_mode_name = {
-        "NO_NOISE": "No Noise",
-        "PARAPHRASE": "Paraphrase",
-        "SYNONYM": "Synonym"
-    }
-
-    if translate_mode == "NT":
-        title = f"Tool Calling Errors - NT - {noise_mode_name[noise_mode]}"
-    else:
-        title = f"Tool Calling Errors - {translate_mode} - {noise_mode_name[noise_mode]}"
-    output_name = f"stacked_bar_by_model_{translate_mode}_{noise_mode}.pdf"
+    # Generate title with new format
+    title = f"Tool calling error rate among {family_name} series models - {translate_mode} - no semantic noise added"
+    output_name = f"stacked_bar_by_model_{family_name}_{translate_mode}_NO_NOISE.pdf"
 
     # Create DataFrame for easier plotting
     df_data = []
@@ -101,11 +95,11 @@ def generate_stacked_bar_chart_by_model(model_names: list, output_dir: str, resu
         return
 
     # Print summary
-    print(f"\nError distribution for {translate_mode} - {noise_mode}:")
+    print(f"\nError distribution for {family_name} - {translate_mode} - NO_NOISE:")
     print(df)
 
     # Plot stacked bar chart
-    fig, ax = plt.subplots(figsize=(12, 8))
+    fig, ax = plt.subplots(figsize=(10, 10))
 
     # Convert counts to rates by dividing by 200
     df_rate = df / 200.0
@@ -138,22 +132,25 @@ def generate_stacked_bar_chart_by_model(model_names: list, output_dir: str, resu
     for i, total in enumerate(totals):
         if total > 0:  # Only annotate if there's data
             ax.text(x_positions[i], total, f'{total:.3f}',
-                   ha='center', va='bottom', fontsize=7, fontweight='bold')
+                   ha='center', va='bottom', fontsize=10, fontweight='bold')
 
     # Set y-axis range to the calculated max_height
     ax.set_ylim(0, max_height)
 
     # Customize plot
-    ax.set_ylabel('Error Rate', fontsize=12)
-    ax.set_title(title, fontsize=14, fontweight='bold', pad=70)
+    ax.set_ylabel('Error Rate', fontsize=15, fontweight='bold')
+    ax.set_title(title, fontsize=15, fontweight='bold', pad=120, wrap=True)
 
     # Place legend outside and above the plot, below the title
-    ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.15), fontsize=11, ncol=3)
+    ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.48), fontsize=13, ncol=2, frameon=True)
 
     # Handle x-axis labels and ticks
     # Set x-tick positions and labels
     ax.set_xticks(x_positions)
-    ax.set_xticklabels(bar_labels, rotation=45, ha='right', fontsize=8)
+    ax.set_xticklabels(bar_labels, rotation=0, ha='center', fontsize=12, fontweight='bold')
+
+    # Set y-tick label size
+    ax.tick_params(axis='y', labelsize=13)
 
     # Add model group labels as a second row below language labels
     # Position them closer to the axis (smaller negative offset)
@@ -163,15 +160,18 @@ def generate_stacked_bar_chart_by_model(model_names: list, output_dir: str, resu
         # Calculate the center position of each model group
         group_center = i * (len(languages) * bar_spacing + group_spacing) + (len(languages) - 1) * bar_spacing / 2
         ax.text(group_center, -max_height * 0.08, model_name,
-               ha='center', va='top', fontsize=8, fontweight='bold', rotation=4)
+               ha='center', va='top', fontsize=11, fontweight='bold', rotation=4)
 
     # Add "Model and Configuration" label below the group names (larger negative offset)
     # Calculate the center of all bars for proper centering
     overall_center = (x_positions[0] + x_positions[-1]) / 2
-    ax.text(overall_center, -max_height * 0.12, 'Model and Configuration',
-           ha='center', va='top', fontsize=12)
+    ax.text(overall_center, -max_height * 0.20, 'Model and Configuration',
+           ha='center', va='top', fontsize=15, fontweight='bold')
 
     plt.tight_layout()
+
+    # Adjust bottom margin to accommodate labels below the plot
+    plt.subplots_adjust(bottom=0.15)
 
     # Create output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
@@ -187,7 +187,7 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="Generate stacked bar charts comparing models showing error type distributions."
+        description="Generate stacked bar charts comparing models showing error type distributions (NO_NOISE only)."
     )
     parser.add_argument(
         "models",
@@ -200,10 +200,9 @@ if __name__ == "__main__":
         help="Translate mode to filter by (e.g., FT, PT, PRE, POST)"
     )
     parser.add_argument(
-        "--noise-mode",
-        choices=noise_modes,
-        default="NO_NOISE",
-        help="Noise mode to filter by (default: NO_NOISE)"
+        "--family-name",
+        required=True,
+        help="Model family name (e.g., GPT-5, Qwen3)"
     )
     parser.add_argument(
         "--output-dir",
@@ -226,7 +225,7 @@ if __name__ == "__main__":
 
     print(f"\n{'='*60}")
     print(f"Generating stacked bar charts comparing models")
-    print(f"Translate Mode: {args.translate_mode}, Noise Mode: {args.noise_mode}")
+    print(f"Family: {args.family_name}, Translate Mode: {args.translate_mode}, Noise Mode: NO_NOISE")
     print(f"Models: {', '.join(args.models)}")
     print(f"{'='*60}")
 
@@ -235,7 +234,7 @@ if __name__ == "__main__":
         args.models,
         args.output_dir,
         args.result_dir,
-        args.noise_mode,
+        args.family_name,
         args.translate_mode,
         max_height=args.max_height
     )

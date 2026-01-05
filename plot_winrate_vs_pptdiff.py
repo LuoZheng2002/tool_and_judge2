@@ -16,10 +16,44 @@ Each plot shows:
 import argparse
 import json
 import math
+import sys
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy import stats
+
+# Add src_py to path to import utils
+sys.path.insert(0, str(Path(__file__).parent / 'src_py'))
+from utils import language_abbreviation_to_name
+
+
+def wilson_confidence_interval(successes: int, total: int, confidence: float = 0.95) -> Tuple[float, float]:
+    """
+    Calculate Wilson score confidence interval for a binomial proportion.
+
+    Args:
+        successes: Number of successes (wins)
+        total: Total number of trials
+        confidence: Confidence level (default: 0.95 for 95% CI)
+
+    Returns:
+        Tuple of (lower_bound, upper_bound)
+    """
+    if total == 0:
+        return (0.0, 1.0)
+
+    p = successes / total
+    z = stats.norm.ppf(1 - (1 - confidence) / 2)
+
+    denominator = 1 + z**2 / total
+    center = (p + z**2 / (2 * total)) / denominator
+    margin = z * math.sqrt((p * (1 - p) / total + z**2 / (4 * total**2))) / denominator
+
+    lower = max(0.0, center - margin)
+    upper = min(1.0, center + margin)
+
+    return (lower, upper)
 
 
 def load_jsonl(file_path: str) -> List[dict]:
@@ -127,69 +161,100 @@ def create_winrate_plot(
     is_correct2: bool,
     output_path: str,
     num_bins: int = 12,
-    test_order: bool = False
+    test_order: bool = False,
+    confidence_level: float = 0.95
 ):
     """Create and save a win rate vs perplexity difference plot."""
     if len(perplexity_diffs) == 0:
         print(f"  Warning: No data points to plot")
         return
 
-    # Create bins
-    min_val, max_val = min(perplexity_diffs), max(perplexity_diffs)
-    bins = np.linspace(min_val, max_val, num_bins + 1)
-    bin_centers = (bins[:-1] + bins[1:]) / 2
+    # Sort data by perplexity difference
+    sorted_indices = np.argsort(perplexity_diffs)
+    sorted_diffs = [perplexity_diffs[i] for i in sorted_indices]
+    sorted_prefs = [preferences[i] for i in sorted_indices]
 
-    # Calculate win rate for each bin
+    # Create percentile-based bins
+    n_samples = len(sorted_diffs)
+    samples_per_bin = n_samples / num_bins
+
+    # Calculate win rate for each percentile bin
     x_vals, win_rates, bin_counts = [], [], []
-    for i in range(len(bins) - 1):
-        start, end = bins[i], bins[i + 1]
-        # Get all samples in this bin
-        indices = [j for j, diff in enumerate(perplexity_diffs) if start <= diff < end]
-        if not indices:
+    lower_bounds, upper_bounds = [], []
+    for i in range(num_bins):
+        # Calculate start and end indices for this percentile bin
+        start_idx = int(i * samples_per_bin)
+        end_idx = int((i + 1) * samples_per_bin) if i < num_bins - 1 else n_samples
+
+        if start_idx >= end_idx:
             continue
 
+        # Get samples in this bin
+        bin_diffs = sorted_diffs[start_idx:end_idx]
+        bin_prefs = sorted_prefs[start_idx:end_idx]
+
         # Count wins (preference == 1)
-        wins = sum(1 for j in indices if preferences[j] == 1)
-        total = len(indices)
+        wins = sum(1 for p in bin_prefs if p == 1)
+        total = len(bin_prefs)
         rate = wins / total
 
-        x_vals.append(bin_centers[i])
+        # Calculate confidence interval
+        lower, upper = wilson_confidence_interval(wins, total, confidence=confidence_level)
+
+        # Use the median perplexity difference as the x-value for this bin
+        x_val = np.median(bin_diffs)
+
+        x_vals.append(x_val)
         win_rates.append(rate)
         bin_counts.append(total)
+        lower_bounds.append(lower)
+        upper_bounds.append(upper)
 
     if len(x_vals) == 0:
         print(f"  Warning: No valid bins with data")
         return
 
     # Create plot
-    plt.figure(figsize=(10, 6))
-    plt.plot(x_vals, win_rates, marker='o', linewidth=2, markersize=8, color='red', label='Win rate')
+    plt.figure(figsize=(10, 8))
+
+    # Plot win rate with confidence interval
+    plt.plot(x_vals, win_rates, marker='o', linewidth=2, markersize=8, color='red', label='Win rate', zorder=3)
+
+    # Add shaded confidence interval
+    ci_label = f'{int(confidence_level * 100)}% CI'
+    plt.fill_between(x_vals, lower_bounds, upper_bounds, alpha=0.2, color='red', label=ci_label)
 
     # Add horizontal reference line at 0.5
     plt.axhline(y=0.5, color='gray', linestyle='--', alpha=0.5, linewidth=1)
 
+    # Get language names
+    lang1_name = language_abbreviation_to_name(lang1)
+    lang2_name = language_abbreviation_to_name(lang2)
+
     # Labels and title
     if test_order:
-        plt.xlabel(f'Log10(Perplexity Difference) (log10({lang1} - {lang2}))', fontsize=12)
+        plt.xlabel(f'Log10(Perplexity Difference) ({lang1_name} - {lang2_name})', fontsize=20)
     else:
-        plt.xlabel(f'Difference in Log10(Perplexity) ({lang1} - {lang2})', fontsize=12)
-    plt.ylabel('Winning rate (preference == 1)', fontsize=12)
-
+        plt.xlabel(f'Log10(Perplexity) Difference ({lang1_name} - {lang2_name})', fontsize=20)
+    plt.ylabel(f'Win Rate ({lang1_name} preferred)', fontsize=20)
     correct1_str = "correct" if is_correct1 else "incorrect"
     correct2_str = "correct" if is_correct2 else "incorrect"
-    title = f'{lang1} {correct1_str} vs {lang2} {correct2_str}\n(n={len(perplexity_diffs)} points, {num_bins} bins)'
-    plt.title(title, fontsize=14)
+    title = f'Win Rate vs. Perplexity Difference\n{lang1_name} {correct1_str} answer vs. {lang2_name} {correct2_str} answer\n(n={len(perplexity_diffs)} points, {num_bins} bins)'
+    plt.title(title, fontsize=20)
 
-    # Set y-axis limits based on data with margin
-    if len(win_rates) > 0:
-        y_min = min(win_rates)
-        y_max = max(win_rates)
+    # Set y-axis limits based on confidence interval bounds with margin
+    if len(lower_bounds) > 0 and len(upper_bounds) > 0:
+        y_min = min(lower_bounds)
+        y_max = max(upper_bounds)
         y_range = y_max - y_min
         margin = 0.1 * y_range if y_range > 0 else 0.1  # 10% margin, or 0.1 if all values are same
         plt.ylim(y_min - margin, y_max + margin)
 
     # Add grid
     plt.grid(True, alpha=0.3)
+
+    # Increase tick label font size
+    plt.tick_params(axis='both', which='major', labelsize=20)
 
     # Add legend
     plt.legend()
@@ -200,7 +265,7 @@ def create_winrate_plot(
              transform=plt.gca().transAxes,
              verticalalignment='bottom',
              bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5),
-             fontsize=9)
+             fontsize=20)
 
     plt.tight_layout()
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
@@ -222,6 +287,8 @@ def main():
                        help='Output directory for plots (default: judge/plots)')
     parser.add_argument('--num-bins', type=int, default=12,
                        help='Number of bins for win rate calculation (default: 12)')
+    parser.add_argument('--confidence-level', type=float, default=0.95,
+                       help='Confidence level for confidence intervals (default: 0.95)')
     parser.add_argument('--test-order', action='store_true',
                        help='Use log10(perplexity1 - perplexity2) instead of log10(perplexity1) - log10(perplexity2)')
 
@@ -307,7 +374,7 @@ def main():
             correct1_str = "correct" if is_correct1 else "incorrect"
             correct2_str = "correct" if is_correct2 else "incorrect"
             suffix = "_test_order" if args.test_order else ""
-            output_filename = f"{args.model_name}_{args.lang1}_{correct1_str}_vs_{args.lang2}_{correct2_str}_winrate{suffix}.png"
+            output_filename = f"{args.model_name}_{args.lang1}_{correct1_str}_vs_{args.lang2}_{correct2_str}_winrate{suffix}.pdf"
             output_path = output_dir / output_filename
 
             # Create plot
@@ -320,7 +387,8 @@ def main():
                 is_correct2,
                 str(output_path),
                 num_bins=args.num_bins,
-                test_order=args.test_order
+                test_order=args.test_order,
+                confidence_level=args.confidence_level
             )
         else:
             print(f"  Warning: No valid data points found for this category")
